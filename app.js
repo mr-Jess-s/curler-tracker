@@ -375,9 +375,38 @@ function computeScanSnapshot(playerName, diagnostics, delayMs, message) {
   };
 }
 
+function rankChosenGame(chosen) {
+  if (!chosen?.game) return 999;
+  if (chosen.game.state === 'playing') return 0;
+  if (chosen.game.state === 'pending') return 1;
+  if (chosen.game.state === 'complete') return 2;
+  return 3;
+}
+
+function chooseBestDiscovery(candidates) {
+  const now = Date.now();
+  return [...candidates].sort((a, b) => {
+    const aChosen = chooseRelevantGame(a.event, a.match.team.id);
+    const bChosen = chooseRelevantGame(b.event, b.match.team.id);
+    const aRank = rankChosenGame(aChosen);
+    const bRank = rankChosenGame(bChosen);
+    if (aRank !== bRank) return aRank - bRank;
+
+    const aEpoch = aChosen?.epochMs || Number.MAX_SAFE_INTEGER;
+    const bEpoch = bChosen?.epochMs || Number.MAX_SAFE_INTEGER;
+    const aProx = Math.abs(aEpoch - now);
+    const bProx = Math.abs(bEpoch - now);
+    if (aProx !== bProx) return aProx - bProx;
+
+    if ((b.match.score || 0) !== (a.match.score || 0)) return (b.match.score || 0) - (a.match.score || 0);
+    return (b.event.id || 0) - (a.event.id || 0);
+  })[0] || null;
+}
+
 async function discoverEventForPlayer(playerName) {
   const norm = normalizeName(playerName);
   const checked = [];
+  const candidates = [];
 
   for (const delta of APP.lookaheadSeasons) {
     const itemsUrl = competitionsUrl(delta);
@@ -385,21 +414,36 @@ async function discoverEventForPlayer(playerName) {
     const items = list.items || [];
     checked.push({ delta, itemsCount: items.length, url: itemsUrl });
 
-    // Prioritize upcoming/current by scanning in listed order and then reverse if needed.
-    const prioritized = [...items].reverse();
-    for (const item of prioritized) {
+    for (const item of items) {
       const event = await fetchJson(eventUrl(item.id));
       const match = findMatchingTeam(event, norm);
       if (!match) continue;
-      return {
-        item,
-        event,
-        match,
-        checked
-      };
+      const chosen = chooseRelevantGame(event, match.team.id);
+      candidates.push({ item, event, match, chosen });
     }
   }
-  return { item: null, event: null, match: null, checked };
+
+  const best = chooseBestDiscovery(candidates);
+  if (best) {
+    return {
+      item: best.item,
+      event: best.event,
+      match: best.match,
+      checked,
+      candidates: candidates.map(c => ({
+        eventId: c.event.id,
+        eventName: c.event.name,
+        matchedCurler: c.match.curler.name,
+        matchedTeam: c.match.team.name,
+        matchScore: c.match.score,
+        chosenGameId: c.chosen?.game?.id || null,
+        chosenGameState: c.chosen?.game?.state || null,
+        chosenDrawEpoch: c.chosen?.epochMs || null
+      }))
+    };
+  }
+
+  return { item: null, event: null, match: null, checked, candidates: [] };
 }
 
 function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
@@ -512,6 +556,7 @@ async function runTracker({ reason }) {
         phase: 'no-match',
         playerName: state.playerName,
         checked: discovery.checked,
+        candidates: discovery.candidates,
         reason,
         policy: 'Idle scans every 72 hours until a matching event appears.'
       };
@@ -541,7 +586,8 @@ async function runTracker({ reason }) {
       chosenGameId: chosen?.game?.id || null,
       chosenGameState: chosen?.game?.state || null,
       nextCheckReason: nextCheck.reason,
-      checked: discovery.checked
+      checked: discovery.checked,
+      candidates: discovery.candidates
     };
     setDiagnostics(diagnostics);
 
