@@ -14,6 +14,12 @@ const APP = {
   }
 };
 
+const GAME_STATE = {
+  live: new Set(['playing', 'live', 'active', 'inprogress', 'in_progress', 'started', 'underway']),
+  upcoming: new Set(['pending', 'scheduled', 'upcoming', 'future', 'ready']),
+  complete: new Set(['complete', 'completed', 'final', 'closed'])
+};
+
 const els = {
   form: document.getElementById('playerForm'),
   playerInput: document.getElementById('playerInput'),
@@ -27,6 +33,7 @@ const els = {
   headlineBlock: document.getElementById('headlineBlock'),
   hammerValue: document.getElementById('hammerValue'),
   eventValue: document.getElementById('eventValue'),
+  nextGameValue: document.getElementById('nextGameValue'),
   nextCheckValue: document.getElementById('nextCheckValue'),
   updatedValue: document.getElementById('updatedValue'),
   endsList: document.getElementById('endsList'),
@@ -41,9 +48,7 @@ const state = {
   timerId: null,
   deferredPrompt: null,
   snapshot: null,
-  diagnostics: {
-    phase: 'idle'
-  },
+  diagnostics: { phase: 'idle' },
   lastRunAt: 0,
   lastVisibilityScanAt: 0
 };
@@ -115,10 +120,6 @@ function setDiagnostics(obj) {
   els.diagnosticsOutput.textContent = JSON.stringify(obj, null, 2);
 }
 
-function arraysEqual(a = [], b = []) {
-  return a.length === b.length && a.every((v, i) => v === b[i]);
-}
-
 async function fetchJson(url) {
   const res = await fetch(url, {
     headers: { Accept: 'application/json' },
@@ -179,8 +180,56 @@ function findMatchingTeam(event, playerNameNorm) {
   return best;
 }
 
+function drawContainsGame(draw, gameId) {
+  if (!draw || !Array.isArray(draw.draw_sheets)) return false;
+  return draw.draw_sheets.some(sheet => {
+    if (sheet === gameId) return true;
+    if (typeof sheet === 'string') return sheet === gameId;
+    if (sheet && typeof sheet === 'object') {
+      return sheet.id === gameId || sheet.game_id === gameId || sheet.gameId === gameId;
+    }
+    return false;
+  });
+}
+
 function findDrawForGame(event, gameId) {
-  return (event.draws || []).find(draw => Array.isArray(draw.draw_sheets) && draw.draw_sheets.includes(gameId)) || null;
+  return (event.draws || []).find(draw => drawContainsGame(draw, gameId)) || null;
+}
+
+function normalizeGameState(rawState) {
+  const key = String(rawState || '').toLowerCase().replace(/[^a-z]+/g, '_').replace(/^_+|_+$/g, '');
+  const compact = key.replace(/_/g, '');
+  if (GAME_STATE.live.has(key) || GAME_STATE.live.has(compact)) return 'live';
+  if (GAME_STATE.upcoming.has(key) || GAME_STATE.upcoming.has(compact)) return 'upcoming';
+  if (GAME_STATE.complete.has(key) || GAME_STATE.complete.has(compact)) return 'complete';
+  return 'unknown';
+}
+
+function sumEnds(endScores = []) {
+  return endScores.reduce((sum, val) => sum + Number(val || 0), 0);
+}
+
+function classifyGame(game, draw) {
+  const now = Date.now();
+  const epochMs = draw?.epoch ? draw.epoch * 1000 : null;
+  const startsSoon = epochMs && now >= epochMs - APP.preGameWindowMs && now <= epochMs + APP.postGameWindowMs;
+  const positions = game.game_positions || [];
+  const hasEnds = positions.some(pos => (pos.end_scores || []).length > 0);
+  const hasPartialScore = positions.some(pos => Number(pos.score ?? sumEnds(pos.end_scores || [])) > 0);
+  const hasResult = positions.some(pos => pos.result);
+  const explicit = normalizeGameState(game.state);
+
+  if (explicit === 'live') return 'live';
+  if (explicit === 'upcoming') return 'upcoming';
+  if (explicit === 'complete') return 'complete';
+
+  if (hasEnds && !hasResult && startsSoon) return 'live';
+  if (hasPartialScore && !hasResult && startsSoon) return 'live';
+  if (!hasEnds && startsSoon) return 'upcoming';
+  if (hasResult) return 'complete';
+  if (epochMs && epochMs > now) return 'upcoming';
+  if (hasEnds || hasPartialScore) return 'complete';
+  return 'unknown';
 }
 
 function chooseRelevantGame(event, matchedTeamId) {
@@ -188,15 +237,23 @@ function chooseRelevantGame(event, matchedTeamId) {
   const games = flattenGames(event)
     .map(game => {
       const draw = findDrawForGame(event, game.id);
-      const includesTeam = (game.game_positions || []).some(pos => pos.team_id === matchedTeamId);
+      const positions = game.game_positions || [];
+      const includesTeam = positions.some(pos => pos.team_id === matchedTeamId);
       if (!includesTeam) return null;
       const epochMs = draw?.epoch ? draw.epoch * 1000 : null;
-      const stateRank = game.state === 'playing' ? 0 : game.state === 'pending' ? 1 : game.state === 'complete' ? 2 : 3;
+      const inferredState = classifyGame(game, draw);
+      const stateRank = inferredState === 'live' ? 0 : inferredState === 'upcoming' ? 1 : inferredState === 'complete' ? 2 : 3;
+      const inWindow = epochMs ? now >= epochMs - APP.preGameWindowMs && now <= epochMs + APP.postGameWindowMs : false;
       const proximity = epochMs ? Math.abs(epochMs - now) : Number.MAX_SAFE_INTEGER;
-      return { game, draw, epochMs, stateRank, proximity };
+      return { game, draw, epochMs, inferredState, stateRank, inWindow, proximity };
     })
     .filter(Boolean)
-    .sort((a, b) => a.stateRank - b.stateRank || a.proximity - b.proximity || (a.epochMs || 0) - (b.epochMs || 0));
+    .sort((a, b) => {
+      if (a.stateRank !== b.stateRank) return a.stateRank - b.stateRank;
+      if (a.inWindow !== b.inWindow) return a.inWindow ? -1 : 1;
+      if (a.proximity !== b.proximity) return a.proximity - b.proximity;
+      return (a.epochMs || 0) - (b.epochMs || 0);
+    });
 
   return games[0] || null;
 }
@@ -221,17 +278,16 @@ function buildEnds(teamPos, oppPos) {
   for (let i = 0; i < length; i += 1) {
     const teamVal = Number(teamEnds[i] ?? 0);
     const oppVal = Number(oppEnds[i] ?? 0);
-    if (teamVal === 0 && oppVal === 0 && i >= Math.max(teamEnds.length, oppEnds.length)) continue;
     rows.push({ end: i + 1, team: teamVal, opponent: oppVal });
   }
-  while (rows.length && rows[rows.length - 1].team === 0 && rows[rows.length - 1].opponent === 0) {
-    const row = rows[rows.length - 1];
-    const sourceIndex = row.end - 1;
-    const hadSource = sourceIndex < teamEnds.length || sourceIndex < oppEnds.length;
-    if (hadSource) break;
-    rows.pop();
-  }
   return rows;
+}
+
+function findNextUpcomingRow(scheduleRows, activeGameId) {
+  const now = Date.now();
+  return scheduleRows
+    .filter(row => row.gameId !== activeGameId && row.epochMs && row.epochMs > now)
+    .sort((a, b) => a.epochMs - b.epochMs)[0] || null;
 }
 
 function renderHeadline(snapshot) {
@@ -293,7 +349,11 @@ function renderSchedule(scheduleRows, activeGameId) {
   }
   els.scheduleList.className = 'schedule-list';
   els.scheduleList.innerHTML = scheduleRows.map(row => {
-    const cls = row.gameId === activeGameId ? 'schedule-row active' : row.state === 'pending' ? 'schedule-row upcoming' : 'schedule-row';
+    const cls = row.gameId === activeGameId
+      ? 'schedule-row active'
+      : row.inferredState === 'upcoming'
+        ? 'schedule-row upcoming'
+        : 'schedule-row';
     return `
       <div class="${cls}">
         <div>
@@ -335,6 +395,7 @@ function render(snapshot) {
   updateBadge(snapshot?.view || 'idle');
   els.hammerValue.textContent = snapshot?.hammerNext || '—';
   els.eventValue.textContent = snapshot?.eventName || '—';
+  els.nextGameValue.textContent = snapshot?.nextGameLabel || '—';
   els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : '—';
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
@@ -364,6 +425,7 @@ function computeScanSnapshot(playerName, diagnostics, delayMs, message) {
     view: 'idle',
     eventName: 'Searching',
     hammerNext: '—',
+    nextGameLabel: '—',
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
@@ -377,9 +439,9 @@ function computeScanSnapshot(playerName, diagnostics, delayMs, message) {
 
 function rankChosenGame(chosen) {
   if (!chosen?.game) return 999;
-  if (chosen.game.state === 'playing') return 0;
-  if (chosen.game.state === 'pending') return 1;
-  if (chosen.game.state === 'complete') return 2;
+  if (chosen.inferredState === 'live') return 0;
+  if (chosen.inferredState === 'upcoming') return 1;
+  if (chosen.inferredState === 'complete') return 2;
   return 3;
 }
 
@@ -394,6 +456,10 @@ function chooseBestDiscovery(candidates) {
 
     const aEpoch = aChosen?.epochMs || Number.MAX_SAFE_INTEGER;
     const bEpoch = bChosen?.epochMs || Number.MAX_SAFE_INTEGER;
+    const aWindow = aChosen?.inWindow ? 0 : 1;
+    const bWindow = bChosen?.inWindow ? 0 : 1;
+    if (aWindow !== bWindow) return aWindow - bWindow;
+
     const aProx = Math.abs(aEpoch - now);
     const bProx = Math.abs(bEpoch - now);
     if (aProx !== bProx) return aProx - bProx;
@@ -438,7 +504,9 @@ async function discoverEventForPlayer(playerName) {
         matchScore: c.match.score,
         chosenGameId: c.chosen?.game?.id || null,
         chosenGameState: c.chosen?.game?.state || null,
-        chosenDrawEpoch: c.chosen?.epochMs || null
+        inferredState: c.chosen?.inferredState || null,
+        chosenDrawEpoch: c.chosen?.epochMs || null,
+        inWindow: !!c.chosen?.inWindow
       }))
     };
   }
@@ -454,15 +522,16 @@ function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
     const positions = game.game_positions || [];
     if (!positions.some(pos => pos.team_id === matchedTeamId)) continue;
     const draw = findDrawForGame(event, game.id);
-    const ourPos = positions.find(pos => pos.team_id === matchedTeamId);
     const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeamId);
     const oppTeam = teamsById.get(oppPos?.team_id);
+    const inferredState = classifyGame(game, draw);
     rows.push({
       gameId: game.id,
       label: draw?.label ? `Draw ${draw.label}` : (game.name || 'Draw'),
       startsAt: draw?.epoch ? formatEpochMs(draw.epoch * 1000) : (draw?.starts_at || 'TBD'),
       state: game.state || 'unknown',
-      stateLabel: game.state ? game.state[0].toUpperCase() + game.state.slice(1) : 'Unknown',
+      inferredState,
+      stateLabel: inferredState[0].toUpperCase() + inferredState.slice(1),
       team: matchedTeamName,
       opponent: oppTeam?.name || 'TBD',
       epochMs: draw?.epoch ? draw.epoch * 1000 : null
@@ -479,32 +548,36 @@ function buildLiveSnapshot(playerName, event, match, chosen, diagnostics) {
   const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeam.id) || {};
   const oppTeam = teamsById.get(oppPos.team_id) || { name: 'TBD' };
   const ends = buildEnds(ourPos, oppPos);
-  const firstHammerTeamName = positions.find(pos => pos.first_hammer)?.team_id === matchedTeam.id
+  const firstHammerPos = positions.find(pos => pos.first_hammer);
+  const firstHammerTeamName = firstHammerPos?.team_id === matchedTeam.id
     ? matchedTeam.name
-    : positions.find(pos => pos.first_hammer)?.team_id === oppTeam.id
+    : firstHammerPos?.team_id === oppTeam.id
       ? oppTeam.name
       : 'Unknown';
   const hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, ourPos.end_scores || [], oppPos.end_scores || [], firstHammerTeamName);
   const scheduleRows = buildScheduleRows(event, matchedTeam.id, matchedTeam.name);
+  const nextUpcoming = findNextUpcomingRow(scheduleRows, chosen.game.id);
   const nextCheckAt = Date.now() + APP.activeRefreshMs;
-  const currentEndNum = Math.max((ourPos.end_scores || []).length, (oppPos.end_scores || []).length) + (chosen.game.state === 'playing' ? 1 : 0);
+  const currentEndNum = Math.max((ourPos.end_scores || []).length, (oppPos.end_scores || []).length) + (chosen.inferredState === 'live' ? 1 : 0);
 
   return {
     playerName,
-    view: chosen.game.state === 'playing' ? 'live' : 'idle-event',
+    view: chosen.inferredState === 'live' ? 'live' : 'idle-event',
     teamName: matchedTeam.name,
     opponentName: oppTeam.name,
-    teamScore: Number(ourPos.score ?? 0),
-    opponentScore: Number(oppPos.score ?? 0),
-    currentEndLabel: chosen.game.state === 'playing' ? `${currentEndNum}${ordinalSuffix(currentEndNum)} end` : 'Game complete',
+    teamScore: Number(ourPos.score ?? sumEnds(ourPos.end_scores || [])),
+    opponentScore: Number(oppPos.score ?? sumEnds(oppPos.end_scores || [])),
+    currentEndLabel: chosen.inferredState === 'live' ? `${currentEndNum}${ordinalSuffix(currentEndNum)} end` : 'Game complete',
     hammerNext,
     eventName: event.name,
-    drawLabel: chosen.draw?.label ? `Draw ${chosen.draw.label}` : chosen.draw?.starts_at || chosen.stageName || '',
+    drawLabel: chosen.draw?.label ? `Draw ${chosen.draw.label}` : chosen.draw?.starts_at || chosen.game.stageName || '',
     stageName: chosen.game.stageName,
     ends,
     scheduleRows,
+    nextGameLabel: nextUpcoming ? `${nextUpcoming.startsAt} · vs ${nextUpcoming.opponent}` : '—',
+    nextDrawLabel: nextUpcoming ? nextUpcoming.startsAt : 'TBD',
     activeGameId: chosen.game.id,
-    timelineHint: chosen.game.state === 'playing' ? 'Updates after each end.' : 'Latest posted end scores.',
+    timelineHint: chosen.inferredState === 'live' ? 'Updates after each end.' : 'Latest posted end scores.',
     scheduleHint: 'Only checking around this curler’s scheduled draws.',
     nextCheckAt,
     lastUpdatedLabel: formatClock(new Date()),
@@ -524,7 +597,7 @@ function ordinalSuffix(n) {
 
 function chooseNextRelevantCheck(chosen, scheduleRows) {
   const now = Date.now();
-  if (chosen?.game?.state === 'playing') {
+  if (chosen?.inferredState === 'live') {
     return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
   }
 
@@ -572,6 +645,7 @@ async function runTracker({ reason }) {
 
     const chosen = chooseRelevantGame(discovery.event, discovery.match.team.id);
     const scheduleRows = buildScheduleRows(discovery.event, discovery.match.team.id, discovery.match.team.name);
+    const nextUpcoming = findNextUpcomingRow(scheduleRows, chosen?.game?.id || null);
     const nextCheck = chooseNextRelevantCheck(chosen, scheduleRows);
 
     const diagnostics = {
@@ -585,6 +659,9 @@ async function runTracker({ reason }) {
       eventName: discovery.event.name,
       chosenGameId: chosen?.game?.id || null,
       chosenGameState: chosen?.game?.state || null,
+      inferredState: chosen?.inferredState || null,
+      chosenDrawEpoch: chosen?.epochMs || null,
+      nextGame: nextUpcoming ? { gameId: nextUpcoming.gameId, startsAt: nextUpcoming.startsAt, opponent: nextUpcoming.opponent } : null,
       nextCheckReason: nextCheck.reason,
       checked: discovery.checked,
       candidates: discovery.candidates
@@ -597,6 +674,7 @@ async function runTracker({ reason }) {
         view: 'idle-event',
         eventName: discovery.event.name,
         hammerNext: '—',
+        nextGameLabel: nextUpcoming ? `${nextUpcoming.startsAt} · vs ${nextUpcoming.opponent}` : '—',
         ends: [],
         scheduleRows,
         timelineHint: 'No game selected yet.',
@@ -616,16 +694,17 @@ async function runTracker({ reason }) {
     snapshot.scheduleRows = scheduleRows;
     snapshot.nextCheckAt = Date.now() + nextCheck.delayMs;
     snapshot.scheduleHint = 'Only checking during this curler’s draw windows.';
-    if (chosen.game.state !== 'playing') {
-      snapshot.view = chosen.game.state === 'complete' ? 'idle-event' : 'upcoming';
+    if (chosen.inferredState !== 'live') {
+      snapshot.view = chosen.inferredState === 'upcoming' ? 'upcoming' : 'idle-event';
       snapshot.currentEndLabel = chosen.draw?.starts_at || 'Upcoming draw';
-      snapshot.timelineHint = chosen.game.state === 'complete' ? 'Latest posted end scores.' : 'Waiting for the draw to begin.';
+      snapshot.timelineHint = chosen.inferredState === 'complete' ? 'Latest posted end scores.' : 'Waiting for the draw to begin.';
+      snapshot.nextDrawLabel = nextUpcoming?.startsAt || chosen.draw?.starts_at || 'TBD';
     }
 
     render(snapshot);
-    if (chosen.game.state === 'playing') {
+    if (chosen.inferredState === 'live') {
       setStatus(`${discovery.match.curler.name} is live in ${discovery.event.name}. Refreshing every 60 seconds.`);
-    } else if (chosen.game.state === 'pending') {
+    } else if (chosen.inferredState === 'upcoming') {
       setStatus(`Matched ${discovery.match.curler.name} in ${discovery.event.name}. Monitoring only around the scheduled draw.`);
     } else {
       setStatus(`Latest event found for ${discovery.match.curler.name}. No live draw right now.`);
