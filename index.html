@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Curler Tracker">
+  <title>Curler Tracker</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Curling Alberta tracker</p>
+        <h1>Curler Tracker</h1>
+      </div>
+      <button id="installBtn" class="ghost hidden" type="button">Install</button>
+    </header>
+
+    <main>
+      <section class="glass controls">
+        <form id="playerForm" class="player-form">
+          <label for="playerInput">Follow a curler</label>
+          <div class="row">
+            <input id="playerInput" name="player" type="text" placeholder="Jody Sutherland" autocomplete="name" required>
+            <button type="submit">Follow</button>
+          </div>
+        </form>
+        <div class="meta-actions">
+          <button id="shareBtn" class="secondary" type="button">Copy share link</button>
+          <button id="diagnosticsToggle" class="secondary" type="button">Diagnostics</button>
+        </div>
+        <p id="statusLine" class="status-line">Ready.</p>
+      </section>
+
+      <section class="glass hero-card" id="heroCard">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow">Tracking</p>
+            <h2 id="trackedPlayer">—</h2>
+          </div>
+          <span id="liveBadge" class="badge muted">Idle</span>
+        </div>
+
+        <div id="headlineBlock" class="headline-block">
+          <p class="headline-empty">Enter a curler’s name to begin.</p>
+        </div>
+
+        <div class="facts-grid">
+          <div class="fact-card">
+            <span class="fact-label">Hammer</span>
+            <strong id="hammerValue">—</strong>
+          </div>
+          <div class="fact-card">
+            <span class="fact-label">Event</span>
+            <strong id="eventValue">—</strong>
+          </div>
+          <div class="fact-card">
+            <span class="fact-label">Next check</span>
+            <strong id="nextCheckValue">—</strong>
+          </div>
+          <div class="fact-card">
+            <span class="fact-label">Last updated</span>
+            <strong id="updatedValue">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass timeline-card">
+        <div class="card-header">
+          <h3>End-by-end</h3>
+          <span id="timelineHint" class="hint">Waiting for a live game.</span>
+        </div>
+        <div id="endsList" class="ends-list empty">
+          <p>No end scores yet.</p>
+        </div>
+      </section>
+
+      <section class="glass schedule-card">
+        <div class="card-header">
+          <h3>Schedule</h3>
+          <span id="scheduleHint" class="hint">No event loaded.</span>
+        </div>
+        <div id="scheduleList" class="schedule-list empty">
+          <p>No scheduled draws to show.</p>
+        </div>
+      </section>
+
+      <section id="diagnosticsPanel" class="glass diagnostics hidden">
+        <div class="card-header">
+          <h3>Matching diagnostics</h3>
+        </div>
+        <pre id="diagnosticsOutput">No diagnostics yet.</pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

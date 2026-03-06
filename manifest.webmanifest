@@ -1,0 +1,17 @@
+{
+  "name": "Curler Tracker",
+  "short_name": "Curler",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#07101f",
+  "theme_color": "#0b1020",
+  "description": "Follow a curler across Curling Alberta events with a clean mobile view.",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' fill='%230b1020'/%3E%3Cpath d='M47 132c0-22 18-40 40-40h52c22 0 40 18 40 40s-18 40-40 40H87c-22 0-40-18-40-40Z' fill='%237dd3fc'/%3E%3Ccircle cx='181' cy='132' r='28' fill='%2338bdf8'/%3E%3Crect x='62' y='112' width='94' height='40' rx='20' fill='%23f8fafc' fill-opacity='.18'/%3E%3C/svg%3E",
+      "sizes": "256x256",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
