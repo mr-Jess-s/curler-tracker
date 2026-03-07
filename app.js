@@ -12,8 +12,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v7',
-    snapshot: 'curler-tracker-snapshot-v7'
+    player: 'curler-tracker-player-v10',
+    snapshot: 'curler-tracker-snapshot-v10'
   }
 };
 
@@ -191,6 +191,32 @@ function teamMap(event) {
   return map;
 }
 
+function teamAliases(team) {
+  const raw = [team?.name, team?.short_name, team?.shortName, team?.affiliation, team?.location]
+    .filter(Boolean)
+    .map(v => String(v).trim());
+  const expanded = new Set();
+  for (const item of raw) {
+    const n = normalizeName(item);
+    if (!n) continue;
+    expanded.add(n);
+    expanded.add(n.replace(/c\s*c/g, '').replace(/\s+/g, ' ').trim());
+    expanded.add(n.replace(/curling\s+club/g, '').replace(/\s+/g, ' ').trim());
+    expanded.add(n.replace(/club/g, '').replace(/\s+/g, ' ').trim());
+    expanded.add(n.replace(/\s+#\s*/g, '#').trim());
+    const first = n.split(' ')[0];
+    if (first) expanded.add(first);
+  }
+  return Array.from(expanded).filter(Boolean).sort((a,b)=>b.length-a.length);
+}
+
+function gameMatchesTeamName(game, team) {
+  const gameNameNorm = normalizeName(game?.name || '');
+  if (!gameNameNorm) return false;
+  const aliases = teamAliases(team);
+  return aliases.some(alias => alias && gameNameNorm.includes(alias));
+}
+
 function findMatchingTeam(event, playerNameNorm) {
   let best = null;
   for (const team of (event.teams || [])) {
@@ -292,14 +318,14 @@ function inferGameLifecycle(game, drawEpochMs) {
 }
 
 
-function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
+function buildScheduleRows(event, matchedTeam) {
+  const matchedTeamId = matchedTeam?.id;
+  const matchedTeamName = matchedTeam?.name || "";
   const teamsById = teamMap(event);
   const rows = [];
   for (const game of flattenGames(event)) {
     const positions = getGamePositions(game);
-    const gameNameNorm = normalizeName(game.name || '');
-    const teamNameNorm = normalizeName(matchedTeamName || '');
-    const inferredMembership = gameNameNorm && teamNameNorm && gameNameNorm.includes(teamNameNorm);
+    const inferredMembership = gameMatchesTeamName(game, matchedTeam);
     const ourTeamIdMatch = positions.some(pos => getTeamIdFromPosition(pos) === matchedTeamId);
     if (!ourTeamIdMatch && !inferredMembership) continue;
     const draw = drawForGame(event, game.id);
@@ -339,10 +365,11 @@ function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
 }
 
 
-function selectGamesForTeam(event, matchedTeamId, matchedTeamName) {
+function selectGamesForTeam(event, matchedTeam) {
+  const matchedTeamId = matchedTeam?.id;
+  const matchedTeamName = matchedTeam?.name || "";
   const teamsById = teamMap(event);
   const now = Date.now();
-  const teamNameNorm = normalizeName(matchedTeamName || '');
   const candidates = flattenGames(event)
     .map(game => {
       const draw = drawForGame(event, game.id);
@@ -357,8 +384,7 @@ function selectGamesForTeam(event, matchedTeamId, matchedTeamName) {
       const oppTeam = oppPos ? (teamsById.get(getTeamIdFromPosition(oppPos)) || null) : null;
       const openSlots = Math.max(0, 2 - positions.filter(pos => !!getTeamIdFromPosition(pos)).length);
       const proximity = epochMs ? Math.abs(epochMs - now) : Number.MAX_SAFE_INTEGER;
-      const gameNameNorm = normalizeName(game.name || '');
-      const inferredMembership = !!(gameNameNorm && teamNameNorm && gameNameNorm.includes(teamNameNorm));
+      const inferredMembership = gameMatchesTeamName(game, matchedTeam);
       const hasAssignedTeam = !!ourPos;
       const teamLinked = hasAssignedTeam || inferredMembership;
       const rank = lifecycle === 'playing' ? 0 :
@@ -408,6 +434,8 @@ function selectGamesForTeam(event, matchedTeamId, matchedTeamName) {
       sampleGameKeys: candidates[0] ? Object.keys(candidates[0].game || {}) : [],
       sampleDrawKeys: event.draws?.[0] ? Object.keys(event.draws[0]) : [],
       samplePositionKeys: candidates.find(c => getGamePositions(c.game).length)?.game ? Object.keys(getGamePositions(candidates.find(c => getGamePositions(c.game).length).game)[0] || {}) : [],
+      matchedTeamAliases: teamAliases(matchedTeam).slice(0, 12),
+      inferredLinkedGames: linked.filter(c => c.inferredMembership).map(c => c.game.id).slice(0, 10),
       usedInference: !next && !!inferredNext
     }
   };
@@ -594,7 +622,7 @@ async function discoverPlayerEvents(playerName) {
       if (!isEventTodayForward(event)) continue;
       const match = findMatchingTeam(event, playerNorm);
       if (!match) continue;
-      const selection = selectGamesForTeam(event, match.team.id, match.team.name);
+      const selection = selectGamesForTeam(event, match.team);
       candidates.push({
         item,
         event,
@@ -611,7 +639,7 @@ async function discoverPlayerEvents(playerName) {
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const scheduleRows = buildScheduleRows(event, matchedTeam.id, matchedTeam.name);
+  const scheduleRows = buildScheduleRows(event, matchedTeam);
   const nextGame = selection.next || selection.inferredNext;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
@@ -719,7 +747,7 @@ async function runTracker({ reason }) {
       nextGameSearch: selection.diagnostics,
       completedGameId: selection.lastCompleted?.game.id || null,
       completedResult: getPositionResult(selection.lastCompleted?.ourPos) || null,
-      nextCheckReason: computeCheckDelay(selection, buildScheduleRows(chosen.event, chosen.match.team.id, chosen.match.team.name)).reason,
+      nextCheckReason: computeCheckDelay(selection, buildScheduleRows(chosen.event, chosen.match.team)).reason,
       checked: discovery.checked,
       candidates: discovery.candidates.slice(0, 8).map(c => ({
         eventId: c.event.id,
