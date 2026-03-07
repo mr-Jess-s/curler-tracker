@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v13';
+const APP_VERSION = 'v15';
 const APP = {
   clubSubdomain: 'ab',
   language: 'en',
@@ -14,8 +14,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v13',
-    snapshot: 'curler-tracker-snapshot-v13'
+    player: 'curler-tracker-player-v15',
+    snapshot: 'curler-tracker-snapshot-v15'
   }
 };
 
@@ -311,12 +311,6 @@ function selectGamesForEvent(event, matchedTeam) {
   const completed = linkedRows
     .filter(r => ['just-finished','complete'].includes(r.lifecycle))
     .sort((a,b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
-  let inferredNext = null;
-  if (!nextConfirmed && completed && String(getPositionResult(completed.ourPos) || '').toLowerCase() === 'won') {
-    inferredNext = rows
-      .filter(r => r !== completed && ['pending-window','pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
-      .sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
-  }
 
   const stateCounts = {};
   for (const r of rows) stateCounts[r.lifecycle] = (stateCounts[r.lifecycle] || 0) + 1;
@@ -326,7 +320,6 @@ function selectGamesForEvent(event, matchedTeam) {
     linkedRows,
     active,
     next: nextConfirmed,
-    inferredNext,
     lastCompleted: completed,
     diagnostics: {
       totalStageGames,
@@ -340,7 +333,7 @@ function selectGamesForEvent(event, matchedTeam) {
       matchedTeamAliases: aliases.slice(0, 12),
       inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
       unmatchedDrawRows: unmatchedDrawRows.slice(0, 10),
-      usedInference: !nextConfirmed && !!inferredNext
+      usedInference: false
     }
   };
 }
@@ -368,7 +361,6 @@ function computeCheckDelay(selection) {
   const now = Date.now();
   if (selection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
   if (selection.next) return { delayMs: APP.upcomingRefreshMs, reason: 'confirmed next game found' };
-  if (selection.inferredNext) return { delayMs: APP.upcomingRefreshMs, reason: 'watching inferred next game until team assignment appears' };
   if (selection.lastCompleted) return { delayMs: APP.justFinishedRefreshMs, reason: 'checking whether completed game winner has advanced' };
   const nextRow = selection.rows.find(r => r.epochMs && r.epochMs > now);
   if (nextRow) {
@@ -460,21 +452,33 @@ function scheduleNextRun(delayMs) {
   state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
 }
 
-const BRANCH_OVERRIDES = {
-  '24013:59caf1a7': { win: 'b253bd29', loss: 'bd4a80b5' }
-};
 
 function getOutcomeBranchRows(event, matchedTeam, selection) {
   const source = selection.active || selection.lastCompleted;
   if (!source) return [];
-  const key = `${event.id}:${source.gameId}`;
-  const override = BRANCH_OVERRIDES[key];
-  if (!override) return [];
-  const byId = new Map(selection.rows.map(r => [r.gameId, r]));
   const rows = [];
-  if (override.win && byId.get(override.win)) rows.push({ ...byId.get(override.win), branchLabel: `If ${shortenTeamName(matchedTeam.name)} wins` });
-  if (override.loss && byId.get(override.loss)) rows.push({ ...byId.get(override.loss), branchLabel: `If ${shortenTeamName(matchedTeam.name)} loses` });
+  for (const r of selection.rows) {
+    if (!['pending-window','pending'].includes(r.lifecycle)) continue;
+    if (!r.ourPos) continue;
+    if (r.gameId === source.gameId) continue;
+    const branchLabel = r.gameId === selection.next?.gameId
+      ? `Next confirmed game`
+      : null;
+    rows.push({
+      ...r,
+      branchLabel
+    });
+  }
+  rows.sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
   return rows;
+}
+
+function computeCompletedOutcomeLabel(row) {
+  const ourScore = getPositionScore(row?.ourPos);
+  const oppScore = getPositionScore(row?.oppPos);
+  if (ourScore > oppScore) return `Complete · won ${ourScore} - ${oppScore}`;
+  if (ourScore < oppScore) return `Complete · lost ${ourScore} - ${oppScore}`;
+  return `Complete · tied ${ourScore} - ${oppScore}`;
 }
 
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
@@ -517,7 +521,7 @@ async function discoverPlayerEvents(playerName) {
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const nextGame = selection.next || selection.inferredNext;
+  const nextGame = selection.next || null;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
@@ -543,8 +547,8 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   }
 
   const nextGameLabel = nextGame
-    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
-    : 'No next game available';
+    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}`
+    : 'Next game pending official assignment';
   const nextCheck = computeCheckDelay(selection);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
@@ -554,7 +558,11 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     gameId: r.gameId,
     startsAt: r.startsAt,
     epochMs: r.epochMs,
-    stateLabel: r.lifecycle === 'playing' ? 'Now playing' : r.lifecycle === 'pending-window' ? 'Starting soon' : r.lifecycle === 'pending' ? 'Scheduled' : r.lifecycle === 'just-finished' ? 'Final' : r.lifecycle === 'complete' ? 'Complete' : 'Unknown',
+    stateLabel: r.lifecycle === 'playing' ? 'Now playing' :
+      r.lifecycle === 'pending-window' ? 'Starting soon' :
+      r.lifecycle === 'pending' ? 'Scheduled' :
+      r.lifecycle === 'just-finished' ? computeCompletedOutcomeLabel(r) :
+      r.lifecycle === 'complete' ? computeCompletedOutcomeLabel(r) : 'Unknown',
     team: matchedTeam.name,
     opponent: r.oppTeam?.name || 'TBD'
   }));
@@ -562,7 +570,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     gameId: r.gameId,
     startsAt: r.startsAt,
     epochMs: r.epochMs,
-    stateLabel: 'Outcome branch',
+    stateLabel: 'Scheduled',
     team: matchedTeam.name,
     opponent: r.oppTeam?.name || 'TBD',
     branchLabel: r.branchLabel
@@ -587,7 +595,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: branchRows.length ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games plus win/loss branches for the current result path.` : (nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Watching the next draw and upgrading when team assignment appears.'),
+    scheduleHint: `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.`,
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -636,8 +644,8 @@ async function runTracker({ reason }) {
       },
       activeGameId: selection.active?.gameId || null,
       activeGameState: selection.active?.lifecycle || null,
-      nextGameId: (selection.next || selection.inferredNext)?.gameId || null,
-      nextGameDrawLabel: (selection.next || selection.inferredNext)?.drawLabel || null,
+      nextGameId: selection.next?.gameId || null,
+      nextGameDrawLabel: selection.next?.drawLabel || null,
       nextGameConfirmed: !!selection.next,
       nextGameSearch: selection.diagnostics,
       completedGameId: selection.lastCompleted?.gameId || null,
@@ -657,7 +665,7 @@ async function runTracker({ reason }) {
         matchedTeam: c.match.team.name,
         matchScore: c.match.score,
         activeGameId: c.selection.active?.gameId || null,
-        nextGameId: (c.selection.next || c.selection.inferredNext)?.gameId || null,
+        nextGameId: c.selection.next?.gameId || null,
         nextGameConfirmed: !!c.selection.next,
         completedGameId: c.selection.lastCompleted?.gameId || null
       }))
