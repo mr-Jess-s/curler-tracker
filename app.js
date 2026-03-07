@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v16';
+const APP_VERSION = 'v17';
 const APP = {
   clubSubdomain: 'ab',
   language: 'en',
@@ -14,8 +14,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v16',
-    snapshot: 'curler-tracker-snapshot-v16'
+    player: 'curler-tracker-player-v17',
+    snapshot: 'curler-tracker-snapshot-v17'
   }
 };
 
@@ -302,7 +302,6 @@ function buildDrawFirstRows(event, matchedTeam) {
 
 function selectGamesForEvent(event, matchedTeam) {
   const { rows, aliases, unmatchedDrawRows, totalStageGames } = buildDrawFirstRows(event, matchedTeam);
-  const now = Date.now();
   const linkedRows = rows.filter(r => r.linked);
   const active = linkedRows.find(r => r.lifecycle === 'playing') || null;
   const nextConfirmed = linkedRows
@@ -331,19 +330,28 @@ function selectGamesForEvent(event, matchedTeam) {
       futureOpenSlotGames: rows.filter(r => ['pending-window','pending'].includes(r.lifecycle) && r.openSlots > 0).length,
       stateCounts,
       matchedTeamAliases: aliases.slice(0, 12),
-      inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
+      inferredLinkedGames: [],
       unmatchedDrawRows: unmatchedDrawRows.slice(0, 10),
       usedInference: false
     }
   };
 }
 
-function buildEnds(ourPos, oppPos) {
+function buildEnds(ourPos, oppPos, totalEnds = 8) {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
-  const length = Math.max(ours.length, opps.length);
+  const length = Math.max(ours.length, opps.length, Number(totalEnds) || 0);
   const rows = [];
-  for (let i=0;i<length;i++) rows.push({ end:i+1, team:Number(ours[i]??0), opponent:Number(opps[i]??0) });
+  for (let i = 0; i < length; i++) {
+    const teamPlayed = i < ours.length;
+    const oppPlayed = i < opps.length;
+    rows.push({
+      end: i + 1,
+      team: teamPlayed ? Number(ours[i] ?? 0) : 'X',
+      opponent: oppPlayed ? Number(opps[i] ?? 0) : 'X',
+      played: teamPlayed || oppPlayed
+    });
+  }
   return rows;
 }
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
@@ -360,14 +368,10 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
 function computeCheckDelay(selection) {
   const now = Date.now();
   if (selection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
-  const nextRow = selection.next || selection.rows.find(r => r.linked && r.epochMs && r.epochMs > now) || null;
-  if (nextRow) {
-    const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
-    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
-    return { delayMs: APP.upcomingRefreshMs, reason: 'pre-game monitoring' };
-  }
-  if (selection.lastCompleted) {
-    return { delayMs: APP.idleScanMs, reason: 'game complete, waiting for app open or next game window' };
+  if (selection.next) {
+    const preWindowAt = (selection.next.epochMs || 0) - APP.preGameWindowMs;
+    if (selection.next.epochMs && preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
   }
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
@@ -392,7 +396,7 @@ function renderHeadline(snapshot) {
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
-function renderEnds(teamName, opponentName, ends) {
+function renderEnds(teamName, opponentName, ends, teamTotal = 0, opponentTotal = 0) {
   if (!ends?.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
@@ -402,16 +406,9 @@ function renderEnds(teamName, opponentName, ends) {
   const oppShort = escapeHtml(shortenTeamName(opponentName));
   els.endsList.className = 'ends-list ends-table';
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
-  const rows = ends.map(row => {
-    const teamScore = row.finalTeam == null
-      ? `<span class="end-score-main">${row.team}</span>`
-      : `<span class="end-score-main">${row.team}</span><span class="end-score-sub">Final ${row.finalTeam}</span>`;
-    const oppScore = row.finalOpponent == null
-      ? `<span class="end-score-main">${row.opponent}</span>`
-      : `<span class="end-score-main">${row.opponent}</span><span class="end-score-sub">Final ${row.finalOpponent}</span>`;
-    return `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${teamScore}</span><span class="end-score-cell">${oppScore}</span></div>`;
-  }).join('');
-  els.endsList.innerHTML = header + rows;
+  const rows = ends.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${row.team}</span><span class="end-score-cell">${row.opponent}</span></div>`).join('');
+  const totalRow = `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${teamTotal}</span><span class="end-score-cell">${opponentTotal}</span></div>`;
+  els.endsList.innerHTML = header + rows + totalRow;
 }
 
 function formatScheduleTime(row) {
@@ -451,7 +448,7 @@ function render(snapshot) {
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
-  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
+  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || [], snapshot?.teamScore || 0, snapshot?.opponentScore || 0);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase:'idle' });
 }
@@ -459,19 +456,6 @@ function render(snapshot) {
 function scheduleNextRun(delayMs) {
   if (state.timerId) clearTimeout(state.timerId);
   state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
-}
-
-
-function getOutcomeBranchRows(event, matchedTeam, selection) {
-  return [];
-}
-
-function computeCompletedOutcomeLabel(row) {
-  const ourScore = getPositionScore(row?.ourPos);
-  const oppScore = getPositionScore(row?.oppPos);
-  if (ourScore > oppScore) return `Complete · won ${ourScore} - ${oppScore}`;
-  if (ourScore < oppScore) return `Complete · lost ${ourScore} - ${oppScore}`;
-  return `Complete · tied ${ourScore} - ${oppScore}`;
 }
 
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
@@ -514,7 +498,7 @@ async function discoverPlayerEvents(playerName) {
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const nextGame = selection.next || null;
+  const nextGame = selection.next;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
@@ -531,44 +515,46 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
     hammerSubtitle = `${shortenTeamName(hammerNext)} has hammer`;
-    ends = buildEnds(ourPos, oppPos, { showFinal: ['just-finished','complete'].includes(displayGame.lifecycle), finalTeamScore: getPositionScore(ourPos), finalOpponentScore: getPositionScore(oppPos), expectedEnds: event.number_of_ends, isComplete: ['just-finished','complete'].includes(displayGame.lifecycle) });
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
     opponentName = oppTeam.name;
-    const currentEnd = Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1;
+    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8);
+    const currentEnd = Math.min((event.number_of_ends || 8), Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1);
     currentEndLabel = active ? `${currentEnd}${ordinalSuffix(currentEnd)} end` : (displayGame.startsAt || 'Scheduled draw');
   }
 
   const nextGameLabel = nextGame
     ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}`
-    : 'Next game pending official assignment';
+    : 'No next game available';
   const nextCheck = computeCheckDelay(selection);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
 
-  const linkedScheduleRows = selection.linkedRows.map(r => ({
-    gameId: r.gameId,
-    startsAt: r.startsAt,
-    epochMs: r.epochMs,
-    stateLabel: r.lifecycle === 'playing' ? 'Now playing' :
-      r.lifecycle === 'pending-window' ? 'Starting soon' :
-      r.lifecycle === 'pending' ? 'Scheduled' :
-      r.lifecycle === 'just-finished' ? computeCompletedOutcomeLabel(r) :
-      r.lifecycle === 'complete' ? computeCompletedOutcomeLabel(r) : 'Unknown',
-    team: matchedTeam.name,
-    opponent: r.oppTeam?.name || 'TBD'
-  }));
-  const branchRows = getOutcomeBranchRows(event, matchedTeam, selection).map(r => ({
-    gameId: r.gameId,
-    startsAt: r.startsAt,
-    epochMs: r.epochMs,
-    stateLabel: 'Scheduled',
-    team: matchedTeam.name,
-    opponent: r.oppTeam?.name || 'TBD',
-    branchLabel: r.branchLabel
-  }));
-  const mergedScheduleRows = [...new Map([...linkedScheduleRows, ...branchRows].map(r => [r.gameId, r])).values()].sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
+  const linkedScheduleRows = selection.linkedRows.map(r => {
+    let stateLabel;
+    if (r.lifecycle === 'playing') stateLabel = 'Now playing';
+    else if (r.lifecycle === 'pending-window') stateLabel = 'Starting soon';
+    else if (r.lifecycle === 'pending') stateLabel = 'Scheduled';
+    else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
+      const ourScore = getPositionScore(r.ourPos);
+      const oppScore = getPositionScore(r.oppPos);
+      if (ourScore > oppScore) stateLabel = `Complete · won ${ourScore} - ${oppScore}`;
+      else if (ourScore < oppScore) stateLabel = `Complete · lost ${ourScore} - ${oppScore}`;
+      else stateLabel = `Complete · ${ourScore} - ${oppScore}`;
+    } else stateLabel = 'Unknown';
+
+    return {
+      gameId: r.gameId,
+      startsAt: r.startsAt,
+      epochMs: r.epochMs,
+      stateLabel,
+      team: matchedTeam.name,
+      opponent: r.oppTeam?.name || 'TBD'
+    };
+  });
+
+  const mergedScheduleRows = linkedScheduleRows.sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
 
   return {
     playerName,
@@ -588,7 +574,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.`,
+    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games only.',
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -670,7 +656,7 @@ async function runTracker({ reason }) {
     if (snapshot.view === 'live') {
       setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing every 60 seconds.`);
     } else if (snapshot.nextGameId) {
-      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game ${snapshot.nextGameId} will be monitored when its draw window opens.`);
+      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
     } else {
       setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
