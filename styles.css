@@ -41,7 +41,9 @@ h1{margin:0;font-size:clamp(1.7rem,5vw,2.2rem);letter-spacing:.02em}
 .ends-header span{font-weight:700}
 .end-row:last-child{border-bottom:none;padding-bottom:0}
 .end-label,.schedule-label{font-weight:800}
-.end-score-cell{font-variant-numeric:tabular-nums;font-weight:700;text-align:center}
+.end-score-cell{font-variant-numeric:tabular-nums;font-weight:700;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.end-score-main{font-weight:800}
+.end-score-sub{font-size:.78rem;color:#9fb1d0;font-weight:600}
 .schedule-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .schedule-row:last-child{border-bottom:none;padding-bottom:0}
 .schedule-meta{color:#a7b8d8;font-size:.94rem;line-height:1.35;text-align:right}
