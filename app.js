@@ -1,29 +1,27 @@
 const APP = {
   clubSubdomain: 'ab',
   language: 'en',
+  lookaheadSeasons: [0, -1],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
-  postGameWindowMs: 4 * 60 * 60 * 1000,
+  postGameWindowMs: 3 * 60 * 60 * 1000,
   activeRefreshMs: 60 * 1000,
   upcomingRefreshMs: 5 * 60 * 1000,
+  justFinishedRefreshMs: 2 * 60 * 1000,
   errorRetryMs: 30 * 60 * 1000,
-  lookaheadSeasons: [0, -1],
+  openRescanFloorMs: 15 * 1000,
+  visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player',
-    snapshot: 'curler-tracker-snapshot'
+    player: 'curler-tracker-player-v7',
+    snapshot: 'curler-tracker-snapshot-v7'
   }
-};
-
-const GAME_STATE = {
-  live: new Set(['playing', 'live', 'active', 'inprogress', 'in_progress', 'started', 'underway']),
-  upcoming: new Set(['pending', 'scheduled', 'upcoming', 'future', 'ready']),
-  complete: new Set(['complete', 'completed', 'final', 'closed'])
 };
 
 const els = {
   form: document.getElementById('playerForm'),
   playerInput: document.getElementById('playerInput'),
   shareBtn: document.getElementById('shareBtn'),
+  refreshBtn: document.getElementById('refreshBtn'),
   diagnosticsToggle: document.getElementById('diagnosticsToggle'),
   diagnosticsPanel: document.getElementById('diagnosticsPanel'),
   diagnosticsOutput: document.getElementById('diagnosticsOutput'),
@@ -33,7 +31,6 @@ const els = {
   headlineBlock: document.getElementById('headlineBlock'),
   hammerValue: document.getElementById('hammerValue'),
   eventValue: document.getElementById('eventValue'),
-  nextGameValue: document.getElementById('nextGameValue'),
   nextCheckValue: document.getElementById('nextCheckValue'),
   updatedValue: document.getElementById('updatedValue'),
   endsList: document.getElementById('endsList'),
@@ -50,16 +47,35 @@ const state = {
   snapshot: null,
   diagnostics: { phase: 'idle' },
   lastRunAt: 0,
-  lastVisibilityScanAt: 0
+  lastVisibilityScanAt: 0,
+  forceRefreshNonce: 0
 };
 
 function normalizeName(name) {
-  return (name || '')
+  return String(name || '')
     .toLowerCase()
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+}
+
+function escapeHtml(text) {
+  return String(text ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function ordinalSuffix(n) {
+  const j = n % 10;
+  const k = n % 100;
+  if (j === 1 && k !== 11) return 'st';
+  if (j === 2 && k !== 12) return 'nd';
+  if (j === 3 && k !== 13) return 'rd';
+  return 'th';
 }
 
 function formatEpochMs(epochMs) {
@@ -78,7 +94,8 @@ function formatClock(value) {
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return String(value);
   return new Intl.DateTimeFormat(undefined, {
-    hour: 'numeric', minute: '2-digit'
+    hour: 'numeric',
+    minute: '2-digit'
   }).format(d);
 }
 
@@ -121,17 +138,13 @@ function setDiagnostics(obj) {
 }
 
 async function fetchJson(url) {
-  const res = await fetch(url, {
-    headers: { Accept: 'application/json' },
-    cache: 'no-store'
-  });
+  const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return res.json();
 }
 
 function competitionsUrl(delta) {
-  const base = `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/competitions`;
-  return `${base}?occurred=${encodeURIComponent(delta)}`;
+  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
 }
 
 function eventUrl(eventId) {
@@ -139,27 +152,25 @@ function eventUrl(eventId) {
 }
 
 function flattenGames(event) {
-  const games = [];
-  (event.stages || []).forEach(stage => {
-    (stage.games || []).forEach(game => {
-      games.push({ ...game, stageName: stage.name, stageType: stage.type });
-    });
-  });
-  return games;
+  const rows = [];
+  for (const stage of (event.stages || [])) {
+    for (const game of (stage.games || [])) {
+      rows.push({ ...game, stageId: stage.id, stageName: stage.name, stageType: stage.type });
+    }
+  }
+  return rows;
 }
 
 function teamMap(event) {
   const map = new Map();
-  (event.teams || []).forEach(team => map.set(team.id, team));
+  for (const team of (event.teams || [])) map.set(team.id, team);
   return map;
 }
 
 function findMatchingTeam(event, playerNameNorm) {
-  const teams = event.teams || [];
   let best = null;
-  for (const team of teams) {
-    const lineup = team.lineup || [];
-    for (const curler of lineup) {
+  for (const team of (event.teams || [])) {
+    for (const curler of (team.lineup || [])) {
       const norm = normalizeName(curler.name);
       if (!norm) continue;
       let score = 0;
@@ -172,96 +183,123 @@ function findMatchingTeam(event, playerNameNorm) {
         if (overlap.length >= 2) score = 50;
         else if (overlap.length === 1) score = 25;
       }
-      if (score > (best?.score || 0)) {
-        best = { team, curler, score, lineupSize: lineup.length };
-      }
+      if (score > (best?.score || 0)) best = { team, curler, score };
     }
   }
   return best;
 }
 
-function drawContainsGame(draw, gameId) {
-  if (!draw || !Array.isArray(draw.draw_sheets)) return false;
-  return draw.draw_sheets.some(sheet => {
-    if (sheet === gameId) return true;
-    if (typeof sheet === 'string') return sheet === gameId;
-    if (sheet && typeof sheet === 'object') {
-      return sheet.id === gameId || sheet.game_id === gameId || sheet.gameId === gameId;
+function drawForGame(event, gameId) {
+  return (event.draws || []).find(draw => Array.isArray(draw.draw_sheets) && draw.draw_sheets.includes(gameId)) || null;
+}
+
+function gameTeams(game, teamsById) {
+  const positions = game.game_positions || [];
+  return positions
+    .filter(pos => pos.team_id)
+    .map(pos => ({
+      teamId: pos.team_id,
+      team: teamsById.get(pos.team_id) || null,
+      pos
+    }));
+}
+
+function inferGameLifecycle(game, drawEpochMs) {
+  const now = Date.now();
+  const state = String(game.state || '').toLowerCase();
+  if (state === 'playing') return 'playing';
+  if (state === 'pending') {
+    if (drawEpochMs && now >= drawEpochMs - APP.preGameWindowMs && now <= drawEpochMs + APP.postGameWindowMs) {
+      return 'pending-window';
     }
-    return false;
+    return 'pending';
+  }
+  if (state === 'complete') {
+    if (drawEpochMs && now <= drawEpochMs + APP.postGameWindowMs) return 'just-finished';
+    return 'complete';
+  }
+  const anyEnds = (game.game_positions || []).some(pos => (pos.end_scores || []).some(val => Number(val || 0) > 0));
+  if (anyEnds && drawEpochMs && now <= drawEpochMs + APP.postGameWindowMs) return 'playing';
+  return state || 'unknown';
+}
+
+function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
+  const teamsById = teamMap(event);
+  const rows = [];
+  for (const game of flattenGames(event)) {
+    const positions = game.game_positions || [];
+    if (!positions.some(pos => pos.team_id === matchedTeamId)) continue;
+    const draw = drawForGame(event, game.id);
+    const ourPos = positions.find(pos => pos.team_id === matchedTeamId) || {};
+    const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeamId) || {};
+    const oppTeam = teamsById.get(oppPos.team_id);
+    const epochMs = draw?.epoch ? draw.epoch * 1000 : null;
+    const lifecycle = inferGameLifecycle(game, epochMs);
+    rows.push({
+      gameId: game.id,
+      drawLabel: draw?.label ? `B${draw.label}` : (game.stageName || 'Draw'),
+      startsAt: draw?.starts_at || (epochMs ? formatEpochMs(epochMs) : 'TBD'),
+      epochMs,
+      state: lifecycle,
+      stateLabel: lifecycle === 'playing' ? 'Live' :
+        lifecycle === 'pending-window' ? 'Starting soon' :
+        lifecycle === 'pending' ? 'Scheduled' :
+        lifecycle === 'just-finished' ? 'Final' :
+        lifecycle === 'complete' ? 'Complete' : 'Unknown',
+      team: matchedTeamName,
+      opponent: oppTeam?.name || 'TBD',
+      stageName: game.stageName || '',
+      gameName: game.name || '',
+      ourScore: Number(ourPos.score ?? 0),
+      oppScore: Number(oppPos.score ?? 0)
+    });
+  }
+  return rows.sort((a, b) => {
+    const av = a.epochMs ?? Number.MAX_SAFE_INTEGER;
+    const bv = b.epochMs ?? Number.MAX_SAFE_INTEGER;
+    return av - bv || String(a.gameId).localeCompare(String(b.gameId));
   });
 }
 
-function findDrawForGame(event, gameId) {
-  return (event.draws || []).find(draw => drawContainsGame(draw, gameId)) || null;
-}
-
-function normalizeGameState(rawState) {
-  const key = String(rawState || '').toLowerCase().replace(/[^a-z]+/g, '_').replace(/^_+|_+$/g, '');
-  const compact = key.replace(/_/g, '');
-  if (GAME_STATE.live.has(key) || GAME_STATE.live.has(compact)) return 'live';
-  if (GAME_STATE.upcoming.has(key) || GAME_STATE.upcoming.has(compact)) return 'upcoming';
-  if (GAME_STATE.complete.has(key) || GAME_STATE.complete.has(compact)) return 'complete';
-  return 'unknown';
-}
-
-function sumEnds(endScores = []) {
-  return endScores.reduce((sum, val) => sum + Number(val || 0), 0);
-}
-
-function classifyGame(game, draw) {
+function selectGamesForTeam(event, matchedTeamId) {
+  const teamsById = teamMap(event);
   const now = Date.now();
-  const epochMs = draw?.epoch ? draw.epoch * 1000 : null;
-  const startsSoon = epochMs && now >= epochMs - APP.preGameWindowMs && now <= epochMs + APP.postGameWindowMs;
-  const positions = game.game_positions || [];
-  const hasEnds = positions.some(pos => (pos.end_scores || []).length > 0);
-  const hasPartialScore = positions.some(pos => Number(pos.score ?? sumEnds(pos.end_scores || [])) > 0);
-  const hasResult = positions.some(pos => pos.result);
-  const explicit = normalizeGameState(game.state);
-
-  if (explicit === 'live') return 'live';
-  if (explicit === 'upcoming') return 'upcoming';
-  if (explicit === 'complete') return 'complete';
-
-  if (hasEnds && !hasResult && startsSoon) return 'live';
-  if (hasPartialScore && !hasResult && startsSoon) return 'live';
-  if (!hasEnds && startsSoon) return 'upcoming';
-  if (hasResult) return 'complete';
-  if (epochMs && epochMs > now) return 'upcoming';
-  if (hasEnds || hasPartialScore) return 'complete';
-  return 'unknown';
-}
-
-function chooseRelevantGame(event, matchedTeamId) {
-  const now = Date.now();
-  const games = flattenGames(event)
+  const candidates = flattenGames(event)
+    .filter(game => (game.game_positions || []).some(pos => pos.team_id === matchedTeamId))
     .map(game => {
-      const draw = findDrawForGame(event, game.id);
-      const positions = game.game_positions || [];
-      const includesTeam = positions.some(pos => pos.team_id === matchedTeamId);
-      if (!includesTeam) return null;
+      const draw = drawForGame(event, game.id);
       const epochMs = draw?.epoch ? draw.epoch * 1000 : null;
-      const inferredState = classifyGame(game, draw);
-      const stateRank = inferredState === 'live' ? 0 : inferredState === 'upcoming' ? 1 : inferredState === 'complete' ? 2 : 3;
-      const inWindow = epochMs ? now >= epochMs - APP.preGameWindowMs && now <= epochMs + APP.postGameWindowMs : false;
+      const lifecycle = inferGameLifecycle(game, epochMs);
+      const positions = game.game_positions || [];
+      const ourPos = positions.find(pos => pos.team_id === matchedTeamId) || {};
+      const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeamId) || {};
+      const oppTeam = teamsById.get(oppPos.team_id) || null;
+      const endCount = Math.max((ourPos.end_scores || []).length, (oppPos.end_scores || []).length);
       const proximity = epochMs ? Math.abs(epochMs - now) : Number.MAX_SAFE_INTEGER;
-      return { game, draw, epochMs, inferredState, stateRank, inWindow, proximity };
+      const rank = lifecycle === 'playing' ? 0 :
+        lifecycle === 'pending-window' ? 1 :
+        lifecycle === 'pending' ? 2 :
+        lifecycle === 'just-finished' ? 3 :
+        lifecycle === 'complete' ? 4 : 5;
+      return { game, draw, epochMs, lifecycle, rank, proximity, ourPos, oppPos, oppTeam, endCount };
     })
-    .filter(Boolean)
-    .sort((a, b) => {
-      if (a.stateRank !== b.stateRank) return a.stateRank - b.stateRank;
-      if (a.inWindow !== b.inWindow) return a.inWindow ? -1 : 1;
-      if (a.proximity !== b.proximity) return a.proximity - b.proximity;
-      return (a.epochMs || 0) - (b.epochMs || 0);
-    });
+    .sort((a, b) => a.rank - b.rank || a.proximity - b.proximity || ((a.epochMs || 0) - (b.epochMs || 0)));
 
-  return games[0] || null;
+  const active = candidates.find(c => c.lifecycle === 'playing') || null;
+  const next = candidates
+    .filter(c => ['pending-window', 'pending'].includes(c.lifecycle) && (c.epochMs || 0) >= now - APP.preGameWindowMs)
+    .sort((a, b) => (a.epochMs || Number.MAX_SAFE_INTEGER) - (b.epochMs || Number.MAX_SAFE_INTEGER))[0] || null;
+  const lastCompleted = candidates
+    .filter(c => ['just-finished', 'complete'].includes(c.lifecycle))
+    .sort((a, b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+
+  return { candidates, active, next, lastCompleted };
 }
 
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
   let hammer = firstHammerTeamName || 'Unknown';
-  const ends = Math.max(endScoresA.length, endScoresB.length);
-  for (let i = 0; i < ends; i += 1) {
+  const maxEnds = Math.max(endScoresA.length, endScoresB.length);
+  for (let i = 0; i < maxEnds; i += 1) {
     const a = Number(endScoresA[i] ?? 0);
     const b = Number(endScoresB[i] ?? 0);
     if (a > 0 && b === 0) hammer = teamBName;
@@ -270,24 +308,33 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
   return hammer;
 }
 
-function buildEnds(teamPos, oppPos) {
-  const teamEnds = teamPos.end_scores || [];
-  const oppEnds = oppPos.end_scores || [];
-  const length = Math.max(teamEnds.length, oppEnds.length);
+function buildEnds(ourPos, oppPos) {
+  const ours = ourPos?.end_scores || [];
+  const opps = oppPos?.end_scores || [];
+  const length = Math.max(ours.length, opps.length);
   const rows = [];
   for (let i = 0; i < length; i += 1) {
-    const teamVal = Number(teamEnds[i] ?? 0);
-    const oppVal = Number(oppEnds[i] ?? 0);
-    rows.push({ end: i + 1, team: teamVal, opponent: oppVal });
+    rows.push({
+      end: i + 1,
+      team: Number(ours[i] ?? 0),
+      opponent: Number(opps[i] ?? 0)
+    });
   }
   return rows;
 }
 
-function findNextUpcomingRow(scheduleRows, activeGameId) {
+function computeCheckDelay(eventSelection, scheduleRows) {
   const now = Date.now();
-  return scheduleRows
-    .filter(row => row.gameId !== activeGameId && row.epochMs && row.epochMs > now)
-    .sort((a, b) => a.epochMs - b.epochMs)[0] || null;
+  if (eventSelection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
+  if (eventSelection.lastCompleted && eventSelection.next) return { delayMs: APP.upcomingRefreshMs, reason: 'winner advanced; waiting for confirmed next game window' };
+  const nextRow = scheduleRows.find(row => row.epochMs && row.epochMs > now);
+  if (nextRow) {
+    const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'pre-game monitoring' };
+  }
+  if (eventSelection.lastCompleted) return { delayMs: APP.justFinishedRefreshMs, reason: 'checking whether completed game winner has advanced' };
+  return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
 
 function renderHeadline(snapshot) {
@@ -295,35 +342,35 @@ function renderHeadline(snapshot) {
     els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler’s name to begin.</p>';
     return;
   }
-
   if (snapshot.view === 'live') {
     els.headlineBlock.innerHTML = `
-      <div class="headline-main">${escapeHtml(snapshot.teamName)} ${snapshot.teamScore} vs ${escapeHtml(snapshot.opponentName)} ${snapshot.opponentScore}</div>
-      <div class="headline-sub">${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.drawLabel || snapshot.stageName || 'Live now')}</div>
-    `;
+      <div>
+        <div class="headline-main">${escapeHtml(snapshot.teamName)} ${snapshot.teamScore} vs ${escapeHtml(snapshot.opponentName)} ${snapshot.opponentScore}</div>
+        <div class="headline-sub">${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.drawTitle || 'Live now')}</div>
+      </div>`;
     return;
   }
-
   if (snapshot.view === 'upcoming') {
     els.headlineBlock.innerHTML = `
-      <div class="headline-main">No live game</div>
-      <div class="headline-sub">Next draw: ${escapeHtml(snapshot.nextDrawLabel || 'TBD')}</div>
-    `;
+      <div>
+        <div class="headline-main">No live game</div>
+        <div class="headline-sub">Next game: ${escapeHtml(snapshot.nextGameLabel || 'TBD')}</div>
+      </div>`;
     return;
   }
-
   if (snapshot.view === 'idle-event') {
     els.headlineBlock.innerHTML = `
-      <div class="headline-main">Watching this event</div>
-      <div class="headline-sub">No active draw right now.</div>
-    `;
+      <div>
+        <div class="headline-main">Watching this event</div>
+        <div class="headline-sub">${escapeHtml(snapshot.nextGameLabel || 'No active draw right now.')}</div>
+      </div>`;
     return;
   }
-
   els.headlineBlock.innerHTML = `
-    <div class="headline-main">No active event found</div>
-    <div class="headline-sub">Checking Alberta competitions every few days.</div>
-  `;
+    <div>
+      <div class="headline-main">No active event found</div>
+      <div class="headline-sub">Checking Alberta competitions every few days.</div>
+    </div>`;
 }
 
 function renderEnds(ends) {
@@ -337,11 +384,10 @@ function renderEnds(ends) {
     <div class="end-row">
       <span class="end-label">End ${row.end}</span>
       <span class="end-score">${row.team} - ${row.opponent}</span>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-function renderSchedule(scheduleRows, activeGameId) {
+function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   if (!scheduleRows?.length) {
     els.scheduleList.className = 'schedule-list empty';
     els.scheduleList.innerHTML = '<p>No scheduled draws to show.</p>';
@@ -349,20 +395,15 @@ function renderSchedule(scheduleRows, activeGameId) {
   }
   els.scheduleList.className = 'schedule-list';
   els.scheduleList.innerHTML = scheduleRows.map(row => {
-    const cls = row.gameId === activeGameId
-      ? 'schedule-row active'
-      : row.inferredState === 'upcoming'
-        ? 'schedule-row upcoming'
-        : 'schedule-row';
+    const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
     return `
       <div class="${cls}">
         <div>
-          <div class="schedule-label">${escapeHtml(row.label)}</div>
-          <div class="schedule-meta">${escapeHtml(row.team)} vs ${escapeHtml(row.opponent)}</div>
+          <div class="schedule-label">${escapeHtml(row.drawLabel)}</div>
+          <div class="schedule-meta">${escapeHtml(row.team)} vs ${escapeHtml(row.opponent)}<br>${escapeHtml(row.gameId)}</div>
         </div>
         <div class="schedule-meta">${escapeHtml(row.startsAt)}<br>${escapeHtml(row.stateLabel)}</div>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
@@ -374,15 +415,12 @@ function updateBadge(view) {
   } else if (view === 'upcoming') {
     els.liveBadge.classList.add('upcoming');
     els.liveBadge.textContent = 'Upcoming';
-  } else if (view === 'idle-event') {
-    els.liveBadge.classList.add('muted');
-    els.liveBadge.textContent = 'Waiting';
   } else if (view === 'complete') {
     els.liveBadge.classList.add('complete');
     els.liveBadge.textContent = 'Complete';
   } else {
     els.liveBadge.classList.add('muted');
-    els.liveBadge.textContent = 'Idle';
+    els.liveBadge.textContent = view === 'idle-event' ? 'Watching' : 'Idle';
   }
 }
 
@@ -395,22 +433,12 @@ function render(snapshot) {
   updateBadge(snapshot?.view || 'idle');
   els.hammerValue.textContent = snapshot?.hammerNext || '—';
   els.eventValue.textContent = snapshot?.eventName || '—';
-  els.nextGameValue.textContent = snapshot?.nextGameLabel || '—';
   els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : '—';
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.ends || []);
-  renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId);
-}
-
-function escapeHtml(text) {
-  return String(text ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+  renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
 }
 
 function scheduleNextRun(delayMs) {
@@ -418,202 +446,114 @@ function scheduleNextRun(delayMs) {
   state.timerId = window.setTimeout(() => runTracker({ reason: 'scheduled' }), Math.max(5_000, delayMs));
 }
 
-function computeScanSnapshot(playerName, diagnostics, delayMs, message) {
-  const nextCheckAt = Date.now() + delayMs;
+function computeIdleSnapshot(playerName, diagnostics, delayMs) {
   return {
     playerName,
     view: 'idle',
-    eventName: 'Searching',
+    eventName: 'No active event found',
     hammerNext: '—',
-    nextGameLabel: '—',
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
-    scheduleHint: 'No matching event loaded.',
-    nextCheckAt,
+    scheduleHint: 'Scanning Alberta competitions every 72 hours.',
+    nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(new Date()),
-    message,
     diagnostics
   };
 }
 
-function rankChosenGame(chosen) {
-  if (!chosen?.game) return 999;
-  if (chosen.inferredState === 'live') return 0;
-  if (chosen.inferredState === 'upcoming') return 1;
-  if (chosen.inferredState === 'complete') return 2;
-  return 3;
-}
-
-function chooseBestDiscovery(candidates) {
-  const now = Date.now();
-  return [...candidates].sort((a, b) => {
-    const aChosen = chooseRelevantGame(a.event, a.match.team.id);
-    const bChosen = chooseRelevantGame(b.event, b.match.team.id);
-    const aRank = rankChosenGame(aChosen);
-    const bRank = rankChosenGame(bChosen);
-    if (aRank !== bRank) return aRank - bRank;
-
-    const aEpoch = aChosen?.epochMs || Number.MAX_SAFE_INTEGER;
-    const bEpoch = bChosen?.epochMs || Number.MAX_SAFE_INTEGER;
-    const aWindow = aChosen?.inWindow ? 0 : 1;
-    const bWindow = bChosen?.inWindow ? 0 : 1;
-    if (aWindow !== bWindow) return aWindow - bWindow;
-
-    const aProx = Math.abs(aEpoch - now);
-    const bProx = Math.abs(bEpoch - now);
-    if (aProx !== bProx) return aProx - bProx;
-
-    if ((b.match.score || 0) !== (a.match.score || 0)) return (b.match.score || 0) - (a.match.score || 0);
-    return (b.event.id || 0) - (a.event.id || 0);
-  })[0] || null;
-}
-
-async function discoverEventForPlayer(playerName) {
-  const norm = normalizeName(playerName);
+async function discoverPlayerEvents(playerName) {
+  const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
-
   for (const delta of APP.lookaheadSeasons) {
-    const itemsUrl = competitionsUrl(delta);
-    const list = await fetchJson(itemsUrl);
-    const items = list.items || [];
-    checked.push({ delta, itemsCount: items.length, url: itemsUrl });
-
+    const listUrl = competitionsUrl(delta);
+    const payload = await fetchJson(listUrl);
+    const items = payload.items || [];
+    checked.push({ delta, itemsCount: items.length, url: listUrl });
     for (const item of items) {
       const event = await fetchJson(eventUrl(item.id));
-      const match = findMatchingTeam(event, norm);
+      const match = findMatchingTeam(event, playerNorm);
       if (!match) continue;
-      const chosen = chooseRelevantGame(event, match.team.id);
-      candidates.push({ item, event, match, chosen });
+      const selection = selectGamesForTeam(event, match.team.id);
+      candidates.push({
+        item,
+        event,
+        match,
+        selection,
+        scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3
+      });
     }
   }
-
-  const best = chooseBestDiscovery(candidates);
-  if (best) {
-    return {
-      item: best.item,
-      event: best.event,
-      match: best.match,
-      checked,
-      candidates: candidates.map(c => ({
-        eventId: c.event.id,
-        eventName: c.event.name,
-        matchedCurler: c.match.curler.name,
-        matchedTeam: c.match.team.name,
-        matchScore: c.match.score,
-        chosenGameId: c.chosen?.game?.id || null,
-        chosenGameState: c.chosen?.game?.state || null,
-        inferredState: c.chosen?.inferredState || null,
-        chosenDrawEpoch: c.chosen?.epochMs || null,
-        inWindow: !!c.chosen?.inWindow
-      }))
-    };
-  }
-
-  return { item: null, event: null, match: null, checked, candidates: [] };
+  candidates.sort((a, b) => a.scoreRank - b.scoreRank || (b.match.score - a.match.score) || ((b.event.id || 0) - (a.event.id || 0)));
+  return { checked, candidates };
 }
 
-function buildScheduleRows(event, matchedTeamId, matchedTeamName) {
-  const games = flattenGames(event);
-  const teamsById = teamMap(event);
-  const rows = [];
-  for (const game of games) {
-    const positions = game.game_positions || [];
-    if (!positions.some(pos => pos.team_id === matchedTeamId)) continue;
-    const draw = findDrawForGame(event, game.id);
-    const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeamId);
-    const oppTeam = teamsById.get(oppPos?.team_id);
-    const inferredState = classifyGame(game, draw);
-    rows.push({
-      gameId: game.id,
-      label: draw?.label ? `Draw ${draw.label}` : (game.name || 'Draw'),
-      startsAt: draw?.epoch ? formatEpochMs(draw.epoch * 1000) : (draw?.starts_at || 'TBD'),
-      state: game.state || 'unknown',
-      inferredState,
-      stateLabel: inferredState[0].toUpperCase() + inferredState.slice(1),
-      team: matchedTeamName,
-      opponent: oppTeam?.name || 'TBD',
-      epochMs: draw?.epoch ? draw.epoch * 1000 : null
-    });
-  }
-  return rows.sort((a, b) => (a.epochMs || 0) - (b.epochMs || 0));
-}
-
-function buildLiveSnapshot(playerName, event, match, chosen, diagnostics) {
-  const teamsById = teamMap(event);
+function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
+  const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const positions = chosen.game.game_positions || [];
-  const ourPos = positions.find(pos => pos.team_id === matchedTeam.id) || {};
-  const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeam.id) || {};
-  const oppTeam = teamsById.get(oppPos.team_id) || { name: 'TBD' };
-  const ends = buildEnds(ourPos, oppPos);
-  const firstHammerPos = positions.find(pos => pos.first_hammer);
-  const firstHammerTeamName = firstHammerPos?.team_id === matchedTeam.id
-    ? matchedTeam.name
-    : firstHammerPos?.team_id === oppTeam.id
-      ? oppTeam.name
-      : 'Unknown';
-  const hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, ourPos.end_scores || [], oppPos.end_scores || [], firstHammerTeamName);
   const scheduleRows = buildScheduleRows(event, matchedTeam.id, matchedTeam.name);
-  const nextUpcoming = findNextUpcomingRow(scheduleRows, chosen.game.id);
-  const nextCheckAt = Date.now() + APP.activeRefreshMs;
-  const currentEndNum = Math.max((ourPos.end_scores || []).length, (oppPos.end_scores || []).length) + (chosen.inferredState === 'live' ? 1 : 0);
+  const nextGame = selection.next;
+  const lastCompleted = selection.lastCompleted;
+  const active = selection.active || null;
+  const displayGame = active || lastCompleted || nextGame || selection.candidates[0] || null;
+
+  let hammerNext = '—';
+  let ends = [];
+  let teamScore = 0;
+  let opponentScore = 0;
+  let opponentName = 'TBD';
+  let currentEndLabel = 'Waiting';
+  let view = 'idle-event';
+
+  if (displayGame) {
+    const positions = displayGame.game.game_positions || [];
+    const ourPos = positions.find(pos => pos.team_id === matchedTeam.id) || {};
+    const oppPos = positions.find(pos => pos.team_id && pos.team_id !== matchedTeam.id) || {};
+    const oppTeam = (teamMap(event)).get(oppPos.team_id) || { name: 'TBD' };
+    const firstHammerPosition = positions.find(pos => pos.first_hammer);
+    const firstHammerTeamName = firstHammerPosition?.team_id === matchedTeam.id ? matchedTeam.name :
+      firstHammerPosition?.team_id === oppTeam.id ? oppTeam.name : 'Unknown';
+    hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, ourPos.end_scores || [], oppPos.end_scores || [], firstHammerTeamName);
+    ends = buildEnds(ourPos, oppPos);
+    teamScore = Number(ourPos.score ?? 0);
+    opponentScore = Number(oppPos.score ?? 0);
+    opponentName = oppTeam.name;
+    const currentEnd = Math.max((ourPos.end_scores || []).length, (oppPos.end_scores || []).length) + 1;
+    currentEndLabel = active ? `${currentEnd}${ordinalSuffix(currentEnd)} end` : (displayGame.draw?.starts_at || 'Scheduled draw');
+  }
+
+  const nextGameLabel = nextGame ? `${nextGame.draw?.label ? 'B' + nextGame.draw.label + ' · ' : ''}${nextGame.draw?.starts_at || formatEpochMs(nextGame.epochMs)}` : 'No next game available';
+  const nextCheck = computeCheckDelay(selection, scheduleRows);
+
+  if (active) view = 'live';
+  else if (nextGame) view = 'upcoming';
+  else if (lastCompleted) view = 'idle-event';
 
   return {
     playerName,
-    view: chosen.inferredState === 'live' ? 'live' : 'idle-event',
+    view,
     teamName: matchedTeam.name,
-    opponentName: oppTeam.name,
-    teamScore: Number(ourPos.score ?? sumEnds(ourPos.end_scores || [])),
-    opponentScore: Number(oppPos.score ?? sumEnds(oppPos.end_scores || [])),
-    currentEndLabel: chosen.inferredState === 'live' ? `${currentEndNum}${ordinalSuffix(currentEndNum)} end` : 'Game complete',
+    opponentName,
+    teamScore,
+    opponentScore,
+    currentEndLabel,
+    drawTitle: active ? (active.draw?.label ? `B${active.draw.label}` : active.draw?.starts_at || active.game.stageName || 'Live') : '',
     hammerNext,
     eventName: event.name,
-    drawLabel: chosen.draw?.label ? `Draw ${chosen.draw.label}` : chosen.draw?.starts_at || chosen.game.stageName || '',
-    stageName: chosen.game.stageName,
     ends,
     scheduleRows,
-    nextGameLabel: nextUpcoming ? `${nextUpcoming.startsAt} · vs ${nextUpcoming.opponent}` : '—',
-    nextDrawLabel: nextUpcoming ? nextUpcoming.startsAt : 'TBD',
-    activeGameId: chosen.game.id,
-    timelineHint: chosen.inferredState === 'live' ? 'Updates after each end.' : 'Latest posted end scores.',
-    scheduleHint: 'Only checking around this curler’s scheduled draws.',
-    nextCheckAt,
+    activeGameId: active?.game.id || null,
+    nextGameId: nextGame?.game.id || null,
+    nextGameLabel,
+    timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
+    scheduleHint: 'Only checking during this curler’s draw windows. Next game comes from confirmed team assignment in the next game slot.',
+    nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(new Date()),
     diagnostics,
-    eventId: event.id
+    eventId: event.id,
+    nextCheckReason: nextCheck.reason
   };
-}
-
-function ordinalSuffix(n) {
-  const j = n % 10;
-  const k = n % 100;
-  if (j === 1 && k !== 11) return 'st';
-  if (j === 2 && k !== 12) return 'nd';
-  if (j === 3 && k !== 13) return 'rd';
-  return 'th';
-}
-
-function chooseNextRelevantCheck(chosen, scheduleRows) {
-  const now = Date.now();
-  if (chosen?.inferredState === 'live') {
-    return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
-  }
-
-  const nextUpcoming = scheduleRows
-    .filter(row => row.epochMs && row.epochMs > now)
-    .sort((a, b) => a.epochMs - b.epochMs)[0];
-
-  if (nextUpcoming) {
-    const preWindow = nextUpcoming.epochMs - APP.preGameWindowMs;
-    if (preWindow > now) {
-      return { delayMs: preWindow - now, reason: 'sleep until pre-game window' };
-    }
-    return { delayMs: APP.upcomingRefreshMs, reason: 'pre-game monitoring' };
-  }
-
-  return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
 
 async function runTracker({ reason }) {
@@ -622,103 +562,71 @@ async function runTracker({ reason }) {
   setStatus(`Checking for ${state.playerName}…`);
 
   try {
-    const discovery = await discoverEventForPlayer(state.playerName);
-
-    if (!discovery.event || !discovery.match) {
+    const discovery = await discoverPlayerEvents(state.playerName);
+    if (!discovery.candidates.length) {
       const diagnostics = {
         phase: 'no-match',
+        reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        candidates: discovery.candidates,
-        reason,
         policy: 'Idle scans every 72 hours until a matching event appears.'
       };
       setDiagnostics(diagnostics);
-      const snapshot = computeScanSnapshot(state.playerName, diagnostics, APP.idleScanMs, 'No active event found.');
-      snapshot.scheduleHint = 'Scanning Alberta competitions every 72 hours.';
-      snapshot.eventName = 'No active event found';
+      const snapshot = computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs);
       render(snapshot);
       setStatus(`No current Alberta event found for ${state.playerName}. Next scan in about 72 hours.`);
       scheduleNextRun(APP.idleScanMs);
       return;
     }
 
-    const chosen = chooseRelevantGame(discovery.event, discovery.match.team.id);
-    const scheduleRows = buildScheduleRows(discovery.event, discovery.match.team.id, discovery.match.team.name);
-    const nextUpcoming = findNextUpcomingRow(scheduleRows, chosen?.game?.id || null);
-    const nextCheck = chooseNextRelevantCheck(chosen, scheduleRows);
-
+    const chosen = discovery.candidates[0];
+    const selection = chosen.selection;
     const diagnostics = {
       phase: 'matched',
       reason,
       playerName: state.playerName,
-      matchedCurler: discovery.match.curler.name,
-      matchedTeam: discovery.match.team.name,
-      matchScore: discovery.match.score,
-      eventId: discovery.event.id,
-      eventName: discovery.event.name,
-      chosenGameId: chosen?.game?.id || null,
-      chosenGameState: chosen?.game?.state || null,
-      inferredState: chosen?.inferredState || null,
-      chosenDrawEpoch: chosen?.epochMs || null,
-      nextGame: nextUpcoming ? { gameId: nextUpcoming.gameId, startsAt: nextUpcoming.startsAt, opponent: nextUpcoming.opponent } : null,
-      nextCheckReason: nextCheck.reason,
+      matchedCurler: chosen.match.curler.name,
+      matchedTeam: chosen.match.team.name,
+      matchScore: chosen.match.score,
+      eventId: chosen.event.id,
+      eventName: chosen.event.name,
+      activeGameId: selection.active?.game.id || null,
+      activeGameState: selection.active?.lifecycle || null,
+      nextGameId: selection.next?.game.id || null,
+      nextGameDrawLabel: selection.next?.draw?.label || null,
+      completedGameId: selection.lastCompleted?.game.id || null,
+      completedResult: selection.lastCompleted?.ourPos?.result || null,
+      nextCheckReason: computeCheckDelay(selection, buildScheduleRows(chosen.event, chosen.match.team.id, chosen.match.team.name)).reason,
       checked: discovery.checked,
-      candidates: discovery.candidates
+      candidates: discovery.candidates.slice(0, 8).map(c => ({
+        eventId: c.event.id,
+        eventName: c.event.name,
+        matchedCurler: c.match.curler.name,
+        matchedTeam: c.match.team.name,
+        matchScore: c.match.score,
+        activeGameId: c.selection.active?.game.id || null,
+        nextGameId: c.selection.next?.game.id || null,
+        completedGameId: c.selection.lastCompleted?.game.id || null
+      }))
     };
     setDiagnostics(diagnostics);
 
-    if (!chosen) {
-      const snapshot = {
-        playerName: state.playerName,
-        view: 'idle-event',
-        eventName: discovery.event.name,
-        hammerNext: '—',
-        nextGameLabel: nextUpcoming ? `${nextUpcoming.startsAt} · vs ${nextUpcoming.opponent}` : '—',
-        ends: [],
-        scheduleRows,
-        timelineHint: 'No game selected yet.',
-        scheduleHint: 'Only checking around this curler’s scheduled draws.',
-        nextCheckAt: Date.now() + nextCheck.delayMs,
-        lastUpdatedLabel: formatClock(new Date()),
-        diagnostics,
-        eventId: discovery.event.id
-      };
-      render(snapshot);
-      setStatus(`Matched ${discovery.match.curler.name} in ${discovery.event.name}. Sleeping until the next draw window.`);
-      scheduleNextRun(nextCheck.delayMs);
-      return;
-    }
-
-    const snapshot = buildLiveSnapshot(state.playerName, discovery.event, discovery.match, chosen, diagnostics);
-    snapshot.scheduleRows = scheduleRows;
-    snapshot.nextCheckAt = Date.now() + nextCheck.delayMs;
-    snapshot.scheduleHint = 'Only checking during this curler’s draw windows.';
-    if (chosen.inferredState !== 'live') {
-      snapshot.view = chosen.inferredState === 'upcoming' ? 'upcoming' : 'idle-event';
-      snapshot.currentEndLabel = chosen.draw?.starts_at || 'Upcoming draw';
-      snapshot.timelineHint = chosen.inferredState === 'complete' ? 'Latest posted end scores.' : 'Waiting for the draw to begin.';
-      snapshot.nextDrawLabel = nextUpcoming?.startsAt || chosen.draw?.starts_at || 'TBD';
-    }
-
+    const snapshot = buildSnapshotFromCandidate(state.playerName, chosen, diagnostics);
     render(snapshot);
-    if (chosen.inferredState === 'live') {
-      setStatus(`${discovery.match.curler.name} is live in ${discovery.event.name}. Refreshing every 60 seconds.`);
-    } else if (chosen.inferredState === 'upcoming') {
-      setStatus(`Matched ${discovery.match.curler.name} in ${discovery.event.name}. Monitoring only around the scheduled draw.`);
+
+    if (snapshot.view === 'live') {
+      setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing every 60 seconds.`);
+    } else if (snapshot.nextGameId) {
+      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game ${snapshot.nextGameId} will be monitored when its draw window opens.`);
     } else {
-      setStatus(`Latest event found for ${discovery.match.curler.name}. No live draw right now.`);
+      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
-    scheduleNextRun(nextCheck.delayMs);
+
+    scheduleNextRun(Math.max(5_000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
-    const diagnostics = {
-      phase: 'error',
-      playerName: state.playerName,
-      reason,
-      error: error.message
-    };
+    const diagnostics = { phase: 'error', reason, playerName: state.playerName, error: error.message };
     setDiagnostics(diagnostics);
-    const snapshot = computeScanSnapshot(state.playerName, diagnostics, APP.errorRetryMs, 'Temporary fetch error.');
+    const snapshot = computeIdleSnapshot(state.playerName, diagnostics, APP.errorRetryMs);
     snapshot.eventName = 'Temporary error';
     snapshot.scheduleHint = 'Retrying in 30 minutes.';
     render(snapshot);
@@ -738,9 +646,9 @@ function startTracking(playerName, reason = 'manual-start') {
 function maybeRunOpenScan(trigger) {
   if (!state.playerName) return;
   const now = Date.now();
-  const recentlyRan = now - state.lastRunAt < 15_000;
+  const recentlyRan = now - state.lastRunAt < APP.openRescanFloorMs;
   if (trigger === 'visible') {
-    const recentlyVisibilityScanned = now - state.lastVisibilityScanAt < 60_000;
+    const recentlyVisibilityScanned = now - state.lastVisibilityScanAt < APP.visibleRescanFloorMs;
     if (recentlyRan || recentlyVisibilityScanned) return;
     state.lastVisibilityScanAt = now;
   } else if (recentlyRan) {
@@ -778,6 +686,15 @@ els.shareBtn.addEventListener('click', async () => {
   }
 });
 
+els.refreshBtn.addEventListener('click', () => {
+  if (!state.playerName && els.playerInput.value.trim()) {
+    startTracking(els.playerInput.value.trim(), 'manual-refresh-start');
+    return;
+  }
+  if (!state.playerName) return;
+  runTracker({ reason: 'manual-refresh' });
+});
+
 els.diagnosticsToggle.addEventListener('click', () => {
   els.diagnosticsPanel.classList.toggle('hidden');
 });
@@ -802,18 +719,10 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-window.addEventListener('pageshow', () => {
-  maybeRunOpenScan('pageshow');
-});
-
+window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') {
-    maybeRunOpenScan('visible');
-  }
+  if (document.visibilityState === 'visible') maybeRunOpenScan('visible');
 });
-
-window.addEventListener('focus', () => {
-  maybeRunOpenScan('focus');
-});
+window.addEventListener('focus', () => maybeRunOpenScan('focus'));
 
 bootFromSavedState();
