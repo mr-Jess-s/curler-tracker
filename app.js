@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v11';
+const APP_VERSION = 'v12';
 const APP = {
   clubSubdomain: 'ab',
   language: 'en',
@@ -702,7 +702,15 @@ els.installBtn.addEventListener('click', async () => {
   els.installBtn.classList.add('hidden');
 });
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); });
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('./sw.js');
+      reg.update?.();
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!window.__ctReloaded) { window.__ctReloaded = true; window.location.reload(); }
+      });
+    } catch {}
+  });
 }
 window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') maybeRunOpenScan('visible'); });
