@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v12';
+const APP_VERSION = 'v13';
 const APP = {
   clubSubdomain: 'ab',
   language: 'en',
@@ -14,8 +14,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v11',
-    snapshot: 'curler-tracker-snapshot-v11'
+    player: 'curler-tracker-player-v13',
+    snapshot: 'curler-tracker-snapshot-v13'
   }
 };
 
@@ -31,7 +31,6 @@ const els = {
   trackedPlayer: document.getElementById('trackedPlayer'),
   liveBadge: document.getElementById('liveBadge'),
   headlineBlock: document.getElementById('headlineBlock'),
-  hammerValue: document.getElementById('hammerValue'),
   eventValue: document.getElementById('eventValue'),
   nextCheckValue: document.getElementById('nextCheckValue'),
   updatedValue: document.getElementById('updatedValue'),
@@ -68,6 +67,17 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
+
+function shortenTeamName(name, { keepCC = false } = {}) {
+  let out = String(name || '').trim();
+  if (!out) return 'TBD';
+  if (!keepCC) out = out.replace(/\s*C\.?C\.?$/i, '').trim();
+  return out.replace(/\s+/g, ' ');
+}
+
+function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
+  return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
+}
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
   if (j === 1 && k !== 11) return 'st';
@@ -375,7 +385,7 @@ function renderHeadline(snapshot) {
     return;
   }
   if (snapshot.view === 'live') {
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(snapshot.teamName)} ${snapshot.teamScore} vs ${escapeHtml(snapshot.opponentName)} ${snapshot.opponentScore}</div><div class="headline-sub">${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.drawTitle || 'Live now')}</div></div>`;
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">Now playing ${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
   if (snapshot.view === 'upcoming') {
@@ -389,14 +399,22 @@ function renderHeadline(snapshot) {
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
-function renderEnds(ends) {
+function renderEnds(teamName, opponentName, ends) {
   if (!ends?.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
     return;
   }
-  els.endsList.className = 'ends-list';
-  els.endsList.innerHTML = ends.map(row => `<div class="end-row"><span class="end-label">End ${row.end}</span><span class="end-score">${row.team} - ${row.opponent}</span></div>`).join('');
+  const teamShort = escapeHtml(shortenTeamName(teamName));
+  const oppShort = escapeHtml(shortenTeamName(opponentName));
+  els.endsList.className = 'ends-list ends-table';
+  const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
+  const rows = ends.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${row.team}</span><span class="end-score-cell">${row.opponent}</span></div>`).join('');
+  els.endsList.innerHTML = header + rows;
+}
+
+function formatScheduleTime(row) {
+  return row?.startsAt || (row?.epochMs ? formatEpochMs(row.epochMs) : 'TBD');
 }
 
 function renderSchedule(scheduleRows, activeGameId, nextGameId) {
@@ -408,10 +426,11 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   els.scheduleList.className = 'schedule-list';
   els.scheduleList.innerHTML = scheduleRows.map(row => {
     const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
-    return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(row.drawLabel)}</div><div class="schedule-meta">${escapeHtml(row.team)} vs ${escapeHtml(row.opponent)}<br>${escapeHtml(row.gameId)}</div></div><div class="schedule-meta">${escapeHtml(row.startsAt)}<br>${escapeHtml(row.stateLabel)}</div></div>`;
+    const title = row.branchLabel ? row.branchLabel : `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
+    const subtitle = row.branchLabel ? `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}` : row.stateLabel;
+    return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
 }
-
 function updateBadge(view) {
   els.liveBadge.className = 'badge';
   if (view === 'live') { els.liveBadge.classList.add('live'); els.liveBadge.textContent = 'Live'; }
@@ -426,13 +445,12 @@ function render(snapshot) {
   els.trackedPlayer.textContent = snapshot?.playerName || '—';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
-  els.hammerValue.textContent = snapshot?.hammerNext || '—';
   els.eventValue.textContent = snapshot?.eventName || '—';
   els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : '—';
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
-  renderEnds(snapshot?.ends || []);
+  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase:'idle' });
 }
@@ -442,12 +460,28 @@ function scheduleNextRun(delayMs) {
   state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
 }
 
+const BRANCH_OVERRIDES = {
+  '24013:59caf1a7': { win: 'b253bd29', loss: 'bd4a80b5' }
+};
+
+function getOutcomeBranchRows(event, matchedTeam, selection) {
+  const source = selection.active || selection.lastCompleted;
+  if (!source) return [];
+  const key = `${event.id}:${source.gameId}`;
+  const override = BRANCH_OVERRIDES[key];
+  if (!override) return [];
+  const byId = new Map(selection.rows.map(r => [r.gameId, r]));
+  const rows = [];
+  if (override.win && byId.get(override.win)) rows.push({ ...byId.get(override.win), branchLabel: `If ${shortenTeamName(matchedTeam.name)} wins` });
+  if (override.loss && byId.get(override.loss)) rows.push({ ...byId.get(override.loss), branchLabel: `If ${shortenTeamName(matchedTeam.name)} loses` });
+  return rows;
+}
+
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
   return {
     playerName,
     view: 'idle',
     eventName: 'No active event found',
-    hammerNext: '—',
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
@@ -488,7 +522,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='—', ends=[], teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+  let hammerNext='—', hammerSubtitle='Hammer unknown', ends=[], teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
@@ -499,6 +533,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     const firstHammerName = getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? matchedTeam.name :
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
+    hammerSubtitle = `${shortenTeamName(hammerNext)} has hammer`;
     ends = buildEnds(ourPos, oppPos);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
@@ -508,12 +543,31 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   }
 
   const nextGameLabel = nextGame
-    ? `${nextGame.drawLabel ? nextGame.drawLabel + ' · ' : ''}${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
+    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
     : 'No next game available';
   const nextCheck = computeCheckDelay(selection);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
+
+  const linkedScheduleRows = selection.linkedRows.map(r => ({
+    gameId: r.gameId,
+    startsAt: r.startsAt,
+    epochMs: r.epochMs,
+    stateLabel: r.lifecycle === 'playing' ? 'Now playing' : r.lifecycle === 'pending-window' ? 'Starting soon' : r.lifecycle === 'pending' ? 'Scheduled' : r.lifecycle === 'just-finished' ? 'Final' : r.lifecycle === 'complete' ? 'Complete' : 'Unknown',
+    team: matchedTeam.name,
+    opponent: r.oppTeam?.name || 'TBD'
+  }));
+  const branchRows = getOutcomeBranchRows(event, matchedTeam, selection).map(r => ({
+    gameId: r.gameId,
+    startsAt: r.startsAt,
+    epochMs: r.epochMs,
+    stateLabel: 'Outcome branch',
+    team: matchedTeam.name,
+    opponent: r.oppTeam?.name || 'TBD',
+    branchLabel: r.branchLabel
+  }));
+  const mergedScheduleRows = [...linkedScheduleRows, ...branchRows].sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
 
   return {
     playerName,
@@ -525,21 +579,15 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     currentEndLabel,
     drawTitle: active ? (active.drawLabel || active.startsAt || 'Live') : '',
     hammerNext,
+    hammerSubtitle,
     eventName: event.name,
     ends,
-    scheduleRows: selection.rows.map(r => ({
-      gameId: r.gameId,
-      drawLabel: r.drawLabel,
-      startsAt: r.startsAt,
-      stateLabel: r.lifecycle === 'playing' ? 'Live' : r.lifecycle === 'pending-window' ? 'Starting soon' : r.lifecycle === 'pending' ? 'Scheduled' : r.lifecycle === 'just-finished' ? 'Final' : r.lifecycle === 'complete' ? 'Complete' : 'Unknown',
-      team: matchedTeam.name,
-      opponent: r.oppTeam?.name || 'TBD'
-    })),
+    scheduleRows: mergedScheduleRows,
     activeGameId: active?.gameId || null,
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? 'Draw-first search found a confirmed next game assignment.' : 'Draw-first search is watching the next draw and will upgrade it when team assignment appears.',
+    scheduleHint: branchRows.length ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games plus win/loss branches for the current result path.` : (nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Watching the next draw and upgrading when team assignment appears.'),
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
