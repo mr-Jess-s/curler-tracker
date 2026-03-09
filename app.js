@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v24';
+const APP_VERSION = 'v25';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -14,8 +14,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v18',
-    snapshot: 'curler-tracker-snapshot-v18'
+    player: 'curler-tracker-player-v25',
+    snapshot: 'curler-tracker-snapshot-v25'
   }
 };
 
@@ -79,32 +79,7 @@ function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
   return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
 function resolveGameTitle(row) {
-  const rawGameName = String(row?.gameName || row?.game?.name || '').trim();
-  const rawStageName = String(row?.stageName || row?.game?.stageName || '').trim();
-  const rawDrawLabel = String(row?.drawLabel || '').trim();
-
-  const gameName = rawGameName.replace(/\s+/g, ' ');
-  const stageName = rawStageName.replace(/\s+/g, ' ');
-  const drawLabel = rawDrawLabel.replace(/\s+/g, ' ');
-
-  const isGoodExplicitTitle = /page|gold|bronze|semi|semifinal|quarter|quarterfinal|final|qualifier|playoff|tie[\s-]?breaker/i.test(gameName);
-  const looksLikeMatchup = /\b(v|vs|versus)\b/i.test(gameName) || /^\d+[A-Z]?\s+vs\s+\d+[A-Z]?$/i.test(gameName) || /^[A-Z]{1,4}\s*\([^)]+\)\s*v\s*[A-Z]{1,4}\s*\([^)]+\)$/i.test(gameName);
-
-  if (isGoodExplicitTitle) return gameName;
-
-  if (stageName) {
-    if (/round\s*robin/i.test(stageName)) return 'Round Robin';
-    if (/championship\s*pool/i.test(stageName)) return 'Championship Pool';
-    if (/pool\s+[A-Z]/i.test(stageName)) return stageName;
-    if (/playoff|qualifier|page|semi|final|bronze|gold/i.test(stageName)) return stageName;
-    return stageName;
-  }
-
-  if (drawLabel) return `Draw ${drawLabel}`;
-
-  if (gameName && !looksLikeMatchup) return gameName;
-
-  return '';
+  return String(row?.gameName || row?.game?.name || '').trim();
 }
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
