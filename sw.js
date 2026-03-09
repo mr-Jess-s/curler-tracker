@@ -1,4 +1,4 @@
-const CACHE = 'curler-tracker-v18';
+const CACHE = 'curler-tracker-v19';
 const ASSETS = ['./','./index.html','./styles.css','./app.js','./manifest.webmanifest'];
 self.addEventListener('install', (event) => {
   self.skipWaiting();
