@@ -1,7 +1,12 @@
 
-const APP_VERSION = 'v19';
+const APP_VERSION = 'v21';
 const APP = {
-  clubSubdomain: 'ab',
+  clubSubdomains: [
+    'canada', 'ab', 'bc', 'mb', 'sk', 'on', 'qc', 'ns', 'nb', 'pei', 'nl', 'nt', 'nu', 'yk',
+    'noca', 'northern-ontario', 'ontario', 'quebec', 'sask', 'manitoba', 'alberta', 'british-columbia',
+    'new-brunswick', 'newfoundland-labrador', 'nova-scotia', 'prince-edward-island',
+    'yukon', 'nunavut', 'northwest-territories'
+  ],
   language: 'en',
   lookaheadSeasons: [0],
   idleScanMs: 72 * 60 * 60 * 1000,
@@ -14,8 +19,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v17',
-    snapshot: 'curler-tracker-snapshot-v17'
+    player: 'curler-tracker-player-v21',
+    snapshot: 'curler-tracker-snapshot-v21'
   }
 };
 
@@ -38,7 +43,10 @@ const els = {
   timelineHint: document.getElementById('timelineHint'),
   scheduleList: document.getElementById('scheduleList'),
   scheduleHint: document.getElementById('scheduleHint'),
-  installBtn: document.getElementById('installBtn')
+  installBtn: document.getElementById('installBtn'),
+  pickerPanel: document.getElementById('pickerPanel'),
+  pickerList: document.getElementById('pickerList'),
+  pickerHint: document.getElementById('pickerHint')
 };
 
 const state = {
@@ -48,7 +56,8 @@ const state = {
   snapshot: null,
   diagnostics: { appVersion: APP_VERSION, phase: 'idle' },
   lastRunAt: 0,
-  lastVisibilityScanAt: 0
+  lastVisibilityScanAt: 0,
+  pendingChoices: null
 };
 
 function normalizeName(name) {
@@ -76,32 +85,7 @@ function shortenTeamName(name, { keepCC = false } = {}) {
 }
 
 function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
-  return `${teamA} - ${scoreA} vs ${scoreB} - ${teamB}`;
-}
-
-function normalizeDrawNumber(label) {
-  const raw = String(label || '').trim();
-  const m = raw.match(/(\d+)/);
-  return m ? m[1] : raw;
-}
-
-function formatGameTitle(row, teamName, opponentName) {
-  const stage = String(row?.game?.stageName || '').trim();
-  const drawNum = normalizeDrawNumber(row?.draw?.label || row?.drawLabel || '');
-  let prefix = '';
-  if (stage && drawNum) prefix = `${stage} ${drawNum}`;
-  else if (stage) prefix = stage;
-  else if (drawNum) prefix = drawNum;
-  const matchup = `${shortenTeamName(teamName)} vs ${shortenTeamName(opponentName)}`;
-  return prefix ? `${prefix} · ${matchup}` : matchup;
-}
-
-function formatLiveSubtitle(drawTitle, currentEndLabel, hammerName) {
-  const parts = [];
-  if (drawTitle) parts.push(drawTitle);
-  parts.push(`Now playing ${currentEndLabel}`);
-  if (hammerName) parts.push(`${hammerName} has hammer`);
-  return parts.join(' · ');
+  return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
@@ -137,17 +121,88 @@ function setDiagnostics(obj) {
 }
 function buildDiagnostics(base) { return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base }; }
 
+function provinceLabelFromSource(source) {
+  const map = {
+    canada: 'Canada', ab: 'Alberta', alberta: 'Alberta', bc: 'British Columbia', 'british-columbia': 'British Columbia',
+    mb: 'Manitoba', manitoba: 'Manitoba', sk: 'Saskatchewan', sask: 'Saskatchewan', on: 'Ontario', ontario: 'Ontario',
+    noca: 'Northern Ontario', 'northern-ontario': 'Northern Ontario', qc: 'Quebec', quebec: 'Quebec',
+    ns: 'Nova Scotia', 'nova-scotia': 'Nova Scotia', nb: 'New Brunswick', 'new-brunswick': 'New Brunswick',
+    pei: 'Prince Edward Island', 'prince-edward-island': 'Prince Edward Island', nl: 'Newfoundland and Labrador',
+    'newfoundland-labrador': 'Newfoundland and Labrador', nt: 'Northwest Territories', 'northwest-territories': 'Northwest Territories',
+    nu: 'Nunavut', nunavut: 'Nunavut', yk: 'Yukon', yukon: 'Yukon'
+  };
+  return map[String(source || '').toLowerCase()] || String(source || '').toUpperCase();
+}
+
+function candidateProvinceLabel(candidate) {
+  const teamLoc = candidate?.match?.team?.location || '';
+  const eventLoc = candidate?.event?.location || candidate?.item?.location || '';
+  const loc = teamLoc || eventLoc;
+  if (/,/.test(loc)) return loc.split(',').pop().trim();
+  if (loc) return loc.trim();
+  return provinceLabelFromSource(candidate?.subdomain);
+}
+
+function candidateSelectionKey(candidate) {
+  return [candidate?.subdomain, candidate?.event?.id, candidate?.match?.team?.id, normalizeName(candidate?.match?.curler?.name || '')].join(':');
+}
+
+function loadSelectionMap() {
+  try { return JSON.parse(localStorage.getItem('curler-tracker-selection-map-v21') || '{}'); } catch { return {}; }
+}
+
+function saveSelectionChoice(query, key) {
+  const map = loadSelectionMap();
+  map[normalizeName(query)] = key;
+  localStorage.setItem('curler-tracker-selection-map-v21', JSON.stringify(map));
+}
+
+function getSavedSelectionKey(query) {
+  const map = loadSelectionMap();
+  return map[normalizeName(query)] || null;
+}
+
+function setPickerHidden(hidden) {
+  els.pickerPanel?.classList.toggle('hidden', hidden);
+}
+
+function renderCandidatePicker(query, choices) {
+  if (!els.pickerList || !els.pickerPanel) return;
+  if (!choices?.length) { setPickerHidden(true); return; }
+  els.pickerHint.textContent = `Multiple curlers match “${query}”. Choose who to follow.`;
+  els.pickerList.innerHTML = choices.map((choice, idx) => {
+    const province = candidateProvinceLabel(choice);
+    const eventName = choice?.event?.name || 'Unknown event';
+    const curler = choice?.match?.curler?.name || 'Unknown curler';
+    return `<button type="button" class="picker-option" data-choice-index="${idx}"><span class="picker-name">${escapeHtml(curler)}</span><span class="picker-meta">${escapeHtml(province)} · ${escapeHtml(eventName)}</span></button>`;
+  }).join('');
+  setPickerHidden(false);
+}
+
+async function mapWithConcurrency(items, limit, mapper) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  const workers = Array.from({ length: Math.min(limit, items.length || 0) }, async () => {
+    while (nextIndex < items.length) {
+      const current = nextIndex++;
+      results[current] = await mapper(items[current], current);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
 async function fetchJson(url) {
   const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return res.json();
 }
 
-function competitionsUrl(delta) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
+function competitionsUrl(subdomain, delta) {
+  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
 }
-function eventUrl(eventId) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/events/${eventId}`;
+function eventUrl(subdomain, eventId) {
+  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/events/${eventId}`;
 }
 
 function parseEventDateToMs(value) {
@@ -327,6 +382,7 @@ function buildDrawFirstRows(event, matchedTeam) {
 
 function selectGamesForEvent(event, matchedTeam) {
   const { rows, aliases, unmatchedDrawRows, totalStageGames } = buildDrawFirstRows(event, matchedTeam);
+  const now = Date.now();
   const linkedRows = rows.filter(r => r.linked);
   const active = linkedRows.find(r => r.lifecycle === 'playing') || null;
   const nextConfirmed = linkedRows
@@ -335,6 +391,12 @@ function selectGamesForEvent(event, matchedTeam) {
   const completed = linkedRows
     .filter(r => ['just-finished','complete'].includes(r.lifecycle))
     .sort((a,b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+  let inferredNext = null;
+  if (!nextConfirmed && completed && String(getPositionResult(completed.ourPos) || '').toLowerCase() === 'won') {
+    inferredNext = rows
+      .filter(r => r !== completed && ['pending-window','pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
+      .sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+  }
 
   const stateCounts = {};
   for (const r of rows) stateCounts[r.lifecycle] = (stateCounts[r.lifecycle] || 0) + 1;
@@ -344,6 +406,7 @@ function selectGamesForEvent(event, matchedTeam) {
     linkedRows,
     active,
     next: nextConfirmed,
+    inferredNext,
     lastCompleted: completed,
     diagnostics: {
       totalStageGames,
@@ -355,32 +418,21 @@ function selectGamesForEvent(event, matchedTeam) {
       futureOpenSlotGames: rows.filter(r => ['pending-window','pending'].includes(r.lifecycle) && r.openSlots > 0).length,
       stateCounts,
       matchedTeamAliases: aliases.slice(0, 12),
-      inferredLinkedGames: [],
+      inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
       unmatchedDrawRows: unmatchedDrawRows.slice(0, 10),
-      usedInference: false
+      usedInference: !nextConfirmed && !!inferredNext
     }
   };
 }
 
-function buildEnds(ourPos, oppPos, totalEnds = 8, gameIsComplete = false) {
+function buildEnds(ourPos, oppPos) {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
-  const length = Math.max(ours.length, opps.length, Number(totalEnds) || 0);
+  const length = Math.max(ours.length, opps.length);
   const rows = [];
-  for (let i = 0; i < length; i++) {
-    const teamPlayed = i < ours.length;
-    const oppPlayed = i < opps.length;
-    const emptyValue = gameIsComplete ? 'X' : '';
-    rows.push({
-      end: i + 1,
-      team: teamPlayed ? Number(ours[i] ?? 0) : emptyValue,
-      opponent: oppPlayed ? Number(opps[i] ?? 0) : emptyValue,
-      played: teamPlayed || oppPlayed
-    });
-  }
+  for (let i=0;i<length;i++) rows.push({ end:i+1, team:Number(ours[i]??0), opponent:Number(opps[i]??0) });
   return rows;
 }
-
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
   let hammer = firstHammerTeamName || 'Unknown';
   const maxEnds = Math.max(endScoresA.length, endScoresB.length);
@@ -395,10 +447,14 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
 function computeCheckDelay(selection) {
   const now = Date.now();
   if (selection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
-  if (selection.next) {
-    const preWindowAt = (selection.next.epochMs || 0) - APP.preGameWindowMs;
-    if (selection.next.epochMs && preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
-    return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
+  if (selection.next) return { delayMs: APP.upcomingRefreshMs, reason: 'confirmed next game found' };
+  if (selection.inferredNext) return { delayMs: APP.upcomingRefreshMs, reason: 'watching inferred next game until team assignment appears' };
+  if (selection.lastCompleted) return { delayMs: APP.justFinishedRefreshMs, reason: 'checking whether completed game winner has advanced' };
+  const nextRow = selection.rows.find(r => r.epochMs && r.epochMs > now);
+  if (nextRow) {
+    const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'pre-game monitoring' };
   }
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
@@ -409,7 +465,7 @@ function renderHeadline(snapshot) {
     return;
   }
   if (snapshot.view === 'live') {
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamAlias || snapshot.teamName, snapshot.teamScore, snapshot.opponentAlias || snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${escapeHtml(formatLiveSubtitle(snapshot.drawTitle, snapshot.currentEndLabel, snapshot.hammerSubtitle || ''))}</div></div>`;
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">Now playing ${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
   if (snapshot.view === 'upcoming') {
@@ -423,7 +479,7 @@ function renderHeadline(snapshot) {
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
-function renderEnds(teamName, opponentName, ends, teamTotal = 0, opponentTotal = 0) {
+function renderEnds(teamName, opponentName, ends) {
   if (!ends?.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
@@ -434,8 +490,7 @@ function renderEnds(teamName, opponentName, ends, teamTotal = 0, opponentTotal =
   els.endsList.className = 'ends-list ends-table';
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
   const rows = ends.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${row.team}</span><span class="end-score-cell">${row.opponent}</span></div>`).join('');
-  const totalRow = `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${teamTotal}</span><span class="end-score-cell">${opponentTotal}</span></div>`;
-  els.endsList.innerHTML = header + rows + totalRow;
+  els.endsList.innerHTML = header + rows;
 }
 
 function formatScheduleTime(row) {
@@ -451,7 +506,7 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   els.scheduleList.className = 'schedule-list';
   els.scheduleList.innerHTML = scheduleRows.map(row => {
     const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
-    const title = row.title || (row.branchLabel ? row.branchLabel : `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`);
+    const title = row.branchLabel ? row.branchLabel : `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
     const subtitle = row.branchLabel ? `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}` : row.stateLabel;
     return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
@@ -467,7 +522,7 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
-  els.trackedPlayer.textContent = snapshot?.playerName || '—';
+  els.trackedPlayer.textContent = snapshot?.displayPlayerName || snapshot?.playerName || '—';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
   els.eventValue.textContent = snapshot?.eventName || '—';
@@ -475,7 +530,7 @@ function render(snapshot) {
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
-  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || [], snapshot?.teamScore || 0, snapshot?.opponentScore || 0);
+  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase:'idle' });
 }
@@ -483,6 +538,23 @@ function render(snapshot) {
 function scheduleNextRun(delayMs) {
   if (state.timerId) clearTimeout(state.timerId);
   state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
+}
+
+const BRANCH_OVERRIDES = {
+  '24013:59caf1a7': { win: 'b253bd29', loss: 'bd4a80b5' }
+};
+
+function getOutcomeBranchRows(event, matchedTeam, selection) {
+  const source = selection.active || selection.lastCompleted;
+  if (!source) return [];
+  const key = `${event.id}:${source.gameId}`;
+  const override = BRANCH_OVERRIDES[key];
+  if (!override) return [];
+  const byId = new Map(selection.rows.map(r => [r.gameId, r]));
+  const rows = [];
+  if (override.win && byId.get(override.win)) rows.push({ ...byId.get(override.win), branchLabel: `If ${shortenTeamName(matchedTeam.name)} wins` });
+  if (override.loss && byId.get(override.loss)) rows.push({ ...byId.get(override.loss), branchLabel: `If ${shortenTeamName(matchedTeam.name)} loses` });
+  return rows;
 }
 
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
@@ -504,28 +576,64 @@ async function discoverPlayerEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
-  for (const delta of APP.lookaheadSeasons) {
-    const listUrl = competitionsUrl(delta);
-    const payload = await fetchJson(listUrl);
-    const items = payload.items || [];
-    checked.push({ delta, itemsCount: items.length, url: listUrl });
-    for (const item of items) {
-      const event = await fetchJson(eventUrl(item.id));
-      if (!isEventTodayForward(event)) continue;
-      const match = findMatchingTeam(event, playerNorm);
-      if (!match) continue;
-      const selection = selectGamesForEvent(event, match.team);
-      candidates.push({ item, event, match, selection, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
+  const seenEvents = new Set();
+  const subdomains = Array.from(new Set((APP.clubSubdomains || []).filter(Boolean)));
+
+  const competitionPayloads = await mapWithConcurrency(subdomains, 6, async (subdomain) => {
+    return await Promise.all((APP.lookaheadSeasons || [0]).map(async (delta) => {
+      const listUrl = competitionsUrl(subdomain, delta);
+      try {
+        const payload = await fetchJson(listUrl);
+        const items = payload.items || [];
+        checked.push({ source: subdomain, delta, itemsCount: items.length, url: listUrl, ok: true });
+        return { subdomain, delta, items };
+      } catch (error) {
+        checked.push({ source: subdomain, delta, itemsCount: 0, url: listUrl, ok: false, stage: 'competitions', error: error.message });
+        return { subdomain, delta, items: [] };
+      }
+    }));
+  });
+
+  const eventJobs = [];
+  for (const group of competitionPayloads.flat()) {
+    for (const item of group.items) {
+      const dedupeKey = `${group.subdomain}:${item.id}`;
+      if (seenEvents.has(dedupeKey)) continue;
+      seenEvents.add(dedupeKey);
+      eventJobs.push({ subdomain: group.subdomain, delta: group.delta, item });
     }
   }
-  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
-  return { checked, candidates };
+
+  await mapWithConcurrency(eventJobs, 8, async (job) => {
+    try {
+      const event = await fetchJson(eventUrl(job.subdomain, job.item.id));
+      if (!isEventTodayForward(event)) return;
+      const match = findMatchingTeam(event, playerNorm);
+      if (!match) return;
+      const selection = selectGamesForEvent(event, match.team);
+      candidates.push({
+        item: job.item,
+        event,
+        match,
+        selection,
+        subdomain: job.subdomain,
+        scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3
+      });
+    } catch (error) {
+      checked.push({ source: job.subdomain, delta: job.delta, eventId: job.item.id, ok: false, stage: 'event', error: error.message });
+    }
+  });
+
+  candidates.sort((a, b) => a.scoreRank - b.scoreRank || (b.match.score - a.match.score) || ((b.event.id || 0) - (a.event.id || 0)));
+  const bestScore = candidates[0]?.match?.score || 0;
+  const ambiguousChoices = candidates.filter(c => c.match.score === bestScore && normalizeName(c.match.curler.name) === playerNorm);
+  return { checked, candidates, ambiguousChoices };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const nextGame = selection.next;
+  const nextGame = selection.next || selection.inferredNext;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
@@ -541,64 +649,52 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     const firstHammerName = getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? matchedTeam.name :
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
-    hammerSubtitle = shortenTeamName(hammerNext, { keepCC: true });
+    hammerSubtitle = `${shortenTeamName(hammerNext)} has hammer`;
+    ends = buildEnds(ourPos, oppPos);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
     opponentName = oppTeam.name;
-    const gameIsComplete = ['complete','just-finished'].includes(displayGame.lifecycle);
-    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, gameIsComplete);
-    const currentEnd = Math.min((event.number_of_ends || 8), Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1);
+    const currentEnd = Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1;
     currentEndLabel = active ? `${currentEnd}${ordinalSuffix(currentEnd)} end` : (displayGame.startsAt || 'Scheduled draw');
   }
 
   const nextGameLabel = nextGame
-    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}`
+    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
     : 'No next game available';
   const nextCheck = computeCheckDelay(selection);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
 
-  const linkedScheduleRows = selection.linkedRows.map(r => {
-    let stateLabel;
-    if (r.lifecycle === 'playing') stateLabel = 'Now playing';
-    else if (r.lifecycle === 'pending-window') stateLabel = 'Starting soon';
-    else if (r.lifecycle === 'pending') stateLabel = 'Scheduled';
-    else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
-      const ourScore = getPositionScore(r.ourPos);
-      const oppScore = getPositionScore(r.oppPos);
-      if (ourScore > oppScore) stateLabel = `Complete · won ${ourScore} - ${oppScore}`;
-      else if (ourScore < oppScore) stateLabel = `Complete · lost ${ourScore} - ${oppScore}`;
-      else stateLabel = `Complete · ${ourScore} - ${oppScore}`;
-    } else stateLabel = 'Unknown';
-
-    return {
-      gameId: r.gameId,
-      startsAt: r.startsAt,
-      epochMs: r.epochMs,
-      stateLabel,
-      team: matchedTeam.name,
-      opponent: r.oppTeam?.name || 'TBD',
-      title: formatGameTitle(r, matchedTeam.name, r.oppTeam?.name || 'TBD'),
-      drawLabel: r.drawLabel,
-      game: r.game,
-      draw: r.draw
-    };
-  });
-
-  const mergedScheduleRows = linkedScheduleRows.sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
+  const linkedScheduleRows = selection.linkedRows.map(r => ({
+    gameId: r.gameId,
+    startsAt: r.startsAt,
+    epochMs: r.epochMs,
+    stateLabel: r.lifecycle === 'playing' ? 'Now playing' : r.lifecycle === 'pending-window' ? 'Starting soon' : r.lifecycle === 'pending' ? 'Scheduled' : r.lifecycle === 'just-finished' ? 'Final' : r.lifecycle === 'complete' ? 'Complete' : 'Unknown',
+    team: matchedTeam.name,
+    opponent: r.oppTeam?.name || 'TBD'
+  }));
+  const branchRows = getOutcomeBranchRows(event, matchedTeam, selection).map(r => ({
+    gameId: r.gameId,
+    startsAt: r.startsAt,
+    epochMs: r.epochMs,
+    stateLabel: 'Outcome branch',
+    team: matchedTeam.name,
+    opponent: r.oppTeam?.name || 'TBD',
+    branchLabel: r.branchLabel
+  }));
+  const mergedScheduleRows = [...linkedScheduleRows, ...branchRows].sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
 
   return {
     playerName,
+    displayPlayerName: match.curler.name,
     view,
     teamName: matchedTeam.name,
-    teamAlias: shortenTeamName(matchedTeam.name),
     opponentName,
-    opponentAlias: shortenTeamName(opponentName),
     teamScore,
     opponentScore,
     currentEndLabel,
-    drawTitle: active ? formatGameTitle(active, matchedTeam.name, opponentName) : '',
+    drawTitle: active ? (active.drawLabel || active.startsAt || 'Live') : '',
     hammerNext,
     hammerSubtitle,
     eventName: event.name,
@@ -608,7 +704,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games only.',
+    scheduleHint: branchRows.length ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games plus win/loss branches for the current result path.` : (nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Watching the next draw and upgrading when team assignment appears.'),
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -625,27 +721,63 @@ async function runTracker({ reason }) {
   try {
     const discovery = await discoverPlayerEvents(state.playerName);
     if (!discovery.candidates.length) {
+      setPickerHidden(true);
       const diagnostics = buildDiagnostics({
         phase: 'no-match',
         reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        policy: 'Idle scans every 72 hours until a matching event appears.'
+        policy: 'Idle scans every 72 hours across configured Curling I/O subdomains until a matching event appears.'
       });
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-      setStatus(`No current Alberta event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
+      setStatus(`No current Curling I/O event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
       scheduleNextRun(APP.idleScanMs);
       return;
     }
 
-    const chosen = discovery.candidates[0];
+    const savedSelectionKey = getSavedSelectionKey(state.playerName);
+    const exactChoices = (discovery.ambiguousChoices || []).filter(c => c.match.score === 100);
+    if (exactChoices.length > 1 && !savedSelectionKey) {
+      state.pendingChoices = { query: state.playerName, choices: exactChoices };
+      renderCandidatePicker(state.playerName, exactChoices);
+      setStatus(`Multiple exact matches found for ${state.playerName}. Choose a curler to follow.`);
+      const diagnostics = buildDiagnostics({
+        phase: 'ambiguous-match',
+        reason,
+        playerName: state.playerName,
+        choiceCount: exactChoices.length,
+        choices: exactChoices.map(c => ({
+          sourceSubdomain: c.subdomain,
+          curler: c.match.curler.name,
+          team: c.match.team.name,
+          province: candidateProvinceLabel(c),
+          eventId: c.event.id,
+          eventName: c.event.name
+        })),
+        checked: discovery.checked
+      });
+      setDiagnostics(diagnostics);
+      return;
+    }
+
+    let chosen = null;
+    if (savedSelectionKey) chosen = discovery.candidates.find(c => candidateSelectionKey(c) === savedSelectionKey) || null;
+    if (!chosen && exactChoices.length === 1) chosen = exactChoices[0];
+    if (!chosen) chosen = discovery.candidates[0];
+    setPickerHidden(true);
+    state.pendingChoices = null;
+
     const selection = chosen.selection;
+    const exactRequested = normalizeName(state.playerName) === normalizeName(chosen.match.curler.name);
     const diagnostics = buildDiagnostics({
       phase: 'matched',
       reason,
       playerName: state.playerName,
+      exactMatch: exactRequested,
       matchedCurler: chosen.match.curler.name,
       matchedTeam: chosen.match.team.name,
+      sourceSubdomain: chosen.subdomain,
+      sourceProvince: candidateProvinceLabel(chosen),
       matchScore: chosen.match.score,
       eventId: chosen.event.id,
       eventName: chosen.event.name,
@@ -657,8 +789,8 @@ async function runTracker({ reason }) {
       },
       activeGameId: selection.active?.gameId || null,
       activeGameState: selection.active?.lifecycle || null,
-      nextGameId: selection.next?.gameId || null,
-      nextGameDrawLabel: selection.next?.drawLabel || null,
+      nextGameId: (selection.next || selection.inferredNext)?.gameId || null,
+      nextGameDrawLabel: (selection.next || selection.inferredNext)?.drawLabel || null,
       nextGameConfirmed: !!selection.next,
       nextGameSearch: selection.diagnostics,
       completedGameId: selection.lastCompleted?.gameId || null,
@@ -671,14 +803,16 @@ async function runTracker({ reason }) {
         drawGameRefs: selection.diagnostics.totalDrawGameRefs
       },
       checked: discovery.checked,
-      candidates: discovery.candidates.slice(0, 8).map(c => ({
+      candidates: discovery.candidates.slice(0, 12).map(c => ({
+        sourceSubdomain: c.subdomain,
         eventId: c.event.id,
         eventName: c.event.name,
         matchedCurler: c.match.curler.name,
         matchedTeam: c.match.team.name,
+        province: candidateProvinceLabel(c),
         matchScore: c.match.score,
         activeGameId: c.selection.active?.gameId || null,
-        nextGameId: c.selection.next?.gameId || null,
+        nextGameId: (c.selection.next || c.selection.inferredNext)?.gameId || null,
         nextGameConfirmed: !!c.selection.next,
         completedGameId: c.selection.lastCompleted?.gameId || null
       }))
@@ -688,15 +822,18 @@ async function runTracker({ reason }) {
     render(snapshot);
 
     if (snapshot.view === 'live') {
-      setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing every 60 seconds.`);
+      setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing on the live-game schedule.`);
     } else if (snapshot.nextGameId) {
-      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
+      const prefix = exactRequested ? '' : `Unable to match ${state.playerName}. `;
+      setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
     } else {
-      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
+      const prefix = exactRequested ? '' : `Unable to match ${state.playerName}. `;
+      setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
+    setPickerHidden(true);
     const diagnostics = buildDiagnostics({ phase:'error', reason, playerName: state.playerName, error: error.message });
     const snapshot = computeIdleSnapshot(state.playerName, diagnostics, APP.errorRetryMs);
     snapshot.eventName = 'Temporary error';
@@ -758,6 +895,16 @@ els.refreshBtn.addEventListener('click', () => {
   runTracker({ reason:'manual-refresh' });
 });
 els.diagnosticsToggle.addEventListener('click', () => els.diagnosticsPanel.classList.toggle('hidden'));
+els.pickerList?.addEventListener('click', (event) => {
+  const btn = event.target.closest('[data-choice-index]');
+  if (!btn || !state.pendingChoices) return;
+  const idx = Number(btn.getAttribute('data-choice-index'));
+  const choice = state.pendingChoices.choices[idx];
+  if (!choice) return;
+  saveSelectionChoice(state.pendingChoices.query, candidateSelectionKey(choice));
+  setPickerHidden(true);
+  runTracker({ reason: 'manual-choice' });
+});
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   state.deferredPrompt = event;

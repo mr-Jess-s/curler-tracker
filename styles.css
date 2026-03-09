@@ -52,4 +52,4 @@ pre{margin:0;padding:16px;overflow:auto;font-size:.83rem;line-height:1.45;color:
 .hidden{display:none!important}
 @media (min-width:820px){.grid{grid-template-columns:1fr 1fr}.meta-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.meta-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
-.total-row{border-top:1px solid rgba(255,255,255,.12);margin-top:4px;padding-top:12px;font-weight:800}
+.picker-list{padding:14px 16px 16px;display:grid;gap:10px}.picker-option{width:100%;text-align:left;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:#0f1a2d;color:#eaf2ff}.picker-option:hover{background:#14233d}.picker-name{display:block;font-weight:800}.picker-meta{display:block;margin-top:6px;color:#a7b8d8;font-size:.94rem;line-height:1.35}
