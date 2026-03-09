@@ -76,7 +76,7 @@ function shortenTeamName(name, { keepCC = false } = {}) {
 }
 
 function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
-  return `${teamA} - ${scoreA} vs. ${scoreB} - ${teamB}`;
+  return `${teamA} - ${scoreA} vs ${scoreB} - ${teamB}`;
 }
 
 function normalizeDrawNumber(label) {
