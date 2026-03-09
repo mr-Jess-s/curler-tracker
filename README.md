@@ -1,4 +1,4 @@
-Curler Tracker v17
+Curler Tracker v7
 
 Host these files on any static host such as GitHub Pages.
 The app uses the documented Curling I/O competition and event endpoints.

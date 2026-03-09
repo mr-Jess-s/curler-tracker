@@ -1,21 +1,21 @@
 
-const APP_VERSION = 'v17';
+const APP_VERSION = 'v18';
 const APP = {
-  clubSubdomain: 'ab',
+  clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
   lookaheadSeasons: [0],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
   postGameWindowMs: 3 * 60 * 60 * 1000,
-  activeRefreshMs: 60 * 1000,
+  activePostEndPauseMs: 10 * 60 * 1000,
+  activeBetweenChecksMs: 2 * 60 * 1000,
   upcomingRefreshMs: 5 * 60 * 1000,
-  justFinishedRefreshMs: 2 * 60 * 1000,
   errorRetryMs: 30 * 60 * 1000,
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v17',
-    snapshot: 'curler-tracker-snapshot-v17'
+    player: 'curler-tracker-player-v18',
+    snapshot: 'curler-tracker-snapshot-v18'
   }
 };
 
@@ -118,11 +118,11 @@ async function fetchJson(url) {
   return res.json();
 }
 
-function competitionsUrl(delta) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
+function competitionsUrl(subdomain, delta) {
+  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
 }
-function eventUrl(eventId) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${APP.clubSubdomain}/events/${eventId}`;
+function eventUrl(subdomain, eventId) {
+  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/events/${eventId}`;
 }
 
 function parseEventDateToMs(value) {
@@ -302,6 +302,7 @@ function buildDrawFirstRows(event, matchedTeam) {
 
 function selectGamesForEvent(event, matchedTeam) {
   const { rows, aliases, unmatchedDrawRows, totalStageGames } = buildDrawFirstRows(event, matchedTeam);
+  const now = Date.now();
   const linkedRows = rows.filter(r => r.linked);
   const active = linkedRows.find(r => r.lifecycle === 'playing') || null;
   const nextConfirmed = linkedRows
@@ -310,6 +311,12 @@ function selectGamesForEvent(event, matchedTeam) {
   const completed = linkedRows
     .filter(r => ['just-finished','complete'].includes(r.lifecycle))
     .sort((a,b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+  let inferredNext = null;
+  if (!nextConfirmed && completed && String(getPositionResult(completed.ourPos) || '').toLowerCase() === 'won') {
+    inferredNext = rows
+      .filter(r => r !== completed && ['pending-window','pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
+      .sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+  }
 
   const stateCounts = {};
   for (const r of rows) stateCounts[r.lifecycle] = (stateCounts[r.lifecycle] || 0) + 1;
@@ -319,6 +326,7 @@ function selectGamesForEvent(event, matchedTeam) {
     linkedRows,
     active,
     next: nextConfirmed,
+    inferredNext,
     lastCompleted: completed,
     diagnostics: {
       totalStageGames,
@@ -330,29 +338,35 @@ function selectGamesForEvent(event, matchedTeam) {
       futureOpenSlotGames: rows.filter(r => ['pending-window','pending'].includes(r.lifecycle) && r.openSlots > 0).length,
       stateCounts,
       matchedTeamAliases: aliases.slice(0, 12),
-      inferredLinkedGames: [],
+      inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
       unmatchedDrawRows: unmatchedDrawRows.slice(0, 10),
-      usedInference: false
+      usedInference: !nextConfirmed && !!inferredNext
     }
   };
 }
 
-function buildEnds(ourPos, oppPos, totalEnds = 8) {
+function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
-  const length = Math.max(ours.length, opps.length, Number(totalEnds) || 0);
+  const isComplete = ['complete','just-finished'].includes(lifecycle) || ['won','lost','tied'].includes(String(getPositionResult(ourPos) || '').toLowerCase());
+  const playedLength = Math.max(ours.length, opps.length);
+  const length = Math.max(totalEnds || 0, playedLength);
   const rows = [];
   for (let i = 0; i < length; i++) {
-    const teamPlayed = i < ours.length;
-    const oppPlayed = i < opps.length;
+    const hasPosted = i < playedLength;
     rows.push({
       end: i + 1,
-      team: teamPlayed ? Number(ours[i] ?? 0) : 'X',
-      opponent: oppPlayed ? Number(opps[i] ?? 0) : 'X',
-      played: teamPlayed || oppPlayed
+      team: hasPosted ? String(Number(ours[i] ?? 0)) : (isComplete ? 'X' : ''),
+      opponent: hasPosted ? String(Number(opps[i] ?? 0)) : (isComplete ? 'X' : '')
     });
   }
-  return rows;
+  return {
+    rows,
+    total: {
+      team: String(getPositionScore(ourPos)),
+      opponent: String(getPositionScore(oppPos))
+    }
+  };
 }
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
   let hammer = firstHammerTeamName || 'Unknown';
@@ -365,12 +379,38 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
   return hammer;
 }
 
-function computeCheckDelay(selection) {
+function getProgressSignature(row) {
+  if (!row) return '';
+  const our = getEndScores(row.ourPos);
+  const opp = getEndScores(row.oppPos);
+  return JSON.stringify({
+    gameId: row.gameId,
+    our,
+    opp,
+    ourScore: getPositionScore(row.ourPos),
+    oppScore: getPositionScore(row.oppPos)
+  });
+}
+
+function computeCheckDelay(selection, previousSnapshot = null) {
   const now = Date.now();
-  if (selection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
-  if (selection.next) {
-    const preWindowAt = (selection.next.epochMs || 0) - APP.preGameWindowMs;
-    if (selection.next.epochMs && preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+  if (selection.active) {
+    const currentSig = getProgressSignature(selection.active);
+    const sameAsPrevious = previousSnapshot && previousSnapshot.activeGameId === selection.active.gameId && previousSnapshot.progressSignature === currentSig;
+    return sameAsPrevious
+      ? { delayMs: APP.activeBetweenChecksMs, reason: 'awaiting next end score after active check' }
+      : { delayMs: APP.activePostEndPauseMs, reason: 'post-end pause before active polling' };
+  }
+  const nextConfirmed = selection.next;
+  if (nextConfirmed) {
+    const preWindowAt = (nextConfirmed.epochMs || now) - APP.preGameWindowMs;
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
+  }
+  const nextRow = selection.rows.find(r => r.linked && r.epochMs && r.epochMs > now);
+  if (nextRow) {
+    const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
     return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
   }
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
@@ -396,8 +436,10 @@ function renderHeadline(snapshot) {
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
-function renderEnds(teamName, opponentName, ends, teamTotal = 0, opponentTotal = 0) {
-  if (!ends?.length) {
+function renderEnds(teamName, opponentName, endsData) {
+  const rowsIn = endsData?.rows || [];
+  const total = endsData?.total || null;
+  if (!rowsIn.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
     return;
@@ -406,8 +448,8 @@ function renderEnds(teamName, opponentName, ends, teamTotal = 0, opponentTotal =
   const oppShort = escapeHtml(shortenTeamName(opponentName));
   els.endsList.className = 'ends-list ends-table';
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
-  const rows = ends.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${row.team}</span><span class="end-score-cell">${row.opponent}</span></div>`).join('');
-  const totalRow = `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${teamTotal}</span><span class="end-score-cell">${opponentTotal}</span></div>`;
+  const rows = rowsIn.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${escapeHtml(row.team)}</span><span class="end-score-cell">${escapeHtml(row.opponent)}</span></div>`).join('');
+  const totalRow = total ? `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${escapeHtml(total.team)}</span><span class="end-score-cell">${escapeHtml(total.opponent)}</span></div>` : '';
   els.endsList.innerHTML = header + rows + totalRow;
 }
 
@@ -440,7 +482,7 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
-  els.trackedPlayer.textContent = snapshot?.playerName || '—';
+  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '—';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
   els.eventValue.textContent = snapshot?.eventName || '—';
@@ -448,7 +490,7 @@ function render(snapshot) {
   els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
-  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || [], snapshot?.teamScore || 0, snapshot?.opponentScore || 0);
+  renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase:'idle' });
 }
@@ -456,6 +498,23 @@ function render(snapshot) {
 function scheduleNextRun(delayMs) {
   if (state.timerId) clearTimeout(state.timerId);
   state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
+}
+
+const BRANCH_OVERRIDES = {
+  '24013:59caf1a7': { win: 'b253bd29', loss: 'bd4a80b5' }
+};
+
+function getOutcomeBranchRows(event, matchedTeam, selection) {
+  const source = selection.active || selection.lastCompleted;
+  if (!source) return [];
+  const key = `${event.id}:${source.gameId}`;
+  const override = BRANCH_OVERRIDES[key];
+  if (!override) return [];
+  const byId = new Map(selection.rows.map(r => [r.gameId, r]));
+  const rows = [];
+  if (override.win && byId.get(override.win)) rows.push({ ...byId.get(override.win), branchLabel: `If ${shortenTeamName(matchedTeam.name)} wins` });
+  if (override.loss && byId.get(override.loss)) rows.push({ ...byId.get(override.loss), branchLabel: `If ${shortenTeamName(matchedTeam.name)} loses` });
+  return rows;
 }
 
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
@@ -477,33 +536,41 @@ async function discoverPlayerEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
-  for (const delta of APP.lookaheadSeasons) {
-    const listUrl = competitionsUrl(delta);
-    const payload = await fetchJson(listUrl);
-    const items = payload.items || [];
-    checked.push({ delta, itemsCount: items.length, url: listUrl });
-    for (const item of items) {
-      const event = await fetchJson(eventUrl(item.id));
-      if (!isEventTodayForward(event)) continue;
-      const match = findMatchingTeam(event, playerNorm);
-      if (!match) continue;
-      const selection = selectGamesForEvent(event, match.team);
-      candidates.push({ item, event, match, selection, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
+  for (const subdomain of APP.clubSubdomains) {
+    for (const delta of APP.lookaheadSeasons) {
+      const listUrl = competitionsUrl(subdomain, delta);
+      try {
+        const payload = await fetchJson(listUrl);
+        const items = payload.items || [];
+        checked.push({ subdomain, delta, itemsCount: items.length, url: listUrl });
+        for (const item of items) {
+          try {
+            const event = await fetchJson(eventUrl(subdomain, item.id));
+            if (!isEventTodayForward(event)) continue;
+            const match = findMatchingTeam(event, playerNorm);
+            if (!match) continue;
+            const selection = selectGamesForEvent(event, match.team);
+            candidates.push({ item, event, match, selection, subdomain, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
+          } catch {}
+        }
+      } catch {
+        checked.push({ subdomain, delta, itemsCount: 0, url: listUrl, skipped: true });
+      }
     }
   }
-  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
+  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
   return { checked, candidates };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const nextGame = selection.next;
+  const nextGame = selection.next || null;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='—', hammerSubtitle='Hammer unknown', ends=[], teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+  let hammerNext='—', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
@@ -515,18 +582,18 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
     hammerSubtitle = `${shortenTeamName(hammerNext)} has hammer`;
+    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
     opponentName = oppTeam.name;
-    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8);
-    const currentEnd = Math.min((event.number_of_ends || 8), Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1);
+    const currentEnd = Math.max(getEndScores(ourPos).length, getEndScores(oppPos).length) + 1;
     currentEndLabel = active ? `${currentEnd}${ordinalSuffix(currentEnd)} end` : (displayGame.startsAt || 'Scheduled draw');
   }
 
   const nextGameLabel = nextGame
-    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}`
+    ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
     : 'No next game available';
-  const nextCheck = computeCheckDelay(selection);
+  const nextCheck = computeCheckDelay(selection, state.snapshot);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
@@ -539,11 +606,12 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
       const ourScore = getPositionScore(r.ourPos);
       const oppScore = getPositionScore(r.oppPos);
-      if (ourScore > oppScore) stateLabel = `Complete · won ${ourScore} - ${oppScore}`;
-      else if (ourScore < oppScore) stateLabel = `Complete · lost ${ourScore} - ${oppScore}`;
-      else stateLabel = `Complete · ${ourScore} - ${oppScore}`;
+      stateLabel = ourScore > oppScore
+        ? `Complete · won ${ourScore} - ${oppScore}`
+        : ourScore < oppScore
+        ? `Complete · lost ${ourScore} - ${oppScore}`
+        : `Complete · ${ourScore} - ${oppScore}`;
     } else stateLabel = 'Unknown';
-
     return {
       gameId: r.gameId,
       startsAt: r.startsAt,
@@ -553,11 +621,17 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       opponent: r.oppTeam?.name || 'TBD'
     };
   });
-
-  const mergedScheduleRows = linkedScheduleRows.sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
+  const branchRows = [];
+  const dedup = new Map();
+  for (const row of [...linkedScheduleRows, ...branchRows]) {
+    const key = `${row.gameId}|${row.branchLabel || ''}`;
+    if (!dedup.has(key)) dedup.set(key, row);
+  }
+  const mergedScheduleRows = Array.from(dedup.values()).sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
 
   return {
     playerName,
+    displayPlayer: match.curler.name,
     view,
     teamName: matchedTeam.name,
     opponentName,
@@ -574,13 +648,14 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games only.',
+    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.',
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
     eventId: event.id,
     nextCheckReason: nextCheck.reason,
-    nextGameConfirmed
+    nextGameConfirmed,
+    progressSignature: active ? getProgressSignature(active) : ''
   };
 }
 
@@ -599,7 +674,7 @@ async function runTracker({ reason }) {
         policy: 'Idle scans every 72 hours until a matching event appears.'
       });
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-      setStatus(`No current Alberta event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
+      setStatus(`No current Curling I/O event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
       scheduleNextRun(APP.idleScanMs);
       return;
     }
@@ -612,6 +687,7 @@ async function runTracker({ reason }) {
       playerName: state.playerName,
       matchedCurler: chosen.match.curler.name,
       matchedTeam: chosen.match.team.name,
+      sourceSubdomain: chosen.subdomain,
       matchScore: chosen.match.score,
       eventId: chosen.event.id,
       eventName: chosen.event.name,
@@ -640,6 +716,7 @@ async function runTracker({ reason }) {
       candidates: discovery.candidates.slice(0, 8).map(c => ({
         eventId: c.event.id,
         eventName: c.event.name,
+        sourceSubdomain: c.subdomain,
         matchedCurler: c.match.curler.name,
         matchedTeam: c.match.team.name,
         matchScore: c.match.score,
@@ -653,12 +730,14 @@ async function runTracker({ reason }) {
     const snapshot = buildSnapshotFromCandidate(state.playerName, chosen, diagnostics);
     render(snapshot);
 
+    const exactMatch = normalizeName(chosen.match.curler.name) === normalizeName(state.playerName);
+    const prefix = exactMatch ? '' : `Unable to match ${state.playerName}. `;
     if (snapshot.view === 'live') {
-      setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing every 60 seconds.`);
+      setStatus(`${prefix}${chosen.match.curler.name} is live in ${chosen.event.name}.`);
     } else if (snapshot.nextGameId) {
-      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
+      setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
     } else {
-      setStatus(`Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
+      setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
