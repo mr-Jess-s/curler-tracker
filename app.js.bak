@@ -272,13 +272,10 @@ function buildDrawFirstRows(event, matchedTeam) {
         return tid && tid !== matchedTeamId;
       }) || null;
       const oppTeam = oppPos?.team_id ? teamsById.get(getTeamIdFromPosition(oppPos)) : null;
+      const aliasMatch = !ourPos && gameMatchesTeamByAlias(game, matchedTeam);
+      const linked = !!ourPos || aliasMatch;
       const openSlots = Math.max(0, 2 - positions.filter(pos => !!getTeamIdFromPosition(pos)).length);
       const lifecycle = inferLifecycle(game, epochMs);
-      const aliasMatch = !ourPos
-        && openSlots > 0
-        && ['pending-window','pending'].includes(lifecycle)
-        && gameMatchesTeamByAlias(game, matchedTeam);
-      const linked = !!ourPos || aliasMatch;
       rows.push({
         draw,
         game,
