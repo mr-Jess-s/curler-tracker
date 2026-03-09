@@ -1,7 +1,7 @@
 
-const APP_VERSION = 'v23';
+const APP_VERSION = 'v24';
 const APP = {
-  clubSubdomains: ['canada','ab','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt','noca'],
+  clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
   lookaheadSeasons: [0],
   idleScanMs: 72 * 60 * 60 * 1000,
@@ -14,8 +14,8 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v23',
-    snapshot: 'curler-tracker-snapshot-v23'
+    player: 'curler-tracker-player-v18',
+    snapshot: 'curler-tracker-snapshot-v18'
   }
 };
 
@@ -78,32 +78,33 @@ function shortenTeamName(name, { keepCC = false } = {}) {
 function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
   return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
-
 function resolveGameTitle(row) {
-  const matchup = `${shortenTeamName(row?.team)} vs ${shortenTeamName(row?.opponent)}`;
-  const gameName = String(row?.gameName || '').trim();
-  const stageName = String(row?.stageName || '').trim();
-  const rawDrawLabel = String(row?.rawDrawLabel || row?.drawLabel || '').trim();
-  const gameNorm = normalizeName(gameName);
-  const matchupNorm = normalizeName(matchup);
-  const looksLikePureMatchup = !!gameNorm && (gameNorm === matchupNorm || gameNorm.endsWith(matchupNorm) || matchupNorm.endsWith(gameNorm));
-  if (gameName && !looksLikePureMatchup) return gameName;
-  const drawTitle = rawDrawLabel
-    ? (/^draw\b/i.test(rawDrawLabel) ? rawDrawLabel : (/^[A-Z]\d+$/i.test(rawDrawLabel) ? rawDrawLabel : `Draw ${rawDrawLabel}`))
-    : '';
-  if (stageName && rawDrawLabel) {
-    if (/qualifier|quarter|semi|final|bronze|playoff|page|championship|tie\s*breaker/i.test(stageName)) {
-      return `${stageName} ${rawDrawLabel}`.replace(/\s+/g, ' ').trim();
-    }
-    if (!/round\s*robin/i.test(stageName) && !/^pool\s+[a-z0-9]+$/i.test(stageName)) {
-      return `${stageName} · ${drawTitle}`.replace(/\s+/g, ' ').trim();
-    }
-    return drawTitle;
-  }
-  if (stageName && /qualifier|quarter|semi|final|bronze|playoff|page|championship|tie\s*breaker/i.test(stageName)) {
+  const rawGameName = String(row?.gameName || row?.game?.name || '').trim();
+  const rawStageName = String(row?.stageName || row?.game?.stageName || '').trim();
+  const rawDrawLabel = String(row?.drawLabel || '').trim();
+
+  const gameName = rawGameName.replace(/\s+/g, ' ');
+  const stageName = rawStageName.replace(/\s+/g, ' ');
+  const drawLabel = rawDrawLabel.replace(/\s+/g, ' ');
+
+  const isGoodExplicitTitle = /page|gold|bronze|semi|semifinal|quarter|quarterfinal|final|qualifier|playoff|tie[\s-]?breaker/i.test(gameName);
+  const looksLikeMatchup = /\b(v|vs|versus)\b/i.test(gameName) || /^\d+[A-Z]?\s+vs\s+\d+[A-Z]?$/i.test(gameName) || /^[A-Z]{1,4}\s*\([^)]+\)\s*v\s*[A-Z]{1,4}\s*\([^)]+\)$/i.test(gameName);
+
+  if (isGoodExplicitTitle) return gameName;
+
+  if (stageName) {
+    if (/round\s*robin/i.test(stageName)) return 'Round Robin';
+    if (/championship\s*pool/i.test(stageName)) return 'Championship Pool';
+    if (/pool\s+[A-Z]/i.test(stageName)) return stageName;
+    if (/playoff|qualifier|page|semi|final|bronze|gold/i.test(stageName)) return stageName;
     return stageName;
   }
-  return drawTitle || '';
+
+  if (drawLabel) return `Draw ${drawLabel}`;
+
+  if (gameName && !looksLikeMatchup) return gameName;
+
+  return '';
 }
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
@@ -303,7 +304,6 @@ function buildDrawFirstRows(event, matchedTeam) {
         draw,
         game,
         gameId: gid,
-        rawDrawLabel: draw?.label ? String(draw.label) : '',
         drawLabel: draw?.label ? `${String(draw.label).startsWith('B') ? '' : 'B'}${draw.label}` : (game.stageName || 'Draw'),
         startsAt: draw?.starts_at || draw?.startsAt || (epochMs ? formatEpochMs(epochMs) : 'TBD'),
         epochMs,
@@ -450,8 +450,8 @@ function renderHeadline(snapshot) {
     return;
   }
   if (snapshot.view === 'live') {
-    const prefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} · ` : '';
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${prefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
+    const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} · ` : '';
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
   if (snapshot.view === 'upcoming') {
@@ -462,7 +462,7 @@ function renderHeadline(snapshot) {
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Watching this event</div><div class="headline-sub">${escapeHtml(snapshot.nextGameLabel || 'No active draw right now.')}</div></div>`;
     return;
   }
-  els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Curling I/O competitions every few days.</div></div>`;
+  els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
 function renderEnds(teamName, opponentName, endsData) {
@@ -496,9 +496,9 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   els.scheduleList.innerHTML = scheduleRows.map(row => {
     const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
     const matchup = `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
-    const gameTitle = resolveGameTitle(row);
-    const title = row.branchLabel ? row.branchLabel : (gameTitle ? `${gameTitle} · ${matchup}` : matchup);
-    const subtitle = row.branchLabel ? matchup : row.stateLabel;
+    const resolvedTitle = resolveGameTitle(row);
+    const title = row.branchLabel ? row.branchLabel : (resolvedTitle ? `${resolvedTitle} · ${matchup}` : matchup);
+    const subtitle = row.branchLabel ? `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}` : row.stateLabel;
     return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
 }
@@ -556,7 +556,7 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
-    scheduleHint: 'Scanning Curling I/O competitions from today forward every 72 hours.',
+    scheduleHint: 'Scanning Alberta competitions from today forward every 72 hours.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
@@ -589,17 +589,8 @@ async function discoverPlayerEvents(playerName) {
       }
     }
   }
-  for (const c of candidates) {
-    c.exactMatch = normalizeName(c.match.curler.name) === playerNorm;
-  }
-  const exactCandidates = candidates.filter(c => c.exactMatch);
-  const pool = exactCandidates.length ? exactCandidates : candidates;
-  pool.sort((a,b) => {
-    return (b.match.score - a.match.score)
-      || (a.scoreRank - b.scoreRank)
-      || ((b.event.id||0) - (a.event.id||0));
-  });
-  return { checked, candidates: pool, hadExactMatches: exactCandidates.length > 0, totalCandidates: candidates.length };
+  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
+  return { checked, candidates };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
@@ -621,7 +612,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     const firstHammerName = getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? matchedTeam.name :
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
-    hammerSubtitle = `${hammerNext} has hammer`;
+    hammerSubtitle = `${shortenTeamName(hammerNext, { keepCC: true })} has hammer`;
     ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
@@ -654,10 +645,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     } else stateLabel = 'Unknown';
     return {
       gameId: r.gameId,
-      gameName: r.gameName || r.game?.name || '',
-      stageName: r.stageName || r.game?.stageName || '',
-      drawLabel: r.drawLabel || '',
-      rawDrawLabel: r.rawDrawLabel || '',
+      gameName: r.gameName || r.game?.name || null,
+      stageName: r.stageName || r.game?.stageName || null,
+      drawLabel: r.drawLabel || null,
+      game: r.game || null,
       startsAt: r.startsAt,
       epochMs: r.epochMs,
       stateLabel,
@@ -681,8 +672,8 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     opponentName,
     teamScore,
     opponentScore,
+    gameTitle: resolveGameTitle(displayGame),
     currentEndLabel,
-    gameTitle: active ? resolveGameTitle({ gameName: active.gameName, stageName: active.stageName, drawLabel: active.drawLabel, rawDrawLabel: active.rawDrawLabel, team: matchedTeam.name, opponent: opponentName }) : '',
     drawTitle: active ? (active.drawLabel || active.startsAt || 'Live') : '',
     hammerNext,
     hammerSubtitle,
@@ -730,7 +721,6 @@ async function runTracker({ reason }) {
       phase: 'matched',
       reason,
       playerName: state.playerName,
-      exactMatch: normalizeName(chosen.match.curler.name) === normalizeName(state.playerName),
       matchedCurler: chosen.match.curler.name,
       matchedTeam: chosen.match.team.name,
       sourceSubdomain: chosen.subdomain,
@@ -763,7 +753,6 @@ async function runTracker({ reason }) {
         eventId: c.event.id,
         eventName: c.event.name,
         sourceSubdomain: c.subdomain,
-        exactMatch: c.exactMatch,
         matchedCurler: c.match.curler.name,
         matchedTeam: c.match.team.name,
         matchScore: c.match.score,
