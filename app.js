@@ -79,7 +79,8 @@ function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
   return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
 function resolveGameTitle(row) {
-  return String(row?.gameName || row?.game?.name || '').trim();
+  const title = String(row?.gameName || row?.game?.name || '').trim();
+  return /\sv\s/i.test(title) ? '' : title;
 }
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
@@ -564,8 +565,14 @@ async function discoverPlayerEvents(playerName) {
       }
     }
   }
-  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
-  return { checked, candidates };
+  const exactCandidates = candidates.filter(c => normalizeName(c.match.curler.name) === playerNorm);
+  const pool = exactCandidates.length ? exactCandidates : candidates;
+  pool.sort((a, b) =>
+    (b.match.score - a.match.score) ||
+    (a.scoreRank - b.scoreRank) ||
+    ((b.event.id || 0) - (a.event.id || 0))
+  );
+  return { checked, candidates: pool };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
