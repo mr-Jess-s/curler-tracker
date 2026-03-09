@@ -1,26 +1,21 @@
 
-const APP_VERSION = 'v21';
+const APP_VERSION = 'v22';
 const APP = {
-  clubSubdomains: [
-    'canada', 'ab', 'bc', 'mb', 'sk', 'on', 'qc', 'ns', 'nb', 'pei', 'nl', 'nt', 'nu', 'yk',
-    'noca', 'northern-ontario', 'ontario', 'quebec', 'sask', 'manitoba', 'alberta', 'british-columbia',
-    'new-brunswick', 'newfoundland-labrador', 'nova-scotia', 'prince-edward-island',
-    'yukon', 'nunavut', 'northwest-territories'
-  ],
+  clubSubdomains: ['canada','ab','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt','noca'],
   language: 'en',
   lookaheadSeasons: [0],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
   postGameWindowMs: 3 * 60 * 60 * 1000,
-  activeRefreshMs: 60 * 1000,
+  activePostEndPauseMs: 10 * 60 * 1000,
+  activeBetweenChecksMs: 2 * 60 * 1000,
   upcomingRefreshMs: 5 * 60 * 1000,
-  justFinishedRefreshMs: 2 * 60 * 1000,
   errorRetryMs: 30 * 60 * 1000,
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v21',
-    snapshot: 'curler-tracker-snapshot-v21'
+    player: 'curler-tracker-player-v18',
+    snapshot: 'curler-tracker-snapshot-v18'
   }
 };
 
@@ -43,10 +38,7 @@ const els = {
   timelineHint: document.getElementById('timelineHint'),
   scheduleList: document.getElementById('scheduleList'),
   scheduleHint: document.getElementById('scheduleHint'),
-  installBtn: document.getElementById('installBtn'),
-  pickerPanel: document.getElementById('pickerPanel'),
-  pickerList: document.getElementById('pickerList'),
-  pickerHint: document.getElementById('pickerHint')
+  installBtn: document.getElementById('installBtn')
 };
 
 const state = {
@@ -56,8 +48,7 @@ const state = {
   snapshot: null,
   diagnostics: { appVersion: APP_VERSION, phase: 'idle' },
   lastRunAt: 0,
-  lastVisibilityScanAt: 0,
-  pendingChoices: null
+  lastVisibilityScanAt: 0
 };
 
 function normalizeName(name) {
@@ -120,77 +111,6 @@ function setDiagnostics(obj) {
   els.diagnosticsOutput.textContent = JSON.stringify(obj, null, 2);
 }
 function buildDiagnostics(base) { return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base }; }
-
-function provinceLabelFromSource(source) {
-  const map = {
-    canada: 'Canada', ab: 'Alberta', alberta: 'Alberta', bc: 'British Columbia', 'british-columbia': 'British Columbia',
-    mb: 'Manitoba', manitoba: 'Manitoba', sk: 'Saskatchewan', sask: 'Saskatchewan', on: 'Ontario', ontario: 'Ontario',
-    noca: 'Northern Ontario', 'northern-ontario': 'Northern Ontario', qc: 'Quebec', quebec: 'Quebec',
-    ns: 'Nova Scotia', 'nova-scotia': 'Nova Scotia', nb: 'New Brunswick', 'new-brunswick': 'New Brunswick',
-    pei: 'Prince Edward Island', 'prince-edward-island': 'Prince Edward Island', nl: 'Newfoundland and Labrador',
-    'newfoundland-labrador': 'Newfoundland and Labrador', nt: 'Northwest Territories', 'northwest-territories': 'Northwest Territories',
-    nu: 'Nunavut', nunavut: 'Nunavut', yk: 'Yukon', yukon: 'Yukon'
-  };
-  return map[String(source || '').toLowerCase()] || String(source || '').toUpperCase();
-}
-
-function candidateProvinceLabel(candidate) {
-  const teamLoc = candidate?.match?.team?.location || '';
-  const eventLoc = candidate?.event?.location || candidate?.item?.location || '';
-  const loc = teamLoc || eventLoc;
-  if (/,/.test(loc)) return loc.split(',').pop().trim();
-  if (loc) return loc.trim();
-  return provinceLabelFromSource(candidate?.subdomain);
-}
-
-function candidateSelectionKey(candidate) {
-  return [candidate?.subdomain, candidate?.event?.id, candidate?.match?.team?.id, normalizeName(candidate?.match?.curler?.name || '')].join(':');
-}
-
-function loadSelectionMap() {
-  try { return JSON.parse(localStorage.getItem('curler-tracker-selection-map-v21') || '{}'); } catch { return {}; }
-}
-
-function saveSelectionChoice(query, key) {
-  const map = loadSelectionMap();
-  map[normalizeName(query)] = key;
-  localStorage.setItem('curler-tracker-selection-map-v21', JSON.stringify(map));
-}
-
-function getSavedSelectionKey(query) {
-  const map = loadSelectionMap();
-  return map[normalizeName(query)] || null;
-}
-
-function setPickerHidden(hidden) {
-  els.pickerPanel?.classList.toggle('hidden', hidden);
-}
-
-function renderCandidatePicker(query, choices) {
-  if (!els.pickerList || !els.pickerPanel) return;
-  if (!choices?.length) { setPickerHidden(true); return; }
-  els.pickerHint.textContent = `Multiple curlers match “${query}”. Choose who to follow.`;
-  els.pickerList.innerHTML = choices.map((choice, idx) => {
-    const province = candidateProvinceLabel(choice);
-    const eventName = choice?.event?.name || 'Unknown event';
-    const curler = choice?.match?.curler?.name || 'Unknown curler';
-    return `<button type="button" class="picker-option" data-choice-index="${idx}"><span class="picker-name">${escapeHtml(curler)}</span><span class="picker-meta">${escapeHtml(province)} · ${escapeHtml(eventName)}</span></button>`;
-  }).join('');
-  setPickerHidden(false);
-}
-
-async function mapWithConcurrency(items, limit, mapper) {
-  const results = new Array(items.length);
-  let nextIndex = 0;
-  const workers = Array.from({ length: Math.min(limit, items.length || 0) }, async () => {
-    while (nextIndex < items.length) {
-      const current = nextIndex++;
-      results[current] = await mapper(items[current], current);
-    }
-  });
-  await Promise.all(workers);
-  return results;
-}
 
 async function fetchJson(url) {
   const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
@@ -425,13 +345,28 @@ function selectGamesForEvent(event, matchedTeam) {
   };
 }
 
-function buildEnds(ourPos, oppPos) {
+function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
-  const length = Math.max(ours.length, opps.length);
+  const isComplete = ['complete','just-finished'].includes(lifecycle) || ['won','lost','tied'].includes(String(getPositionResult(ourPos) || '').toLowerCase());
+  const playedLength = Math.max(ours.length, opps.length);
+  const length = Math.max(totalEnds || 0, playedLength);
   const rows = [];
-  for (let i=0;i<length;i++) rows.push({ end:i+1, team:Number(ours[i]??0), opponent:Number(opps[i]??0) });
-  return rows;
+  for (let i = 0; i < length; i++) {
+    const hasPosted = i < playedLength;
+    rows.push({
+      end: i + 1,
+      team: hasPosted ? String(Number(ours[i] ?? 0)) : (isComplete ? 'X' : ''),
+      opponent: hasPosted ? String(Number(opps[i] ?? 0)) : (isComplete ? 'X' : '')
+    });
+  }
+  return {
+    rows,
+    total: {
+      team: String(getPositionScore(ourPos)),
+      opponent: String(getPositionScore(oppPos))
+    }
+  };
 }
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
   let hammer = firstHammerTeamName || 'Unknown';
@@ -444,17 +379,39 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
   return hammer;
 }
 
-function computeCheckDelay(selection) {
+function getProgressSignature(row) {
+  if (!row) return '';
+  const our = getEndScores(row.ourPos);
+  const opp = getEndScores(row.oppPos);
+  return JSON.stringify({
+    gameId: row.gameId,
+    our,
+    opp,
+    ourScore: getPositionScore(row.ourPos),
+    oppScore: getPositionScore(row.oppPos)
+  });
+}
+
+function computeCheckDelay(selection, previousSnapshot = null) {
   const now = Date.now();
-  if (selection.active) return { delayMs: APP.activeRefreshMs, reason: 'live game refresh' };
-  if (selection.next) return { delayMs: APP.upcomingRefreshMs, reason: 'confirmed next game found' };
-  if (selection.inferredNext) return { delayMs: APP.upcomingRefreshMs, reason: 'watching inferred next game until team assignment appears' };
-  if (selection.lastCompleted) return { delayMs: APP.justFinishedRefreshMs, reason: 'checking whether completed game winner has advanced' };
-  const nextRow = selection.rows.find(r => r.epochMs && r.epochMs > now);
+  if (selection.active) {
+    const currentSig = getProgressSignature(selection.active);
+    const sameAsPrevious = previousSnapshot && previousSnapshot.activeGameId === selection.active.gameId && previousSnapshot.progressSignature === currentSig;
+    return sameAsPrevious
+      ? { delayMs: APP.activeBetweenChecksMs, reason: 'awaiting next end score after active check' }
+      : { delayMs: APP.activePostEndPauseMs, reason: 'post-end pause before active polling' };
+  }
+  const nextConfirmed = selection.next;
+  if (nextConfirmed) {
+    const preWindowAt = (nextConfirmed.epochMs || now) - APP.preGameWindowMs;
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
+  }
+  const nextRow = selection.rows.find(r => r.linked && r.epochMs && r.epochMs > now);
   if (nextRow) {
     const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
-    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until pre-game window' };
-    return { delayMs: APP.upcomingRefreshMs, reason: 'pre-game monitoring' };
+    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
   }
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
@@ -479,8 +436,10 @@ function renderHeadline(snapshot) {
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
 }
 
-function renderEnds(teamName, opponentName, ends) {
-  if (!ends?.length) {
+function renderEnds(teamName, opponentName, endsData) {
+  const rowsIn = endsData?.rows || [];
+  const total = endsData?.total || null;
+  if (!rowsIn.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
     return;
@@ -489,8 +448,9 @@ function renderEnds(teamName, opponentName, ends) {
   const oppShort = escapeHtml(shortenTeamName(opponentName));
   els.endsList.className = 'ends-list ends-table';
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
-  const rows = ends.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${row.team}</span><span class="end-score-cell">${row.opponent}</span></div>`).join('');
-  els.endsList.innerHTML = header + rows;
+  const rows = rowsIn.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${escapeHtml(row.team)}</span><span class="end-score-cell">${escapeHtml(row.opponent)}</span></div>`).join('');
+  const totalRow = total ? `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${escapeHtml(total.team)}</span><span class="end-score-cell">${escapeHtml(total.opponent)}</span></div>` : '';
+  els.endsList.innerHTML = header + rows + totalRow;
 }
 
 function formatScheduleTime(row) {
@@ -522,7 +482,7 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
-  els.trackedPlayer.textContent = snapshot?.displayPlayerName || snapshot?.playerName || '—';
+  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '—';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
   els.eventValue.textContent = snapshot?.eventName || '—';
@@ -576,69 +536,50 @@ async function discoverPlayerEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
-  const seenEvents = new Set();
-  const subdomains = Array.from(new Set((APP.clubSubdomains || []).filter(Boolean)));
-
-  const competitionPayloads = await mapWithConcurrency(subdomains, 6, async (subdomain) => {
-    return await Promise.all((APP.lookaheadSeasons || [0]).map(async (delta) => {
+  for (const subdomain of APP.clubSubdomains) {
+    for (const delta of APP.lookaheadSeasons) {
       const listUrl = competitionsUrl(subdomain, delta);
       try {
         const payload = await fetchJson(listUrl);
         const items = payload.items || [];
-        checked.push({ source: subdomain, delta, itemsCount: items.length, url: listUrl, ok: true });
-        return { subdomain, delta, items };
-      } catch (error) {
-        checked.push({ source: subdomain, delta, itemsCount: 0, url: listUrl, ok: false, stage: 'competitions', error: error.message });
-        return { subdomain, delta, items: [] };
+        checked.push({ subdomain, delta, itemsCount: items.length, url: listUrl });
+        for (const item of items) {
+          try {
+            const event = await fetchJson(eventUrl(subdomain, item.id));
+            if (!isEventTodayForward(event)) continue;
+            const match = findMatchingTeam(event, playerNorm);
+            if (!match) continue;
+            const selection = selectGamesForEvent(event, match.team);
+            candidates.push({ item, event, match, selection, subdomain, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
+          } catch {}
+        }
+      } catch {
+        checked.push({ subdomain, delta, itemsCount: 0, url: listUrl, skipped: true });
       }
-    }));
-  });
-
-  const eventJobs = [];
-  for (const group of competitionPayloads.flat()) {
-    for (const item of group.items) {
-      const dedupeKey = `${group.subdomain}:${item.id}`;
-      if (seenEvents.has(dedupeKey)) continue;
-      seenEvents.add(dedupeKey);
-      eventJobs.push({ subdomain: group.subdomain, delta: group.delta, item });
     }
   }
-
-  await mapWithConcurrency(eventJobs, 8, async (job) => {
-    try {
-      const event = await fetchJson(eventUrl(job.subdomain, job.item.id));
-      if (!isEventTodayForward(event)) return;
-      const match = findMatchingTeam(event, playerNorm);
-      if (!match) return;
-      const selection = selectGamesForEvent(event, match.team);
-      candidates.push({
-        item: job.item,
-        event,
-        match,
-        selection,
-        subdomain: job.subdomain,
-        scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3
-      });
-    } catch (error) {
-      checked.push({ source: job.subdomain, delta: job.delta, eventId: job.item.id, ok: false, stage: 'event', error: error.message });
-    }
+  for (const c of candidates) {
+    c.exactMatch = normalizeName(c.match.curler.name) === playerNorm;
+  }
+  const exactCandidates = candidates.filter(c => c.exactMatch);
+  const pool = exactCandidates.length ? exactCandidates : candidates;
+  pool.sort((a,b) => {
+    return (b.match.score - a.match.score)
+      || (a.scoreRank - b.scoreRank)
+      || ((b.event.id||0) - (a.event.id||0));
   });
-
-  candidates.sort((a, b) => a.scoreRank - b.scoreRank || (b.match.score - a.match.score) || ((b.event.id || 0) - (a.event.id || 0)));
-  const bestScore = candidates[0]?.match?.score || 0;
-  const ambiguousChoices = candidates.filter(c => c.match.score === bestScore && normalizeName(c.match.curler.name) === playerNorm);
-  return { checked, candidates, ambiguousChoices };
+  return { checked, candidates: pool, hadExactMatches: exactCandidates.length > 0, totalCandidates: candidates.length };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const { event, match, selection } = candidate;
   const matchedTeam = match.team;
-  const nextGame = selection.next || selection.inferredNext;
+  const nextGame = selection.next || null;
   const nextGameConfirmed = !!selection.next;
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='—', hammerSubtitle='Hammer unknown', ends=[], teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+  let hammerNext='—', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
@@ -650,7 +591,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
     hammerSubtitle = `${shortenTeamName(hammerNext)} has hammer`;
-    ends = buildEnds(ourPos, oppPos);
+    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
     opponentName = oppTeam.name;
@@ -661,33 +602,45 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const nextGameLabel = nextGame
     ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
     : 'No next game available';
-  const nextCheck = computeCheckDelay(selection);
+  const nextCheck = computeCheckDelay(selection, state.snapshot);
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
 
-  const linkedScheduleRows = selection.linkedRows.map(r => ({
-    gameId: r.gameId,
-    startsAt: r.startsAt,
-    epochMs: r.epochMs,
-    stateLabel: r.lifecycle === 'playing' ? 'Now playing' : r.lifecycle === 'pending-window' ? 'Starting soon' : r.lifecycle === 'pending' ? 'Scheduled' : r.lifecycle === 'just-finished' ? 'Final' : r.lifecycle === 'complete' ? 'Complete' : 'Unknown',
-    team: matchedTeam.name,
-    opponent: r.oppTeam?.name || 'TBD'
-  }));
-  const branchRows = getOutcomeBranchRows(event, matchedTeam, selection).map(r => ({
-    gameId: r.gameId,
-    startsAt: r.startsAt,
-    epochMs: r.epochMs,
-    stateLabel: 'Outcome branch',
-    team: matchedTeam.name,
-    opponent: r.oppTeam?.name || 'TBD',
-    branchLabel: r.branchLabel
-  }));
-  const mergedScheduleRows = [...linkedScheduleRows, ...branchRows].sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
+  const linkedScheduleRows = selection.linkedRows.map(r => {
+    let stateLabel;
+    if (r.lifecycle === 'playing') stateLabel = 'Now playing';
+    else if (r.lifecycle === 'pending-window') stateLabel = 'Starting soon';
+    else if (r.lifecycle === 'pending') stateLabel = 'Scheduled';
+    else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
+      const ourScore = getPositionScore(r.ourPos);
+      const oppScore = getPositionScore(r.oppPos);
+      stateLabel = ourScore > oppScore
+        ? `Complete · won ${ourScore} - ${oppScore}`
+        : ourScore < oppScore
+        ? `Complete · lost ${ourScore} - ${oppScore}`
+        : `Complete · ${ourScore} - ${oppScore}`;
+    } else stateLabel = 'Unknown';
+    return {
+      gameId: r.gameId,
+      startsAt: r.startsAt,
+      epochMs: r.epochMs,
+      stateLabel,
+      team: matchedTeam.name,
+      opponent: r.oppTeam?.name || 'TBD'
+    };
+  });
+  const branchRows = [];
+  const dedup = new Map();
+  for (const row of [...linkedScheduleRows, ...branchRows]) {
+    const key = `${row.gameId}|${row.branchLabel || ''}`;
+    if (!dedup.has(key)) dedup.set(key, row);
+  }
+  const mergedScheduleRows = Array.from(dedup.values()).sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
 
   return {
     playerName,
-    displayPlayerName: match.curler.name,
+    displayPlayer: match.curler.name,
     view,
     teamName: matchedTeam.name,
     opponentName,
@@ -704,13 +657,14 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: branchRows.length ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games plus win/loss branches for the current result path.` : (nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Watching the next draw and upgrading when team assignment appears.'),
+    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.',
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
     eventId: event.id,
     nextCheckReason: nextCheck.reason,
-    nextGameConfirmed
+    nextGameConfirmed,
+    progressSignature: active ? getProgressSignature(active) : ''
   };
 }
 
@@ -721,13 +675,12 @@ async function runTracker({ reason }) {
   try {
     const discovery = await discoverPlayerEvents(state.playerName);
     if (!discovery.candidates.length) {
-      setPickerHidden(true);
       const diagnostics = buildDiagnostics({
         phase: 'no-match',
         reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        policy: 'Idle scans every 72 hours across configured Curling I/O subdomains until a matching event appears.'
+        policy: 'Idle scans every 72 hours until a matching event appears.'
       });
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
       setStatus(`No current Curling I/O event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
@@ -735,49 +688,16 @@ async function runTracker({ reason }) {
       return;
     }
 
-    const savedSelectionKey = getSavedSelectionKey(state.playerName);
-    const exactChoices = (discovery.ambiguousChoices || []).filter(c => c.match.score === 100);
-    if (exactChoices.length > 1 && !savedSelectionKey) {
-      state.pendingChoices = { query: state.playerName, choices: exactChoices };
-      renderCandidatePicker(state.playerName, exactChoices);
-      setStatus(`Multiple exact matches found for ${state.playerName}. Choose a curler to follow.`);
-      const diagnostics = buildDiagnostics({
-        phase: 'ambiguous-match',
-        reason,
-        playerName: state.playerName,
-        choiceCount: exactChoices.length,
-        choices: exactChoices.map(c => ({
-          sourceSubdomain: c.subdomain,
-          curler: c.match.curler.name,
-          team: c.match.team.name,
-          province: candidateProvinceLabel(c),
-          eventId: c.event.id,
-          eventName: c.event.name
-        })),
-        checked: discovery.checked
-      });
-      setDiagnostics(diagnostics);
-      return;
-    }
-
-    let chosen = null;
-    if (savedSelectionKey) chosen = discovery.candidates.find(c => candidateSelectionKey(c) === savedSelectionKey) || null;
-    if (!chosen && exactChoices.length === 1) chosen = exactChoices[0];
-    if (!chosen) chosen = discovery.candidates[0];
-    setPickerHidden(true);
-    state.pendingChoices = null;
-
+    const chosen = discovery.candidates[0];
     const selection = chosen.selection;
-    const exactRequested = normalizeName(state.playerName) === normalizeName(chosen.match.curler.name);
     const diagnostics = buildDiagnostics({
       phase: 'matched',
       reason,
       playerName: state.playerName,
-      exactMatch: exactRequested,
+      exactMatch: normalizeName(chosen.match.curler.name) === normalizeName(state.playerName),
       matchedCurler: chosen.match.curler.name,
       matchedTeam: chosen.match.team.name,
       sourceSubdomain: chosen.subdomain,
-      sourceProvince: candidateProvinceLabel(chosen),
       matchScore: chosen.match.score,
       eventId: chosen.event.id,
       eventName: chosen.event.name,
@@ -789,8 +709,8 @@ async function runTracker({ reason }) {
       },
       activeGameId: selection.active?.gameId || null,
       activeGameState: selection.active?.lifecycle || null,
-      nextGameId: (selection.next || selection.inferredNext)?.gameId || null,
-      nextGameDrawLabel: (selection.next || selection.inferredNext)?.drawLabel || null,
+      nextGameId: selection.next?.gameId || null,
+      nextGameDrawLabel: selection.next?.drawLabel || null,
       nextGameConfirmed: !!selection.next,
       nextGameSearch: selection.diagnostics,
       completedGameId: selection.lastCompleted?.gameId || null,
@@ -803,16 +723,16 @@ async function runTracker({ reason }) {
         drawGameRefs: selection.diagnostics.totalDrawGameRefs
       },
       checked: discovery.checked,
-      candidates: discovery.candidates.slice(0, 12).map(c => ({
-        sourceSubdomain: c.subdomain,
+      candidates: discovery.candidates.slice(0, 8).map(c => ({
         eventId: c.event.id,
         eventName: c.event.name,
+        sourceSubdomain: c.subdomain,
+        exactMatch: c.exactMatch,
         matchedCurler: c.match.curler.name,
         matchedTeam: c.match.team.name,
-        province: candidateProvinceLabel(c),
         matchScore: c.match.score,
         activeGameId: c.selection.active?.gameId || null,
-        nextGameId: (c.selection.next || c.selection.inferredNext)?.gameId || null,
+        nextGameId: c.selection.next?.gameId || null,
         nextGameConfirmed: !!c.selection.next,
         completedGameId: c.selection.lastCompleted?.gameId || null
       }))
@@ -821,19 +741,18 @@ async function runTracker({ reason }) {
     const snapshot = buildSnapshotFromCandidate(state.playerName, chosen, diagnostics);
     render(snapshot);
 
+    const exactMatch = normalizeName(chosen.match.curler.name) === normalizeName(state.playerName);
+    const prefix = exactMatch ? '' : `Unable to match ${state.playerName}. `;
     if (snapshot.view === 'live') {
-      setStatus(`${chosen.match.curler.name} is live in ${chosen.event.name}. Refreshing on the live-game schedule.`);
+      setStatus(`${prefix}${chosen.match.curler.name} is live in ${chosen.event.name}.`);
     } else if (snapshot.nextGameId) {
-      const prefix = exactRequested ? '' : `Unable to match ${state.playerName}. `;
       setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. Next game will be monitored when its draw window opens.`);
     } else {
-      const prefix = exactRequested ? '' : `Unable to match ${state.playerName}. `;
       setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
-    setPickerHidden(true);
     const diagnostics = buildDiagnostics({ phase:'error', reason, playerName: state.playerName, error: error.message });
     const snapshot = computeIdleSnapshot(state.playerName, diagnostics, APP.errorRetryMs);
     snapshot.eventName = 'Temporary error';
@@ -895,16 +814,6 @@ els.refreshBtn.addEventListener('click', () => {
   runTracker({ reason:'manual-refresh' });
 });
 els.diagnosticsToggle.addEventListener('click', () => els.diagnosticsPanel.classList.toggle('hidden'));
-els.pickerList?.addEventListener('click', (event) => {
-  const btn = event.target.closest('[data-choice-index]');
-  if (!btn || !state.pendingChoices) return;
-  const idx = Number(btn.getAttribute('data-choice-index'));
-  const choice = state.pendingChoices.choices[idx];
-  if (!choice) return;
-  saveSelectionChoice(state.pendingChoices.query, candidateSelectionKey(choice));
-  setPickerHidden(true);
-  runTracker({ reason: 'manual-choice' });
-});
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   state.deferredPrompt = event;
