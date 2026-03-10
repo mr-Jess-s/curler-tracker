@@ -1,5 +1,5 @@
 
-const APP_VERSION = 'v25';
+const APP_VERSION = 'v28';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -14,8 +14,14 @@ const APP = {
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
   localKeys: {
-    player: 'curler-tracker-player-v25',
-    snapshot: 'curler-tracker-snapshot-v25'
+    player: 'curler-tracker-player-v28',
+    snapshot: 'curler-tracker-snapshot-v28',
+    trackingHint: 'curler-tracker-hint-v28'
+  },
+  curlingZone: {
+    enabled: true,
+    adapterUrl: './api/curlingzone/search',
+    timeoutMs: 12000
   }
 };
 
@@ -104,6 +110,19 @@ function setStatus(text) { els.statusLine.textContent = text; }
 function savePlayer(player) { localStorage.setItem(APP.localKeys.player, player); }
 function saveSnapshot(snapshot) { localStorage.setItem(APP.localKeys.snapshot, JSON.stringify(snapshot)); }
 function loadSnapshot() { try { const raw = localStorage.getItem(APP.localKeys.snapshot); return raw ? JSON.parse(raw) : null; } catch { return null; } }
+function saveTrackingHint(hint) {
+  if (!hint) return localStorage.removeItem(APP.localKeys.trackingHint);
+  localStorage.setItem(APP.localKeys.trackingHint, JSON.stringify(hint));
+}
+function loadTrackingHint() {
+  try {
+    const raw = localStorage.getItem(APP.localKeys.trackingHint);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+function clearTrackingHint() { localStorage.removeItem(APP.localKeys.trackingHint); }
 function parsePlayerFromUrl() { return new URLSearchParams(window.location.search).get('player')?.trim() || ''; }
 function updateUrlPlayer(player) {
   const url = new URL(window.location.href);
@@ -542,7 +561,424 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
   };
 }
 
-async function discoverPlayerEvents(playerName) {
+
+
+async function fetchJsonWithTimeout(url, { timeoutMs = 15000, headers = { Accept: "application/json" }, cache = "no-store" } = {}) {
+  const controller = new AbortController();
+  const timer = window.setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { headers, cache, signal: controller.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    return res.json();
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
+function computeNameMatchScore(candidateName, playerNorm) {
+  const norm = normalizeName(candidateName);
+  if (!norm || !playerNorm) return 0;
+  if (norm === playerNorm) return 100;
+  if (norm.includes(playerNorm) || playerNorm.includes(norm)) return 75;
+  const normParts = new Set(norm.split(' ').filter(Boolean));
+  const overlap = playerNorm.split(' ').filter(Boolean).filter(part => normParts.has(part));
+  if (overlap.length >= 2) return 50;
+  if (overlap.length === 1) return 25;
+  return 0;
+}
+
+function splitNameParts(name) {
+  return normalizeName(name).split(' ').filter(Boolean);
+}
+
+function computeIdentityMatchScore(searchName, candidateName) {
+  const searchNorm = normalizeName(searchName);
+  const candNorm = normalizeName(candidateName);
+  if (!searchNorm || !candNorm) return 0;
+  if (searchNorm === candNorm) return 100;
+
+  const searchParts = splitNameParts(searchNorm);
+  const candParts = splitNameParts(candNorm);
+  const [sf = '', sl = ''] = [searchParts[0] || '', searchParts[searchParts.length - 1] || ''];
+  const [cf = '', cl = ''] = [candParts[0] || '', candParts[candParts.length - 1] || ''];
+
+  if (sl && cl && sl === cl) {
+    if (sf && cf && sf === cf) return 95;
+    if (sf && cf && sf[0] === cf[0]) return 92;
+    if (searchParts.length >= 2 && candParts.length >= 2) return 88;
+  }
+
+  if (sf && sl && sf === cl && sl === cf) return 90;
+
+  const candSet = new Set(candParts);
+  const overlap = searchParts.filter(part => candSet.has(part));
+  if (overlap.length >= 2) return 82;
+  if (overlap.length === 1 && sl && candSet.has(sl)) return 72;
+  if (candNorm.includes(searchNorm) || searchNorm.includes(candNorm)) return 70;
+  return 0;
+}
+
+function computeEventTimeBounds(selection) {
+  const rows = selection?.linkedRows?.length ? selection.linkedRows : (selection?.rows || []);
+  const times = rows.map(r => Number(r?.epochMs || 0)).filter(Boolean).sort((a,b) => a-b);
+  if (!times.length) return { startMs: null, endMs: null };
+  return {
+    startMs: times[0],
+    endMs: times[times.length - 1] + APP.postGameWindowMs
+  };
+}
+
+function eventsConflictInTime(a, b) {
+  const at = computeEventTimeBounds(a.selection);
+  const bt = computeEventTimeBounds(b.selection);
+  if (!at.startMs || !at.endMs || !bt.startMs || !bt.endMs) return false;
+  return at.startMs <= bt.endMs && bt.startMs <= at.endMs;
+}
+
+function getCandidatePrimaryTime(candidate) {
+  return Number(candidate?.selection?.active?.epochMs || candidate?.selection?.next?.epochMs || candidate?.selection?.lastCompleted?.epochMs || 0) || Number.MAX_SAFE_INTEGER;
+}
+
+function computeCandidateIdentityScore(playerName, candidate) {
+  const names = new Set([
+    candidate?.match?.curler?.name,
+    candidate?.matchedCurler,
+    candidate?.selectionRows?.[0]?.matchedCurler,
+    candidate?.selectionRows?.[0]?.teamSkip,
+    candidate?.selectionRows?.[0]?.teamName
+  ].filter(Boolean));
+
+  let best = 0;
+  for (const name of names) best = Math.max(best, computeIdentityMatchScore(playerName, name));
+  const baseScore = Number(candidate?.match?.score || 0);
+  if (best === 0) best = baseScore;
+  if (baseScore === 100 && best < 100) best = Math.max(best, 96);
+  return best;
+}
+
+function buildCanonicalEventKey(candidate) {
+  const eventName = normalizeName(candidate?.event?.name || '');
+  const teamName = normalizeName(candidate?.match?.team?.name || '');
+  const primaryTime = getCandidatePrimaryTime(candidate);
+  const dayBucket = Number.isFinite(primaryTime) && primaryTime !== Number.MAX_SAFE_INTEGER
+    ? new Date(primaryTime).toISOString().slice(0, 10)
+    : 'no-date';
+  return `${eventName}|${teamName}|${dayBucket}`;
+}
+
+function chooseBetterCandidateForSameEvent(a, b, playerNorm) {
+  const SOURCE_PRIORITY = { curlingio: 0, curlingzone: 1 };
+  const aExact = normalizeName(a.match.curler.name) === playerNorm ? 1 : 0;
+  const bExact = normalizeName(b.match.curler.name) === playerNorm ? 1 : 0;
+  const cmp =
+    (bExact - aExact) ||
+    ((b.identityScore || 0) - (a.identityScore || 0)) ||
+    ((b.match.score || 0) - (a.match.score || 0)) ||
+    ((SOURCE_PRIORITY[a.source || 'curlingio'] ?? 99) - (SOURCE_PRIORITY[b.source || 'curlingio'] ?? 99)) ||
+    (a.scoreRank - b.scoreRank) ||
+    (getCandidatePrimaryTime(a) - getCandidatePrimaryTime(b));
+  return cmp <= 0 ? a : b;
+}
+
+function clusterAndPrioritizeCandidates(playerName, candidates) {
+  const playerNorm = normalizeName(playerName);
+  const enriched = candidates.map(candidate => ({
+    ...candidate,
+    identityScore: computeCandidateIdentityScore(playerName, candidate),
+    canonicalEventKey: buildCanonicalEventKey(candidate)
+  })).filter(candidate => candidate.identityScore > 0);
+
+  const dedupedMap = new Map();
+  for (const candidate of enriched) {
+    const existing = dedupedMap.get(candidate.canonicalEventKey);
+    if (!existing) dedupedMap.set(candidate.canonicalEventKey, candidate);
+    else dedupedMap.set(candidate.canonicalEventKey, chooseBetterCandidateForSameEvent(existing, candidate, playerNorm));
+  }
+
+  let pool = Array.from(dedupedMap.values());
+  const exactPool = pool.filter(c => normalizeName(c.match.curler.name) === playerNorm);
+  if (exactPool.length) pool = exactPool;
+  else {
+    const strongPool = pool.filter(c => (c.identityScore || 0) >= 88);
+    if (strongPool.length) pool = strongPool;
+  }
+
+  const SOURCE_PRIORITY = { curlingio: 0, curlingzone: 1 };
+  pool.sort((a, b) =>
+    ((b.identityScore || 0) - (a.identityScore || 0)) ||
+    ((b.match.score || 0) - (a.match.score || 0)) ||
+    ((SOURCE_PRIORITY[a.source || 'curlingio'] ?? 99) - (SOURCE_PRIORITY[b.source || 'curlingio'] ?? 99)) ||
+    (a.scoreRank - b.scoreRank) ||
+    (getCandidatePrimaryTime(a) - getCandidatePrimaryTime(b)) ||
+    (String(b.event.id || '').localeCompare(String(a.event.id || '')))
+  );
+
+  return pool;
+}
+
+function buildTrackingHint(playerName, candidate, candidatePool = []) {
+  if (!candidate?.match || Number(candidate.identityScore || 0) < 88) return null;
+  const identityVariants = Array.from(new Set(candidatePool
+    .filter(c => (c.identityScore || 0) >= 88 && !eventsConflictInTime(candidate, c))
+    .flatMap(c => [c?.match?.curler?.name, c?.matchedCurler, c?.selectionRows?.[0]?.matchedCurler])
+    .filter(Boolean)
+    .map(name => normalizeName(name)))).slice(0, 8);
+  const recentContexts = candidatePool
+    .filter(c => (c.identityScore || 0) >= 88)
+    .slice(0, 6)
+    .map(c => ({
+      source: c.source || 'curlingio',
+      sourceSubdomain: c.subdomain || null,
+      eventId: c.event?.id || null,
+      eventName: c.event?.name || '',
+      matchedTeamId: c.match?.team?.id || null,
+      matchedTeamName: c.match?.team?.name || '',
+      matchedCurler: c.match?.curler?.name || '',
+      identityScore: c.identityScore || 0,
+      startsAtMs: getCandidatePrimaryTime(c),
+      timeBounds: computeEventTimeBounds(c.selection)
+    }));
+  return {
+    playerName,
+    playerNorm: normalizeName(playerName),
+    source: candidate.source || 'curlingio',
+    sourceSubdomain: candidate.subdomain || null,
+    eventId: candidate.event?.id || null,
+    eventName: candidate.event?.name || '',
+    matchedCurler: candidate.match?.curler?.name || '',
+    matchedTeamId: candidate.match?.team?.id || null,
+    matchedTeamName: candidate.match?.team?.name || '',
+    matchScore: Number(candidate.match?.score || 0),
+    identityScore: Number(candidate.identityScore || 0),
+    identityVariants,
+    recentContexts,
+    savedAt: new Date().toISOString()
+  };
+}
+
+function isTrackingHintEligible(playerName, hint) {
+  const variants = [hint?.playerName, hint?.playerNorm, ...(Array.isArray(hint?.identityVariants) ? hint.identityVariants : [])].filter(Boolean);
+  const searchNorm = normalizeName(playerName);
+  const best = variants.reduce((acc, value) => Math.max(acc, computeIdentityMatchScore(searchNorm, value)), 0);
+  return !!hint && best >= 88 && Number(hint.identityScore || hint.matchScore || 0) >= 88 && !!hint.eventId;
+}
+
+function inferLifecycleFromCzRow(row) {
+  const state = normalizeName(row?.state || row?.status || '');
+  const result = normalizeName(row?.result || '');
+  if (state.includes('live') || state.includes('in progress') || state.includes('playing')) return 'playing';
+  if (state.includes('scheduled') || state.includes('upcoming') || state.includes('starting soon')) return 'pending';
+  if (state.includes('final') || state.includes('complete') || result === 'won' || result === 'lost' || result === 'tied') return 'complete';
+  const epochMs = Number(row?.epochMs || 0) || null;
+  if (epochMs && epochMs > Date.now()) return 'pending';
+  if (epochMs && epochMs <= Date.now()) return 'complete';
+  return 'unknown';
+}
+
+function getResultFromScores(teamScore, opponentScore) {
+  const our = Number(teamScore || 0);
+  const opp = Number(opponentScore || 0);
+  if (our > opp) return 'won';
+  if (our < opp) return 'lost';
+  return 'tied';
+}
+
+function buildCurlingZoneSelection(rows, matchedTeamName) {
+  const normalizedRows = rows.map((row, idx) => {
+    const lifecycle = inferLifecycleFromCzRow(row);
+    const ourPos = { team_id: `cz-team:${normalizeName(matchedTeamName)}`, score: Number(row.teamScore || 0), end_scores: [], result: row.result || getResultFromScores(row.teamScore, row.opponentScore) };
+    const oppPos = { team_id: `cz-opp:${normalizeName(row.opponentName || 'tbd')}:${idx}`, score: Number(row.opponentScore || 0), end_scores: [], result: ourPos.result === 'won' ? 'lost' : ourPos.result === 'lost' ? 'won' : 'tied' };
+    return {
+      draw: { label: row.drawLabel || null },
+      game: {
+        id: row.gameId || `cz:${row.eventId || 'event'}:${idx}`,
+        name: row.gameTitle || '',
+        state: row.state || lifecycle,
+        game_positions: [ourPos, oppPos]
+      },
+      gameId: row.gameId || `cz:${row.eventId || 'event'}:${idx}`,
+      drawLabel: row.drawLabel || null,
+      startsAt: row.startsAt || (row.epochMs ? formatEpochMs(row.epochMs) : 'TBD'),
+      epochMs: Number(row.epochMs || 0) || null,
+      lifecycle,
+      linked: true,
+      aliasMatch: false,
+      openSlots: 0,
+      ourPos,
+      oppPos,
+      oppTeam: { id: oppPos.team_id, name: row.opponentName || 'TBD' },
+      gameName: row.gameTitle || '',
+      stateLabel: row.stateLabel || row.state || (lifecycle === 'playing' ? 'Live' : lifecycle === 'pending' ? 'Scheduled' : lifecycle === 'complete' ? 'Complete' : 'Unknown'),
+      sourceUrl: row.sourceUrl || null
+    };
+  }).sort((a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER) || String(a.gameId).localeCompare(String(b.gameId)));
+
+  const active = normalizedRows.find(r => r.lifecycle === 'playing') || null;
+  const next = normalizedRows.filter(r => ['pending-window', 'pending'].includes(r.lifecycle)).sort((a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+  const lastCompleted = normalizedRows.filter(r => ['just-finished', 'complete'].includes(r.lifecycle)).sort((a, b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+  const stateCounts = {};
+  for (const row of normalizedRows) stateCounts[row.lifecycle] = (stateCounts[row.lifecycle] || 0) + 1;
+  return {
+    rows: normalizedRows,
+    linkedRows: normalizedRows,
+    active,
+    next,
+    inferredNext: null,
+    lastCompleted,
+    diagnostics: {
+      totalStageGames: normalizedRows.length,
+      totalDrawGameRefs: normalizedRows.length,
+      linkedGames: normalizedRows.length,
+      assignedGames: normalizedRows.length,
+      aliasMatchedGames: 0,
+      futureAssignedGames: normalizedRows.filter(r => ['pending-window', 'pending'].includes(r.lifecycle)).length,
+      futureOpenSlotGames: 0,
+      stateCounts,
+      matchedTeamAliases: [],
+      inferredLinkedGames: [],
+      unmatchedDrawRows: [],
+      usedInference: false
+    }
+  };
+}
+
+
+
+function findMatchingTeamFromHint(event, hint) {
+  const hintTeamId = hint?.matchedTeamId || null;
+  const hintTeamNameNorm = normalizeName(hint?.matchedTeamName || '');
+  if (hintTeamId) {
+    const byId = (event.teams || []).find(team => team.id === hintTeamId);
+    if (byId) return byId;
+  }
+  if (hintTeamNameNorm) {
+    const exact = (event.teams || []).find(team => normalizeName(team.name) === hintTeamNameNorm);
+    if (exact) return exact;
+    const alias = (event.teams || []).find(team => teamAliases(team).includes(hintTeamNameNorm));
+    if (alias) return alias;
+  }
+  return null;
+}
+
+async function discoverPlayerEventFromHint(playerName, hint) {
+  if (!isTrackingHintEligible(playerName, hint)) return null;
+
+  const contexts = Array.isArray(hint?.recentContexts) && hint.recentContexts.length
+    ? hint.recentContexts
+    : [{
+        source: hint.source || 'curlingio',
+        sourceSubdomain: hint.sourceSubdomain || null,
+        eventId: hint.eventId || null,
+        matchedTeamId: hint.matchedTeamId || null,
+        matchedTeamName: hint.matchedTeamName || '',
+        matchedCurler: hint.matchedCurler || '',
+        identityScore: Number(hint.identityScore || hint.matchScore || 0)
+      }];
+
+  const preferred = contexts.slice().sort((a, b) => (Number(b.identityScore || 0) - Number(a.identityScore || 0)) || (Number(a.startsAtMs || 0) - Number(b.startsAtMs || 0)));
+
+  for (const ctx of preferred) {
+    if ((ctx.source || 'curlingio') === 'curlingio') {
+      if (!ctx.sourceSubdomain || !ctx.eventId) continue;
+      try {
+        const event = await fetchJson(eventUrl(ctx.sourceSubdomain, ctx.eventId));
+        const matchedTeam = findMatchingTeamFromHint(event, ctx);
+        if (!matchedTeam) continue;
+        const selection = selectGamesForEvent(event, matchedTeam);
+        if (!selection?.rows?.length) continue;
+        return {
+          item: { id: event.id },
+          event,
+          match: {
+            team: { id: matchedTeam.id, name: matchedTeam.name },
+            curler: { name: ctx.matchedCurler || hint.matchedCurler || matchedTeam.name },
+            score: 100
+          },
+          identityScore: Number(ctx.identityScore || hint.identityScore || 100),
+          selection,
+          subdomain: ctx.sourceSubdomain,
+          source: 'curlingio',
+          scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3
+        };
+      } catch {}
+    }
+  }
+
+  const needCurlingZone = preferred.some(ctx => (ctx.source || '') === 'curlingzone');
+  if (needCurlingZone) {
+    const cz = await discoverCurlingZoneEvents(playerName);
+    const ctxs = preferred.filter(ctx => (ctx.source || '') === 'curlingzone');
+    for (const ctx of ctxs) {
+      const eventId = String(ctx.eventId || '');
+      const candidate = cz.candidates.find(c => String(c.event?.id || '') === eventId && (c.identityScore || 0) >= 88) || null;
+      if (candidate) return candidate;
+    }
+    return cz.candidates.find(c => (c.identityScore || 0) >= 88) || null;
+  }
+
+  return null;
+}
+
+function normalizeCurlingZoneResponse(payload, playerName) {
+  const playerNorm = normalizeName(playerName);
+  const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+  const byCandidate = new Map();
+  for (const row of rows) {
+    const matchedCurler = row.matchedCurler || row.teamSkip || row.matchedTeam || row.teamName || '';
+    const matchScore = Number(row.matchScore || computeNameMatchScore(matchedCurler, playerNorm) || computeNameMatchScore(row.matchedTeam || row.teamName || '', playerNorm));
+    if (!matchScore) continue;
+    const eventId = row.eventId || row.eventName || 'curlingzone';
+    const matchedTeam = row.matchedTeam || row.teamName || matchedCurler || 'Unknown Team';
+    const key = `${eventId}|${normalizeName(matchedTeam)}`;
+    if (!byCandidate.has(key)) byCandidate.set(key, {
+      item: { id: `cz:${eventId}` },
+      event: { id: `cz:${eventId}`, name: row.eventName || 'CurlingZone Event', number_of_ends: 8, teams: [] },
+      match: { team: { id: `cz-team:${normalizeName(matchedTeam)}`, name: matchedTeam }, curler: { name: matchedCurler }, score: matchScore },
+      selectionRows: [],
+      subdomain: 'curlingzone',
+      source: 'curlingzone'
+    });
+    byCandidate.get(key).selectionRows.push({ ...row, eventId: `cz:${eventId}`, matchedTeam, matchedCurler, matchScore });
+    if (matchScore > byCandidate.get(key).match.score) {
+      byCandidate.get(key).match = { team: { id: `cz-team:${normalizeName(matchedTeam)}`, name: matchedTeam }, curler: { name: matchedCurler }, score: matchScore };
+    }
+  }
+
+  const candidates = [];
+  for (const candidate of byCandidate.values()) {
+    const selection = buildCurlingZoneSelection(candidate.selectionRows, candidate.match.team.name);
+    candidates.push({
+      item: candidate.item,
+      event: candidate.event,
+      match: candidate.match,
+      selection,
+      subdomain: candidate.subdomain,
+      source: candidate.source,
+      scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3
+    });
+  }
+  return candidates;
+}
+
+async function discoverCurlingZoneEvents(playerName) {
+  if (!APP.curlingZone?.enabled || !APP.curlingZone?.adapterUrl) return { checked: [], candidates: [] };
+  const url = `${APP.curlingZone.adapterUrl}?player=${encodeURIComponent(playerName)}`;
+  try {
+    const payload = await fetchJsonWithTimeout(url, { timeoutMs: APP.curlingZone.timeoutMs });
+    const candidates = normalizeCurlingZoneResponse(payload, playerName);
+    return {
+      checked: [{ source: 'curlingzone', itemsCount: Array.isArray(payload?.rows) ? payload.rows.length : 0, url, ok: true }],
+      candidates
+    };
+  } catch (error) {
+    return {
+      checked: [{ source: 'curlingzone', itemsCount: 0, url, ok: false, error: error.message }],
+      candidates: []
+    };
+  }
+}
+
+async function discoverCurlingIoEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
@@ -552,7 +988,7 @@ async function discoverPlayerEvents(playerName) {
       try {
         const payload = await fetchJson(listUrl);
         const items = payload.items || [];
-        checked.push({ subdomain, delta, itemsCount: items.length, url: listUrl });
+        checked.push({ source: 'curlingio', subdomain, delta, itemsCount: items.length, url: listUrl });
         for (const item of items) {
           try {
             const event = await fetchJson(eventUrl(subdomain, item.id));
@@ -560,21 +996,25 @@ async function discoverPlayerEvents(playerName) {
             const match = findMatchingTeam(event, playerNorm);
             if (!match) continue;
             const selection = selectGamesForEvent(event, match.team);
-            candidates.push({ item, event, match, selection, subdomain, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
+            candidates.push({ item, event, match, selection, subdomain, source: 'curlingio', scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
           } catch {}
         }
       } catch {
-        checked.push({ subdomain, delta, itemsCount: 0, url: listUrl, skipped: true });
+        checked.push({ source: 'curlingio', subdomain, delta, itemsCount: 0, url: listUrl, skipped: true });
       }
     }
   }
-  const exactCandidates = candidates.filter(c => normalizeName(c.match.curler.name) === playerNorm);
-  const pool = exactCandidates.length ? exactCandidates : candidates;
-  pool.sort((a, b) =>
-    (b.match.score - a.match.score) ||
-    (a.scoreRank - b.scoreRank) ||
-    ((b.event.id || 0) - (a.event.id || 0))
-  );
+  return { checked, candidates };
+}
+
+async function discoverPlayerEvents(playerName) {
+  const [cio, cz] = await Promise.all([
+    discoverCurlingIoEvents(playerName),
+    discoverCurlingZoneEvents(playerName)
+  ]);
+  const checked = [...cio.checked, ...cz.checked];
+  const candidates = [...cio.candidates, ...cz.candidates];
+  const pool = clusterAndPrioritizeCandidates(playerName, candidates);
   return { checked, candidates: pool };
 }
 
@@ -663,13 +1103,14 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     hammerNext,
     hammerSubtitle,
     eventName: event.name,
+    source: candidate.source || 'curlingio',
     ends,
     scheduleRows: mergedScheduleRows,
     activeGameId: active?.gameId || null,
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.',
+    scheduleHint: candidate.source === 'curlingzone' ? 'CurlingZone supplement in use. Curling I/O would override this source when available.' : (nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.'),
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -685,6 +1126,71 @@ async function runTracker({ reason }) {
   state.lastRunAt = Date.now();
   setStatus(`Checking for ${state.playerName}…`);
   try {
+    const trackingHint = loadTrackingHint();
+    const hintedCandidate = await discoverPlayerEventFromHint(state.playerName, trackingHint).catch(() => null);
+    if (hintedCandidate) {
+      const selection = hintedCandidate.selection;
+      const diagnostics = buildDiagnostics({
+        phase: 'matched-from-memory',
+        reason,
+        playerName: state.playerName,
+        matchedCurler: hintedCandidate.match.curler.name,
+        matchedTeam: hintedCandidate.match.team.name,
+        sourceType: hintedCandidate.source || 'curlingio',
+        sourceSubdomain: hintedCandidate.subdomain,
+        matchScore: hintedCandidate.match.score,
+        identityScore: hintedCandidate.identityScore || hintedCandidate.match.score,
+        eventId: hintedCandidate.event.id,
+        eventName: hintedCandidate.event.name,
+        reusedTrackingHint: true,
+        trackingHintSavedAt: trackingHint?.savedAt || null,
+        matchedTeamAliases: selection.diagnostics.matchedTeamAliases,
+        aliasSearch: {
+          aliasesChecked: selection.diagnostics.matchedTeamAliases,
+          gamesMatchedByAlias: selection.diagnostics.aliasMatchedGames,
+          inferredLinkedGames: selection.diagnostics.inferredLinkedGames
+        },
+        activeGameId: selection.active?.gameId || null,
+        activeGameState: selection.active?.lifecycle || null,
+        nextGameId: selection.next?.gameId || null,
+        nextGameDrawLabel: selection.next?.drawLabel || null,
+        nextGameConfirmed: !!selection.next,
+        nextGameSearch: selection.diagnostics,
+        completedGameId: selection.lastCompleted?.gameId || null,
+        completedResult: getPositionResult(selection.lastCompleted?.ourPos) || null,
+        nextCheckReason: computeCheckDelay(selection).reason,
+        payloadStructure: {
+          stagesCount: (hintedCandidate.event.stages || []).length,
+          drawsCount: (hintedCandidate.event.draws || []).length,
+          gamesCount: selection.diagnostics.totalStageGames,
+          drawGameRefs: selection.diagnostics.totalDrawGameRefs
+        },
+        checked: [{ source: hintedCandidate.source || 'curlingio', eventId: hintedCandidate.event.id, reusedTrackingHint: true }],
+        candidates: [{
+          eventId: hintedCandidate.event.id,
+          eventName: hintedCandidate.event.name,
+          sourceType: hintedCandidate.source || 'curlingio',
+          sourceSubdomain: hintedCandidate.subdomain,
+          matchedCurler: hintedCandidate.match.curler.name,
+          matchedTeam: hintedCandidate.match.team.name,
+          matchScore: hintedCandidate.match.score,
+        identityScore: hintedCandidate.identityScore || hintedCandidate.match.score,
+          activeGameId: selection.active?.gameId || null,
+          nextGameId: selection.next?.gameId || null,
+          nextGameConfirmed: !!selection.next,
+          completedGameId: selection.lastCompleted?.gameId || null
+        }]
+      });
+
+      const snapshot = buildSnapshotFromCandidate(state.playerName, hintedCandidate, diagnostics);
+      render(snapshot);
+      if (snapshot.view === 'live') setStatus(`${hintedCandidate.match.curler.name} is live in ${hintedCandidate.event.name}.`);
+      else if (snapshot.nextGameId) setStatus(`Reused remembered match for ${hintedCandidate.match.curler.name} in ${hintedCandidate.event.name}. Next game will be monitored when its draw window opens.`);
+      else setStatus(`Reused remembered match for ${hintedCandidate.match.curler.name} in ${hintedCandidate.event.name}. No live draw right now.`);
+      scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
+      return;
+    }
+
     const discovery = await discoverPlayerEvents(state.playerName);
     if (!discovery.candidates.length) {
       const diagnostics = buildDiagnostics({
@@ -692,15 +1198,18 @@ async function runTracker({ reason }) {
         reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        policy: 'Idle scans every 72 hours until a matching event appears.'
+        policy: 'Idle scans every 72 hours until a matching Curling I/O or CurlingZone event appears.'
       });
+      clearTrackingHint();
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-      setStatus(`No current Curling I/O event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
+      setStatus(`No current Curling I/O or CurlingZone event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
       scheduleNextRun(APP.idleScanMs);
       return;
     }
 
     const chosen = discovery.candidates[0];
+    const chosenHint = buildTrackingHint(state.playerName, chosen, discovery.candidates);
+    if (chosenHint) saveTrackingHint(chosenHint);
     const selection = chosen.selection;
     const diagnostics = buildDiagnostics({
       phase: 'matched',
@@ -708,8 +1217,10 @@ async function runTracker({ reason }) {
       playerName: state.playerName,
       matchedCurler: chosen.match.curler.name,
       matchedTeam: chosen.match.team.name,
+      sourceType: chosen.source || 'curlingio',
       sourceSubdomain: chosen.subdomain,
       matchScore: chosen.match.score,
+      identityScore: chosen.identityScore || chosen.match.score,
       eventId: chosen.event.id,
       eventName: chosen.event.name,
       matchedTeamAliases: selection.diagnostics.matchedTeamAliases,
@@ -737,10 +1248,12 @@ async function runTracker({ reason }) {
       candidates: discovery.candidates.slice(0, 8).map(c => ({
         eventId: c.event.id,
         eventName: c.event.name,
+        sourceType: c.source || 'curlingio',
         sourceSubdomain: c.subdomain,
         matchedCurler: c.match.curler.name,
         matchedTeam: c.match.team.name,
         matchScore: c.match.score,
+        identityScore: c.identityScore || c.match.score,
         activeGameId: c.selection.active?.gameId || null,
         nextGameId: c.selection.next?.gameId || null,
         nextGameConfirmed: !!c.selection.next,
@@ -774,7 +1287,9 @@ async function runTracker({ reason }) {
 }
 
 function startTracking(playerName, reason = 'manual-start') {
-  state.playerName = playerName.trim();
+  const nextPlayer = playerName.trim();
+  if (normalizeName(nextPlayer) !== normalizeName(state.playerName)) clearTrackingHint();
+  state.playerName = nextPlayer;
   savePlayer(state.playerName);
   updateUrlPlayer(state.playerName);
   els.playerInput.value = state.playerName;
