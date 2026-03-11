@@ -5,6 +5,6 @@
   "display": "standalone",
   "background_color": "#09111d",
   "theme_color": "#0c1220",
-  "description": "Track one curler across Alberta competitions.",
+  "description": "Track one curler across a season with live score focus and cached season history.",
   "icons": []
 }
