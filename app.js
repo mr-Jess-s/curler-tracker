@@ -79,7 +79,8 @@ function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
   return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
 function resolveGameTitle(row) {
-  return String(row?.gameName || row?.game?.name || '').trim();
+  const title = String(row?.gameName || row?.game?.name || '').trim();
+  return /\sv\s/i.test(title) ? '' : title;
 }
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
@@ -271,10 +272,13 @@ function buildDrawFirstRows(event, matchedTeam) {
         return tid && tid !== matchedTeamId;
       }) || null;
       const oppTeam = oppPos?.team_id ? teamsById.get(getTeamIdFromPosition(oppPos)) : null;
-      const aliasMatch = !ourPos && gameMatchesTeamByAlias(game, matchedTeam);
-      const linked = !!ourPos || aliasMatch;
       const openSlots = Math.max(0, 2 - positions.filter(pos => !!getTeamIdFromPosition(pos)).length);
       const lifecycle = inferLifecycle(game, epochMs);
+      const aliasMatch = !ourPos
+        && openSlots > 0
+        && ['pending-window','pending'].includes(lifecycle)
+        && gameMatchesTeamByAlias(game, matchedTeam);
+      const linked = !!ourPos || aliasMatch;
       rows.push({
         draw,
         game,
@@ -565,15 +569,13 @@ async function discoverPlayerEvents(playerName) {
     }
   }
   const exactCandidates = candidates.filter(c => normalizeName(c.match.curler.name) === playerNorm);
-  const rankedCandidates = exactCandidates.length ? exactCandidates : candidates;
-
-  rankedCandidates.sort((a, b) =>
+  const pool = exactCandidates.length ? exactCandidates : candidates;
+  pool.sort((a, b) =>
     (b.match.score - a.match.score) ||
     (a.scoreRank - b.scoreRank) ||
     ((b.event.id || 0) - (a.event.id || 0))
   );
-
-  return { checked, candidates: rankedCandidates };
+  return { checked, candidates: pool };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
