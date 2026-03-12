@@ -1,9 +1,0 @@
-{
-  "name": "curler-tracker-curlingzone-proxy",
-  "version": "30.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "start": "node curlingzone-proxy.mjs"
-  }
-}
