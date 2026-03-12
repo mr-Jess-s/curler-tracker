@@ -1,14 +1,15 @@
 import http from 'node:http';
 import { URL } from 'node:url';
 
-const PORT = Number(process.env.PORT || 8787);
-const USER_AGENT = process.env.CURLER_TRACKER_UA || 'CurlerTracker/1.0 (+https://example.local)';
+const PORT = Number(process.env.PORT || 10000);
 const ALLOW_ORIGIN = process.env.ALLOW_ORIGIN || '*';
+const USER_AGENT = process.env.CURLER_TRACKER_UA || 'CurlerTracker/1.0 (+https://example.local)';
 const REQUEST_TIMEOUT_MS = Number(process.env.REQUEST_TIMEOUT_MS || 15000);
 const PAGE_CACHE_TTL_MS = Number(process.env.PAGE_CACHE_TTL_MS || 300000);
 const SEARCH_CACHE_TTL_MS = Number(process.env.SEARCH_CACHE_TTL_MS || 120000);
 const MAX_PAGES = Number(process.env.MAX_PAGES || 18);
 const MAX_LINKS_PER_PAGE = Number(process.env.MAX_LINKS_PER_PAGE || 12);
+
 const BASES = [
   'https://www.curlingzone.com/scoreboard.php',
   'https://home.curlingzone.com/'
@@ -17,174 +18,275 @@ const BASES = [
 const pageCache = new Map();
 const searchCache = new Map();
 
-function nowMs() { return Date.now(); }
 function normalizeName(value = '') {
-  return String(value || '')
+  return String(value)
     .toLowerCase()
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9#]+/g, ' ')
     .trim();
 }
-function splitParts(value = '') { return normalizeName(value).split(' ').filter(Boolean); }
-function computeMatchScore(search, candidate) {
-  const s = normalizeName(search);
-  const c = normalizeName(candidate);
-  if (!s || !c) return 0;
-  if (s === c) return 100;
-  if (s.includes(c) || c.includes(s)) return 75;
-  const cSet = new Set(splitParts(c));
-  const overlap = splitParts(s).filter(part => cSet.has(part));
+
+function decodeEntities(text = '') {
+  return String(text)
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>');
+}
+
+function stripHtml(html = '') {
+  return decodeEntities(
+    String(html)
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<\/p>/gi, '\n')
+      .replace(/<\/div>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\r/g, '\n')
+      .replace(/\t/g, ' ')
+      .replace(/[ ]{2,}/g, ' ')
+  );
+}
+
+function computeNameMatchScore(candidateName, playerNorm) {
+  const norm = normalizeName(candidateName);
+  if (!norm || !playerNorm) return 0;
+  if (norm === playerNorm) return 100;
+  if (norm.includes(playerNorm) || playerNorm.includes(norm)) return 75;
+  const normParts = new Set(norm.split(' ').filter(Boolean));
+  const overlap = playerNorm.split(' ').filter(Boolean).filter(part => normParts.has(part));
   if (overlap.length >= 2) return 50;
   if (overlap.length === 1) return 25;
   return 0;
 }
 
-function getCached(map, key) {
-  const hit = map.get(key);
-  if (!hit) return null;
-  if (hit.expiresAt < nowMs()) { map.delete(key); return null; }
-  return hit.value;
+function extractSurnameTeamName(line = '') {
+  const clean = line.replace(/\s+/g, ' ').trim();
+  const match = clean.match(/(.+?)\s*\(([^()]+)\)\s*$/);
+  if (!match) return { teamName: clean, matchedCurler: clean };
+  return {
+    teamName: `${match[1].trim()} (${match[2].trim()})`,
+    matchedCurler: match[2].trim()
+  };
 }
-function setCached(map, key, value, ttlMs) { map.set(key, { value, expiresAt: nowMs() + ttlMs }); }
+
+function findContext(lines, index, predicate, step, limit = 10) {
+  for (let i = 1; i <= limit; i++) {
+    const value = lines[index + i * step];
+    if (!value) continue;
+    if (predicate(value)) return value;
+  }
+  return '';
+}
+
+function parseDateish(value = '') {
+  const text = value.replace(/^Draw:\s*/i, '').trim();
+  const dt = Date.parse(text);
+  return Number.isNaN(dt) ? null : dt;
+}
+
+function dedupeRows(rows) {
+  const out = new Map();
+  for (const row of rows) {
+    const key = [
+      row.eventId,
+      normalizeName(row.matchedTeam),
+      normalizeName(row.opponentName),
+      row.drawLabel || '',
+      row.startsAt || ''
+    ].join('|');
+    if (!out.has(key)) out.set(key, row);
+  }
+  return [...out.values()];
+}
+
+function parseRowsFromText(text, player, sourceUrl) {
+  const lines = stripHtml(text)
+    .split('\n')
+    .map(v => v.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+
+  const playerNorm = normalizeName(player);
+  const rows = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const lineNorm = normalizeName(lines[i]);
+    if (!lineNorm) continue;
+    if (!(lineNorm.includes(playerNorm) || playerNorm.split(' ').some(part => part && lineNorm.includes(part)))) continue;
+
+    const eventName =
+      findContext(lines, i, v => /teams\s*\|\s*scores\s*\|\s*standings\s*\|\s*playoffs/i.test(v), -1, 6) ||
+      findContext(lines, i, v => /draw\s*:/i.test(v), -1, 8) ||
+      'CurlingZone Event';
+
+    const drawLine = findContext(lines, i, v => /draw\s*:/i.test(v), -1, 8);
+    const timeLine = drawLine || findContext(lines, i, v => /\b(?:mon|tue|wed|thu|fri|sat|sun)\b/i.test(v), -1, 8);
+    const finalLine = findContext(lines, i, v => /^(final|live|scheduled|complete)/i.test(v), 1, 8);
+    const scoreLine = findContext(lines, i, v => /^\d+$/.test(v) || /^\d+\s+final/i.test(v), 1, 6);
+    const opponentLine =
+      findContext(lines, i, v => normalizeName(v) !== lineNorm && /\(|[A-Za-z]/.test(v), 2, 6) ||
+      findContext(lines, i, v => normalizeName(v) !== lineNorm && /\(|[A-Za-z]/.test(v), -2, 6);
+
+    const teamInfo = extractSurnameTeamName(lines[i]);
+    const oppInfo = extractSurnameTeamName(opponentLine || 'TBD');
+
+    const matchScore = Math.max(
+      computeNameMatchScore(teamInfo.matchedCurler, playerNorm),
+      computeNameMatchScore(teamInfo.teamName, playerNorm)
+    );
+    if (!matchScore) continue;
+
+    rows.push({
+      eventId: normalizeName(eventName).replace(/\s+/g, '-'),
+      eventName,
+      matchedCurler: teamInfo.matchedCurler,
+      matchedTeam: teamInfo.teamName,
+      teamName: teamInfo.teamName,
+      opponentName: oppInfo.teamName,
+      drawLabel: drawLine.replace(/^Draw:\s*/i, '').split('--')[0]?.trim() || null,
+      startsAt: timeLine || null,
+      epochMs: parseDateish(timeLine || ''),
+      gameTitle: '',
+      state: finalLine || 'Complete',
+      stateLabel: finalLine || 'Complete',
+      teamScore: /^\d+$/.test(scoreLine) ? Number(scoreLine) : 0,
+      opponentScore: 0,
+      result: '',
+      matchScore,
+      sourceUrl
+    });
+  }
+
+  return dedupeRows(rows);
+}
 
 async function fetchText(url) {
-  const cached = getCached(pageCache, url);
-  if (cached) return cached;
+  const cached = pageCache.get(url);
+  if (cached && cached.expiresAt > Date.now()) return cached.text;
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
   try {
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT, 'Accept': 'text/html,*/*' }, signal: controller.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    const res = await fetch(url, {
+      headers: { 'user-agent': USER_AGENT, accept: 'text/html,*/*' },
+      signal: controller.signal
+    });
+    if (!res.ok) throw new Error(`CurlingZone HTTP ${res.status} for ${url}`);
     const text = await res.text();
-    setCached(pageCache, url, text, PAGE_CACHE_TTL_MS);
+    pageCache.set(url, { text, expiresAt: Date.now() + PAGE_CACHE_TTL_MS });
     return text;
   } finally {
     clearTimeout(timer);
   }
 }
 
-function parseLinks(html, baseUrl) {
-  const out = [];
-  const regex = /href=["']([^"'#]+)["']/gi;
+function extractLinks(html, baseUrl) {
+  const found = new Set();
+  const regex = /href\s*=\s*["']([^"'#]+)["']/gi;
   let match;
   while ((match = regex.exec(html))) {
     try {
-      const url = new URL(match[1], baseUrl).toString();
-      if (/curlingzone\.com/i.test(url) && !out.includes(url)) out.push(url);
+      const absolute = new URL(match[1], baseUrl).toString();
+      if (/curlingzone\.com/i.test(absolute)) found.add(absolute);
     } catch {}
-    if (out.length >= MAX_LINKS_PER_PAGE) break;
+    if (found.size >= MAX_LINKS_PER_PAGE) break;
   }
-  return out;
+  return [...found];
 }
 
-function extractDates(text) {
-  const dates = [];
-  const regex = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:,\s+\d{4})?/gi;
-  let match;
-  while ((match = regex.exec(text))) dates.push(match[0]);
-  return dates;
-}
+async function scrapeCurlingZone(player) {
+  const cacheKey = normalizeName(player);
+  const cached = searchCache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) return cached.payload;
 
-function inferFinish(text) {
-  const t = normalizeName(text);
-  if (/champion|winner/.test(t)) return 'Champion';
-  if (/finalist|runner up/.test(t)) return 'Finalist';
-  if (/semifinal/.test(t)) return 'Semifinalist';
-  if (/quarterfinal/.test(t)) return 'Quarterfinalist';
-  if (/round robin/.test(t)) return 'Exited round robin';
-  return 'Result not fully determined';
-}
-
-function extractRowsFromText(player, text, sourceUrl) {
-  const lines = text.split(/\r?\n/).map(line => line.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean);
-  const searchNorm = normalizeName(player);
-  const rows = [];
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const score = computeMatchScore(player, line);
-    if (!score) continue;
-    const window = lines.slice(Math.max(0, i - 4), Math.min(lines.length, i + 8));
-    const joined = window.join(' · ');
-    const dates = extractDates(joined);
-    const eventName = window.find(x => /bonspiel|classic|open|cup|slam|challenge|trophy|championship|cashspiel|spiel/i.test(x)) || 'CurlingZone event';
-    const teamName = window.find(x => /team\s+/i.test(x)) || line;
-    const opponentName = window.find(x => /\bvs\b|\bv\b/i.test(x)) || 'TBD';
-    const state = /live|in progress|playing/i.test(joined) ? 'Live' : /scheduled|draw/i.test(joined) ? 'Scheduled' : /final|complete/i.test(joined) ? 'Complete' : 'Unknown';
-    rows.push({
-      eventId: `${normalizeName(eventName)}|${dates[0] || ''}`,
-      eventName,
-      teamName,
-      matchedTeam: teamName,
-      matchedCurler: line,
-      matchScore: score,
-      opponentName: opponentName.replace(/^.*?(?:vs|v)\s+/i, '').trim() || 'TBD',
-      teamScore: 0,
-      opponentScore: 0,
-      state,
-      startsAt: dates[0] || null,
-      startDate: dates[0] || null,
-      endDate: dates[1] || dates[0] || null,
-      finish: inferFinish(joined),
-      sourceUrl
-    });
-  }
-  return rows;
-}
-
-async function discoverRows(player) {
-  const cached = getCached(searchCache, player);
-  if (cached) return cached;
   const queue = [...BASES];
-  const visited = new Set();
+  const seen = new Set();
   const rows = [];
-  while (queue.length && visited.size < MAX_PAGES) {
+
+  while (queue.length && seen.size < MAX_PAGES) {
     const url = queue.shift();
-    if (!url || visited.has(url)) continue;
-    visited.add(url);
-    try {
-      const html = await fetchText(url);
-      rows.push(...extractRowsFromText(player, html, url));
-      for (const link of parseLinks(html, url)) if (!visited.has(link)) queue.push(link);
-    } catch {}
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
+
+    const html = await fetchText(url);
+    rows.push(...parseRowsFromText(html, player, url));
+
+    for (const link of extractLinks(html, url)) {
+      if (!seen.has(link)) queue.push(link);
+      if (queue.length >= MAX_PAGES) break;
+    }
   }
-  const dedup = new Map();
-  for (const row of rows) {
-    const key = `${row.eventId}|${normalizeName(row.matchedTeam)}|${normalizeName(row.matchedCurler)}|${normalizeName(row.opponentName)}`;
-    if (!dedup.has(key) || Number(row.matchScore || 0) > Number(dedup.get(key).matchScore || 0)) dedup.set(key, row);
-  }
-  const out = { player, rows: Array.from(dedup.values()).slice(0, 100), meta: { searchedAt: new Date().toISOString(), pagesVisited: visited.size } };
-  setCached(searchCache, player, out, SEARCH_CACHE_TTL_MS);
-  return out;
+
+  const payload = {
+    rows: dedupeRows(rows),
+    scrapedAt: new Date().toISOString(),
+    pagesVisited: seen.size
+  };
+
+  searchCache.set(cacheKey, {
+    payload,
+    expiresAt: Date.now() + SEARCH_CACHE_TTL_MS
+  });
+
+  return payload;
 }
 
-function writeJson(res, statusCode, payload) {
-  res.writeHead(statusCode, {
-    'Content-Type': 'application/json; charset=utf-8',
-    'Access-Control-Allow-Origin': ALLOW_ORIGIN,
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET,OPTIONS'
+function json(res, status, body) {
+  res.writeHead(status, {
+    'content-type': 'application/json; charset=utf-8',
+    'access-control-allow-origin': ALLOW_ORIGIN,
+    'access-control-allow-methods': 'GET,OPTIONS',
+    'access-control-allow-headers': 'content-type'
   });
-  res.end(JSON.stringify(payload));
+  res.end(JSON.stringify(body, null, 2));
 }
 
 const server = http.createServer(async (req, res) => {
-  if (req.method === 'OPTIONS') return writeJson(res, 204, {});
-  const reqUrl = new URL(req.url, `http://localhost:${PORT}`);
-  if (reqUrl.pathname === '/healthz') return writeJson(res, 200, { ok: true, service: 'curlingzone-proxy', time: new Date().toISOString() });
-  if (reqUrl.pathname !== '/api/curlingzone/search') return writeJson(res, 404, { error: 'Not found' });
-  const player = (reqUrl.searchParams.get('player') || '').trim();
-  if (!player) return writeJson(res, 400, { error: 'Missing player query parameter' });
+  if (req.method === 'OPTIONS') return json(res, 204, {});
+
+  const url = new URL(req.url, `http://${req.headers.host}`);
+
+  if (url.pathname === '/healthz') {
+    return json(res, 200, {
+      ok: true,
+      service: 'curler-tracker-curlingzone-proxy',
+      now: new Date().toISOString()
+    });
+  }
+
+  if (url.pathname === '/') {
+    return json(res, 200, {
+      ok: true,
+      service: 'curler-tracker-curlingzone-proxy',
+      endpoints: {
+        health: '/healthz',
+        search: '/api/curlingzone/search?player=Kevin%20Koe'
+      }
+    });
+  }
+
+  if (url.pathname !== '/api/curlingzone/search') {
+    return json(res, 404, { error: 'Not found' });
+  }
+
+  const player = url.searchParams.get('player')?.trim() || '';
+  if (!player) {
+    return json(res, 400, { error: 'Missing player parameter' });
+  }
+
   try {
-    const payload = await discoverRows(player);
-    return writeJson(res, 200, payload);
+    const payload = await scrapeCurlingZone(player);
+    return json(res, 200, payload);
   } catch (error) {
-    return writeJson(res, 500, { error: error.message });
+    return json(res, 502, { error: error.message, rows: [] });
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`CurlingZone proxy listening on ${PORT}`);
-  console.log(`Health: http://localhost:${PORT}/healthz`);
-  console.log(`Search:  http://localhost:${PORT}/api/curlingzone/search?player=Kevin%20Koe`);
 });
