@@ -1,5 +1,5 @@
-const CACHE = 'curler-tracker-v30';
-const ASSETS = ['./','./index.html','./styles.css','./config.js','./app.js','./manifest.webmanifest'];
+const CACHE = 'curler-tracker-v25';
+const ASSETS = ['./','./index.html','./styles.css','./app.js','./manifest.webmanifest'];
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
