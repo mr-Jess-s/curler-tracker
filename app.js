@@ -1,7 +1,5 @@
 
-const APP_VERSION = 'v25';
-const IS_PRODUCTION = !['localhost', '127.0.0.1'].includes(window.location.hostname) && window.location.protocol !== 'file:';
-const DIAGNOSTICS_ENABLED = !IS_PRODUCTION;
+const APP_VERSION = 'v25.3';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -15,9 +13,16 @@ const APP = {
   errorRetryMs: 30 * 60 * 1000,
   openRescanFloorMs: 15 * 1000,
   visibleRescanFloorMs: 60 * 1000,
+  listCacheMs: 3 * 60 * 1000,
+  eventCacheMs: 60 * 1000,
+  discoveryFastPathMs: 15 * 60 * 1000,
+  maxParallelSubdomains: 3,
+  maxParallelEventsPerList: 3,
   localKeys: {
-    player: 'curler-tracker-player-v25',
-    snapshot: 'curler-tracker-snapshot-v25'
+    player: 'curler-tracker-player-v253',
+    snapshot: 'curler-tracker-snapshot-v253',
+    cachePrefix: 'curler-tracker-cache-v253:',
+    discoveryPrefix: 'curler-tracker-discovery-v253:'
   }
 };
 
@@ -26,9 +31,6 @@ const els = {
   playerInput: document.getElementById('playerInput'),
   shareBtn: document.getElementById('shareBtn'),
   refreshBtn: document.getElementById('refreshBtn'),
-  diagnosticsToggle: document.getElementById('diagnosticsToggle'),
-  diagnosticsPanel: document.getElementById('diagnosticsPanel'),
-  diagnosticsOutput: document.getElementById('diagnosticsOutput'),
   statusLine: document.getElementById('statusLine'),
   trackedPlayer: document.getElementById('trackedPlayer'),
   liveBadge: document.getElementById('liveBadge'),
@@ -52,6 +54,8 @@ const state = {
   lastRunAt: 0,
   lastVisibilityScanAt: 0
 };
+
+const memoryCache = new Map();
 
 function normalizeName(name) {
   return String(name || '')
@@ -113,15 +117,67 @@ function updateUrlPlayer(player) {
 }
 function setDiagnostics(obj) {
   state.diagnostics = obj;
-  if (!DIAGNOSTICS_ENABLED || !els.diagnosticsOutput) return;
-  els.diagnosticsOutput.textContent = JSON.stringify(obj, null, 2);
 }
 function buildDiagnostics(base) { return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base }; }
 
-async function fetchJson(url) {
+function cacheKey(kind, key) {
+  return `${APP.localKeys.cachePrefix}${kind}:${key}`;
+}
+
+function readTimedCache(kind, key, ttlMs) {
+  if (!ttlMs) return null;
+  const fullKey = cacheKey(kind, key);
+  const mem = memoryCache.get(fullKey);
+  if (mem && (Date.now() - mem.savedAt) <= ttlMs) return mem.value;
+  try {
+    const raw = localStorage.getItem(fullKey);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || (Date.now() - parsed.savedAt) > ttlMs) {
+      localStorage.removeItem(fullKey);
+      return null;
+    }
+    memoryCache.set(fullKey, parsed);
+    return parsed.value;
+  } catch {
+    return null;
+  }
+}
+
+function writeTimedCache(kind, key, value) {
+  const record = { savedAt: Date.now(), value };
+  const fullKey = cacheKey(kind, key);
+  memoryCache.set(fullKey, record);
+  try {
+    localStorage.setItem(fullKey, JSON.stringify(record));
+  } catch {}
+}
+
+async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
+  const cached = ttlMs ? readTimedCache(cacheGroup, url, ttlMs) : null;
+  if (cached) return cached;
   const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return res.json();
+  const payload = await res.json();
+  if (ttlMs) writeTimedCache(cacheGroup, url, payload);
+  return payload;
+}
+
+async function mapWithConcurrency(items, limit, worker) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  async function runWorker() {
+    while (true) {
+      const current = nextIndex++;
+      if (current >= items.length) return;
+      results[current] = await worker(items[current], current);
+    }
+  }
+
+  const workers = Array.from({ length: Math.max(1, Math.min(limit, items.length || 1)) }, () => runWorker());
+  await Promise.all(workers);
+  return results;
 }
 
 function competitionsUrl(subdomain, delta) {
@@ -209,9 +265,7 @@ function findMatchingTeam(event, playerNameNorm) {
         score = 0;
       }
 
-      if (score > (best?.score || 0)) {
-        best = { team, curler, score };
-      }
+      if (score > (best?.score || 0)) best = { team, curler, score };
     }
   }
 
@@ -559,40 +613,143 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
-    scheduleHint: 'Scanning supported Curling I/O competitions from today forward every 72 hours.',
+    scheduleHint: 'Scanning supported Curling I/O competitions for a current event every 72 hours.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
   };
 }
 
+function discoveryFastPathKey(playerNorm) {
+  return `${APP.localKeys.discoveryPrefix}${playerNorm}`;
+}
+
+function saveDiscoveryFastPath(playerNorm, candidate) {
+  try {
+    const payload = {
+      savedAt: Date.now(),
+      subdomain: candidate.subdomain,
+      eventId: candidate.event?.id || null
+    };
+    localStorage.setItem(discoveryFastPathKey(playerNorm), JSON.stringify(payload));
+  } catch {}
+}
+
+function loadDiscoveryFastPath(playerNorm) {
+  try {
+    const raw = localStorage.getItem(discoveryFastPathKey(playerNorm));
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.subdomain || !parsed.eventId) return null;
+    if ((Date.now() - (parsed.savedAt || 0)) > APP.discoveryFastPathMs) {
+      localStorage.removeItem(discoveryFastPathKey(playerNorm));
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function candidateScoreRank(selection) {
+  return selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3;
+}
+
+async function tryFastPathCandidate(playerNorm) {
+  const fastPath = loadDiscoveryFastPath(playerNorm);
+  if (!fastPath) return null;
+  try {
+    const event = await fetchJson(eventUrl(fastPath.subdomain, fastPath.eventId), {
+      ttlMs: APP.eventCacheMs,
+      cacheGroup: 'event'
+    });
+    if (!isEventTodayForward(event)) return null;
+    const match = findMatchingTeam(event, playerNorm);
+    if (!match) return null;
+    const selection = selectGamesForEvent(event, match.team);
+    return {
+      item: { id: event.id },
+      event,
+      match,
+      selection,
+      subdomain: fastPath.subdomain,
+      scoreRank: candidateScoreRank(selection),
+      fastPath: true
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function discoverPlayerEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
+  const fastCandidate = await tryFastPathCandidate(playerNorm);
+  if (fastCandidate) {
+    checked.push({ fastPath: true, subdomain: fastCandidate.subdomain, eventId: fastCandidate.event.id });
+    return { checked, candidates: [fastCandidate] };
+  }
+
+  const listJobs = [];
   for (const subdomain of APP.clubSubdomains) {
     for (const delta of APP.lookaheadSeasons) {
-      const listUrl = competitionsUrl(subdomain, delta);
-      try {
-        const payload = await fetchJson(listUrl);
-        const items = payload.items || [];
-        checked.push({ subdomain, delta, itemsCount: items.length, url: listUrl });
-        for (const item of items) {
-          try {
-            const event = await fetchJson(eventUrl(subdomain, item.id));
-            if (!isEventTodayForward(event)) continue;
-            const match = findMatchingTeam(event, playerNorm);
-            if (!match) continue;
-            const selection = selectGamesForEvent(event, match.team);
-            candidates.push({ item, event, match, selection, subdomain, scoreRank: selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3 });
-          } catch {}
-        }
-      } catch {
-        checked.push({ subdomain, delta, itemsCount: 0, url: listUrl, skipped: true });
-      }
+      listJobs.push({ subdomain, delta });
     }
   }
+
+  const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
+    const listUrl = competitionsUrl(subdomain, delta);
+    try {
+      const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
+      const items = payload.items || [];
+      return { subdomain, delta, listUrl, items };
+    } catch {
+      return { subdomain, delta, listUrl, items: [], skipped: true };
+    }
+  });
+
+  for (const result of listResults) {
+    checked.push({
+      subdomain: result.subdomain,
+      delta: result.delta,
+      itemsCount: result.items.length,
+      url: result.listUrl,
+      skipped: !!result.skipped
+    });
+
+    if (!result.items.length) continue;
+
+    const eventCandidates = await mapWithConcurrency(result.items, APP.maxParallelEventsPerList, async (item) => {
+      try {
+        const event = await fetchJson(eventUrl(result.subdomain, item.id), {
+          ttlMs: APP.eventCacheMs,
+          cacheGroup: 'event'
+        });
+        if (!isEventTodayForward(event)) return null;
+        const match = findMatchingTeam(event, playerNorm);
+        if (!match) return null;
+        const selection = selectGamesForEvent(event, match.team);
+        return {
+          item,
+          event,
+          match,
+          selection,
+          subdomain: result.subdomain,
+          scoreRank: candidateScoreRank(selection)
+        };
+      } catch {
+        return null;
+      }
+    });
+
+    for (const candidate of eventCandidates) {
+      if (candidate) candidates.push(candidate);
+    }
+  }
+
   candidates.sort((a,b) => a.scoreRank - b.scoreRank || (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
+  if (candidates[0]) saveDiscoveryFastPath(playerNorm, candidates[0]);
   return { checked, candidates };
 }
 
@@ -710,7 +867,7 @@ async function runTracker({ reason }) {
         reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        policy: 'Idle scans every 72 hours until a matching event appears.'
+        policy: 'Idle scans every 72 hours until a current event appears.'
       });
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
       setStatus(`No current Curling I/O event found for ${state.playerName}. Next scan in about 72 hours.`);
@@ -728,6 +885,7 @@ async function runTracker({ reason }) {
       matchedTeam: chosen.match.team.name,
       sourceSubdomain: chosen.subdomain,
       matchScore: chosen.match.score,
+      fastPathHit: !!chosen.fastPath,
       eventId: chosen.event.id,
       eventName: chosen.event.name,
       matchedTeamAliases: selection.diagnostics.matchedTeamAliases,
@@ -841,12 +999,6 @@ els.refreshBtn.addEventListener('click', () => {
   if (!state.playerName) return;
   runTracker({ reason:'manual-refresh' });
 });
-if (DIAGNOSTICS_ENABLED && els.diagnosticsToggle && els.diagnosticsPanel) {
-  els.diagnosticsToggle.addEventListener('click', () => els.diagnosticsPanel.classList.toggle('hidden'));
-} else {
-  els.diagnosticsToggle?.classList.add('hidden');
-  els.diagnosticsPanel?.classList.add('hidden');
-}
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   state.deferredPrompt = event;
@@ -862,7 +1014,7 @@ els.installBtn.addEventListener('click', async () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js');
+      const reg = await navigator.serviceWorker.register(`./sw.js?v=${encodeURIComponent(APP_VERSION)}`, { updateViaCache: 'none' });
       reg.update?.();
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (!window.__ctReloaded) { window.__ctReloaded = true; window.location.reload(); }
