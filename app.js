@@ -170,23 +170,40 @@ function teamAliases(team) {
 }
 
 function findMatchingTeam(event, playerNameNorm) {
+  const wantedParts = playerNameNorm.split(' ').filter(Boolean);
+  const wantedLast = wantedParts[wantedParts.length - 1] || '';
   let best = null;
+
   for (const team of (event.teams || [])) {
     for (const curler of (team.lineup || [])) {
       const norm = normalizeName(curler.name);
       if (!norm) continue;
+
+      const parts = norm.split(' ').filter(Boolean);
+      const last = parts[parts.length - 1] || '';
+      const overlap = wantedParts.filter(part => parts.includes(part));
+
       let score = 0;
-      if (norm === playerNameNorm) score = 100;
-      else if (norm.includes(playerNameNorm) || playerNameNorm.includes(norm)) score = 75;
-      else {
-        const overlap = playerNameNorm.split(' ').filter(Boolean).filter(part => norm.split(' ').includes(part));
-        if (overlap.length >= 2) score = 50;
-        else if (overlap.length === 1) score = 25;
+
+      if (norm === playerNameNorm) {
+        score = 100;
+      } else if (wantedLast && last === wantedLast) {
+        if (overlap.length >= 2) score = 90;
+        else if (parts.join(' ').includes(playerNameNorm) || playerNameNorm.includes(parts.join(' '))) score = 80;
+        else if (overlap.length === 1) score = 55;
+      } else if (overlap.length >= 2) {
+        score = 40;
+      } else {
+        score = 0;
       }
-      if (score > (best?.score || 0)) best = { team, curler, score };
+
+      if (score > (best?.score || 0)) {
+        best = { team, curler, score };
+      }
     }
   }
-  return best;
+
+  return best && best.score >= 55 ? best : null;
 }
 
 function getGamePositions(game) {
@@ -437,7 +454,7 @@ function renderHeadline(snapshot) {
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Watching this event</div><div class="headline-sub">${escapeHtml(snapshot.nextGameLabel || 'No active draw right now.')}</div></div>`;
     return;
   }
-  els.headlineBlock.innerHTML = `<div><div class="headline-main">No active event found</div><div class="headline-sub">Checking Alberta competitions every few days.</div></div>`;
+  els.headlineBlock.innerHTML = `<div><div class="headline-main">No current event found</div><div class="headline-sub">Checking supported Curling I/O competitions again later.</div></div>`;
 }
 
 function renderEnds(teamName, opponentName, endsData) {
@@ -527,11 +544,11 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
   return {
     playerName,
     view: 'idle',
-    eventName: 'No active event found',
+    eventName: 'No current event found',
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
-    scheduleHint: 'Scanning Alberta competitions from today forward every 72 hours.',
+    scheduleHint: 'Scanning supported Curling I/O competitions every 72 hours.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
@@ -631,7 +648,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       opponent: r.oppTeam?.name || 'TBD'
     };
   });
-  const branchRows = [];
+  const branchRows = getOutcomeBranchRows(event, matchedTeam, selection);
   const dedup = new Map();
   for (const row of [...linkedScheduleRows, ...branchRows]) {
     const key = `${row.gameId}|${row.branchLabel || ''}`;
@@ -659,7 +676,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.',
+    scheduleHint: nextGameConfirmed ? `Showing current-event games for ${shortenTeamName(matchedTeam.name)}.` : 'Showing current-event games for this team.',
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -685,7 +702,7 @@ async function runTracker({ reason }) {
         policy: 'Idle scans every 72 hours until a matching event appears.'
       });
       render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-      setStatus(`No current Curling I/O event from today forward found for ${state.playerName}. Next scan in about 72 hours.`);
+      setStatus(`No current Curling I/O event found for ${state.playerName}. Next scan in about 72 hours.`);
       scheduleNextRun(APP.idleScanMs);
       return;
     }
@@ -841,3 +858,4 @@ window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') maybeRunOpenScan('visible'); });
 window.addEventListener('focus', () => maybeRunOpenScan('focus'));
 bootFromSavedState();
+

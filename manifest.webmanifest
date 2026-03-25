@@ -5,6 +5,7 @@
   "display": "standalone",
   "background_color": "#09111d",
   "theme_color": "#0c1220",
-  "description": "Track one curler across Alberta competitions.",
+  "description": "Track a curler through their current event, including live scores, posted results, and upcoming draws.",
   "icons": []
 }
+
