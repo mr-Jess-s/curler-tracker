@@ -90,13 +90,13 @@ function ordinalSuffix(n) {
 }
 
 function formatEpochMs(epochMs) {
-  if (!epochMs) return '—';
+  if (!epochMs) return 'â€”';
   return new Intl.DateTimeFormat(undefined, { weekday:'short', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' }).format(new Date(epochMs));
 }
 
 function formatClock(value) {
   const d = new Date(value || Date.now());
-  return Number.isNaN(d.getTime()) ? String(value || '—') : new Intl.DateTimeFormat(undefined, { hour:'numeric', minute:'2-digit' }).format(d);
+  return Number.isNaN(d.getTime()) ? String(value || 'â€”') : new Intl.DateTimeFormat(undefined, { hour:'numeric', minute:'2-digit' }).format(d);
 }
 
 function setStatus(text) { els.statusLine.textContent = text; }
@@ -171,6 +171,7 @@ function teamAliases(team) {
 
 function findMatchingTeam(event, playerNameNorm) {
   const wantedParts = playerNameNorm.split(' ').filter(Boolean);
+  const wantedFirst = wantedParts[0] || '';
   const wantedLast = wantedParts[wantedParts.length - 1] || '';
   let best = null;
 
@@ -180,17 +181,25 @@ function findMatchingTeam(event, playerNameNorm) {
       if (!norm) continue;
 
       const parts = norm.split(' ').filter(Boolean);
+      const first = parts[0] || '';
       const last = parts[parts.length - 1] || '';
       const overlap = wantedParts.filter(part => parts.includes(part));
+      const fullJoined = parts.join(' ');
 
       let score = 0;
 
       if (norm === playerNameNorm) {
         score = 100;
       } else if (wantedLast && last === wantedLast) {
-        if (overlap.length >= 2) score = 90;
-        else if (parts.join(' ').includes(playerNameNorm) || playerNameNorm.includes(parts.join(' '))) score = 80;
-        else if (overlap.length === 1) score = 55;
+        if (overlap.length >= 2) {
+          score = 90;
+        } else if (fullJoined.includes(playerNameNorm) || playerNameNorm.includes(fullJoined)) {
+          score = 80;
+        } else if (wantedFirst && first === wantedFirst) {
+          score = 70;
+        } else {
+          score = 0;
+        }
       } else if (overlap.length >= 2) {
         score = 40;
       } else {
@@ -438,12 +447,12 @@ function computeCheckDelay(selection, previousSnapshot = null) {
 
 function renderHeadline(snapshot) {
   if (!snapshot) {
-    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler’s name to begin.</p>';
+    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curlerâ€™s name to begin.</p>';
     return;
   }
   if (snapshot.view === 'live') {
-    const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} · ` : '';
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} · ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
+    const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} Â· ` : '';
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} Â· ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
   if (snapshot.view === 'upcoming') {
@@ -489,7 +498,7 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
     const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
     const matchup = `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
     const resolvedTitle = resolveGameTitle(row);
-    const title = row.branchLabel ? row.branchLabel : (resolvedTitle ? `${resolvedTitle} · ${matchup}` : matchup);
+    const title = row.branchLabel ? row.branchLabel : (resolvedTitle ? `${resolvedTitle} Â· ${matchup}` : matchup);
     const subtitle = row.branchLabel ? `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}` : row.stateLabel;
     return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
@@ -505,12 +514,12 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
-  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '—';
+  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || 'â€”';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
-  els.eventValue.textContent = snapshot?.eventName || '—';
-  els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : '—';
-  els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '—';
+  els.eventValue.textContent = snapshot?.eventName || 'â€”';
+  els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : 'â€”';
+  els.updatedValue.textContent = snapshot?.lastUpdatedLabel || 'â€”';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
@@ -593,7 +602,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='—', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+  let hammerNext='â€”', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
@@ -630,10 +639,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       const ourScore = getPositionScore(r.ourPos);
       const oppScore = getPositionScore(r.oppPos);
       stateLabel = ourScore > oppScore
-        ? `Complete · won ${ourScore} - ${oppScore}`
+        ? `Complete Â· won ${ourScore} - ${oppScore}`
         : ourScore < oppScore
-        ? `Complete · lost ${ourScore} - ${oppScore}`
-        : `Complete · ${ourScore} - ${oppScore}`;
+        ? `Complete Â· lost ${ourScore} - ${oppScore}`
+        : `Complete Â· ${ourScore} - ${oppScore}`;
     } else stateLabel = 'Unknown';
     return {
       gameId: r.gameId,
@@ -690,7 +699,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
 async function runTracker({ reason }) {
   if (!state.playerName) return;
   state.lastRunAt = Date.now();
-  setStatus(`Checking for ${state.playerName}…`);
+  setStatus(`Checking for ${state.playerName}â€¦`);
   try {
     const discovery = await discoverPlayerEvents(state.playerName);
     if (!discovery.candidates.length) {
