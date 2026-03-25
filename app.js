@@ -959,16 +959,49 @@ function startTracking(playerName, reason = 'manual-start') {
 
 function maybeRunOpenScan(trigger) {
   if (!state.playerName) return;
+
   const now = Date.now();
-  const recentlyRan = now - state.lastRunAt < APP.openRescanFloorMs;
-  if (trigger === 'visible') {
-    const recentlyVisibilityScanned = now - state.lastVisibilityScanAt < APP.visibleRescanFloorMs;
-    if (recentlyRan || recentlyVisibilityScanned) return;
-    state.lastVisibilityScanAt = now;
-  } else if (recentlyRan) {
+  const snapshot = state.snapshot || {};
+  const view = snapshot.view || '';
+  const nextCheckAt = Number(snapshot.nextCheckAt || 0);
+
+  const isLive = view === 'live';
+  const isUpcoming = view === 'upcoming';
+  const isIdleOrNoNext = !isLive && !isUpcoming;
+
+  if (trigger === 'pageshow') {
+    runTracker({ reason: 'app-open-full-scan' });
     return;
   }
-  runTracker({ reason: trigger === 'visible' ? 'app-visible-full-scan' : 'app-open-full-scan' });
+
+  if (trigger === 'visible') {
+    if (nextCheckAt && now >= nextCheckAt) {
+      state.lastVisibilityScanAt = now;
+      runTracker({ reason: 'app-visible-full-scan' });
+      return;
+    }
+
+    const visibleFloorMs = isLive ? 240000 : 3600000;
+    const recentlyVisibilityScanned = now - state.lastVisibilityScanAt < visibleFloorMs;
+
+    if (recentlyVisibilityScanned) return;
+
+    state.lastVisibilityScanAt = now;
+    runTracker({ reason: 'app-visible-full-scan' });
+    return;
+  }
+
+  if (nextCheckAt && now >= nextCheckAt) {
+    runTracker({ reason: 'app-open-full-scan' });
+    return;
+  }
+
+  const focusFloorMs = isLive ? 120000 : 2700000;
+  const recentlyRan = now - state.lastRunAt < focusFloorMs;
+
+  if (recentlyRan) return;
+
+  runTracker({ reason: 'app-open-full-scan' });
 }
 
 function bootFromSavedState() {
