@@ -1,5 +1,7 @@
 
 const APP_VERSION = 'v25';
+const IS_PRODUCTION = !['localhost', '127.0.0.1'].includes(window.location.hostname) && window.location.protocol !== 'file:';
+const DIAGNOSTICS_ENABLED = !IS_PRODUCTION;
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -90,13 +92,13 @@ function ordinalSuffix(n) {
 }
 
 function formatEpochMs(epochMs) {
-  if (!epochMs) return 'â€”';
+  if (!epochMs) return '-';
   return new Intl.DateTimeFormat(undefined, { weekday:'short', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' }).format(new Date(epochMs));
 }
 
 function formatClock(value) {
   const d = new Date(value || Date.now());
-  return Number.isNaN(d.getTime()) ? String(value || 'â€”') : new Intl.DateTimeFormat(undefined, { hour:'numeric', minute:'2-digit' }).format(d);
+  return Number.isNaN(d.getTime()) ? String(value || '-') : new Intl.DateTimeFormat(undefined, { hour:'numeric', minute:'2-digit' }).format(d);
 }
 
 function setStatus(text) { els.statusLine.textContent = text; }
@@ -111,6 +113,7 @@ function updateUrlPlayer(player) {
 }
 function setDiagnostics(obj) {
   state.diagnostics = obj;
+  if (!DIAGNOSTICS_ENABLED || !els.diagnosticsOutput) return;
   els.diagnosticsOutput.textContent = JSON.stringify(obj, null, 2);
 }
 function buildDiagnostics(base) { return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base }; }
@@ -447,12 +450,12 @@ function computeCheckDelay(selection, previousSnapshot = null) {
 
 function renderHeadline(snapshot) {
   if (!snapshot) {
-    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curlerâ€™s name to begin.</p>';
+    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler\'s name to begin.</p>';
     return;
   }
   if (snapshot.view === 'live') {
-    const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} Â· ` : '';
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} Â· ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
+    const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} - ` : '';
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} - ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
   if (snapshot.view === 'upcoming') {
@@ -497,9 +500,8 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   els.scheduleList.innerHTML = scheduleRows.map(row => {
     const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
     const matchup = `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
-    const resolvedTitle = resolveGameTitle(row);
-    const title = row.branchLabel ? row.branchLabel : (resolvedTitle ? `${resolvedTitle} Â· ${matchup}` : matchup);
-    const subtitle = row.branchLabel ? `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}` : row.stateLabel;
+    const title = row.branchLabel ? row.branchLabel : matchup;
+    const subtitle = row.branchLabel ? matchup : row.stateLabel;
     return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
 }
@@ -514,12 +516,12 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
-  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || 'â€”';
+  els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '-';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
-  els.eventValue.textContent = snapshot?.eventName || 'â€”';
-  els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : 'â€”';
-  els.updatedValue.textContent = snapshot?.lastUpdatedLabel || 'â€”';
+  els.eventValue.textContent = snapshot?.eventName || '-';
+  els.nextCheckValue.textContent = snapshot?.nextCheckAt ? formatEpochMs(snapshot.nextCheckAt) : '-';
+  els.updatedValue.textContent = snapshot?.lastUpdatedLabel || '-';
   els.timelineHint.textContent = snapshot?.timelineHint || 'Waiting for a live game.';
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
@@ -553,11 +555,11 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
   return {
     playerName,
     view: 'idle',
-    eventName: 'No current event found',
+    eventName: 'No active event found',
     ends: [],
     scheduleRows: [],
     timelineHint: 'No live game.',
-    scheduleHint: 'Scanning supported Curling I/O competitions every 72 hours.',
+    scheduleHint: 'Scanning supported Curling I/O competitions from today forward every 72 hours.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
@@ -602,7 +604,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='â€”', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+  let hammerNext='-', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
@@ -639,10 +641,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       const ourScore = getPositionScore(r.ourPos);
       const oppScore = getPositionScore(r.oppPos);
       stateLabel = ourScore > oppScore
-        ? `Complete Â· won ${ourScore} - ${oppScore}`
+        ? `Complete - won ${ourScore} - ${oppScore}`
         : ourScore < oppScore
-        ? `Complete Â· lost ${ourScore} - ${oppScore}`
-        : `Complete Â· ${ourScore} - ${oppScore}`;
+        ? `Complete - lost ${ourScore} - ${oppScore}`
+        : `Complete - ${ourScore} - ${oppScore}`;
     } else stateLabel = 'Unknown';
     return {
       gameId: r.gameId,
@@ -685,7 +687,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextGameId: nextGame?.gameId || null,
     nextGameLabel,
     timelineHint: active ? 'Updates after each end.' : lastCompleted ? 'Latest posted end scores.' : 'Waiting for the draw to begin.',
-    scheduleHint: nextGameConfirmed ? `Showing current-event games for ${shortenTeamName(matchedTeam.name)}.` : 'Showing current-event games for this team.',
+    scheduleHint: nextGameConfirmed ? `Showing confirmed ${shortenTeamName(matchedTeam.name)} games only.` : 'Showing confirmed games for this team only.',
     nextCheckAt: Date.now() + nextCheck.delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics,
@@ -699,7 +701,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
 async function runTracker({ reason }) {
   if (!state.playerName) return;
   state.lastRunAt = Date.now();
-  setStatus(`Checking for ${state.playerName}â€¦`);
+  setStatus(`Checking for ${state.playerName}...`);
   try {
     const discovery = await discoverPlayerEvents(state.playerName);
     if (!discovery.candidates.length) {
@@ -839,7 +841,12 @@ els.refreshBtn.addEventListener('click', () => {
   if (!state.playerName) return;
   runTracker({ reason:'manual-refresh' });
 });
-els.diagnosticsToggle.addEventListener('click', () => els.diagnosticsPanel.classList.toggle('hidden'));
+if (DIAGNOSTICS_ENABLED && els.diagnosticsToggle && els.diagnosticsPanel) {
+  els.diagnosticsToggle.addEventListener('click', () => els.diagnosticsPanel.classList.toggle('hidden'));
+} else {
+  els.diagnosticsToggle?.classList.add('hidden');
+  els.diagnosticsPanel?.classList.add('hidden');
+}
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   state.deferredPrompt = event;
@@ -867,4 +874,3 @@ window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') maybeRunOpenScan('visible'); });
 window.addEventListener('focus', () => maybeRunOpenScan('focus'));
 bootFromSavedState();
-

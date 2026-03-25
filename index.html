@@ -26,7 +26,6 @@
       <div class="actions">
         <button id="shareBtn" class="ghost" type="button">Copy share link</button>
         <button id="refreshBtn" class="ghost" type="button">Refresh now</button>
-        <button id="diagnosticsToggle" class="ghost" type="button">Diagnostics</button>
       </div>
       <p id="statusLine" class="status-line">Enter a curler name to begin.</p>
     </section>
@@ -35,27 +34,27 @@
       <div class="hero-head">
         <div>
           <div class="eyebrow">Tracking</div>
-          <div id="trackedPlayer" class="tracked-player">—</div>
+          <div id="trackedPlayer" class="tracked-player">-</div>
         </div>
         <span id="liveBadge" class="badge muted">Idle</span>
       </div>
 
       <div id="headlineBlock" class="headline-block">
-        <p class="headline-empty">Enter a curler’s name to begin.</p>
+        <p class="headline-empty">Enter a curler's name to begin.</p>
       </div>
 
       <div class="meta-grid meta-grid-3">
         <div class="meta-item">
           <span class="meta-label">Event</span>
-          <span id="eventValue" class="meta-value">—</span>
+          <span id="eventValue" class="meta-value">-</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Next check</span>
-          <span id="nextCheckValue" class="meta-value">—</span>
+          <span id="nextCheckValue" class="meta-value">-</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Updated</span>
-          <span id="updatedValue" class="meta-value">—</span>
+          <span id="updatedValue" class="meta-value">-</span>
         </div>
       </div>
     </section>
@@ -78,16 +77,9 @@
       </section>
     </section>
 
-    <section id="diagnosticsPanel" class="card hidden">
-      <div class="section-head">
-        <h2>Diagnostics</h2>
-        <p class="hint">Useful if a live game is missed.</p>
-      </div>
-      <pre id="diagnosticsOutput">{}</pre>
-    </section>
+    <p class="powered-by">Powered by Curling.io</p>
   </main>
 
   <script src="./app.js"></script>
 </body>
 </html>
-

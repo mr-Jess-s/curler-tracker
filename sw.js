@@ -1,4 +1,4 @@
-const CACHE = 'curler-tracker-v25-launch1';
+const CACHE = 'curler-tracker-v25-launch-ui2';
 const ASSETS = ['./','./index.html','./styles.css','./app.js','./manifest.webmanifest'];
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -23,4 +23,3 @@ self.addEventListener('fetch', (event) => {
     return hit || network;
   })());
 });
-
