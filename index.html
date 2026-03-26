@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0c1220">
   <title>Curler Tracker</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.1">
-  <link rel="stylesheet" href="./styles.css?v=v26.1">
+  <link rel="manifest" href="./manifest.webmanifest?v=v25.6">
+  <link rel="stylesheet" href="./styles.css?v=v25.6">
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div>
-        <img src="noble-beaver-icon.svg" alt="Curler Tracker Beaver" class="beaver-logo" />
         <h1>Curler Tracker</h1>
         <p class="subtitle">Track a curler through their current event</p>
       </div>
       <button id="installBtn" class="ghost hidden" type="button">Install</button>
     </header>
+
     <section class="search-card card">
       <form id="playerForm" class="player-form">
         <input id="playerInput" type="text" placeholder="Enter curler name" autocomplete="name" />
@@ -29,6 +29,7 @@
       </div>
       <p id="statusLine" class="status-line">Enter a curler name to begin.</p>
     </section>
+
     <section class="hero card">
       <div class="hero-head">
         <div>
@@ -37,9 +38,11 @@
         </div>
         <span id="liveBadge" class="badge muted">Idle</span>
       </div>
+
       <div id="headlineBlock" class="headline-block">
         <p class="headline-empty">Enter a curler's name to begin.</p>
       </div>
+
       <div class="meta-grid meta-grid-3">
         <div class="meta-item">
           <span class="meta-label">Event</span>
@@ -55,14 +58,16 @@
         </div>
       </div>
     </section>
+
     <section class="grid">
       <section class="card">
         <div class="section-head">
           <h2>End-by-end</h2>
-          <p id="timelineHint" class="hint">Waiting for the draw to begin.</p>
+          <p id="timelineHint" class="hint">Waiting for a live game.</p>
         </div>
         <div id="endsList" class="ends-list empty"><p>No end scores yet.</p></div>
       </section>
+
       <section class="card">
         <div class="section-head">
           <h2>Schedule</h2>
@@ -75,6 +80,7 @@
       <p>Powered by Curling.io</p>
     </footer>
   </main>
-  <script src="./app.js?v=v26.1"></script>
+
+  <script src="./app.js?v=v25.6"></script>
 </body>
 </html>
