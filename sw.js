@@ -1,10 +1,10 @@
-const CACHE = 'curler-tracker-v25-3';
+const CACHE = 'curler-tracker-v25-6';
 const APP_ASSETS = [
   './',
   './index.html',
-  './styles.css?v=v25.3',
-  './app.js?v=v25.3',
-  './manifest.webmanifest?v=v25.3'
+  './styles.css?v=v25.6',
+  './app.js?v=v25.6',
+  './manifest.webmanifest?v=v25.6'
 ];
 
 self.addEventListener('install', (event) => {

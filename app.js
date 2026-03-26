@@ -1,5 +1,4 @@
-
-const APP_VERSION = 'v25.3';
+const APP_VERSION = 'v25.6';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -16,13 +15,16 @@ const APP = {
   listCacheMs: 3 * 60 * 1000,
   eventCacheMs: 60 * 1000,
   discoveryFastPathMs: 15 * 60 * 1000,
+  fetchTimeoutMs: 12000,
+  discoveryBudgetMs: 25000,
+  pageshowDuplicateFloorMs: 5000,
   maxParallelSubdomains: 3,
-  maxParallelEventsPerList: 3,
+  maxParallelEventsPerList: 4,
   localKeys: {
-    player: 'curler-tracker-player-v253',
-    snapshot: 'curler-tracker-snapshot-v253',
-    cachePrefix: 'curler-tracker-cache-v253:',
-    discoveryPrefix: 'curler-tracker-discovery-v253:'
+    player: 'curler-tracker-player-v256',
+    snapshot: 'curler-tracker-snapshot-v256',
+    cachePrefix: 'curler-tracker-cache-v256:',
+    discoveryPrefix: 'curler-tracker-discovery-v256:'
   }
 };
 
@@ -52,7 +54,9 @@ const state = {
   snapshot: null,
   diagnostics: { appVersion: APP_VERSION, phase: 'idle' },
   lastRunAt: 0,
-  lastVisibilityScanAt: 0
+  lastVisibilityScanAt: 0,
+  isRunning: false,
+  pendingRunReason: null
 };
 
 const memoryCache = new Map();
@@ -73,7 +77,6 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-
 function shortenTeamName(name, { keepCC = false } = {}) {
   let out = String(name || '').trim();
   if (!out) return 'TBD';
@@ -84,9 +87,11 @@ function shortenTeamName(name, { keepCC = false } = {}) {
 function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
   return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
 }
+
 function resolveGameTitle(row) {
   return String(row?.gameName || row?.game?.name || '').trim();
 }
+
 function ordinalSuffix(n) {
   const j = n % 10, k = n % 100;
   if (j === 1 && k !== 11) return 'st';
@@ -97,28 +102,61 @@ function ordinalSuffix(n) {
 
 function formatEpochMs(epochMs) {
   if (!epochMs) return '-';
-  return new Intl.DateTimeFormat(undefined, { weekday:'short', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' }).format(new Date(epochMs));
+  return new Intl.DateTimeFormat(undefined, {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  }).format(new Date(epochMs));
 }
 
 function formatClock(value) {
   const d = new Date(value || Date.now());
-  return Number.isNaN(d.getTime()) ? String(value || '-') : new Intl.DateTimeFormat(undefined, { hour:'numeric', minute:'2-digit' }).format(d);
+  return Number.isNaN(d.getTime())
+    ? String(value || '-')
+    : new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' }).format(d);
 }
 
-function setStatus(text) { els.statusLine.textContent = text; }
-function savePlayer(player) { localStorage.setItem(APP.localKeys.player, player); }
-function saveSnapshot(snapshot) { localStorage.setItem(APP.localKeys.snapshot, JSON.stringify(snapshot)); }
-function loadSnapshot() { try { const raw = localStorage.getItem(APP.localKeys.snapshot); return raw ? JSON.parse(raw) : null; } catch { return null; } }
-function parsePlayerFromUrl() { return new URLSearchParams(window.location.search).get('player')?.trim() || ''; }
+function setStatus(text) {
+  els.statusLine.textContent = text;
+}
+
+function savePlayer(player) {
+  localStorage.setItem(APP.localKeys.player, player);
+}
+
+function saveSnapshot(snapshot) {
+  localStorage.setItem(APP.localKeys.snapshot, JSON.stringify(snapshot));
+}
+
+function loadSnapshot() {
+  try {
+    const raw = localStorage.getItem(APP.localKeys.snapshot);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function parsePlayerFromUrl() {
+  return new URLSearchParams(window.location.search).get('player')?.trim() || '';
+}
+
 function updateUrlPlayer(player) {
   const url = new URL(window.location.href);
-  if (player) url.searchParams.set('player', player); else url.searchParams.delete('player');
+  if (player) url.searchParams.set('player', player);
+  else url.searchParams.delete('player');
   history.replaceState({}, '', url.toString());
 }
+
 function setDiagnostics(obj) {
   state.diagnostics = obj;
 }
-function buildDiagnostics(base) { return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base }; }
+
+function buildDiagnostics(base) {
+  return { appVersion: APP_VERSION, timestamp: new Date().toISOString(), ...base };
+}
 
 function cacheKey(kind, key) {
   return `${APP.localKeys.cachePrefix}${kind}:${key}`;
@@ -129,6 +167,7 @@ function readTimedCache(kind, key, ttlMs) {
   const fullKey = cacheKey(kind, key);
   const mem = memoryCache.get(fullKey);
   if (mem && (Date.now() - mem.savedAt) <= ttlMs) return mem.value;
+
   try {
     const raw = localStorage.getItem(fullKey);
     if (!raw) return null;
@@ -153,14 +192,66 @@ function writeTimedCache(kind, key, value) {
   } catch {}
 }
 
-async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
+function getRemainingBudgetMs(deadlineAt) {
+  return Math.max(0, deadlineAt - Date.now());
+}
+
+function didBudgetExpire(deadlineAt) {
+  return getRemainingBudgetMs(deadlineAt) <= 0;
+}
+
+function isBudgetTimeoutError(error) {
+  return error?.message === '__discovery_budget_timeout__';
+}
+
+function createBudgetTimeoutError() {
+  return new Error('__discovery_budget_timeout__');
+}
+
+async function raceWithBudget(factory, deadlineAt) {
+  const remainingMs = getRemainingBudgetMs(deadlineAt);
+  if (remainingMs <= 0) throw createBudgetTimeoutError();
+
+  let timeoutId = null;
+  const workPromise = Promise.resolve().then(factory);
+  workPromise.catch(() => null);
+
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = window.setTimeout(() => reject(createBudgetTimeoutError()), remainingMs);
+  });
+
+  try {
+    return await Promise.race([workPromise, timeoutPromise]);
+  } finally {
+    if (timeoutId) window.clearTimeout(timeoutId);
+  }
+}
+
+async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json', timeoutMs = APP.fetchTimeoutMs } = {}) {
   const cached = ttlMs ? readTimedCache(cacheGroup, url, ttlMs) : null;
   if (cached) return cached;
-  const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  const payload = await res.json();
-  if (ttlMs) writeTimedCache(cacheGroup, url, payload);
-  return payload;
+
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), Math.max(1, timeoutMs || APP.fetchTimeoutMs));
+
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+      signal: controller.signal
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    const payload = await res.json();
+    if (ttlMs) writeTimedCache(cacheGroup, url, payload);
+    return payload;
+  } catch (error) {
+    if (error?.name === 'AbortError') {
+      throw new Error(`Timed out for ${url}`);
+    }
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
 }
 
 async function mapWithConcurrency(items, limit, worker) {
@@ -175,7 +266,10 @@ async function mapWithConcurrency(items, limit, worker) {
     }
   }
 
-  const workers = Array.from({ length: Math.max(1, Math.min(limit, items.length || 1)) }, () => runWorker());
+  const workers = Array.from(
+    { length: Math.max(1, Math.min(limit, items.length || 1)) },
+    () => runWorker()
+  );
   await Promise.all(workers);
   return results;
 }
@@ -183,6 +277,7 @@ async function mapWithConcurrency(items, limit, worker) {
 function competitionsUrl(subdomain, delta) {
   return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
 }
+
 function eventUrl(subdomain, eventId) {
   return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/events/${eventId}`;
 }
@@ -192,40 +287,60 @@ function parseEventDateToMs(value) {
   const d = new Date(value);
   return Number.isNaN(d.getTime()) ? null : d.getTime();
 }
-function startOfTodayMs() { const d = new Date(); d.setHours(0,0,0,0); return d.getTime(); }
+
+function startOfTodayMs() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+
 function isEventTodayForward(event) {
   const today = startOfTodayMs();
-  const state = String(event?.state || '').toLowerCase();
-  if (state === 'active') return true;
+  const eventState = String(event?.state || '').toLowerCase();
+  if (eventState === 'active') return true;
   const endsMs = parseEventDateToMs(event?.ends_on);
   const startsMs = parseEventDateToMs(event?.starts_on);
   return (!!endsMs && endsMs >= today) || (!!startsMs && startsMs >= today);
 }
 
-function teamMap(event) { const m = new Map(); for (const team of (event.teams || [])) m.set(team.id, team); return m; }
+function teamMap(event) {
+  const m = new Map();
+  for (const team of (event.teams || [])) m.set(team.id, team);
+  return m;
+}
+
 function flattenGames(event) {
   const rows = [];
   for (const stage of (event.stages || [])) {
-    for (const game of (stage.games || [])) rows.push({ ...game, stageId: stage.id, stageName: stage.name, stageType: stage.type });
+    for (const game of (stage.games || [])) {
+      rows.push({ ...game, stageId: stage.id, stageName: stage.name, stageType: stage.type });
+    }
   }
   return rows;
 }
 
 function teamAliases(team) {
-  const raw = [team?.name, team?.short_name, team?.shortName, team?.affiliation, team?.location].filter(Boolean).map(String);
+  const raw = [
+    team?.name,
+    team?.short_name,
+    team?.shortName,
+    team?.affiliation,
+    team?.location
+  ].filter(Boolean).map(String);
+
   const out = new Set();
   for (const item of raw) {
     const n = normalizeName(item);
     if (!n) continue;
     out.add(n);
-    out.add(n.replace(/\bc\s*c\b/g,'').replace(/\s+/g,' ').trim());
-    out.add(n.replace(/\bcurling club\b/g,'').replace(/\s+/g,' ').trim());
-    out.add(n.replace(/\bclub\b/g,'').replace(/\s+/g,' ').trim());
-    out.add(n.replace(/\s+#\s*/g,'#'));
+    out.add(n.replace(/\bc\s*c\b/g, '').replace(/\s+/g, ' ').trim());
+    out.add(n.replace(/\bcurling club\b/g, '').replace(/\s+/g, ' ').trim());
+    out.add(n.replace(/\bclub\b/g, '').replace(/\s+/g, ' ').trim());
+    out.add(n.replace(/\s+#\s*/g, '#'));
     const first = n.split(' ')[0];
     if (first) out.add(first);
   }
-  return Array.from(out).filter(Boolean).sort((a,b)=>b.length-a.length);
+  return Array.from(out).filter(Boolean).sort((a, b) => b.length - a.length);
 }
 
 function findMatchingTeam(event, playerNameNorm) {
@@ -246,26 +361,22 @@ function findMatchingTeam(event, playerNameNorm) {
       const fullJoined = parts.join(' ');
 
       let score = 0;
-
       if (norm === playerNameNorm) {
         score = 100;
       } else if (wantedLast && last === wantedLast) {
-        if (overlap.length >= 2) {
-          score = 90;
-        } else if (fullJoined.includes(playerNameNorm) || playerNameNorm.includes(fullJoined)) {
-          score = 80;
-        } else if (wantedFirst && first === wantedFirst) {
-          score = 70;
-        } else {
-          score = 0;
-        }
+        if (overlap.length >= 2) score = 90;
+        else if (fullJoined.includes(playerNameNorm) || playerNameNorm.includes(fullJoined)) score = 80;
+        else if (wantedFirst && first === wantedFirst) score = 70;
+        else score = 0;
       } else if (overlap.length >= 2) {
         score = 40;
       } else {
         score = 0;
       }
 
-      if (score > (best?.score || 0)) best = { team, curler, score };
+      if (score > (best?.score || 0)) {
+        best = { team, curler, score };
+      }
     }
   }
 
@@ -276,10 +387,23 @@ function getGamePositions(game) {
   const raw = game?.game_positions || game?.gamePositions || game?.positions || game?.entries || game?.sides || [];
   return Array.isArray(raw) ? raw : [];
 }
-function getTeamIdFromPosition(pos) { return pos?.team_id ?? pos?.teamId ?? pos?.team?.id ?? null; }
-function getPositionScore(pos) { return Number(pos?.score ?? pos?.total_score ?? pos?.totalScore ?? 0); }
-function getEndScores(pos) { const raw = pos?.end_scores || pos?.endScores || []; return Array.isArray(raw) ? raw : []; }
-function getPositionResult(pos) { return pos?.result || pos?.state || null; }
+
+function getTeamIdFromPosition(pos) {
+  return pos?.team_id ?? pos?.teamId ?? pos?.team?.id ?? null;
+}
+
+function getPositionScore(pos) {
+  return Number(pos?.score ?? pos?.total_score ?? pos?.totalScore ?? 0);
+}
+
+function getEndScores(pos) {
+  const raw = pos?.end_scores || pos?.endScores || [];
+  return Array.isArray(raw) ? raw : [];
+}
+
+function getPositionResult(pos) {
+  return pos?.result || pos?.state || null;
+}
 
 function extractGameIdFromSheetEntry(entry) {
   if (entry == null) return null;
@@ -287,6 +411,7 @@ function extractGameIdFromSheetEntry(entry) {
   if (typeof entry === 'object') return entry.game_id || entry.gameId || entry.id || entry.game?.id || null;
   return null;
 }
+
 function drawGameIds(draw) {
   const out = [];
   for (const arr of [draw?.draw_sheets, draw?.drawSheets, draw?.sheets]) {
@@ -298,6 +423,7 @@ function drawGameIds(draw) {
   }
   return out;
 }
+
 function buildGameMap(event) {
   const map = new Map();
   for (const game of flattenGames(event)) map.set(game.id, game);
@@ -307,28 +433,31 @@ function buildGameMap(event) {
 function gameMatchesTeamByAlias(game, team) {
   const gameNameNorm = normalizeName(game?.name || '');
   if (!gameNameNorm) return false;
-  const aliases = teamAliases(team);
-  return aliases.some(alias => alias && gameNameNorm.includes(alias));
+  return teamAliases(team).some(alias => alias && gameNameNorm.includes(alias));
 }
 
 function inferLifecycle(game, drawEpochMs) {
   const now = Date.now();
-  const state = String(game?.state || '').toLowerCase();
-  if (['playing','live','active','started','in_progress','in progress'].includes(state)) return 'playing';
-  if (['pending','scheduled','upcoming','assigned'].includes(state)) {
+  const gameState = String(game?.state || '').toLowerCase();
+
+  if (['playing', 'live', 'active', 'started', 'in_progress', 'in progress'].includes(gameState)) return 'playing';
+
+  if (['pending', 'scheduled', 'upcoming', 'assigned'].includes(gameState)) {
     if (drawEpochMs && now >= drawEpochMs - APP.preGameWindowMs && now <= drawEpochMs + APP.postGameWindowMs) return 'pending-window';
     return 'pending';
   }
-  if (['complete','completed','final','finished'].includes(state)) {
+
+  if (['complete', 'completed', 'final', 'finished'].includes(gameState)) {
     if (drawEpochMs && now <= drawEpochMs + APP.postGameWindowMs) return 'just-finished';
     return 'complete';
   }
+
   const positions = getGamePositions(game);
-  const total = positions.reduce((acc,pos)=>acc+getPositionScore(pos),0);
-  const anyEnds = positions.some(pos => getEndScores(pos).some(v => Number(v||0) > 0));
+  const total = positions.reduce((acc, pos) => acc + getPositionScore(pos), 0);
+  const anyEnds = positions.some(pos => getEndScores(pos).some(v => Number(v || 0) > 0));
   if ((anyEnds || total > 0) && drawEpochMs && now <= drawEpochMs + APP.postGameWindowMs) return 'playing';
   if (drawEpochMs && drawEpochMs > now) return 'pending';
-  return state || 'unknown';
+  return gameState || 'unknown';
 }
 
 function buildDrawFirstRows(event, matchedTeam) {
@@ -347,6 +476,7 @@ function buildDrawFirstRows(event, matchedTeam) {
         unmatchedDrawRows.push({ drawLabel: draw?.label || null, gameId: gid });
         continue;
       }
+
       const positions = getGamePositions(game);
       const ourPos = positions.find(pos => getTeamIdFromPosition(pos) === matchedTeamId) || null;
       const oppPos = positions.find(pos => {
@@ -358,6 +488,7 @@ function buildDrawFirstRows(event, matchedTeam) {
       const linked = !!ourPos || aliasMatch;
       const openSlots = Math.max(0, 2 - positions.filter(pos => !!getTeamIdFromPosition(pos)).length);
       const lifecycle = inferLifecycle(game, epochMs);
+
       rows.push({
         draw,
         game,
@@ -373,35 +504,44 @@ function buildDrawFirstRows(event, matchedTeam) {
         oppPos,
         oppTeam,
         gameName: game?.name || '',
-        stateLabel: lifecycle === 'playing' ? 'Live' :
+        stateLabel:
+          lifecycle === 'playing' ? 'Live' :
           lifecycle === 'pending-window' ? 'Starting soon' :
           lifecycle === 'pending' ? 'Scheduled' :
           lifecycle === 'just-finished' ? 'Final' :
-          lifecycle === 'complete' ? 'Complete' : 'Unknown'
+          lifecycle === 'complete' ? 'Complete' :
+          'Unknown'
       });
     }
   }
 
-  rows.sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER) || String(a.gameId).localeCompare(String(b.gameId)));
+  rows.sort((a, b) =>
+    (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER) ||
+    String(a.gameId).localeCompare(String(b.gameId))
+  );
+
   return { rows, aliases, unmatchedDrawRows, totalStageGames: gamesById.size };
 }
 
 function selectGamesForEvent(event, matchedTeam) {
   const { rows, aliases, unmatchedDrawRows, totalStageGames } = buildDrawFirstRows(event, matchedTeam);
-  const now = Date.now();
   const linkedRows = rows.filter(r => r.linked);
+
   const active = linkedRows.find(r => r.lifecycle === 'playing') || null;
+
   const nextConfirmed = linkedRows
-    .filter(r => ['pending-window','pending'].includes(r.lifecycle))
-    .sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+    .filter(r => ['pending-window', 'pending'].includes(r.lifecycle))
+    .sort((a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+
   const completed = linkedRows
-    .filter(r => ['just-finished','complete'].includes(r.lifecycle))
-    .sort((a,b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+    .filter(r => ['just-finished', 'complete'].includes(r.lifecycle))
+    .sort((a, b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
+
   let inferredNext = null;
   if (!nextConfirmed && completed && String(getPositionResult(completed.ourPos) || '').toLowerCase() === 'won') {
     inferredNext = rows
-      .filter(r => r !== completed && ['pending-window','pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
-      .sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
+      .filter(r => r !== completed && ['pending-window', 'pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
+      .sort((a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
   }
 
   const stateCounts = {};
@@ -420,8 +560,8 @@ function selectGamesForEvent(event, matchedTeam) {
       linkedGames: linkedRows.length,
       assignedGames: linkedRows.filter(r => !!r.ourPos).length,
       aliasMatchedGames: linkedRows.filter(r => r.aliasMatch).length,
-      futureAssignedGames: linkedRows.filter(r => !!r.ourPos && ['pending-window','pending'].includes(r.lifecycle)).length,
-      futureOpenSlotGames: rows.filter(r => ['pending-window','pending'].includes(r.lifecycle) && r.openSlots > 0).length,
+      futureAssignedGames: linkedRows.filter(r => !!r.ourPos && ['pending-window', 'pending'].includes(r.lifecycle)).length,
+      futureOpenSlotGames: rows.filter(r => ['pending-window', 'pending'].includes(r.lifecycle) && r.openSlots > 0).length,
       stateCounts,
       matchedTeamAliases: aliases.slice(0, 12),
       inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
@@ -434,10 +574,11 @@ function selectGamesForEvent(event, matchedTeam) {
 function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
-  const isComplete = ['complete','just-finished'].includes(lifecycle) || ['won','lost','tied'].includes(String(getPositionResult(ourPos) || '').toLowerCase());
+  const isComplete = ['complete', 'just-finished'].includes(lifecycle) || ['won', 'lost', 'tied'].includes(String(getPositionResult(ourPos) || '').toLowerCase());
   const playedLength = Math.max(ours.length, opps.length);
   const length = Math.max(totalEnds || 0, playedLength);
   const rows = [];
+
   for (let i = 0; i < length; i++) {
     const hasPosted = i < playedLength;
     rows.push({
@@ -446,6 +587,7 @@ function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
       opponent: hasPosted ? String(Number(opps[i] ?? 0)) : (isComplete ? 'X' : '')
     });
   }
+
   return {
     rows,
     total: {
@@ -454,11 +596,14 @@ function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
     }
   };
 }
+
 function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerTeamName) {
   let hammer = firstHammerTeamName || 'Unknown';
   const maxEnds = Math.max(endScoresA.length, endScoresB.length);
-  for (let i=0;i<maxEnds;i++) {
-    const a = Number(endScoresA[i] ?? 0), b = Number(endScoresB[i] ?? 0);
+
+  for (let i = 0; i < maxEnds; i++) {
+    const a = Number(endScoresA[i] ?? 0);
+    const b = Number(endScoresB[i] ?? 0);
     if (a > 0 && b === 0) hammer = teamBName;
     else if (b > 0 && a === 0) hammer = teamAName;
   }
@@ -480,63 +625,88 @@ function getProgressSignature(row) {
 
 function computeCheckDelay(selection, previousSnapshot = null) {
   const now = Date.now();
+
   if (selection.active) {
     const currentSig = getProgressSignature(selection.active);
-    const sameAsPrevious = previousSnapshot && previousSnapshot.activeGameId === selection.active.gameId && previousSnapshot.progressSignature === currentSig;
+    const sameAsPrevious =
+      previousSnapshot &&
+      previousSnapshot.activeGameId === selection.active.gameId &&
+      previousSnapshot.progressSignature === currentSig;
+
     return sameAsPrevious
       ? { delayMs: APP.activeBetweenChecksMs, reason: 'awaiting next end score after active check' }
       : { delayMs: APP.activePostEndPauseMs, reason: 'post-end pause before active polling' };
   }
+
   const nextConfirmed = selection.next;
   if (nextConfirmed) {
     const preWindowAt = (nextConfirmed.epochMs || now) - APP.preGameWindowMs;
-    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    if (preWindowAt > now) {
+      return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    }
     return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
   }
+
   const nextRow = selection.rows.find(r => r.linked && r.epochMs && r.epochMs > now);
   if (nextRow) {
     const preWindowAt = nextRow.epochMs - APP.preGameWindowMs;
-    if (preWindowAt > now) return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    if (preWindowAt > now) {
+      return { delayMs: preWindowAt - now, reason: 'sleep until next game pre-game window' };
+    }
     return { delayMs: APP.upcomingRefreshMs, reason: 'next game pre-game monitoring' };
   }
+
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
 }
 
 function renderHeadline(snapshot) {
   if (!snapshot) {
-    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler\'s name to begin.</p>';
+    els.headlineBlock.innerHTML = "<p class=\"headline-empty\">Enter a curler's name to begin.</p>";
     return;
   }
+
   if (snapshot.view === 'live') {
     const titlePrefix = snapshot.gameTitle ? `${escapeHtml(snapshot.gameTitle)} - ` : '';
     els.headlineBlock.innerHTML = `<div><div class="headline-main">${escapeHtml(formatScoreTitle(snapshot.teamName, snapshot.teamScore, snapshot.opponentName, snapshot.opponentScore))}</div><div class="headline-sub">${titlePrefix}Now playing ${escapeHtml(snapshot.currentEndLabel)} - ${escapeHtml(snapshot.hammerSubtitle || 'Hammer unknown')}</div></div>`;
     return;
   }
+
   if (snapshot.view === 'upcoming') {
     els.headlineBlock.innerHTML = `<div><div class="headline-main">No live game</div><div class="headline-sub">Next game: ${escapeHtml(snapshot.nextGameLabel || 'TBD')}</div></div>`;
     return;
   }
+
   if (snapshot.view === 'idle-event') {
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Watching this event</div><div class="headline-sub">${escapeHtml(snapshot.nextGameLabel || 'No active draw right now.')}</div></div>`;
     return;
   }
+
+  if (snapshot.view === 'error') {
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">Temporary refresh issue</div><div class="headline-sub">${escapeHtml(snapshot.errorHint || 'Please try again shortly.')}</div></div>`;
+    return;
+  }
+
   els.headlineBlock.innerHTML = `<div><div class="headline-main">No current event found</div><div class="headline-sub">Checking supported Curling I/O competitions again later.</div></div>`;
 }
 
 function renderEnds(teamName, opponentName, endsData) {
   const rowsIn = endsData?.rows || [];
   const total = endsData?.total || null;
+
   if (!rowsIn.length) {
     els.endsList.className = 'ends-list empty';
     els.endsList.innerHTML = '<p>No end scores yet.</p>';
     return;
   }
+
   const teamShort = escapeHtml(shortenTeamName(teamName));
   const oppShort = escapeHtml(shortenTeamName(opponentName));
   els.endsList.className = 'ends-list ends-table';
+
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
   const rows = rowsIn.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${escapeHtml(row.team)}</span><span class="end-score-cell">${escapeHtml(row.opponent)}</span></div>`).join('');
   const totalRow = total ? `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${escapeHtml(total.team)}</span><span class="end-score-cell">${escapeHtml(total.opponent)}</span></div>` : '';
+
   els.endsList.innerHTML = header + rows + totalRow;
 }
 
@@ -550,21 +720,41 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
     els.scheduleList.innerHTML = '<p>No scheduled draws to show.</p>';
     return;
   }
+
   els.scheduleList.className = 'schedule-list';
   els.scheduleList.innerHTML = scheduleRows.map(row => {
-    const cls = row.gameId === activeGameId ? 'schedule-row active' : row.gameId === nextGameId ? 'schedule-row upcoming' : 'schedule-row';
+    const cls = row.gameId === activeGameId
+      ? 'schedule-row active'
+      : row.gameId === nextGameId
+      ? 'schedule-row upcoming'
+      : 'schedule-row';
+
     const matchup = `${shortenTeamName(row.team)} vs ${shortenTeamName(row.opponent)}`;
     const title = row.branchLabel ? row.branchLabel : matchup;
     const subtitle = row.branchLabel ? matchup : row.stateLabel;
+
     return `<div class="${cls}"><div><div class="schedule-label">${escapeHtml(title)}</div><div class="schedule-meta schedule-meta-left">${escapeHtml(subtitle)}</div></div><div class="schedule-meta">${escapeHtml(formatScheduleTime(row))}</div></div>`;
   }).join('');
 }
+
 function updateBadge(view) {
   els.liveBadge.className = 'badge';
-  if (view === 'live') { els.liveBadge.classList.add('live'); els.liveBadge.textContent = 'Live'; }
-  else if (view === 'upcoming') { els.liveBadge.classList.add('upcoming'); els.liveBadge.textContent = 'Upcoming'; }
-  else if (view === 'complete') { els.liveBadge.classList.add('complete'); els.liveBadge.textContent = 'Complete'; }
-  else { els.liveBadge.classList.add('muted'); els.liveBadge.textContent = view === 'idle-event' ? 'Watching' : 'Idle'; }
+  if (view === 'live') {
+    els.liveBadge.classList.add('live');
+    els.liveBadge.textContent = 'Live';
+  } else if (view === 'upcoming') {
+    els.liveBadge.classList.add('upcoming');
+    els.liveBadge.textContent = 'Upcoming';
+  } else if (view === 'complete') {
+    els.liveBadge.classList.add('complete');
+    els.liveBadge.textContent = 'Complete';
+  } else if (view === 'error') {
+    els.liveBadge.classList.add('muted');
+    els.liveBadge.textContent = 'Issue';
+  } else {
+    els.liveBadge.classList.add('muted');
+    els.liveBadge.textContent = view === 'idle-event' ? 'Watching' : 'Idle';
+  }
 }
 
 function render(snapshot) {
@@ -580,12 +770,12 @@ function render(snapshot) {
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
-  setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase:'idle' });
+  setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase: 'idle' });
 }
 
 function scheduleNextRun(delayMs) {
   if (state.timerId) clearTimeout(state.timerId);
-  state.timerId = window.setTimeout(() => runTracker({ reason:'scheduled' }), Math.max(5000, delayMs));
+  state.timerId = window.setTimeout(() => runTracker({ reason: 'scheduled' }), Math.max(5000, delayMs));
 }
 
 const BRANCH_OVERRIDES = {
@@ -595,9 +785,11 @@ const BRANCH_OVERRIDES = {
 function getOutcomeBranchRows(event, matchedTeam, selection) {
   const source = selection.active || selection.lastCompleted;
   if (!source) return [];
+
   const key = `${event.id}:${source.gameId}`;
   const override = BRANCH_OVERRIDES[key];
   if (!override) return [];
+
   const byId = new Map(selection.rows.map(r => [r.gameId, r]));
   const rows = [];
   if (override.win && byId.get(override.win)) rows.push({ ...byId.get(override.win), branchLabel: `If ${shortenTeamName(matchedTeam.name)} wins` });
@@ -614,6 +806,22 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
     scheduleRows: [],
     timelineHint: 'No live game.',
     scheduleHint: 'Scanning supported Curling I/O competitions for a current event every 72 hours.',
+    nextCheckAt: Date.now() + delayMs,
+    lastUpdatedLabel: formatClock(Date.now()),
+    diagnostics
+  };
+}
+
+function computeErrorSnapshot(playerName, diagnostics, delayMs, errorHint) {
+  return {
+    playerName,
+    view: 'error',
+    eventName: 'Temporary refresh issue',
+    ends: [],
+    scheduleRows: [],
+    timelineHint: 'Refresh did not complete.',
+    scheduleHint: 'Retrying automatically.',
+    errorHint,
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
@@ -655,17 +863,30 @@ function candidateScoreRank(selection) {
   return selection.active ? 0 : selection.next ? 1 : selection.lastCompleted ? 2 : 3;
 }
 
+function isExactPlayerMatch(candidate, playerNorm) {
+  return normalizeName(candidate?.match?.curler?.name) === playerNorm;
+}
+
+function isStrongImmediateCandidate(candidate, playerNorm) {
+  if (!candidate) return false;
+  const exact = isExactPlayerMatch(candidate, playerNorm);
+  return exact && (candidate.selection.active || candidate.selection.next || candidate.selection.lastCompleted);
+}
+
 async function tryFastPathCandidate(playerNorm) {
   const fastPath = loadDiscoveryFastPath(playerNorm);
   if (!fastPath) return null;
+
   try {
     const event = await fetchJson(eventUrl(fastPath.subdomain, fastPath.eventId), {
       ttlMs: APP.eventCacheMs,
       cacheGroup: 'event'
     });
     if (!isEventTodayForward(event)) return null;
+
     const match = findMatchingTeam(event, playerNorm);
     if (!match) return null;
+
     const selection = selectGamesForEvent(event, match.team);
     return {
       item: { id: event.id },
@@ -681,76 +902,130 @@ async function tryFastPathCandidate(playerNorm) {
   }
 }
 
+function rankCompetitionItems(items) {
+  return [...items].sort((a, b) => {
+    const aState = String(a?.state || '').toLowerCase();
+    const bState = String(b?.state || '').toLowerCase();
+    const aActive = aState === 'active' ? 0 : 1;
+    const bActive = bState === 'active' ? 0 : 1;
+    const aEnd = parseEventDateToMs(a?.ends_on) || 0;
+    const bEnd = parseEventDateToMs(b?.ends_on) || 0;
+    return aActive - bActive || bEnd - aEnd || ((b?.id || 0) - (a?.id || 0));
+  });
+}
+
 async function discoverPlayerEvents(playerName) {
   const playerNorm = normalizeName(playerName);
   const checked = [];
   const candidates = [];
-  const fastCandidate = await tryFastPathCandidate(playerNorm);
-  if (fastCandidate) {
-    checked.push({ fastPath: true, subdomain: fastCandidate.subdomain, eventId: fastCandidate.event.id });
-    return { checked, candidates: [fastCandidate] };
-  }
+  const deadlineAt = Date.now() + APP.discoveryBudgetMs;
 
-  const listJobs = [];
-  for (const subdomain of APP.clubSubdomains) {
-    for (const delta of APP.lookaheadSeasons) {
-      listJobs.push({ subdomain, delta });
+  try {
+    const fastCandidate = await raceWithBudget(() => tryFastPathCandidate(playerNorm), deadlineAt);
+    if (fastCandidate) {
+      checked.push({ fastPath: true, subdomain: fastCandidate.subdomain, eventId: fastCandidate.event.id });
+      return { checked, candidates: [fastCandidate], timedOut: false };
     }
-  }
 
-  const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
-    const listUrl = competitionsUrl(subdomain, delta);
-    try {
-      const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
-      const items = payload.items || [];
-      return { subdomain, delta, listUrl, items };
-    } catch {
-      return { subdomain, delta, listUrl, items: [], skipped: true };
-    }
-  });
-
-  for (const result of listResults) {
-    checked.push({
-      subdomain: result.subdomain,
-      delta: result.delta,
-      itemsCount: result.items.length,
-      url: result.listUrl,
-      skipped: !!result.skipped
-    });
-
-    if (!result.items.length) continue;
-
-    const eventCandidates = await mapWithConcurrency(result.items, APP.maxParallelEventsPerList, async (item) => {
-      try {
-        const event = await fetchJson(eventUrl(result.subdomain, item.id), {
-          ttlMs: APP.eventCacheMs,
-          cacheGroup: 'event'
-        });
-        if (!isEventTodayForward(event)) return null;
-        const match = findMatchingTeam(event, playerNorm);
-        if (!match) return null;
-        const selection = selectGamesForEvent(event, match.team);
-        return {
-          item,
-          event,
-          match,
-          selection,
-          subdomain: result.subdomain,
-          scoreRank: candidateScoreRank(selection)
-        };
-      } catch {
-        return null;
+    const listJobs = [];
+    for (const subdomain of APP.clubSubdomains) {
+      for (const delta of APP.lookaheadSeasons) {
+        listJobs.push({ subdomain, delta });
       }
-    });
-
-    for (const candidate of eventCandidates) {
-      if (candidate) candidates.push(candidate);
     }
+
+    for (let i = 0; i < listJobs.length; i += APP.maxParallelSubdomains) {
+      if (didBudgetExpire(deadlineAt)) break;
+
+      const batch = listJobs.slice(i, i + APP.maxParallelSubdomains);
+      const batchResults = await raceWithBudget(() => Promise.all(batch.map(async ({ subdomain, delta }) => {
+        const listUrl = competitionsUrl(subdomain, delta);
+        try {
+          const payload = await fetchJson(listUrl, {
+            ttlMs: APP.listCacheMs,
+            cacheGroup: 'list',
+            timeoutMs: Math.min(APP.fetchTimeoutMs, Math.max(1, getRemainingBudgetMs(deadlineAt)))
+          });
+          const items = rankCompetitionItems(payload.items || []);
+          return { subdomain, delta, listUrl, items };
+        } catch (error) {
+          return { subdomain, delta, listUrl, items: [], skipped: true, error: error.message };
+        }
+      })), deadlineAt);
+
+      for (const result of batchResults) {
+        checked.push({
+          subdomain: result.subdomain,
+          delta: result.delta,
+          itemsCount: result.items.length,
+          url: result.listUrl,
+          skipped: !!result.skipped,
+          error: result.error || null
+        });
+
+        if (didBudgetExpire(deadlineAt)) break;
+        if (!result.items.length) continue;
+
+        let strongCandidate = null;
+
+        await raceWithBudget(() => mapWithConcurrency(result.items, APP.maxParallelEventsPerList, async (item) => {
+          if (strongCandidate) return null;
+          if (didBudgetExpire(deadlineAt)) return null;
+
+          try {
+            const event = await fetchJson(eventUrl(result.subdomain, item.id), {
+              ttlMs: APP.eventCacheMs,
+              cacheGroup: 'event',
+              timeoutMs: Math.min(APP.fetchTimeoutMs, Math.max(1, getRemainingBudgetMs(deadlineAt)))
+            });
+
+            if (!isEventTodayForward(event)) return null;
+
+            const match = findMatchingTeam(event, playerNorm);
+            if (!match) return null;
+
+            const selection = selectGamesForEvent(event, match.team);
+            const candidate = {
+              item,
+              event,
+              match,
+              selection,
+              subdomain: result.subdomain,
+              scoreRank: candidateScoreRank(selection)
+            };
+
+            candidates.push(candidate);
+
+            if (isStrongImmediateCandidate(candidate, playerNorm)) {
+              strongCandidate = candidate;
+            }
+
+            return candidate;
+          } catch {
+            return null;
+          }
+        }), deadlineAt);
+
+        if (strongCandidate) {
+          saveDiscoveryFastPath(playerNorm, strongCandidate);
+          return { checked, candidates: [strongCandidate], timedOut: false };
+        }
+      }
+    }
+  } catch (error) {
+    if (!isBudgetTimeoutError(error)) throw error;
   }
 
-  candidates.sort((a,b) => a.scoreRank - b.scoreRank || (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) || (b.match.score - a.match.score) || ((b.event.id||0)-(a.event.id||0)));
+  candidates.sort(
+    (a, b) =>
+      a.scoreRank - b.scoreRank ||
+      (normalizeName(a.match.curler.name) === playerNorm ? -1 : 0) - (normalizeName(b.match.curler.name) === playerNorm ? -1 : 0) ||
+      (b.match.score - a.match.score) ||
+      ((b.event.id || 0) - (a.event.id || 0))
+  );
+
   if (candidates[0]) saveDiscoveryFastPath(playerNorm, candidates[0]);
-  return { checked, candidates };
+  return { checked, candidates, timedOut: didBudgetExpire(deadlineAt) };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
@@ -761,16 +1036,30 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const lastCompleted = selection.lastCompleted;
   const active = selection.active;
   const displayGame = active || lastCompleted || nextGame || selection.rows[0] || null;
-  let hammerNext='-', hammerSubtitle='Hammer unknown', ends={ rows: [], total: null }, teamScore=0, opponentScore=0, opponentName='TBD', currentEndLabel='Waiting', view='idle-event';
+
+  let hammerNext = '-';
+  let hammerSubtitle = 'Hammer unknown';
+  let ends = { rows: [], total: null };
+  let teamScore = 0;
+  let opponentScore = 0;
+  let opponentName = 'TBD';
+  let currentEndLabel = 'Waiting';
+  let view = 'idle-event';
 
   if (displayGame) {
     const positions = getGamePositions(displayGame.game);
     const ourPos = positions.find(pos => getTeamIdFromPosition(pos) === matchedTeam.id) || {};
-    const oppPos = positions.find(pos => { const tid = getTeamIdFromPosition(pos); return tid && tid !== matchedTeam.id; }) || {};
-    const oppTeam = teamMap(event).get(getTeamIdFromPosition(oppPos)) || { name:'TBD', id:null };
+    const oppPos = positions.find(pos => {
+      const tid = getTeamIdFromPosition(pos);
+      return tid && tid !== matchedTeam.id;
+    }) || {};
+    const oppTeam = teamMap(event).get(getTeamIdFromPosition(oppPos)) || { name: 'TBD', id: null };
     const firstHammerPos = positions.find(pos => pos.first_hammer || pos.firstHammer);
-    const firstHammerName = getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? matchedTeam.name :
-      getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name : 'Unknown';
+    const firstHammerName =
+      getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? matchedTeam.name :
+      getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? oppTeam.name :
+      'Unknown';
+
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
     hammerSubtitle = `${shortenTeamName(hammerNext, { keepCC: true })} has hammer`;
     ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle);
@@ -784,17 +1073,22 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
   const nextGameLabel = nextGame
     ? `${nextGame.startsAt || formatEpochMs(nextGame.epochMs)}${nextGameConfirmed ? '' : ' (awaiting assignment)'}`
     : 'No next game available';
+
   const nextCheck = computeCheckDelay(selection, state.snapshot);
+
   if (active) view = 'live';
   else if (nextGame) view = 'upcoming';
   else if (lastCompleted) view = 'idle-event';
 
   const linkedScheduleRows = selection.linkedRows.map(r => {
     let stateLabel;
-    if (r.lifecycle === 'playing') stateLabel = 'Now playing';
-    else if (r.lifecycle === 'pending-window') stateLabel = 'Starting soon';
-    else if (r.lifecycle === 'pending') stateLabel = 'Scheduled';
-    else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
+    if (r.lifecycle === 'playing') {
+      stateLabel = 'Now playing';
+    } else if (r.lifecycle === 'pending-window') {
+      stateLabel = 'Starting soon';
+    } else if (r.lifecycle === 'pending') {
+      stateLabel = 'Scheduled';
+    } else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
       const ourScore = getPositionScore(r.ourPos);
       const oppScore = getPositionScore(r.oppPos);
       stateLabel = ourScore > oppScore
@@ -802,7 +1096,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
         : ourScore < oppScore
         ? `Complete - lost ${ourScore} - ${oppScore}`
         : `Complete - ${ourScore} - ${oppScore}`;
-    } else stateLabel = 'Unknown';
+    } else {
+      stateLabel = 'Unknown';
+    }
+
     return {
       gameId: r.gameId,
       gameName: r.gameName || r.game?.name || null,
@@ -816,13 +1113,17 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       opponent: r.oppTeam?.name || 'TBD'
     };
   });
+
   const branchRows = getOutcomeBranchRows(event, matchedTeam, selection);
   const dedup = new Map();
   for (const row of [...linkedScheduleRows, ...branchRows]) {
     const key = `${row.gameId}|${row.branchLabel || ''}`;
     if (!dedup.has(key)) dedup.set(key, row);
   }
-  const mergedScheduleRows = Array.from(dedup.values()).sort((a,b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER));
+
+  const mergedScheduleRows = Array.from(dedup.values()).sort(
+    (a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER)
+  );
 
   return {
     playerName,
@@ -857,26 +1158,54 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
 
 async function runTracker({ reason }) {
   if (!state.playerName) return;
+
+  if (state.isRunning) {
+    state.pendingRunReason = reason || 'queued';
+    return;
+  }
+
+  state.isRunning = true;
   state.lastRunAt = Date.now();
   setStatus(`Checking for ${state.playerName}...`);
+
   try {
-    const discovery = await discoverPlayerEvents(state.playerName);
+    const discoveryPromise = discoverPlayerEvents(state.playerName);
+    discoveryPromise.catch(() => null);
+    const discovery = await raceWithBudget(() => discoveryPromise, Date.now() + APP.discoveryBudgetMs + 250);
+
     if (!discovery.candidates.length) {
       const diagnostics = buildDiagnostics({
-        phase: 'no-match',
+        phase: discovery.timedOut ? 'search-timeout' : 'no-match',
         reason,
         playerName: state.playerName,
         checked: discovery.checked,
-        policy: 'Idle scans every 72 hours until a current event appears.'
+        timedOut: !!discovery.timedOut,
+        policy: discovery.timedOut
+          ? 'Search budget reached before a current event was confirmed.'
+          : 'Idle scans every 72 hours until a current event appears.'
       });
-      render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-      setStatus(`No current Curling I/O event found for ${state.playerName}. Next scan in about 72 hours.`);
-      scheduleNextRun(APP.idleScanMs);
+
+      if (discovery.timedOut) {
+        const snapshot = computeErrorSnapshot(
+          state.playerName,
+          diagnostics,
+          APP.errorRetryMs,
+          'The search took too long. Try Refresh now.'
+        );
+        render(snapshot);
+        setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
+        scheduleNextRun(APP.errorRetryMs);
+      } else {
+        render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
+        setStatus(`No current Curling I/O event found for ${state.playerName}. Next scan in about 72 hours.`);
+        scheduleNextRun(APP.idleScanMs);
+      }
       return;
     }
 
     const chosen = discovery.candidates[0];
     const selection = chosen.selection;
+
     const diagnostics = buildDiagnostics({
       phase: 'matched',
       reason,
@@ -929,6 +1258,7 @@ async function runTracker({ reason }) {
 
     const exactMatch = normalizeName(chosen.match.curler.name) === normalizeName(state.playerName);
     const prefix = exactMatch ? '' : `Unable to match ${state.playerName}. `;
+
     if (snapshot.view === 'live') {
       setStatus(`${prefix}${chosen.match.curler.name} is live in ${chosen.event.name}.`);
     } else if (snapshot.nextGameId) {
@@ -939,13 +1269,32 @@ async function runTracker({ reason }) {
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
-    const diagnostics = buildDiagnostics({ phase:'error', reason, playerName: state.playerName, error: error.message });
-    const snapshot = computeIdleSnapshot(state.playerName, diagnostics, APP.errorRetryMs);
-    snapshot.eventName = 'Temporary error';
-    snapshot.scheduleHint = 'Retrying in 30 minutes.';
+    const normalizedError = isBudgetTimeoutError(error) ? new Error('The search took too long. Try Refresh now.') : error;
+    const diagnostics = buildDiagnostics({
+      phase: 'error',
+      reason,
+      playerName: state.playerName,
+      error: normalizedError.message
+    });
+
+    const snapshot = computeErrorSnapshot(
+      state.playerName,
+      diagnostics,
+      APP.errorRetryMs,
+      normalizedError.message
+    );
+
     render(snapshot);
-    setStatus(`Could not refresh right now. Retrying in 30 minutes. ${error.message}`);
+    setStatus(`Could not refresh right now. Retrying in 30 minutes. ${normalizedError.message}`);
     scheduleNextRun(APP.errorRetryMs);
+  } finally {
+    state.isRunning = false;
+
+    if (state.pendingRunReason) {
+      const queuedReason = state.pendingRunReason;
+      state.pendingRunReason = null;
+      queueMicrotask(() => runTracker({ reason: queuedReason }));
+    }
   }
 }
 
@@ -964,15 +1313,16 @@ function maybeRunOpenScan(trigger) {
   const snapshot = state.snapshot || {};
   const view = snapshot.view || '';
   const nextCheckAt = Number(snapshot.nextCheckAt || 0);
-
   const isLive = view === 'live';
-  const isUpcoming = view === 'upcoming';
-  const isIdleOrNoNext = !isLive && !isUpcoming;
 
   if (trigger === 'pageshow') {
+    const justStarted = state.isRunning || (now - state.lastRunAt) < APP.pageshowDuplicateFloorMs;
+    if (justStarted) return;
     runTracker({ reason: 'app-open-full-scan' });
     return;
   }
+
+  if (state.isRunning) return;
 
   if (trigger === 'visible') {
     if (nextCheckAt && now >= nextCheckAt) {
@@ -983,7 +1333,6 @@ function maybeRunOpenScan(trigger) {
 
     const visibleFloorMs = isLive ? 240000 : 3600000;
     const recentlyVisibilityScanned = now - state.lastVisibilityScanAt < visibleFloorMs;
-
     if (recentlyVisibilityScanned) return;
 
     state.lastVisibilityScanAt = now;
@@ -998,7 +1347,6 @@ function maybeRunOpenScan(trigger) {
 
   const focusFloorMs = isLive ? 120000 : 2700000;
   const recentlyRan = now - state.lastRunAt < focusFloorMs;
-
   if (recentlyRan) return;
 
   runTracker({ reason: 'app-open-full-scan' });
@@ -1019,24 +1367,35 @@ els.form.addEventListener('submit', event => {
   if (!value) return;
   startTracking(value, 'manual-start');
 });
+
 els.shareBtn.addEventListener('click', async () => {
   const player = state.playerName || els.playerInput.value.trim();
   const url = new URL(window.location.href);
   if (player) url.searchParams.set('player', player);
   const text = url.toString();
-  try { await navigator.clipboard.writeText(text); setStatus('Share link copied.'); }
-  catch { setStatus('Could not copy automatically. You can copy the address from your browser.'); }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    setStatus('Share link copied.');
+  } catch {
+    setStatus('Could not copy automatically. You can copy the address from your browser.');
+  }
 });
+
 els.refreshBtn.addEventListener('click', () => {
-  if (!state.playerName && els.playerInput.value.trim()) return startTracking(els.playerInput.value.trim(), 'manual-refresh-start');
+  if (!state.playerName && els.playerInput.value.trim()) {
+    return startTracking(els.playerInput.value.trim(), 'manual-refresh-start');
+  }
   if (!state.playerName) return;
-  runTracker({ reason:'manual-refresh' });
+  runTracker({ reason: 'manual-refresh' });
 });
+
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   state.deferredPrompt = event;
   els.installBtn.classList.remove('hidden');
 });
+
 els.installBtn.addEventListener('click', async () => {
   if (!state.deferredPrompt) return;
   state.deferredPrompt.prompt();
@@ -1044,18 +1403,28 @@ els.installBtn.addEventListener('click', async () => {
   state.deferredPrompt = null;
   els.installBtn.classList.add('hidden');
 });
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register(`./sw.js?v=${encodeURIComponent(APP_VERSION)}`, { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register(`./sw.js?v=${encodeURIComponent(APP_VERSION)}`, {
+        updateViaCache: 'none'
+      });
       reg.update?.();
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!window.__ctReloaded) { window.__ctReloaded = true; window.location.reload(); }
+        if (!window.__ctReloaded) {
+          window.__ctReloaded = true;
+          window.location.reload();
+        }
       });
     } catch {}
   });
 }
+
 window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') maybeRunOpenScan('visible'); });
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') maybeRunOpenScan('visible');
+});
 window.addEventListener('focus', () => maybeRunOpenScan('focus'));
+
 bootFromSavedState();
