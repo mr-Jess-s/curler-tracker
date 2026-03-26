@@ -1,4 +1,4 @@
-const APP_VERSION = 'v25.6';
+﻿const APP_VERSION = 'v25.6';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -60,6 +60,110 @@ const state = {
 };
 
 const memoryCache = new Map();
+
+const MAX_MEMORY_CACHE_ENTRIES = 150;
+
+function setMemoryCache(fullKey, record) {
+  if (memoryCache.has(fullKey)) {
+    memoryCache.delete(fullKey);
+  }
+  setMemoryCache(fullKey, record);
+  while (memoryCache.size > MAX_MEMORY_CACHE_ENTRIES) {
+    const oldestKey = memoryCache.keys().next().value;
+    if (!oldestKey) break;
+    memoryCache.delete(oldestKey);
+  }
+}
+
+function isQuotaExceededError(error) {
+  if (!error) return false;
+  const message = String(error?.message || '');
+  return error?.name === 'QuotaExceededError'
+    || error?.name === 'NS_ERROR_DOM_QUOTA_REACHED'
+    || message.includes('QuotaExceededError')
+    || message.includes('exceeded the quota');
+}
+
+function getAppStorageKeys() {
+  try {
+    return Object.keys(localStorage).filter((key) => key && key.startsWith('curler-tracker-'));
+  } catch {
+    return [];
+  }
+}
+
+function clearAppStorage(preserveKeys = []) {
+  const preserve = new Set(preserveKeys.filter(Boolean));
+  for (const key of getAppStorageKeys()) {
+    if (preserve.has(key)) continue;
+    try { localStorage.removeItem(key); } catch {}
+  }
+}
+
+function safeStorageSet(key, value, { preserveKeys = [] } = {}) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch (error) {
+    if (!isQuotaExceededError(error)) return false;
+    clearAppStorage(preserveKeys);
+    try {
+      localStorage.setItem(key, value);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+function compactSnapshotForStorage(snapshot) {
+  if (!snapshot || typeof snapshot !== 'object') return null;
+
+  const compactScheduleRows = Array.isArray(snapshot.scheduleRows)
+    ? snapshot.scheduleRows.slice(0, 8).map((row) => ({
+        gameId: row?.gameId || null,
+        title: row?.title || '',
+        subtitle: row?.subtitle || '',
+        branchLabel: row?.branchLabel || '',
+        epochMs: row?.epochMs || null,
+        linked: !!row?.linked,
+        active: !!row?.active,
+        complete: !!row?.complete,
+        upcoming: !!row?.upcoming
+      }))
+    : [];
+
+  const compactEnds = Array.isArray(snapshot.ends)
+    ? snapshot.ends.slice(0, 12)
+    : (snapshot?.ends && Array.isArray(snapshot.ends.rows)
+        ? {
+            rows: snapshot.ends.rows.slice(0, 12),
+            total: snapshot.ends.total || null
+          }
+        : []);
+
+  return {
+    playerName: snapshot.playerName || '',
+    displayPlayer: snapshot.displayPlayer || snapshot.playerName || '',
+    view: snapshot.view || 'idle',
+    eventName: snapshot.eventName || '',
+    teamName: snapshot.teamName || '',
+    opponentName: snapshot.opponentName || '',
+    headline: snapshot.headline || '',
+    headlineSub: snapshot.headlineSub || '',
+    timelineHint: snapshot.timelineHint || '',
+    scheduleHint: snapshot.scheduleHint || '',
+    errorHint: snapshot.errorHint || '',
+    nextCheckAt: snapshot.nextCheckAt || null,
+    lastUpdatedLabel: snapshot.lastUpdatedLabel || '',
+    activeGameId: snapshot.activeGameId || null,
+    nextGameId: snapshot.nextGameId || null,
+    progressSignature: snapshot.progressSignature || '',
+    scheduleRows: compactScheduleRows,
+    ends: compactEnds
+  };
+}
+
 
 function normalizeName(name) {
   return String(name || '')
@@ -123,11 +227,17 @@ function setStatus(text) {
 }
 
 function savePlayer(player) {
-  localStorage.setItem(APP.localKeys.player, player);
+  safeStorageSet(APP.localKeys.player, player, {
+    preserveKeys: [APP.localKeys.player, APP.localKeys.snapshot]
+  });
 }
 
 function saveSnapshot(snapshot) {
-  localStorage.setItem(APP.localKeys.snapshot, JSON.stringify(snapshot));
+  const compact = compactSnapshotForStorage(snapshot);
+  if (!compact) return;
+  safeStorageSet(APP.localKeys.snapshot, JSON.stringify(compact), {
+    preserveKeys: [APP.localKeys.player, APP.localKeys.snapshot]
+  });
 }
 
 function loadSnapshot() {
@@ -166,73 +276,26 @@ function readTimedCache(kind, key, ttlMs) {
   if (!ttlMs) return null;
   const fullKey = cacheKey(kind, key);
   const mem = memoryCache.get(fullKey);
-  if (mem && (Date.now() - mem.savedAt) <= ttlMs) return mem.value;
-
-  try {
-    const raw = localStorage.getItem(fullKey);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed || (Date.now() - parsed.savedAt) > ttlMs) {
-      localStorage.removeItem(fullKey);
-      return null;
-    }
-    memoryCache.set(fullKey, parsed);
-    return parsed.value;
-  } catch {
+  if (!mem) return null;
+  if ((Date.now() - mem.savedAt) > ttlMs) {
+    memoryCache.delete(fullKey);
     return null;
   }
+  return mem.value;
 }
 
 function writeTimedCache(kind, key, value) {
   const record = { savedAt: Date.now(), value };
   const fullKey = cacheKey(kind, key);
-  memoryCache.set(fullKey, record);
-  try {
-    localStorage.setItem(fullKey, JSON.stringify(record));
-  } catch {}
+  setMemoryCache(fullKey, record);
 }
 
-function getRemainingBudgetMs(deadlineAt) {
-  return Math.max(0, deadlineAt - Date.now());
-}
-
-function didBudgetExpire(deadlineAt) {
-  return getRemainingBudgetMs(deadlineAt) <= 0;
-}
-
-function isBudgetTimeoutError(error) {
-  return error?.message === '__discovery_budget_timeout__';
-}
-
-function createBudgetTimeoutError() {
-  return new Error('__discovery_budget_timeout__');
-}
-
-async function raceWithBudget(factory, deadlineAt) {
-  const remainingMs = getRemainingBudgetMs(deadlineAt);
-  if (remainingMs <= 0) throw createBudgetTimeoutError();
-
-  let timeoutId = null;
-  const workPromise = Promise.resolve().then(factory);
-  workPromise.catch(() => null);
-
-  const timeoutPromise = new Promise((_, reject) => {
-    timeoutId = window.setTimeout(() => reject(createBudgetTimeoutError()), remainingMs);
-  });
-
-  try {
-    return await Promise.race([workPromise, timeoutPromise]);
-  } finally {
-    if (timeoutId) window.clearTimeout(timeoutId);
-  }
-}
-
-async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json', timeoutMs = APP.fetchTimeoutMs } = {}) {
+async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   const cached = ttlMs ? readTimedCache(cacheGroup, url, ttlMs) : null;
   if (cached) return cached;
 
   const controller = new AbortController();
-  const timeoutId = window.setTimeout(() => controller.abort(), Math.max(1, timeoutMs || APP.fetchTimeoutMs));
+  const timeoutId = window.setTimeout(() => controller.abort(), APP.fetchTimeoutMs);
 
   try {
     const res = await fetch(url, {
@@ -661,7 +724,7 @@ function computeCheckDelay(selection, previousSnapshot = null) {
 
 function renderHeadline(snapshot) {
   if (!snapshot) {
-    els.headlineBlock.innerHTML = "<p class=\"headline-empty\">Enter a curler's name to begin.</p>";
+    els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler\'s name to begin.</p>';
     return;
   }
 
@@ -839,7 +902,9 @@ function saveDiscoveryFastPath(playerNorm, candidate) {
       subdomain: candidate.subdomain,
       eventId: candidate.event?.id || null
     };
-    localStorage.setItem(discoveryFastPathKey(playerNorm), JSON.stringify(payload));
+    safeStorageSet(discoveryFastPathKey(playerNorm), JSON.stringify(payload), {
+      preserveKeys: [APP.localKeys.player, APP.localKeys.snapshot, discoveryFastPathKey(playerNorm)]
+    });
   } catch {}
 }
 
@@ -920,100 +985,88 @@ async function discoverPlayerEvents(playerName) {
   const candidates = [];
   const deadlineAt = Date.now() + APP.discoveryBudgetMs;
 
-  try {
-    const fastCandidate = await raceWithBudget(() => tryFastPathCandidate(playerNorm), deadlineAt);
-    if (fastCandidate) {
-      checked.push({ fastPath: true, subdomain: fastCandidate.subdomain, eventId: fastCandidate.event.id });
-      return { checked, candidates: [fastCandidate], timedOut: false };
+  const fastCandidate = await tryFastPathCandidate(playerNorm);
+  if (fastCandidate) {
+    checked.push({ fastPath: true, subdomain: fastCandidate.subdomain, eventId: fastCandidate.event.id });
+    return { checked, candidates: [fastCandidate], timedOut: false };
+  }
+
+  const listJobs = [];
+  for (const subdomain of APP.clubSubdomains) {
+    for (const delta of APP.lookaheadSeasons) {
+      listJobs.push({ subdomain, delta });
+    }
+  }
+
+  const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
+    const listUrl = competitionsUrl(subdomain, delta);
+    try {
+      const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
+      const items = rankCompetitionItems(payload.items || []);
+      return { subdomain, delta, listUrl, items };
+    } catch (error) {
+      return { subdomain, delta, listUrl, items: [], skipped: true, error: error.message };
+    }
+  });
+
+  for (const result of listResults) {
+    checked.push({
+      subdomain: result.subdomain,
+      delta: result.delta,
+      itemsCount: result.items.length,
+      url: result.listUrl,
+      skipped: !!result.skipped,
+      error: result.error || null
+    });
+
+    if (Date.now() >= deadlineAt) {
+      break;
     }
 
-    const listJobs = [];
-    for (const subdomain of APP.clubSubdomains) {
-      for (const delta of APP.lookaheadSeasons) {
-        listJobs.push({ subdomain, delta });
-      }
-    }
+    if (!result.items.length) continue;
 
-    for (let i = 0; i < listJobs.length; i += APP.maxParallelSubdomains) {
-      if (didBudgetExpire(deadlineAt)) break;
+    let strongCandidate = null;
+    await mapWithConcurrency(result.items, APP.maxParallelEventsPerList, async (item) => {
+      if (strongCandidate) return null;
+      if (Date.now() >= deadlineAt) return null;
 
-      const batch = listJobs.slice(i, i + APP.maxParallelSubdomains);
-      const batchResults = await raceWithBudget(() => Promise.all(batch.map(async ({ subdomain, delta }) => {
-        const listUrl = competitionsUrl(subdomain, delta);
-        try {
-          const payload = await fetchJson(listUrl, {
-            ttlMs: APP.listCacheMs,
-            cacheGroup: 'list',
-            timeoutMs: Math.min(APP.fetchTimeoutMs, Math.max(1, getRemainingBudgetMs(deadlineAt)))
-          });
-          const items = rankCompetitionItems(payload.items || []);
-          return { subdomain, delta, listUrl, items };
-        } catch (error) {
-          return { subdomain, delta, listUrl, items: [], skipped: true, error: error.message };
-        }
-      })), deadlineAt);
-
-      for (const result of batchResults) {
-        checked.push({
-          subdomain: result.subdomain,
-          delta: result.delta,
-          itemsCount: result.items.length,
-          url: result.listUrl,
-          skipped: !!result.skipped,
-          error: result.error || null
+      try {
+        const event = await fetchJson(eventUrl(result.subdomain, item.id), {
+          ttlMs: APP.eventCacheMs,
+          cacheGroup: 'event'
         });
 
-        if (didBudgetExpire(deadlineAt)) break;
-        if (!result.items.length) continue;
+        if (!isEventTodayForward(event)) return null;
 
-        let strongCandidate = null;
+        const match = findMatchingTeam(event, playerNorm);
+        if (!match) return null;
 
-        await raceWithBudget(() => mapWithConcurrency(result.items, APP.maxParallelEventsPerList, async (item) => {
-          if (strongCandidate) return null;
-          if (didBudgetExpire(deadlineAt)) return null;
+        const selection = selectGamesForEvent(event, match.team);
+        const candidate = {
+          item,
+          event,
+          match,
+          selection,
+          subdomain: result.subdomain,
+          scoreRank: candidateScoreRank(selection)
+        };
 
-          try {
-            const event = await fetchJson(eventUrl(result.subdomain, item.id), {
-              ttlMs: APP.eventCacheMs,
-              cacheGroup: 'event',
-              timeoutMs: Math.min(APP.fetchTimeoutMs, Math.max(1, getRemainingBudgetMs(deadlineAt)))
-            });
+        candidates.push(candidate);
 
-            if (!isEventTodayForward(event)) return null;
-
-            const match = findMatchingTeam(event, playerNorm);
-            if (!match) return null;
-
-            const selection = selectGamesForEvent(event, match.team);
-            const candidate = {
-              item,
-              event,
-              match,
-              selection,
-              subdomain: result.subdomain,
-              scoreRank: candidateScoreRank(selection)
-            };
-
-            candidates.push(candidate);
-
-            if (isStrongImmediateCandidate(candidate, playerNorm)) {
-              strongCandidate = candidate;
-            }
-
-            return candidate;
-          } catch {
-            return null;
-          }
-        }), deadlineAt);
-
-        if (strongCandidate) {
-          saveDiscoveryFastPath(playerNorm, strongCandidate);
-          return { checked, candidates: [strongCandidate], timedOut: false };
+        if (isStrongImmediateCandidate(candidate, playerNorm)) {
+          strongCandidate = candidate;
         }
+
+        return candidate;
+      } catch {
+        return null;
       }
+    });
+
+    if (strongCandidate) {
+      saveDiscoveryFastPath(playerNorm, strongCandidate);
+      return { checked, candidates: [strongCandidate], timedOut: false };
     }
-  } catch (error) {
-    if (!isBudgetTimeoutError(error)) throw error;
   }
 
   candidates.sort(
@@ -1025,7 +1078,7 @@ async function discoverPlayerEvents(playerName) {
   );
 
   if (candidates[0]) saveDiscoveryFastPath(playerNorm, candidates[0]);
-  return { checked, candidates, timedOut: didBudgetExpire(deadlineAt) };
+  return { checked, candidates, timedOut: Date.now() >= deadlineAt };
 }
 
 function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
@@ -1169,9 +1222,7 @@ async function runTracker({ reason }) {
   setStatus(`Checking for ${state.playerName}...`);
 
   try {
-    const discoveryPromise = discoverPlayerEvents(state.playerName);
-    discoveryPromise.catch(() => null);
-    const discovery = await raceWithBudget(() => discoveryPromise, Date.now() + APP.discoveryBudgetMs + 250);
+    const discovery = await discoverPlayerEvents(state.playerName);
 
     if (!discovery.candidates.length) {
       const diagnostics = buildDiagnostics({
@@ -1269,23 +1320,22 @@ async function runTracker({ reason }) {
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
-    const normalizedError = isBudgetTimeoutError(error) ? new Error('The search took too long. Try Refresh now.') : error;
     const diagnostics = buildDiagnostics({
       phase: 'error',
       reason,
       playerName: state.playerName,
-      error: normalizedError.message
+      error: error.message
     });
 
     const snapshot = computeErrorSnapshot(
       state.playerName,
       diagnostics,
       APP.errorRetryMs,
-      normalizedError.message
+      error.message
     );
 
     render(snapshot);
-    setStatus(`Could not refresh right now. Retrying in 30 minutes. ${normalizedError.message}`);
+    setStatus(`Could not refresh right now. Retrying in 30 minutes. ${error.message}`);
     scheduleNextRun(APP.errorRetryMs);
   } finally {
     state.isRunning = false;
