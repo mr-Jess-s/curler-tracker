@@ -1,36 +1,27 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b1b2f">
+  <meta name="theme-color" content="#0c1220">
   <title>Curler Tracker</title>
-  <link rel="icon" type="image/svg+xml" href="./noble-beaver-icon.svg?v=v26.2">
-  <link rel="apple-touch-icon" href="./noble-beaver-icon.svg?v=v26.2">
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.2">
-  <link rel="stylesheet" href="./styles.css?v=v26.1">
+  <link rel="manifest" href="./manifest.webmanifest?v=v25.6">
+  <link rel="stylesheet" href="./styles.css?v=v25.6">
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div class="brand-lockup">
-        <div class="brand-mark-wrap">
-          <img class="brand-mark" src="./noble-beaver.svg" alt="Noble Beaver crest" />
-        </div>
-        <div class="brand-copy">
-          <div class="brand-kicker">Noble Beaver</div>
-          <h1>Curler Tracker</h1>
-          <p class="subtitle">Follow your curler across the sheet</p>
-        </div>
+      <div>
+        <img src="beaver_logo.png" alt="Curler Tracker Beaver" class="beaver-logo" />
+        <h1>Curler Tracker</h1>
+        <p class="subtitle">Track a curler through their current event</p>
       </div>
       <button id="installBtn" class="ghost hidden" type="button">Install</button>
     </header>
-
     <section class="search-card card">
-      <div class="search-card-rings" aria-hidden="true"></div>
       <form id="playerForm" class="player-form">
         <input id="playerInput" type="text" placeholder="Enter curler name" autocomplete="name" />
-        <button type="submit" class="primary-btn">Track</button>
+        <button type="submit">Track</button>
       </form>
       <div class="actions">
         <button id="shareBtn" class="ghost" type="button">Copy share link</button>
@@ -38,11 +29,7 @@
       </div>
       <p id="statusLine" class="status-line">Enter a curler name to begin.</p>
     </section>
-
     <section class="hero card">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-watermark" aria-hidden="true"></div>
-
       <div class="hero-head">
         <div>
           <div class="eyebrow">Tracking</div>
@@ -50,11 +37,9 @@
         </div>
         <span id="liveBadge" class="badge muted">Idle</span>
       </div>
-
       <div id="headlineBlock" class="headline-block">
         <p class="headline-empty">Enter a curler's name to begin.</p>
       </div>
-
       <div class="meta-grid meta-grid-3">
         <div class="meta-item">
           <span class="meta-label">Event</span>
@@ -70,17 +55,15 @@
         </div>
       </div>
     </section>
-
     <section class="grid">
-      <section class="card section-card">
+      <section class="card">
         <div class="section-head">
           <h2>End-by-end</h2>
           <p id="timelineHint" class="hint">Waiting for a live game.</p>
         </div>
         <div id="endsList" class="ends-list empty"><p>No end scores yet.</p></div>
       </section>
-
-      <section class="card section-card">
+      <section class="card">
         <div class="section-head">
           <h2>Schedule</h2>
           <p id="scheduleHint" class="hint">No event loaded.</p>
@@ -88,13 +71,10 @@
         <div id="scheduleList" class="schedule-list empty"><p>No scheduled draws to show.</p></div>
       </section>
     </section>
-
     <footer class="app-footer">
-      <p>Built for the curling community · Noble Beaver <span class="edition-mark">edition</span></p>
+      <p>Powered by Curling.io</p>
     </footer>
   </main>
-
-  <script src="./app.js?v=v25.8"></script>
+  <script src="./app.js?v=v25.6"></script>
 </body>
 </html>
-
