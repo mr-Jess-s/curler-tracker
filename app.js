@@ -1,4 +1,4 @@
-﻿const APP_VERSION = 'v25.6';
+﻿const APP_VERSION = 'v25.7';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -67,7 +67,7 @@ function setMemoryCache(fullKey, record) {
   if (memoryCache.has(fullKey)) {
     memoryCache.delete(fullKey);
   }
-  setMemoryCache(fullKey, record);
+  memoryCache.set(fullKey, record);
   while (memoryCache.size > MAX_MEMORY_CACHE_ENTRIES) {
     const oldestKey = memoryCache.keys().next().value;
     if (!oldestKey) break;
