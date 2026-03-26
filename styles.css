@@ -1,4 +1,5 @@
-/* Updated styles for Direction 2 */
+/* Updated styles for Direction 2 - Nostalgic Canadian Curling */
+
 .app-shell {
     background-color: #f5f1e0; /* warm background */
     color: #2a2a2a;
@@ -9,11 +10,19 @@
 }
 
 h1 {
-    font-family: 'Playfair Display', serif; /* New refined font */
+    font-family: 'Playfair Display', serif; /* Nostalgic refined font */
 }
 
 .badge.live {
     background-color: #ff9800; /* Energetic color */
+}
+
+.badge.upcoming {
+    background-color: #b71c1c; /* Red for upcoming events */
+}
+
+.badge.complete {
+    background-color: #4caf50; /* Green for completed events */
 }
 
 .tracked-player {
@@ -21,4 +30,57 @@ h1 {
     font-weight: 700;
 }
 
-/* Further CSS updates here */
+/* Button styles */
+button {
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65100; /* Darker orange for hover effect */
+}
+
+/* Status badge styles */
+.badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* New Hero section styling */
+.hero-head {
+    background-color: #5c4033; /* Wood tone */
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.hero-head .eyebrow {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+/* Text alignment */
+.meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.meta-item {
+    padding: 10px;
+    background: #d7ccc8;
+    border-radius: 8px;
+}
+
+.meta-label {
+    font-weight: bold;
+}

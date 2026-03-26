@@ -1,16 +1,16 @@
-﻿{
+{
   "name": "Curler Tracker",
   "short_name": "Curler Tracker",
-  "start_url": "./",
+  "description": "Track curling events and live scores.",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#0b1b2f",
-  "theme_color": "#0b1b2f",
+  "background_color": "#f5f1e0",
+  "theme_color": "#5c4033",
   "icons": [
     {
-      "src": "./noble-beaver-icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "src": "noble-beaver-icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
     }
   ]
 }
