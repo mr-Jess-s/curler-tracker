@@ -4,8 +4,8 @@
   "description": "Track curling events and live scores.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f5f1e0",
-  "theme_color": "#5c4033",
+  "background_color": "#1A1D2B",
+  "theme_color": "#2F3C4F",
   "icons": [
     {
       "src": "noble-beaver-icon.svg",

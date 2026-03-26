@@ -1,66 +1,50 @@
-/* Updated styles for Direction 2 - Nostalgic Canadian Curling */
-
+/* Updated styles for Nostalgic Canadian Curling UI */
 .app-shell {
-    background-color: #f5f1e0; /* warm background */
-    color: #2a2a2a;
+    background-color: #1A1D2B; /* Dark blue background */
+    color: #F5F1E0; /* Light text for contrast */
 }
 
 .topbar {
-    background-color: #5c4033; /* Deep wood tone */
+    background-color: #2F3C4F; /* Muted blue-gray */
+    color: #F5F1E0;
 }
 
 h1 {
-    font-family: 'Playfair Display', serif; /* Nostalgic refined font */
+    font-family: 'Playfair Display', serif; /* Nostalgic serif font */
 }
 
 .badge.live {
-    background-color: #ff9800; /* Energetic color */
+    background-color: #FF9800; /* Orange for live status */
 }
 
 .badge.upcoming {
-    background-color: #b71c1c; /* Red for upcoming events */
+    background-color: #B71C1C; /* Red for upcoming events */
 }
 
 .badge.complete {
-    background-color: #4caf50; /* Green for completed events */
+    background-color: #4CAF50; /* Green for completed events */
 }
 
-.tracked-player {
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-
-/* Button styles */
 button {
-    background-color: #ff9800;
+    background-color: #FF9800; /* Button color */
     border: none;
     color: white;
-    padding: 10px;
+    padding: 12px 18px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #e65100; /* Darker orange for hover effect */
+    background-color: #E65100; /* Darker orange for hover effect */
+    transform: scale(1.05); /* Slight button animation */
 }
 
-/* Status badge styles */
-.badge {
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-}
-
-/* New Hero section styling */
 .hero-head {
-    background-color: #5c4033; /* Wood tone */
-    color: white;
+    background-color: #2F3C4F;
+    color: #F5F1E0;
     padding: 20px;
-    border-radius: 12px;
 }
 
 .hero-head .eyebrow {
@@ -68,19 +52,19 @@ button:hover {
     font-size: 1.5rem;
 }
 
-/* Text alignment */
 .meta-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 15px;
 }
 
 .meta-item {
-    padding: 10px;
-    background: #d7ccc8;
-    border-radius: 8px;
+    background: #394240; /* Slightly darkened background */
+    border-radius: 10px;
+    padding: 12px;
 }
 
 .meta-label {
     font-weight: bold;
+    color: #FF9800; /* Orange accent for labels */
 }
