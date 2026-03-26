@@ -1,10 +1,16 @@
-{
+﻿{
   "name": "Curler Tracker",
   "short_name": "Curler Tracker",
-  "start_url": "./?source=pwa",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#09111d",
-  "theme_color": "#0c1220",
-  "description": "Track a curler through their current event, including live scores, posted results, and upcoming draws.",
-  "icons": []
+  "background_color": "#0b1b2f",
+  "theme_color": "#0b1b2f",
+  "icons": [
+    {
+      "src": "./noble-beaver-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

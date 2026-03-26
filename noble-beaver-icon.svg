@@ -1,0 +1,41 @@
+﻿<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#153053"/>
+      <stop offset="1" stop-color="#0B182B"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="170" y1="145" x2="330" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8C6347"/>
+      <stop offset="1" stop-color="#5A3D2B"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="44" y="44" width="424" height="424" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="370" r="56" stroke="#77B5FF" stroke-opacity="0.22" stroke-width="14"/>
+  <circle cx="256" cy="370" r="30" stroke="#D24E40" stroke-opacity="0.36" stroke-width="14"/>
+
+  <ellipse cx="197" cy="163" rx="28" ry="34" fill="#684734"/>
+  <ellipse cx="315" cy="163" rx="28" ry="34" fill="#684734"/>
+  <ellipse cx="200" cy="166" rx="13" ry="16" fill="#C7927C"/>
+  <ellipse cx="312" cy="166" rx="13" ry="16" fill="#C7927C"/>
+
+  <ellipse cx="256" cy="225" rx="96" ry="84" fill="url(#fur)"/>
+
+  <path d="M210 214C224 202 241 198 252 201" stroke="#2E2017" stroke-width="10" stroke-linecap="round"/>
+  <path d="M302 214C288 202 271 198 260 201" stroke="#2E2017" stroke-width="10" stroke-linecap="round"/>
+
+  <ellipse cx="228" cy="229" rx="11" ry="13" fill="#10141B"/>
+  <ellipse cx="284" cy="229" rx="11" ry="13" fill="#10141B"/>
+  <circle cx="225" cy="224" r="2.8" fill="#F5EFE3"/>
+  <circle cx="281" cy="224" r="2.8" fill="#F5EFE3"/>
+
+  <ellipse cx="256" cy="264" rx="40" ry="28" fill="#D9A68C"/>
+  <ellipse cx="256" cy="255" rx="21" ry="13" fill="#37231B"/>
+  <rect x="245" y="272" width="10" height="22" rx="2.5" fill="#F6F1E7"/>
+  <rect x="257" y="272" width="10" height="22" rx="2.5" fill="#F6F1E7"/>
+  <path d="M242 274C248 279 252 281 256 281C260 281 264 279 270 274" stroke="#58372A" stroke-width="5" stroke-linecap="round"/>
+
+  <path d="M168 385C168 340 205 305 251 305H261C307 305 344 340 344 385" stroke="#EFE6D5" stroke-width="26" stroke-linecap="round"/>
+  <path d="M183 386H329" stroke="#C84537" stroke-width="10"/>
+  <path d="M188 404H324" stroke="#173458" stroke-width="10"/>
+</svg>
