@@ -419,3 +419,124 @@ h1{
   }
 }
 
+
+/* ---- Tracking/meta cards lift like schedule rows ---- */
+
+.meta-item{
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.meta-item:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  background: rgba(255,255,255,.05);
+}
+
+/* ---- End-by-end alignment and lift ---- */
+
+.ends-list.ends-table{
+  max-width: 520px;
+}
+
+.ends-list.ends-table .ends-grid{
+  grid-template-columns: 92px 88px 88px;
+  justify-content: start;
+  column-gap: 18px;
+}
+
+.ends-header{
+  align-items: end;
+}
+
+.ends-team-head{
+  text-align: center;
+  font-weight: 700;
+}
+
+.end-row{
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.end-row:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.28);
+  background: rgba(255,255,255,.05);
+}
+
+.end-score-cell{
+  position: relative;
+  text-align: center;
+  min-width: 2ch;
+}
+
+/* subtle hammer indicator */
+.end-score-cell.has-hammer::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #d6dde8, #9eacbf);
+  box-shadow:
+    0 0 0 2px rgba(214,221,232,.10),
+    0 0 10px rgba(214,221,232,.14);
+}
+
+/* keep total row tighter */
+.total-row .end-score-cell{
+  text-align: center;
+}
+
+/* ---- Schedule layout: left details / right time ---- */
+
+.schedule-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.schedule-row > div:first-child{
+  min-width: 0;
+}
+
+.schedule-label{
+  display: block;
+  margin-bottom: 2px;
+}
+
+.schedule-meta-left{
+  display: block;
+  color: var(--muted);
+}
+
+.schedule-row > .schedule-meta:last-child{
+  text-align: right;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* ---- Footer TM ---- */
+
+.app-footer p{
+  position: relative;
+}
+
+.app-footer .edition-mark{
+  position: relative;
+  display: inline-block;
+}
+
+.app-footer .edition-mark::after{
+  content: 'TM';
+  position: absolute;
+  top: -.45em;
+  right: -.95em;
+  font-size: .42em;
+  letter-spacing: .02em;
+  opacity: .9;
+}
+

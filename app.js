@@ -1478,3 +1478,5 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('focus', () => maybeRunOpenScan('focus'));
 
 bootFromSavedState();
+
+
