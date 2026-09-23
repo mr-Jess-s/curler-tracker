@@ -54,3 +54,12 @@ h1{font-size:clamp(1.7rem,5vw,2.2rem);letter-spacing:.02em;margin:0;color:#fffbf
 .end-score-cell{position:relative}
 .end-score-cell.has-hammer::after{content:'';display:inline-block;width:12px;height:5px;margin-left:8px;border-radius:2px;background:#efe6d5;box-shadow:7px -4px 0 -2px #efe6d5;transform:rotate(-18deg);transform-origin:center}
 
+/* Career path beta */
+.career-card{margin-top:14px}
+.career-path{padding:14px 16px 16px;display:grid;gap:10px}
+.career-path.empty{color:#9fb1d0}
+.career-item{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.career-item strong,.career-item span{display:block}
+.career-item span{margin-top:4px;color:#a7b8d8;font-size:.92rem}
+.career-item small{color:#7f97bc;text-align:right}
+@media(max-width:600px){.career-item{align-items:flex-start;flex-direction:column}.career-item small{text-align:left}}

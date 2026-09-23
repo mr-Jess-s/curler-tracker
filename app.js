@@ -1,4 +1,4 @@
-const APP_VERSION = 'v25.8';
+const APP_VERSION = 'v25.9';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -46,7 +46,8 @@ const els = {
   timelineHint: document.getElementById('timelineHint'),
   scheduleList: document.getElementById('scheduleList'),
   scheduleHint: document.getElementById('scheduleHint'),
-  installBtn: document.getElementById('installBtn')
+  installBtn: document.getElementById('installBtn'),
+  careerPath: document.getElementById('careerPath')
 };
 
 const state = {
@@ -834,6 +835,29 @@ function renderSchedule(scheduleRows, activeGameId, nextGameId) {
   }).join('');
 }
 
+function renderCareerPath(snapshot) {
+  if (!els.careerPath) return;
+  if (!snapshot?.playerName) {
+    els.careerPath.className = 'career-path empty';
+    els.careerPath.innerHTML = '<p>Track a curler to begin building their sourced career record.</p>';
+    return;
+  }
+
+  const items = [];
+  if (snapshot.eventName) {
+    items.push({
+      title: snapshot.eventName,
+      detail: snapshot.teamName ? `Team: ${snapshot.teamName}` : 'Team not established',
+      source: 'Curling I/O event record'
+    });
+  }
+
+  els.careerPath.className = items.length ? 'career-path' : 'career-path empty';
+  els.careerPath.innerHTML = items.length
+    ? items.map(item => `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div><small>${escapeHtml(item.source)}</small></article>`).join('')
+    : '<p>No sourced career records loaded yet. Missing history is not treated as no history.</p>';
+}
+
 function updateBadge(view) {
   els.liveBadge.className = 'badge';
   if (view === 'live') {
@@ -870,6 +894,7 @@ function render(snapshot) {
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
+  renderCareerPath(snapshot);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase: 'idle' });
 }
 
