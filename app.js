@@ -1,4 +1,4 @@
-﻿const APP_VERSION = 'v25.8';
+const APP_VERSION = 'v25.8';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -1245,7 +1245,7 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
       'Unknown';
 
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
-    hammerSubtitle = `${shortenTeamName(hammerNext, { keepCC: true })} has hammer`;
+    hammerSubtitle = hammerNext === 'Unknown' ? 'Hammer unknown' : `${shortenTeamName(hammerNext, { keepCC: true })} has hammer`;
     const firstHammerOwner =
       getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? 'team' :
       getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? 'opponent' :
