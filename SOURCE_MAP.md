@@ -51,3 +51,21 @@ Ambiguous matches remain separate/unresolved.
 ## Product display rule
 Each factual career item must retain source authority, source-native ID/URL where available, and retrieval time.
 Missing history is labelled incomplete/unknown. It is never filled by inference.
+
+
+## Paper and offline records
+A material portion of Canadian curling history may exist only on paper at curling clubs, associations, museums, personal collections, yearbooks, draw sheets, scorebooks, honour boards, newsletters, photographs, scrapbooks, newspaper clippings, and tournament programs.
+
+These records are valid evidence sources when their provenance can be recorded. Digitization must preserve:
+- club/collection and physical-record description;
+- document title/type where known;
+- season/date as printed, without guessing missing dates;
+- page/image reference;
+- who digitized it and when;
+- original image/file alongside any transcription;
+- transcription confidence or unresolved text;
+- links from every extracted factual observation back to the source image/page.
+
+OCR or AI transcription is an extraction aid, not the authority. The photographed/scanned original is the evidence. Unclear handwriting, damaged pages, ambiguous names, and conflicting records remain unresolved until corroborated.
+
+Community submissions should enter a review queue and must not become asserted production facts merely because a user submitted them.
