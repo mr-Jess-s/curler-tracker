@@ -653,21 +653,31 @@ function selectGamesForEvent(event, matchedTeam) {
   };
 }
 
-function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown') {
+function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown', firstHammerOwner = null) {
   const ours = getEndScores(ourPos);
   const opps = getEndScores(oppPos);
   const isComplete = ['complete', 'just-finished'].includes(lifecycle) || ['won', 'lost', 'tied'].includes(String(getPositionResult(ourPos) || '').toLowerCase());
   const playedLength = Math.max(ours.length, opps.length);
-  const length = Math.max(totalEnds || 0, playedLength);
+  const isPlaying = lifecycle === 'playing';
+  const length = Math.max(totalEnds || 0, playedLength + (isPlaying ? 1 : 0));
   const rows = [];
+  let hammerOwner = firstHammerOwner;
 
   for (let i = 0; i < length; i++) {
     const hasPosted = i < playedLength;
+    const teamScore = Number(ours[i] ?? 0);
+    const opponentScore = Number(opps[i] ?? 0);
     rows.push({
       end: i + 1,
-      team: hasPosted ? String(Number(ours[i] ?? 0)) : (isComplete ? 'X' : ''),
-      opponent: hasPosted ? String(Number(opps[i] ?? 0)) : (isComplete ? 'X' : '')
+      team: hasPosted ? String(teamScore) : (isComplete ? 'X' : ''),
+      opponent: hasPosted ? String(opponentScore) : (isComplete ? 'X' : ''),
+      hammerOwner,
+      active: isPlaying && i === playedLength
     });
+    if (hasPosted) {
+      if (teamScore > 0 && opponentScore === 0) hammerOwner = 'opponent';
+      else if (opponentScore > 0 && teamScore === 0) hammerOwner = 'team';
+    }
   }
 
   return {
@@ -791,7 +801,7 @@ function renderEnds(teamName, opponentName, endsData) {
   els.endsList.className = 'ends-list ends-table';
 
   const header = `<div class="ends-grid ends-header"><span></span><span>${teamShort}</span><span>${oppShort}</span></div>`;
-  const rows = rowsIn.map(row => `<div class="ends-grid end-row"><span class="end-label">End ${row.end}</span><span class="end-score-cell">${escapeHtml(row.team)}</span><span class="end-score-cell">${escapeHtml(row.opponent)}</span></div>`).join('');
+  const rows = rowsIn.map(row => `<div class="ends-grid end-row${row.active ? ' active-end' : ''}"><span class="end-label">End ${row.end}${row.active ? ' <span class="active-end-label">LIVE</span>' : ''}</span><span class="end-score-cell${row.hammerOwner === 'team' ? ' has-hammer' : ''}">${escapeHtml(row.team)}</span><span class="end-score-cell${row.hammerOwner === 'opponent' ? ' has-hammer' : ''}">${escapeHtml(row.opponent)}</span></div>`).join('');
   const totalRow = total ? `<div class="ends-grid end-row total-row"><span class="end-label">Total</span><span class="end-score-cell">${escapeHtml(total.team)}</span><span class="end-score-cell">${escapeHtml(total.opponent)}</span></div>` : '';
 
   els.endsList.innerHTML = header + rows + totalRow;
@@ -1236,7 +1246,11 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
 
     hammerNext = deriveHammer(matchedTeam.name, oppTeam.name, getEndScores(ourPos), getEndScores(oppPos), firstHammerName);
     hammerSubtitle = `${shortenTeamName(hammerNext, { keepCC: true })} has hammer`;
-    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle);
+    const firstHammerOwner =
+      getTeamIdFromPosition(firstHammerPos) === matchedTeam.id ? 'team' :
+      getTeamIdFromPosition(firstHammerPos) === oppTeam.id ? 'opponent' :
+      null;
+    ends = buildEnds(ourPos, oppPos, event.number_of_ends || 8, displayGame.lifecycle, firstHammerOwner);
     teamScore = getPositionScore(ourPos);
     opponentScore = getPositionScore(oppPos);
     opponentName = oppTeam.name;
