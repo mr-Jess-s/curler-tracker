@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.3';
+const APP_VERSION = 'v26.4';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -75,7 +75,9 @@ const state = {
   isRunning: false,
   pendingRunReason: null,
   careerHistory: [],
-  careerLoading: false
+  careerLoading: false,
+  playerGeneration: 0,
+  careerMessage: ''
 };
 
 const memoryCache = new Map();
@@ -933,13 +935,18 @@ function renderCareerPath(snapshot) {
 
   els.careerPath.className = items.length ? 'career-path' : 'career-path empty';
   els.careerPath.innerHTML = items.length
-    ? items.map(item => `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div><small>${escapeHtml(item.source)}</small></article>`).join('')
+    ? items.map(item => {
+        const source = item.sourceUrl
+          ? `<a class="career-source" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.source || 'Official source')}</a>`
+          : `<small>${escapeHtml(item.source || '')}</small>`;
+        return `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div>${source}</article>`;
+      }).join('')
     : '<p>No sourced career records loaded yet. Missing history is not treated as no history.</p>';
 
   const canLoad = !!snapshot.sourceCurlerId && !!snapshot.sourceSubdomain;
   els.careerLoadBtn?.classList.toggle('hidden', !canLoad);
   if (els.careerStatus && !state.careerLoading) {
-    els.careerStatus.textContent = history.length ? `${history.length} sourced appearance${history.length === 1 ? '' : 's'} loaded.` : '';
+    els.careerStatus.textContent = state.careerMessage || (history.length ? `${history.length} sourced record${history.length === 1 ? '' : 's'} loaded from recent ${snapshot.sourceSubdomain || 'source'} records. History is incomplete.` : '');
   }
 }
 
@@ -948,8 +955,49 @@ async function discoverCareerHistory(snapshot) {
   const subdomain = snapshot?.sourceSubdomain;
   if (!curlerId || !subdomain) return [];
 
+  try {
+    const localIndex = await fetchJson(`./data/history/${encodeURIComponent(subdomain)}.json?v=${encodeURIComponent(APP_VERSION)}`, {
+      ttlMs: 60 * 60 * 1000,
+      cacheGroup: 'career-index'
+    });
+    if (localIndex?.schema_version !== 1 || localIndex?.source_subdomain !== subdomain ||
+        localIndex?.source_provider !== 'Curling I/O' || !Number.isFinite(Date.parse(localIndex?.generated_at))) {
+      throw new Error('History index identity or provenance is invalid');
+    }
+    const indexed = localIndex?.curler_appearances?.[String(curlerId)] || [];
+    if (!Array.isArray(indexed) || indexed.some(row => !row || !row.event_id || !row.team_id)) {
+      throw new Error('History index rows are invalid');
+    }
+    if (indexed.length) {
+      return indexed
+        .map(row => {
+          const details = [];
+          if (row.team_name) details.push(`Team: ${row.team_name}`);
+          if (row.position) details.push(`Position: ${row.position}`);
+          if (row.season) details.push(row.season);
+          if (row.published_name) details.push('Published as: ' + row.published_name);
+          if (indexed.filter(other => other.event_id === row.event_id && other.team_id === row.team_id).length > 1) {
+            details.push('Multiple source roster entries for this event/team; check official record');
+          }
+          return {
+            title: row.event_name || 'Recorded event',
+            detail: details.join(' · ') || 'Published appearance',
+            source: `Curling I/O · ${subdomain}`,
+            sourceUrl: row.event_id ? `https://${subdomain}.curling.io/en/events/${row.event_id}` : '',
+            startsOn: row.starts_on || '',
+            eventId: row.event_id,
+            publishedName: row.published_name || '',
+            retrievedAt: localIndex.generated_at
+          };
+        })
+        .sort((a, b) => (parseEventDateToMs(b.startsOn) || 0) - (parseEventDateToMs(a.startsOn) || 0) || Number(b.eventId || 0) - Number(a.eventId || 0))
+        .slice(0, 20);
+    }
+  } catch {}
+
   const observations = [];
   const seen = new Set();
+  let failedRequests = 0;
 
   for (const delta of APP.careerLookbackSeasons) {
     const listUrl = competitionsUrl(subdomain, delta);
@@ -957,6 +1005,7 @@ async function discoverCareerHistory(snapshot) {
     try {
       payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'career-list' });
     } catch {
+      failedRequests++;
       continue;
     }
 
@@ -971,7 +1020,8 @@ async function discoverCareerHistory(snapshot) {
         });
 
         for (const team of (event.teams || [])) {
-          const curler = (team.lineup || []).find(person => String(person?.curler_id ?? person?.id ?? '') === String(curlerId));
+          const matchingCurlers = (team.lineup || []).filter(person => String(person?.curler_id ?? '') === String(curlerId));
+          const curler = matchingCurlers[0];
           if (!curler) continue;
 
           const key = `${subdomain}:${event.id}:${team.id}`;
@@ -982,19 +1032,24 @@ async function discoverCareerHistory(snapshot) {
           if (team.name) details.push(`Team: ${team.name}`);
           if (curler.position) details.push(`Position: ${curler.position}`);
           if (seasonLabel) details.push(seasonLabel);
+          if (matchingCurlers.length > 1) details.push('Multiple source roster entries for this event/team; check official record');
 
           observations.push({
             title: event.name || item.name || 'Recorded event',
             detail: details.join(' · ') || 'Published appearance',
             source: `Curling I/O · ${subdomain}`,
+            sourceUrl: event.id ? `https://${subdomain}.curling.io/en/events/${event.id}` : '',
             startsOn: event.starts_on || '',
-            eventId: event.id
+            eventId: event.id,
+            publishedName: curler.name || '',
+            retrievedAt: new Date().toISOString()
           });
         }
-      } catch {}
+      } catch { failedRequests++; }
     });
   }
 
+  if (failedRequests) throw new Error('Some official history records could not be checked. Please retry.');
   observations.sort((a, b) => {
     const aMs = parseEventDateToMs(a.startsOn) || 0;
     const bMs = parseEventDateToMs(b.startsOn) || 0;
@@ -1266,7 +1321,8 @@ async function discoverPlayerEvents(playerName) {
         }
 
         return candidate;
-      } catch {
+      } catch (error) {
+        checked.push({ subdomain: result.subdomain, eventId: item.id, error: error.message });
         return null;
       }
     });
@@ -1362,7 +1418,8 @@ async function discoverMostRecentCompletedEvent(playerName) {
 
         candidates.push(candidate);
         return candidate;
-      } catch {
+      } catch (error) {
+        checked.push({ subdomain: result.subdomain, eventId: item.id, error: error.message });
         return null;
       }
     });
@@ -1519,9 +1576,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     nextCheckReason: nextCheck.reason,
     nextGameConfirmed,
     progressSignature: active ? getProgressSignature(active) : '',
-    sourceCurlerId: match.curler?.curler_id ?? match.curler?.id ?? null,
+    sourceCurlerId: match.curler?.curler_id ?? null,
     sourceSubdomain: candidate.subdomain || diagnostics?.sourceSubdomain || '',
-    careerHistory: state.careerHistory
+    careerHistory: state.snapshot?.sourceCurlerId === match.curler?.curler_id &&
+      state.snapshot?.sourceSubdomain === candidate.subdomain ? state.careerHistory : []
   };
 }
 
@@ -1550,13 +1608,19 @@ async function runTracker({ reason }) {
   }
 
   state.isRunning = true;
+  const generation = state.playerGeneration;
+  const requestedPlayer = state.playerName;
   state.lastRunAt = Date.now();
   setStatus(`Checking for ${state.playerName}...`);
 
   try {
-    const discovery = await discoverPlayerEvents(state.playerName);
+    const discovery = await discoverPlayerEvents(requestedPlayer);
+    if (generation !== state.playerGeneration) return;
 
     if (!discovery.candidates.length) {
+      if (discovery.checked.some(item => item.error)) {
+        throw new Error('Some current competition sources could not be checked. Please retry.');
+      }
       const diagnostics = buildDiagnostics({
         phase: discovery.timedOut ? 'search-timeout' : 'no-match',
         reason,
@@ -1579,7 +1643,8 @@ async function runTracker({ reason }) {
         setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
         scheduleNextRun(APP.errorRetryMs);
       } else {
-        const recentDiscovery = await discoverMostRecentCompletedEvent(state.playerName);
+        const recentDiscovery = await discoverMostRecentCompletedEvent(requestedPlayer);
+        if (generation !== state.playerGeneration) return;
 
         if (recentDiscovery.candidates.length) {
           const recentChosen = recentDiscovery.candidates[0];
@@ -1610,6 +1675,9 @@ async function runTracker({ reason }) {
           setStatus(`No current event found for ${state.playerName}. Showing the most recent completed competition.`);
           scheduleNextRun(APP.idleScanMs);
         } else {
+          if (recentDiscovery.timedOut || recentDiscovery.checked.some(item => item.error)) {
+            throw new Error('Recent competition search is incomplete. Please retry.');
+          }
           render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
           setStatus(`No current event found for ${state.playerName}. Next scan in about 72 hours.`);
           scheduleNextRun(APP.idleScanMs);
@@ -1684,6 +1752,7 @@ async function runTracker({ reason }) {
 
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
+    if (generation !== state.playerGeneration) return;
     const diagnostics = buildDiagnostics({
       phase: 'error',
       reason,
@@ -1715,7 +1784,12 @@ async function runTracker({ reason }) {
 function startTracking(playerName, reason = 'manual-start') {
   const nextPlayer = playerName.trim();
   if (normalizeName(nextPlayer) !== normalizeName(state.playerName)) {
+    state.playerGeneration++;
     state.careerHistory = [];
+    state.careerMessage = '';
+    state.careerLoading = false;
+    els.careerLoadBtn.disabled = false;
+    render(computeIdleSnapshot(nextPlayer, { phase: 'searching' }, APP.errorRetryMs));
   }
   state.playerName = nextPlayer;
   savePlayer(state.playerName);
@@ -1772,10 +1846,12 @@ function maybeRunOpenScan(trigger) {
 
 function bootFromSavedState() {
   const fromUrl = parsePlayerFromUrl();
-  const fromStorage = localStorage.getItem(APP.localKeys.player) || '';
+  let fromStorage = '';
+  try { fromStorage = localStorage.getItem(APP.localKeys.player) || ''; } catch {}
   const player = fromUrl || fromStorage;
   const snapshot = loadSnapshot();
-  if (snapshot) {
+  if (snapshot && normalizeName(snapshot.playerName) === normalizeName(player)) {
+    state.playerName = player;
     state.careerHistory = Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory : [];
     render(snapshot);
   }
@@ -1832,22 +1908,30 @@ els.feedbackDownloadBtn?.addEventListener('click', () => {
 
 els.careerLoadBtn?.addEventListener('click', async () => {
   if (state.careerLoading || !state.snapshot?.sourceCurlerId || !state.snapshot?.sourceSubdomain) return;
+  const requested = state.snapshot;
+  const generation = state.playerGeneration;
+  const stillCurrent = () => generation === state.playerGeneration &&
+    requested.sourceCurlerId === state.snapshot?.sourceCurlerId &&
+    requested.sourceSubdomain === state.snapshot?.sourceSubdomain;
   state.careerLoading = true;
+  state.careerMessage = '';
   els.careerLoadBtn.disabled = true;
-  if (els.careerStatus) els.careerStatus.textContent = 'Loading verified recent history…';
-
+  if (els.careerStatus) els.careerStatus.textContent = 'Loading sourced recent history...';
   try {
-    const history = await discoverCareerHistory(state.snapshot);
+    const history = await discoverCareerHistory(requested);
+    if (!stillCurrent()) return;
     state.careerHistory = history;
+    state.careerMessage = history.length ? '' : 'No additional sourced records found in the recent seasons checked. History may be incomplete.';
     state.snapshot = { ...state.snapshot, careerHistory: history };
     saveSnapshot(state.snapshot);
-    renderCareerPath(state.snapshot);
-    if (els.careerStatus && !history.length) {
-      els.careerStatus.textContent = 'No additional sourced appearances found in the recent seasons checked.';
-    }
+  } catch (error) {
+    if (stillCurrent()) state.careerMessage = 'History could not be fully checked. Please retry. Previously loaded records are retained.';
   } finally {
-    state.careerLoading = false;
-    els.careerLoadBtn.disabled = false;
+    if (generation === state.playerGeneration) {
+      state.careerLoading = false;
+      els.careerLoadBtn.disabled = false;
+      renderCareerPath(state.snapshot);
+    }
   }
 });
 

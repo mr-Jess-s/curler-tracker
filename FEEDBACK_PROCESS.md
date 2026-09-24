@@ -28,6 +28,7 @@ Do not rewrite or discard the original wording.
 - bug
 - incorrect or missing data
 - identity mismatch
+- curler name/profile update
 - confusing workflow
 - accessibility/usability
 - feature request

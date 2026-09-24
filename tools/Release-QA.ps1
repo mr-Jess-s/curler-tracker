@@ -59,6 +59,20 @@ try {
   if($a -and $b -and $c) {
     Check (($a.Curler.name -eq $b.Curler.name) -and ($b.Curler.name -eq $c.Curler.name)) 'Observed source records use the same published curler name across the validation path.'
   }
+
+  foreach($subdomain in @('mb','canada')) {
+    $list = Invoke-RestMethod -Uri "https://api-curlingio.global.ssl.fastly.net/en/clubs/$subdomain/competitions?occurred=-1&registrations=f" -TimeoutSec 20
+    $published = @($list.items | Where-Object { $_.publish_results })[0]
+    Check ($null -ne $published) ("$subdomain source exposes a published-results event for the prior season.")
+    if($published) {
+      $event = Invoke-RestMethod -Uri "https://api-curlingio.global.ssl.fastly.net/en/clubs/$subdomain/events/$($published.id)" -TimeoutSec 20
+      $lineupRows = @($event.teams | ForEach-Object { $_.lineup } | Where-Object { $_ })
+      Check (($event.teams.Count -gt 0) -and ($lineupRows.Count -gt 0)) ("$subdomain event payload exposes team and lineup records.")
+    }
+  }
+
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot 'tools\Summarize-Feedback.ps1') 2>$null | Out-Null
+  Check ($LASTEXITCODE -eq 0) 'Feedback summarizer executes successfully.'
 }
 catch {
   Fail ("QA script exception: " + $_.Exception.Message)

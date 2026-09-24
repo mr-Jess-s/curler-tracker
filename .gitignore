@@ -1,3 +1,6 @@
 PROJECT_DASHBOARD_STATUS.json
 feedback-inbox/
 feedback-summary.md
+qa/
+qa_*.png
+tools/__pycache__/

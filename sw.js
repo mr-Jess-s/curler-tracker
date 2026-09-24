@@ -1,10 +1,10 @@
-const CACHE = 'curler-tracker-v26-3';
+const CACHE = 'curler-tracker-v26-4';
 const APP_ASSETS = [
   './',
   './index.html',
-  './styles.css?v=v26.3',
-  './app.js?v=v26.3',
-  './manifest.webmanifest?v=v26.3',
+  './styles.css?v=v26.4',
+  './app.js?v=v26.4',
+  './manifest.webmanifest?v=v26.4',
   './noble-beaver.svg',
   './noble-beaver-icon.svg'
 ];
@@ -35,12 +35,13 @@ self.addEventListener('fetch', (event) => {
       const cache = await caches.open(CACHE);
       try {
         const response = await fetch(event.request, { cache: 'no-store' });
-        cache.put(event.request, response.clone());
+        if (response.ok) await cache.put(event.request, response.clone());
         return response;
       } catch {
         const cached = await cache.match(event.request);
         if (cached) return cached;
-        return cache.match('./index.html');
+        if (event.request.mode === 'navigate') return (await cache.match('./index.html')) || new Response('Offline', { status: 503 });
+        return new Response('Offline', { status: 503 });
       }
     })());
     return;

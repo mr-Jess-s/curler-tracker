@@ -60,6 +60,8 @@ foreach($record in ($records | Sort-Object submitted_at)) {
   if($record.context.player) { $lines.Add(('- Player context: {0}' -f $record.context.player)) }
   if($record.context.view) { $lines.Add(('- View: {0}' -f $record.context.view)) }
   if($record.context.event) { $lines.Add(('- Event: {0}' -f $record.context.event)) }
+  if($record.supporting_source) { $lines.Add(('- Supporting source: {0}' -f $record.supporting_source)) }
+  if($record.submitter_relationship) { $lines.Add(('- Submitter connection: {0}' -f $record.submitter_relationship)) }
   $lines.Add('')
   $lines.Add('> ' + (($record.raw_user_wording -replace '\r?\n',' ') -replace '>','\>'))
   $lines.Add('')
