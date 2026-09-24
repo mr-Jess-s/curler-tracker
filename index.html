@@ -94,8 +94,44 @@
     </section>
     <footer class="app-footer">
       <p>Results shown from identified source records. Missing history stays unknown.</p>
+      <button id="feedbackBtn" class="ghost feedback-open" type="button">Feedback</button>
     </footer>
   </main>
+
+  <dialog id="feedbackDialog" class="feedback-dialog">
+    <form method="dialog" class="feedback-form">
+      <div class="section-head">
+        <div>
+          <h2>Feedback</h2>
+          <p class="hint">Nothing is sent automatically. Copy or download the report and share it when you choose.</p>
+        </div>
+        <button id="feedbackCloseBtn" class="ghost" value="cancel" type="submit">Close</button>
+      </div>
+      <label>Type
+        <select id="feedbackType">
+          <option value="bug">Bug</option>
+          <option value="incorrect-or-missing-data">Incorrect or missing data</option>
+          <option value="identity-mismatch">Identity mismatch</option>
+          <option value="confusing-workflow">Confusing workflow</option>
+          <option value="feature-request">Feature request</option>
+          <option value="accessibility-usability">Accessibility/usability</option>
+          <option value="visual-design">Visual/design</option>
+          <option value="performance-reliability">Performance/reliability</option>
+          <option value="source-provenance">Source/provenance concern</option>
+          <option value="praise-general">Praise/general comment</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>What happened or what would help?
+        <textarea id="feedbackText" rows="6" placeholder="Use your own words."></textarea>
+      </label>
+      <div class="actions">
+        <button id="feedbackCopyBtn" type="button">Copy report</button>
+        <button id="feedbackDownloadBtn" class="ghost" type="button">Download JSON</button>
+      </div>
+      <p id="feedbackStatus" class="status-line"></p>
+    </form>
+  </dialog>
 
   <script src="./app.js?v=v26.3"></script>
 </body>

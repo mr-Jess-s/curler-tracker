@@ -51,7 +51,15 @@ const els = {
   installBtn: document.getElementById('installBtn'),
   careerPath: document.getElementById('careerPath'),
   careerLoadBtn: document.getElementById('careerLoadBtn'),
-  careerStatus: document.getElementById('careerStatus')
+  careerStatus: document.getElementById('careerStatus'),
+  feedbackBtn: document.getElementById('feedbackBtn'),
+  feedbackDialog: document.getElementById('feedbackDialog'),
+  feedbackType: document.getElementById('feedbackType'),
+  feedbackText: document.getElementById('feedbackText'),
+  feedbackCopyBtn: document.getElementById('feedbackCopyBtn'),
+  feedbackDownloadBtn: document.getElementById('feedbackDownloadBtn'),
+  feedbackCloseBtn: document.getElementById('feedbackCloseBtn'),
+  feedbackStatus: document.getElementById('feedbackStatus')
 };
 
 const state = {
@@ -764,6 +772,51 @@ function computeCheckDelay(selection, previousSnapshot = null) {
   }
 
   return { delayMs: APP.idleScanMs, reason: 'event complete, resume periodic scans' };
+}
+
+
+function buildFeedbackPacket() {
+  return {
+    id: globalThis.crypto?.randomUUID ? globalThis.crypto.randomUUID() : `feedback-${Date.now()}`,
+    submitted_at: new Date().toISOString(),
+    app_version: APP_VERSION,
+    type: els.feedbackType?.value || 'other',
+    raw_user_wording: els.feedbackText?.value?.trim() || '',
+    context: {
+      player: state.playerName || '',
+      view: state.snapshot?.view || '',
+      event: state.snapshot?.eventName || '',
+      source_subdomain: state.snapshot?.sourceSubdomain || '',
+      page: window.location.pathname + window.location.search,
+      user_agent: navigator.userAgent
+    }
+  };
+}
+
+function feedbackPacketText(packet) {
+  return [
+    `Curler Tracker feedback ${packet.id}`,
+    `Submitted: ${packet.submitted_at}`,
+    `App: ${packet.app_version}`,
+    `Type: ${packet.type}`,
+    `Player: ${packet.context.player || 'not supplied'}`,
+    `View: ${packet.context.view || 'unknown'}`,
+    `Event: ${packet.context.event || 'unknown'}`,
+    '',
+    packet.raw_user_wording
+  ].join('\n');
+}
+
+function saveFeedbackDraft(packet) {
+  try {
+    const key = 'curler-tracker-feedback-drafts-v263';
+    const current = JSON.parse(localStorage.getItem(key) || '[]');
+    const next = Array.isArray(current) ? current.slice(-49) : [];
+    next.push(packet);
+    safeStorageSet(key, JSON.stringify(next), {
+      preserveKeys: [APP.localKeys.player, APP.localKeys.snapshot, key]
+    });
+  } catch {}
 }
 
 function renderHeadline(snapshot) {
@@ -1730,6 +1783,46 @@ els.form.addEventListener('submit', event => {
   startTracking(value, 'manual-start');
 });
 
+
+
+els.feedbackBtn?.addEventListener('click', () => {
+  if (els.feedbackStatus) els.feedbackStatus.textContent = '';
+  els.feedbackDialog?.showModal();
+});
+
+els.feedbackCopyBtn?.addEventListener('click', async () => {
+  const packet = buildFeedbackPacket();
+  if (!packet.raw_user_wording) {
+    if (els.feedbackStatus) els.feedbackStatus.textContent = 'Please add your feedback first.';
+    return;
+  }
+  saveFeedbackDraft(packet);
+  try {
+    await navigator.clipboard.writeText(feedbackPacketText(packet));
+    if (els.feedbackStatus) els.feedbackStatus.textContent = 'Feedback report copied. Nothing was sent automatically.';
+  } catch {
+    if (els.feedbackStatus) els.feedbackStatus.textContent = 'Could not copy automatically. Use Download JSON instead.';
+  }
+});
+
+els.feedbackDownloadBtn?.addEventListener('click', () => {
+  const packet = buildFeedbackPacket();
+  if (!packet.raw_user_wording) {
+    if (els.feedbackStatus) els.feedbackStatus.textContent = 'Please add your feedback first.';
+    return;
+  }
+  saveFeedbackDraft(packet);
+  const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `curler-tracker-feedback-${packet.id}.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  if (els.feedbackStatus) els.feedbackStatus.textContent = 'Feedback JSON downloaded. Nothing was sent automatically.';
+});
 
 els.careerLoadBtn?.addEventListener('click', async () => {
   if (state.careerLoading || !state.snapshot?.sourceCurlerId || !state.snapshot?.sourceSubdomain) return;

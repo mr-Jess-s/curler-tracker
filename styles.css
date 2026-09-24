@@ -65,3 +65,11 @@ h1{font-size:clamp(1.7rem,5vw,2.2rem);letter-spacing:.02em;margin:0;color:#fffbf
 @media(max-width:600px){.career-item{align-items:flex-start;flex-direction:column}.career-item small{text-align:left}}
 .career-actions{display:flex;gap:10px;align-items:center;padding:0 16px 4px}
 .career-actions .hint{margin:0}
+.app-footer{display:grid;gap:10px;justify-items:center}
+.feedback-open{width:auto}
+.feedback-dialog{width:min(620px,calc(100% - 28px));border:1px solid rgba(255,255,255,.12);border-radius:18px;background:#0d1a2c;color:#edf3ff;padding:0;box-shadow:0 22px 60px rgba(0,0,0,.5)}
+.feedback-dialog::backdrop{background:rgba(2,8,18,.72)}
+.feedback-form{display:grid;gap:14px;padding:18px}
+.feedback-form label{display:grid;gap:7px;color:#a8bbd8;font-size:.9rem}
+.feedback-form select,.feedback-form textarea{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:#081422;color:#edf3ff;padding:10px 12px;font:inherit}
+.feedback-form textarea{resize:vertical;min-height:120px}

@@ -115,3 +115,10 @@ Before each public/friend-test release:
 
 ## Reality rule
 User feedback can identify a possible factual problem but cannot itself establish a curling fact. Scores, identities, results, rosters, events, rankings, and historical claims still require source evidence.
+
+## Friend-test collection implementation
+The beta includes an in-app Feedback dialog. It does not transmit anything automatically.
+A tester can copy a structured report or download JSON. The raw wording and basic app context are preserved.
+Returned JSON files can be placed in feedback-inbox/ on Arthur.
+Run tools/Summarize-Feedback.ps1 to produce a mechanical feedback-summary.md before qualitative review.
+The generated summary is not an improvement recommendation; FEEDBACK_PROCESS.md triage and evidence review still apply.
