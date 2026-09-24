@@ -1,9 +1,10 @@
-const APP_VERSION = 'v25.9';
+const APP_VERSION = 'v26.3';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
   lookaheadSeasons: [0],
   recentLookbackSeasons: [0, -1, -2],
+  careerLookbackSeasons: [0, -1, -2],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
   postGameWindowMs: 3 * 60 * 60 * 1000,
@@ -24,10 +25,10 @@ const APP = {
   maxParallelSubdomains: 3,
   maxParallelEventsPerList: 4,
   localKeys: {
-    player: 'curler-tracker-player-v258',
-    snapshot: 'curler-tracker-snapshot-v258',
-    cachePrefix: 'curler-tracker-cache-v258:',
-    discoveryPrefix: 'curler-tracker-discovery-v258:'
+    player: 'curler-tracker-player-v263',
+    snapshot: 'curler-tracker-snapshot-v263',
+    cachePrefix: 'curler-tracker-cache-v263:',
+    discoveryPrefix: 'curler-tracker-discovery-v263:'
   }
 };
 
@@ -48,7 +49,9 @@ const els = {
   scheduleList: document.getElementById('scheduleList'),
   scheduleHint: document.getElementById('scheduleHint'),
   installBtn: document.getElementById('installBtn'),
-  careerPath: document.getElementById('careerPath')
+  careerPath: document.getElementById('careerPath'),
+  careerLoadBtn: document.getElementById('careerLoadBtn'),
+  careerStatus: document.getElementById('careerStatus')
 };
 
 const state = {
@@ -60,7 +63,9 @@ const state = {
   lastRunAt: 0,
   lastVisibilityScanAt: 0,
   isRunning: false,
-  pendingRunReason: null
+  pendingRunReason: null,
+  careerHistory: [],
+  careerLoading: false
 };
 
 const memoryCache = new Map();
@@ -163,6 +168,9 @@ function compactSnapshotForStorage(snapshot) {
     activeGameId: snapshot.activeGameId || null,
     nextGameId: snapshot.nextGameId || null,
     progressSignature: snapshot.progressSignature || '',
+    sourceCurlerId: snapshot.sourceCurlerId || null,
+    sourceSubdomain: snapshot.sourceSubdomain || '',
+    careerHistory: Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory.slice(0, 20) : [],
     scheduleRows: compactScheduleRows,
     ends: compactEnds
   };
@@ -193,7 +201,7 @@ function shortenTeamName(name, { keepCC = false } = {}) {
 }
 
 function formatScoreTitle(teamA, scoreA, teamB, scoreB) {
-  return `${teamA} - ${scoreA} vs ${teamB} - ${scoreB}`;
+  return `${teamA} - ${displayScore(scoreA)} vs ${teamB} - ${displayScore(scoreB)}`;
 }
 
 function resolveGameTitle(row) {
@@ -477,7 +485,14 @@ function getTeamIdFromPosition(pos) {
 }
 
 function getPositionScore(pos) {
-  return Number(pos?.score ?? pos?.total_score ?? pos?.totalScore ?? 0);
+  const raw = pos?.score ?? pos?.total_score ?? pos?.totalScore;
+  if (raw === null || raw === undefined || raw === '') return null;
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : null;
+}
+
+function displayScore(value) {
+  return value === null || value === undefined ? '—' : String(value);
 }
 
 function getEndScores(pos) {
@@ -537,7 +552,7 @@ function inferLifecycle(game, drawEpochMs) {
   }
 
   const positions = getGamePositions(game);
-  const total = positions.reduce((acc, pos) => acc + getPositionScore(pos), 0);
+  const total = positions.reduce((acc, pos) => acc + (getPositionScore(pos) ?? 0), 0);
   const anyEnds = positions.some(pos => getEndScores(pos).some(v => Number(v || 0) > 0));
   if ((anyEnds || total > 0) && drawEpochMs && now <= drawEpochMs + APP.postGameWindowMs) return 'playing';
   if (drawEpochMs && drawEpochMs > now) return 'pending';
@@ -569,7 +584,7 @@ function buildDrawFirstRows(event, matchedTeam) {
       }) || null;
       const oppTeam = oppPos?.team_id ? teamsById.get(getTeamIdFromPosition(oppPos)) : null;
       const aliasMatch = !ourPos && gameMatchesTeamByAlias(game, matchedTeam);
-      const linked = !!ourPos || aliasMatch;
+      const linked = !!ourPos;
       const openSlots = Math.max(0, 2 - positions.filter(pos => !!getTeamIdFromPosition(pos)).length);
       const lifecycle = inferLifecycle(game, epochMs);
 
@@ -621,13 +636,6 @@ function selectGamesForEvent(event, matchedTeam) {
     .filter(r => ['just-finished', 'complete'].includes(r.lifecycle))
     .sort((a, b) => (b.epochMs || 0) - (a.epochMs || 0))[0] || null;
 
-  let inferredNext = null;
-  if (!nextConfirmed && completed && String(getPositionResult(completed.ourPos) || '').toLowerCase() === 'won') {
-    inferredNext = rows
-      .filter(r => r !== completed && ['pending-window', 'pending'].includes(r.lifecycle) && (r.epochMs || 0) >= (completed.epochMs || 0))
-      .sort((a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER))[0] || null;
-  }
-
   const stateCounts = {};
   for (const r of rows) stateCounts[r.lifecycle] = (stateCounts[r.lifecycle] || 0) + 1;
 
@@ -636,7 +644,6 @@ function selectGamesForEvent(event, matchedTeam) {
     linkedRows,
     active,
     next: nextConfirmed,
-    inferredNext,
     lastCompleted: completed,
     diagnostics: {
       totalStageGames,
@@ -650,7 +657,7 @@ function selectGamesForEvent(event, matchedTeam) {
       matchedTeamAliases: aliases.slice(0, 12),
       inferredLinkedGames: linkedRows.filter(r => r.aliasMatch).map(r => r.gameId).slice(0, 10),
       unmatchedDrawRows: unmatchedDrawRows.slice(0, 10),
-      usedInference: !nextConfirmed && !!inferredNext
+      usedInference: false
     }
   };
 }
@@ -666,17 +673,19 @@ function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown', firstHa
   let hammerOwner = firstHammerOwner;
 
   for (let i = 0; i < length; i++) {
-    const hasPosted = i < playedLength;
-    const teamScore = Number(ours[i] ?? 0);
-    const opponentScore = Number(opps[i] ?? 0);
+    const teamHasPosted = i < ours.length && ours[i] !== null && ours[i] !== undefined && ours[i] !== '';
+    const opponentHasPosted = i < opps.length && opps[i] !== null && opps[i] !== undefined && opps[i] !== '';
+    const hasPosted = teamHasPosted || opponentHasPosted;
+    const teamScore = teamHasPosted && Number.isFinite(Number(ours[i])) ? Number(ours[i]) : null;
+    const opponentScore = opponentHasPosted && Number.isFinite(Number(opps[i])) ? Number(opps[i]) : null;
     rows.push({
       end: i + 1,
-      team: hasPosted ? String(teamScore) : (isComplete ? 'X' : ''),
-      opponent: hasPosted ? String(opponentScore) : (isComplete ? 'X' : ''),
+      team: hasPosted ? displayScore(teamScore) : (isComplete ? 'X' : ''),
+      opponent: hasPosted ? displayScore(opponentScore) : (isComplete ? 'X' : ''),
       hammerOwner,
       active: isPlaying && i === playedLength
     });
-    if (hasPosted) {
+    if (teamScore !== null && opponentScore !== null) {
       if (teamScore > 0 && opponentScore === 0) hammerOwner = 'opponent';
       else if (opponentScore > 0 && teamScore === 0) hammerOwner = 'team';
     }
@@ -685,8 +694,8 @@ function buildEnds(ourPos, oppPos, totalEnds = 8, lifecycle = 'unknown', firstHa
   return {
     rows,
     total: {
-      team: String(getPositionScore(ourPos)),
-      opponent: String(getPositionScore(oppPos))
+      team: displayScore(getPositionScore(ourPos)),
+      opponent: displayScore(getPositionScore(oppPos))
     }
   };
 }
@@ -696,8 +705,12 @@ function deriveHammer(teamAName, teamBName, endScoresA, endScoresB, firstHammerT
   const maxEnds = Math.max(endScoresA.length, endScoresB.length);
 
   for (let i = 0; i < maxEnds; i++) {
-    const a = Number(endScoresA[i] ?? 0);
-    const b = Number(endScoresB[i] ?? 0);
+    const aRaw = endScoresA[i];
+    const bRaw = endScoresB[i];
+    if (aRaw === null || aRaw === undefined || aRaw === '' || bRaw === null || bRaw === undefined || bRaw === '') continue;
+    const a = Number(aRaw);
+    const b = Number(bRaw);
+    if (!Number.isFinite(a) || !Number.isFinite(b)) continue;
     if (a > 0 && b === 0) hammer = teamBName;
     else if (b > 0 && a === 0) hammer = teamAName;
   }
@@ -841,11 +854,17 @@ function renderCareerPath(snapshot) {
   if (!snapshot?.playerName) {
     els.careerPath.className = 'career-path empty';
     els.careerPath.innerHTML = '<p>Track a curler to begin building their sourced career record.</p>';
+    els.careerLoadBtn?.classList.add('hidden');
+    if (els.careerStatus) els.careerStatus.textContent = '';
     return;
   }
 
   const items = [];
-  if (snapshot.eventName) {
+  const history = Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory : state.careerHistory;
+
+  if (history.length) {
+    for (const item of history) items.push(item);
+  } else if (snapshot.eventName) {
     items.push({
       title: snapshot.eventName,
       detail: snapshot.teamName ? `Team: ${snapshot.teamName}` : 'Team not established',
@@ -857,6 +876,73 @@ function renderCareerPath(snapshot) {
   els.careerPath.innerHTML = items.length
     ? items.map(item => `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div><small>${escapeHtml(item.source)}</small></article>`).join('')
     : '<p>No sourced career records loaded yet. Missing history is not treated as no history.</p>';
+
+  const canLoad = !!snapshot.sourceCurlerId && !!snapshot.sourceSubdomain;
+  els.careerLoadBtn?.classList.toggle('hidden', !canLoad);
+  if (els.careerStatus && !state.careerLoading) {
+    els.careerStatus.textContent = history.length ? `${history.length} sourced appearance${history.length === 1 ? '' : 's'} loaded.` : '';
+  }
+}
+
+async function discoverCareerHistory(snapshot) {
+  const curlerId = snapshot?.sourceCurlerId;
+  const subdomain = snapshot?.sourceSubdomain;
+  if (!curlerId || !subdomain) return [];
+
+  const observations = [];
+  const seen = new Set();
+
+  for (const delta of APP.careerLookbackSeasons) {
+    const listUrl = competitionsUrl(subdomain, delta);
+    let payload;
+    try {
+      payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'career-list' });
+    } catch {
+      continue;
+    }
+
+    const seasonLabel = (payload.seasons || []).find(season => Number(season.delta) === Number(delta))?.display || '';
+    const items = (payload.items || []).filter(item => item?.publish_results !== false);
+
+    await mapWithConcurrency(items, 4, async (item) => {
+      try {
+        const event = await fetchJson(eventUrl(subdomain, item.id), {
+          ttlMs: APP.eventCacheMs,
+          cacheGroup: 'career-event'
+        });
+
+        for (const team of (event.teams || [])) {
+          const curler = (team.lineup || []).find(person => String(person?.curler_id ?? person?.id ?? '') === String(curlerId));
+          if (!curler) continue;
+
+          const key = `${subdomain}:${event.id}:${team.id}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+
+          const details = [];
+          if (team.name) details.push(`Team: ${team.name}`);
+          if (curler.position) details.push(`Position: ${curler.position}`);
+          if (seasonLabel) details.push(seasonLabel);
+
+          observations.push({
+            title: event.name || item.name || 'Recorded event',
+            detail: details.join(' · ') || 'Published appearance',
+            source: `Curling I/O · ${subdomain}`,
+            startsOn: event.starts_on || '',
+            eventId: event.id
+          });
+        }
+      } catch {}
+    });
+  }
+
+  observations.sort((a, b) => {
+    const aMs = parseEventDateToMs(a.startsOn) || 0;
+    const bMs = parseEventDateToMs(b.startsOn) || 0;
+    return bMs - aMs || Number(b.eventId || 0) - Number(a.eventId || 0);
+  });
+
+  return observations.slice(0, 20);
 }
 
 function updateBadge(view) {
@@ -1305,11 +1391,18 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     } else if (r.lifecycle === 'just-finished' || r.lifecycle === 'complete') {
       const ourScore = getPositionScore(r.ourPos);
       const oppScore = getPositionScore(r.oppPos);
-      stateLabel = ourScore > oppScore
-        ? `Complete - won ${ourScore} - ${oppScore}`
-        : ourScore < oppScore
-        ? `Complete - lost ${ourScore} - ${oppScore}`
-        : `Complete - ${ourScore} - ${oppScore}`;
+      const result = String(getPositionResult(r.ourPos) || '').toLowerCase();
+      if (ourScore !== null && oppScore !== null) {
+        stateLabel = ourScore > oppScore
+          ? `Complete - won ${ourScore} - ${oppScore}`
+          : ourScore < oppScore
+          ? `Complete - lost ${ourScore} - ${oppScore}`
+          : `Complete - ${ourScore} - ${oppScore}`;
+      } else if (['won', 'lost', 'tied'].includes(result)) {
+        stateLabel = `Complete - ${result} (score unavailable)`;
+      } else {
+        stateLabel = 'Complete - score unavailable';
+      }
     } else {
       stateLabel = 'Unknown';
     }
@@ -1366,7 +1459,10 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     eventId: event.id,
     nextCheckReason: nextCheck.reason,
     nextGameConfirmed,
-    progressSignature: active ? getProgressSignature(active) : ''
+    progressSignature: active ? getProgressSignature(active) : '',
+    sourceCurlerId: match.curler?.curler_id ?? match.curler?.id ?? null,
+    sourceSubdomain: candidate.subdomain || diagnostics?.sourceSubdomain || '',
+    careerHistory: state.careerHistory
   };
 }
 
@@ -1558,7 +1654,11 @@ async function runTracker({ reason }) {
 }
 
 function startTracking(playerName, reason = 'manual-start') {
-  state.playerName = playerName.trim();
+  const nextPlayer = playerName.trim();
+  if (normalizeName(nextPlayer) !== normalizeName(state.playerName)) {
+    state.careerHistory = [];
+  }
+  state.playerName = nextPlayer;
   savePlayer(state.playerName);
   updateUrlPlayer(state.playerName);
   els.playerInput.value = state.playerName;
@@ -1616,7 +1716,10 @@ function bootFromSavedState() {
   const fromStorage = localStorage.getItem(APP.localKeys.player) || '';
   const player = fromUrl || fromStorage;
   const snapshot = loadSnapshot();
-  if (snapshot) render(snapshot);
+  if (snapshot) {
+    state.careerHistory = Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory : [];
+    render(snapshot);
+  }
   if (player) startTracking(player, 'boot-full-scan');
 }
 
@@ -1625,6 +1728,28 @@ els.form.addEventListener('submit', event => {
   const value = els.playerInput.value.trim();
   if (!value) return;
   startTracking(value, 'manual-start');
+});
+
+
+els.careerLoadBtn?.addEventListener('click', async () => {
+  if (state.careerLoading || !state.snapshot?.sourceCurlerId || !state.snapshot?.sourceSubdomain) return;
+  state.careerLoading = true;
+  els.careerLoadBtn.disabled = true;
+  if (els.careerStatus) els.careerStatus.textContent = 'Loading verified recent history…';
+
+  try {
+    const history = await discoverCareerHistory(state.snapshot);
+    state.careerHistory = history;
+    state.snapshot = { ...state.snapshot, careerHistory: history };
+    saveSnapshot(state.snapshot);
+    renderCareerPath(state.snapshot);
+    if (els.careerStatus && !history.length) {
+      els.careerStatus.textContent = 'No additional sourced appearances found in the recent seasons checked.';
+    }
+  } finally {
+    state.careerLoading = false;
+    els.careerLoadBtn.disabled = false;
+  }
 });
 
 els.shareBtn.addEventListener('click', async () => {

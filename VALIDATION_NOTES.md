@@ -29,3 +29,12 @@ The live/current event search correctly uses current season delta 0, but the "mo
 The recent completed-event fallback now searches season deltas 0, -1, and -2 while the live/current discovery remains delta 0. This widens recent-history lookup without slowing live discovery across a decade of seasons.
 
 Further validation is required across multiple provinces and event formats before public release.
+
+## Release truthfulness hardening
+- Missing position totals now remain unknown instead of defaulting to 0.
+- Missing end scores remain unknown instead of defaulting to 0.
+- Hammer derivation skips ends unless both posted end scores are present and numeric.
+- Team-name alias text alone no longer links an unassigned game to the tracked team.
+- Career history is loaded on demand and uses the source-native Curling I/O curler ID within the same source association.
+- Release QA: 13 checks passed, 0 failed on 2026-09-23.
+
