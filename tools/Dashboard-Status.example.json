@@ -1,0 +1,72 @@
+﻿{
+    "schema_version":  2,
+    "release_name":  "Friend-test beta: live + sourced Career/Path",
+    "verified_at":  "2026-09-24T02:46:20.9194079-06:00",
+    "revision":  "57f5b026cf798fee2cbc0e0f846211dafdcdcb93",
+    "product_fingerprint":  "35E0FB85BEB7118581D8DD168B42BF38090928D6F34A4AF458E2A2F66E0C32A3",
+    "attention_required":  false,
+    "attention_items":  [
+
+                        ],
+    "next_approval_gate":  "After remaining validation and browser QA pass: approval to merge/push/deploy.",
+    "next_work":  "Review the generated history index and source links, then complete broader validation and browser/mobile QA.",
+    "last_verified_progress_at":  "2026-09-24T02:46:20.9194079-06:00",
+    "last_verified_work":  "Release-QA.ps1 rerun: 18 passed, 0 failed. Existing uncommitted history-index, source-link, CSS and feedback changes inspected; broader release acceptance remains pending.",
+    "last_checks":  "18 passed / 0 failed on 2026-09-24 (source checks + static checks + feedback summarizer); browser matrix not yet verified.",
+    "worker":  null,
+    "estimate":  {
+                     "verified_at":  "2026-09-24T02:46:20.9194079-06:00",
+                     "confidence":  "LOW",
+                     "basis":  "Engineering judgment from inspected remaining milestones, not measured throughput. Includes routine fixes/retest; major defects or expanded scope require revision. Approval wait is unbounded and excluded."
+                 },
+    "milestones":  [
+                       {
+                           "id":  "foundation",
+                           "name":  "Provenance rules and live/Career beta foundation",
+                           "state":  "done",
+                           "evidence":  "Committed foundation through 57f5b02; current static/source release checks pass."
+                       },
+                       {
+                           "id":  "identity",
+                           "name":  "Verified aliases and feedback correction workflow",
+                           "state":  "done",
+                           "evidence":  "57f5b02 and CONTRIBUTION_PROCESS.md; feedback summarizer executes in current release QA."
+                       },
+                       {
+                           "id":  "history",
+                           "name":  "Review history index and source-link integration",
+                           "state":  "pending",
+                           "remaining_hours_min":  0.5,
+                           "remaining_hours_max":  1.5,
+                           "evidence":  "Uncommitted app.js index lookup/source links and data/history manifest (13 association files); integration acceptance not recorded.",
+                           "estimate_basis":  "Inspect generated coverage, source links, missing-index fallback and release packaging; allow routine corrections."
+                       },
+                       {
+                           "id":  "sources",
+                           "name":  "Finish real-curler and source validation",
+                           "state":  "pending",
+                           "remaining_hours_min":  0.75,
+                           "remaining_hours_max":  1.5,
+                           "evidence":  "18 release checks pass, including Alberta identity path and Manitoba/Canada payloads; broader formats/name changes remain unverified.",
+                           "estimate_basis":  "Sample additional formats/identity cases, investigate mismatches and record source evidence."
+                       },
+                       {
+                           "id":  "browser",
+                           "name":  "Mobile/browser and UX release QA",
+                           "state":  "pending",
+                           "remaining_hours_min":  1.5,
+                           "remaining_hours_max":  3,
+                           "evidence":  "One mobile Selenium script and screenshot exist, but no current browser-matrix pass record; history UI changed since commit.",
+                           "estimate_basis":  "Run mobile and desktop flows, feedback, empty/error states and cache/update behavior; fix/retest routine defects."
+                       },
+                       {
+                           "id":  "release",
+                           "name":  "Approval, release preparation and deployment verification",
+                           "state":  "pending",
+                           "remaining_hours_min":  0.25,
+                           "remaining_hours_max":  0.5,
+                           "evidence":  "Dirty develop/history-live-ux tree; no verified release approval or deployment for these changes.",
+                           "estimate_basis":  "Review final diff, prepare release, then approved publish and smoke checks. Human approval wait excluded."
+                       }
+                   ]
+}
