@@ -11,7 +11,8 @@ A value is displayed as fact only when supported by an identified source observa
 Conflicting sources are preserved and flagged for reconciliation. Silence or missing data is never treated as evidence that an event did or did not occur.
 
 ## Core records
-- Athlete: stable internal ID; normalized name; known aliases; identity evidence.
+- Athlete: stable internal ID; current display name; competition-name history/aliases; source-native IDs; identity evidence.
+- Athlete alias: name as published, effective date/season when established, source observation, verification state, and whether it is searchable.
 - Team stint: athlete, teammates, position, club/region, season, evidence.
 - Event: organizer, dates, venue, level, official source.
 - Appearance: athlete/team/event relationship and position.
@@ -29,6 +30,7 @@ PATH: chronological progression through club/provincial/national/international c
 1. Prefer official organizer/governing-body/club sources.
 2. Store source-native IDs and retrieved-at timestamps.
 3. Never merge two athletes solely because names match.
+3a. A surname/name change must never be inferred from marriage, gender, age, geography, or timing alone. Link names only from stable source IDs or corroborated public curling evidence.
 4. Conflicting observations remain traceable rather than silently overwritten.
 5. Unknown values remain unknown.
 6. Secondary aggregators may supplement but must not be the only architecture dependency.

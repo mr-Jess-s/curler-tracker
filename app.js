@@ -56,6 +56,8 @@ const els = {
   feedbackDialog: document.getElementById('feedbackDialog'),
   feedbackType: document.getElementById('feedbackType'),
   feedbackText: document.getElementById('feedbackText'),
+  feedbackSource: document.getElementById('feedbackSource'),
+  feedbackRelationship: document.getElementById('feedbackRelationship'),
   feedbackCopyBtn: document.getElementById('feedbackCopyBtn'),
   feedbackDownloadBtn: document.getElementById('feedbackDownloadBtn'),
   feedbackCloseBtn: document.getElementById('feedbackCloseBtn'),
@@ -782,6 +784,8 @@ function buildFeedbackPacket() {
     app_version: APP_VERSION,
     type: els.feedbackType?.value || 'other',
     raw_user_wording: els.feedbackText?.value?.trim() || '',
+    supporting_source: els.feedbackSource?.value?.trim() || '',
+    submitter_relationship: els.feedbackRelationship?.value || '',
     context: {
       player: state.playerName || '',
       view: state.snapshot?.view || '',
@@ -802,6 +806,8 @@ function feedbackPacketText(packet) {
     `Player: ${packet.context.player || 'not supplied'}`,
     `View: ${packet.context.view || 'unknown'}`,
     `Event: ${packet.context.event || 'unknown'}`,
+    `Supporting source: ${packet.supporting_source || 'not supplied'}`,
+    `Connection: ${packet.submitter_relationship || 'not supplied'}`,
     '',
     packet.raw_user_wording
   ].join('\n');

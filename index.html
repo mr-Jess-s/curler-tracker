@@ -112,6 +112,7 @@
           <option value="bug">Bug</option>
           <option value="incorrect-or-missing-data">Incorrect or missing data</option>
           <option value="identity-mismatch">Identity mismatch</option>
+          <option value="identity-or-name-update">Curler name/profile update</option>
           <option value="confusing-workflow">Confusing workflow</option>
           <option value="feature-request">Feature request</option>
           <option value="accessibility-usability">Accessibility/usability</option>
@@ -124,6 +125,19 @@
       </label>
       <label>What happened or what would help?
         <textarea id="feedbackText" rows="6" placeholder="Use your own words."></textarea>
+      </label>
+      <label>Supporting source (optional)
+        <input id="feedbackSource" type="url" inputmode="url" placeholder="Official result, club page, archive link, etc.">
+      </label>
+      <label>Your connection (optional)
+        <select id="feedbackRelationship">
+          <option value="">Prefer not to say</option>
+          <option value="self">I am this curler</option>
+          <option value="club-association">Club or association</option>
+          <option value="team-coach">Team member or coach</option>
+          <option value="family">Family</option>
+          <option value="community">Curling community member</option>
+        </select>
       </label>
       <div class="actions">
         <button id="feedbackCopyBtn" type="button">Copy report</button>
