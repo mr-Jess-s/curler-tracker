@@ -3,6 +3,7 @@ const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
   lookaheadSeasons: [0],
+  recentLookbackSeasons: [0, -1, -2],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
   postGameWindowMs: 3 * 60 * 60 * 1000,
@@ -1155,7 +1156,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
 
   const listJobs = [];
   for (const subdomain of APP.clubSubdomains) {
-    for (const delta of APP.lookaheadSeasons) {
+    for (const delta of APP.recentLookbackSeasons) {
       listJobs.push({ subdomain, delta });
     }
   }

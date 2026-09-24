@@ -1,6 +1,4 @@
-param(
-  [int]$RefreshSeconds = 15
-)
+param([int]$RefreshSeconds = 15)
 
 $ErrorActionPreference = 'SilentlyContinue'
 $ProjectRoot = 'C:\Jess\curler-tracker'
@@ -8,106 +6,117 @@ $StatusFile = Join-Path $ProjectRoot 'PROJECT_DASHBOARD_STATUS.json'
 
 function Read-Status {
   if (-not (Test-Path $StatusFile)) { return $null }
-  try { return (Get-Content $StatusFile -Raw | ConvertFrom-Json) } catch { return $null }
+  try { return Get-Content $StatusFile -Raw | ConvertFrom-Json } catch { return $null }
 }
 
-function Format-Countdown([datetime]$Target) {
-  $now = Get-Date
-  $span = $Target - $now
-  if ($span.TotalSeconds -le 0) {
-    $span = $now - $Target
-    return ('OVER ETA by {0:00}h {1:00}m {2:00}s' -f [math]::Floor($span.TotalHours), $span.Minutes, $span.Seconds)
-  }
-  return ('{0:00}h {1:00}m {2:00}s' -f [math]::Floor($span.TotalHours), $span.Minutes, $span.Seconds)
-}
-
-function Write-Section($title) {
+function Write-Section([string]$Title) {
   Write-Host ''
-  Write-Host ('=== {0} ===' -f $title) -ForegroundColor Cyan
+  Write-Host ('=== {0} ===' -f $Title) -ForegroundColor Cyan
 }
 
+function Get-ActiveBuildWorkers {
+  @(Get-CimInstance Win32_Process | Where-Object {
+    $_.CommandLine -and
+    $_.CommandLine -match [regex]::Escape($ProjectRoot) -and
+    $_.CommandLine -notmatch 'CurlerTracker-Dashboard\.ps1' -and
+    $_.Name -match 'powershell|pwsh|node|python|cmd'
+  })
+}
+
+function Format-Age([datetime]$When) {
+  $span = (Get-Date) - $When
+  if ($span.TotalMinutes -lt 1) { return ('{0}s ago' -f [math]::Floor($span.TotalSeconds)) }
+  if ($span.TotalHours -lt 1) { return ('{0}m ago' -f [math]::Floor($span.TotalMinutes)) }
+  return ('{0}h {1}m ago' -f [math]::Floor($span.TotalHours), $span.Minutes)
+}
 while ($true) {
   Clear-Host
-  $status = Read-Status
   $now = Get-Date
+  $status = Read-Status
 
-  Write-Host 'CURLER TRACKER - RELEASE DASHBOARD' -ForegroundColor White
+  Write-Host 'CURLER TRACKER - VERIFIED STATUS' -ForegroundColor White
   Write-Host ('Arthur | {0}' -f $now.ToString('yyyy-MM-dd HH:mm:ss')) -ForegroundColor DarkGray
 
   if (-not $status) {
-    Write-Host ''
     Write-Host 'STATUS FILE MISSING OR INVALID' -ForegroundColor Red
     Start-Sleep -Seconds $RefreshSeconds
     continue
   }
 
-  $target = [datetime]$status.eta_midpoint
-  $earliest = [datetime]$status.eta_earliest
-  $latest = [datetime]$status.eta_latest
+  Push-Location $ProjectRoot
+  $branch = git branch --show-current
+  $dirty = @(git status --porcelain)
+  $ahead = [int](git rev-list --count main..HEAD)
+  $lastCommitIso = git log -1 --format=%cI
+  $lastCommit = [datetimeoffset]::Parse($lastCommitIso).LocalDateTime
+  node --check app.js 2>$null
+  $jsOk = ($LASTEXITCODE -eq 0)
+  Pop-Location
+
+  $workers = Get-ActiveBuildWorkers
+  $active = $workers.Count -gt 0
 
   Write-Section 'CURRENT RELEASE'
-  Write-Host ('Release target: {0}' -f $status.release_name)
-  Write-Host ('ETA window:     {0}  to  {1}' -f $earliest.ToString('ddd MMM d, h:mm tt'), $latest.ToString('ddd MMM d, h:mm tt'))
-  Write-Host ('Midpoint ETA:   {0}' -f $target.ToString('ddd MMM d, h:mm tt'))
-  Write-Host ('Countdown:      {0}' -f (Format-Countdown $target)) -ForegroundColor Yellow
-  Write-Host ('Estimate basis: {0}' -f $status.estimate_basis) -ForegroundColor DarkGray
+  Write-Host ('Target:          {0}' -f $status.release_name)
+  if ($active) {
+    Write-Host 'Execution:       ACTIVE - verified build process detected' -ForegroundColor Green
+  } else {
+    Write-Host 'Execution:       PAUSED - no active build process detected' -ForegroundColor Yellow
+  }
+  Write-Host ('Last code commit: {0} ({1})' -f $lastCommit.ToString('ddd MMM d, h:mm:ss tt'), (Format-Age $lastCommit))
+  Write-Host ('Status verified:  {0}' -f $now.ToString('ddd MMM d, h:mm:ss tt'))
+  if ($status.eta_enabled -and $active -and $status.eta_target) {
+    $target = [datetime]$status.eta_target
+    $remaining = $target - $now
+    if ($remaining.TotalSeconds -gt 0) {
+      Write-Host ('ETA:             {0}' -f $target.ToString('ddd MMM d, h:mm tt'))
+      Write-Host ('Countdown:       {0:00}h {1:00}m {2:00}s' -f [math]::Floor($remaining.TotalHours), $remaining.Minutes, $remaining.Seconds) -ForegroundColor Yellow
+    } else {
+      Write-Host 'ETA:             EXPIRED - must be re-estimated from verified remaining work' -ForegroundColor Red
+    }
+  } else {
+    Write-Host 'ETA:             SUSPENDED until active work + credible estimate exist' -ForegroundColor DarkYellow
+  }
 
   Write-Section 'MILESTONES'
   foreach ($m in $status.milestones) {
     $label = switch ($m.state) {
-      'done'        { '[DONE]'; break }
-      'in_progress' { '[WORK]'; break }
-      'pending'     { '[WAIT]'; break }
-      default       { '[....]' }
+      'done' {'[DONE]'}
+      'in_progress' {'[WORK]'}
+      'awaiting_approval' {'[YOU ]'}
+      'blocked' {'[BLOCK]'}
+      default {'[WAIT]'}
     }
     $color = switch ($m.state) {
-      'done'        { 'Green'; break }
-      'in_progress' { 'Yellow'; break }
-      'pending'     { 'DarkGray'; break }
-      default       { 'Gray' }
+      'done' {'Green'}
+      'in_progress' {'Yellow'}
+      'awaiting_approval' {'Magenta'}
+      'blocked' {'Red'}
+      default {'DarkGray'}
     }
     Write-Host ('{0} {1}' -f $label, $m.name) -ForegroundColor $color
   }
-
   Write-Section 'YOUR ATTENTION'
   if ($status.attention_required) {
-    Write-Host 'YES - YOUR ATTENTION IS REQUIRED' -ForegroundColor Red
-    foreach ($a in $status.attention_items) {
-      Write-Host ('  -> {0}' -f $a) -ForegroundColor Red
-    }
+    Write-Host 'YES - action or approval required' -ForegroundColor Red
+    foreach ($a in $status.attention_items) { Write-Host ('  -> {0}' -f $a) -ForegroundColor Red }
   } else {
-    Write-Host 'NO - nothing currently needs your approval or action.' -ForegroundColor Green
-    if ($status.next_approval_gate) {
-      Write-Host ('Next likely approval gate: {0}' -f $status.next_approval_gate) -ForegroundColor DarkGray
-    }
+    Write-Host 'NO - no user action currently blocks work.' -ForegroundColor Green
+    if ($status.next_approval_gate) { Write-Host ('Next gate: {0}' -f $status.next_approval_gate) -ForegroundColor DarkGray }
   }
 
   Write-Section 'PROJECT HEALTH'
-  Push-Location $ProjectRoot
-  $branch = (git branch --show-current)
-  $dirty = @(git status --porcelain)
-  $ahead = (git rev-list --count main..HEAD)
-  node --check app.js 2>$null
-  $nodeOk = ($LASTEXITCODE -eq 0)
-  Pop-Location
+  Write-Host ('Branch:          {0}' -f $branch)
+  Write-Host ('Commits ahead:   {0}' -f $ahead)
+  Write-Host ('Working tree:    {0}' -f $(if($dirty.Count){$dirty.Count.ToString()+' change(s)'}else{'CLEAN'})) -ForegroundColor $(if($dirty.Count){'Yellow'}else{'Green'})
+  Write-Host ('JavaScript:      {0}' -f $(if($jsOk){'PASS'}else{'FAIL'})) -ForegroundColor $(if($jsOk){'Green'}else{'Red'})
+  Write-Host ('Build workers:   {0}' -f $workers.Count)
 
-  Write-Host ('Branch:         {0}' -f $branch)
-  Write-Host ('Commits ahead:  {0}' -f $ahead)
-  if ($dirty.Count -eq 0) {
-    Write-Host 'Working tree:   CLEAN' -ForegroundColor Green
-  } else {
-    Write-Host ('Working tree:   {0} change(s)' -f $dirty.Count) -ForegroundColor Yellow
-  }
-  if ($nodeOk) {
-    Write-Host 'JavaScript:     PASS' -ForegroundColor Green
-  } else {
-    Write-Host 'JavaScript:     FAIL' -ForegroundColor Red
-  }
+  Write-Section 'LAST VERIFIED WORK'
+  Write-Host $status.last_verified_work -ForegroundColor White
+  if ($status.note) { Write-Host $status.note -ForegroundColor DarkGray }
 
-  Write-Section 'NOTES'
-  Write-Host $status.note -ForegroundColor DarkGray
   Write-Host ''
-  Write-Host ('Refreshes every {0}s. Press Ctrl+C to close.' -f $RefreshSeconds) -ForegroundColor DarkGray
-
+  Write-Host ('Refreshes every {0}s. Ctrl+C closes this dashboard.' -f $RefreshSeconds) -ForegroundColor DarkGray
   Start-Sleep -Seconds $RefreshSeconds
 }
