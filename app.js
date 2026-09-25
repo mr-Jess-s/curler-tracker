@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.4';
+const APP_VERSION = 'v26.5';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -61,7 +61,18 @@ const els = {
   feedbackCopyBtn: document.getElementById('feedbackCopyBtn'),
   feedbackDownloadBtn: document.getElementById('feedbackDownloadBtn'),
   feedbackCloseBtn: document.getElementById('feedbackCloseBtn'),
-  feedbackStatus: document.getElementById('feedbackStatus')
+  feedbackStatus: document.getElementById('feedbackStatus'),
+  archiveHome: document.getElementById('archiveHome'),
+  archiveStatus: document.getElementById('archiveStatus'),
+  archiveContent: document.getElementById('archiveContent'),
+  seasonSelect: document.getElementById('seasonSelect'),
+  coverageEvents: document.getElementById('coverageEvents'),
+  coverageCurlers: document.getElementById('coverageCurlers'),
+  coverageAppearances: document.getElementById('coverageAppearances'),
+  recentEvents: document.getElementById('recentEvents'),
+  featuredCurlers: document.getElementById('featuredCurlers'),
+  coverageNote: document.getElementById('coverageNote'),
+  trackerResults: document.getElementById('trackerResults')
 };
 
 const state = {
@@ -83,6 +94,51 @@ const state = {
 const memoryCache = new Map();
 
 const MAX_MEMORY_CACHE_ENTRIES = 150;
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('en-CA').format(Number(value) || 0);
+}
+
+function renderArchiveSeason(summary, seasonName) {
+  const season = summary?.seasons?.find(row => row.season === seasonName) || summary?.seasons?.[0];
+  if (!season) return;
+  els.coverageEvents.textContent = formatNumber(season.events);
+  els.coverageCurlers.textContent = formatNumber(season.curlers);
+  els.coverageAppearances.textContent = formatNumber(season.appearances);
+  els.recentEvents.innerHTML = (season.recent_events || []).map(event =>
+    `<a class="event-link" href="${escapeHtml(event.source_url)}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(event.association)} · ${escapeHtml(event.starts_on || 'Date not listed')}</span></a>`
+  ).join('') || '<p class="hint">No published events are indexed for this season.</p>';
+}
+
+async function loadArchiveHome() {
+  if (!els.archiveHome) return;
+  try {
+    const summary = await fetchJson(`./data/home-summary.json?v=${encodeURIComponent(APP_VERSION)}`, {
+      ttlMs: 60 * 60 * 1000,
+      cacheGroup: 'home-summary'
+    });
+    if (summary?.schema_version !== 1 || !Array.isArray(summary?.seasons)) throw new Error('Invalid archive summary');
+    els.seasonSelect.innerHTML = summary.seasons.map(row => `<option value="${escapeHtml(row.season)}">${escapeHtml(row.season)}${row.season === summary.default_season ? ' · last full season' : ''}</option>`).join('');
+    if (summary.default_season) els.seasonSelect.value = summary.default_season;
+    els.featuredCurlers.innerHTML = (summary.featured_curlers || []).map(curler =>
+      `<button class="curler-chip" type="button" data-curler="${escapeHtml(curler.name)}">${escapeHtml(curler.name)} <small>${escapeHtml(curler.association)}</small></button>`
+    ).join('');
+    els.coverageNote.textContent = `${summary.coverage_note} Last rebuilt ${new Date(summary.generated_at).toLocaleDateString('en-CA')}.`;
+    renderArchiveSeason(summary, els.seasonSelect.value);
+    els.seasonSelect.addEventListener('change', () => renderArchiveSeason(summary, els.seasonSelect.value));
+    els.featuredCurlers.addEventListener('click', event => {
+      const button = event.target.closest('[data-curler]');
+      if (!button) return;
+      els.playerInput.value = button.dataset.curler;
+      startTracking(button.dataset.curler, 'archive-example');
+      els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    els.archiveStatus.classList.add('hidden');
+    els.archiveContent.classList.remove('hidden');
+  } catch {
+    els.archiveStatus.textContent = 'The historical overview could not load. You can still search for a curler above.';
+  }
+}
 
 function setMemoryCache(fullKey, record) {
   if (memoryCache.has(fullKey)) {
@@ -1085,6 +1141,7 @@ function updateBadge(view) {
 function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
+  els.trackerResults?.classList.toggle('hidden', !snapshot?.playerName);
   els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '-';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
@@ -1995,4 +2052,5 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('focus', () => maybeRunOpenScan('focus'));
 
 bootFromSavedState();
+loadArchiveHome();
 

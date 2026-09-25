@@ -54,3 +54,16 @@ Release checks completed after the final source and error-state changes:
 
 The browser run verifies desktop Edge plus responsive viewport behavior. It does not establish physical iPhone/Android or Safari compatibility. Historical coverage remains explicitly incomplete and is not represented as a complete career archive.
 
+## Useful off-season homepage — v26.5
+
+The default page now displays the Noble Beaver mark and explains the product before asking for a search. When no curler is selected, empty live-score panels remain hidden and a historical overview is shown instead.
+
+The generated homepage summary covers 655 unique association/event records across the current and two prior seasons. It defaults to the last full season, 2025 / 2026, with 365 events, 8,765 scoped curler identities and 14,065 published roster appearances. Visitors can switch to 2024 / 2025, open official event sources, or start from eight example careers with records in multiple seasons. These are coverage counts from the indexed Curling I/O records, not claims of complete national coverage.
+
+Verification after the homepage change:
+- 19 focused release-regression checks passed;
+- 22 Edge 153 browser checks passed;
+- responsive layouts passed at 320 px, 390 px and 1365 px;
+- the unselected state shows branding, historical events and example careers while hiding empty live panels;
+- player lookup, stable source identity, sourced history, feedback, offline cache and failure-state checks still pass.
+

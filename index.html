@@ -5,31 +5,75 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0c1220">
   <title>Curler Tracker</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.4">
-  <link rel="stylesheet" href="./styles.css?v=v26.4">
+  <meta name="description" content="Follow Canadian curlers through live events and verified results from recent seasons.">
+  <link rel="manifest" href="./manifest.webmanifest?v=v26.5">
+  <link rel="stylesheet" href="./styles.css?v=v26.5">
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div>
-        <h1>Curler Tracker</h1>
-        <p class="subtitle">Follow a curler now — and through their career</p>
+      <div class="brand-lockup">
+        <img class="brand-mark" src="./noble-beaver.svg" alt="" width="72" height="72">
+        <div>
+          <p class="brand-kicker">Canadian curling, one career at a time</p>
+          <h1>Curler Tracker</h1>
+          <p class="subtitle">Live scores when they play. Sourced history between events.</p>
+        </div>
       </div>
       <button id="installBtn" class="ghost hidden" type="button">Install</button>
     </header>
 
-    <section class="search-card card">
+    <section class="search-card card" aria-labelledby="find-curler-title">
+      <div class="search-intro">
+        <p class="eyebrow">Start here</p>
+        <h2 id="find-curler-title">Find a curler</h2>
+        <p>Search a name to see their current event and verified appearances from recent seasons.</p>
+      </div>
       <form id="playerForm" class="player-form">
-        <input id="playerInput" aria-label="Curler name" type="text" placeholder="Enter curler name" autocomplete="name" />
-        <button type="submit">Track</button>
+        <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="name" />
+        <button type="submit">View curler</button>
       </form>
       <div class="actions">
         <button id="shareBtn" class="ghost" type="button">Copy share link</button>
         <button id="refreshBtn" class="ghost" type="button">Refresh now</button>
       </div>
-      <p id="statusLine" class="status-line">Enter a curler name to begin.</p>
+      <p id="statusLine" class="status-line">Search across published Curling I/O roster records.</p>
     </section>
 
+    <section id="archiveHome" class="archive-home card" aria-labelledby="archive-title">
+      <div class="archive-heading">
+        <div>
+          <p class="eyebrow">Between events</p>
+          <h2 id="archive-title">Explore recent seasons</h2>
+          <p class="hint">The tracker remains useful after the ice is empty. Browse verified event coverage, then open a curler's career.</p>
+        </div>
+        <label class="season-control">Season
+          <select id="seasonSelect" aria-label="Historical season"></select>
+        </label>
+      </div>
+      <div id="archiveStatus" class="archive-status" role="status">Loading verified history…</div>
+      <div id="archiveContent" class="hidden">
+        <div class="coverage-grid" aria-label="Archive coverage">
+          <div><strong id="coverageEvents">—</strong><span>published events</span></div>
+          <div><strong id="coverageCurlers">—</strong><span>identified curlers</span></div>
+          <div><strong id="coverageAppearances">—</strong><span>roster appearances</span></div>
+        </div>
+        <div class="archive-columns">
+          <div>
+            <h3>Events in this season</h3>
+            <div id="recentEvents" class="event-browser"></div>
+          </div>
+          <div>
+            <h3>Try a career</h3>
+            <p class="hint">Examples with records in more than one season.</p>
+            <div id="featuredCurlers" class="featured-curlers"></div>
+          </div>
+        </div>
+        <p id="coverageNote" class="source-note"></p>
+      </div>
+    </section>
+
+    <div id="trackerResults" class="tracker-results hidden">
     <section class="hero card">
       <div class="hero-head">
         <div>
@@ -92,6 +136,7 @@
         <p>Track a curler to begin building their sourced career record.</p>
       </div>
     </section>
+    </div>
     <footer class="app-footer">
       <p>Results shown from identified source records. Missing history stays unknown.</p>
       <button id="feedbackBtn" class="ghost feedback-open" type="button">Feedback</button>
@@ -147,6 +192,6 @@
     </form>
   </dialog>
 
-  <script src="./app.js?v=v26.4"></script>
+  <script src="./app.js?v=v26.5"></script>
 </body>
 </html>

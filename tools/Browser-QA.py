@@ -1,4 +1,4 @@
-import sys,time,json
+import sys,time,json,os
 from pathlib import Path
 sys.path.insert(0,r'C:\Temp\ct-selenium')
 from selenium import webdriver
@@ -6,7 +6,8 @@ from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-ROOT=Path(r'C:\Jess\curler-tracker')
+ROOT=Path(__file__).resolve().parents[1]
+BASE_URL=os.environ.get('CT_BASE_URL','http://127.0.0.1:8766').rstrip('/')
 OUT=ROOT/'qa'
 OUT.mkdir(exist_ok=True)
 opts=Options()
@@ -24,7 +25,15 @@ def check(condition,name):
  checks.append(name)
  print('PASS '+name,flush=True)
 try:
- driver.get('http://127.0.0.1:8766/?player=Sophie%20Abbs')
+ driver.get(BASE_URL+'/')
+ WebDriverWait(driver,20).until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>0)
+ WebDriverWait(driver,20).until(lambda d:d.execute_script("return document.readyState==='complete'&&document.querySelector('.brand-mark')?.getBoundingClientRect().width>0"))
+ check(driver.execute_script("return document.querySelector('.brand-mark')?.getBoundingClientRect().width>0"),'Brand mark visible on homepage')
+ check(driver.find_element(By.ID,'seasonSelect').get_attribute('value')=='2025 / 2026','Last full season shown by default')
+ check(len(driver.find_elements(By.CSS_SELECTOR,'.event-link'))>=8,'Historical events visible before search')
+ check(len(driver.find_elements(By.CSS_SELECTOR,'.curler-chip'))>=6,'Example careers visible before search')
+ check(not driver.find_element(By.ID,'trackerResults').is_displayed(),'Empty live panels stay hidden before search')
+ driver.get(BASE_URL+'/?player=Sophie%20Abbs')
  WebDriverWait(driver,90).until(lambda d:d.execute_script("return typeof state!=='undefined'&&!state.isRunning&&!!state.snapshot?.sourceCurlerId"))
  check(driver.find_element(By.ID,'trackedPlayer').text=='Sophie Abbs','Live-source player lookup')
  check(driver.execute_script("return state.snapshot.sourceCurlerId")==49287,'Stable source identity')
@@ -47,7 +56,7 @@ try:
  driver.find_element(By.ID,'feedbackSource').send_keys('https://ab.curling.io/en/events/24023')
  driver.execute_script("document.getElementById('feedbackType').value='identity-or-name-update';document.getElementById('feedbackRelationship').value='self'")
  packet=driver.execute_script('return buildFeedbackPacket()')
- check(packet['app_version']=='v26.4' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
+ check(packet['app_version']=='v26.5' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
  check(packet['submitter_relationship']=='self','Declared contributor relationship retained')
  driver.find_element(By.ID,'feedbackCloseBtn').click()
  check(driver.find_element(By.ID,'feedbackDialog').get_attribute('open') is None,'Feedback dialog closes')
@@ -67,10 +76,10 @@ try:
  driver.find_element(By.ID,'careerLoadBtn').click()
  WebDriverWait(driver,10).until(lambda d:not d.execute_script('return state.careerLoading'))
  driver.refresh()
- WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.4'"))
- check(driver.execute_script("return APP_VERSION")=='v26.4','Updated release survives reload')
+ WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.5'"))
+ check(driver.execute_script("return APP_VERSION")=='v26.5','Updated release survives reload')
  driver.execute_async_script("const done=arguments[0];navigator.serviceWorker.ready.then(async()=>done(await caches.keys())).catch(()=>done([]))")
- check('curler-tracker-v26-4' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
+ check('curler-tracker-v26-5' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
  passed=True
  print('BROWSER_QA_PASS '+str(len(checks)),flush=True)
 finally:

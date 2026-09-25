@@ -1,7 +1,7 @@
 {
   "name": "Curler Tracker",
   "short_name": "Curler Tracker",
-  "description": "Track curling events and live scores.",
+  "description": "Follow Canadian curlers through live events and sourced results from recent seasons.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#1A1D2B",

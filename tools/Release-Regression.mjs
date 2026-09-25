@@ -24,6 +24,14 @@ function app() {
 }
 let count=0;
 async function check(name, fn){await fn();console.log('PASS '+name);count++;}
+await check('Homepage has visible branding and a useful historical default', async()=>{
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const summary=JSON.parse(fs.readFileSync(path.join(root,'data/home-summary.json'),'utf8'));
+ assert.match(html,/noble-beaver\.svg/); assert.match(html,/Explore recent seasons/);
+ assert.equal(summary.default_season,'2025 / 2026');
+ assert(summary.seasons.some(row=>row.season==='2024 / 2025'&&row.events>100));
+ assert(summary.featured_curlers.length>=6);
+});
 await check('Indexed history keeps identity, source link and retrieval provenance', async()=>{
  const a=app(); a.context.index=JSON.parse(fs.readFileSync(path.join(root,'data/history/ab.json')));
  a.run("fetchJson=async()=>index");
