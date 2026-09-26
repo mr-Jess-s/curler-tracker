@@ -64,7 +64,7 @@ try:
  driver.find_element(By.ID,'feedbackSource').send_keys('https://ab.curling.io/en/events/24023')
  driver.execute_script("document.getElementById('feedbackType').value='identity-or-name-update';document.getElementById('feedbackRelationship').value='self'")
  packet=driver.execute_script('return buildFeedbackPacket()')
- check(packet['app_version']=='v26.6' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
+ check(packet['app_version']=='v26.7' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
  check(packet['submitter_relationship']=='self','Declared contributor relationship retained')
  driver.find_element(By.ID,'feedbackCloseBtn').click()
  check(driver.find_element(By.ID,'feedbackDialog').get_attribute('open') is None,'Feedback dialog closes')
@@ -84,10 +84,10 @@ try:
  driver.find_element(By.ID,'careerLoadBtn').click()
  WebDriverWait(driver,10).until(lambda d:not d.execute_script('return state.careerLoading'))
  driver.refresh()
- WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.6'"))
- check(driver.execute_script("return APP_VERSION")=='v26.6','Updated release survives reload')
+ WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.7'"))
+ check(driver.execute_script("return APP_VERSION")=='v26.7','Updated release survives reload')
  driver.execute_async_script("const done=arguments[0];navigator.serviceWorker.ready.then(async()=>done(await caches.keys())).catch(()=>done([]))")
- check('curler-tracker-v26-6' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
+ check('curler-tracker-v26-7' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
  passed=True
  print('BROWSER_QA_PASS '+str(len(checks)),flush=True)
 finally:

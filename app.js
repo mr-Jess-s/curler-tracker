@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.6';
+const APP_VERSION = 'v26.7';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -1146,6 +1146,8 @@ function render(snapshot) {
   els.trackerResults?.classList.toggle('hidden', !snapshot?.playerName);
   els.archiveHome?.classList.toggle('hidden', !!snapshot?.playerName);
   els.homeBtn?.classList.toggle('hidden', !snapshot?.playerName);
+  els.demoCurlerBtn?.classList.toggle('hidden', !!snapshot?.playerName);
+  if (els.shareBtn) els.shareBtn.textContent = snapshot?.playerName ? 'Share curler' : 'Share Curler Tracker';
   els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '-';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');

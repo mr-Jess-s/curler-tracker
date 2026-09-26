@@ -1,8 +1,8 @@
-# Curler Tracker Friend Test
+# Curler Tracker Product Acceptance Test
 
-Purpose: verify that a curling person can understand and demonstrate Curler Tracker quickly on a phone without a product pitch.
+Purpose: verify that a curling user can understand, trust and use Curler Tracker quickly on a phone without coaching or a product pitch.
 
-## The Jayden test
+## 30-second curling test
 Hand the tester the phone and say only: "Check out this app."
 
 Pass criteria:
@@ -12,7 +12,7 @@ Pass criteria:
 4. Team, event and schedule context are understandable from the same person-centred flow.
 5. Sourced career appearances can be opened and their official source inspected.
 6. The tester can return to the archive in one tap.
-7. The tester can share the curler using the device share sheet where supported, with copy-link fallback.
+7. The tester can share the app or a curler using the device share sheet where supported, with copy-link fallback.
 8. The experience has no horizontal overflow at 320px or 390px widths.
 
 ## Reality and trust gates
@@ -33,6 +33,6 @@ Do not coach the tester through the interface. Record:
 - whether they naturally want to share it with someone.
 
 ## Release gate
-A friend-test build is ready to show only when automated release/regression/browser checks pass and a real-phone smoke test confirms the same basic flow. A successful test does not establish completeness of the archive.
+A public beta build is ready to show only when automated release, regression and browser checks pass and a real-phone smoke test confirms the same basic flow. A successful test does not establish completeness of the archive.
 
-This protocol is reusable for curling insiders, family members, club volunteers, athletes, coaches and fans. Jayden is the first named high-value test case, not a special product path.
+The test is intentionally generic. It applies to curling insiders, family members, club volunteers, athletes, coaches, historians and fans. Individual testers are evidence about the product, not product personas that drive special-case design.
