@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.5';
+const APP_VERSION = 'v26.6';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -37,6 +37,8 @@ const els = {
   playerInput: document.getElementById('playerInput'),
   shareBtn: document.getElementById('shareBtn'),
   refreshBtn: document.getElementById('refreshBtn'),
+  demoCurlerBtn: document.getElementById('demoCurlerBtn'),
+  homeBtn: document.getElementById('homeBtn'),
   statusLine: document.getElementById('statusLine'),
   trackedPlayer: document.getElementById('trackedPlayer'),
   liveBadge: document.getElementById('liveBadge'),
@@ -1142,6 +1144,8 @@ function render(snapshot) {
   state.snapshot = snapshot;
   saveSnapshot(snapshot);
   els.trackerResults?.classList.toggle('hidden', !snapshot?.playerName);
+  els.archiveHome?.classList.toggle('hidden', !!snapshot?.playerName);
+  els.homeBtn?.classList.toggle('hidden', !snapshot?.playerName);
   els.trackedPlayer.textContent = snapshot?.displayPlayer || snapshot?.playerName || '-';
   renderHeadline(snapshot);
   updateBadge(snapshot?.view || 'idle');
@@ -1920,6 +1924,7 @@ els.form.addEventListener('submit', event => {
   const value = els.playerInput.value.trim();
   if (!value) return;
   startTracking(value, 'manual-start');
+  requestAnimationFrame(() => els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 });
 
 
@@ -1992,14 +1997,57 @@ els.careerLoadBtn?.addEventListener('click', async () => {
   }
 });
 
+els.demoCurlerBtn?.addEventListener('click', () => {
+  const player = 'Sophie Abbs';
+  els.playerInput.value = player;
+  startTracking(player, 'verified-example');
+  requestAnimationFrame(() => els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+});
+
+els.homeBtn?.addEventListener('click', () => {
+  if (state.timerId) clearTimeout(state.timerId);
+  state.timerId = null;
+  state.playerGeneration++;
+  state.playerName = '';
+  state.snapshot = null;
+  state.careerHistory = [];
+  state.careerMessage = '';
+  state.careerLoading = false;
+  els.playerInput.value = '';
+  updateUrlPlayer('');
+  try {
+    localStorage.removeItem(APP.localKeys.player);
+    localStorage.removeItem(APP.localKeys.snapshot);
+  } catch {}
+  els.trackerResults?.classList.add('hidden');
+  els.archiveHome?.classList.remove('hidden');
+  els.homeBtn.classList.add('hidden');
+  setStatus('Search across published Curling I/O roster records.');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 els.shareBtn.addEventListener('click', async () => {
   const player = state.playerName || els.playerInput.value.trim();
   const url = new URL(window.location.href);
   if (player) url.searchParams.set('player', player);
-  const text = url.toString();
+  const shareData = {
+    title: player ? `${player} · Curler Tracker` : 'Curler Tracker',
+    text: player ? `Follow ${player} on Curler Tracker.` : 'Follow curlers through live events and sourced history.',
+    url: url.toString()
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      setStatus('Share sheet opened.');
+      return;
+    } catch (error) {
+      if (error?.name === 'AbortError') return;
+    }
+  }
 
   try {
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(shareData.url);
     setStatus('Share link copied.');
   } catch {
     setStatus('Could not copy automatically. You can copy the address from your browser.');

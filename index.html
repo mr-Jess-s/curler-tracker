@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0c1220">
   <title>Curler Tracker</title>
-  <meta name="description" content="Follow Canadian curlers through live events and verified results from recent seasons.">
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.5">
-  <link rel="stylesheet" href="./styles.css?v=v26.5">
+  <meta name="description" content="Start with a curler. See their current context, team, event and sourced path through Canadian curling.">
+  <link rel="manifest" href="./manifest.webmanifest?v=v26.6">
+  <link rel="stylesheet" href="./styles.css?v=v26.6">
 </head>
 <body>
   <main class="app-shell">
@@ -15,9 +15,9 @@
       <div class="brand-lockup">
         <img class="brand-mark" src="./noble-beaver.svg" alt="" width="72" height="72">
         <div>
-          <p class="brand-kicker">Canadian curling, one career at a time</p>
+          <p class="brand-kicker">Follow the person. Understand the game.</p>
           <h1>Curler Tracker</h1>
-          <p class="subtitle">Live scores when they play. Sourced history between events.</p>
+          <p class="subtitle">Search one curler. See where they are now, who they are with, and their sourced path through the sport.</p>
         </div>
       </div>
       <button id="installBtn" class="ghost hidden" type="button">Install</button>
@@ -27,15 +27,22 @@
       <div class="search-intro">
         <p class="eyebrow">Start here</p>
         <h2 id="find-curler-title">Find a curler</h2>
-        <p>Search a name to see their current event and verified appearances from recent seasons.</p>
+        <p>Start with the person — not the team. Curler Tracker connects live context, events and verified career records.</p>
       </div>
       <form id="playerForm" class="player-form">
         <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="name" />
         <button type="submit">View curler</button>
       </form>
+      <div class="quick-value" aria-label="What Curler Tracker shows">
+        <span><strong>Now</strong> live or recent context</span>
+        <span><strong>Event</strong> team and schedule</span>
+        <span><strong>Career</strong> sourced appearances</span>
+      </div>
       <div class="actions">
-        <button id="shareBtn" class="ghost" type="button">Copy share link</button>
+        <button id="shareBtn" class="ghost" type="button">Share curler</button>
         <button id="refreshBtn" class="ghost" type="button">Refresh now</button>
+        <button id="homeBtn" class="ghost hidden" type="button">Explore archive</button>
+        <button id="demoCurlerBtn" class="ghost demo-button" type="button">Try verified example: Sophie Abbs</button>
       </div>
       <p id="statusLine" class="status-line">Search across published Curling I/O roster records.</p>
     </section>
@@ -192,6 +199,6 @@
     </form>
   </dialog>
 
-  <script src="./app.js?v=v26.5"></script>
+  <script src="./app.js?v=v26.6"></script>
 </body>
 </html>
