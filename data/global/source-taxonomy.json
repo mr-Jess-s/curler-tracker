@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "purpose": "Define the source/document universe used to measure curling coverage without guessing completeness.",
+  "source_families": [
+    {
+      "id": "world_member_record",
+      "label": "World Curling member-association record",
+      "required_for_all_members": true,
+      "documents": ["member profile", "official association link", "membership metadata"]
+    },
+    {
+      "id": "national_governing_body",
+      "label": "National governing body",
+      "required_for_all_members": true,
+      "documents": ["official website", "contact information", "governance structure", "policies", "annual reports"]
+    },
+    {
+      "id": "national_events_results",
+      "label": "National championships and results",
+      "required_for_all_members": true,
+      "documents": ["event index", "draws", "scores", "standings", "rosters", "qualification paths", "champions"]
+    },
+    {
+      "id": "international_results",
+      "label": "World Curling international results",
+      "required_for_all_members": true,
+      "documents": ["athlete records", "team records", "event appearances", "game results", "medals"]
+    },    {
+      "id": "clubs_facilities",
+      "label": "Club and facility directory",
+      "required_for_all_members": true,
+      "documents": ["club/facility list", "public address", "public phone", "website", "operating status"]
+    },
+    {
+      "id": "rankings",
+      "label": "Official rankings or points systems",
+      "required_for_all_members": false,
+      "documents": ["ranking tables", "methodology", "historical ranking snapshots"]
+    },
+    {
+      "id": "athlete_team_profiles",
+      "label": "Official athlete and team profiles",
+      "required_for_all_members": false,
+      "documents": ["profiles", "lineups", "positions", "coaches", "clubs", "published aliases"]
+    },
+    {
+      "id": "calendar_draws",
+      "label": "Competition calendar and draw systems",
+      "required_for_all_members": true,
+      "documents": ["event calendar", "entries", "draws", "schedules"]
+    },
+    {
+      "id": "subnational_governance",
+      "label": "Subnational curling associations",
+      "required_for_all_members": false,
+      "documents": ["province/state/region association list", "contacts", "regional championships", "club directories"]
+    },    {
+      "id": "historical_digital_archives",
+      "label": "Digital historical archives",
+      "required_for_all_members": true,
+      "documents": ["historical results", "yearbooks", "programs", "newsletters", "fact books", "scanned records"]
+    },
+    {
+      "id": "historical_external_archives",
+      "label": "External archives and libraries",
+      "required_for_all_members": false,
+      "documents": ["library collections", "museum holdings", "newspaper archives", "web archives", "university collections"]
+    },
+    {
+      "id": "physical_archive_inventory",
+      "label": "Known physical-only curling records",
+      "required_for_all_members": true,
+      "documents": ["scorebooks", "draw sheets", "honour boards", "scrapbooks", "photos", "programs", "club records"]
+    }
+  ],
+  "progress_rules": {
+    "discovery_percent": "verified source families divided by applicable source families; unknown applicability prevents 100%",
+    "ingestion_percent": "successfully ingested machine-accessible sources divided by verified ingestible sources",
+    "archive_knowledge_percent": "classified digital/physical archive collections divided by discovered archive collections",
+    "country_overall_percent": "only emitted when applicability_unknown_count is zero; weighted average of discovery, ingestion and archive knowledge"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:16.231743+00:00",
+  "country_code": "CAN-QC",
+  "association": "Curling Québec",
+  "scope": "Quebec",
+  "seed_url": "https://www.curling-quebec.qc.ca",
+  "robots_url": "https://www.curling-quebec.qc.ca/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling-quebec.qc.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 206474,
+      "sha256": "f8d43eb8f251a877afc8629244aee5bd781b6e8b0e4a1b5d111b32e5f2c83aea",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\qc\\1b667b72fe973dc7ac84.html.gz",
+      "title": "Curling Québec"
+    },
+    {
+      "url": "https://www.curling-quebec.qc.ca/resultats",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 161356,
+      "sha256": "c115d73cd938217f3d41e06bd6745616407f2efb8004735cc94c70cf2f452b8a",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\qc\\7c4fc9be4e8638b35cb2.html.gz",
+      "title": "Résultats | Curling Québec"
+    }
+  ],
+  "pages_fetched": 2,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "national_events_results"
+  ]
+}

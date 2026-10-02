@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:08.371058+00:00",
+  "country_code": "CAN-NL",
+  "association": "Newfoundland and Labrador Curling Association",
+  "scope": "Newfoundland and Labrador",
+  "seed_url": "https://www.curlingnl.ca",
+  "robots_url": "https://www.curlingnl.ca/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingnl.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 47195,
+      "sha256": "40358dd173d67a9c8fab002a0161c68c03f83d2015a78eea90e5e06f4a5d6370",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nl\\1ead4b612d2068959ed2.html.gz",
+      "title": "Newfoundland & Labrador Curling Association"
+    },
+    {
+      "url": "https://www.curlingnl.ca/?page_id=45",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57268,
+      "sha256": "0c2997c387e3c6631137d117991613483b43eac4f9c67ef88513dfa588f7adf4",
+      "source_families": [
+        "calendar_draws",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nl\\f7eab1cb51a67f8af8d8.html.gz",
+      "title": "Tournament Registration, Schedule and Pricing « Newfoundland & Labrador Curling Association"
+    },
+    {
+      "url": "https://www.curlingnl.ca/scoreboard",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 42739,
+      "sha256": "28da052dc90e73639d4ee02a20798000c3fb63786963afecfca1085bb9dde86c",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nl\\33cb5b1c2c0c31553ff4.html.gz",
+      "title": "Scoreboard « Newfoundland & Labrador Curling Association"
+    }
+  ],
+  "pages_fetched": 3,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "national_events_results",
+    "subnational_governance"
+  ]
+}

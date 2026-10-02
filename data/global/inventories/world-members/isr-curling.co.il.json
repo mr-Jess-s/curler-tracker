@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:33.529683+00:00",
+  "country_code": "ISR",
+  "country": "Israel",
+  "association": "Israel Curling Association",
+  "seed_url": "https://www.curling.co.il",
+  "source": "https://worldcurling.org/member-association/israel/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.co.il/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curling.co.il",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

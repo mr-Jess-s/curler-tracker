@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:05.551365+00:00",
+  "country_code": "AUS",
+  "country": "Australia",
+  "association": "Curling Australia",
+  "seed_url": "https://curling.org.au",
+  "source": "https://worldcurling.org/member-association/australia/",
+  "max_pages": 20,
+  "robots_url": "https://curling.org.au/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://curling.org.au",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 118508,
+      "sha256": "823f72c0146dce7113c4108e0f0df3a9c15af3d33dbef8d6d1c4a8b28e6e94de",
+      "source_families": [],
+      "title": "Curling Australia | Home of Olympic Winter Sport and Paralympic Winter Sport of Curling in AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/about",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 124500,
+      "sha256": "bd8b1a8965de3f676e08ade9aea6c65c86df9a2849efa89bad46fb50684ed5ee",
+      "source_families": [],
+      "title": "About | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/the-board",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 117881,
+      "sha256": "173bb5d77e2716ef09d8ced71fc0af1aa77f83f3a54f15b4bcf04738c0ed0f08",
+      "source_families": [],
+      "title": "The Board | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/the-management-team",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115888,
+      "sha256": "56d74fc9be1aaa3cc062634c4d56a12bf1b232cded19f23ab74565d2a9d838b7",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "The Management Team | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/finance-audit-and-risk-far-committee",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95453,
+      "sha256": "b24d1ad70b651f91d33cb23b3ef5f901325142a286016aa9f1ea0b3114191e0c",
+      "source_families": [],
+      "title": "Finance, Audit and Risk (FAR) Committee | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/nominations-committee",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93526,
+      "sha256": "ca2907f2a30da607d2f99446effafc91c9a30187b6ac36e36c0e6764111c2597",
+      "source_families": [],
+      "title": "Nominations Committee | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/curling-australia-national-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 91300,
+      "sha256": "9527f8d7c211a867a0499879bba80258b1c98def0d0a7bc9b146c00d7a076f5a",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Curling Australia National Championships | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 73800,
+      "sha256": "a7ebcc3769c7971fc3bbc53fff01becad6b16553a093908879017a9a16c2721f",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Events | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/learn-about-curling-videos",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 98631,
+      "sha256": "38097f8a529233ba620923cc3c6b8fbfd6caf1901ea8777bd207f1121c0f0b6b",
+      "source_families": [],
+      "title": "Learn About Curling | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/athlete-commission",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93759,
+      "sha256": "81c45e6a491664220eeafd01a0683a0d8c18413723ac7aa9b0ebee177a715cdc",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Athlete Commission | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/results",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79223,
+      "sha256": "ecc2f6121fe1b5144b4447a9de387a80073a16004da26fbc9478ce0f5638ffcf",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Results | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/under-18s-under-25s",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 167252,
+      "sha256": "9263a7b94702ce417ad266a36cb6a4847705a7473a86023b82c3e09ef6434da2",
+      "source_families": [],
+      "title": "Under 18’s/ Under 25’s | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/calendar-of-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 64658,
+      "sha256": "81e922880834ca9968286fc50271832e7a5d607d9b00d6bcde2f9ddeed44fdb1",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Calendar | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/photo-gallery-2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95571,
+      "sha256": "66affbd41bf96e107edf47ebde603e3ba895b19062eed5ac6adf678472bb7800",
+      "source_families": [],
+      "title": "Photo Gallery | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/curling-categories",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 73913,
+      "sha256": "1c3f589f5cc6990c739ed9cf699ef72e62d9e2509c99f8a829766c4ee556688c",
+      "source_families": [],
+      "title": "Curling Categories | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/blog",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 89286,
+      "sha256": "ea0749ce560726416aecd399819d8f183811dfc90f6587cf9580f8aa3a8b513c",
+      "source_families": [],
+      "title": "Blog | Curling Australia | Home of Olympic Winter Sport and Paralympic Winter Sport of Curling in AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/resources",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88017,
+      "sha256": "1685ab6151aacaabc4d5e0a613d9389c2dcb2aea8a98a1d5e0bbcd96c7955a61",
+      "source_families": [],
+      "title": "Resources & Integrity | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/policies-and-documents",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 109214,
+      "sha256": "71b9b1a0616b4e4653ed73e0d52a6e779afb7c262f2e1d9fbce7099c720e8859",
+      "source_families": [],
+      "title": "Policies and Documents | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/annual-general-meeting",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 96442,
+      "sha256": "853c5738a5008e7b1786cf51796e2aa2394999bba817c3458f9a2b12dd84d47d",
+      "source_families": [],
+      "title": "Annual General Meeting | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/sport-integrity",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 92288,
+      "sha256": "289a2723edbfa43e2833d534b920040b38591774d2456f203072e7e2087b500c",
+      "source_families": [],
+      "title": "Sport Integrity | Curling AustraliaCreate a website or blog at WordPress.com"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "calendar_draws",
+    "national_events_results"
+  ]
+}

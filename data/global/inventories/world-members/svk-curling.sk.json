@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:40.526867+00:00",
+  "country_code": "SVK",
+  "country": "Slovakia",
+  "association": "Slovak Curling Association",
+  "seed_url": "https://www.curling.sk",
+  "source": "https://worldcurling.org/member-association/slovakia/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.sk/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.sk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 167178,
+      "sha256": "fb70f40c5b3615bf8fee8a75a2d56a0bec178701a29bfca85c68e1aa888044f6",
+      "source_families": [],
+      "title": "Slovenský Curling | Slovenský curlingový zväz"
+    },
+    {
+      "url": "https://www.curling.sk/kalendar-akcii",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 190709,
+      "sha256": "0cafec30830b3434eb32cc9f88fbd0a96bab9eb3d5c0a3985e44a48d3961aab3",
+      "source_families": [],
+      "title": "Rozpisy ligových zápasov | Slovenský Curling"
+    }
+  ],
+  "pages_fetched": 2,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

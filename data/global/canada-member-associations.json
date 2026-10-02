@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "country_code": "CAN",
+  "country": "Canada",
+  "generated_from": [
+    "https://www.curling.ca/wp-content/uploads/2025/10/AR25_ENG_FINAL_Oct9.pdf",
+    "https://www.curling.ca/blog/2026/02/05/2026-canadian-under-18-curling-championships-begin-sunday-in-timmins-ont/"
+  ],
+  "expected_member_associations": 14,
+  "member_associations": [
+    {"code":"AB","name":"Curling Alberta","website":"https://www.curlingalberta.ca","scope":"Alberta"},
+    {"code":"BC","name":"Curl BC","website":"https://www.curlbc.ca","scope":"British Columbia"},
+    {"code":"MB","name":"CurlManitoba","website":"https://www.curlmanitoba.org","scope":"Manitoba"},
+    {"code":"NB","name":"CurlingNB","website":"https://www.curlingnb.com","scope":"New Brunswick"},
+    {"code":"NL","name":"Newfoundland and Labrador Curling Association","website":"https://www.curlingnl.ca","scope":"Newfoundland and Labrador"},
+    {"code":"NO","name":"Northern Ontario Curling Association","website":"https://www.curlnoca.ca","scope":"Northern Ontario"},
+    {"code":"NT","name":"Curling NT","website":"https://www.nwtcurling.com","scope":"Northwest Territories"},    {"code":"NS","name":"Nova Scotia Curling Association","website":"https://www.nscurl.com","scope":"Nova Scotia"},
+    {"code":"NU","name":"Nunavut Curling Association","website":"","public_phone":"867-645-2534","scope":"Nunavut"},
+    {"code":"ON","name":"Curling Ontario","website":"https://www.curlingontario.ca","scope":"Ontario excluding Northern Ontario"},
+    {"code":"PE","name":"Curl PEI","website":"https://www.peicurling.com","scope":"Prince Edward Island"},
+    {"code":"QC","name":"Curling Québec","website":"https://www.curling-quebec.qc.ca","scope":"Quebec"},
+    {"code":"SK","name":"CURLSASK","website":"https://www.curlsask.ca","scope":"Saskatchewan"},
+    {"code":"YT","name":"Yukon Curling Association","website":"https://www.yukoncurling.ca","scope":"Yukon"}
+  ],
+  "coverage_fields": {
+    "club_directory": "not_started",
+    "public_address_phone": "not_started",
+    "competition_results": "not_started",
+    "historical_digital_archive": "not_started",
+    "physical_archive_inventory": "not_started",
+    "records_archive_contact": "not_started"
+  },
+  "notes": [
+    "Curling Canada's 2025 Annual Report lists 14 Member Associations.",
+    "The 2026 U18 championship page describes them as 10 provinces, three territories, and Northern Ontario.",
+    "No records/archive role is inferred from general staff titles."
+  ]
+}

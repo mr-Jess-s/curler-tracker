@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:31.015076+00:00",
+  "country_code": "FIN",
+  "country": "Finland",
+  "association": "Finnish Curling Association",
+  "seed_url": "https://www.curling.fi/",
+  "source": "https://worldcurling.org/member-association/finland/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.fi/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.fi",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 162981,
+      "sha256": "b33a9ea646d13016d9022c5967a55c2549564d326a0954173fa1458073c00fe7",
+      "source_families": [],
+      "title": "Etusivu | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 162981,
+      "sha256": "b33a9ea646d13016d9022c5967a55c2549564d326a0954173fa1458073c00fe7",
+      "source_families": [],
+      "title": "Etusivu | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/en",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60042,
+      "sha256": "9c7fb7fa78805ec33c26241374c7eda3422d1c3a765752917164dfc1b77c698f",
+      "source_families": [],
+      "title": "Home | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97468,
+      "sha256": "3aa118a7089e0a3896910312eeb1faaa032c1d0dad35496b255867c52ac30aea",
+      "source_families": [],
+      "title": "Tutustu & kokeile | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/harrastuspaikat",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 123191,
+      "sha256": "a62cd5922264380c1f9121721b5b88a87338702d150288fff862f9e8a121bd27",
+      "source_families": [],
+      "title": "Harrastuspaikat Suomessa | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/pahkinankuoressa",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 98353,
+      "sha256": "60c8cd7a088e358b1b9402626b840050376759c9b7d025d2f36b03c31026dfa0",
+      "source_families": [],
+      "title": "Curling pähkinänkuoressa | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/pahkinankuoressa/valineet",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95758,
+      "sha256": "a2f82ef02dd08dbf13108975f29cb1296099f16832b68c374c4934b7e0ec86f2",
+      "source_families": [],
+      "title": "Curlingvälineet | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/seurat/curlingseurat",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 103199,
+      "sha256": "ed1b0aed1e9a8a0114ee4fda76cb9b3047b6a39e421ddf188821509a6e6c1abe",
+      "source_families": [],
+      "title": "Suomen Curlingliiton jäsenseurat | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/pyoratuolicurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94213,
+      "sha256": "53d2ca651c42cb6f1cbd9af23dbe098e64daa6962bc513e350f1d1cd408067ef",
+      "source_families": [],
+      "title": "Pyörätuolicurling | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/kuurojen-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94308,
+      "sha256": "507d77e126f86b55ac6da120773f554f6374e4c55373a020d327d266ea707e8e",
+      "source_families": [],
+      "title": "Kuurojen curling | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/senioricurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94026,
+      "sha256": "1e42057e8f69dc2259fad2b791db46203029924726b73809ed69829ebdc581a2",
+      "source_families": [],
+      "title": "Senioricurling | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/lattiacurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93462,
+      "sha256": "d0cacf3376720a5d38958a3707ad1fe8e993f5df6d0c319b664445489fc6b247",
+      "source_families": [],
+      "title": "Lattiacurling | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/tutustu/mixed-doubles",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 100280,
+      "sha256": "6b090ccb328ba1169dcd0956378cd3cd17453fe5b6b9fe93c8c589fa51df3589",
+      "source_families": [],
+      "title": "Paricurling | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94117,
+      "sha256": "366d7bf1a19a379dd062e0198bcbb15fd70fd3f93920b0bfaa0460d0ccbd6525",
+      "source_families": [],
+      "title": "Kilpailutoiminta | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/kilpajarjestelma",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95482,
+      "sha256": "89c4ea8ab229b881ddc35967f0da419c787def1706224dfc03d986c966aff7d0",
+      "source_families": [],
+      "title": "Suomen Curlingliiton Kilpajärjestelmä | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/saannot/peli-ja-kilpailusaannot",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 182738,
+      "sha256": "be83f444caf2052e846ad2d7f0eeb7fc75cf59655f190dabcd9ba96cf5dc15c9",
+      "source_families": [],
+      "title": "Maailman Curlingliiton peli- ja kilpailusäännöt | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/kilpajarjestelma/sm-saanot",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 117182,
+      "sha256": "d878752b9439446fecbcb25225cdf60908670232270e922a69bcf13664cf5fcd",
+      "source_families": [],
+      "title": "Suomen Curlingliiton järjestämien SM-kilpailujen yleiset säännöt | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/kilpajarjestelma/pt-saannot",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94299,
+      "sha256": "603c3e02a5f53102d4b5465437137cdfb8c226da368a1b28bf5d94f3fd517ef6",
+      "source_families": [],
+      "title": "Pyörätuolicurlingin säännöt | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/kilpajarjestelma/lisenssit-ja-vakuutukset",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97748,
+      "sha256": "7a16b4ec0dcb48a21169a4c718180cf7d06a4a1af4a6b188f004c9301e978907",
+      "source_families": [],
+      "title": "Curlingliiton lisenssit ja vakuutukset | Curling.fi"
+    },
+    {
+      "url": "https://www.curling.fi/fi/kilpailut/huippu-urheilu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 96493,
+      "sha256": "20ab327806cdcb1b939d8bf667296dc92e45673bf7006a088f40031a1a09ea8a",
+      "source_families": [],
+      "title": "Huippu-urheilu ja maajoukkuetoiminta | Curling.fi"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

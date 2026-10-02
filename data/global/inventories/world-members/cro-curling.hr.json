@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:23:50.784671+00:00",
+  "country_code": "CRO",
+  "country": "Croatia",
+  "association": "Croatian Curling Association",
+  "seed_url": "https://www.curling.hr/",
+  "source": "https://worldcurling.org/member-association/croatia/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.hr/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.hr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 137288,
+      "sha256": "8113d9cb65195f0269d25191bece0f8a2777fff94a74fedb1cb31e2686155335",
+      "source_families": [],
+      "title": "Hrvatski curling savez – Službene web stranice Hrvatskog curling saveza"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:20.628583+00:00",
+  "country_code": "ROU",
+  "country": "Romania",
+  "association": "Romanian Curling Federation",
+  "seed_url": "https://www.curling-romania.com",
+  "source": "https://worldcurling.org/member-association/romania/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling-romania.com/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curling-romania.com",
+      "status": "error",
+      "error": "HTTP Error 500: Internal Server Error"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

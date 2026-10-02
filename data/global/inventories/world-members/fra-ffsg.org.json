@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:15.670788+00:00",
+  "country_code": "FRA",
+  "country": "France",
+  "association": "French Ice Sports Federation",
+  "seed_url": "https://www.ffsg.org/",
+  "source": "https://worldcurling.org/member-association/france/",
+  "max_pages": 20,
+  "robots_url": "https://www.ffsg.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.ffsg.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 348992,
+      "sha256": "8a8bbb933cd8e1977338020c162eeb7269d5a25c6e346b79efd8406bfebe8957",
+      "source_families": [],
+      "title": "Fédération Française des Sports de Glace"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

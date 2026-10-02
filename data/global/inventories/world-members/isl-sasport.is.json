@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:41.510623+00:00",
+  "country_code": "ISL",
+  "country": "Iceland",
+  "association": "Icelandic Sport Federation",
+  "seed_url": "https://www.sasport.is/krulla",
+  "source": "https://worldcurling.org/member-association/iceland/",
+  "max_pages": 20,
+  "robots_url": "https://www.sasport.is/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.sasport.is/krulla",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 21953,
+      "sha256": "ffc7c779901bb772c8ff33165310c814d9db52dc01bbd58a2797da64f30af19a",
+      "source_families": [],
+      "title": "Skautafélag Akureyrar | Krulla"
+    },
+    {
+      "url": "https://www.sasport.is",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 45096,
+      "sha256": "f6c9dbb5da334ebaa1c27701462f0739c3fe96908355196bbf392f7b3546aa4a",
+      "source_families": [],
+      "title": "Skautafélag Akureyrar"
+    },
+    {
+      "url": "https://www.sasport.is/byrjendur",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26016,
+      "sha256": "616205e0021c70192ea65a6a7eefd369ad6df72ba566414793321b81283a8ca0",
+      "source_families": [],
+      "title": "Skautafélag Akureyrar | Byrjendur"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/byrjendur",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 19169,
+      "sha256": "dff0fcd69061b384a7a98c38a9cf74336db68a027b0a2eedd93442fb78937de1",
+      "source_families": [],
+      "title": "Byrjendur | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/byrjendur",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 21301,
+      "sha256": "5cdce463383d8ccaf226b9621b6201304b6fc920df10a2c158b2f981bde767a7",
+      "source_families": [],
+      "title": "Byrjendur | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/byrjendur/krulla",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 16366,
+      "sha256": "8345a0e838dc6310102ac024088f9b471c9fa2b11619233f0058eea1c80537af",
+      "source_families": [],
+      "title": "Krulla | Skautafélag Akureyrar | Byrjendur"
+    },
+    {
+      "url": "https://www.sasport.is/byrjendur/skautahlaup",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17947,
+      "sha256": "97b62c53e0abe88effe85b2f49faa80f17a4fcad500cc0ebc5b411eed12a17e9",
+      "source_families": [],
+      "title": "Skautahlaup | Skautafélag Akureyrar | Byrjendur"
+    },
+    {
+      "url": "https://www.sasport.is/hokki",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26121,
+      "sha256": "9dedc7a48258f331661329184574a20c1f7d21f58b23d9e89367c11d3235aa45",
+      "source_families": [],
+      "title": "Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/aefingatimar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 16202,
+      "sha256": "fcb7bda0c6ea76fa10be0dea84816cb76f58379de967f60f60c9d19f1d9e68c9",
+      "source_families": [],
+      "title": "Æfingatímar | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/aefingagjold",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 18165,
+      "sha256": "6512e4787bcbc4b4cb6a25fd65f8cd715b7c492fee6252cfc66bd36437c37a07",
+      "source_families": [],
+      "title": "Æfingagjöld | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/stjorn-hokkideildar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17486,
+      "sha256": "a28596448b068da417b014f45e2da3c124e83aee9539d2758469f0cd1c08e4ac",
+      "source_families": [],
+      "title": "Stjórn hokkídeildar | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/thjalfarar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17041,
+      "sha256": "f492d6616ac90246bed66e7d50976c9f73cf9757eb679924a4fb66c70ee92781",
+      "source_families": [],
+      "title": "Þjálfarar | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/hokki/foreldrafelag",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17881,
+      "sha256": "59b4775df35436262886c921dd42714e72a768427716a864682f7ccd87438476",
+      "source_families": [],
+      "title": "Foreldrafélag | Skautafélag Akureyrar | Hokkí"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 24177,
+      "sha256": "86a135fb98bbc3e84e5bb50f5fac7644f6d5607409ccccaab293064d64747760",
+      "source_families": [],
+      "title": "Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/stjorn-og-thjalfarar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17429,
+      "sha256": "6041ab355c5a301b12a8f8a9eba54da6a9af9b8d1a3f47f176b1cad9fce982b6",
+      "source_families": [],
+      "title": "Stjórn listskautadeildar | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/aefingagjold",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 18307,
+      "sha256": "8b7a589583a99f11f11061a1474b94f9bc0a5c1175d4720bd6d6ac6cf3cc60bd",
+      "source_families": [],
+      "title": "Æfingagjöld | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/thjalfarar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 16541,
+      "sha256": "575832e385a77f7686e13d3d49453ae9f86c4658899d56b8f0b039ea53e46a41",
+      "source_families": [],
+      "title": "Þjálfarar | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/skautahlaup",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17526,
+      "sha256": "6ac958bcd52487e3265b1280a4dc5bf39c9a2526e311e58097855c061fe1373a",
+      "source_families": [],
+      "title": "Skautahlaup | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/listskautar/minningarsjodur-evu-bjargar-halldorsdottur",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 18621,
+      "sha256": "974d110bf3cf60a7911ac80eeb2e6d2d16fe3ef5ca291fdc0325be9ed1f6c1a8",
+      "source_families": [],
+      "title": "Minningarsjóður Evu Bjargar Halldórsdóttur | Skautafélag Akureyrar | Listskautar"
+    },
+    {
+      "url": "https://www.sasport.is/krulla/langar-thig-ad-profa-krullu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17380,
+      "sha256": "0b244dd86bcd2e714477ece5d89a8f80a1ace51c4ed4fc41b1d2f140861c9c6b",
+      "source_families": [],
+      "title": "Langar þig í Krullu | Skautafélag Akureyrar | Krulla"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

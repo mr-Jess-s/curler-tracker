@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:29:58.216358+00:00",
+  "profile_count": 38,
+  "error_count": 42,
+  "profiles": [
+    {
+      "world_code": "AFG",
+      "country_or_member": "Afghanistan",
+      "association_name": "Afghanistan Curling Federation",
+      "profile_url": "https://worldcurling.org/member-association/afghanistan/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/71",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/p/Afghanistan-Curling-Federation-100057130432848/",
+        "https://www.instagram.com/afghanistan_curling/?hl=en",
+        "https://www.youtube.com/channel/UCnLIfHrSBlM9-2sdlagUSuA"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.741805+00:00"
+    },
+    {
+      "world_code": "AND",
+      "country_or_member": "Andorra",
+      "association_name": "Andorra Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/andorra/",
+      "official_website": "https://www.faeg.ad/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/26",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/Andorracurling/",
+        "https://www.instagram.com/faegel"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.712906+00:00"
+    },
+    {
+      "world_code": "ARG",
+      "country_or_member": "Argentina",
+      "association_name": "Argentine Curling Federation",
+      "profile_url": "https://worldcurling.org/member-association/argentina/",
+      "official_website": "",
+      "historical_results_url": "",
+      "president": "Alejandro Almada",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.instagram.com/argentina.curling?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.738209+00:00"
+    },
+    {
+      "world_code": "ARM",
+      "country_or_member": "Armenia",
+      "association_name": "Wheelchair Curling Federation of Armenia",
+      "profile_url": "https://worldcurling.org/member-association/armenia/",
+      "official_website": "",
+      "historical_results_url": "",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/p/Armenian-wheelchair-curling-61551841473489/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.739437+00:00"
+    },
+    {
+      "world_code": "AUS",
+      "country_or_member": "Australia",
+      "association_name": "Curling Australia",
+      "profile_url": "https://worldcurling.org/member-association/australia/",
+      "official_website": "https://curling.org.au/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/30",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/CurlingAustralia/",
+        "https://www.instagram.com/curlingaustralia"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.742268+00:00"
+    },
+    {
+      "world_code": "AUT",
+      "country_or_member": "Austria",
+      "association_name": "Austrian Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/austria/",
+      "official_website": "http://www.curling-austria.at/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/23",
+      "president": "Marcus Schmitt",
+      "secretary_general": "Saskia Müller-Gastell",
+      "social_links": [
+        "https://www.facebook.com/curling.austria/",
+        "https://www.instagram.com/curlingaustria/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.740205+00:00"
+    },
+    {
+      "world_code": "BEL",
+      "country_or_member": "Belgium",
+      "association_name": "Belgian Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/belgium/",
+      "official_website": "http://www.belgiumcurling.be/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/39",
+      "president": "Chris Van Rosmalen",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/belgiancurling/",
+        "https://www.instagram.com/belgiancurling/",
+        "https://www.youtube.com/@curdiatv"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.741046+00:00"
+    },
+    {
+      "world_code": "BIH",
+      "country_or_member": "Bosnia and Herzegovina",
+      "association_name": "Bosnia and Herzegovina Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/bosnia-and-herzegovina/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/72",
+      "president": "Miro Klepić",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/people/KARS-BiH-Karling-savez-Bosne-i-Hercegovine/61554870420902/?mibextid=LQQJ4d",
+        "https://www.instagram.com/curling_bih/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.738819+00:00"
+    },
+    {
+      "world_code": "BLR",
+      "country_or_member": "Belarus",
+      "association_name": "Belarus",
+      "profile_url": "https://worldcurling.org/member-association/belarus/",
+      "official_website": "",
+      "historical_results_url": "",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:42.005649+00:00"
+    },
+    {
+      "world_code": "BOL",
+      "country_or_member": "Bolivia",
+      "association_name": "Curling Bolivia",
+      "profile_url": "https://worldcurling.org/member-association/bolivia/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/73",
+      "president": "Banesa Ninache Gutierrez",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/p/Curling-Bolivia-FBC-100063621990275/?_rdr"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.969334+00:00"
+    },
+    {
+      "world_code": "BRA",
+      "country_or_member": "Brazil",
+      "association_name": "Brazilian Ice Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/brazil/",
+      "official_website": "http://www.cbdg.org.br",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/52",
+      "president": "Emilio de Souza Strapasson",
+      "secretary_general": "",
+      "social_links": [
+        "https://twitter.com/CBDGbr",
+        "https://www.facebook.com/desportosnogelo/",
+        "https://www.instagram.com/icebrasil",
+        "https://www.youtube.com/channel/UCQ0dzhXBmzqm815RYTXk7A/feed"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:53.299348+00:00"
+    },
+    {
+      "world_code": "BUL",
+      "country_or_member": "Bulgaria",
+      "association_name": "Bulgarian Curling Federation",
+      "profile_url": "https://worldcurling.org/member-association/bulgaria/",
+      "official_website": "https://www.curling.bg",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/25",
+      "president": "Nikolay Runtov",
+      "secretary_general": "",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:30.910169+00:00"
+    },
+    {
+      "world_code": "CAN",
+      "country_or_member": "Canada",
+      "association_name": "Curling Canada",
+      "profile_url": "https://worldcurling.org/member-association/canada/",
+      "official_website": "https://www.curling.ca",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/7",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://twitter.com/CurlingCanada",
+        "https://www.facebook.com/curlingcanada/",
+        "https://www.instagram.com/curlingcanada/?hl=en",
+        "https://www.youtube.com/CurlingCanada"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.924218+00:00"
+    },
+    {
+      "world_code": "CHN",
+      "country_or_member": "China",
+      "association_name": "Chinese Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/china/",
+      "official_website": "https://www.sport.gov.cn/dyzx/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/35",
+      "president": "Sun Yuanfu",
+      "secretary_general": "Yu Haiyan",
+      "social_links": [
+        "https://x.com/CurlingChina"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.955976+00:00"
+    },
+    {
+      "world_code": "CRO",
+      "country_or_member": "Croatia",
+      "association_name": "Croatian Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/croatia/",
+      "official_website": "https://www.curling.hr/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/49",
+      "president": "Neven Pufnik",
+      "secretary_general": "Drazen Cutic",
+      "social_links": [
+        "https://www.facebook.com/people/Hrvatski-curling-savez/100063479680004/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.982320+00:00"
+    },
+    {
+      "world_code": "CZE",
+      "country_or_member": "Czechia",
+      "association_name": "Czech Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/czechia/",
+      "official_website": "https://www.curling.cz/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/21",
+      "president": "Karolina Frederiksen",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/cesky.curling",
+        "https://www.instagram.com/ceskycurling/",
+        "https://www.youtube.com/channel/UC0t2SaebwTriOBgYlSkVT1Q",
+        "https://x.com/ceskycurling"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:30.931546+00:00"
+    },
+    {
+      "world_code": "DEN",
+      "country_or_member": "Denmark",
+      "association_name": "Danish Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/denmark/",
+      "official_website": "http://www.curling.dk/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/14",
+      "president": "Henrik Juul Christoffersen",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/DanskCurlingForbund",
+        "https://www.instagram.com/danskcurlingforbund/",
+        "https://www.youtube.com/channel/UCb7h48ViYVflXW-6eA8W68g"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.091110+00:00"
+    },
+    {
+      "world_code": "DOM",
+      "country_or_member": "Dominican Republic",
+      "association_name": "Dominican Skating & Winter Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/dominican-republic/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/74",
+      "president": "Austo Rafael Arias",
+      "secretary_general": "",
+      "social_links": [
+        "https://twitter.com/Fedohielo1",
+        "https://www.facebook.com/fedohielo",
+        "https://www.instagram.com/fedohielo/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.098156+00:00"
+    },
+    {
+      "world_code": "ENG",
+      "country_or_member": "England",
+      "association_name": "English Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/england/",
+      "official_website": "https://www.curlingengland.com/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/15",
+      "president": "Gordon Lyon",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/englishcurling/?locale=en_GB",
+        "https://www.instagram.com/english_curling/",
+        "https://x.com/english_curling"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.121503+00:00"
+    },
+    {
+      "world_code": "ESP",
+      "country_or_member": "Spain",
+      "association_name": "Royal Spanish Ice Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/spain/",
+      "official_website": "https://www.rfedh.es/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/22",
+      "president": "Francisco Gonzáalez González",
+      "secretary_general": "",
+      "social_links": [
+        "https://twitter.com/fedhielo",
+        "https://www.facebook.com/fedhielo/",
+        "https://www.instagram.com/Fedhielo/",
+        "https://www.youtube.com/channel/UCuys7LUNfFcwwToSG3yMocw"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.151035+00:00"
+    },
+    {
+      "world_code": "EST",
+      "country_or_member": "Estonia",
+      "association_name": "Estonian Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/estonia/",
+      "official_website": "https://kurling.ee/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/47",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:31.168163+00:00"
+    },
+    {
+      "world_code": "FIN",
+      "country_or_member": "Finland",
+      "association_name": "Finnish Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/finland/",
+      "official_website": "https://www.curling.fi/en",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/24",
+      "president": "Toni SEPPERI",
+      "secretary_general": "Jaana LAURIKKA",
+      "social_links": [
+        "https://www.facebook.com/CurlingFinland/",
+        "https://www.instagram.com/curling.fi/?hl=en",
+        "https://www.youtube.com/c/curlingfinlandofficial"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.162800+00:00"
+    },
+    {
+      "world_code": "FRA",
+      "country_or_member": "France",
+      "association_name": "French Ice Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/france/",
+      "official_website": "https://ffsg.org/discipline/curling/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/12",
+      "president": "Gwenaëlle Noury",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/sportsdeglace",
+        "https://x.com/ffsportsdeglace"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.275208+00:00"
+    },
+    {
+      "world_code": "GBR",
+      "country_or_member": "Great Britain",
+      "association_name": "Great Britain",
+      "profile_url": "https://worldcurling.org/member-association/great-britain/",
+      "official_website": "",
+      "historical_results_url": "",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:31.296790+00:00"
+    },
+    {
+      "world_code": "GEO",
+      "country_or_member": "Georgia",
+      "association_name": "Georgian Curling Federation",
+      "profile_url": "https://worldcurling.org/member-association/georgia/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/63",
+      "president": "Avtandil Enukidze",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/georgiancurling/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.307294+00:00"
+    },
+    {
+      "world_code": "GER",
+      "country_or_member": "Germany",
+      "association_name": "German Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/germany/",
+      "official_website": "https://www.curling-dcv.de/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/13",
+      "president": "Peter Gaedeke",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.instagram.com/teamdeutschland_curling/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.378465+00:00"
+    },
+    {
+      "world_code": "GRE",
+      "country_or_member": "Greece",
+      "association_name": "Hellenic Winter Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/greece/",
+      "official_website": "http://www.wintersports.gr",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/42",
+      "president": "Georgious Nikitidis",
+      "secretary_general": "Ilias Milios",
+      "social_links": [
+        "https://www.facebook.com/eoxa.hwsf/",
+        "https://www.instagram.com/wintersports.gr/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.387469+00:00"
+    },
+    {
+      "world_code": "HKG",
+      "country_or_member": "Hong Kong, China",
+      "association_name": "Curling Hong Kong China",
+      "profile_url": "https://worldcurling.org/member-association/hong-kong-china/",
+      "official_website": "https://curling.org.hk/",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/64",
+      "president": "",
+      "secretary_general": "Kelvin Cheung",
+      "social_links": [
+        "https://www.facebook.com/Hong-Kong-Curling-Association- 839946452785250/",
+        "https://www.instagram.com/hkcurling/",
+        "https://www.youtube.com/ @hongkongcurlingassociation2067"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.481867+00:00"
+    },
+    {
+      "world_code": "IRL",
+      "country_or_member": "Ireland",
+      "association_name": "Irish Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/ireland/",
+      "official_website": "http://www.irish-curling.org",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/43",
+      "president": "Steve Callan",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/IrishCurlingAssociation/",
+        "https://www.instagram.com/irishcurling/",
+        "https://x.com/irishcurling?lang=en"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.571335+00:00"
+    },
+    {
+      "world_code": "ISL",
+      "country_or_member": "Iceland",
+      "association_name": "Icelandic Sport Federation",
+      "profile_url": "https://worldcurling.org/member-association/iceland/",
+      "official_website": "https://www.sasport.is/krulla",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/48",
+      "president": "Líney Rut Halldórdóttir",
+      "secretary_general": "Hallgrímuir Valsson",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:31.647259+00:00"
+    },
+    {
+      "world_code": "ISR",
+      "country_or_member": "Israel",
+      "association_name": "Israel Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/israel/",
+      "official_website": "http://www.curling.co.il",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/57",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/curlingisrael",
+        "https://www.instagram.com/israelcurlingfed/",
+        "https://x.com/israelcurling?lang=en"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:31.736409+00:00"
+    },
+    {
+      "world_code": "ISV",
+      "country_or_member": "U.S. Virgin Islands",
+      "association_name": "U.S. Virgin Islands Curling Association Inc.",
+      "profile_url": "https://worldcurling.org/member-association/us-virgin-islands/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/58",
+      "president": "Kevin Wenk",
+      "secretary_general": "Dale Benedict",
+      "social_links": [
+        "https://www.facebook.com/VIWinterSports/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:44.362258+00:00"
+    },
+    {
+      "world_code": "ITA",
+      "country_or_member": "Italy",
+      "association_name": "Italian Ice Sports Federation",
+      "profile_url": "https://worldcurling.org/member-association/italy/",
+      "official_website": "http://www.fisg.it",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/16",
+      "president": "Andrea Gios",
+      "secretary_general": "",
+      "social_links": [
+        "https://twitter.com/fisg_it",
+        "https://www.facebook.com/fisg.it/",
+        "https://www.instagram.com/federazione_sport_ghiaccio/",
+        "https://www.youtube.com/channel/UCKGTWYnNCtrmQnn6aXQX89Q"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:54.080516+00:00"
+    },
+    {
+      "world_code": "JAM",
+      "country_or_member": "Jamaica",
+      "association_name": "Curling Jamaica",
+      "profile_url": "https://worldcurling.org/member-association/jamaica/",
+      "official_website": "http://www.curlingjamaica.com",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/85",
+      "president": "Ian Robertson",
+      "secretary_general": "Hannah Robertson",
+      "social_links": [
+        "https://www.facebook.com/people/Curling- Jamaica/100092511746776/",
+        "https://www.instagram.com/curlingjamaica/"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:42.169408+00:00"
+    },
+    {
+      "world_code": "JPN",
+      "country_or_member": "Japan",
+      "association_name": "Japan Curling Association",
+      "profile_url": "https://worldcurling.org/member-association/japan/",
+      "official_website": "http://www.curling.or.jp",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/33",
+      "president": "Teruyuki Kaimori",
+      "secretary_general": "Masatsugu Odaka",
+      "social_links": [
+        "https://www.facebook.com/japancurling/",
+        "https://www.instagram.com/japan_curling/?hl=en-gb",
+        "https://www.youtube.com/@CurlingJapan"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:42.349946+00:00"
+    },
+    {
+      "world_code": "KAZ",
+      "country_or_member": "Kazakhstan",
+      "association_name": "Kazakhstan Curling, Floor Curling & Petanque Federation",
+      "profile_url": "https://worldcurling.org/member-association/kazakhstan/",
+      "official_website": "https://olympic.kz/en/sport/15-assotsiatsiya-kerlinga-respubliki-kazakhstan",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/45",
+      "president": "Amantay Z Kurenbekov",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.instagram.com/curlingkz/?hl=en-gb"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:42.523913+00:00"
+    },
+    {
+      "world_code": "KEN",
+      "country_or_member": "Kenya",
+      "association_name": "Kenya Curling Federation",
+      "profile_url": "https://worldcurling.org/member-association/kenya/",
+      "official_website": "http://www.kenyacurlingfederation.org",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/83",
+      "president": "Laventer Atieno Oguta",
+      "secretary_general": "",
+      "social_links": [
+        "https://www.facebook.com/p/KENYA-curling-federation-100063908721441/",
+        "https://www.instagram.com/kenya_curlingfederation/",
+        "https://x.com/KenyaCurling?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+      ],
+      "profile_retrieved_at": "2026-09-26T11:29:58.215311+00:00"
+    },
+    {
+      "world_code": "KGZ",
+      "country_or_member": "Kyrgyzstan",
+      "association_name": "Curling Federation of Kyrgyzstan",
+      "profile_url": "https://worldcurling.org/member-association/kyrgyzstan/",
+      "official_website": "",
+      "historical_results_url": "https://results.worldcurling.org/Association/Details/76",
+      "president": "",
+      "secretary_general": "",
+      "social_links": [],
+      "profile_retrieved_at": "2026-09-26T11:29:57.810426+00:00"
+    }
+  ],
+  "errors": [
+    {
+      "world_code": "GUY",
+      "profile_url": "https://worldcurling.org/member-association/guyana/",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "world_code": "HUN",
+      "profile_url": "https://worldcurling.org/member-association/hungary/",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "world_code": "KOR",
+      "profile_url": "https://worldcurling.org/member-association/korea/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "IRI",
+      "profile_url": "https://worldcurling.org/member-association/iran/",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "world_code": "IND",
+      "profile_url": "https://worldcurling.org/member-association/india/",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "world_code": "KOS",
+      "profile_url": "https://worldcurling.org/member-association/kosovo/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "KSA",
+      "profile_url": "https://worldcurling.org/member-association/saudi-arabia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "KUW",
+      "profile_url": "https://worldcurling.org/member-association/kuwait/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "LAT",
+      "profile_url": "https://worldcurling.org/member-association/latvia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "LIE",
+      "profile_url": "https://worldcurling.org/member-association/liechtenstein/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "LTU",
+      "profile_url": "https://worldcurling.org/member-association/lithuania/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "LUX",
+      "profile_url": "https://worldcurling.org/member-association/luxembourg/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "MEX",
+      "profile_url": "https://worldcurling.org/member-association/mexico/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "MGL",
+      "profile_url": "https://worldcurling.org/member-association/mongolia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "MON",
+      "profile_url": "https://worldcurling.org/member-association/monaco/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "NED",
+      "profile_url": "https://worldcurling.org/member-association/netherlands/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "NGR",
+      "profile_url": "https://worldcurling.org/member-association/nigeria/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "NOR",
+      "profile_url": "https://worldcurling.org/member-association/norway/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "NZL",
+      "profile_url": "https://worldcurling.org/member-association/new-zealand/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "PHI",
+      "profile_url": "https://worldcurling.org/member-association/philippines/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "PAK",
+      "profile_url": "https://worldcurling.org/member-association/pakistan/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "POL",
+      "profile_url": "https://worldcurling.org/member-association/poland/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "POR",
+      "profile_url": "https://worldcurling.org/member-association/portugal/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "QAT",
+      "profile_url": "https://worldcurling.org/member-association/qatar/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "PUR",
+      "profile_url": "https://worldcurling.org/member-association/puerto-rico/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "ROU",
+      "profile_url": "https://worldcurling.org/member-association/romania/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "RUS",
+      "profile_url": "https://worldcurling.org/member-association/russia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SCO",
+      "profile_url": "https://worldcurling.org/member-association/scotland/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SGP",
+      "profile_url": "https://worldcurling.org/member-association/singapore/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SLO",
+      "profile_url": "https://worldcurling.org/member-association/slovenia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SRB",
+      "profile_url": "https://worldcurling.org/member-association/serbia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SUI",
+      "profile_url": "https://worldcurling.org/member-association/switzerland/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SVK",
+      "profile_url": "https://worldcurling.org/member-association/slovakia/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "SWE",
+      "profile_url": "https://worldcurling.org/member-association/sweden/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "THA",
+      "profile_url": "https://worldcurling.org/member-association/thailand/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "TKM",
+      "profile_url": "https://worldcurling.org/member-association/turkmenistan/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "TPE",
+      "profile_url": "https://worldcurling.org/member-association/chinese-taipei/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "TUR",
+      "profile_url": "https://worldcurling.org/member-association/turkiye/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "UAE",
+      "profile_url": "https://worldcurling.org/member-association/united-arab-emirates/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "UKR",
+      "profile_url": "https://worldcurling.org/member-association/ukraine/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "USA",
+      "profile_url": "https://worldcurling.org/member-association/united-states/",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "world_code": "WAL",
+      "profile_url": "https://worldcurling.org/member-association/wales/",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

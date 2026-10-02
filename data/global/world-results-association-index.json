@@ -1,0 +1,750 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:36:07.766077+00:00",
+  "source": "https://results.worldcurling.org/Association",
+  "association_count": 83,
+  "associations": [
+    {
+      "world_code": "AFG",
+      "association_id": 71,
+      "labels": [
+        "Afghanistan",
+        "Afghanistan Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/71"
+    },
+    {
+      "world_code": "AND",
+      "association_id": 26,
+      "labels": [
+        "Andorra",
+        "Andorra Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/26"
+    },
+    {
+      "world_code": "ARG",
+      "association_id": 92,
+      "labels": [
+        "Argentina",
+        "Argentine Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/92"
+    },
+    {
+      "world_code": "ARM",
+      "association_id": 91,
+      "labels": [
+        "Armenia",
+        "Wheelchair Curling Federation of Armenia"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/91"
+    },
+    {
+      "world_code": "AUS",
+      "association_id": 30,
+      "labels": [
+        "Australia",
+        "Australian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/30"
+    },
+    {
+      "world_code": "AUT",
+      "association_id": 23,
+      "labels": [
+        "Austria",
+        "Austrian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/23"
+    },
+    {
+      "world_code": "BEL",
+      "association_id": 39,
+      "labels": [
+        "Belgium",
+        "Belgium Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/39"
+    },
+    {
+      "world_code": "BIH",
+      "association_id": 72,
+      "labels": [
+        "Bosnia and Herzegovina",
+        "Bosnia and Herzegovina Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/72"
+    },
+    {
+      "world_code": "BLR",
+      "association_id": 28,
+      "labels": [
+        "Belarus",
+        "Belarusian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/28"
+    },
+    {
+      "world_code": "BOL",
+      "association_id": 73,
+      "labels": [
+        "Bolivia",
+        "Bolivian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/73"
+    },
+    {
+      "world_code": "BRA",
+      "association_id": 52,
+      "labels": [
+        "Brazil",
+        "Brazilian Ice Sports Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/52"
+    },
+    {
+      "world_code": "BUL",
+      "association_id": 25,
+      "labels": [
+        "Bulgaria",
+        "Bulgarian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/25"
+    },
+    {
+      "world_code": "CAN",
+      "association_id": 7,
+      "labels": [
+        "Canada",
+        "Curling Canada"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/7"
+    },
+    {
+      "world_code": "CHN",
+      "association_id": 35,
+      "labels": [
+        "China",
+        "Chinese Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/35"
+    },
+    {
+      "world_code": "CRO",
+      "association_id": 49,
+      "labels": [
+        "Croatia",
+        "Croatian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/49"
+    },
+    {
+      "world_code": "CZE",
+      "association_id": 40,
+      "labels": [
+        "Czechoslovakia",
+        "Czechoslovakian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/40"
+    },
+    {
+      "world_code": "DEN",
+      "association_id": 14,
+      "labels": [
+        "Danish Curling Association",
+        "Denmark"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/14"
+    },
+    {
+      "world_code": "DOM",
+      "association_id": 74,
+      "labels": [
+        "Dominican Republic",
+        "Dominican Skating & Winter Sports Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/74"
+    },
+    {
+      "world_code": "ENG",
+      "association_id": 15,
+      "labels": [
+        "England",
+        "English Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/15"
+    },
+    {
+      "world_code": "ESP",
+      "association_id": 22,
+      "labels": [
+        "Spain",
+        "Spanish Ice Sports Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/22"
+    },
+    {
+      "world_code": "EST",
+      "association_id": 47,
+      "labels": [
+        "Estonia",
+        "Estonian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/47"
+    },
+    {
+      "world_code": "FIN",
+      "association_id": 24,
+      "labels": [
+        "Finland",
+        "Finnish Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/24"
+    },
+    {
+      "world_code": "FRA",
+      "association_id": 12,
+      "labels": [
+        "France",
+        "French Ice Sports Federation, FFSG"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/12"
+    },
+    {
+      "world_code": "GBR",
+      "association_id": 34,
+      "labels": [
+        "Great Britain"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/34"
+    },
+    {
+      "world_code": "GEO",
+      "association_id": 63,
+      "labels": [
+        "Georgia",
+        "Georgian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/63"
+    },
+    {
+      "world_code": "GER",
+      "association_id": 13,
+      "labels": [
+        "German Curling Association",
+        "Germany"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/13"
+    },
+    {
+      "world_code": "GRE",
+      "association_id": 42,
+      "labels": [
+        "Greece",
+        "Hellenic Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/42"
+    },
+    {
+      "world_code": "GUY",
+      "association_id": 65,
+      "labels": [
+        "Guyana",
+        "Guyana Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/65"
+    },
+    {
+      "world_code": "HKG",
+      "association_id": 64,
+      "labels": [
+        "Hong Kong Curling Association",
+        "Hong Kong, China"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/64"
+    },
+    {
+      "world_code": "HUN",
+      "association_id": 38,
+      "labels": [
+        "Hungarian Curling Federation",
+        "Hungary"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/38"
+    },
+    {
+      "world_code": "IND",
+      "association_id": 75,
+      "labels": [
+        "Curling Federation of India",
+        "India"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/75"
+    },
+    {
+      "world_code": "IRI",
+      "association_id": 90,
+      "labels": [
+        "Iran",
+        "Iran Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/90"
+    },
+    {
+      "world_code": "IRL",
+      "association_id": 43,
+      "labels": [
+        "Ireland",
+        "Irish Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/43"
+    },
+    {
+      "world_code": "ISL",
+      "association_id": 48,
+      "labels": [
+        "Iceland",
+        "Icelandic Sports Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/48"
+    },
+    {
+      "world_code": "ISR",
+      "association_id": 57,
+      "labels": [
+        "Israel",
+        "Israel Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/57"
+    },
+    {
+      "world_code": "ISV",
+      "association_id": 58,
+      "labels": [
+        "US Virgin Islands Curling Association",
+        "Virgin Islands"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/58"
+    },
+    {
+      "world_code": "ITA",
+      "association_id": 16,
+      "labels": [
+        "Italian Ice-Sports Federation",
+        "Italy"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/16"
+    },
+    {
+      "world_code": "JAM",
+      "association_id": 85,
+      "labels": [
+        "Curling Jamaica",
+        "Jamaica"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/85"
+    },
+    {
+      "world_code": "JPN",
+      "association_id": 33,
+      "labels": [
+        "Japan",
+        "Japan Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/33"
+    },
+    {
+      "world_code": "KAZ",
+      "association_id": 45,
+      "labels": [
+        "Kazakhstan",
+        "Kazakhstan Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/45"
+    },
+    {
+      "world_code": "KEN",
+      "association_id": 83,
+      "labels": [
+        "Kenya",
+        "Kenya Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/83"
+    },
+    {
+      "world_code": "KGZ",
+      "association_id": 76,
+      "labels": [
+        "Curling Federation of Kyrgyzstan",
+        "Kyrgyzstan"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/76"
+    },
+    {
+      "world_code": "KOR",
+      "association_id": 32,
+      "labels": [
+        "Korea",
+        "Korea Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/32"
+    },
+    {
+      "world_code": "KSA",
+      "association_id": 69,
+      "labels": [
+        "Kingdom Curling Association",
+        "Saudi Arabia"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/69"
+    },
+    {
+      "world_code": "KUW",
+      "association_id": 77,
+      "labels": [
+        "Kuwait",
+        "Kuwait Winter Games Club"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/77"
+    },
+    {
+      "world_code": "LAT",
+      "association_id": 18,
+      "labels": [
+        "Latvia",
+        "Latvian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/18"
+    },
+    {
+      "world_code": "LIE",
+      "association_id": 41,
+      "labels": [
+        "Liechtenstein",
+        "Liechtenstein Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/41"
+    },
+    {
+      "world_code": "LTU",
+      "association_id": 51,
+      "labels": [
+        "Lithuania",
+        "Lithuanian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/51"
+    },
+    {
+      "world_code": "LUX",
+      "association_id": 29,
+      "labels": [
+        "Luxembourg",
+        "Luxembourg Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/29"
+    },
+    {
+      "world_code": "MEX",
+      "association_id": 66,
+      "labels": [
+        "FMC DEPORTES INVERNALES AC",
+        "Mexico"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/66"
+    },
+    {
+      "world_code": "MGL",
+      "association_id": 61,
+      "labels": [
+        "Mongolia",
+        "Mongolian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/61"
+    },
+    {
+      "world_code": "MON",
+      "association_id": 94,
+      "labels": [
+        "Monaco",
+        "Monegasque Skating Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/94"
+    },
+    {
+      "world_code": "NED",
+      "association_id": 17,
+      "labels": [
+        "Netherlands",
+        "Netherlands Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/17"
+    },
+    {
+      "world_code": "NGR",
+      "association_id": 70,
+      "labels": [
+        "Nigeria",
+        "Nigeria Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/70"
+    },
+    {
+      "world_code": "NOR",
+      "association_id": 10,
+      "labels": [
+        "Norway",
+        "Norwegian Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/10"
+    },
+    {
+      "world_code": "NPA",
+      "association_id": 82,
+      "labels": [
+        "NPA"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/82"
+    },
+    {
+      "world_code": "NZL",
+      "association_id": 31,
+      "labels": [
+        "New Zealand",
+        "New Zealand Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/31"
+    },
+    {
+      "world_code": "OAR",
+      "association_id": 67,
+      "labels": [
+        "Olympic Athletes From Russia"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/67"
+    },
+    {
+      "world_code": "PAK",
+      "association_id": 89,
+      "labels": [
+        "Pakistan",
+        "Winter Sports Federation Pakistan"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/89"
+    },
+    {
+      "world_code": "PHI",
+      "association_id": 87,
+      "labels": [
+        "Curling Pilipinas",
+        "Philippines"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/87"
+    },
+    {
+      "world_code": "POL",
+      "association_id": 84,
+      "labels": [
+        "Poland",
+        "Polish Curling Clubs Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/84"
+    },
+    {
+      "world_code": "POR",
+      "association_id": 78,
+      "labels": [
+        "Portugal",
+        "Portugese Winter Sports Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/78"
+    },
+    {
+      "world_code": "PUR",
+      "association_id": 88,
+      "labels": [
+        "Puerto Rican Curling Federation",
+        "Puerto Rico"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/88"
+    },
+    {
+      "world_code": "QAT",
+      "association_id": 60,
+      "labels": [
+        "Qatar",
+        "Qatar Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/60"
+    },
+    {
+      "world_code": "RCF",
+      "association_id": 80,
+      "labels": [
+        "RCF"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/80"
+    },
+    {
+      "world_code": "RKS",
+      "association_id": 56,
+      "labels": [
+        "Kosovo",
+        "Kosovo Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/56"
+    },
+    {
+      "world_code": "ROC",
+      "association_id": 81,
+      "labels": [
+        "ROC"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/81"
+    },
+    {
+      "world_code": "ROU",
+      "association_id": 55,
+      "labels": [
+        "Romania",
+        "Romanian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/55"
+    },
+    {
+      "world_code": "RUS",
+      "association_id": 19,
+      "labels": [
+        "Russia",
+        "Russian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/19"
+    },
+    {
+      "world_code": "SCO",
+      "association_id": 6,
+      "labels": [
+        "Royal Caledonian Curling Club",
+        "Scotland"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/6"
+    },
+    {
+      "world_code": "SGP",
+      "association_id": 93,
+      "labels": [
+        "Curling Association Singapore",
+        "Singapore"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/93"
+    },
+    {
+      "world_code": "SLO",
+      "association_id": 54,
+      "labels": [
+        "Slovenia",
+        "Slovenian Curling Assocation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/54"
+    },
+    {
+      "world_code": "SRB",
+      "association_id": 50,
+      "labels": [
+        "National Curling Association of Serbia",
+        "Serbia"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/50"
+    },
+    {
+      "world_code": "SUI",
+      "association_id": 11,
+      "labels": [
+        "Swiss Curling Association",
+        "Switzerland"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/11"
+    },
+    {
+      "world_code": "SVK",
+      "association_id": 46,
+      "labels": [
+        "Slovak Curling Association",
+        "Slovakia"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/46"
+    },
+    {
+      "world_code": "SWE",
+      "association_id": 9,
+      "labels": [
+        "Sweden",
+        "Swedish Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/9"
+    },
+    {
+      "world_code": "THA",
+      "association_id": 86,
+      "labels": [
+        "Thai Curling Association",
+        "Thailand"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/86"
+    },
+    {
+      "world_code": "TKM",
+      "association_id": 79,
+      "labels": [
+        "Curling Federation of Turkmenistan",
+        "Turkmenistan"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/79"
+    },
+    {
+      "world_code": "TPE",
+      "association_id": 36,
+      "labels": [
+        "Chinese Taipei",
+        "Chinese Taipei Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/36"
+    },
+    {
+      "world_code": "TUR",
+      "association_id": 53,
+      "labels": [
+        "Turkish Curling Assocation",
+        "Türkiye"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/53"
+    },
+    {
+      "world_code": "UKR",
+      "association_id": 59,
+      "labels": [
+        "Ukraine",
+        "Ukrainian Curling Federation"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/59"
+    },
+    {
+      "world_code": "USA",
+      "association_id": 8,
+      "labels": [
+        "United States Curling Association",
+        "United States of America"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/8"
+    },
+    {
+      "world_code": "WAL",
+      "association_id": 27,
+      "labels": [
+        "Wales",
+        "Welsh Curling Association"
+      ],
+      "details_url": "https://results.worldcurling.org/Association/Details/27"
+    }
+  ]
+}

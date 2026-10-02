@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:12.052601+00:00",
+  "country_code": "CAN-ON",
+  "association": "Curling Ontario",
+  "scope": "Ontario excluding Northern Ontario",
+  "seed_url": "https://www.curlingontario.ca",
+  "robots_url": "https://www.curlingontario.ca/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curlingontario.ca",
+      "status": "error",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

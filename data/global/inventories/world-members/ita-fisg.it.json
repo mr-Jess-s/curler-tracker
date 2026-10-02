@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:26.424635+00:00",
+  "country_code": "ITA",
+  "country": "Italy",
+  "association": "Italian Ice Sports Federation",
+  "seed_url": "https://www.fisg.it",
+  "source": "https://worldcurling.org/member-association/italy/",
+  "max_pages": 20,
+  "robots_url": "https://www.fisg.it/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.fisg.it",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 258789,
+      "sha256": "ba3016e6b83e81a496d7c90d4e670e299e58b916b82c21d401a8c0494fcbdd75",
+      "source_families": [],
+      "title": "FISG - Federazione Italiana Sport del Ghiaccio"
+    },
+    {
+      "url": "https://www.fisg.it/backend",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 84232,
+      "sha256": "e815fbd10530255ccc8f292c57fec9ee7ef09589fa2442d3a6ba4360d51aae35",
+      "source_families": [],
+      "title": "Fisgonline"
+    },
+    {
+      "url": "https://www.fisg.it/category/federazione/news-federazione",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 74999,
+      "sha256": "9b84e4b898ab13c05dc7d075449ad5daafb354d0dcbdf01ebd3e651a03a1e3c2",
+      "source_families": [],
+      "title": "Categoria: News Federazione"
+    },
+    {
+      "url": "https://www.fisg.it/chi-siamo",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60684,
+      "sha256": "d4ce912d958d9921daa1cc08e6a48c40cdb9ab366ba9576f0012d8481fbd06dc",
+      "source_families": [],
+      "title": "Chi siamo"
+    },
+    {
+      "url": "https://www.fisg.it/federazione-trasparente",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76855,
+      "sha256": "a3adcb640f2e7a2d2ceb60bef26ecf324043d85e6332255b365c90ca646bd7a4",
+      "source_families": [],
+      "title": "Federazione Trasparente"
+    },
+    {
+      "url": "https://www.fisg.it/documenti-e-comunicazioni",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 70993,
+      "sha256": "05c0117e25892e28e48b0d4ae0ac2a00c246fc4ecf74c57aa03e83f828fffdce",
+      "source_families": [],
+      "title": "Documenti e Comunicazioni"
+    },
+    {
+      "url": "https://www.fisg.it/48a-assemblea-nazionale-ordinaria-elettiva",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 61513,
+      "sha256": "7851d55dde732982c470acbfc0f90c0853de972161c7117436714c81a7f3c565",
+      "source_families": [],
+      "title": "48ª Assemblea Nazionale Ordinaria Elettiva"
+    },
+    {
+      "url": "https://www.fisg.it/assicurazioni-ed-infortuni",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69456,
+      "sha256": "9257f3c0bbd86ea87f715d8b61fe52056428816d4273d82a8046e24b021154ed",
+      "source_families": [],
+      "title": "Assicurazioni ed Infortuni"
+    },
+    {
+      "url": "https://www.fisg.it/organi-territoriali",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 72250,
+      "sha256": "314a6b29ce5020cc9715e0f645ed5396dcdd608f6e63e7354b8fc052f729e4e2",
+      "source_families": [],
+      "title": "Organi Territoriali"
+    },
+    {
+      "url": "https://www.fisg.it/organi-di-giustizia",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 66081,
+      "sha256": "ed73e1471ad64e7cb74c63ad1c03ed1d68be24d8d9ced3f20184e626bc8c0ac1",
+      "source_families": [],
+      "title": "Organi di Giustizia"
+    },
+    {
+      "url": "https://www.fisg.it/sponsor",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76855,
+      "sha256": "0097e45baf7aa36c4896202a058f9bd9ca49fcd4748c173fa66536b762db5a72",
+      "source_families": [],
+      "title": "Sponsor"
+    },
+    {
+      "url": "https://www.fisg.it/hockey-3",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 139464,
+      "sha256": "352de75b410fe511ef899809a52dbb8a8bc239f3ba31ea3d5c30f6004cb44ed0",
+      "source_families": [],
+      "title": "Hockey"
+    },
+    {
+      "url": "https://www.fisg.it/para-ice-hockey",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76404,
+      "sha256": "9defa67f85cb3f579f808fe950dabd8ea7cf1edc424bc313ad05852cc044d5af",
+      "source_families": [],
+      "title": "Para Ice Hockey"
+    },
+    {
+      "url": "https://www.fisg.it/artistico-2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 126271,
+      "sha256": "512a22105190030323eab0f59a8e87c38f9e82321bca8a4d52d0b57be0f7da87",
+      "source_families": [],
+      "title": "Artistico"
+    },
+    {
+      "url": "https://www.fisg.it/danza-4",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 125315,
+      "sha256": "bb150b99b10cb4424a3d01bbe1300f4d918c08f6467c8541a56e9a2dcf0bd8db",
+      "source_families": [],
+      "title": "Danza"
+    },
+    {
+      "url": "https://www.fisg.it/sincronizzato-3",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 109497,
+      "sha256": "8ff6286d3d98e094887d30c9f3ed27c6f4d74f1b503230b8ca37582534fd8ae7",
+      "source_families": [],
+      "title": "Sincronizzato"
+    },
+    {
+      "url": "https://www.fisg.it/speed-skating",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 112312,
+      "sha256": "c639c1a733290a5f52b4042e457888df2415dd19156e5c63501c035ddf19d79a",
+      "source_families": [],
+      "title": "Pista Lunga"
+    },
+    {
+      "url": "https://www.fisg.it/short-track",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 125085,
+      "sha256": "ab7be7bc28fd374a18803a2ed7ae994085efc48518e214a64fab6b3d88679a70",
+      "source_families": [],
+      "title": "Short Track"
+    },
+    {
+      "url": "https://www.fisg.it/curling-2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 127222,
+      "sha256": "95f945e01d3697797c93022b5d68aa336546d44e4abdae99351440657196f8ec",
+      "source_families": [],
+      "title": "Curling"
+    },
+    {
+      "url": "https://www.fisg.it/wheelchair-curling-3",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76832,
+      "sha256": "8cbf10efada14a2526a2a6cabc4e652b67900c0fb6120a57070f1e96eeb6774e",
+      "source_families": [],
+      "title": "Wheelchair Curling"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

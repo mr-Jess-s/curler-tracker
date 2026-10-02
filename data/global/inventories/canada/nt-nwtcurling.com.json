@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:23.574332+00:00",
+  "country_code": "CAN-NT",
+  "association": "Curling NT",
+  "scope": "Northwest Territories",
+  "seed_url": "https://www.nwtcurling.com",
+  "robots_url": "https://www.nwtcurling.com/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.nwtcurling.com",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 763022,
+      "sha256": "33261b52efbfa79e5faf54f71aa358ba2cffe9b52d7523c099cdc340bb032c93",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\8453b319c95579c17ace.html.gz",
+      "title": "HOME | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/abouts-us",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 750236,
+      "sha256": "9aef358cf51a390ad07fedb41f58781251475a827f639791f531d727c50cb955",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\48656b08c73656093b3b.html.gz",
+      "title": "ABOUT US | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 628207,
+      "sha256": "93582c6e7b4c58a496a70eb1a696e91deb6be945750e09fc8b785fa33c423284",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nt\\b234a49ecb15ca8aa90f.html.gz",
+      "title": "EVENTS | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/youth",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 718655,
+      "sha256": "a684d44f14df5344b1e70b874d44845ce5921aefd280bfa3c533e3696bd14cd2",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\818283dc8d8f0339a86c.html.gz",
+      "title": "YOUTH | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/junior-curling-programs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 648757,
+      "sha256": "341176f5026d87c4d6a9b0d1a922975f51b4dccffe94b3e24294fb886ae51a42",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\d7104bcf8e398b87af84.html.gz",
+      "title": "Junior Curling Programs | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/coach",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 673235,
+      "sha256": "3764a281ff8865edc9c4fc7ab818d352e104d087b99e6c3159d7e7fdd5e6f783",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\668ac60d8f304e3fdd54.html.gz",
+      "title": "COACH and ICE TECH | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/become-a-coach",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 709189,
+      "sha256": "6c818b8e6e150a60be4d843840225fa1465bcd3793c5e263700da0e59d0b1346",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\ee59973d13e395ed68be.html.gz",
+      "title": "Become a Coach | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/club-coach",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 637676,
+      "sha256": "3d4fc7d9c5f677eceff15fb6291c5d141f68962e519a540c4f917d7f59fa090a",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nt\\9d54c9a5c6e1f7abd801.html.gz",
+      "title": "Club Coach | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/competition-coach",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 648834,
+      "sha256": "7e6778f8b24309e439f6369d37c34fd9d3168a982ae7541c4d539bdbaa422bd5",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\db5d00799dd9c000baf2.html.gz",
+      "title": "Competition Coach | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/coaching-resources",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 656613,
+      "sha256": "22f43e5fa01c46a125c49c67639a05b7b77fa0200a5e30aec67aa1ebf13a2bb0",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\ff98747ee6c9350f80ef.html.gz",
+      "title": "Coaching Resources | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 651046,
+      "sha256": "7543978e1f6089b60181235fe3ca10be512c3951b808df7ff68f68dfffc85db5",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nt\\7a78d8e329b949d0904e.html.gz",
+      "title": "CHAMPIONSHIPS | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/gallery",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 840654,
+      "sha256": "291c52ec498bb56c56f07201e7a5547d39ad64006d6a8600184fca32fa4b0f08",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\2664067cc13fa2674cc8.html.gz",
+      "title": "GALLERY | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/documents",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 708880,
+      "sha256": "1c70be55e129b13a3a3cda8f1d3608043153963e77dd82d0f0ef547cf687c058",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\affb23bc01479d5e656f.html.gz",
+      "title": "DOCUMENTS | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_f9fec9ed9a494d2f903698d2e589b097.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 173643,
+      "sha256": "a659624d0592f5f5db3ef7bedf18b35b0c588ba3a8f45400778bb038a7aa1dbe",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\f1ebc7a741c1e8476f2a.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 678265,
+      "sha256": "d1a6ed8fa4d286b454b7714cb8095156166fcccacabaaaf8828b53ba7075f6c5",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nt\\9ac9ffaa39a00e23dcec.html.gz",
+      "title": "Clubs | NWT Curling"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_76f8a9dd87b241ada9a8ef9370707bcb.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 3238646,
+      "sha256": "f6d5cf3aff0279fa88f9077a83ded94d5b25d7c4af045ec0dddc71b82934b5cb",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\d5164973f2d4fbd5b848.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_d05fffec18914e2daf71e929d6c84683.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2161948,
+      "sha256": "b215cd577096c392ec33dceb8aa3dc14915ba1f04a2ebb4dc8e192a1c68fedce",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\1224140a4a7749734335.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_77d4a9006ccb48fd951862d38b9d0e10.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 118261,
+      "sha256": "14c83dc418c72fe876c9af546be06c50a5e8815e18d665d99b1dedbfa27d16ca",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\97ac46b77ca2ed8908af.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_b7f9ac2b74ab44928025af78a59c6dac.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 83217,
+      "sha256": "271b3d8fbf3ed975909220132d03fd757bf76471d8aa6a74a7a27b6767ccc464",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\407e91987510540328f6.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_c86816c93632428482c306059c9d565c.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 378235,
+      "sha256": "c24c66222b3b936208a3cbaee553056014986ca608bfe1406f50e6db9d023e63",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\f403471262479625e959.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_e44389ceccae4593bef3221a28bbbad9.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 89668,
+      "sha256": "af126be48352b8bcba81f50209152a4bffcc1443d75ca0c19fb7af2d98c532c5",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\fd5eda52f9c04735fdab.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_ac271aecb6c046cb9a17b198938278f3.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 71928,
+      "sha256": "1ad752f297d232c0c3f4582a4322cf475562284c607e872e12b5de4b58424103",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\cc0255c38d51509c2b1c.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_172fcfcdb9364515a675959d4941b10f.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 770717,
+      "sha256": "c7cad784174db9eb23bdebf3e98e01b09e56263c214abc9bdbb1a744edd7733a",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\dd43e6fe4bd121a02be8.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_cb8cbc89b91c48babc35d06105b5db7c.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 254754,
+      "sha256": "ba5fb15a80eb2f8b3b0a275450783e5a50649105bcc59e9b6781fdbe3d3a854d",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\14343308a7a1b682099b.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_5a0483f7e8004e888d6f05f93b2371ab.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 133867,
+      "sha256": "b4e83e5349edac6bc14e6f8e2ee152102ccc6805c202488a7b079207dea23ebd",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\b7abb9e48a3104b1abd8.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_30244f609c09423eb47ad2814c33636b.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 204471,
+      "sha256": "200b7790a539efac1c61b4d3b7404b4f2526c88369f71be7bc87a7c832288f53",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\5cc406f2dbc0a7e5f802.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_8a82d0b6fdce4f3aa6dfcde015307235.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 208172,
+      "sha256": "a1daef58af532f92770df7e1abfd495d79c26dc161d76eafbcecd61c360255a9",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\b7f207fa770950350b3e.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/76591f_7633712eda6e4df58d62e2f1e14c560c.docx?dn=Inclement%20Weather%20Policy.docx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 45489,
+      "sha256": "2ff9b42c0b072d9f52d50e677d5b736b427cd8f35c9b1aa40e9fe79d225922a4",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\46f6e1ce401073d3ba4c.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_b4164bda1012472ebda21af91209ceb3.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 99590,
+      "sha256": "f0e5c68a528e99aa7fd52eb24c723e0aad30408c8497422ab2efa2fce9fd2907",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\dfa47beb0a8bec9114d5.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_3ec36178bcf648f3a9547adfe62b970c.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 108817,
+      "sha256": "8bcc22cce62273f94e4817d583b01d77d217887b8e49ed3fdd55ab5d23dc94db",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\b6a79dddbfa8299a1b73.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_ddccfe703f60427ca940ae2a896a60e9.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 343901,
+      "sha256": "8a0bcc9fe2ec8508f85e3fb7a79a7ebdf7a03b4a89963d2f8904415e048ff0e2",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\64927c0306e717be216c.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_72b6a5fdf8ff4b63b6e856bda4bdf612.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 524323,
+      "sha256": "8e9a93244b98e795ca8dc6f028ed0ba2e06a06ebdb4f1ef7b5a526e79dc42683",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\db5c62ca55fcb9f0d378.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_25d4adb80cd94fa2a419c399b7f7a8cc.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 225936,
+      "sha256": "15418e804d42f2b8208cd41bb91796e53e3f430082cb99594bf4a018b7fb1824",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\d77e6a6687c3ac10ee6d.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_ad2cff8a2b54496f8630cf42453df97b.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 200909,
+      "sha256": "02b01de1d64e604006bfc85dfd107d7ab78428f295da29aca0bdffa82b74f5c5",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\e1d532c15019233b50aa.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_d1fdeb7cbb5646baa273fc808ed10011.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 121095,
+      "sha256": "bf05b1ed98b8cca7a6eefedeb52e6e979928430ca49da0690382193c57ff37d4",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\3f935b03ea06a491fdd7.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_145556e97ddb45e58f4555f53b9ebc18.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 65721,
+      "sha256": "cf6467a8d533e832cf2752226945397f57d22bc0dd457ee365ad373773ab7da2",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\6e9ea1da82ecb1bda86f.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_580f75499a9d4c3690c90876c5940e5c.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 328430,
+      "sha256": "ef08b2dfb758e8f59fda8f14657de97b8cfbcfea5ad0d1dcabda6d173e069414",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\5cad47af2f113dd523c2.bin.gz"
+    },
+    {
+      "url": "https://www.nwtcurling.com/_files/ugd/3fbe51_9cefce4128ab4a9eb0db1cf969cd9239.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 121705,
+      "sha256": "42af32e1c5578989f3660c4e8388ee6d8295cf1525d6b800b60d3c331f7e2d23",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\nt\\d80fd55c9bdd6c3be465.bin.gz"
+    }
+  ],
+  "pages_fetched": 38,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "clubs_facilities",
+    "national_events_results"
+  ]
+}

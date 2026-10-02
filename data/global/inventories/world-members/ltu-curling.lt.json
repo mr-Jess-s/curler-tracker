@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:17.377167+00:00",
+  "country_code": "LTU",
+  "country": "Lithuania",
+  "association": "Lithuanian Curling Association",
+  "seed_url": "https://www.curling.lt",
+  "source": "https://worldcurling.org/member-association/lithuania/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.lt/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.lt",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71360,
+      "sha256": "3952a62750aa4e9a8f86cef45ca25737bf71a4873f23659967a2216b279fb92e",
+      "source_families": [],
+      "title": "LKA"
+    },
+    {
+      "url": "https://www.curling.lt/lt",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71360,
+      "sha256": "3952a62750aa4e9a8f86cef45ca25737bf71a4873f23659967a2216b279fb92e",
+      "source_families": [],
+      "title": "LKA"
+    },
+    {
+      "url": "https://www.curling.lt/lt/kontaktai",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 20136,
+      "sha256": "52a942cac5012130c149ba5886d3f2d8ed4ef05691c00f87dc0a138d23ed050b",
+      "source_families": [],
+      "title": "LKA - Kontaktai"
+    },
+    {
+      "url": "https://www.curling.lt/lt/vaikams",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29763,
+      "sha256": "539d9af95ca6acded5688ce17a6fc3277be79da60b0f711bde10fb144f01e381",
+      "source_families": [],
+      "title": "LKA - Vaikams"
+    },
+    {
+      "url": "https://www.curling.lt/lt/livecurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 34176,
+      "sha256": "169e17155b31829ff2514e032218b7b4a8d53a23ce2e4484b4faf11d81e5f330",
+      "source_families": [],
+      "title": "LKA - Livecurling"
+    },
+    {
+      "url": "https://www.curling.lt/lt/sportuoti",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 19067,
+      "sha256": "ed9e90be8c827ac3d643a5249797add669a2a9574341d8ae1bfdf17fedcbcc55",
+      "source_families": [],
+      "title": "LKA - Sportuoti"
+    },
+    {
+      "url": "https://www.curling.lt/lt/pramogauti",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 18923,
+      "sha256": "0a46da6c709d7b4106554ca2d6ddba0b3cd04612e9a0a8c7c004ab16c778a550",
+      "source_families": [],
+      "title": "LKA - Pramogauti"
+    },
+    {
+      "url": "https://www.curling.lt/lt/dovanu-kuponas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17845,
+      "sha256": "09f41542b757965c594c6341d0be29a2206aebe93654737f218cce0726758bcf",
+      "source_families": [],
+      "title": "LKA - Dovanų kuponas"
+    },
+    {
+      "url": "https://www.curling.lt/lt/taisykles-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 16886,
+      "sha256": "bff4e3186357d0e08e4fd6cfaaae841c72acde80e7399b6bcc844b8b866ee554",
+      "source_families": [],
+      "title": "LKA - Taisyklės"
+    },
+    {
+      "url": "https://www.curling.lt/lt/pabandyk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 17923,
+      "sha256": "1e39071c17a8237e18b7dcf8f7b919dacbdcf6f4e9388fc63d6c658fed075ca7",
+      "source_families": [],
+      "title": "LKA - Pabandyk"
+    },
+    {
+      "url": "https://www.curling.lt/lt/naujienos",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 189989,
+      "sha256": "95c2b829452f37253bd510220333d9024f948f3d42ec9d140cea806891a5d98e",
+      "source_families": [],
+      "title": "LKA - Naujienos"
+    },
+    {
+      "url": "https://www.curling.lt/lt/apie-kerlinga",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 21740,
+      "sha256": "6e804cab1b93157e6cac66eb337dbe82c549bbd9e781ff885cf59b687ea23fcd",
+      "source_families": [],
+      "title": "LKA - Apie kerlingą"
+    },
+    {
+      "url": "https://www.curling.lt/index.php?id=37",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 228473,
+      "sha256": "42ce23c315629ea4c42183606c7e74226790a46623d990f9e8ecf7697d2a7292",
+      "source_families": [],
+      "title": "LKA - Įstatai"
+    },
+    {
+      "url": "https://www.curling.lt/index.php?id=38",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 22249,
+      "sha256": "cd585dc9e2955a71230e4c6f4348baee28b21c2777581b8fd35e9105e03dc30b",
+      "source_families": [],
+      "title": "LKA - Svarbiausi įvykiai"
+    },
+    {
+      "url": "https://www.curling.lt/lt/dokumentai",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 38599,
+      "sha256": "c805db999d32bf2cc78546f0ddc1aa03679f596c2a23ded9e1e7dd48dd869f49",
+      "source_families": [],
+      "title": "LKA - Dokumentai"
+    },
+    {
+      "url": "https://www.curling.lt/lt/lka",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 19357,
+      "sha256": "43d3b6a3caba15d2817e4165bb7a123bca981f96136926b3cc19caffa2937714",
+      "source_families": [],
+      "title": "LKA - LKA"
+    },
+    {
+      "url": "https://www.curling.lt/index.php?id=39",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 19067,
+      "sha256": "ed9e90be8c827ac3d643a5249797add669a2a9574341d8ae1bfdf17fedcbcc55",
+      "source_families": [],
+      "title": "LKA - Sportuoti"
+    },
+    {
+      "url": "https://www.curling.lt/index.php?id=40",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 18923,
+      "sha256": "0a46da6c709d7b4106554ca2d6ddba0b3cd04612e9a0a8c7c004ab16c778a550",
+      "source_families": [],
+      "title": "LKA - Pramogauti"
+    },
+    {
+      "url": "https://www.curling.lt/lt/lietuvos-kerlingo-cempionate--tecio-ir-dukros-dueto-triumfas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 22051,
+      "sha256": "3fe18a00184429629cf0855b7a25eafeaf6f2bf00081818a9b4e0cbf88146332",
+      "source_families": [],
+      "title": "LKA - Lietuvos kerlingo čempionate – tėčio ir dukros dueto triumfas"
+    },
+    {
+      "url": "https://www.curling.lt/lt/bavariskas-akmenslydis---aisstokas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 38009,
+      "sha256": "8680bc3a93a342cb2130417dd1bc9e0d243fce8edde8b3683b8a9127ef5e9718",
+      "source_families": [],
+      "title": "LKA - BAVARIŠKAS AKMENSLYDIS - AISŠTOKAS"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

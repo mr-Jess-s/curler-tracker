@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:18.735629+00:00",
+  "country_code": "PAK",
+  "country": "Pakistan",
+  "association": "Winter Sports Federation Pakistan",
+  "seed_url": "https://www.curling.pk",
+  "source": "https://worldcurling.org/member-association/pakistan/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.pk/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curling.pk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 212550,
+      "sha256": "0b727ca5742364cb817d2bcac02751cc2e25ef6388adffe0617d28a51a5e212f",
+      "source_families": [],
+      "title": "Pakistan Curling"
+    },
+    {
+      "url": "https://www.curling.pk/home",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 212647,
+      "sha256": "7363e0527974b9d5d94120a3844c424fb0237b6c9a91222f133ce59d769aaa4a",
+      "source_families": [],
+      "title": "Pakistan Curling"
+    },
+    {
+      "url": "https://www.curling.pk/about-curling_1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 181016,
+      "sha256": "715e0c8f42642bb94c77774989f1a010851fb542e39ba304318d2f4e51258406",
+      "source_families": [],
+      "title": "Pakistan Curling - About Curling"
+    },
+    {
+      "url": "https://www.curling.pk/about-curling_1/what-is-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 199660,
+      "sha256": "426efe1193aab6796fe52a0d5a0af356b5be7142fd4a4f1f4d2b27c875d2e741",
+      "source_families": [],
+      "title": "Pakistan Curling - What is Curling?"
+    },
+    {
+      "url": "https://www.curling.pk/about-curling_1/why-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 194626,
+      "sha256": "4a09d05b3950360a65ddf773a17906620ae0104f81b7084928011ed06c45a31d",
+      "source_families": [],
+      "title": "Pakistan Curling - Why Curling?"
+    },
+    {
+      "url": "https://www.curling.pk/about-curling_1/english-curling-videos",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 192383,
+      "sha256": "466ee05ac796d873d06f884885b9e66928ea2031d6d943147013c8e09d1ab685",
+      "source_families": [],
+      "title": "Pakistan Curling - English Curling Videos"
+    },
+    {
+      "url": "https://www.curling.pk/about-curling_1/urdu-curling-videos-اردو-کرلنگ-ویڈیوز",
+      "status": "error",
+      "error": "'ascii' codec can't encode characters in position 41-44: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.pk/get-involved",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188854,
+      "sha256": "b4a9d27e2939df9b0d641ab0f02e87605c95b22a278763a5e7824a6ca6b9b90c",
+      "source_families": [],
+      "title": "Pakistan Curling - Get Involved"
+    },
+    {
+      "url": "https://www.curling.pk/get-involved/dual-nationals",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 184640,
+      "sha256": "dc1bf35f9d2fbaa0e7b6a7e4d062eda0b23652d757a0d169148438b8ff65b455",
+      "source_families": [],
+      "title": "Pakistan Curling - Dual Nationals"
+    },
+    {
+      "url": "https://www.curling.pk/get-involved/curling-in-pakistan",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188544,
+      "sha256": "24a0b0d66ed63a5c50ac4623fd3c4870955327069932afd24134a8b033d2ec98",
+      "source_families": [],
+      "title": "Pakistan Curling - Curling in Pakistan"
+    },
+    {
+      "url": "https://www.curling.pk/events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180796,
+      "sha256": "a6028a1cbd25208fc922d287b42a73e7719d97530b516b467cc752fe0a5b2115",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Events"
+    },
+    {
+      "url": "https://www.curling.pk/events/ice-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 178242,
+      "sha256": "85f522cdc855c6d153071ae7db1d31ea821fe7946892217ef71e521c1e6e0be8",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Ice Curling"
+    },
+    {
+      "url": "https://www.curling.pk/events/ice-curling/past-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 184508,
+      "sha256": "70197b2cf595627e7706c9bf549bda0bbe19cf15ff312b7e97909a64d1ba84ca",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Past Events"
+    },
+    {
+      "url": "https://www.curling.pk/events/floor-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 179800,
+      "sha256": "4a3b73c4906cd59df228b3b529e7effa5e4431c12ece270cb04bb37c1f0d41b0",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Floor Curling"
+    },
+    {
+      "url": "https://www.curling.pk/events/world-curling-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 179534,
+      "sha256": "f60ef110366f0e4cffa8b920b83677b57b8396ccdd05cb280b43f91618422746",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - World Curling Events"
+    },
+    {
+      "url": "https://www.curling.pk/events/world-curling-events/past-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 184363,
+      "sha256": "268d95d15cef8095537824c8b3ff11e985139541875421d5ce837b98b5c11e21",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Past Events"
+    },
+    {
+      "url": "https://www.curling.pk/events/promotional-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180844,
+      "sha256": "7f68d1949b14a6252d461f5b8ddcb90ff837db3bd76dcfd8fa11dc8e76932c07",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Promotional Events"
+    },
+    {
+      "url": "https://www.curling.pk/events/training-webinars",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180366,
+      "sha256": "fbda36f865b6142d29f680dec93411e9ec701fc71a3eece8686bd4e2379cd32d",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Training Webinars"
+    },
+    {
+      "url": "https://www.curling.pk/events/recruitment-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 191875,
+      "sha256": "ba6b1573ff94f814da7b94e06db8bcc72f80df4aa92a60d6e7dd171222aa20aa",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Pakistan Curling - Recruitment Events"
+    },
+    {
+      "url": "https://www.curling.pk/leadership",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188284,
+      "sha256": "c3928e67b0c72283cb80119f80f1369e1d65c63b8d96ce4551844b4b28be5869",
+      "source_families": [],
+      "title": "Pakistan Curling - Leadership"
+    }
+  ],
+  "pages_fetched": 19,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": [
+    "calendar_draws"
+  ]
+}

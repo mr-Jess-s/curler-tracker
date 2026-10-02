@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:26.871396+00:00",
+  "country_code": "PUR",
+  "country": "Puerto Rico",
+  "association": "Puerto Rican Curling Federation",
+  "seed_url": "https://www.puertoricancurling.org",
+  "source": "https://worldcurling.org/member-association/puerto-rico/",
+  "max_pages": 20,
+  "robots_url": "https://www.puertoricancurling.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.puertoricancurling.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1327643,
+      "sha256": "6fc168b728487db1f5d327b23cef3880241c7dddf63351566d8a502d2b085f19",
+      "source_families": [],
+      "title": "Home | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/about-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 625987,
+      "sha256": "24b6d7c53a170ee0a4c7ad1400d83e22c717a590b0affaa7935af77b6c1ef0fc",
+      "source_families": [],
+      "title": "About | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/news-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 856650,
+      "sha256": "87362eedfcc357a508ab0204ffce3611411d434cea87f760c1ae8a028e0e0466",
+      "source_families": [],
+      "title": "News | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/contact-8",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 685088,
+      "sha256": "6b20e2ad30caeeb030b580687d347ff65d1562bb692070c90c1ab76e7c8ae24b",
+      "source_families": [],
+      "title": "Contact | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/fundraising",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 667071,
+      "sha256": "ba42542c2351436b364d04b02ced5b7cdf3b38b6ba3a2418886fade705a0cb78",
+      "source_families": [],
+      "title": "Donate | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/copy-of-donate",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 630130,
+      "sha256": "82cc769ea3a25dd8d1beec48ed14712c231e71f23e33bff3a282ff1a82dc2244",
+      "source_families": [],
+      "title": "Membership | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/product-page/puerto-rican-curling-federation-federation-crest-unisex-t-shirt-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1409503,
+      "sha256": "1e49f1fefe1988a9833877ecc662ca61e4097cddfe087c5cded67588b4ff148e",
+      "source_families": [],
+      "title": "Puerto Rican Curling Federation: Federation Crest Unisex T-shirt | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/product-page/puerto-rican-curling-federation-los-piragüeros-wordmark-unisex-t-shirt-1",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xfc' in position 59: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/product-page/puerto-rican-curling-federation-coquí-pin",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xed' in position 54: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/product-page/puerto-rican-curling-federation-pad-covers",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1078456,
+      "sha256": "04ddf792c7cd1fa08f4ba6f9f96ecfaec67f90a6f9e9edb7bbbea8c6fa8237ee",
+      "source_families": [],
+      "title": "Puerto Rican Curling Federation Pad Covers | PRCF"
+    },
+    {
+      "url": "https://www.puertoricancurling.org/product-page/puerto-rican-curling-federation-los-piragüeros-unisex-t-shirt",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xfc' in position 59: ordinal not in range(128)"
+    }
+  ],
+  "pages_fetched": 8,
+  "pages_blocked": 0,
+  "pages_failed": 3,
+  "family_candidates": []
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:25.265879+00:00",
+  "country_code": "POR",
+  "country": "Portugal",
+  "association": "Portuguese Winter Sports Federation",
+  "seed_url": "https://www.fdiportugal.pt",
+  "source": "https://worldcurling.org/member-association/portugal/",
+  "max_pages": 20,
+  "robots_url": "https://www.fdiportugal.pt/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.fdiportugal.pt",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 270175,
+      "sha256": "4cff874fc6dd1ac115c81fade1b53ab8d771a65e64306a007dd06f3fc7eb6da7",
+      "source_families": [],
+      "title": "Home | Federação Desportos Inverno Portugal"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

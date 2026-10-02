@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:57.673911+00:00",
+  "country_code": "KEN",
+  "country": "Kenya",
+  "association": "Kenya Curling Federation",
+  "seed_url": "https://www.kenyacurlingfederation.org",
+  "source": "https://worldcurling.org/member-association/kenya/",
+  "max_pages": 20,
+  "robots_url": "https://www.kenyacurlingfederation.org/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.kenyacurlingfederation.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1617,
+      "sha256": "a135cb2f922e865d9c66c623cf8d55b01bed85d2aeb48a3b5dde4ad51b1596fa",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?ND",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1618,
+      "sha256": "e8a60086bd044ae44fb12643ce79ff676ff942f0fbe0082b643067a9a94fa8a0",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?MA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1617,
+      "sha256": "f1ef2421c500ef74ba7fe6aadda8a4b4dc69e1093a76dc09080033ac09dd0af8",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?SA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1617,
+      "sha256": "7c9a6d749601b08fdeb7b46cd720309bf7a9ace011c7898275d603ee83d9ce77",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1585,
+      "sha256": "cc76d55237b707e15f8e37ac132296194cd73eb8efc11a6626892b1df101f8c0",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/error_log",
+      "status": "error",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?NA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1617,
+      "sha256": "a135cb2f922e865d9c66c623cf8d55b01bed85d2aeb48a3b5dde4ad51b1596fa",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?MD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1618,
+      "sha256": "ea252b2f4d536346936a396498f067108fb1cca62597d467bff6e591e056fdfa",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org?SD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1618,
+      "sha256": "204597e01e22056fba1e8414a2b12fd33d86c1f6d071062d7580bfb22588b780",
+      "source_families": [],
+      "title": "Index of /"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?ND",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1586,
+      "sha256": "5143fd5805b1f6bd02f0572ee691843b692bb753451e169704dbef5efee41e2c",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?MA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1585,
+      "sha256": "ba161e0c2aad89c2101356801801ca475571616e6eb7fc95ccd926230bd78819",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?SA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1585,
+      "sha256": "a3e1da3ca816dc531945ff9a354682c91870b4c0f5261cd1c01c2a978f7188a8",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content/plugins",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 2667,
+      "sha256": "49d0e6da55c6278d6d02bff66ab5da836b283d7ad0de71b7ed9ae7c07cd69694",
+      "source_families": [],
+      "title": "Index of /wp-content/plugins/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?NA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1585,
+      "sha256": "cc76d55237b707e15f8e37ac132296194cd73eb8efc11a6626892b1df101f8c0",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?MD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1586,
+      "sha256": "ffce7baebcc8227628712375cdb2604f55f594cb077a4872dc77291121a07c4d",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content?SD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1586,
+      "sha256": "1a83f9c697ab571a6c0320f156035f72edb362abf883734d033a414a1444eb55",
+      "source_families": [],
+      "title": "Index of /wp-content/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content/plugins?ND",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 2668,
+      "sha256": "9f9a98b1837b62ba41d26d2ef3ce462227c1cc86a48e4f281fff05284d3ec9c7",
+      "source_families": [],
+      "title": "Index of /wp-content/plugins/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content/plugins?MA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 2667,
+      "sha256": "0c28578236a82c49d3f0fbdeb300c1e2d8ff07150c1634d3912e5f4abd9cf7c3",
+      "source_families": [],
+      "title": "Index of /wp-content/plugins/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content/plugins?SA",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 2667,
+      "sha256": "2c46d97351fe4672d3355bac763ecb1e2e7bce0cfd32765a303db16b2aee7b6b",
+      "source_families": [],
+      "title": "Index of /wp-content/plugins/"
+    },
+    {
+      "url": "https://www.kenyacurlingfederation.org/wp-content/plugins/extendify",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 5364,
+      "sha256": "fffae7126ea73d6f8514f692c2373734d5b1966b131463d147d75f9f5c312fd7",
+      "source_families": [],
+      "title": "Index of /wp-content/plugins/extendify/"
+    }
+  ],
+  "pages_fetched": 19,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:45.050892+00:00",
+  "country_code": "NZL",
+  "country": "New Zealand",
+  "association": "New Zealand Curling Association",
+  "seed_url": "https://www.curling.org.nz",
+  "source": "https://worldcurling.org/member-association/new-zealand/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.org.nz/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.org.nz",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 274625,
+      "sha256": "a928bb15879c250529ac6e692c7024eb90815090e5f3ffbd351ee5d36f8a5c06",
+      "source_families": [],
+      "title": "Curling New Zealand - Home"
+    },
+    {
+      "url": "https://www.curling.org.nz/home-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 274641,
+      "sha256": "50ac1b7457bfbc895d3a0d3600d9f82209dc9b0ec83c30e6bee089de72990702",
+      "source_families": [],
+      "title": "Curling New Zealand - Home"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/about-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 165325,
+      "sha256": "1b3a4a3bd7caf71ce4828840149a1df9c5b28f79338453bf565d0035185d5bc3",
+      "source_families": [],
+      "title": "Curling New Zealand - About Curling"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/where-to-curl-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 138538,
+      "sha256": "303afc9efe3cee5437017bff1f69e41eca7f7840014d21a4f026413ef5e7e0e5",
+      "source_families": [],
+      "title": "Curling New Zealand - Where to Curl"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/the-spirit-of-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180187,
+      "sha256": "a8d112c2e5aa20fb46f0911bb684143ec5df28ef1991de5a6e9ad2a75cf06f47",
+      "source_families": [],
+      "title": "Curling New Zealand - The Spirit of Curling"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/honours-board-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 265190,
+      "sha256": "0a156d037e7f863929c3ac87b96068445f43b44aaae32aaa1de64dfa0753475b",
+      "source_families": [],
+      "title": "Curling New Zealand - Honours Board"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/nz-curling-teams-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 253761,
+      "sha256": "70ed651fababdf9b66c65cc1917c146ff4239e1a67b902a71a319939268dca16",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Curling New Zealand - NZ Curling Teams"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/nz-curling-association",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 274625,
+      "sha256": "a928bb15879c250529ac6e692c7024eb90815090e5f3ffbd351ee5d36f8a5c06",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Curling New Zealand - Home"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/nz-curling-association/nzca-board",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 148124,
+      "sha256": "a35f6eecdf9027d1b5a929de7417f71e7c4552c254eb340bfe61c381abc0b5b3",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Curling New Zealand - NZCA Board"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/nz-curling-association/nzca-board-charter",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115388,
+      "sha256": "13f34e9b09a0e5af0034bffd46194833698bc622ac8da720dc7248f73a7654c7",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Curling New Zealand - NZCA Board Charter"
+    },
+    {
+      "url": "https://www.curling.org.nz/about/contact-us",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 148803,
+      "sha256": "8442914cb7ae397891dde48e386102ab635986dde870f4cf1c739939f6655282",
+      "source_families": [],
+      "title": "Curling New Zealand - Contact Us"
+    },
+    {
+      "url": "https://www.curling.org.nz/news1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 139265,
+      "sha256": "e59d902488345e0b4a4c60177161f20e5332c2b3d3cc66c2643e340b5d7e6e34",
+      "source_families": [],
+      "title": "Curling New Zealand - News"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/new-zealand-secondary-schools-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 172334,
+      "sha256": "126f2972e802ef2c4c4cd1b45709e89b480554074d51e6da1d47cc5b78bb597e",
+      "source_families": [],
+      "title": "Curling New Zealand - New Zealand Secondary Schools"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/national",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 203720,
+      "sha256": "c3c6322ebd557e7275de1c73ee5789efcbcaeae410ae6b76c49c5b2a261c68d5",
+      "source_families": [],
+      "title": "Curling New Zealand - National"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/international",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 165889,
+      "sha256": "5bc9d5cabe0a7f374b5dca6f1f48026de62b45a6afc8d7387d6db310afbf74a3",
+      "source_families": [],
+      "title": "Curling New Zealand - International"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/schools",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 297683,
+      "sha256": "d0619e85be50df73af859f81983816c0ef580d4e098fc961b6d9905d60340ba0",
+      "source_families": [],
+      "title": "Curling New Zealand - Schools"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/local",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 158055,
+      "sha256": "2dc219582f3445c233bf2bf9e4f9167979880c7eae0478e0fb57bc3ea5f87ae1",
+      "source_families": [],
+      "title": "Curling New Zealand - Local"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/outdoor-1",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 151723,
+      "sha256": "62f0cfafdfe0f31c8f5de4ac7558c66a5c59755e27708c5c4ff064dc0b667f8e",
+      "source_families": [],
+      "title": "Curling New Zealand - Outdoor"
+    },
+    {
+      "url": "https://www.curling.org.nz/tournaments/tournament-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 148852,
+      "sha256": "08cbdca6b1575524f547c40c0a0751e0fb3d417e2d0e91dd0067cbb82cdce24a",
+      "source_families": [],
+      "title": "Curling New Zealand - Tournament Info"
+    },
+    {
+      "url": "https://www.curling.org.nz/results/nz-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 274625,
+      "sha256": "a928bb15879c250529ac6e692c7024eb90815090e5f3ffbd351ee5d36f8a5c06",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Curling New Zealand - Home"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "national_events_results",
+    "subnational_governance"
+  ]
+}

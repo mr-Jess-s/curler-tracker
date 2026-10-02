@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:10.472524+00:00",
+  "country_code": "ENG",
+  "country": "England",
+  "association": "English Curling Association",
+  "seed_url": "https://www.curlingengland.com",
+  "source": "https://worldcurling.org/member-association/england/",
+  "max_pages": 20,
+  "robots_url": "https://www.curlingengland.com/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingengland.com",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50241,
+      "sha256": "1f5a7b32e4df911e8c3c91e1de279d71c9534846586f92b4107aaf3ee2ca2b16",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/news",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50234,
+      "sha256": "f3a0b0cd7ed1056d411c16d0bfc949c78bc1e4bda9880fee5cdf4b900ee7ef03",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "News – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/about/structure",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50457,
+      "sha256": "9aba1fb3260bdd22c88353377ee68025302a6ef234dbae30960324696d0c63bd",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Structure – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/about/history",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 51745,
+      "sha256": "741018208daf0a840655d81e9520f175d23362df31f632afa5625782e2a6be4a",
+      "source_families": [
+        "historical_digital_archives",
+        "subnational_governance"
+      ],
+      "title": "History – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/upcoming",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50202,
+      "sha256": "d22b916186e6bee671ddcfab144854da6c55ccb4955461b163bb294a8d726845",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Upcoming Competitions – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-mens-curling-championship",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59518,
+      "sha256": "3496845f7ce411381a2cacb4fa85b2128eebbe5b87abe6a3bd2439cac9e9e993",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Men’s Championship – Winners – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-womens-curling-championship",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 52869,
+      "sha256": "a7e50c85967df45bcbfd78be06f377fd28dbcc27f95d7f23bfd3fb9208c29388",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Women’s Championship – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-mixed-doubles-curling-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 47449,
+      "sha256": "e2d3bb937ec2763dc2241fabfdb384951ec5dcb8868c490ac1387b49f5261f7e",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Mixed Doubles Championships – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-junior-girls-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48271,
+      "sha256": "e9afb333c9885ac5be45ec1e21016a0b4a57c8b532480cdf8a240b43a5baef41",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Junior Girls Championships – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-junior-boys-curling-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48152,
+      "sha256": "6cceb83d989ead5f454d3a4908dc916f2f1c4caa367d99ab22a7dce57ac7d121",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Junior Boys Championships – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-mixed-curling-championship",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 51227,
+      "sha256": "ff30a955b4f08654c37287e3dcb1016a7f2de011c81440a1f25255ce2afdf272",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Mixed Championship – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/senior-womens-championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48574,
+      "sha256": "72ce100fbfcc9790e18314a07a00ef6bc63c92310b2590a1ef607e4a9cd8732b",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Senior Women’s Championships – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/competitions/english-senior-mens-curling-championship",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 49473,
+      "sha256": "092f5f85a4f04f72fe67edab2ec363d05443190be39965dbcb58cfa5324e4e81",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "title": "Senior Men’s Championship – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46318,
+      "sha256": "a35866fc851f31a3509eb18ef3de1946925162a58c0b0d4ab39fb6bcc8f849bc",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "Clubs – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/glendale-cc-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46066,
+      "sha256": "49ababb4a62e6c6e3127af2a81c637145b2c7f28c6a5f22751b23b6c1fa3d951",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "Glendale CC Info – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/london-cc-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 45823,
+      "sha256": "fca7f6bddc58516d2bf963a54ab17efb2ccccc6e300ecb98b941a4d38255027a",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "London CC Info – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/preston-cc-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48708,
+      "sha256": "69f10d769470ed891b595b3268b321e221fbd072b42e207f0bff4d606980e30b",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "Preston CC Info – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/south-of-england-cc-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46061,
+      "sha256": "5cbac87b1b3955896f7245fca802480500514d098be6f8accbfee2e1b5ac15a9",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "South of England CC Info – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/st-georges-curling-club-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 45704,
+      "sha256": "b9178dea0771d27075ee1fa2c43a085d9f4884a9482343b4e12c905d0bdd6834",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "St George’s Curling Club Info – English Curling Association"
+    },
+    {
+      "url": "https://www.curlingengland.com/clubs/cambridge-cc-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 47344,
+      "sha256": "8a69779c02f8fd5e2048ca3d2370670980f727b74b76605af008de1ef3a99caf",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "title": "Cambridge CC Info – English Curling Association"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "clubs_facilities",
+    "historical_digital_archives",
+    "national_events_results",
+    "subnational_governance"
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:08.964541+00:00",
+  "country_code": "BEL",
+  "country": "Belgium",
+  "association": "Belgian Curling Association",
+  "seed_url": "https://www.belgiumcurling.be",
+  "source": "https://worldcurling.org/member-association/belgium/",
+  "max_pages": 20,
+  "robots_url": "https://www.belgiumcurling.be/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.belgiumcurling.be",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 82352,
+      "sha256": "4521df85866ce39a0812d70e63e9cb1ffa0ec0f7a5f622156dcb8cd9bd406bf6",
+      "source_families": [],
+      "title": "belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/intropage%202017.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 87706,
+      "sha256": "27cf154113b04bf175b8f2b79e98c519816167124bcd49d84df94ee7d9760678",
+      "source_families": [],
+      "title": "home"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/heren",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46296,
+      "sha256": "15acddf71bfd42baba209ff3fb527689c7a7fdcf060f63453b58b05b0d888270",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "nationaleteams"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/competities",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46168,
+      "sha256": "32acb03c34340a56a6b38fff5a6539ecb26f6ab7d84b066ef42f65e48699dd19",
+      "source_families": [],
+      "title": "competities"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 20088,
+      "sha256": "64644e5cf77bd8d64ca1e1418d09f0c88a911eac212535344ac916d1156fc0da",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Clubs | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/clubs/cc%20zemst.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 42884,
+      "sha256": "c3ad3377487030fc0053f4584a0e4fe7ca89708f36b8f8a27367eff777dd2254",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "cczemst"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/clubs/campina%20ct.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 42414,
+      "sha256": "423e21199a81447645922f8da276750c001dc3572d1c2edf7850ec8c9a93ffb2",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "campinacturnhout"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/clubs/cc%20gent.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 42986,
+      "sha256": "8741190ae733d4a2664c252376e90c7607686275df8cffd957c5ffde0474c69d",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "ccgent"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 20044,
+      "sha256": "bf025242f3dbd3e6fb493701f1f2ceeff652dba02b37a6ffac9161475d3d8ff7",
+      "source_families": [],
+      "title": "statistieken"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/programma.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 89446,
+      "sha256": "a336e484e1f04785312c4e4990d2c401736c07335985f6b5542ef6ab031de277",
+      "source_families": [],
+      "title": "programma"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 167494,
+      "sha256": "14fd66e98115078687066974e22b980cae8790e8aa8dd1d799fa0c06658e72ee",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Teams | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/rankings-players",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 46851,
+      "sha256": "3ca852f82549bdafc013bd909eca68c9ad9cac4996fedf0fc95dcd62a76c42ac",
+      "source_families": [
+        "athlete_team_profiles",
+        "rankings"
+      ],
+      "title": "Rankings Players | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/nieuws.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 98392,
+      "sha256": "89e4a3c148ed252e0b3ec1d9c8c03aa9bc6d8748fd7208b3a48825cbfe882312",
+      "source_families": [],
+      "title": "nieuws"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/contact.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 28390,
+      "sha256": "282dbb4f25cfc1d7490c12f94724e37e97b8a6d2ce2b298eecc6689d9c24b0c7",
+      "source_families": [],
+      "title": "contact"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/news-uk.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76908,
+      "sha256": "5a66aa6355b7ccf688c216fd2e12f20abda0c59b629d0dc62d6b28ba6963ec42",
+      "source_families": [],
+      "title": "News UK | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/bcl-2026.2027-home.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 109391,
+      "sha256": "8d97b59b8957f6c4084a3ce88fd5dde08269eecdb45b9929419f0fd404e56ceb",
+      "source_families": [],
+      "title": "BCL 2026.2027 Home | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/bekervanbelgie.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 39491,
+      "sha256": "49fa0b10071b55490fb97a1a988f1ec67c00ea3d0733b76efbd459db72f2e205",
+      "source_families": [],
+      "title": "BekervanBelgie | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/competities/dubbels/bmdl-25.26.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 183005,
+      "sha256": "8dcb74c1ff01233d37b709cc8cab00286ed3e15251df495252d7310edc402514",
+      "source_families": [],
+      "title": "BMDL 25.26 | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/competities/dubbels/bodl-25.26.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 118419,
+      "sha256": "29989b007cc9bae5feced2297efcd69d9dd6173bc8d87e1723f85a338bfb8af6",
+      "source_families": [],
+      "title": "BODL 25.26 | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/cover-stories-belgian-shrimps-be.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 39789,
+      "sha256": "bac3e201daeac07cab1a77dbf0c1b696e871a41b806ee07e29e83e1ee26348c9",
+      "source_families": [],
+      "title": "Cover Stories Belgian Shrimps BE | belgiumcurling.be"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "clubs_facilities",
+    "rankings"
+  ]
+}

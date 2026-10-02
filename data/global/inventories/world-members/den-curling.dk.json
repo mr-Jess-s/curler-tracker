@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:50.244335+00:00",
+  "country_code": "DEN",
+  "country": "Denmark",
+  "association": "Danish Curling Association",
+  "seed_url": "https://www.curling.dk/",
+  "source": "https://worldcurling.org/member-association/denmark/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.dk/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.dk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 678879,
+      "sha256": "ce79e39bf74d91c887346e07b094d9758732586c4dbfe13cff126f1bc17e0075",
+      "source_families": [],
+      "title": "Forside - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/shop",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 374998,
+      "sha256": "a26d23966180497f886c2b8ca14519c49fbb7e15e32c76818a7007e1906f1802",
+      "source_families": [],
+      "title": "Shop - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/hvem-er-vi/klubber",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 412341,
+      "sha256": "c94e07055e61f706acc9e6557bae05e260d10e60bbd7c4d7ac47ffa25390a65f",
+      "source_families": [],
+      "title": "Curlingklubber - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/om-curling/historie",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 405902,
+      "sha256": "7165a0f502d6b5f7cdd300541e7bd78ec8f268275f8b7d968fa344c3575ab2e5",
+      "source_families": [],
+      "title": "Curling kort fortalt - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/spil-curling/spilformer",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 389674,
+      "sha256": "239dd42bab78e743da9b15750419a9a77ae931587e75642d9812b780b5908855",
+      "source_families": [],
+      "title": "Spilformer - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/start-med-et-curling-kick-off",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 392084,
+      "sha256": "5209cde1258e9e316fa79bb693e7d9cbc2d1e57ce504250de05691197e5cfd78",
+      "source_families": [],
+      "title": "Lær at spille curling - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/traeningsdage-paa-tvaers-af-landet",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 394548,
+      "sha256": "4981c9bdce07a1c335248620d364433f6e53bdc7de0ebbaaf846b26c6314307d",
+      "source_families": [],
+      "title": "Træningslejre - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/junior-traening-og-camps",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 438501,
+      "sha256": "bfbd3954d6be868174a5f7f25d2f353ecb3f3ab1b7826f0cbd0c8b7b2d613aba",
+      "source_families": [],
+      "title": "Junior træning og camps - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/koerestolscurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 388103,
+      "sha256": "6178052fd914b89b0bd1ee77fd45f8f49d1f879194fcf0119352a3844771b96e",
+      "source_families": [],
+      "title": "Kørestolscurling - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/curling-i-skolen",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 387553,
+      "sha256": "589c20179ef758575fe7001ca37bdd486052beb1c923f520bd10b3bd206833c3",
+      "source_families": [],
+      "title": "Curling i skolen - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/turneringer/aktivitetskalender",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 642543,
+      "sha256": "b8960851d0657e45ae2b3c0f8474ad00f2f944d4c5599ffe1cab3bc240affaf1",
+      "source_families": [],
+      "title": "Aktivitetskalender - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/turneringer/vil-du-spille-turneringer",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 369750,
+      "sha256": "5315bb7c6dcb177760b632d2f411b2c78895d24fb16526361412cbc2f602c459",
+      "source_families": [],
+      "title": "Vil du spille turneringer? - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/dm-saesonen-2026-2027",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 584640,
+      "sha256": "92a8f3ee170b39096b6fc8d58e97142c2eabd4eea05aada8839e46bd88f65626",
+      "source_families": [],
+      "title": "DM sæsonen 2026-2027 - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/turneringer/jysk-fynsk-mesterskab",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 476174,
+      "sha256": "3915262e6dd2731bb845a10a67e602230cf4602621d53f83c51897f07bd894e8",
+      "source_families": [],
+      "title": "Jysk-Fynsk Mesterskab - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/turneringer/sjaellands-cup",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 409331,
+      "sha256": "2d272c789bed09e7ebec42b76e7c41c99be4e99db480da56a1c817661f2f7a53",
+      "source_families": [],
+      "title": "Sjællands Cup - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/kick-off-cuppen",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 501494,
+      "sha256": "7712de4beefdb9cde1349c5af54c5faa609ab6d88c7bbd515a5a43bd54660f16",
+      "source_families": [],
+      "title": "Kick-off Cup - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/turneringer/curling-calendar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 371814,
+      "sha256": "d667dea6cc271926b02d147ba712c1b24af9463eb41001d6ea2a766ca386faa0",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Curling Calendar - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/om-curling/regler",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 373996,
+      "sha256": "503bea344622be9bd9f5f4c690c65ab0615e9b15af4566d6eca25f33f03f56ab",
+      "source_families": [],
+      "title": "Regler - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/historiske-resultater",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 374538,
+      "sha256": "dd1227a5aa16d91351b9f80e3ee3a612cf79e66e922220347fb7b4663c65488f",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Historiske resultater - Dansk Curling Forbund"
+    },
+    {
+      "url": "https://www.curling.dk/elite",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 409170,
+      "sha256": "f8fb6081af531dfd1cf78efed1ad11c4a7da19d9d3347d4c0e872b5521ea2a0d",
+      "source_families": [],
+      "title": "Elite - Dansk Curling Forbund"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "national_events_results"
+  ]
+}

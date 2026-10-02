@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:32.731413+00:00",
+  "country_code": "KOR",
+  "country": "Korea",
+  "association": "Korea Curling Federation",
+  "seed_url": "https://www.koreacurling.co.kr",
+  "source": "https://worldcurling.org/member-association/korea/",
+  "max_pages": 20,
+  "robots_url": "https://www.koreacurling.co.kr/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.koreacurling.co.kr",
+      "status": "error",
+      "error": "<urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

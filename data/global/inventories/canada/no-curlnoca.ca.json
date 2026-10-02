@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:08.631752+00:00",
+  "country_code": "CAN-NO",
+  "association": "Northern Ontario Curling Association",
+  "scope": "Northern Ontario",
+  "seed_url": "https://www.curlnoca.ca",
+  "robots_url": "https://www.curlnoca.ca/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curlnoca.ca",
+      "status": "error",
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

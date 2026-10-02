@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:09.870118+00:00",
+  "country_code": "NED",
+  "country": "Netherlands",
+  "association": "Netherlands Curling Association",
+  "seed_url": "https://www.curling.nl",
+  "source": "https://worldcurling.org/member-association/netherlands/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.nl/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.nl",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 124119,
+      "sha256": "90ae1487b1d040177cdce2da3d1db1ae91604e2677a3f5f880431072eba0b556",
+      "source_families": [],
+      "title": "Nederlandse Curling Bond – Curling in Nederland"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

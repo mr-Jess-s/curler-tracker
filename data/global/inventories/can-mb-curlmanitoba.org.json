@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T09:23:40.536118+00:00",
+  "country_code": "CAN-MB",
+  "seed_url": "https://curlmanitoba.org",
+  "host": "curlmanitoba.org",
+  "max_pages": 30,
+  "robots_url": "https://curlmanitoba.org/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://curlmanitoba.org",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

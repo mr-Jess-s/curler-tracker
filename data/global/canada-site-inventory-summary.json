@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:36:56.409003+00:00",
+  "association_count": 14,
+  "inventoried": 13,
+  "site_not_listed": 1,
+  "failed": 0,
+  "results": [
+    {
+      "code": "CAN-AB",
+      "association": "Curling Alberta",
+      "seed_url": "https://www.curlingalberta.ca",
+      "status": "inventoried",
+      "pages_fetched": 1,
+      "pages_blocked": 0,
+      "pages_failed": 0,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\ab-curlingalberta.ca.json"
+    },
+    {
+      "code": "CAN-BC",
+      "association": "Curl BC",
+      "seed_url": "https://www.curlbc.ca",
+      "status": "inventoried",
+      "pages_fetched": 8,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "output": "data\\global\\inventories\\canada\\bc-curlbc.ca.json"
+    },
+    {
+      "code": "CAN-MB",
+      "association": "CurlManitoba",
+      "seed_url": "https://www.curlmanitoba.org",
+      "status": "inventoried",
+      "pages_fetched": 5,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [
+        "calendar_draws"
+      ],
+      "output": "data\\global\\inventories\\canada\\mb-curlmanitoba.org.json"
+    },
+    {
+      "code": "CAN-NB",
+      "association": "CurlingNB",
+      "seed_url": "https://www.curlingnb.com",
+      "status": "inventoried",
+      "pages_fetched": 1,
+      "pages_blocked": 0,
+      "pages_failed": 0,
+      "families": [
+        "subnational_governance"
+      ],
+      "output": "data\\global\\inventories\\canada\\nb-curlingnb.com.json"
+    },
+    {
+      "code": "CAN-NL",
+      "association": "Newfoundland and Labrador Curling Association",
+      "seed_url": "https://www.curlingnl.ca",
+      "status": "inventoried",
+      "pages_fetched": 3,
+      "pages_blocked": 0,
+      "pages_failed": 0,
+      "families": [
+        "calendar_draws",
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "output": "data\\global\\inventories\\canada\\nl-curlingnl.ca.json"
+    },
+    {
+      "code": "CAN-NO",
+      "association": "Northern Ontario Curling Association",
+      "seed_url": "https://www.curlnoca.ca",
+      "status": "inventoried",
+      "pages_fetched": 0,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\no-curlnoca.ca.json"
+    },
+    {
+      "code": "CAN-NS",
+      "association": "Nova Scotia Curling Association",
+      "seed_url": "https://www.nscurl.com",
+      "status": "inventoried",
+      "pages_fetched": 0,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\ns-nscurl.com.json"
+    },
+    {
+      "code": "CAN-NT",
+      "association": "Curling NT",
+      "seed_url": "https://www.nwtcurling.com",
+      "status": "inventoried",
+      "pages_fetched": 38,
+      "pages_blocked": 0,
+      "pages_failed": 0,
+      "families": [
+        "calendar_draws",
+        "clubs_facilities",
+        "national_events_results"
+      ],
+      "output": "data\\global\\inventories\\canada\\nt-nwtcurling.com.json"
+    },
+    {
+      "code": "CAN-NU",
+      "association": "Nunavut Curling Association",
+      "status": "site_not_listed",
+      "seed_url": ""
+    },
+    {
+      "code": "CAN-ON",
+      "association": "Curling Ontario",
+      "seed_url": "https://www.curlingontario.ca",
+      "status": "inventoried",
+      "pages_fetched": 0,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\on-curlingontario.ca.json"
+    },
+    {
+      "code": "CAN-PE",
+      "association": "Curl PEI",
+      "seed_url": "https://www.peicurling.com",
+      "status": "inventoried",
+      "pages_fetched": 0,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\pe-peicurling.com.json"
+    },
+    {
+      "code": "CAN-QC",
+      "association": "Curling Québec",
+      "seed_url": "https://www.curling-quebec.qc.ca",
+      "status": "inventoried",
+      "pages_fetched": 2,
+      "pages_blocked": 0,
+      "pages_failed": 0,
+      "families": [
+        "national_events_results"
+      ],
+      "output": "data\\global\\inventories\\canada\\qc-curling-quebec.qc.ca.json"
+    },
+    {
+      "code": "CAN-SK",
+      "association": "CURLSASK",
+      "seed_url": "https://www.curlsask.ca",
+      "status": "inventoried",
+      "pages_fetched": 38,
+      "pages_blocked": 0,
+      "pages_failed": 2,
+      "families": [
+        "athlete_team_profiles",
+        "calendar_draws",
+        "clubs_facilities",
+        "national_events_results",
+        "rankings"
+      ],
+      "output": "data\\global\\inventories\\canada\\sk-curlsask.ca.json"
+    },
+    {
+      "code": "CAN-YT",
+      "association": "Yukon Curling Association",
+      "seed_url": "https://www.yukoncurling.ca",
+      "status": "inventoried",
+      "pages_fetched": 0,
+      "pages_blocked": 0,
+      "pages_failed": 1,
+      "families": [],
+      "output": "data\\global\\inventories\\canada\\yt-yukoncurling.ca.json"
+    }
+  ]
+}

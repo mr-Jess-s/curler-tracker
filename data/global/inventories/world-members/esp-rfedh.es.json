@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:33.261524+00:00",
+  "country_code": "ESP",
+  "country": "Spain",
+  "association": "Royal Spanish Ice Sports Federation",
+  "seed_url": "https://www.rfedh.es",
+  "source": "https://worldcurling.org/member-association/spain/",
+  "max_pages": 20,
+  "robots_url": "https://www.rfedh.es/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.rfedh.es",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 171288,
+      "sha256": "373c3fecbff97498102414b3d91df61190964a54092c6ff96e99ea786ca8261e",
+      "source_families": [],
+      "title": "Bienvenido a la página oficial de la FEDHielo"
+    },
+    {
+      "url": "https://www.rfedh.es/milano-cortina-2026",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 106789,
+      "sha256": "53ce732097155800390e25ea8e47a7fb4fffd24540eaaedd463adc2b981a7a21",
+      "source_families": [],
+      "title": "Milano-Cortina 2026 | Juegos Olímpicos de Invierno"
+    },
+    {
+      "url": "https://www.rfedh.es/bienvenida-del-presidente",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 77910,
+      "sha256": "06b404122110347911fc492ae16babeeb4dd361b8bdd4295df0edf31b7843a95",
+      "source_families": [],
+      "title": "Bienvenida del presidente - RFEDH"
+    },
+    {
+      "url": "https://www.rfedh.es/organigrama",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 143104,
+      "sha256": "8e32d3b6b15dd5cc21d00a2dd5761c2ea595cd3671db90a64ecc33e16f550dd3",
+      "source_families": [],
+      "title": "Organigrama - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/transparencia",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180106,
+      "sha256": "49a016ed1b61eaecd70f87e480d3c8b2f1ec5bdc3251a0527eab952c4b83c2a6",
+      "source_families": [],
+      "title": "Transparencia - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/federaciones-autonomicas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 101459,
+      "sha256": "5d9c3ee379024d326372be1e0424ce9dba9eba85cb52e7e1f3f4ed11cb65153b",
+      "source_families": [],
+      "title": "Federaciones autonómicas - RFEDH"
+    },
+    {
+      "url": "https://www.rfedh.es/clubes",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 242610,
+      "sha256": "524a7d69ac32906891f2e1dcaaecfc15477a8ab89c67649fd878fec79248b21e",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Clubes - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/pistas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 72551,
+      "sha256": "f5139835861844d583a7a62465367de42dc28aa19312b812fac939525c678dac",
+      "source_families": [],
+      "title": "Pistas de hielo - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/patrocinadores",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97042,
+      "sha256": "596b7383bb2d6eef9caade60a5cb0290247af91ef70079794cd113ea6e1bf33d",
+      "source_families": [],
+      "title": "Patrocinadores - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/imagen-corporativa",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 102178,
+      "sha256": "fc8b490bf291f91faa61bd792327ca78aed703238bf572ddaccec33f31821497",
+      "source_families": [],
+      "title": "FEDHielo Imagen corporativa - Descargar logos"
+    },
+    {
+      "url": "https://www.rfedh.es/mujer-y-deporte",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 89442,
+      "sha256": "d6fe886464c1424874cdd9a70762e9af9730630f3da457a3bc58c1602c077107",
+      "source_families": [],
+      "title": "Mujer y Deporte - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/deporte-inclusivo",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 113561,
+      "sha256": "73bcc52fb6e35c58057ddd7b41bb52b7f0620423304570cb16b50a6ea9e4eecc",
+      "source_families": [],
+      "title": "Deporte Inclusivo - RFEDH"
+    },
+    {
+      "url": "https://www.rfedh.es/antidopaje",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 85638,
+      "sha256": "e02825d6555b96a7247abc6423fe7f1b16a6aa65e6a1f4b7227e20ee7d75e4a9",
+      "source_families": [],
+      "title": "Antidopaje - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/ayudas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76077,
+      "sha256": "25aa881520b38b7af616327e7daae1a28bab23df1eeef710590ed4a702a30abe",
+      "source_families": [],
+      "title": "Ayudas - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/resultados",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79116,
+      "sha256": "868103790050027fc8eb4f7043b44173acd065f9318e70568a838eb0f900c97a",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Resultados - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/noticias",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 151634,
+      "sha256": "791616021fe19f9b9870c20bbbf853997c1abc088ad8fcfd569c8dc4b61d90d4",
+      "source_families": [],
+      "title": "Noticias - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/hemeroteca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 146786,
+      "sha256": "59129dfd68eebea5039aa5649678e2aa0692eb62b93be29d311dcfbd05ea4b91",
+      "source_families": [],
+      "title": "Hemeroteca - Real Federación Española Deportes de Hielo"
+    },
+    {
+      "url": "https://www.rfedh.es/formacion-rfedh",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 85163,
+      "sha256": "b0a3d8cc281cd557092cf9029271473a6bb0839472e470f467671f5adb3911bf",
+      "source_families": [],
+      "title": "Formación RFEDH - Cursos, e-learning y más"
+    },
+    {
+      "url": "https://www.rfedh.es/documentacion-institucional",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 75373,
+      "sha256": "c1a049c5fbe4a64c82fad9ff4a56129e135a1fd678fe0047344290b58261d7dd",
+      "source_families": [],
+      "title": "Documentación Institucional - RFEDH"
+    },
+    {
+      "url": "https://www.rfedh.es/reglamentos-y-normativas",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 81277,
+      "sha256": "aa33d2146d8e12c81f75e5185d26c7f3b66d7b8a2949cbf07224077861923dea",
+      "source_families": [],
+      "title": "Reglamentos y normativas - FEDHIELO"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "clubs_facilities",
+    "national_events_results"
+  ]
+}

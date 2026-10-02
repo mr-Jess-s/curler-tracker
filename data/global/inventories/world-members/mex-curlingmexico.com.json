@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:08.998450+00:00",
+  "country_code": "MEX",
+  "country": "Mexico",
+  "association": "Mexican Curling Federation",
+  "seed_url": "https://www.curlingmexico.com",
+  "source": "https://worldcurling.org/member-association/mexico/",
+  "max_pages": 20,
+  "robots_url": "https://www.curlingmexico.com/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingmexico.com",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1685920,
+      "sha256": "7519f1032c78b5daf74b621eeb13aa2b22dc8c001b0b15912213fcba9e32c281",
+      "source_families": [],
+      "title": "Home | Curling México"
+    },
+    {
+      "url": "https://www.curlingmexico.com/contact",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1182958,
+      "sha256": "b95fb302e2132234a0a0c1ba0359a63afa9267e4008e3ff5da6ed8c0db830d01",
+      "source_families": [],
+      "title": "Contact | Curling México"
+    },
+    {
+      "url": "https://www.curlingmexico.com/terms-and-conditions",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1073863,
+      "sha256": "b0d39f238bad6983ae698e7f3835956b1aff3d2160eee56133fc3271121aa50c",
+      "source_families": [],
+      "title": "Terms & Conditions | Curling México"
+    },
+    {
+      "url": "https://www.curlingmexico.com/privacy-policy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1073374,
+      "sha256": "b43e7f2c1a2d788230c870804a7a06e9c1d46d87d4a60fd60f7e04b9e1a65d8d",
+      "source_families": [],
+      "title": "Privacy Policy | Curling México"
+    }
+  ],
+  "pages_fetched": 4,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:55.155702+00:00",
+  "country_code": "HUN",
+  "country": "Hungary",
+  "association": "Hungarian Curling Federation",
+  "seed_url": "https://www.curling.hu",
+  "source": "https://worldcurling.org/member-association/hungary/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.hu/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.hu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 82292,
+      "sha256": "06b7613724e8eeae56443cb1da93ffd869e35858bd5d7b435f9100f905b0317f",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség"
+    },
+    {
+      "url": "http://www.curling.hu/curling/magyar-curling-szovetseg",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 63157,
+      "sha256": "1733f5324243075c449496bac7adc85b62aa920e3af6b2cbf87252a2f8456886",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Magyar Curling Szövetség"
+    },
+    {
+      "url": "https://www.curling.hu/curling-sporttorteneti-kiadvany",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67098,
+      "sha256": "535ff003a5bc60a300961160cc462db4cef4eeb3ed68382300623c7b35aab4f8",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Curling sporttörténeti kiadvány"
+    },
+    {
+      "url": "https://www.curling.hu/magyar-curling-szovetseg/szabalyzatok",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 64964,
+      "sha256": "6f685ab2a04f5d9951d56c38f8ef479b6e24eeb50210dad3f87331bf2f74adf4",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Szabályzatok"
+    },
+    {
+      "url": "https://www.curling.hu/magyar-curling-szovetseg/dokumentumok",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 122127,
+      "sha256": "2ae585a6abc0a12f140599e2e8ca9cd472e31386169bf00a03ebe5de6f1a3a5d",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Dokumentumok"
+    },
+    {
+      "url": "https://www.curling.hu/magyar-curling-szovetseg/dopping",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57986,
+      "sha256": "52434cbb8aa7fb4bd287d34977517bc28b399d3e37c8c8e16045ad6a186dbd4b",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Dopping"
+    },
+    {
+      "url": "https://www.curling.hu/szezonertekelok",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57107,
+      "sha256": "0c0918e8db3c2b162b18ace6f191c531072e4a483363e9797757b0cf32818170",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Szezonértékelők"
+    },
+    {
+      "url": "https://www.curling.hu/valogatottak",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 112089,
+      "sha256": "056b93b51c360a3e118c2bfa71caf0ec5367d75ced29d2ce7d79faff3a0bb785",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Válogatottak"
+    },
+    {
+      "url": "https://www.curling.hu/tagegyesuletek",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 56795,
+      "sha256": "555b430dd2c9a7f2ce4b689e9d35b41b0ca14fab4893c634454de9849e6fb9e1",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Tagegyesületek"
+    },
+    {
+      "url": "https://www.curling.hu/nyiltnap",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 63267,
+      "sha256": "ddd18830c2b52608b23a1b20ad00d7fae6f814d45e4021d197f33065c8b1de07",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » CURLING NYÍLT NAP"
+    },
+    {
+      "url": "https://www.curling.hu/curling-akademia",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 70468,
+      "sha256": "ba00cc9aad79a4d852fedcf57e92c2874e19b38c3f2b899a84891b2d856ec226",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség"
+    },
+    {
+      "url": "https://www.curling.hu/ceges-rendezvenyek",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59470,
+      "sha256": "3a12137f8387c6a124471802c292f574a5aa424a346141bb76fbe186ffec766a",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » CURLING, MINT RENDEZVÉNY"
+    },
+    {
+      "url": "https://www.curling.hu/floor-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71366,
+      "sha256": "847f132a0933c7e6db4b9eb42a040dd14c6025b6b317a76c482feefa6c54be85",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Floor Curling"
+    },
+    {
+      "url": "https://www.curling.hu/curling-oktatas/curling-suli",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69370,
+      "sha256": "3e577e28a4e78854b5a4c73c0c83e76756a2675c30524285937b1d74f9cbb157",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Curling suli – ahol a jég a játszótér!"
+    },
+    {
+      "url": "https://www.curling.hu/curling-oktatas/a-curling-szabalyai",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 64954,
+      "sha256": "9f74be8dd91d8aa0576c784725202ee132ab68eb4584d1686446505402220e3a",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » A Curling szabályai"
+    },
+    {
+      "url": "https://www.curling.hu/keor-sportedzo-curling-kepzes",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 56542,
+      "sha256": "900bceefa899f4dadc032c597c1325a3c2738c1407c6bf1d5e4faffad71818b9",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » KEOR Sportedző – curling képzés"
+    },
+    {
+      "url": "https://www.curling.hu/mtse-bsc-kepzes",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57015,
+      "sha256": "8460b13c3fdcb86a92c6ec07f3b9c2dfed24cd8acac18993a1b14e5a399aeef9",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » MTSE Bsc – képzés"
+    },
+    {
+      "url": "https://www.curling.hu/nevezes-az-mcsz-altal-szervezett-versenyekre-2026-2027",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 75558,
+      "sha256": "fefdce5f08e68d5360bc0ec6aae0cd42d679d28aea24b19df3d4386a5958c85c",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Nevezés az MCSZ által szervezett versenyekre 2026-2027"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2026/08/Versenynaptar-2026-2027.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 415682,
+      "sha256": "392067a8e0276efaf6aac125a16c7055fd2835046af58bf178886b0e173050bd",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.hu/elo-eredmenykovetes",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 58944,
+      "sha256": "02e555904fad16f3014163ccccd54fe68a2e42882de928d61ab63c6d1ceb1f7f",
+      "source_families": [],
+      "title": "Magyar Curling Szövetség » Élő eredménykövetés"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

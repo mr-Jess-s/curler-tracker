@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:06.135094+00:00",
+  "country_code": "JPN",
+  "country": "Japan",
+  "association": "Japan Curling Association",
+  "seed_url": "https://www.curling.or.jp",
+  "source": "https://worldcurling.org/member-association/japan/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.or.jp/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.or.jp",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 96734,
+      "sha256": "e5195e6e24488dfc678552faedf0ae20ba0f8c8da20ac57e16108833c3eadb39",
+      "source_families": [],
+      "title": "公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 68210,
+      "sha256": "dc38744701888b4abde8de724ca164fc08667dd4c7d39cdc7f2284adfcff0340",
+      "source_families": [],
+      "title": "大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/jcc",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 70912,
+      "sha256": "c90056d1d9644c7b4457273d83300f3c8cd1ca44903d4e79646b830b62897e42",
+      "source_families": [],
+      "title": "日本カーリング選手権大会 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/jmcc",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69753,
+      "sha256": "628d837499aa518157b9d42467864b8484208f99855466d33611e4cb6cc2cdeb",
+      "source_families": [],
+      "title": "日本ミックスカーリング選手権 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/jmdcc",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 70852,
+      "sha256": "3a5ff9dd361278badf483b2bd6d80543081fa9e8bb255791824349e98c16e8ed",
+      "source_families": [],
+      "title": "日本ミックスダブルスカーリング選手権大会 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/jscc",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69731,
+      "sha256": "479700df6c1af8ec6c34d1c76aff0f6d012f94dc4232256492582c4e5c306d19",
+      "source_families": [],
+      "title": "日本シニアカーリング選手権 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/jjcc",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69919,
+      "sha256": "00246a8a679cdb1540a82bb3b7a0128f457ae551c86176de583e7998e050ab1c",
+      "source_families": [],
+      "title": "日本ジュニアカーリング選手権 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/competitions/olympic",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69777,
+      "sha256": "5b9a3d6512c33043abc4d0eff05721a7c6cd218eb91871fdd0ca10207d21a8a5",
+      "source_families": [],
+      "title": "オリンピック関連 | 大会情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/schedule",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60452,
+      "sha256": "2256f3157b38fd66d023af77e854988770d448e2347332cdef13f5e32941c0cc",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "シーズンスケジュール | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65701,
+      "sha256": "29becd4fd62ac3b0bf4f27523f970cf8d52a70317a430ec9b9e369c200ca6b3a",
+      "source_families": [],
+      "title": "カーリングについて | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling/history",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 62220,
+      "sha256": "793d09271945d35694f3c055a441d202689a7796745cf6b4dddcbc83bb6b836c",
+      "source_families": [
+        "historical_digital_archives"
+      ],
+      "title": "カーリングの歴史 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling/types",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 66835,
+      "sha256": "834d073589bc3d14d098a924925e0a6e351b30ba90266da37e6c5acf6e7e997b",
+      "source_families": [],
+      "title": "カーリングの競技の種類 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling/equipment",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67588,
+      "sha256": "b12b928e7c115c310ad89a9ae51aa13de7645ac2bc6f010cf956414512315aa5",
+      "source_families": [],
+      "title": "カーリングに使う用具等 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling/facilities",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90722,
+      "sha256": "79eb78def3590e43a937579809fecc67fe9dbcc5142eb73358c430a68c4b8869",
+      "source_families": [],
+      "title": "全国のカーリング施設一覧 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutcurling/faq",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 66988,
+      "sha256": "aba7b0f3609fa8c04affe86482a32712800365d4a92bdb92f2085f3e59b03a07",
+      "source_families": [],
+      "title": "よくある質問 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/aboutus/outline",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 75605,
+      "sha256": "105f63fd1a21c4aa61b32474c45028bce10dbb3fdc48c90e906b08ef248f64ea",
+      "source_families": [],
+      "title": "協会概要 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/information",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 68637,
+      "sha256": "6731a6b24cca9cb0d7f9e33799fc653f54730ea38a9a0e52f24c40e634d7f37c",
+      "source_families": [],
+      "title": "協会関係者／競技者向け情報 | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/news/content/835",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60527,
+      "sha256": "e04a1034b515c0a0f86c5969226100632b5e943c295fd70b3a03a3adfb93c3ff",
+      "source_families": [],
+      "title": "第44回日本カーリング選手権大会における強化委員会推薦チームの決定について | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/news/content/838",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59576,
+      "sha256": "789ed9bedb9f8b18fe57d6cd4a2f974a2f4a8da231d5f8e19b68b70eddcee8e1",
+      "source_families": [],
+      "title": "公益財団法人ミズノスポーツ振興財団より助成金が贈呈されました | 公益社団法人 日本カーリング協会"
+    },
+    {
+      "url": "https://www.curling.or.jp/news/content/837",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59685,
+      "sha256": "f8a2d133dc80a800d183a7df4cbe2ca6e848fa4c3f61effad2ad092b58699a43",
+      "source_families": [],
+      "title": "世界カーリング選手権大会日本代表選考に係るワールドカーリングチームランキング（WCTR）評価時期について | 公益社団法人 日本カーリング協会"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "historical_digital_archives"
+  ]
+}

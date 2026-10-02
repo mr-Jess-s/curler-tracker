@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:28.623581+00:00",
+  "country_code": "WAL",
+  "country": "Wales",
+  "association": "Welsh Curling Association",
+  "seed_url": "https://www.welshcurling.org.uk",
+  "source": "https://worldcurling.org/member-association/wales/",
+  "max_pages": 20,
+  "robots_url": "https://www.welshcurling.org.uk/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.welshcurling.org.uk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88382,
+      "sha256": "dbfe22a8ea4c0ffe2b0d31b0753ebaa801354afc99650fb1eed0594fc948d704",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Welsh Curling Association – Cymdeithas Cwrlio Cymru"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/about-2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 112034,
+      "sha256": "b5bdd2a0c26ce28019f69472eb4777236f2bbf68fc0fbc6fa1b9ab5e1de4a7cf",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Welsh Curling Association – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/about-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 75819,
+      "sha256": "0ac6708cbb70aaf9c57af234a431e9a5539da2960f6fa71b87efddf76cd96728",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "About Curling – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/welsh-curling-a-history",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88462,
+      "sha256": "6f9e14816ba860895550cffe03cb0af6d9761f12d596c0549b65d79cee7b54ae",
+      "source_families": [
+        "historical_digital_archives",
+        "subnational_governance"
+      ],
+      "title": "Welsh Curling: A History – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/try-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 81417,
+      "sha256": "cba5310a37d45c79496d616a5dee5e101dc7735231561c95137e0c23c8c15624",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Try Curling – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wales-teams",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 91747,
+      "sha256": "a074d1e3bb99d2378b46ceb877189fb93836231ceefa5067c391cb0c2da1a7a2",
+      "source_families": [
+        "athlete_team_profiles",
+        "subnational_governance"
+      ],
+      "title": "Wales Teams – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67102,
+      "sha256": "9698b2e271a91ae457be0b06cea1ff529b4d7dfb21e05098ae9f19531099bc61",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Governance – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/anti-doping",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 92541,
+      "sha256": "d2702e8381ce2c9c04ad221e715ff28ffe32e6ee25d500c35f65ebf40cbaa332",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Anti-Doping – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/equality-policy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67698,
+      "sha256": "d7c4a955bf661380ca2175215a8b23d6648cccc4461305a4809001d966b4395a",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "EDI Policy – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/safeguarding",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95785,
+      "sha256": "e87300703a7302150aa5522855b71e0ad6e1a6492c33c11f7d729397478ed2aa",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Safeguarding – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/disciplinary-policy-procedures",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69902,
+      "sha256": "ea3ef6a704e5b94aa0539ec26e2bb6ce38c2da124512197c9d56649e690d213b",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Disciplinary Policy & Procedures – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/code-of-ethics",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67497,
+      "sha256": "d777442b48e64357eb597fa8c016fd0e15c6d2de5487d1630fb803105d1ee769",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Code of Ethics – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/whistleblowing",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67843,
+      "sha256": "363515fd4cb73bad4dc0adb249d877088d47a2ea5f26cd019a1918958cc82d33",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Whistleblowing – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/privacy-policy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79031,
+      "sha256": "d375a78dbd9de8d4a5f2866877de87c327c6f0a254b6e2a738e875abb9455ae7",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Privacy Policy – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/gdpr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97913,
+      "sha256": "4d0d3c39d502041820623a403f8691230eae740abaf587fc1fa785e3df97667c",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "GDPR – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/financial-policy-and-procedures",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 67954,
+      "sha256": "be2f4cf4b2cfcd980a197a9122353b0c3faefa1f9c26be95368d3617bf32e249",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Financial Policy and Procedures – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/governance/complaints-policy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69855,
+      "sha256": "c226ead737ee97590d8823cd072573a5cbd817f66c2f5387f09ebc540ed035c4",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Complaints Policy – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/welsh-bonspiel",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 127746,
+      "sha256": "0f686f13b900a2ea0df972a02da2b7fd285e873e62551606aafb37a8eec0cb2f",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Welsh Bonspiel – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/calendar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59525,
+      "sha256": "ce1e7b0addb7f029cf571ea997c85f6051cac4d45318a5269e70f674c933515a",
+      "source_families": [
+        "calendar_draws",
+        "subnational_governance"
+      ],
+      "title": "Calendar – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/first-province-of-wales",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 72032,
+      "sha256": "386f82c912f2f8aea8e6ada3e90c98d00ef1a0a7680b871dad61bdc388267efe",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "First Province of Wales – Welsh Curling Association"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "calendar_draws",
+    "historical_digital_archives",
+    "subnational_governance"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:23:52.572088+00:00",
+  "country_code": "BUL",
+  "country": "Bulgaria",
+  "association": "Bulgarian Curling Federation",
+  "seed_url": "https://www.curling.bg",
+  "source": "https://worldcurling.org/member-association/bulgaria/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.bg/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.bg",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 43929,
+      "sha256": "f774d65268ed3fe0e8b8761521ff4ea12dcfd4cb2f1763d678dd58935403069a",
+      "source_families": [],
+      "title": "Българска Кърлинг Федерация | Българска Кърлинг Федерация"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

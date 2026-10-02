@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:07.154776+00:00",
+  "country_code": "CAN-NB",
+  "association": "CurlingNB",
+  "scope": "New Brunswick",
+  "seed_url": "https://www.curlingnb.com",
+  "robots_url": "https://www.curlingnb.com/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingnb.com",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 219220,
+      "sha256": "882664fc4b34847313f3319f47aeb511d21690cb18a7ac3de7059423856657b5",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\nb\\f2eeec8990a61f77b2a8.html.gz",
+      "title": "New Brunswick Curling Association -"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "subnational_governance"
+  ]
+}

@@ -4,3 +4,8 @@ feedback-summary.md
 qa/
 qa_*.png
 tools/__pycache__/
+
+data/raw/
+data/global/collector-status.json
+
+tools/global_coverage/__pycache__/

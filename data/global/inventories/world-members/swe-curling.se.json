@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:08.599343+00:00",
+  "country_code": "SWE",
+  "country": "Sweden",
+  "association": "Swedish Curling Association",
+  "seed_url": "https://www.curling.se",
+  "source": "https://worldcurling.org/member-association/sweden/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.se/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.se",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 87099,
+      "sha256": "9cbecccc043fe97081893d88e5196979e47375ae1a1664c57c89d603b0952a06",
+      "source_families": [],
+      "title": "Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/4.2213666918125edb8645def/12.2213666918125edb864687a.portlet?state=rss&sv.contenttype=text/xml;charset=UTF-8",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes": 30242,
+      "sha256": "3f8752fe66d965c2737ccb382eb0424af237f76c1dbe548dddd1f9523cc8ea5b",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.se/ovriga-sidor/webbplatskarta",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115138,
+      "sha256": "9779578ec46bce1b133a904166911456d93a670cf90c6e57036ff3697affafbc",
+      "source_families": [],
+      "title": "Webbplatskarta | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/prova-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57764,
+      "sha256": "3106284d242e95eeca3577e641fb1c7da682f5f2c57249ac0a25a1e80e3d3eae",
+      "source_families": [],
+      "title": "Prova Curling | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/tavlingar--resultat",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76072,
+      "sha256": "e450eba2f6e56b035101b1b3c683e7d3c12aeb5d585f750cea47ecb378e869d6",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Tävlingar & resultat | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/kalender",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 83110,
+      "sha256": "4e9869fedd72a115e29d41c656fa52196b2f458df3871c2ef297bd2da39f5806",
+      "source_families": [],
+      "title": "Kalender | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/foreningsstod",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69725,
+      "sha256": "c342ce9d0a9f6df6ccc7a2ca49e0911d9356dae1a3911205d9866f41c269d5bd",
+      "source_families": [],
+      "title": "Föreningsstöd | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/utbildning--lager",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 56722,
+      "sha256": "fda7e6782bf019e0a8be0e5dc67bd5e9c543612576828952afe983925502262b",
+      "source_families": [],
+      "title": "Utbildning & Läger | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/team-sweden-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57123,
+      "sha256": "e22ebfdd830d89aa3cf37bf8591ee3723d1e777ccfa8e4e06cdcd5d5b0e14c4c",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Team Sweden Curling | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/nyheter",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48306,
+      "sha256": "1c0dde66e1f08f1ea9bd17e1e699003758d7e9e640f2f76f3ce8bf398ef2b3e5",
+      "source_families": [],
+      "title": "Nyheter | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/om-forbundet",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 75967,
+      "sha256": "600c1dd88fc27c8593b711124906c9f495ff43c1c7cf43d5feafea7241d9e0a3",
+      "source_families": [],
+      "title": "Om förbundet | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/ovriga-sidor/sok",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 43947,
+      "sha256": "107b44e769d1400fb0004a6d9b046296cbbdbebb92acbac4c6d130816a376ebe",
+      "source_families": [],
+      "title": "Sök | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/tavlingar--resultat/em-kval-2026-damer-och-herrar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 61735,
+      "sha256": "60e950a96358bdeead4b2dd884b39e4d12906ace63ea718dba6db3e8e37e92e5",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "EM-kval 2026 damer och herrar | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/prova-curling/hitta-forening-borja-spela",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65369,
+      "sha256": "a7c1694ecae958fa59619f0fdaa75a2ff265a5b6ea0d8bc01fc17c6f1e3dcb1e",
+      "source_families": [],
+      "title": "Hitta förening/börja spela | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/prova-curling/curlingens-dag-11-oktober-",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 82753,
+      "sha256": "e50db54f964b741a92a28a30891b44d47d44dca95bfa85cdcbee2c44364d725f",
+      "source_families": [],
+      "title": "Curlingens Dag 11 oktober | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/foreningsstod/curlingens-dag",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 57391,
+      "sha256": "a5e550abbc9f176d94f632af57608ead1f77b76265882126799baca4003450d8",
+      "source_families": [],
+      "title": "Curlingens dag | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/om-forbundet/organisation/forbundsstyrelse/forbundsmote-2026",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97046,
+      "sha256": "b0a7b3b8d892f63ee8f45010203b5e4dabfcf1c92458c1e94a8ddae51f41d025",
+      "source_families": [],
+      "title": "Förbundsmöte 2026 | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/nyheter/nyheter-fran-forbundet/nyheter/2026-06-22-var-med-pa-curlingens-dag-11-oktober",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 52591,
+      "sha256": "64d6ed685a60b9c1fdebe171d4c39163afa590183dfea102bd1df8806a090a12",
+      "source_families": [],
+      "title": "Var med på curlingens dag 11 oktober! | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/utbildninglager/svenskcurlingsutvecklingsprogram.4.7c02ba7c194d8519dc7d2744.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 63304,
+      "sha256": "8c6affd971f120afb19d2dadded317a5409f7d54b10068c1d835aed3beeec732",
+      "source_families": [],
+      "title": "Svensk Curlings Utvecklingsprogram | Svenska Curlingförbundet"
+    },
+    {
+      "url": "https://www.curling.se/nyheter/nyheter-fran-forbundet/nyheter/2026-02-11-historiskt-os-guld-till-syskonen-wrana",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 59356,
+      "sha256": "305ee5f5b75017a83eed8b574324efbc6b2e0600e7355bb18390941991f46946",
+      "source_families": [],
+      "title": "Historiskt OS-guld till syskonen Wranå | Svenska Curlingförbundet"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "national_events_results"
+  ]
+}

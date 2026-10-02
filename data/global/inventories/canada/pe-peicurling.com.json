@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:12.392084+00:00",
+  "country_code": "CAN-PE",
+  "association": "Curl PEI",
+  "scope": "Prince Edward Island",
+  "seed_url": "https://www.peicurling.com",
+  "robots_url": "https://www.peicurling.com/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.peicurling.com",
+      "status": "error",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

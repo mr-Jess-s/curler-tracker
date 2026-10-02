@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:13.812939+00:00",
+  "country_code": "EST",
+  "country": "Estonia",
+  "association": "Estonian Curling Association",
+  "seed_url": "https://www.kurling.ee",
+  "source": "https://worldcurling.org/member-association/estonia/",
+  "max_pages": 20,
+  "robots_url": "https://www.kurling.ee/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.kurling.ee",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 155462,
+      "sha256": "3a4d787f4f64898e57a36c63a2f69f32fd8f46e7e495a3a1d199a5ea7db1af98",
+      "source_families": [],
+      "title": "Eesti Curlingu Liit – kurlingu sport ja koondis"
+    },
+    {
+      "url": "https://www.kurling.ee/kontakt",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79603,
+      "sha256": "9299b5e9ceb6fc8e079bae582f61cbf2680ab76ff196881b739c3fd94618c2c5",
+      "source_families": [],
+      "title": "Kontakt - Eesti Kurlingu Liit"
+    },
+    {
+      "url": "https://www.kurling.ee/kalender",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 101277,
+      "sha256": "b6dc5af34edb22bb877a5d0ed72cc45fe56ad6d4caf2f4fab9ebf210dcd027e2",
+      "source_families": [],
+      "title": "Tulevased Sündmused – Eesti Kurlingu Liit"
+    },
+    {
+      "url": "https://www.kurling.ee/+372 53442610",
+      "status": "error",
+      "error": "URL can't contain control characters. '/+372 53442610' (found at least ' ')"
+    }
+  ],
+  "pages_fetched": 3,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:24.315976+00:00",
+  "country_code": "SCO",
+  "country": "Scotland",
+  "association": "Scottish Curling",
+  "seed_url": "https://www.scottishcurling.org",
+  "source": "https://worldcurling.org/member-association/scotland/",
+  "max_pages": 20,
+  "robots_url": "https://www.scottishcurling.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.scottishcurling.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 102289,
+      "sha256": "d4c3efe3874d755a3e36b0b0915ea846c416814fc4d555b43096f05fd22cd437",
+      "source_families": [],
+      "title": "Scottish Curling - The Home of Curling in Scotland"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 89713,
+      "sha256": "6f4416c9cd46750ab0413166810b6c1cce224f4d1c96db98820f925d25086be4",
+      "source_families": [],
+      "title": "About - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/who-we-are",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93338,
+      "sha256": "5d7c90e0b7c6747fbb76a8f8dfc49558679e4398d9db6ba6ac3f2196bebcc6e4",
+      "source_families": [],
+      "title": "Who We Are - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/vision-strategy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90499,
+      "sha256": "df629409a7be138bb6657aaebbe3f1de7b89db51e16bb4cb2c0c3ff527de8321",
+      "source_families": [],
+      "title": "Vision & Strategy - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/our-team",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 99443,
+      "sha256": "66dec7acf020a19078ab2deab0b479e0eaabffec0e1f184852d7b72047c5aabd",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Our Team - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/vacancies",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 89057,
+      "sha256": "4d83370deabf4901085ef2294961c935f90c01fc57ff50a8ba311dd63886b878",
+      "source_families": [],
+      "title": "Vacancies - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/board",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 103130,
+      "sha256": "4b9e8a50625d2979ef85f8d981f4ad1b3fcecb4aca6b1a2bc5b7bda1eace69ae",
+      "source_families": [],
+      "title": "Board of Directors - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/committees",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 91281,
+      "sha256": "eb8f819a36f353344e7cb18f301c75b1f28779d4fe37ffcc8ef5e20b2492737d",
+      "source_families": [],
+      "title": "Committees - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/policies-documents",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 107251,
+      "sha256": "5f1adadc5e328d6ead51d82cd819e4fec9e118e6f018634b6cbdeddf9bd9e436",
+      "source_families": [],
+      "title": "Policies & Documents - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/royal-club-president",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88318,
+      "sha256": "5c9ce42903fd8b10f924f77eb860b6b98a537373dbc95b2b4579e5ef79e2acfa",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "RCCC President - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/agm",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93056,
+      "sha256": "b056492ca9ade26b066cd658556c17b9c35e56ba613c83c667f2139a0c471756",
+      "source_families": [],
+      "title": "RCCC AGM - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/scottish-curling-awards",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 99958,
+      "sha256": "bdd2afac47ebdc6c46aacca63a9fb018e6286fa1535d8cc1bc009e77c9b4dae0",
+      "source_families": [],
+      "title": "Scottish Curling Awards - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/ice-rinks",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 126963,
+      "sha256": "c1342829c973935cb5e567f3a22c5f4ee017c0f5f586bc9abaed8d06763d92d8",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Ice Rinks - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/about-us/ladies-branch",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90168,
+      "sha256": "5649d7b7cb5edb73b7c3751bc94bb4c5d6649f551f8f08a194d402b92b287493",
+      "source_families": [],
+      "title": "Ladies Branch - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/curling-history/history-of-the-game",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97696,
+      "sha256": "c2cdf831b18344da5d555a43c19494fa1f6ab19524f9abad514bc3ef3fe5dc59",
+      "source_families": [
+        "historical_digital_archives"
+      ],
+      "title": "History of the Game - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/fair-work-first-statement",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90073,
+      "sha256": "192eae83000fb1aa6ffd37aeb9f1f4a450ad667f1f64a016c9b1f43c498f407d",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Fair Work First Statement - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/news",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 101907,
+      "sha256": "105f25488f38692624ad72affff582c486ef04ea0b25c787293e9f490c4fb091",
+      "source_families": [],
+      "title": "News - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/comps",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 320407,
+      "sha256": "d4a4004a93efc6b0bdf16d8a1f85acf84aaf6e6980b8aaf865eaf6c978cfc5a6",
+      "source_families": [],
+      "title": "Competitions - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/comps/competition-information",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 91953,
+      "sha256": "19c126b8a17a21b129dfa9ec8ce98c0f26c7c41b9053bc8482f231b39c40859a",
+      "source_families": [],
+      "title": "Competition Information - Scottish Curling"
+    },
+    {
+      "url": "https://www.scottishcurling.org/comps/entry-forms",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 111234,
+      "sha256": "a4b42eeaca7a010f18f74284134cc5c36edffc9128b058784a814adf392d39e8",
+      "source_families": [],
+      "title": "Entry Forms 2026-27 - Scottish Curling"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "clubs_facilities",
+    "historical_digital_archives",
+    "subnational_governance"
+  ]
+}

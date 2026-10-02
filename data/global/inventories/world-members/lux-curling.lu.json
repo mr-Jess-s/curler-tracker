@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:43.613581+00:00",
+  "country_code": "LUX",
+  "country": "Luxembourg",
+  "association": "Luxembourg Curling Association",
+  "seed_url": "https://www.curling.lu",
+  "source": "https://worldcurling.org/member-association/luxembourg/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.lu/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.lu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90872,
+      "sha256": "87753da5fe017659a0f35232bc94b3ab47b37c36d9fcb9f635b0b7eac5a7a72d",
+      "source_families": [],
+      "title": "Curling Luxembourg – Curling spirit, Luxembourg style"
+    },
+    {
+      "url": "https://www.curling.lu/training",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 78483,
+      "sha256": "9b8c74e1c6753132605c71db2fa3270446a1f911b725ce385b3adbd357865c41",
+      "source_families": [],
+      "title": "Training – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/activities",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79882,
+      "sha256": "39b4a120f7e09b2966794118dd5653ef03a3d12403ec292f59fdbe1228e17fef",
+      "source_families": [],
+      "title": "Activities – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/competitions",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 77303,
+      "sha256": "1f4c1ebfc605c8386b55a81d193ba027b21bdee1574f89267b3c9dbf47bbd798",
+      "source_families": [],
+      "title": "Competitions – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/coupe-de-lamitie",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 81757,
+      "sha256": "eb705764d4cc5b2c8ca12cce585262dba0f49e01cf1f42a2b8730e5d06ee39ab",
+      "source_families": [],
+      "title": "Coupe de l’Amitié – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/latest",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97262,
+      "sha256": "adbe4edfbe11c4aae0c7e4a876dcfaa8884253cb59a770f6a7c1033ba68d7622",
+      "source_families": [],
+      "title": "Latest – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/contact_us",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 73977,
+      "sha256": "320303c3cbe09426d3ca9c96d7a305ff8638d2343fc75c50ee92a58e6fbd3113",
+      "source_families": [],
+      "title": "Contact us – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/news-from-world-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 77852,
+      "sha256": "7f039490cd61a5e4f1de878b5296d97b16573a6971603de6e22b10995cf0a202",
+      "source_families": [],
+      "title": "News from World Curling – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/wp-login.php",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 5806,
+      "sha256": "30a1de927f7ec5e9317a5c615730a2ceeae433f8dd308ced1eb71be87876956d",
+      "source_families": [],
+      "title": "Log In ‹ Curling Luxembourg — WordPress"
+    },
+    {
+      "url": "https://www.curling.lu/feed",
+      "status": 200,
+      "content_type": "application/rss+xml",
+      "bytes": 11336,
+      "sha256": "e1aa7b937f05529a6969362a8c60aaf11f5b993dc821e6e095079ae3607c9e6f",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.lu/comments/feed",
+      "status": 200,
+      "content_type": "application/rss+xml",
+      "bytes": 751,
+      "sha256": "157b3318a90dbfab4c93716b57f1ec33641c35f7ea0a14cb815e9d7b775e777d",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.lu/wp-content/uploads/2026/07/50th-Anniversary-Postcard.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 27868,
+      "sha256": "083354627e3ef2efb1efcf9fac4b10c6249699ecbea120e659b5cf24090f1d8f",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.lu/luxembourg-at-curling-europeans",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 87227,
+      "sha256": "d12cc7026734dae4fc8b33f284ad7cc6032093f0ffb990a39a95ce54d059cfb1",
+      "source_families": [],
+      "title": "Luxembourg at Curling European’s – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/wp-content/uploads/2025/10/20250430-102340_-6518-scaled.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 572780,
+      "sha256": "73d00440b4aadc5ae05edb628a4f6b5795b519db8d0bc25187569bec6464d882",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.lu/team-letzebuerg-2-wins-2022-edition-of-4nations-cup",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 86411,
+      "sha256": "0a9da225bd87479ac548328c73adc81517f6d443e399df3e850a7fbc957907e8",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Team Lëtzebuerg 2 Wins 2022 Edition of 4Nations Cup – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/2021-edition-of-4-nations-cup-won-by-team-andorra",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 80523,
+      "sha256": "7e3773971e43e0b115dbe9294de34b73709de019b8fae590a01a9ac66fad8d33",
+      "source_families": [
+        "athlete_team_profiles"
+      ],
+      "title": "Team Andorra Wins 2021 Edition of 4 Nations Cup – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/latest/page/2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 86940,
+      "sha256": "ce7da0a8bb09d86d8680446ed0f40243b86ad930e3700bb888a308ab9990a361",
+      "source_families": [],
+      "title": "Latest – Page 2 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/latest/page/57",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79261,
+      "sha256": "b5be043f9f04ef1136099a5fb5606416f0a289cc611327fd56cc68a2c457302e",
+      "source_families": [],
+      "title": "Latest – Page 57 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/last-stone-draw-decides-2021-22-coupe-de-luxembourg",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 80420,
+      "sha256": "2df62a543f019ff5302124ef1fee4602354c57a82b2895896e2837edc8fbd4c9",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Last Stone Draw decides 2021/22 Coupe de Luxembourg – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/team-letzeburg-wins-beneleux-championship",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 82287,
+      "sha256": "da66f92bb7401eea3bd5ee25acbf26d68b31d22f5ac5f40ffd7fc2fc555aee63",
+      "source_families": [
+        "athlete_team_profiles",
+        "national_events_results"
+      ],
+      "title": "Team Lëtzebuerg Wins Beneleux Championship – Curling Luxembourg"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "athlete_team_profiles",
+    "calendar_draws",
+    "national_events_results"
+  ]
+}

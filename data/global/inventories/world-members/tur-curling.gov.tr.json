@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:47.215288+00:00",
+  "country_code": "TUR",
+  "country": "Türkiye",
+  "association": "Türkiye Curling Federation",
+  "seed_url": "https://www.curling.gov.tr",
+  "source": "https://worldcurling.org/member-association/turkiye/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.gov.tr/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.curling.gov.tr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 3680,
+      "sha256": "ef2740487aa7457d17bf68d41f38382df9973acb316544c564999ef3d6e1cc14",
+      "source_families": [],
+      "title": "Türkiye Curling Federasyonu"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

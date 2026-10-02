@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:10.360882+00:00",
+  "country_code": "SRB",
+  "country": "Serbia",
+  "association": "National Curling Association of Serbia",
+  "seed_url": "https://www.curling.rs",
+  "source": "https://worldcurling.org/member-association/serbia/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.rs/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.rs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 137779,
+      "sha256": "8f809c29e2813b1cffaa01971f700ac278f745e27767a99598cdc8cde6e52a54",
+      "source_families": [],
+      "title": "NACIONALNI SAVEZ ZA KARLING SRBIJE – ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/o-nama",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 117345,
+      "sha256": "1973d6ddabcf67f8493926f33021eb6170bbf516ad1d380011ed5e9eb46194ff",
+      "source_families": [],
+      "title": "O nama – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/category/novosti-aktuelno",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 128674,
+      "sha256": "a722eed7bd4dcfd955ff2555dd554ad367935525aca007cc38836b0406c0ccf7",
+      "source_families": [],
+      "title": "Novosti Aktuelno – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/turniri",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 112806,
+      "sha256": "a603de47b9746dd28d982fb2c5082d95709673a233ac3172b809829ea18298d5",
+      "source_families": [],
+      "title": "Turniri – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/turniri-statistika",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115523,
+      "sha256": "82c3b464a7ea1ebc742bd895795f079a40aa1a9918a05d0d48a96bc593ef05f2",
+      "source_families": [],
+      "title": "Turniri statistika – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/takmicari",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 116334,
+      "sha256": "09a559d3d1a7e01a7133b7b1f47480950a79ff0879f657380dfa1f69ef0516a1",
+      "source_families": [],
+      "title": "Takmičari – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/takmicarke",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 116922,
+      "sha256": "3ab83c51c06f9abc9f9386d2ae18f1168839513c1ce68686a3e78cfedd2967a1",
+      "source_families": [],
+      "title": "Takmičarke – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/istorijat",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 118844,
+      "sha256": "0815190ed1b7394939d8cf7544d9f860684a2096884afb95bc7e3aa2cf1a7155",
+      "source_families": [],
+      "title": "Istorijat – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/caskanja-o-karlingu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 112883,
+      "sha256": "e54e436649192ca9447e08ee3dc057b47255f3ca9c4294bf37da14a54000582c",
+      "source_families": [],
+      "title": "Ćaskanja o karlingu – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/skiciranje-strategije",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 113290,
+      "sha256": "cb18c58c3e5f868de1e04a5c9e59b0232c1117ab5d6e2dec8bb34e1055bcfeb8",
+      "source_families": [],
+      "title": "Skiciranje strategije – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/osnivanje-saveza",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115085,
+      "sha256": "ed4f73c15d0f3d55c700ed66f9398d1b1787a9095faf49508d15468e8021671d",
+      "source_families": [],
+      "title": "Osnivanje saveza – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/prvi-kamen-u-srbiji",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115488,
+      "sha256": "f6b18d078075905146ae01d62be5ac7bfe59d7ad5226b43206b97d4d28446616",
+      "source_families": [],
+      "title": "Prvi kamen u Srbiji – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/postali-smo-veterani",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 116683,
+      "sha256": "0d8a2e43909b75d74078223636166463b9cbee038522467bfa6608de36cc4221",
+      "source_families": [],
+      "title": "Postali smo veterani – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/istorijat-u-svetu",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 119176,
+      "sha256": "c4253795deeed4e60335b9a90f68f0b5941ce50cd8376e5ee6a84a84c54af61a",
+      "source_families": [],
+      "title": "Istorijat u svetu – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/karling-na-zimskim-olimpijskim-igrama",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 131939,
+      "sha256": "db96f62e9e82c72373d2a86c6ff45772f522fa5b51ca35119e8471a2a6c77580",
+      "source_families": [],
+      "title": "KARLING NA ZIMSKIM OLIMPIJSKIM IGRAMA – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/sta-je-karling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 120272,
+      "sha256": "db95065c340e31d11af2ffb891ae70fa94ac75411e115e096a5eae40859d9bb0",
+      "source_families": [],
+      "title": "Šta je karling – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/recnik-karlinga",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 121454,
+      "sha256": "b9322dc3ad41b93ae8e6a4799081dc1460c3ae062959206f4f33a71dccb0044f",
+      "source_families": [],
+      "title": "Rečnik karlinga – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/pravila",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 130002,
+      "sha256": "ec785158841d298a5633e2df7a032530ce77ef30e97a11c7db7bdebd5dac6321",
+      "source_families": [],
+      "title": "Pravila – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/zanimljivosti",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115031,
+      "sha256": "ff95505722597f912e5bfb4eed29f79b052dc40563bd227597010be68024d57b",
+      "source_families": [],
+      "title": "Zanimljivosti – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    },
+    {
+      "url": "https://www.curling.rs/mesoviti-parovi",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 136288,
+      "sha256": "8af95ddab94ab894a6fcdaf1631975d9319c14e987827af4930b93dd8b265e10",
+      "source_families": [],
+      "title": "Mešoviti parovi – NACIONALNI SAVEZ ZA KARLING SRBIJE"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:18.882289+00:00",
+  "country_code": "PHI",
+  "country": "Philippines",
+  "association": "Curling Pilipinas",
+  "seed_url": "https://www.curlingpilipinas.com",
+  "source": "https://worldcurling.org/member-association/philippines/",
+  "max_pages": 20,
+  "robots_url": "https://www.curlingpilipinas.com/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingpilipinas.com",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 279970,
+      "sha256": "db5bd866953514507eefcbbddc11b531cc5222c955663ecd519e307489fe707b",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Curling Pilipinas – The National Sports Association (NSA) of Philippine curling."
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "subnational_governance"
+  ]
+}

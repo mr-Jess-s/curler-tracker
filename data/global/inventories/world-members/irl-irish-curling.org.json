@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:31.441860+00:00",
+  "country_code": "IRL",
+  "country": "Ireland",
+  "association": "Irish Curling Association",
+  "seed_url": "https://www.irish-curling.org",
+  "source": "https://worldcurling.org/member-association/ireland/",
+  "max_pages": 20,
+  "robots_url": "https://www.irish-curling.org/robots.txt",
+  "robots_loaded": false,
+  "pages": [
+    {
+      "url": "https://www.irish-curling.org",
+      "status": "error",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.irish-curling.org'. (_ssl.c:1032)>"
+    }
+  ],
+  "pages_fetched": 0,
+  "pages_blocked": 0,
+  "pages_failed": 1,
+  "family_candidates": []
+}

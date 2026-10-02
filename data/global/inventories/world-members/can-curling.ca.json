@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:24:30.870042+00:00",
+  "country_code": "CAN",
+  "country": "Canada",
+  "association": "Curling Canada",
+  "seed_url": "https://www.curling.ca",
+  "source": "https://worldcurling.org/member-association/canada/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.ca/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 374268,
+      "sha256": "fb35db75de9efb4d80ced608c9308cdff762983763b4de8fc0c5cd0f912ea684",
+      "source_families": [],
+      "title": "Home - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/search",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 232432,
+      "sha256": "ca10b0861b599e5e94c7804c3c3a4497a144040fb27ca6671c7aea9344a15386",
+      "source_families": [],
+      "title": "Search - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/events/upcoming-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 286309,
+      "sha256": "354de9871f30943cde6cb477537c56d400d933bb473fececdbec3add2f705758",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Curling Canada Events - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027scotties",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 296641,
+      "sha256": "8cc982cb5f2ee855e4ac4a4d6828eec0283911413a4918ff90acca4f85aea549",
+      "source_families": [],
+      "title": "2027 Scotties - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027brier",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 282967,
+      "sha256": "6cb1b3cfcba9856c9037f1c0f6a59672b6a5a16a783a04a43a0e0158f15916c8",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Event - 2027 Montana’s Brier - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027worldmen",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 284924,
+      "sha256": "0037af0cabfb47839d506d3596abb27f586190c750ce0295713aa2e24901eb5f",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event - 2027 BKT World Men’s Curling Championship - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2026mixed",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 267541,
+      "sha256": "c1cbf7c2738d5c9983c0012a96d2ae680817ce9e8ee856099b5df5bc567e3429",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event - 2026 canadian mixed curling championship - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2026seniors",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 268243,
+      "sha256": "a6097715d34307eb446899637b41af42ff3811658d38cb27548c270a3ee30886",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2026 Senior Championships - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027university",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 260840,
+      "sha256": "33a32ece1ec6aae212b5afb65580cf6c01e7105ff8b33d1ad0d945b47403c413",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2027 U SPORTS/Curling Canada University Curling Championships - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027college",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 259911,
+      "sha256": "06156990f4d81fb83920b9e1dc643f1f48bf7249a07774909dbdb1fc74dabde1",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2027 CCAA/Curling Canada College Curling Championships - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027u20",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 260539,
+      "sha256": "705043f4687453a4c604c520191d84e529e063e6fc8c8a9deb911e8bd35c7796",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2027 New Holland Canadian Under-20 Curling Championships - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027u18",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 260790,
+      "sha256": "bcb8e94459c8775866c2083f0eb97a4a9d7aeb5cae750612fe5145004cd50b1a",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2027 Canadian Under-18 Curling Championships - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/2027wheelchair",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 261034,
+      "sha256": "fad8b769333e93d2418e9c9b974e0ec7671c5b578d52517fc772bb13c4d4dcb9",
+      "source_families": [
+        "calendar_draws",
+        "national_events_results"
+      ],
+      "title": "Event – 2027 Canadian Wheelchair Curling Championship - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/scoreboard",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 241593,
+      "sha256": "fbc25ce466cb7879c03ac153515f46e80776b55e0448c9a2a95ea430acae2142",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Scores - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/events/broadcast",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 291306,
+      "sha256": "8c5dfda68b4bceec6256a5d7b15ff6ca80da357f8cfb458ec07f0b15c6af1c61",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Broadcast Schedule - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/get-involved/event-hosting-bidding",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 286748,
+      "sha256": "bf193dc7dda4e228f43c5fb7c336e621d12fa0015408ad86c1013bce449299f9",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Event Hosting & Bidding - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2025/11/25-26-Playdown-Schedule.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 36692,
+      "sha256": "64c2312d2a06a633a217597b845e7696c26b38209bdc8f06443e7d779eef73b1",
+      "source_families": []
+    },
+    {
+      "url": "https://www.curling.ca/events/affiliated-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 245938,
+      "sha256": "86f2db7f754bdff925e943d880a17dfc7f88cef239522d0e5d206225b61e7878",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "Affiliated Events - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/events/international-events",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 236761,
+      "sha256": "3313f75dd97efb05d710ad57280131537675ab3c25c191799d19451baf03ea2c",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "International Events - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/events/event-archives",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 356069,
+      "sha256": "4cfd4b2c0ee8dfc14ddcec52d1f8be227f0a8daea78b80a78250f92409341a34",
+      "source_families": [
+        "calendar_draws",
+        "historical_digital_archives"
+      ],
+      "title": "Event Archives - Curling Canada"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "historical_digital_archives",
+    "national_events_results"
+  ]
+}

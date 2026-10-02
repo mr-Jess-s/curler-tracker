@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:50.012008+00:00",
+  "country_code": "TPE",
+  "country": "Chinese Taipei",
+  "association": "Chinese Taipei Curling Federation",
+  "seed_url": "https://www.tpecurling.org",
+  "source": "https://worldcurling.org/member-association/chinese-taipei/",
+  "max_pages": 20,
+  "robots_url": "https://www.tpecurling.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.tpecurling.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 169250,
+      "sha256": "aeb0bb2f392a22b1dcf7d482b2f0406d3e6f919761a9f23634b2b2372210ae22",
+      "source_families": [],
+      "title": "Home - Chinese Taipei Curling Federation Official Website"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

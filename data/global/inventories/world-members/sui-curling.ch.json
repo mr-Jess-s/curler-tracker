@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:51.055102+00:00",
+  "country_code": "SUI",
+  "country": "Switzerland",
+  "association": "Swiss Curling Association",
+  "seed_url": "https://www.curling.ch",
+  "source": "https://worldcurling.org/member-association/switzerland/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.ch/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.ch",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 114279,
+      "sha256": "95cad4fb51d09f0a7edfacc14e40f9cacfb873e7bc1272769b524ea67101931d",
+      "source_families": [],
+      "title": "Home | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/medien",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 123752,
+      "sha256": "016cbf5c79988cbc2f75348564a49c3e18c9c56652e71129d82d922ce9bb9ed0",
+      "source_families": [],
+      "title": "Medien | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/verband/kontakt",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95262,
+      "sha256": "d8a340679ec7250fba723a4e464e10c052310690cd3a10cda05247b8d2986e63",
+      "source_families": [],
+      "title": "Kontakt | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/fr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 116428,
+      "sha256": "efbde85a975a2c9587af56c44ce56b2750845cd9b1e3f5474811e2972fbdc9a7",
+      "source_families": [],
+      "title": "Home | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/suche",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 86807,
+      "sha256": "ab4793dced6932500c56f7be3adccbdce743e8ad90a6cde2c100f7021bafa207",
+      "source_families": [],
+      "title": "Suche | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/wettkampf/turniercenter",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88716,
+      "sha256": "6b7a20a4b08459d887eeca6736ef4931a0f5ca3d6679bd73fc5fb587c977fcce",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Turniercenter | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/wettkampf/turniercenter/schweizermeisterschaften",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 164805,
+      "sha256": "0818244a460b7a8c740fb764efcaba43abac5dbeef810bf7f8d63d51957c6ce7",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Schweizermeisterschaften | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/wettkampf/turniercenter/turnierkalender-schweiz",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 87684,
+      "sha256": "c55bbd3f1f1e5911875cc26d5e0f464f83a025815d2052f5710436156eabed29",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Turnierkalender Schweiz | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/wettkampf/turniercenter/international",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 95536,
+      "sha256": "ee703e03a7dc6f8e3f9428c071b5a3075e940249973b71b90ac4d2ca7296162c",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "International | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/wettkampf/resultate",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 713891,
+      "sha256": "52fc4de41a22448ff03534d8c820f608d7bce3181cf0f02bdf79b46c356fb1a5",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Resultate | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/newsroom",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94763,
+      "sha256": "7ac637761d0884c9450809ec7947dbd4a080654639b1990da9dca4d7c2359ffd",
+      "source_families": [],
+      "title": "Newsroom | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/national-curling-week",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 90488,
+      "sha256": "ebe2d1b89f59710d8d8426f2d43b370f53722a65e6f6368d11d561a683b2860a",
+      "source_families": [],
+      "title": "National Curling Week | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/einfuehrung-ins-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 100342,
+      "sha256": "b5a6a140ff56b59fcf1384a7e24bc35ea51a902a68220729e49f79ac41e8df43",
+      "source_families": [],
+      "title": "Einführung ins Curling | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/curling-ausporbieren",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 87605,
+      "sha256": "cdd9c614e71ff934274eaf82176d9e64e2825c3e31d73f6a571d051f1c743524",
+      "source_families": [],
+      "title": "Curling ausprobieren | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/geschichte",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 98288,
+      "sha256": "65373aa2c5b40d3afb814feca05dce7e8c3aa5137712295e71d768d5e71c36e0",
+      "source_families": [],
+      "title": "Geschichte | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97711,
+      "sha256": "334f13b226bf84871926f47385f4fd59ce74a2e29c13fc99669bb289d7d4745c",
+      "source_families": [],
+      "title": "Schulprogramm Learn to Curl | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl/lehrpersonen",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94285,
+      "sha256": "f64e5bdad2f9406006f9ffc122e61161a6e32d745e724049a49f6c751678cb08",
+      "source_families": [],
+      "title": "Lehrpersonen | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl/ausleihstellen",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 93649,
+      "sha256": "9ed4c05c2156cd786372d6f08bcacdb71319c1fd40bd0612f99c7202e20e4c38",
+      "source_families": [],
+      "title": "Ausleihstellen | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/curling-entdecken/leihmaterial",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 94179,
+      "sha256": "7cac529b3165deb923e8f69ff5bb49ea7106a0fa8bf7439782475dcc21ac01e7",
+      "source_families": [],
+      "title": "Leihmaterial | Swiss Curling"
+    },
+    {
+      "url": "https://www.curling.ch/mitglied/clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88204,
+      "sha256": "cc42b6b5241d7a823cdcbe602871416c01cd90ac11e1285a27bb601b0c991649",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Clubs | Swiss Curling"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "clubs_facilities",
+    "national_events_results"
+  ]
+}

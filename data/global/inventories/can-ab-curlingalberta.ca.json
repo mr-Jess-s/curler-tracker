@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T09:23:40.073717+00:00",
+  "country_code": "CAN-AB",
+  "seed_url": "https://curlingalberta.ca",
+  "host": "curlingalberta.ca",
+  "max_pages": 30,
+  "robots_url": "https://curlingalberta.ca/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://curlingalberta.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 442371,
+      "sha256": "1481722b68c6a2c90c7f1095147a6b09e07d21d696b0d003c5118ac9ea5de0fa",
+      "source_families": [],
+      "title": "CURLING ALBERTA | Curling Alberta"
+    },
+    {
+      "url": "https://curlingalberta.ca/competitions/follow-the-score",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 361091,
+      "sha256": "fb1689dfac80eb892d796d5bcc9b0a3527213dae77bd746e56e951c1b2ec5b00",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "Scores | Curling Alberta"
+    },
+    {
+      "url": "https://curlingalberta.ca/competitions/provincial-qualifiers-championships",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/mens-womens-provincial-championship",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/competitions/competitors-guide-policies",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/safe-sport-training",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/competitions/junior-events",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/alberta-curling-tour",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/alberta-curling-tour-points",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/alberta-curling-tour/schedule",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/alberta-curling-tour/standings",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/alberta-curling-tour/contact",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/host",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/programs",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/technical/coaching-requirements",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/high-performance",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/technical/curling-umpires-information",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/technical",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/youth-webinar-series",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/women-in-curling-summit",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/professional-development-for-teachers",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/clubs",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/benefits-of-membership",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/programs/expressrink",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/club-news",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/youth-development-pathway",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/club-leagues",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/classifieds",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/bonspiels",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "url": "https://curlingalberta.ca/dei",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    }
+  ],
+  "pages_fetched": 2,
+  "pages_blocked": 0,
+  "pages_failed": 28,
+  "family_candidates": [
+    "national_events_results"
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:03.174193+00:00",
+  "country_code": "USA",
+  "country": "United States",
+  "association": "United States Curling Association",
+  "seed_url": "https://www.usacurling.org",
+  "source": "https://worldcurling.org/member-association/united-states/",
+  "max_pages": 20,
+  "robots_url": "https://www.usacurling.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.usacurling.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 595265,
+      "sha256": "f320828db2b274c3e756e1de847d60ff629de141d782d593dc6aaf9a9b1464a7",
+      "source_families": [],
+      "title": "USA Curling"
+    },
+    {
+      "url": "https://www.usacurling.org/cart",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 702413,
+      "sha256": "685e151f513838fea2f09d2f0bffcc149421887db7242ef877efab14e3757bb3",
+      "source_families": [],
+      "title": "USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/find-a-club",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 277344,
+      "sha256": "867660048bbd627c2414838e1c82d93a0f4c528d18aaa1e3a6546deaf09c7a4e",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "Find a Club — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/getinvolved",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 372781,
+      "sha256": "ea3ae758952f32c3b7b0896bb95a89bb0cbe8e28f4d28c15473c99bd6a40b94f",
+      "source_families": [],
+      "title": "Get Involved — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/intro-to-curling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1072963,
+      "sha256": "8e163a5823b21be23b08b2e1df16917036015f6bda21d1805d3b78639ae6f667",
+      "source_families": [],
+      "title": "Intro to Curling — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/press-releases",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 346967,
+      "sha256": "f0c45b050b883ac70a45f81624a2aad49f9599ed95e92e57347967cfd6e7e6da",
+      "source_families": [],
+      "title": "PRESS RELEASES — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/media-inquiries",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 748059,
+      "sha256": "5982626ddac9178dc84ec573bc08dd849da104d0b1258d6c5a1aa203a780620c",
+      "source_families": [],
+      "title": "MEDIA INQUIRIES — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/monthly-news",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 218066,
+      "sha256": "92565ae8d2f2125164917284715bd8124d6c11fc08e5019334d112a36258a52e",
+      "source_families": [],
+      "title": "MONTHLY NEWS — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/member-hub",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 722315,
+      "sha256": "d818190d3b17a8b4f5bb062af3e15bd2e75bb6e3c102eb25d013a7052c112b75",
+      "source_families": [],
+      "title": "USA Curling Member Information — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/membership",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 536745,
+      "sha256": "dd3802abcb2ba28eb8051f6901aead9dfb7be00365052228fd6f3eda9c80f9fb",
+      "source_families": [],
+      "title": "Membership — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/become-a-member-club",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 308060,
+      "sha256": "4c92fa42254b7718159451434c97c5c7b356a6ff00069e52a5e0dc4d486b8c9e",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "title": "ABOUT MEMBERSHIP — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/insurance",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 477530,
+      "sha256": "186110c4274b1799d284da1a84dee8a6f5c6bd554aaa926e4ebd613b21321703",
+      "source_families": [],
+      "title": "INSURANCE — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/member-programs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1055938,
+      "sha256": "36ab35e7c4a7213e0a5d542c2be472c822c7f5c461f1f724c08cd044a096f7db",
+      "source_families": [],
+      "title": "Member Programs — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/bonspiel-calendar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 236693,
+      "sha256": "754114e4bb67a3c7487c0f221d4a3e52b844ffc08c7f693c4cd652e497bd0492",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "title": "BONSPIEL CALENDAR — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/summercurling",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 727259,
+      "sha256": "0a5c3c305bf8ef55b52da40df90fc7a24046e1639b385c89372b2210eccf1cad",
+      "source_families": [],
+      "title": "SUMMER CURLING — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 832641,
+      "sha256": "20b77e009f5eaf1503ff9b47bed641a74afe6061860bf67e06f89c3686d92326",
+      "source_families": [
+        "national_events_results"
+      ],
+      "title": "CHAMPIONSHIPS — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/regions-cup",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 782762,
+      "sha256": "44d7383a8a10e93990ce2354dabf4bf64022286a2bdc0fa2c7bf9cb1d5c966c0",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Regions Cup — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/bid-info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 955366,
+      "sha256": "9fbe0c5e2c81d5dc6743da201ca30d5d96420dcb1795f7b4013b9c7170d02f28",
+      "source_families": [],
+      "title": "QUALIFICATION PROCEDURES — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/safesport",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 695360,
+      "sha256": "c11c2546b4589c8b819ec14f72f150a5e397dc1e950ce2896f3da9a1bbed1c01",
+      "source_families": [],
+      "title": "SAFESPORT — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/report-an-incident",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 237800,
+      "sha256": "a053579d1897ff17a527adf35aeec6cef3e4e1d5363f60117e1ec81df034d61a",
+      "source_families": [],
+      "title": "REPORT AN INCIDENT — USA CURLING"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "calendar_draws",
+    "clubs_facilities",
+    "national_events_results",
+    "subnational_governance"
+  ]
+}

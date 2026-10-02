@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:26:11.716765+00:00",
+  "country_code": "RUS",
+  "country": "Russia",
+  "association": "Russian Curling Federation",
+  "seed_url": "https://www.curling.ru",
+  "source": "https://worldcurling.org/member-association/russia/",
+  "max_pages": 20,
+  "robots_url": "https://www.curling.ru/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curling.ru",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 228647,
+      "sha256": "7a4c7b6cb4a6d79d66402a34291b935f29067f0af5fa69a1678f85357b6e051c",
+      "source_families": [],
+      "title": "Федерация Кёрлинга России"
+    },
+    {
+      "url": "https://www.curling.ru/fkr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65621,
+      "sha256": "a73c62ee96eb7af42703ed4bcac334e417a71bd904baead1c851cfc8e646f896",
+      "source_families": [],
+      "title": "ФКР"
+    },
+    {
+      "url": "https://www.curling.ru/reestr-nagrad-fkr",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 80534,
+      "sha256": "93a1293e81e1636ef86a4ca598728d3780d82420f5c6381b6b1cb126a1073264",
+      "source_families": [],
+      "title": "Реестр наград ФКР"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 115067,
+      "sha256": "51c39de4a4383604de187ad15bc9684336552051d7275736c038c8fb28bba9b2",
+      "source_families": [],
+      "title": "Всё о кёрлинге"
+    },
+    {
+      "url": "https://www.curling.ru/kerling-v-regionah",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 104661,
+      "sha256": "0be8e76720f5fa500872fa0a3cee09d2d6fb9fa232168a2f5fbb12d901c76364",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "title": "Кёрлинг в регионах"
+    },
+    {
+      "url": "https://www.curling.ru/antidoping",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 81348,
+      "sha256": "0daa2624f48df748d95909689bc107279872d8fd4e15851df424234f4ed63fd5",
+      "source_families": [],
+      "title": "Антидопинг"
+    },
+    {
+      "url": "https://www.curling.ru/novosti",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1379866,
+      "sha256": "7800a7a7f8cd0cc6531d147b5205d3376a2d2516b808e7d8324723f3f57c9777",
+      "source_families": [],
+      "title": "Новости"
+    },
+    {
+      "url": "https://www.curling.ru/kalendar",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 106399,
+      "sha256": "efab843e3a8711ff23b852010baba808994ee6455d388c9d7ae507f790479d78",
+      "source_families": [],
+      "title": "Календарь"
+    },
+    {
+      "url": "https://www.curling.ru/rezultaty",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 359772,
+      "sha256": "2579299ad3918dd0fa079b1a017c6410f4a79b25140fa5bf7a18dc281d7c12dc",
+      "source_families": [],
+      "title": "Результаты"
+    },
+    {
+      "url": "https://www.curling.ru/media",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65442,
+      "sha256": "7ac12eae5158542de46c78b311136afd228abe65c2ff991d2ddd7fdad14a43ce",
+      "source_families": [],
+      "title": "Медиа"
+    },
+    {
+      "url": "https://www.curling.ru/fkr/o-federacii",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 66582,
+      "sha256": "3ac04ecd662e1569c27a83b0497d722ca0a0c37203b6f17c910ea7e86415b336",
+      "source_families": [],
+      "title": "О федерации"
+    },
+    {
+      "url": "https://www.curling.ru/fkr/struktura-federacii",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 78367,
+      "sha256": "7330df19029a1377e35be2094ed44974994f71914fb6e7abe40ca6e8da553c63",
+      "source_families": [],
+      "title": "Структура федерации"
+    },
+    {
+      "url": "https://www.curling.ru/fkr/mezhdunarodnaya-deyatelnost",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 73182,
+      "sha256": "0ad9722ae058ef9c5a7f745f63cc440de5f9187b6f80a8d3dc63f5af4be8a873",
+      "source_families": [],
+      "title": "Международная деятельность"
+    },
+    {
+      "url": "https://www.curling.ru/fkr/dokumenty",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 85193,
+      "sha256": "a4dc9f55b7a56125362eb47546001392ea180423a5abe71d2d154a394564824e",
+      "source_families": [],
+      "title": "Документы"
+    },
+    {
+      "url": "https://www.curling.ru/fkr/kontakty",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65084,
+      "sha256": "fef451722f1622a3f693312ae022469ec628560e7d36ce60734efb88eadc7113",
+      "source_families": [],
+      "title": "Контакты"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge/istoriya-kerlinga",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 76527,
+      "sha256": "2c2f1842097253d4439f5092d8c0d91c90ab5a1edb7ff6724d9c61da468a0dfd",
+      "source_families": [],
+      "title": "История кёрлинга"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge/kerling-na-olimpiyskih-igrah",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71283,
+      "sha256": "989319fa91b9f856b75a784878234e6534d620e6ac22e0bb28c3243e2729fba2",
+      "source_families": [],
+      "title": "Кёрлинг на Олимпийских играх"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge/nashi-medali",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71077,
+      "sha256": "8c59491d63203e06739e9bdc821f0437648ac51181ca409108e8f4f9332b97d9",
+      "source_families": [],
+      "title": "Наши медали"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge/pravila-igry",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 65810,
+      "sha256": "a4f8b85af1fa1493e968a594a694a6897708162829d7d5dd6ab4b26b116bbed9",
+      "source_families": [],
+      "title": "Правила игры"
+    },
+    {
+      "url": "https://www.curling.ru/vse-o-kerlinge/studencheskaya-liga-slk",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 68266,
+      "sha256": "1e0021b995e544c5de087134ed61c093acf34cb64713ba7dfc9573c21f1f3adb",
+      "source_families": [],
+      "title": "Студенческая лига (СЛК)"
+    }
+  ],
+  "pages_fetched": 20,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": [
+    "subnational_governance"
+  ]
+}

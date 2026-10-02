@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:35:04.359007+00:00",
+  "country_code": "CAN-AB",
+  "association": "Curling Alberta",
+  "scope": "Alberta",
+  "seed_url": "https://www.curlingalberta.ca",
+  "robots_url": "https://www.curlingalberta.ca/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingalberta.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 442377,
+      "sha256": "9a20a1c54b575153a58daf9b219ed8cbe077654834bc58d32f8bd23c7a3a4734",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\ab\\a88c84cf225948ec215a.html.gz",
+      "title": "CURLING ALBERTA | Curling Alberta"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}

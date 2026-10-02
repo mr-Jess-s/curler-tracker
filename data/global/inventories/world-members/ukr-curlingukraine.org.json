@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T11:25:48.188063+00:00",
+  "country_code": "UKR",
+  "country": "Ukraine",
+  "association": "Ukrainian Curling Federation",
+  "seed_url": "https://www.curlingukraine.org",
+  "source": "https://worldcurling.org/member-association/ukraine/",
+  "max_pages": 20,
+  "robots_url": "https://www.curlingukraine.org/robots.txt",
+  "robots_loaded": true,
+  "pages": [
+    {
+      "url": "https://www.curlingukraine.org",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 72094,
+      "sha256": "54e5200316a428c7642e19e39f77880e3fbd6cf6824c3ce8810560a737841935",
+      "source_families": [],
+      "title": "Всеукраїнська федерація кьорлінгу"
+    }
+  ],
+  "pages_fetched": 1,
+  "pages_blocked": 0,
+  "pages_failed": 0,
+  "family_candidates": []
+}
