@@ -58,7 +58,7 @@ def build_report():
             "last_success_at": row.get("last_success_at"),
             "last_attempt_at": row.get("last_attempt_at", row.get("started_at")),
             "next_retry_at": row.get("next_retry_at"),
-            "error": row.get("error"),
+            "error": row.get("error") if state in {"failed", "timeout"} else None,
         })
     issues = [row for row in task_rows if row["state"] in {"failed", "timeout"}]
     return {
