@@ -29,7 +29,7 @@ def inventory_one(row, max_pages, delay):
         }
     try:
         raw_dir = ROOT / "data" / "raw" / "canada-associations" / row["code"].lower()
-        result = crawl(seed, max_pages, delay, save_dir=raw_dir)
+        result = crawl(seed, max_pages, delay, save_dir=raw_dir, source_id=f"canada-{row['code'].lower()}")
         payload = {
             "schema_version": 1,
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -49,7 +49,7 @@ def inventory_one(row, max_pages, delay):
         )
         payload["pages_failed"] = sum(
             1 for page in payload["pages"]
-            if page.get("status") == "error"
+            if page.get("status") in {"error", "robots_unavailable"}
         )
         payload["family_candidates"] = sorted({
             family
@@ -67,7 +67,8 @@ def inventory_one(row, max_pages, delay):
             "code": code,
             "association": row["name"],
             "seed_url": seed,
-            "status": "inventoried",
+            "status": "blocked" if (not result.get("robots_loaded", True)
+                or (payload["pages_fetched"] == 0 and (payload["pages_blocked"] or any("block" in str(page.get("error", "")).lower() for page in payload["pages"])))) else "inventoried",
             "pages_fetched": payload["pages_fetched"],
             "pages_blocked": payload["pages_blocked"],
             "pages_failed": payload["pages_failed"],
@@ -132,6 +133,9 @@ def main():
         ),
         "failed": sum(
             1 for row in results if row["status"] == "failed"
+        ),
+        "blocked": sum(
+            1 for row in results if row["status"] == "blocked"
         ),
         "results": results,
     }

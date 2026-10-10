@@ -5,8 +5,10 @@ import html
 import json
 import re
 import urllib.request
+import gzip
 from pathlib import Path
 from urllib.parse import urljoin
+from acquisition_support import fetch_snapshot
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "global"
@@ -15,9 +17,11 @@ WORLD_RESULTS_URL = "https://results.worldcurling.org/"
 UA = "CurlerTrackerCoverage/1.0 (+https://github.com/mr-Jess-s/curler-tracker)"
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30) as response:
-        return response.read().decode("utf-8", errors="replace")
+    record, body = fetch_snapshot(url, "worldcurling-members", "world-member-sites", timeout=30)
+    if body is None:
+        with gzip.open(ROOT / record["raw_path"], "rb") as handle:
+            body = handle.read()
+    return body.decode("utf-8", errors="replace")
 
 def text_only(value):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", value))).strip()

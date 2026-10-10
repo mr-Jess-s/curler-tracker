@@ -9,8 +9,10 @@ import json
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 import urllib.robotparser
 from pathlib import Path
+from acquisition_support import fetch_snapshot, load_manifest, save_checkpoint
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTDIR = ROOT / "data" / "global" / "inventories"
@@ -63,7 +65,7 @@ def fetch(url):
         body = response.read()
         return response.status, response.headers, body
 
-def crawl(seed, max_pages, delay, save_dir=None):
+def crawl(seed, max_pages, delay, save_dir=None, source_id=None):
     parsed_seed = urllib.parse.urlsplit(seed)
     origin = f"{parsed_seed.scheme}://{parsed_seed.netloc}"
     robots_url = origin + "/robots.txt"
@@ -73,46 +75,58 @@ def crawl(seed, max_pages, delay, save_dir=None):
         _, _, robots_body = fetch(robots_url)
         robots.parse(robots_body.decode("utf-8", errors="replace").splitlines())
         robots_known = True
+    except urllib.error.HTTPError as exc:
+        if exc.code in {404, 410}:
+            robots.parse([])
+            robots_known = True
+        else:
+            robots_known = False
     except Exception:
         robots_known = False
 
-    queue = collections.deque([seed.rstrip("/")])
-    seen = set()
+    if not robots_known:
+        return {"robots_url": robots_url, "robots_loaded": False, "pages": [
+            {"url": seed, "status": "robots_unavailable", "error": "Could not verify robots.txt; collection stopped."}
+        ]}
+
+    source_id = source_id or (parsed_seed.hostname or "source").replace(".", "-")
+    raw_bucket = Path(save_dir).parent.name if save_dir else "site-inventory"
+    checkpoint = load_manifest(source_id)
+    resuming = checkpoint.get("checkpoint_seed") == seed and bool(checkpoint.get("pending_urls"))
+    queue = collections.deque(checkpoint["pending_urls"] if resuming else [seed.rstrip("/")])
+    seen = set(checkpoint.get("seen_urls", [])) if resuming else set()
     rows = []
     while queue and len(rows) < max_pages:
         url = queue.popleft()
         if url in seen:
             continue
         seen.add(url)
-        if robots_known and not robots.can_fetch(UA, url):
+        if not robots.can_fetch(UA, url):
             rows.append({"url": url, "status": "robots_disallowed"})
+            checkpoint = load_manifest(source_id)
+            checkpoint["checkpoint_seed"] = seed
+            save_checkpoint(source_id, checkpoint, queue, seen)
             continue
         try:
-            status, headers, body = fetch(url)
-            ctype = headers.get_content_type()
-            digest = hashlib.sha256(body).hexdigest()
-            raw_path = None
-            if save_dir:
-                raw_dir = Path(save_dir)
-                raw_dir.mkdir(parents=True, exist_ok=True)
-                suffix = "html" if ctype == "text/html" else "bin"
-                raw_path = raw_dir / f"{hashlib.sha256(url.encode('utf-8')).hexdigest()[:20]}.{suffix}.gz"
-                with gzip.open(raw_path, "wb", compresslevel=9) as handle:
-                    handle.write(body)
+            record, body = fetch_snapshot(url, source_id, raw_bucket)
+            if body is None and record.get("raw_path"):
+                with gzip.open(ROOT / record["raw_path"], "rb") as handle:
+                    body = handle.read()
             row = {
                 "url": url,
-                "status": status,
-                "content_type": ctype,
-                "bytes": len(body),
-                "sha256": digest,
+                "status": record["status"],
+                "content_type": record.get("content_type", "application/octet-stream"),
+                "bytes": record.get("bytes", 0),
+                "sha256": record.get("sha256"),
+                "etag": record.get("etag"),
+                "last_modified": record.get("last_modified"),
+                "retrieved_at": record.get("retrieved_at"),
+                "terms_status": record.get("terms_status", "unreviewed"),
                 "source_families": [],
             }
-            if raw_path:
-                try:
-                    row["raw_path"] = str(raw_path.relative_to(ROOT))
-                except ValueError:
-                    row["raw_path"] = str(raw_path)
-            if ctype == "text/html":
+            if record.get("raw_path"):
+                row["raw_path"] = record["raw_path"]
+            if row["content_type"] == "text/html":
                 parser = LinkParser()
                 parser.feed(body.decode("utf-8", errors="replace"))
                 row["title"] = " ".join(parser.title.split())
@@ -127,8 +141,15 @@ def crawl(seed, max_pages, delay, save_dir=None):
             rows.append(row)
         except Exception as exc:
             rows.append({"url": url, "status": "error", "error": str(exc)})
+        checkpoint = load_manifest(source_id)
+        checkpoint["checkpoint_seed"] = seed
+        save_checkpoint(source_id, checkpoint, queue, seen)
         if delay:
             time.sleep(delay)
+    if not queue:
+        checkpoint = load_manifest(source_id)
+        checkpoint["checkpoint_seed"] = None
+        save_checkpoint(source_id, checkpoint, [], set())
     return {"robots_url": robots_url, "robots_loaded": robots_known, "pages": rows}
 def main():
     parser = argparse.ArgumentParser(description="Inventory a curling source site deterministically.")

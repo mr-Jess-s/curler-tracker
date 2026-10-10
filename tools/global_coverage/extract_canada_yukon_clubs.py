@@ -7,17 +7,22 @@ import json
 import re
 import urllib.request
 from pathlib import Path
+from acquisition_support import fetch_snapshot
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "data" / "global" / "canada-clubs"
 RAW = ROOT / "data" / "raw" / "canada-clubs" / "yt"
 URL = "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs"
 UA = "CurlerTrackerCoverage/1.0 (+https://github.com/mr-Jess-s/curler-tracker)"
+LAST_RECORD = None
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=35) as response:
-        return response.read()
+    global LAST_RECORD
+    LAST_RECORD, body = fetch_snapshot(url, "canada-clubs-yt", "canada-clubs", timeout=35)
+    if body is None:
+        with gzip.open(ROOT / LAST_RECORD["raw_path"], "rb") as handle:
+            body = handle.read()
+    return body
 
 def clean(value):
     value = re.sub(r"<br\s*/?>", "\n", value or "", flags=re.I)
@@ -27,11 +32,9 @@ def clean(value):
     return "\n".join(line for line in lines if line)
 
 def save_raw(body):
-    RAW.mkdir(parents=True, exist_ok=True)
-    path = RAW / "directory.html.gz"
-    with gzip.open(path, "wb", compresslevel=9) as handle:
-        handle.write(body)
-    return str(path.relative_to(ROOT))
+    if LAST_RECORD and LAST_RECORD.get("raw_path"):
+        return LAST_RECORD["raw_path"]
+    raise RuntimeError("No archived Yukon source snapshot provenance available")
 def parse_cell(cell):
     text = clean(cell)
     lines = text.splitlines()

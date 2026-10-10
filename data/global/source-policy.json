@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "default_collection": "public_only",
+  "policy": {
+    "robots": "Fetch robots.txt before crawling each host. Stop if its rules cannot be verified; never override a disallow rule.",
+    "terms": "Honor published site terms. Host entries may block collection or record reviewed terms URLs. Unknown terms are surfaced in manifests and health reports for review.",
+    "access": "Do not use authentication, evade rate limits, bypass access controls, or collect private data.",
+    "retention": "Keep raw snapshots content-addressed with hashes and retrieval provenance. Do not replace an earlier snapshot when content changes."
+  },
+  "hosts": {}
+}

@@ -4,20 +4,49 @@ $Worker = Join-Path $Root 'tools\global_coverage\maintenance_cycle.py'
 $LogDir = Join-Path $env:LOCALAPPDATA 'CurlerTracker'
 New-Item -ItemType Directory -Force -Path $LogDir | Out-Null
 $Log = Join-Path $LogDir 'global-collector.log'
+$Runtime = Join-Path $Root 'data\global\collector-runtime.json'
+$CycleOut = Join-Path $LogDir 'global-collector.stdout.log'
+$CycleErr = Join-Path $LogDir 'global-collector.stderr.log'
 $Mutex = New-Object System.Threading.Mutex($false, 'CurlerTrackerGlobalCollectorSupervisor')
 if (-not $Mutex.WaitOne(0, $false)) { exit 0 }
+function Write-CollectorStatus([string]$Phase) {
+  $status = [ordered]@{
+    process_id = $PID
+    phase = $Phase
+    heartbeat_at = (Get-Date).ToUniversalTime().ToString('o')
+    startup_registered = $true
+  }
+  $temp = "$Runtime.tmp"
+  $status | ConvertTo-Json | Set-Content -LiteralPath $temp -Encoding UTF8
+  Move-Item -LiteralPath $temp -Destination $Runtime -Force
+}
 try {
   while ($true) {
     Add-Content -Path $Log -Value "$(Get-Date -Format o) maintenance cycle"
+    Write-CollectorStatus 'acquiring'
     try {
-      Set-Location $Root
-      & python $Worker *>> $Log
+      $python = (Get-Command python -ErrorAction Stop).Source
+      $child = Start-Process -FilePath $python -ArgumentList @($Worker) -WorkingDirectory $Root `
+        -WindowStyle Hidden -PassThru -RedirectStandardOutput $CycleOut -RedirectStandardError $CycleErr
+      while (-not $child.HasExited) {
+        Write-CollectorStatus 'acquiring'
+        Start-Sleep -Seconds 60
+        $child.Refresh()
+      }
+      if (Test-Path $CycleOut) { Get-Content -LiteralPath $CycleOut | Add-Content -Path $Log }
+      if (Test-Path $CycleErr) { Get-Content -LiteralPath $CycleErr | Add-Content -Path $Log }
+      Add-Content -Path $Log -Value "$(Get-Date -Format o) maintenance exit=$($child.ExitCode)"
     } catch {
       Add-Content -Path $Log -Value "$(Get-Date -Format o) maintenance exception: $($_.Exception.Message)"
     }
-    Start-Sleep -Seconds 21600
+    Write-CollectorStatus 'idle'
+    for ($minute = 0; $minute -lt 360; $minute++) {
+      Start-Sleep -Seconds 60
+      Write-CollectorStatus 'idle'
+    }
   }
 } finally {
+  Write-CollectorStatus 'stopped'
   $Mutex.ReleaseMutex() | Out-Null
   $Mutex.Dispose()
 }

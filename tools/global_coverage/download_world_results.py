@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import datetime as dt
+from email.message import Message
 import gzip
 import hashlib
 import html
@@ -10,6 +11,7 @@ import time
 import urllib.request
 from pathlib import Path
 from urllib.parse import urljoin
+from acquisition_support import fetch_snapshot
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "global"
@@ -27,9 +29,16 @@ RECORD_PATHS = [
 ]
 
 def fetch_bytes(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=35) as response:
-        return response.geturl(), response.status, response.headers, response.read()
+    record, body = fetch_snapshot(url, "worldcurling-results", "worldcurling-results", timeout=35)
+    if body is None:
+        with gzip.open(ROOT / record["raw_path"], "rb") as handle:
+            body = handle.read()
+    headers = Message()
+    headers["Content-Type"] = record.get("content_type", "application/octet-stream")
+    for key, name in (("ETag", "etag"), ("Last-Modified", "last_modified")):
+        if record.get(name):
+            headers[key] = record[name]
+    return record.get("final_url", url), record["status"], headers, body
 def save_gzip(path, body):
     path.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(path, "wb", compresslevel=9) as handle:

@@ -8,30 +8,32 @@ import re
 import time
 import urllib.request
 from pathlib import Path
+from acquisition_support import fetch_snapshot
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "data" / "global" / "canada-clubs"
 RAW = ROOT / "data" / "raw" / "canada-clubs" / "ab"
 INDEX_URL = "https://curlingalberta.ca/clubs/"
 UA = "CurlerTrackerCoverage/1.0 (+https://github.com/mr-Jess-s/curler-tracker)"
+LAST_RECORDS = {}
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=35) as response:
-        body = response.read()
-        return response.geturl(), response.status, response.headers, body
+    record, body = fetch_snapshot(url, "canada-clubs-ab", "canada-clubs", timeout=35)
+    LAST_RECORDS[url] = record
+    if body is None:
+        with gzip.open(ROOT / record["raw_path"], "rb") as handle:
+            body = handle.read()
+    return record.get("final_url", url), record["status"], record, body
 
 def clean(value):
     value = re.sub(r"<[^>]+>", " ", value or "")
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
 
 def save_raw(url, body):
-    RAW.mkdir(parents=True, exist_ok=True)
-    name = hashlib.sha256(url.encode("utf-8")).hexdigest()[:24] + ".html.gz"
-    path = RAW / name
-    with gzip.open(path, "wb", compresslevel=9) as handle:
-        handle.write(body)
-    return str(path.relative_to(ROOT))
+    record = LAST_RECORDS.get(url)
+    if record and record.get("raw_path"):
+        return record["raw_path"]
+    raise RuntimeError(f"No archived snapshot provenance available for {url}")
 def parse_index(page):
     found = {}
     pattern = re.compile(
