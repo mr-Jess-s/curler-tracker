@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-24T13:13:23.700240+00:00",
+  "source_snapshot_at": "2026-09-24T13:13:23.700240+00:00",
+  "source_provider": "Curling I/O",
+  "source_policy": "Exact published names and source-native IDs only; records are not identity-merged across source IDs.",
+  "identity_count": 12074,
+  "name_count": 10381,
+  "records": 12074,
+  "shard_count": 26,
+  "shards": [
+    {
+      "key": "a",
+      "file": "a.json",
+      "name_count": 776,
+      "bytes": 516324
+    },
+    {
+      "key": "b",
+      "file": "b.json",
+      "name_count": 643,
+      "bytes": 413136
+    },
+    {
+      "key": "c",
+      "file": "c.json",
+      "name_count": 858,
+      "bytes": 558708
+    },
+    {
+      "key": "d",
+      "file": "d.json",
+      "name_count": 726,
+      "bytes": 462250
+    },
+    {
+      "key": "e",
+      "file": "e.json",
+      "name_count": 407,
+      "bytes": 273968
+    },
+    {
+      "key": "f",
+      "file": "f.json",
+      "name_count": 97,
+      "bytes": 57866
+    },
+    {
+      "key": "g",
+      "file": "g.json",
+      "name_count": 372,
+      "bytes": 239271
+    },
+    {
+      "key": "h",
+      "file": "h.json",
+      "name_count": 227,
+      "bytes": 146853
+    },
+    {
+      "key": "i",
+      "file": "i.json",
+      "name_count": 107,
+      "bytes": 66262
+    },
+    {
+      "key": "j",
+      "file": "j.json",
+      "name_count": 1107,
+      "bytes": 728861
+    },
+    {
+      "key": "k",
+      "file": "k.json",
+      "name_count": 691,
+      "bytes": 454890
+    },
+    {
+      "key": "l",
+      "file": "l.json",
+      "name_count": 554,
+      "bytes": 359124
+    },
+    {
+      "key": "m",
+      "file": "m.json",
+      "name_count": 949,
+      "bytes": 641710
+    },
+    {
+      "key": "n",
+      "file": "n.json",
+      "name_count": 278,
+      "bytes": 189370
+    },
+    {
+      "key": "o",
+      "file": "o.json",
+      "name_count": 84,
+      "bytes": 60340
+    },
+    {
+      "key": "p",
+      "file": "p.json",
+      "name_count": 300,
+      "bytes": 192727
+    },
+    {
+      "key": "q",
+      "file": "q.json",
+      "name_count": 14,
+      "bytes": 9144
+    },
+    {
+      "key": "r",
+      "file": "r.json",
+      "name_count": 614,
+      "bytes": 401827
+    },
+    {
+      "key": "s",
+      "file": "s.json",
+      "name_count": 829,
+      "bytes": 570938
+    },
+    {
+      "key": "t",
+      "file": "t.json",
+      "name_count": 453,
+      "bytes": 297785
+    },
+    {
+      "key": "u",
+      "file": "u.json",
+      "name_count": 2,
+      "bytes": 1389
+    },
+    {
+      "key": "v",
+      "file": "v.json",
+      "name_count": 80,
+      "bytes": 52524
+    },
+    {
+      "key": "w",
+      "file": "w.json",
+      "name_count": 143,
+      "bytes": 90288
+    },
+    {
+      "key": "x",
+      "file": "x.json",
+      "name_count": 8,
+      "bytes": 5743
+    },
+    {
+      "key": "y",
+      "file": "y.json",
+      "name_count": 22,
+      "bytes": 13474
+    },
+    {
+      "key": "z",
+      "file": "z.json",
+      "name_count": 40,
+      "bytes": 31219
+    }
+  ]
+}

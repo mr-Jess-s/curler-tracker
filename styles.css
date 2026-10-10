@@ -296,7 +296,9 @@ h1 {
 .career-card { margin-top: 14px; padding-bottom: 2px; }
 .career-path { display: grid; gap: 8px; padding: 12px 20px 18px; }
 .career-path.empty { color: var(--muted); }
-.career-actions { display: flex; align-items: center; gap: 10px; padding: 4px 20px 6px; }
+.career-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 4px 20px 6px; }
+.career-actions #careerLoadBtn { flex: 0 0 auto; white-space: nowrap; }
+.career-actions #careerStatus { flex: 1 1 160px; }
 .career-actions .hint { margin: 0; }
 .career-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
 .career-item strong, .career-item span { display: block; }

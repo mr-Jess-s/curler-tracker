@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.8';
+const APP_VERSION = 'v26.9';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -235,6 +235,9 @@ function compactSnapshotForStorage(snapshot) {
     errorHint: snapshot.errorHint || '',
     nextCheckAt: snapshot.nextCheckAt || null,
     lastUpdatedLabel: snapshot.lastUpdatedLabel || '',
+    lastUpdatedAt: snapshot.lastUpdatedAt || '',
+    eventId: snapshot.eventId || null,
+    archiveSeason: snapshot.archiveSeason || '',
     activeGameId: snapshot.activeGameId || null,
     nextGameId: snapshot.nextGameId || null,
     progressSignature: snapshot.progressSignature || '',
@@ -912,6 +915,17 @@ function renderHeadline(snapshot) {
     return;
   }
 
+  if (snapshot.view === 'archived-team') {
+    const season = snapshot.archiveSeason ? ` · ${escapeHtml(snapshot.archiveSeason)}` : '';
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">Last recorded team: ${escapeHtml(snapshot.teamName || 'Unknown')}</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Archived Curling I/O appearance')}${season}</div></div>`;
+    return;
+  }
+
+  if (snapshot.view === 'idle' && snapshot.diagnostics?.phase !== 'searching') {
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No published roster was found in the competitions we checked.</div></div>';
+    return;
+  }
+
   if (snapshot.view === 'error') {
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Temporary refresh issue</div><div class="headline-sub">${escapeHtml(snapshot.errorHint || 'Please try again shortly.')}</div></div>`;
     return;
@@ -983,7 +997,7 @@ function renderCareerPath(snapshot) {
 
   if (history.length) {
     for (const item of history) items.push(item);
-  } else if (snapshot.eventName) {
+  } else if (snapshot.eventName && !['error', 'idle'].includes(snapshot.view)) {
     items.push({
       title: snapshot.eventName,
       detail: snapshot.teamName ? `Team: ${snapshot.teamName}` : 'Team not established',
@@ -1131,6 +1145,9 @@ function updateBadge(view) {
   } else if (view === 'recent-event') {
     els.liveBadge.classList.add('complete');
     els.liveBadge.textContent = 'Recent';
+  } else if (view === 'archived-team') {
+    els.liveBadge.classList.add('muted');
+    els.liveBadge.textContent = 'Archive';
   } else if (view === 'error') {
     els.liveBadge.classList.add('muted');
     els.liveBadge.textContent = 'Issue';
@@ -1141,8 +1158,11 @@ function updateBadge(view) {
 }
 
 function render(snapshot) {
+  if (snapshot && !snapshot.lastUpdatedAt && snapshot.view !== 'error' && snapshot.view !== 'idle') {
+    snapshot.lastUpdatedAt = new Date().toISOString();
+  }
   state.snapshot = snapshot;
-  saveSnapshot(snapshot);
+  if (snapshot?.view !== 'error' && snapshot?.view !== 'idle') saveSnapshot(snapshot);
   els.trackerResults?.classList.toggle('hidden', !snapshot?.playerName);
   els.archiveHome?.classList.toggle('hidden', !!snapshot?.playerName);
   els.homeBtn?.classList.toggle('hidden', !snapshot?.playerName);
@@ -1193,8 +1213,8 @@ function computeIdleSnapshot(playerName, diagnostics, delayMs) {
     eventName: 'No active event found',
     ends: [],
     scheduleRows: [],
-    timelineHint: 'No live game.',
-    scheduleHint: 'Scanning supported competitions for a current event every 72 hours.',
+    timelineHint: 'No current published competition entry found yet.',
+    scheduleHint: 'Club league teams may not appear in published competition records.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
@@ -1215,6 +1235,105 @@ function computeErrorSnapshot(playerName, diagnostics, delayMs, errorHint) {
     lastUpdatedLabel: formatClock(Date.now()),
     diagnostics
   };
+}
+
+function formatSnapshotDate(value) {
+  const date = new Date(value || '');
+  return Number.isNaN(date.getTime())
+    ? (value ? String(value) : 'date unavailable')
+    : new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+}
+
+function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) {
+  const records = (identity?.records || []).filter(row => row.team_name && row.event_name);
+  const careerHistory = records.map(row => {
+    const details = [`Team: ${row.team_name}`];
+    if (row.position) details.push(row.position);
+    if (row.season) details.push(row.season);
+    details.push(`Snapshot: ${formatSnapshotDate(row.retrieved_at)}`);
+    return {
+      title: row.event_name,
+      detail: details.join(' · '),
+      source: `Curling I/O · ${row.source_subdomain}`,
+      sourceUrl: row.source_url,
+      startsOn: row.starts_on || '',
+      eventId: row.event_id || '',
+      retrievedAt: row.retrieved_at || ''
+    };
+  });
+  return {
+    playerName,
+    displayPlayer: identity?.name || record.name || playerName,
+    view: 'archived-team',
+    eventName: record.event_name || 'Recorded competition',
+    teamName: record.team_name,
+    opponentName: '',
+    eventId: record.event_id || null,
+    archiveSeason: record.season || '',
+    sourceCurlerId: Number.isFinite(Number(identity?.source_curler_id)) ? Number(identity.source_curler_id) : null,
+    sourceSubdomain: identity?.source_subdomain || record.source_subdomain || '',
+    ends: [],
+    scheduleRows: [],
+    careerHistory,
+    timelineHint: `Last recorded with ${record.team_name} at ${record.event_name}${record.season ? ` (${record.season})` : ''}. This is an archived appearance, not a current team confirmation.`,
+    scheduleHint: `Live source could not be checked. Showing the last saved official roster record from ${formatSnapshotDate(record.retrieved_at)}.`,
+    lastUpdatedAt: record.retrieved_at || '',
+    lastUpdatedLabel: `Saved ${formatSnapshotDate(record.retrieved_at)}`,
+    nextCheckAt: Date.now() + delayMs,
+    diagnostics
+  };
+}
+
+async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs) {
+  const normalized = normalizeName(playerName);
+  const shard = /^[a-z]/.test(normalized) ? normalized[0] : 'other';
+  const index = await fetchJson(`./data/offline-curler-index/${shard}.json?v=${encodeURIComponent(APP_VERSION)}`, {
+    ttlMs: 24 * 60 * 60 * 1000,
+    cacheGroup: 'offline-curler-index'
+  });
+  if (index?.schema_version !== 1 || index?.source_provider !== 'Curling I/O' || !index?.names || typeof index.names !== 'object') {
+    throw new Error('Offline team archive is unavailable or invalid.');
+  }
+  const matches = index.names[normalized] || [];
+  if (!matches.length) {
+    diagnostics.offlineLookup = 'no-exact-match';
+    return null;
+  }
+  if (matches.length !== 1) {
+    diagnostics.offlineLookup = 'ambiguous-source-identities';
+    return null;
+  }
+  const identity = matches[0];
+  const record = (identity.records || []).find(row => row.team_name && row.event_name);
+  if (!record) diagnostics.offlineLookup = 'no-team-record';
+  return record ? buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) : null;
+}
+
+function findSavedTeamSnapshot(playerName, previous, diagnostics, delayMs) {
+  if (!previous || normalizeName(previous.playerName) !== normalizeName(playerName) ||
+      !previous.teamName || !previous.sourceSubdomain || ['error', 'idle'].includes(previous.view)) return null;
+  const record = {
+    name: previous.displayPlayer || previous.playerName,
+    team_name: previous.teamName,
+    event_name: previous.eventName || 'Previously checked competition',
+    event_id: previous.eventId || '',
+    starts_on: '',
+    season: '',
+    position: '',
+    source_subdomain: previous.sourceSubdomain,
+    source_url: previous.eventId ? `https://${previous.sourceSubdomain}.curling.io/en/events/${previous.eventId}` : '',
+    retrieved_at: previous.lastUpdatedAt || previous.lastUpdatedLabel || ''
+  };
+  const identity = {
+    name: record.name,
+    source_subdomain: record.source_subdomain,
+    source_curler_id: previous.sourceCurlerId || '',
+    records: [record]
+  };
+  const snapshot = buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs);
+  if (Array.isArray(previous.careerHistory) && previous.careerHistory.length) snapshot.careerHistory = previous.careerHistory;
+  snapshot.scheduleHint = `Live source could not be checked. Showing the last team record saved on this device from ${formatSnapshotDate(record.retrieved_at)}.`;
+  return snapshot;
 }
 
 function discoveryFastPathKey(playerNorm) {
@@ -1823,11 +1942,33 @@ async function runTracker({ reason }) {
       error: error.message
     });
 
+    let fallback = findSavedTeamSnapshot(state.playerName, state.snapshot, diagnostics, APP.errorRetryMs);
+    if (!fallback) {
+      try {
+        fallback = await findOfflineTeamSnapshot(state.playerName, diagnostics, APP.errorRetryMs);
+      } catch (archiveError) {
+        diagnostics.offlineArchiveError = archiveError.message;
+      }
+    }
+    if (generation !== state.playerGeneration) return;
+
+    if (fallback) {
+      render(fallback);
+      setStatus(`Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
+      scheduleNextRun(APP.errorRetryMs);
+      return;
+    }
+
+    const archiveHint = diagnostics.offlineLookup === 'ambiguous-source-identities'
+      ? 'The saved archive has multiple source identities with this name, so it cannot safely choose a team.'
+      : diagnostics.offlineLookup === 'no-exact-match'
+      ? `The saved event archive has no exact roster record for ${state.playerName}. Club league rosters may not be published to the sources we track.`
+      : 'The saved event archive has no team record for this name. Club league rosters may not be published to the sources we track.';
     const snapshot = computeErrorSnapshot(
       state.playerName,
       diagnostics,
       APP.errorRetryMs,
-      error.message
+      `${error.message} ${archiveHint}`
     );
 
     render(snapshot);
@@ -1916,7 +2057,8 @@ function bootFromSavedState() {
   if (snapshot && normalizeName(snapshot.playerName) === normalizeName(player)) {
     state.playerName = player;
     state.careerHistory = Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory : [];
-    render(snapshot);
+    const diagnostics = buildDiagnostics({ phase: 'saved-snapshot', playerName: player });
+    render(findSavedTeamSnapshot(player, snapshot, diagnostics, APP.errorRetryMs) || snapshot);
   }
   if (player) startTracking(player, 'boot-full-scan');
 }

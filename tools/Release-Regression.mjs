@@ -120,4 +120,30 @@ await check('Incomplete recent search cannot be reported as no history',async()=
  const a=app();a.run("state.playerName='First';discoverPlayerEvents=async()=>({candidates:[],checked:[],timedOut:false});discoverMostRecentCompletedEvent=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false})");
  await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');assert.match(a.elements.get('statusLine').textContent,/could not refresh/i);
 });
+await check('Refresh errors never become unsupported career records',async()=>{
+ const a=app();a.run("render(computeErrorSnapshot('Ferrol Asham',{phase:'error'},30000,'source unavailable'))");
+ assert.doesNotMatch(a.elements.get('careerPath').innerHTML,/Team not established|Temporary refresh issue/);
+});
+await check('Offline lookup returns a dated, explicitly archived team record',async()=>{
+ const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'sophie abbs':[{name:'Sophie Abbs',source_subdomain:'ab',source_curler_id:'49287',records:[{name:'Sophie Abbs',team_name:'Abbs',event_name:'Test Bonspiel',event_id:'10',season:'2025 / 2026',position:'skip',source_subdomain:'ab',source_url:'https://ab.curling.io/en/events/10',retrieved_at:'2026-09-24T13:13:23.700240+00:00'}]}]}};
+ a.run('fetchJson=async()=>fixture');
+ const snapshot=await a.run("findOfflineTeamSnapshot('Sophie Abbs',{phase:'error'},30000)");
+ assert.equal(snapshot.view,'archived-team');assert.equal(snapshot.teamName,'Abbs');assert.equal(snapshot.sourceCurlerId,49287);
+ assert.match(snapshot.timelineHint,/not a current team confirmation/);assert.match(snapshot.scheduleHint,/last saved official roster record/);
+});
+await check('Ambiguous offline identities are not silently merged',async()=>{
+ const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'same name':[{name:'Same Name',source_subdomain:'ab',source_curler_id:'1',records:[]},{name:'Same Name',source_subdomain:'mb',source_curler_id:'2',records:[]}]}};
+ a.run('fetchJson=async()=>fixture');a.context.diagnostics={phase:'error'};const snapshot=await a.run("findOfflineTeamSnapshot('Same Name',diagnostics,30000)");
+ assert.equal(snapshot,null);assert.equal(a.context.diagnostics.offlineLookup,'ambiguous-source-identities');
+});
+await check('Failed live search can fall back to an archived team record',async()=>{
+ const a=app();a.run("state.playerName='Sophie Abbs';state.playerGeneration=1;discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async name=>({playerName:name,view:'archived-team',teamName:'Abbs',eventName:'Test Bonspiel',lastUpdatedAt:'2026-09-24T13:13:23.700240+00:00',careerHistory:[],scheduleRows:[],ends:[]})");
+ await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'archived-team');assert.equal(a.run('state.snapshot.teamName'),'Abbs');
+});
+await check('No archived player match explains that club league rosters may be absent',async()=>{
+ const a=app();a.run("state.playerName='Ferrol Asham';state.playerGeneration=1;discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async(name,diagnostics)=>{diagnostics.offlineLookup='no-exact-match';return null}");
+ await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');
+ assert.match(a.run('state.snapshot.errorHint'),/Club league rosters may not be published/);
+ assert.doesNotMatch(a.elements.get('careerPath').innerHTML,/Team not established/);
+});
 console.log(count+' release regression checks passed.');

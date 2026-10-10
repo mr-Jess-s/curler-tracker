@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "global"
+STARTUP_LINK = Path.home() / "AppData" / "Roaming" / "Microsoft" / "Windows" / "Start Menu" / "Programs" / "Startup" / "Curler Tracker Collector.lnk"
 
 
 def read_json(path, default):
@@ -31,6 +32,7 @@ def build_report():
     cycle = read_json(DATA / "maintenance-state.json", {})
     tasks = cycle.get("tasks", {})
     season = read_json(DATA / "canada-current-season.json", {})
+    offline_index = read_json(ROOT / "data" / "offline-curler-index" / "manifest.json", {})
     manifest_dir = DATA / "acquisition-manifests"
     manifests = list(manifest_dir.glob("*.json")) if manifest_dir.exists() else []
     terms_pending = set()
@@ -68,7 +70,8 @@ def build_report():
             "phase": runtime.get("phase", "unknown"),
             "heartbeat_at": runtime.get("heartbeat_at"),
             "heartbeat_age_hours": round(heartbeat_age, 2) if heartbeat_age is not None else None,
-            "startup_registered": runtime.get("startup_registered"),
+            "startup_registered": STARTUP_LINK.is_file(),
+            "startup_entry": str(STARTUP_LINK),
         },
         "maintenance_state_updated_at": cycle.get("updated_at"),
         "maintenance_state_age_hours": round(cycle_age, 2) if cycle_age is not None else None,
@@ -82,6 +85,12 @@ def build_report():
             "source_count": season.get("source_count", 0),
             "event_count": season.get("event_count", 0),
             "failed_sources": [row.get("subdomain") for row in season.get("sources", []) if row.get("state") != "complete"],
+        },
+        "offline_curler_index": {
+            "generated_at": offline_index.get("generated_at"),
+            "name_count": offline_index.get("name_count", 0),
+            "identity_count": offline_index.get("identity_count", 0),
+            "shard_count": offline_index.get("shard_count", 0),
         },
         "tasks": task_rows,
     }
@@ -97,12 +106,16 @@ def main():
         return
     collector = report["collector"]
     print(f"Collector: {collector['state']} (phase={collector['phase']}, PID={collector['process_id']})")
+    print(f"Startup entry: {'registered' if collector['startup_registered'] else 'MISSING'} ({collector['startup_entry']})")
     print(f"Last maintenance state: {report['maintenance_state_updated_at'] or 'never'}")
     print(f"Source manifests: {report['raw_manifest_count']} | page records: {report['manifest_page_count']}")
     print(f"Jobs: {report['task_count']} | failed/timed out: {report['failed_or_timed_out_tasks']}")
     current = report["current_season_archive"]
     if current["generated_at"]:
         print(f"Canada current season: {current['event_count']} events from {current['source_count']} source(s); failed={current['failed_sources']}")
+    offline = report["offline_curler_index"]
+    if offline["generated_at"]:
+        print(f"Offline player lookup: {offline['name_count']} names from {offline['identity_count']} source IDs in {offline['shard_count']} cached shards; source snapshot {offline['generated_at']}")
     if report["terms_review_pending_hosts"]:
         print("Terms review pending: " + ", ".join(report["terms_review_pending_hosts"]))
     for row in report["tasks"]:

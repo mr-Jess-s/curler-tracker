@@ -55,7 +55,7 @@ Respect robots.txt, source terms, rate limits and access controls. Never bypass 
 
 ## Background collector operations
 
-Arthur starts `GlobalCurlingCollector-Supervisor.ps1` from the Windows Startup folder in a hidden PowerShell window. It holds a named mutex so only one supervisor runs, starts a maintenance cycle on launch, then checks for due jobs every fifteen minutes. Per-job intervals range from six hours to one week. The supervisor writes `data/global/collector-runtime.json`; job outcomes and retry times are in `data/global/maintenance-state.json`.
+Install the user-level Startup entry once with powershell -ExecutionPolicy Bypass -File tools/global_coverage/Install-GlobalCurlingCollector.ps1. The installer creates a hidden PowerShell shortcut and starts the supervisor immediately. It holds a named mutex so only one supervisor runs, starts a maintenance cycle on launch, then checks for due jobs every fifteen minutes. Per-job intervals range from six hours to one week. The supervisor writes data/global/collector-runtime.json; job outcomes and retry times are in data/global/maintenance-state.json. The health report checks the actual Startup shortcut and recent heartbeat separately.
 
 Run these from the project root:
 
@@ -66,6 +66,8 @@ python tools/global_coverage/maintenance_cycle.py --only canada_current_season
 ```
 
 The schedule puts published current-season Canadian Curling I/O results, Canadian association sites and Canadian club directories before World Curling expansion. Every job has a hard timeout. Network fetches retry transient errors with bounded backoff, use ETag/Last-Modified when available, and keep content-addressed raw snapshots with SHA-256 provenance. Per-source manifests in `data/global/acquisition-manifests/` retain checkpoints, HTTP validators and failures; site crawls resume their remaining URL queue after a page cap or interruption.
+
+The `canada_current_season` job retains each source's last successful event and roster snapshots when a refresh fails, marking those rows stale rather than replacing them with an empty result. `data/offline-curler-index/manifest.json` is rebuilt from those snapshots and the published Curling I/O history indexes. The website uses an exact-name match to show a dated last-reported team when live lookups fail; it labels that record as archived and never presents a refresh error as a career appearance. The index is deliberately keyed by source-native curler ID, and ambiguous same-name records stay unresolved.
 
 Before a site crawl, the collector checks that host's `robots.txt`. It stops if the rules cannot be fetched or disallow the URL, and respects published crawl delays and request rates. `data/global/source-policy.json` records host-level terms decisions; unreviewed terms are surfaced in the health report, while an explicit `collection: "blocked"` host entry prevents requests. The current-season Curling I/O job only selects published results, and caps each source to ten event pages per run.
 

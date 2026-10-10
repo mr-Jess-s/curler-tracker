@@ -13,6 +13,7 @@ STATE = ROOT / "data" / "global" / "maintenance-state.json"
 
 TASKS = [
     {"name":"canada_current_season","cmd":[sys.executable,str(TOOLS/"archive_canada_current_season.py"),"--max-sources","14","--max-events-per-source","10","--delay","0.5"],"hours":6,"timeout":2400},
+    {"name":"offline_curler_index","cmd":[sys.executable,str(TOOLS/"build_offline_curler_index.py")],"hours":6,"timeout":300},
     {"name":"canada_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_canada_sites.py"),"--max-pages","120","--delay","0.10","--workers","3"],"hours":24,"timeout":2400},
     {"name":"canada_alberta_clubs","cmd":[sys.executable,str(TOOLS/"extract_canada_alberta_clubs.py")],"hours":168,"timeout":2400},
     {"name":"canada_yukon_clubs","cmd":[sys.executable,str(TOOLS/"extract_canada_yukon_clubs.py")],"hours":168,"timeout":900},

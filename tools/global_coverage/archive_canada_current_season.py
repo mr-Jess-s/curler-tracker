@@ -44,8 +44,52 @@ def request_json(url, source_id):
     return json.loads(body.decode("utf-8")), record
 
 
+def load_previous():
+    try:
+        value = json.loads(OUT.read_text(encoding="utf-8-sig"))
+        if value.get("schema_version") == 1 and isinstance(value.get("sources"), list):
+            return value
+    except (OSError, json.JSONDecodeError):
+        pass
+    return {"sources": []}
+
+
+def event_snapshot(event, payload, record, start, subdomain):
+    teams = []
+    for team in payload.get("teams", []):
+        lineup = []
+        for curler in team.get("lineup", []):
+            if curler.get("curler_id") is None and not curler.get("name"):
+                continue
+            lineup.append({
+                "curler_id": curler.get("curler_id"),
+                "name": curler.get("name") or "",
+                "position": curler.get("position") or "",
+            })
+        teams.append({
+            "team_id": team.get("id"),
+            "team_name": team.get("name") or "",
+            "affiliation": team.get("affiliation") or "",
+            "lineup": lineup,
+        })
+    return {
+        "event_id": int(event["id"]),
+        "name": event.get("name") or event.get("title") or payload.get("name") or "",
+        "starts_on": start.isoformat(),
+        "source_url": f"https://{subdomain}.curling.io/en/events/{event['id']}",
+        "api_url": record.get("url"),
+        "sha256": record.get("sha256"),
+        "raw_path": record.get("raw_path"),
+        "team_count": len(teams),
+        "teams": teams,
+        "retrieved_at": record.get("retrieved_at") or record.get("not_modified_at"),
+    }
+
+
 def run(max_sources=14, max_events_per_source=10, delay=0.5):
     season_start = current_season_start()
+    previous = load_previous()
+    previous_sources = {row.get("subdomain"): row for row in previous.get("sources", []) if row.get("subdomain")}
     rows = []
     for subdomain in SUBDOMAINS[:max_sources]:
         source_id = f"canada-season-{subdomain}"
@@ -63,23 +107,26 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
                 event_id = int(event["id"])
                 event_url = f"{API}/{quote(subdomain)}/events/{event_id}"
                 payload, record = request_json(event_url, source_id)
-                source["events"].append({
-                    "event_id": event_id,
-                    "name": event.get("name") or event.get("title") or "",
-                    "starts_on": start.isoformat(),
-                    "source_url": event_url,
-                    "sha256": record.get("sha256"),
-                    "raw_path": record.get("raw_path"),
-                    "team_count": len(payload.get("teams", [])),
-                    "retrieved_at": record.get("retrieved_at") or record.get("not_modified_at"),
-                })
+                record["url"] = event_url
+                source["events"].append(event_snapshot(event, payload, record, start, subdomain))
                 if delay:
                     time.sleep(delay)
             source["state"] = "complete"
             source["published_events_in_season"] = len(candidates)
         except Exception as exc:
-            source["state"] = "failed"
+            source["state"] = "stale" if previous_sources.get(subdomain, {}).get("events") else "failed"
             source["error"] = str(exc)
+        old_source = previous_sources.get(subdomain, {})
+        if old_source.get("events"):
+            merged = {int(row["event_id"]): row for row in old_source["events"] if row.get("event_id") is not None}
+            merged.update({int(row["event_id"]): row for row in source["events"] if row.get("event_id") is not None})
+            source["events"] = sorted(merged.values(), key=lambda row: (row.get("starts_on", ""), int(row.get("event_id") or 0)), reverse=True)
+            if source["state"] == "failed":
+                source["state"] = "stale"
+            if source["state"] == "stale":
+                source["last_success_at"] = old_source.get("last_success_at") or max((row.get("retrieved_at", "") for row in source["events"]), default="")
+        elif source["state"] == "complete":
+            source["last_success_at"] = max((row.get("retrieved_at", "") for row in source["events"]), default="")
         rows.append(source)
         print(f"{subdomain}: {source['state']} archived={len(source['events'])}", flush=True)
         if delay:
@@ -87,7 +134,7 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     temp = OUT.with_suffix(".json.tmp")
-    temp.write_text(json.dumps({
+    payload = {
         "schema_version": 1,
         "generated_at": utc_now(),
         "season_start": season_start.isoformat(),
@@ -95,11 +142,13 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
         "source_count": len(rows),
         "event_count": sum(len(row["events"]) for row in rows),
         "sources": rows,
-    }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    }
+    temp.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     temp.replace(OUT)
-    failed = sum(1 for row in rows if row["state"] != "complete")
-    print(f"Current-season archive: {len(rows)-failed}/{len(rows)} sources ok; {sum(len(r['events']) for r in rows)} events -> {OUT}")
-    return 1 if failed else 0
+    failed = sum(1 for row in rows if row["state"] in {"failed", "stale"})
+    stale = sum(1 for row in rows if row["state"] == "stale")
+    print(f"Current-season archive: {len(rows)-failed}/{len(rows)} sources refreshed; {stale} using last-known snapshots; {sum(len(r['events']) for r in rows)} events -> {OUT}")
+    return 1 if any(row["state"] == "failed" for row in rows) else 0
 
 
 def main():
