@@ -40,7 +40,7 @@ try {
       Add-Content -Path $Log -Value "$(Get-Date -Format o) maintenance exception: $($_.Exception.Message)"
     }
     Write-CollectorStatus 'idle'
-    for ($minute = 0; $minute -lt 360; $minute++) {
+    for ($minute = 0; $minute -lt 15; $minute++) {
       Start-Sleep -Seconds 60
       Write-CollectorStatus 'idle'
     }

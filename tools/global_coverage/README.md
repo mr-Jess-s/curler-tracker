@@ -55,7 +55,7 @@ Respect robots.txt, source terms, rate limits and access controls. Never bypass 
 
 ## Background collector operations
 
-Arthur starts `GlobalCurlingCollector-Supervisor.ps1` from the Windows Startup folder in a hidden PowerShell window. It holds a named mutex so only one supervisor runs, starts a maintenance cycle on launch, then repeats every six hours. The supervisor writes `data/global/collector-runtime.json`; job outcomes and retry times are in `data/global/maintenance-state.json`.
+Arthur starts `GlobalCurlingCollector-Supervisor.ps1` from the Windows Startup folder in a hidden PowerShell window. It holds a named mutex so only one supervisor runs, starts a maintenance cycle on launch, then checks for due jobs every fifteen minutes. Per-job intervals range from six hours to one week. The supervisor writes `data/global/collector-runtime.json`; job outcomes and retry times are in `data/global/maintenance-state.json`.
 
 Run these from the project root:
 

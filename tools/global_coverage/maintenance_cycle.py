@@ -19,7 +19,7 @@ TASKS = [
     {"name":"world_results","cmd":[sys.executable,str(TOOLS/"continuous_world_results.py")],"hours":6,"timeout":1800},
     {"name":"coverage_update","cmd":[sys.executable,str(TOOLS/"update_coverage_registry.py")],"hours":6,"timeout":300},
     {"name":"country_registry","cmd":[sys.executable,str(TOOLS/"build_country_registry.py")],"hours":24,"timeout":300},
-    {"name":"world_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_world_sites.py"),"--max-pages","40","--delay","0.10","--workers","4"],"hours":72,"timeout":3600},
+    {"name":"world_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_world_sites.py"),"--max-pages","40","--delay","0.10","--workers","4"],"hours":72,"timeout":1200},
 ]
 
 def now():
@@ -47,6 +47,8 @@ def due(entry, hours):
             return now() >= dt.datetime.fromisoformat(retry_at.replace("Z", "+00:00"))
         except Exception:
             return True
+    if entry.get("error") or entry.get("state") in {"failed", "timeout"}:
+        return True
     stamp = entry.get("last_success_at")
     if not stamp:
         return True
@@ -88,6 +90,7 @@ def run_task(task, state, dry_run=False):
             entry["error"] = f"Timed out after {task['timeout']} seconds"
             entry["stdout_tail"] = (exc.stdout or "")[-4000:] if isinstance(exc.stdout, str) else ""
             entry["stderr_tail"] = (exc.stderr or "")[-4000:] if isinstance(exc.stderr, str) else ""
+            break
         except Exception as exc:
             outcome = "failed"
             entry["error"] = str(exc)
