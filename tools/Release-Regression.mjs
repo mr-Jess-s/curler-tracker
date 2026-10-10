@@ -27,7 +27,10 @@ async function check(name, fn){await fn();console.log('PASS '+name);count++;}
 await check('Homepage has visible branding and a useful historical default', async()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  const summary=JSON.parse(fs.readFileSync(path.join(root,'data/home-summary.json'),'utf8'));
- assert.match(html,/noble-beaver\.svg/); assert.match(html,/Explore recent seasons/);
+ assert.match(html,/noble-beaver(?:-icon)?\.svg/); assert.match(html,/Explore recent seasons/);
+ assert.match(html,/href="#main-content"/); assert.match(html,/id="main-content" tabindex="-1"/);
+ assert.match(html,/role="search"/); assert.match(html,/aria-labelledby="feedback-title"/);
+ const css=fs.readFileSync(path.join(root,"styles.css"),"utf8"); assert.match(css,/:focus-visible/); assert.match(css,/prefers-reduced-motion/);
  assert.equal(summary.default_season,'2025 / 2026');
  assert(summary.seasons.some(row=>row.season==='2024 / 2025'&&row.events>100));
  assert(summary.featured_curlers.length>=6);

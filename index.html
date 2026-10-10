@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0c1220">
+  <meta name="theme-color" content="#f2f6fa">
   <title>Curler Tracker</title>
-  <meta name="description" content="Start with a curler. See their current context, team, event and sourced path through Canadian curling.">
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.7">
-  <link rel="stylesheet" href="./styles.css?v=v26.7">
+  <meta name="description" content="Follow Canadian curlers through live event context and verified career records.">
+  <link rel="manifest" href="./manifest.webmanifest?v=v26.8">
+  <link rel="stylesheet" href="./styles.css?v=v26.8">
 </head>
-<body>
-  <main class="app-shell">
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  <main class="app-shell" id="main-content" tabindex="-1">
     <header class="topbar">
       <div class="brand-lockup">
-        <img class="brand-mark" src="./noble-beaver.svg" alt="" width="72" height="72">
+        <img class="brand-mark" src="./noble-beaver-icon.svg" alt="" width="40" height="40">
         <div>
           <p class="brand-kicker">Follow the person. Understand the game.</p>
           <h1>Curler Tracker</h1>
-          <p class="subtitle">Search one curler. See where they are now, who they are with, and their sourced path through the sport.</p>
+          <p class="subtitle">Live event context and verified curling history.</p>
         </div>
       </div>
       <button id="installBtn" class="ghost hidden" type="button">Install</button>
@@ -27,9 +27,9 @@
       <div class="search-intro">
         <p class="eyebrow">Start here</p>
         <h2 id="find-curler-title">Find a curler</h2>
-        <p>Start with the person — not the team. Curler Tracker connects live context, events and verified career records.</p>
+        <p>Find a curler to see current context, recent events and sourced career records.</p>
       </div>
-      <form id="playerForm" class="player-form">
+      <form id="playerForm" class="player-form" role="search">
         <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="name" />
         <button type="submit">View curler</button>
       </form>
@@ -44,7 +44,7 @@
         <button id="homeBtn" class="ghost hidden" type="button">Explore archive</button>
         <button id="demoCurlerBtn" class="ghost demo-button" type="button">Try a verified example</button>
       </div>
-      <p id="statusLine" class="status-line">Search across published Curling I/O roster records.</p>
+      <p id="statusLine" class="status-line" role="status">Search across published Curling I/O roster records.</p>
     </section>
 
     <section id="archiveHome" class="archive-home card" aria-labelledby="archive-title">
@@ -87,7 +87,7 @@
           <div class="eyebrow">Tracking</div>
           <div id="trackedPlayer" class="tracked-player">-</div>
         </div>
-        <span id="liveBadge" class="badge muted">Idle</span>
+        <span id="liveBadge" class="badge muted" role="status">Idle</span>
       </div>
 
       <div id="headlineBlock" class="headline-block">
@@ -137,7 +137,7 @@
       </div>
       <div class="career-actions">
         <button id="careerLoadBtn" class="ghost hidden" type="button">Load recent history</button>
-        <span id="careerStatus" class="hint"></span>
+        <span id="careerStatus" class="hint" role="status"></span>
       </div>
       <div id="careerPath" class="career-path empty">
         <p>Track a curler to begin building their sourced career record.</p>
@@ -150,11 +150,11 @@
     </footer>
   </main>
 
-  <dialog id="feedbackDialog" class="feedback-dialog">
+  <dialog id="feedbackDialog" class="feedback-dialog" aria-labelledby="feedback-title">
     <form method="dialog" class="feedback-form">
       <div class="section-head">
         <div>
-          <h2>Feedback</h2>
+          <h2 id="feedback-title">Feedback</h2>
           <p class="hint">Nothing is sent automatically. Copy or download the report and share it when you choose.</p>
         </div>
         <button id="feedbackCloseBtn" class="ghost" value="cancel" type="submit">Close</button>
@@ -195,10 +195,10 @@
         <button id="feedbackCopyBtn" type="button">Copy report</button>
         <button id="feedbackDownloadBtn" class="ghost" type="button">Download JSON</button>
       </div>
-      <p id="feedbackStatus" class="status-line"></p>
+      <p id="feedbackStatus" class="status-line" role="status"></p>
     </form>
   </dialog>
 
-  <script src="./app.js?v=v26.7"></script>
+  <script src="./app.js?v=v26.8"></script>
 </body>
 </html>
