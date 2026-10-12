@@ -19,10 +19,10 @@ Manual health report:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\CurlerTracker-Health.ps1
 
 Manual verified publication:
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-CurlerTracker.ps1 -Publish
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-SafeProduction.ps1 -Publish
 
 Manual publisher dry run (validates without deploying):
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-CurlerTracker.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-SafeProduction.ps1
 
 Install or repair publisher schedule:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Install-PublisherSchedule.ps1
@@ -32,3 +32,13 @@ Publisher logs/state: %LOCALAPPDATA%\CurlerTracker\publisher.log and last-publis
 IMPORTANT: Curling I/O current-season registry can legitimately have zero entries for the specifically enumerated result-filtered association endpoints even when curling is happening elsewhere. An HTTP-200 with empty items is not evidence that no curling events exist. The live app uses source-specific lookups and separately qualified fallback data. Do not claim country or archive completeness based on empty lists.
 
 Publishing is not a substitute for expanding adapters. New source families require explicit deterministic parsers and evidence-based validation. Arthur must be on and signed into Windows for the collector and scheduled publisher to run.
+
+## Portable backup for personal devices
+
+Arthur also copies the complete working project including the raw archive into the user's OneDrive sync folder at C:\Users\mrjes\OneDrive\CurlerTracker-Backup\project. Git history is preserved separately as the verified curler-tracker-repository.bundle, which can be cloned with git clone <bundle-file> <folder>.
+The incremental backup runs daily at 02:30 when Arthur is signed in. It never deletes prior OneDrive files. OneDrive transfer to Microsoft's cloud and arrival on other devices depend on OneDrive synchronization and storage quota; the script records local copy success only, not cloud upload completion.
+Manual backup:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Backup-CurlerTracker.ps1
+Reinstall backup schedule:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Install-ArchiveBackup.ps1
+Health: %LOCALAPPDATA%\CurlerTracker\backup-state.json and backup.log.

@@ -10,3 +10,4 @@ data/global/collector-status.json
 
 tools/global_coverage/__pycache__/
 data/global/maintenance-state.json
+data/global/maintenance-cycle.lock

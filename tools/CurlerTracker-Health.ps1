@@ -33,3 +33,13 @@ foreach ($url in @('https://curler-tracker.vercel.app/', 'https://curler-tracker
     Write-Output ("PUBLIC {0} HTTP {1}, bytes={2}" -f $url, $response.StatusCode, $response.RawContentLength)
   } catch { Write-Output "PUBLIC ERROR $url : $($_.Exception.Message)" }
 }
+
+$BackupState = Join-Path $Local 'backup-state.json'
+if (Test-Path $BackupState) {
+  $backup = Get-Content $BackupState -Raw | ConvertFrom-Json
+  Write-Output "OneDrive backup (local copy): $($backup.copied_at) destination=$($backup.destination); cloud sync NOT VERIFIED"
+} else { Write-Output 'OneDrive backup (local copy): PENDING' }
+foreach ($name in @('CurlerTracker-VerifiedPublisher','CurlerTracker-ArchiveBackup')) {
+  $task = Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue
+  if ($task) { Write-Output "Schedule: $name $($task.State)" }
+}

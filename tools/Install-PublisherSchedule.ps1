@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$Script = Join-Path $PSScriptRoot 'Publish-CurlerTracker.ps1'
+$Script = Join-Path $PSScriptRoot 'Publish-SafeProduction.ps1'
 if (-not (Test-Path -LiteralPath $Script)) { throw "Missing $Script" }
 $TaskName = 'CurlerTracker-VerifiedPublisher'
 $User = [Security.Principal.WindowsIdentity]::GetCurrent().Name

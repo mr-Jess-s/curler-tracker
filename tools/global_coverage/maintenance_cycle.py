@@ -124,5 +124,38 @@ def main():
         run_task(task, state, dry_run=args.dry_run)
     print("Maintenance cycle complete")
 
+def locked_main():
+    """Prevent supervisor and ad-hoc maintenance runs from overwriting each other's state."""
+    lock_path = ROOT / "data" / "global" / "maintenance-cycle.lock"
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    with lock_path.open("a+b") as handle:
+        handle.seek(0)
+        if not handle.read(1):
+            handle.write(b"1")
+            handle.flush()
+        handle.seek(0)
+        if sys.platform == "win32":
+            import msvcrt
+            try:
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            except OSError:
+                print("Maintenance cycle is already running; skipping duplicate worker.")
+                return
+        else:
+            import fcntl
+            try:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except OSError:
+                print("Maintenance cycle is already running; skipping duplicate worker.")
+                return
+        try:
+            main()
+        finally:
+            handle.seek(0)
+            if sys.platform == "win32":
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
 if __name__ == "__main__":
-    main()
+    locked_main()
