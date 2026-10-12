@@ -159,6 +159,7 @@ h1 {
 }
 .ghost:hover { border-color: var(--line-strong); background: var(--surface-raised); }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.current-season-button { margin-top: 10px; color: var(--blue-dark); background: var(--surface-blue); border-color: #bad2e8; }
 .actions .demo-button { border-color: #bad2e8; background: var(--surface-blue); color: var(--blue-dark); }
 .actions .demo-button:hover { border-color: #8fb8dc; background: #e0eef9; }
 .status-line { margin: 12px 2px 0; color: var(--muted); font-size: .88rem; line-height: 1.45; }

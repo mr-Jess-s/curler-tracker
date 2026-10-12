@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.11';
+const APP_VERSION = 'v26.12';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -73,6 +73,7 @@ const els = {
   archiveStatus: document.getElementById('archiveStatus'),
   archiveContent: document.getElementById('archiveContent'),
   seasonSelect: document.getElementById('seasonSelect'),
+  currentSeasonBtn: document.getElementById('currentSeasonBtn'),
   coverageEvents: document.getElementById('coverageEvents'),
   coverageCurlers: document.getElementById('coverageCurlers'),
   coverageAppearances: document.getElementById('coverageAppearances'),
@@ -135,12 +136,21 @@ async function loadArchiveHome() {
     els.coverageNote.textContent = `${summary.coverage_note} Last rebuilt ${new Date(summary.generated_at).toLocaleDateString('en-CA')}.`;
     renderArchiveSeason(summary, els.seasonSelect.value);
     els.seasonSelect.addEventListener('change', () => renderArchiveSeason(summary, els.seasonSelect.value));
+    const currentSeason = summary.seasons.find(row => row.season !== summary.default_season && row.events > 0);
+    if (currentSeason && els.currentSeasonBtn) {
+      els.currentSeasonBtn.textContent = `See ${currentSeason.season} events`;
+      els.currentSeasonBtn.classList.remove('hidden');
+      els.currentSeasonBtn.addEventListener('click', () => {
+        els.seasonSelect.value = currentSeason.season;
+        renderArchiveSeason(summary, currentSeason.season);
+      });
+    }
     els.featuredCurlers.addEventListener('click', event => {
       const button = event.target.closest('[data-curler]');
       if (!button) return;
       els.playerInput.value = button.dataset.curler;
       startTracking(button.dataset.curler, 'archive-example');
-      els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      (state.isRunning ? els.searchProgress : els.trackerResults)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
     els.archiveStatus.classList.add('hidden');
     els.archiveContent.classList.remove('hidden');

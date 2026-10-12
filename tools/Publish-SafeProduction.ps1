@@ -23,6 +23,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Service worker syntax failed.' }
     & node (Join-Path $Root 'tools\Release-Regression.mjs')
     if ($LASTEXITCODE -ne 0) { throw 'Release regression failed.' }
+    & powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File (Join-Path $Root 'tools\Release-QA.ps1')
+    if ($LASTEXITCODE -ne 0) { throw 'Official-source release QA failed; existing production remains unchanged.' }
     if (Test-Path $Stage) { Remove-Item $Stage -Recurse -Force }
     New-Item -ItemType Directory -Path $Stage -Force | Out-Null
     foreach ($name in @('index.html','app.js','styles.css','sw.js','manifest.webmanifest','noble-beaver.svg','noble-beaver-icon.svg')) {
