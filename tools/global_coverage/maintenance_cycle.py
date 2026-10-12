@@ -20,7 +20,7 @@ TASKS = [
     {"name":"world_results","cmd":[sys.executable,str(TOOLS/"continuous_world_results.py")],"hours":6,"timeout":1800},
     {"name":"coverage_update","cmd":[sys.executable,str(TOOLS/"update_coverage_registry.py")],"hours":6,"timeout":300},
     {"name":"country_registry","cmd":[sys.executable,str(TOOLS/"build_country_registry.py")],"hours":24,"timeout":300},
-    {"name":"world_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_world_sites.py"),"--max-pages","40","--delay","0.10","--workers","4"],"hours":72,"timeout":1200},
+    {"name":"world_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_world_sites.py"),"--max-pages","20","--delay","0.10","--workers","4"],"hours":72,"timeout":1800},
 ]
 
 def now():
