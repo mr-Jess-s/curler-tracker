@@ -1,21 +1,301 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:35:12.052601+00:00",
+  "generated_at": "2026-10-12T02:05:04.060178+00:00",
   "country_code": "CAN-ON",
   "association": "Curling Ontario",
   "scope": "Ontario excluding Northern Ontario",
   "seed_url": "https://www.curlingontario.ca",
   "robots_url": "https://www.curlingontario.ca/robots.txt",
-  "robots_loaded": false,
+  "robots_loaded": true,
   "pages": [
     {
       "url": "https://www.curlingontario.ca",
-      "status": "error",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 233549,
+      "sha256": "05cb837d10c77383b94b6baa64b87f176368ecee7a5bff86ba8f00878808e225",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:00.035053+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\8ca0a473c6c7ce78\\05cb837d10c77383b94b6baa64b87f176368ecee7a5bff86ba8f00878808e225.html.gz",
+      "title": "Main Home - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-login",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 182061,
+      "sha256": "2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:02.379774+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\d2dbceedaf08804f\\2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385.html.gz",
+      "title": "Club login - Curling OntarioFormulaire de Connexion"
+    },
+    {
+      "url": "https://www.curlingontario.ca/competitions/live-scores",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180214,
+      "sha256": "2569d840c9a65bec66faa6f20149428bf6d4b5ae2746164f5d358a33c10583eb",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:04.718086+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\b2ba3b1af33eca61\\2569d840c9a65bec66faa6f20149428bf6d4b5ae2746164f5d358a33c10583eb.html.gz",
+      "title": "Live Scores - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 183638,
+      "sha256": "f091a7e3dcf9f7a3255c1faa96db247516e29dadded9ca5910456355fc31255c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:07.403504+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\0c9549ef91d988f6\\f091a7e3dcf9f7a3255c1faa96db247516e29dadded9ca5910456355fc31255c.html.gz",
+      "title": "Club Services - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/bonspiels",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 274197,
+      "sha256": "f24fa822740c82d6416feade7f71af76aacd6b796c46aabf4b67b5a180744c8d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:11.282605+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\ce22247e185ad767\\f24fa822740c82d6416feade7f71af76aacd6b796c46aabf4b67b5a180744c8d.html.gz",
+      "title": "Bonspiels - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/club-resources",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 181803,
+      "sha256": "c905641581a9d9c8bd172a3b55e33e6d1d3e275dcfc8aea1e259d42077e0fe97",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:14.049860+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\040add7512dca945\\c905641581a9d9c8bd172a3b55e33e6d1d3e275dcfc8aea1e259d42077e0fe97.html.gz",
+      "title": "Club Resources - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/news",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 315179,
+      "sha256": "ae73920474ee32ae2c9b629b317ebe6dec87e66fc6cd83182d29119933ca4792",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:21.290214+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\5fca88926f75c1ff\\ae73920474ee32ae2c9b629b317ebe6dec87e66fc6cd83182d29119933ca4792.html.gz",
+      "title": "News - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/partners",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 194904,
+      "sha256": "a60b84a77e41764d834be7af6542fb0e28ead4f618894b66ff7a9a44f98cb6a5",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:24.576903+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\ac21c47e02781abd\\a60b84a77e41764d834be7af6542fb0e28ead4f618894b66ff7a9a44f98cb6a5.html.gz",
+      "title": "Partners - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/benefits-of-club-membership",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 177523,
+      "sha256": "4927df68049ef34249e2d732daaecc45acc155fc714dfe9381fa4bb33d48a29b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:27.950884+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\c6867a6db6a2245e\\4927df68049ef34249e2d732daaecc45acc155fc714dfe9381fa4bb33d48a29b.html.gz",
+      "title": "Benefits of Club Membership - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/club-funding-programs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 182061,
+      "sha256": "2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:32.406033+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\09ed47391ffdb5ec\\2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385.html.gz",
+      "title": "Club login - Curling OntarioFormulaire de Connexion"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/clinics-program",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 190579,
+      "sha256": "afd85f2e344bdf89774975b5824c38c6eb2b135dc08669aaad3e125b15876c22",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:36.807384+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\bba5989ca9ed8e55\\afd85f2e344bdf89774975b5824c38c6eb2b135dc08669aaad3e125b15876c22.html.gz",
+      "title": "Clinics Program - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/awards",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188172,
+      "sha256": "cebefb6bfbafaf823ec0d3868ebdd6191da12d74b8bc1a4d00333d30b22f0843",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:40.999250+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\878b9ff3472d813b\\cebefb6bfbafaf823ec0d3868ebdd6191da12d74b8bc1a4d00333d30b22f0843.html.gz",
+      "title": "Awards - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/classified",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 185921,
+      "sha256": "1f075c1ef38d1619fcec4153ee8afbc2762569e200282434c577f69360ec0d5e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:44.457738+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\bc3f07175465cb6d\\1f075c1ef38d1619fcec4153ee8afbc2762569e200282434c577f69360ec0d5e.html.gz",
+      "title": "Classified - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-resources/webinars",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 182061,
+      "sha256": "2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:48.872224+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\bb4fefac77287524\\2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385.html.gz",
+      "title": "Club login - Curling OntarioFormulaire de Connexion"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-resources/policies",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 182061,
+      "sha256": "2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:53.249324+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\63093f19bff3d77d\\2050f06a29fe6d9261c7e3ebf8f2c00580c362239956bd1ec313e36f7e327385.html.gz",
+      "title": "Club login - Curling OntarioFormulaire de Connexion"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/awards/lifetime-achievement-award",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 180175,
+      "sha256": "25422bf1d27387a20ba5bb32cafac175f3a8619d09aa0e00eddcc7d26efa6c5d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:56.650505+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\75141b9b168c2193\\25422bf1d27387a20ba5bb32cafac175f3a8619d09aa0e00eddcc7d26efa6c5d.html.gz",
+      "title": "Lifetime Achievement Award - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/awards/curling-community-hero",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 178844,
+      "sha256": "5d6cbf641d8cacf728941f1c04a22650c7e7517368da4123212bbac92045453b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:05:00.246753+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\e3e0ab4447093c9f\\5d6cbf641d8cacf728941f1c04a22650c7e7517368da4123212bbac92045453b.html.gz",
+      "title": "Curling Community Hero - Curling Ontario"
+    },
+    {
+      "url": "https://www.curlingontario.ca/club-services/awards/award-nominations",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 188351,
+      "sha256": "cf0f57ac49f7bfa6df9b19d49e087c7083a82ee41ce3d85c24a065bce119fde9",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:05:03.920138+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-on\\5d441f2ea4cdca40\\cf0f57ac49f7bfa6df9b19d49e087c7083a82ee41ce3d85c24a065bce119fde9.html.gz",
+      "title": "Award Nominations - Curling Ontario"
     }
   ],
-  "pages_fetched": 0,
+  "pages_fetched": 18,
   "pages_blocked": 0,
-  "pages_failed": 1,
-  "family_candidates": []
+  "pages_failed": 0,
+  "family_candidates": [
+    "clubs_facilities",
+    "national_events_results"
+  ]
 }

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-qc",
+  "pages": {
+    "https://www.curling-quebec.qc.ca": {
+      "url": "https://www.curling-quebec.qc.ca",
+      "status": 200,
+      "final_url": "https://curling-quebec.qc.ca/",
+      "content_type": "text/html",
+      "bytes": 207188,
+      "sha256": "3db9e3f70bbac322a2bca8a87ae5b3abee359bcbbde7403ee73fb77bf0231aaf",
+      "etag": "\"73216-1791742515;;;\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:58.611354+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-qc\\1b667b72fe973dc7\\3db9e3f70bbac322a2bca8a87ae5b3abee359bcbbde7403ee73fb77bf0231aaf.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curling-quebec.qc.ca/resultats": {
+      "url": "https://www.curling-quebec.qc.ca/resultats",
+      "status": 200,
+      "final_url": "https://curling-quebec.qc.ca/resultats/",
+      "content_type": "text/html",
+      "bytes": 161871,
+      "sha256": "3c9ed8638d0275463c4510b110abe159d3881e219a08a0c378d3d8d6c94574ea",
+      "etag": "\"73212-1791742470;;;\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:00.536285+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-qc\\7c4fc9be4e8638b3\\3c9ed8638d0275463c4510b110abe159d3881e219a08a0c378d3d8d6c94574ea.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:04:00.670180+00:00",
+  "checkpoint_seed": null
+}

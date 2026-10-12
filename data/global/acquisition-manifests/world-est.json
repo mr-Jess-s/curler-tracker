@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_id": "world-est",
+  "pages": {
+    "https://www.kurling.ee": {
+      "url": "https://www.kurling.ee",
+      "status": 200,
+      "final_url": "https://kurling.ee/",
+      "content_type": "text/html",
+      "bytes": 155494,
+      "sha256": "ac45bafa59c57df4e0331d356b722459e04031ed2fff7c5f2c9f76cbcc73d880",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:43.547151+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-est\\6a5de049e54671d9\\ac45bafa59c57df4e0331d356b722459e04031ed2fff7c5f2c9f76cbcc73d880.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.kurling.ee/kontakt": {
+      "url": "https://www.kurling.ee/kontakt",
+      "status": 200,
+      "final_url": "https://kurling.ee/kontakt/",
+      "content_type": "text/html",
+      "bytes": 79581,
+      "sha256": "21044d196abb2f70a79584aa116efe9fc3e68a53688f7419e731d6a0aaa0edc7",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:45.393994+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-est\\542384541a76cedb\\21044d196abb2f70a79584aa116efe9fc3e68a53688f7419e731d6a0aaa0edc7.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.kurling.ee/kalender": {
+      "url": "https://www.kurling.ee/kalender",
+      "status": 200,
+      "final_url": "https://kurling.ee/kalender/",
+      "content_type": "text/html",
+      "bytes": 101254,
+      "sha256": "dbe08b0df46ad42a450f84e01bd62904b8e1e5f0c0c649acf2d464bd13700554",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:47.572392+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-est\\0d9c46d20fa03adf\\dbe08b0df46ad42a450f84e01bd62904b8e1e5f0c0c649acf2d464bd13700554.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:16:47.821996+00:00",
+  "checkpoint_seed": null
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:05.551365+00:00",
+  "generated_at": "2026-10-12T02:16:12.299551+00:00",
   "country_code": "AUS",
   "country": "Australia",
   "association": "Curling Australia",
@@ -11,203 +11,322 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://curling.org.au",
+      "url": "http://curling.org.au/mixed-doubles-seniors-nationals-2023",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 118508,
-      "sha256": "823f72c0146dce7113c4108e0f0df3a9c15af3d33dbef8d6d1c4a8b28e6e94de",
+      "bytes": 113919,
+      "sha256": "43cb56e89ec7dc173f765ce3cb2be2529de7767947e438ee173e36dc733c97b0",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:02.486823+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Curling Australia | Home of Olympic Winter Sport and Paralympic Winter Sport of Curling in AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\ce511bc2532996c2\\43cb56e89ec7dc173f765ce3cb2be2529de7767947e438ee173e36dc733c97b0.html.gz",
+      "title": "Mixed Doubles & Seniors Nationals 2023 | Curling AustraliaCreate a website or blog at WordPress.com"
     },
     {
-      "url": "https://curling.org.au/about",
+      "url": "https://curling.org.au/nationals-2022",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 124500,
-      "sha256": "bd8b1a8965de3f676e08ade9aea6c65c86df9a2849efa89bad46fb50684ed5ee",
+      "bytes": 118351,
+      "sha256": "dfa755677a84f7840d40e27b568c7b4c356c6b0caed00617d0bd83aa823e518d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:12.417640+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "About | Curling AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\c3feeb0574904972\\dfa755677a84f7840d40e27b568c7b4c356c6b0caed00617d0bd83aa823e518d.html.gz",
+      "title": "Nationals 2022 | Curling AustraliaCreate a website or blog at WordPress.com"
     },
     {
-      "url": "https://curling.org.au/the-board",
+      "url": "http://curling.org.au/mixed-doubles-seniors-nationals-2022",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 117881,
-      "sha256": "173bb5d77e2716ef09d8ced71fc0af1aa77f83f3a54f15b4bcf04738c0ed0f08",
+      "bytes": 117810,
+      "sha256": "a8403c84eb36fe6584ae54a55c6154c62f2995fe593f9a28e81d36da4b6b81a7",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:13:22 GMT",
+      "retrieved_at": "2026-10-12T02:13:22.955701+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "The Board | Curling AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\88bfa675f5439267\\a8403c84eb36fe6584ae54a55c6154c62f2995fe593f9a28e81d36da4b6b81a7.html.gz",
+      "title": "Mixed Doubles & Seniors Nationals 2022 | Curling AustraliaCreate a website or blog at WordPress.com"
     },
     {
-      "url": "https://curling.org.au/the-management-team",
+      "url": "https://curling.org.au/nationals/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 115888,
-      "sha256": "56d74fc9be1aaa3cc062634c4d56a12bf1b232cded19f23ab74565d2a9d838b7",
-      "source_families": [
-        "athlete_team_profiles"
-      ],
-      "title": "The Management Team | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/finance-audit-and-risk-far-committee",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 95453,
-      "sha256": "b24d1ad70b651f91d33cb23b3ef5f901325142a286016aa9f1ea0b3114191e0c",
+      "bytes": 50063,
+      "sha256": "630be68b7fb054414f76b53fcee2ac305c0b0cb1294fb25b44b64d7f3e07b72b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:32.006640+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Finance, Audit and Risk (FAR) Committee | Curling AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\0b941e9df567f5c6\\630be68b7fb054414f76b53fcee2ac305c0b0cb1294fb25b44b64d7f3e07b72b.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/nominations-committee",
+      "url": "https://curling.org.au/pan-continental-curling-championships-results-men-and-women/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 93526,
-      "sha256": "ca2907f2a30da607d2f99446effafc91c9a30187b6ac36e36c0e6764111c2597",
-      "source_families": [],
-      "title": "Nominations Committee | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/curling-australia-national-championships",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 91300,
-      "sha256": "9527f8d7c211a867a0499879bba80258b1c98def0d0a7bc9b146c00d7a076f5a",
-      "source_families": [
-        "national_events_results"
-      ],
-      "title": "Curling Australia National Championships | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/events",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 73800,
-      "sha256": "a7ebcc3769c7971fc3bbc53fff01becad6b16553a093908879017a9a16c2721f",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Events | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/learn-about-curling-videos",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 98631,
-      "sha256": "38097f8a529233ba620923cc3c6b8fbfd6caf1901ea8777bd207f1121c0f0b6b",
-      "source_families": [],
-      "title": "Learn About Curling | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/athlete-commission",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 93759,
-      "sha256": "81c45e6a491664220eeafd01a0683a0d8c18413723ac7aa9b0ebee177a715cdc",
-      "source_families": [
-        "athlete_team_profiles"
-      ],
-      "title": "Athlete Commission | Curling AustraliaCreate a website or blog at WordPress.com"
-    },
-    {
-      "url": "https://curling.org.au/results",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 79223,
-      "sha256": "ecc2f6121fe1b5144b4447a9de387a80073a16004da26fbc9478ce0f5638ffcf",
+      "bytes": 50268,
+      "sha256": "5472ff9ab0d314f63f35213cbae04562ad0c6fd0422c8a5eb82b026f3852cb5f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:41.903140+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results"
       ],
-      "title": "Results | Curling AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\a83fbe974a3cfab8\\5472ff9ab0d314f63f35213cbae04562ad0c6fd0422c8a5eb82b026f3852cb5f.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/under-18s-under-25s",
+      "url": "https://curling.org.au/world-mens-curling-championships-wmcc",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 167252,
-      "sha256": "9263a7b94702ce417ad266a36cb6a4847705a7473a86023b82c3e09ef6434da2",
-      "source_families": [],
-      "title": "Under 18’s/ Under 25’s | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 75846,
+      "sha256": "c0c199a5356c64c27da86db84ec7c741317e3c6f6788c182132f82d5395180ae",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:52.457433+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\4c2e9d3635074e90\\c0c199a5356c64c27da86db84ec7c741317e3c6f6788c182132f82d5395180ae.html.gz",
+      "title": "World Men’s Curling Championships (WMCC) | Curling AustraliaCreate a website or blog at WordPress.com"
     },
     {
-      "url": "https://curling.org.au/calendar-of-events",
+      "url": "https://curling.org.au/world-mixed-curling-championships-wmxcc",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 64658,
-      "sha256": "81e922880834ca9968286fc50271832e7a5d607d9b00d6bcde2f9ddeed44fdb1",
+      "bytes": 79586,
+      "sha256": "72a16e992f1b0db3428e522c2fa8270aa7914f5d27504633380e898b73553070",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:02.363271+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\2a5d8d9bd73096b3\\72a16e992f1b0db3428e522c2fa8270aa7914f5d27504633380e898b73553070.html.gz",
+      "title": "World Mixed Curling Championships (WMXCC) | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/world-senior-curling-championships-wscc-men-and-women",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 83007,
+      "sha256": "249c315fa5a99922df1f2145c80930e0489f9e64bf2e5f40c998cf117123aa5a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:12.221459+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\d7f0578d5587735b\\249c315fa5a99922df1f2145c80930e0489f9e64bf2e5f40c998cf117123aa5a.html.gz",
+      "title": "World Senior Curling Championships (WSCC) – Men and Women | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/world-championship-results/?share=facebook",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50126,
+      "sha256": "94fdbec8466971887032fae473d8ae271f37e71ce8e0198451efc0e488b149f6",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:21.954319+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\b1107efed0854bf0\\94fdbec8466971887032fae473d8ae271f37e71ce8e0198451efc0e488b149f6.html.gz",
+      "title": "Facebook"
+    },
+    {
+      "url": "https://curling.org.au/pacific-asia-curling-championships-results-junior-men-and-junior-women",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 83317,
+      "sha256": "65cb0b822f0693acc8efed0b781c01ce59315c1a1f76e9142362e34d772ab218",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:14:32 GMT",
+      "retrieved_at": "2026-10-12T02:14:32.374923+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\de0ebc4909d2a03b\\65cb0b822f0693acc8efed0b781c01ce59315c1a1f76e9142362e34d772ab218.html.gz",
+      "title": "Pacific-Asia Junior Curling Championships Results – Jr Men and Jr Women | Curling AustraliaCreate a website or blog at WordPress.com"
+    },
+    {
+      "url": "https://curling.org.au/pacific-asia-curling-championships-results-men-and-women/?share=facebook",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50246,
+      "sha256": "7e539d0de41fba1dfd3718da0ba4a127636421f144594f743843e6e026750bfe",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:42.071065+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\0042acfeed2d25b5\\7e539d0de41fba1dfd3718da0ba4a127636421f144594f743843e6e026750bfe.html.gz",
+      "title": "Facebook"
+    },
+    {
+      "url": "https://curling.org.au/olympic-qualification-event/?share=facebook",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50140,
+      "sha256": "32f6b6eb8fafbd110accd3588d15fa2dc14db29469a8e4691d8672e7a59b63a1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:52.131397+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "calendar_draws"
       ],
-      "title": "Calendar | Curling AustraliaCreate a website or blog at WordPress.com"
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\d7e2671d18a8d6b2\\32f6b6eb8fafbd110accd3588d15fa2dc14db29469a8e4691d8672e7a59b63a1.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/photo-gallery-2",
+      "url": "https://curling.org.au/new-zealand-winter-games-results-men-women-and-mixed-doubles/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 95571,
-      "sha256": "66affbd41bf96e107edf47ebde603e3ba895b19062eed5ac6adf678472bb7800",
-      "source_families": [],
-      "title": "Photo Gallery | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50267,
+      "sha256": "700aaa955f89b632ced5d0c22bb35a2c7d9b958f38615b998079cc1065cbd6b1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:02.381019+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\a0da63cbcbe2295e\\700aaa955f89b632ced5d0c22bb35a2c7d9b958f38615b998079cc1065cbd6b1.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/curling-categories",
+      "url": "https://curling.org.au/world-qualification-event-men-and-women/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 73913,
-      "sha256": "1c3f589f5cc6990c739ed9cf699ef72e62d9e2509c99f8a829766c4ee556688c",
-      "source_families": [],
-      "title": "Curling Categories | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50188,
+      "sha256": "47cedaa1c2eb15223b61964f092c85eb767e31095823440049fca390246ead1d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:12.150740+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "calendar_draws"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\0ad1e442279e72b3\\47cedaa1c2eb15223b61964f092c85eb767e31095823440049fca390246ead1d.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/blog",
+      "url": "https://curling.org.au/world-mixed-doubles-curling-championships-wmdcc/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 89286,
-      "sha256": "ea0749ce560726416aecd399819d8f183811dfc90f6587cf9580f8aa3a8b513c",
-      "source_families": [],
-      "title": "Blog | Curling Australia | Home of Olympic Winter Sport and Paralympic Winter Sport of Curling in AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50215,
+      "sha256": "368999442ec3468328d54c13516b351d711a3de2d3e45bae628db1fc6edd58da",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:21.904225+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\616baace1f3bed63\\368999442ec3468328d54c13516b351d711a3de2d3e45bae628db1fc6edd58da.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/resources",
+      "url": "https://curling.org.au/world-junior-mixed-doubles-curling-championships-wjmdcc/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 88017,
-      "sha256": "1685ab6151aacaabc4d5e0a613d9389c2dcb2aea8a98a1d5e0bbcd96c7955a61",
-      "source_families": [],
-      "title": "Resources & Integrity | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50247,
+      "sha256": "813d31b326cadbdc98f3fba4c425e4687a268493c0f011f1e6cc0dec3ebc365a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:31.931015+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\a6d8dff630bf25d5\\813d31b326cadbdc98f3fba4c425e4687a268493c0f011f1e6cc0dec3ebc365a.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/policies-and-documents",
+      "url": "https://curling.org.au/pacific-asia-curling-championships-results-men-and-women",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 109214,
-      "sha256": "71b9b1a0616b4e4653ed73e0d52a6e779afb7c262f2e1d9fbce7099c720e8859",
-      "source_families": [],
-      "title": "Policies and Documents | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 98224,
+      "sha256": "345ac21cae0039cd1944c52568b7ae9607f42cbb0ea15af80b41c330c573f668",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:41.654341+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\9975ae5276d0bed1\\345ac21cae0039cd1944c52568b7ae9607f42cbb0ea15af80b41c330c573f668.html.gz",
+      "title": "Pacific-Asia Curling Championships Results – Men and Women | Curling AustraliaCreate a website or blog at WordPress.com"
     },
     {
-      "url": "https://curling.org.au/annual-general-meeting",
+      "url": "https://curling.org.au/australian-nationals-mens-results/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 96442,
-      "sha256": "853c5738a5008e7b1786cf51796e2aa2394999bba817c3458f9a2b12dd84d47d",
-      "source_families": [],
-      "title": "Annual General Meeting | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50156,
+      "sha256": "7d640caff079514800b81fd3a9ac387345dd23532f5ce362f61335906cfd051b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:15:52.476004+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\d98eab6a85b023ab\\7d640caff079514800b81fd3a9ac387345dd23532f5ce362f61335906cfd051b.html.gz",
+      "title": "Facebook"
     },
     {
-      "url": "https://curling.org.au/sport-integrity",
+      "url": "https://curling.org.au/australian-womens-nationals-results/?share=facebook",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 92288,
-      "sha256": "289a2723edbfa43e2833d534b920040b38591774d2456f203072e7e2087b500c",
-      "source_families": [],
-      "title": "Sport Integrity | Curling AustraliaCreate a website or blog at WordPress.com"
+      "bytes": 50175,
+      "sha256": "766948aff24f0e5574c9266af983d9451b4e04ff1b9016e1e21968c7b0dad946",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:01.931694+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\ae83b44991d41c3f\\766948aff24f0e5574c9266af983d9451b4e04ff1b9016e1e21968c7b0dad946.html.gz",
+      "title": "Facebook"
+    },
+    {
+      "url": "https://curling.org.au/australian-nationals-senior-men-and-senior-women-results/?share=facebook",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 50255,
+      "sha256": "ff7fc40869e370692bbadb3b5b67e967aea088be4c20dc3b665bc777102fafdb",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:12.174465+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aus\\0b89dbca483b5a2b\\ff7fc40869e370692bbadb3b5b67e967aea088be4c20dc3b665bc777102fafdb.html.gz",
+      "title": "Facebook"
     }
   ],
   "pages_fetched": 20,
   "pages_blocked": 0,
   "pages_failed": 0,
   "family_candidates": [
-    "athlete_team_profiles",
     "calendar_draws",
     "national_events_results"
   ]

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_id": "worldcurling-members",
+  "pages": {
+    "https://worldcurling.org/member-associations/": {
+      "url": "https://worldcurling.org/member-associations/",
+      "status": 200,
+      "final_url": "https://worldcurling.org/member-associations/",
+      "content_type": "text/html",
+      "bytes": 185058,
+      "sha256": "0701ba3fab5b09d0b9973a278db78e4ae510c66fd22d80b62bbb083f250a67db",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 01:59:05 GMT",
+      "retrieved_at": "2026-10-12T02:12:58.822574+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\worldcurling-members\\43d5b3296b72b8c4\\0701ba3fab5b09d0b9973a278db78e4ae510c66fd22d80b62bbb083f250a67db.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:12:58.822653+00:00"
+}

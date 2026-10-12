@@ -3,8 +3,8 @@
   "province": "Alberta",
   "province_code": "AB",
   "directory_source": "https://curlingalberta.ca/clubs/",
-  "directory_raw_path": "data\\raw\\canada-clubs\\ab\\4a5f5d0dee23a334089d9754.html.gz",
-  "generated_at": "2026-09-26T11:41:14.583438+00:00",
+  "directory_raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\4a5f5d0dee23a334\\aebeea8fd8318df301372651695c80d865a11d9ba196f635e3c0c6dc2ccff95d.html.gz",
+  "generated_at": "2026-10-12T02:12:52.726722+00:00",
   "club_count": 166,
   "error_count": 0,
   "clubs": [
@@ -20,9 +20,9 @@
       "public_phone": "403-255-1252",
       "club_website": "https://www.acadiarec.com/curling-rink",
       "source_url": "https://curlingalberta.ca/clubs/acadia-recreation-complex/",
-      "source_retrieved_at": "2026-09-26T11:38:46.555001+00:00",
-      "source_sha256": "fc56ee813cff900b27926776857600fa9307530b039e5e0f01aa7c4c94259f70",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\56f46ad6300e4db8cb8ab35d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:39.846979+00:00",
+      "source_sha256": "e35ec33eaa4fb562aaf25f4768d0e43c7bce580c64e459490cef83544e8b4f9f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\56f46ad6300e4db8\\e35ec33eaa4fb562aaf25f4768d0e43c7bce580c64e459490cef83544e8b4f9f.html.gz"
     },
     {
       "name": "Acme Curling Club",
@@ -36,9 +36,9 @@
       "public_phone": "403-546-2616",
       "club_website": "https://www.acme.ca/acme-curling-club",
       "source_url": "https://curlingalberta.ca/clubs/acme-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:46.892906+00:00",
-      "source_sha256": "3cadb7bdc4c27a381f273e9d742fb372d62fba8d426eb6ce70d147c2fe89c365",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b4aeec63ffcc1da819834c72.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:42.628449+00:00",
+      "source_sha256": "4bbe7f5b12d61cc895cca88532550347f169f6b949c619204f79dece6f2b6c47",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b4aeec63ffcc1da8\\4bbe7f5b12d61cc895cca88532550347f169f6b949c619204f79dece6f2b6c47.html.gz"
     },
     {
       "name": "Airdrie Curling Club",
@@ -52,9 +52,9 @@
       "public_phone": "403-9487100",
       "club_website": "https://www.airdriecurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/airdrie-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:47.954058+00:00",
-      "source_sha256": "606ec4145bec9454b527fd73269c1bf485af5d2d4870fb669e1cd91a1aa2dab7",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\fbef089391f9e3cca3cec572.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:45.304467+00:00",
+      "source_sha256": "3f69bf234d1a3d174fad35e4b9cc6df977a2eb0ea2269f18d2f4327a90d3e11f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\fbef089391f9e3cc\\3f69bf234d1a3d174fad35e4b9cc6df977a2eb0ea2269f18d2f4327a90d3e11f.html.gz"
     },
     {
       "name": "Alder Flats Curling Club",
@@ -68,9 +68,9 @@
       "public_phone": "780-388-2146",
       "club_website": "https://www.alderflats.net/curling",
       "source_url": "https://curlingalberta.ca/clubs/alder-flats-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:48.975503+00:00",
-      "source_sha256": "0faffa2b9b313e65cc0943c6c4f9a700bc265275de5718df9e2f43b668de3f5c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\0624721459263aa9f535730f.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:47.504101+00:00",
+      "source_sha256": "6ee8db48b807dbe869552b0787acaab00bef4c6baae3d574d43930180eb69d00",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\0624721459263aa9\\6ee8db48b807dbe869552b0787acaab00bef4c6baae3d574d43930180eb69d00.html.gz"
     },
     {
       "name": "Ardrossan Curling Club",
@@ -84,9 +84,9 @@
       "public_phone": "(780) 922-5055",
       "club_website": "https://ardrossancurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/ardrossan-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:49.905091+00:00",
-      "source_sha256": "49d179cb9398ebbaeb9523b70378fa149b8391fb10c76d6f700f72b449ef40cf",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\8b070b624d5057c3d09ee1e6.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:50.155648+00:00",
+      "source_sha256": "56e8b879b68127ebe9b3ad7c77cd192fae718378ad235c4d3abcc8b5110f8639",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\8b070b624d5057c3\\56e8b879b68127ebe9b3ad7c77cd192fae718378ad235c4d3abcc8b5110f8639.html.gz"
     },
     {
       "name": "Athabasca Curling Club",
@@ -100,9 +100,9 @@
       "public_phone": "780-675-2199",
       "club_website": "https://athabascacurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/athabasca-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:50.794583+00:00",
-      "source_sha256": "b0b14a740af123396bf8c10eacf94d92161b353545d9c29267eeb9977c9bac57",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\1cbd11d3129e7eec1b9cdb4c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:52.608496+00:00",
+      "source_sha256": "7c57da6283a28682df15560ea9a9268633d202c31b15c87793e02926a19be67f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\1cbd11d3129e7eec\\7c57da6283a28682df15560ea9a9268633d202c31b15c87793e02926a19be67f.html.gz"
     },
     {
       "name": "Banff Curling Club",
@@ -116,9 +116,9 @@
       "public_phone": "403-762-5144",
       "club_website": "https://banffcurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/banff-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:51.791506+00:00",
-      "source_sha256": "89eb2be804470410044595d5d764109ab74a53ad0a0603ddc019565573206f05",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\bd47838d32d269c25b3b6d6a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:54.974068+00:00",
+      "source_sha256": "52c1af4777fb65db44d480b19f181e248c94ee7df0c81dd6aa3a4ad0e4483bd6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\bd47838d32d269c2\\52c1af4777fb65db44d480b19f181e248c94ee7df0c81dd6aa3a4ad0e4483bd6.html.gz"
     },
     {
       "name": "Barrhead Curling Club",
@@ -132,9 +132,9 @@
       "public_phone": "780-674-2944",
       "club_website": "https://www.facebook.com/people/Barrhead-Curling-Club/100010137376295",
       "source_url": "https://curlingalberta.ca/clubs/barrhead-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:52.678293+00:00",
-      "source_sha256": "c4b2ccb457e0c61251dc08aaef51fea2970c3116c46fcd4e3dab130ac75270fa",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\a673211387fc2f5cd569e055.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:57.396421+00:00",
+      "source_sha256": "ffb00fb7536891f8c1050a1533471622d9f35a37fb0ff11b58e733f25561af78",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\a673211387fc2f5c\\ffb00fb7536891f8c1050a1533471622d9f35a37fb0ff11b58e733f25561af78.html.gz"
     },
     {
       "name": "Bashaw Curling Club",
@@ -148,9 +148,9 @@
       "public_phone": "780-372-3817",
       "club_website": "http://townofbashaw.com/community/sports-recreation/curling-rink/",
       "source_url": "https://curlingalberta.ca/clubs/bashaw-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:53.593636+00:00",
-      "source_sha256": "5862b8278d6d6e40c623be2c897cb5d0ccf9ca9dddf61a0f44166cf7aeea519b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7b763445d1c85242c64eb444.html.gz"
+      "source_retrieved_at": "2026-10-12T02:06:59.694974+00:00",
+      "source_sha256": "9a9aec9c0dabb9e7a77871fc0aa8ecc30a5bcc334c262a727902407426a4d517",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7b763445d1c85242\\9a9aec9c0dabb9e7a77871fc0aa8ecc30a5bcc334c262a727902407426a4d517.html.gz"
     },
     {
       "name": "Beaumont Curling Club",
@@ -164,9 +164,9 @@
       "public_phone": "780-929-8515",
       "club_website": "https://curlbeaumont.ca/",
       "source_url": "https://curlingalberta.ca/clubs/beaumont-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:54.493219+00:00",
-      "source_sha256": "2816d2d76aa4f24bdbbbec3dcb78d79ca5119f6ca0bf3dda741821e8ec31215e",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d48ad84a5295597d53d0b5fd.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:02.092908+00:00",
+      "source_sha256": "bc5ab6e11a67085946ca45bf620659d340e4234dd1e95aea08d2731ee1115e1d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d48ad84a5295597d\\bc5ab6e11a67085946ca45bf620659d340e4234dd1e95aea08d2731ee1115e1d.html.gz"
     },
     {
       "name": "Beaverlodge Curling Club",
@@ -180,9 +180,9 @@
       "public_phone": "780-354-2514",
       "club_website": "http://www.beaverlodge.ca/main.aspx?CategoryCode=47615773-CD0B-4668-8B13-398E20D842A1&pageCode=77468169-72B9-45D3-974D-EDCB9C2B84D0&subPageCode=1A176875-2A23-4C5A-900A-47F9C9DF8494",
       "source_url": "https://curlingalberta.ca/clubs/beaverlodge-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:55.612970+00:00",
-      "source_sha256": "083c5105c28970cf1288ac9ab29e486f7d665d0b9a25cf8ea65f8c43abad0dd4",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f0cd8a4845b2db086f2db0e4.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:04.642216+00:00",
+      "source_sha256": "e610d67863634ecff676b691c96bc7ee2075fe9fb0683be951d3db156875ec3e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f0cd8a4845b2db08\\e610d67863634ecff676b691c96bc7ee2075fe9fb0683be951d3db156875ec3e.html.gz"
     },
     {
       "name": "Bentley Curling Club",
@@ -196,9 +196,9 @@
       "public_phone": "403-748-4303",
       "club_website": "https://www.facebook.com/bentleycurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/bentley-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:56.530577+00:00",
-      "source_sha256": "12261ba6b06760763f08f03ec124e3b902775bf89b9938c2ba78c820cb4886f1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7698b2dbaa77ebbadcd1cae8.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:07.167288+00:00",
+      "source_sha256": "6b78d4746b7e15fd347bffeee03e88dd9e32a7656f5b3462eb62755b99744d4c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7698b2dbaa77ebba\\6b78d4746b7e15fd347bffeee03e88dd9e32a7656f5b3462eb62755b99744d4c.html.gz"
     },
     {
       "name": "Bonnyville Curling Club",
@@ -212,9 +212,9 @@
       "public_phone": "780-826-2468",
       "club_website": "http://www.bonnyvillecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/bonnyville-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:57.417716+00:00",
-      "source_sha256": "21ee8a7a37baa9e69239b8f0347e5c6ef1d6200f7730d3e93feb51baff526ddb",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\6dec7b5ec4f20d8a0e120089.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:08.050407+00:00",
+      "source_sha256": "4ec40820e57a67c31a913a199d7f4cc9060b85255925e988e81b88ed6906fee6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\6dec7b5ec4f20d8a\\4ec40820e57a67c31a913a199d7f4cc9060b85255925e988e81b88ed6906fee6.html.gz"
     },
     {
       "name": "Bow Island Curling Club",
@@ -228,9 +228,9 @@
       "public_phone": "403-545-2070",
       "club_website": "http://www.bowislandcurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/bow-island-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:38:58.298289+00:00",
-      "source_sha256": "b712a62963f15946042568e69d388ac03677bee277e45b27716ca190725fc9c1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\451d889e4bb985fcbe566614.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:10.706732+00:00",
+      "source_sha256": "b36387fd6fc956c743a6ec89a9752db2f111bee34f79431b53c3dbc85465cc2c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\451d889e4bb985fc\\b36387fd6fc956c743a6ec89a9752db2f111bee34f79431b53c3dbc85465cc2c.html.gz"
     },
     {
       "name": "Bow Valley Community Club",
@@ -244,9 +244,9 @@
       "public_phone": "403-936-5656",
       "club_website": "http://induscurling.com",
       "source_url": "https://curlingalberta.ca/clubs/bow-valley-community-club/",
-      "source_retrieved_at": "2026-09-26T11:38:59.313994+00:00",
-      "source_sha256": "13496cabbc5ada3aae052776d22bb769cd4cb8415eefd8d6311b0cecb54f6024",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\829cc4d940737d59f6928df3.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:13.360744+00:00",
+      "source_sha256": "c3491a80df0f36351f363aa879f59080fc8a53e84a512ead2098e41752a2f11e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\829cc4d940737d59\\c3491a80df0f36351f363aa879f59080fc8a53e84a512ead2098e41752a2f11e.html.gz"
     },
     {
       "name": "Boyle Curling Club",
@@ -260,9 +260,9 @@
       "public_phone": "780-689-3781",
       "club_website": "https://www.facebook.com/Boylecurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/boyle-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:00.322103+00:00",
-      "source_sha256": "77ceadfe15ff317586a0641409ae77dbff2518d0b8c04a4fe32ab3ab709de12d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\362bef5a89bf9c09b465d390.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:15.948601+00:00",
+      "source_sha256": "2bd63ff762197f857808029e05df27d78f3dbedc7c7bba92e1d4456b329b1a3f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\362bef5a89bf9c09\\2bd63ff762197f857808029e05df27d78f3dbedc7c7bba92e1d4456b329b1a3f.html.gz"
     },
     {
       "name": "Brooks Curling Club",
@@ -276,9 +276,9 @@
       "public_phone": "403-362-3668",
       "club_website": "https://brookscurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/brooks-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:01.371623+00:00",
-      "source_sha256": "484fd6c02c09a11f3147f76b2307358bea1ca557aeb8842976fe2b8b42ad7449",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\832376d4731a6b5076601014.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:18.454205+00:00",
+      "source_sha256": "4cbb8d7bab480cf6eba0358d8e3146c4af80ec905ecc7513c436203e1ec8eca3",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\832376d4731a6b50\\4cbb8d7bab480cf6eba0358d8e3146c4af80ec905ecc7513c436203e1ec8eca3.html.gz"
     },
     {
       "name": "Bullhead Mountain Curling Club",
@@ -292,9 +292,9 @@
       "public_phone": "250-783-9175",
       "club_website": "https://www.facebook.com/bullheadmcc/",
       "source_url": "https://curlingalberta.ca/clubs/bullhead-mountain-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:02.311563+00:00",
-      "source_sha256": "2a94435af384040f4808855d459c5ce740a7e4a35aa85969ca6ac5e059f8b699",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\617b5392a1633ede52685853.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:20.938266+00:00",
+      "source_sha256": "5a032bcd875fc23f056c19ad662f290fa45657f969b2bd67c7fe263a70699b0a",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\617b5392a1633ede\\5a032bcd875fc23f056c19ad662f290fa45657f969b2bd67c7fe263a70699b0a.html.gz"
     },
     {
       "name": "Calgary Curling Club",
@@ -308,9 +308,9 @@
       "public_phone": "403-283-8381",
       "club_website": "https://calgarycurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/calgary-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:03.770234+00:00",
-      "source_sha256": "10a25e68946595e9ba0055cc8dbe19038bcc847dcd601669def4b4977e754e17",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\03b3a887d5f0cfa1936f2617.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:23.351758+00:00",
+      "source_sha256": "84dffe46f6b3c348efe5b53b8b732cbaa02be8ad4d804afb2049a88730952fbf",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\03b3a887d5f0cfa1\\84dffe46f6b3c348efe5b53b8b732cbaa02be8ad4d804afb2049a88730952fbf.html.gz"
     },
     {
       "name": "Calgary Winter Club",
@@ -324,9 +324,9 @@
       "public_phone": "403-289-5511",
       "club_website": "https://www.calgarywinterclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/calgary-winter-club/",
-      "source_retrieved_at": "2026-09-26T11:39:04.656686+00:00",
-      "source_sha256": "7a6cec6a76aa6b3642e68299d3aae735d4910d46e0fcee41560b2c5d47b4c880",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ad6ade0f103be3eb87063675.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:24.220008+00:00",
+      "source_sha256": "9bd96937a62f3298f9f597bb9c0b78735ca713a72c850a292a5e621797070bc2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ad6ade0f103be3eb\\9bd96937a62f3298f9f597bb9c0b78735ca713a72c850a292a5e621797070bc2.html.gz"
     },
     {
       "name": "Calmar Curling Club",
@@ -340,9 +340,9 @@
       "public_phone": "780-985-3738",
       "club_website": "https://www.calmarcurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/calmar-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:05.683952+00:00",
-      "source_sha256": "5fb1eac162c939b1c7d27ccaa9c25c38e309d8b428c6b91314393f8798490c1f",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\21f6a5bf3165bf96ef0c81ef.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:28.139901+00:00",
+      "source_sha256": "bde1879ac1e30235b3396950f24eb6cb6fdf7fb4d668ff4e0700201e979923d0",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\21f6a5bf3165bf96\\bde1879ac1e30235b3396950f24eb6cb6fdf7fb4d668ff4e0700201e979923d0.html.gz"
     },
     {
       "name": "Canmore Curling Club",
@@ -356,9 +356,9 @@
       "public_phone": "403-678-5959",
       "club_website": "https://www.canmoregolf.net/curling/",
       "source_url": "https://curlingalberta.ca/clubs/canmore-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:06.586667+00:00",
-      "source_sha256": "cc7d0c1484684c9c4ee405562075f194faa8db474fc2a1186c881d56f53f7f0a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\44b24f9ee68e49286416ff29.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:31.329433+00:00",
+      "source_sha256": "b31cf9c76506b700a3b8654986bee46e477da2b5c5b458effb242364a4a1ad01",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\44b24f9ee68e4928\\b31cf9c76506b700a3b8654986bee46e477da2b5c5b458effb242364a4a1ad01.html.gz"
     },
     {
       "name": "Carbon & District AG. Society",
@@ -372,9 +372,9 @@
       "public_phone": "403-572-3533",
       "club_website": "https://www.villageofcarbon.com/whats-happening/annual-events/",
       "source_url": "https://curlingalberta.ca/clubs/carbon-district-ag-society/",
-      "source_retrieved_at": "2026-09-26T11:39:07.496613+00:00",
-      "source_sha256": "d3d49cc4295b1fb86e9cdbdcc57130ebaa2656538e727bb720deb8b1f4aa36c8",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\9f8cd3b91def3df34f21ba92.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:33.823657+00:00",
+      "source_sha256": "50cc73da07a02a9ad47ff894ed68fb446724b8961296ba62809eb0ad92b9072d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\9f8cd3b91def3df3\\50cc73da07a02a9ad47ff894ed68fb446724b8961296ba62809eb0ad92b9072d.html.gz"
     },
     {
       "name": "Carmangay Curling Club",
@@ -388,9 +388,9 @@
       "public_phone": "403-504-4894",
       "club_website": "https://www.facebook.com/groups/171514196222970/",
       "source_url": "https://curlingalberta.ca/clubs/carmangay-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:09.440798+00:00",
-      "source_sha256": "1d7018374dfd1027fcd132679120e6b92500a63800f16e3fde4842f974e23487",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\9637b3da0c3c22f733ae4cba.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:35.921622+00:00",
+      "source_sha256": "f39b98cdcd34d5c0b0a6494bf46dea969ed4e391d496d8df250dd48eb4b82e90",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\9637b3da0c3c22f7\\f39b98cdcd34d5c0b0a6494bf46dea969ed4e391d496d8df250dd48eb4b82e90.html.gz"
     },
     {
       "name": "Caroline Curling Club",
@@ -404,9 +404,9 @@
       "public_phone": "403-722-3945",
       "club_website": "https://www.facebook.com/CarolineCurlingClub/",
       "source_url": "https://curlingalberta.ca/clubs/caroline-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:10.368317+00:00",
-      "source_sha256": "0affd372eccfe664b238dfc2e7f6c9b6fb66f7aee5594c94167036ce287e9858",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\8d8bc07c4f6618417f676394.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:38.249491+00:00",
+      "source_sha256": "c19c7748f7c3245bf7bdd33888096cd2a09e12fd9595a5bb99c47b0c75ee7a21",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\8d8bc07c4f661841\\c19c7748f7c3245bf7bdd33888096cd2a09e12fd9595a5bb99c47b0c75ee7a21.html.gz"
     },
     {
       "name": "Carseland Curling Club",
@@ -420,9 +420,9 @@
       "public_phone": "403-934-3440",
       "club_website": "https://www.facebook.com/carselandcurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/carseland-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:11.272510+00:00",
-      "source_sha256": "2ffa722519a17155a7e0cfc09b69009563b80dac387c63426a0ffd0dcbd525be",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7b9a42d83b80e7af9add9f40.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:40.947383+00:00",
+      "source_sha256": "5ff8101c3a4cc0560efb1f4b1229c7db76a9da82c92b98f52c4c7ba44678d807",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7b9a42d83b80e7af\\5ff8101c3a4cc0560efb1f4b1229c7db76a9da82c92b98f52c4c7ba44678d807.html.gz"
     },
     {
       "name": "Carstairs Community Curling",
@@ -436,9 +436,9 @@
       "public_phone": "403-337-3400",
       "club_website": "https://carstairscurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/carstairs-community-curling/",
-      "source_retrieved_at": "2026-09-26T11:39:12.299122+00:00",
-      "source_sha256": "995e6e2ccb86cdd0cd5a146f029dfe3663637d3811a3d1e46001c7e220908178",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d68e18002d8ff06a6c239e38.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:43.186090+00:00",
+      "source_sha256": "90a0010d0f4f381d73b3fe841bfd0271768f1d63e1e30c572c80bd8c018b9b49",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d68e18002d8ff06a\\90a0010d0f4f381d73b3fe841bfd0271768f1d63e1e30c572c80bd8c018b9b49.html.gz"
     },
     {
       "name": "Castor Curling Club",
@@ -452,9 +452,9 @@
       "public_phone": "403-740-3711",
       "club_website": "https://www.facebook.com/castorcurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/castor-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:13.203217+00:00",
-      "source_sha256": "e02bd492e3a10aa0aa8f5e5359a5e58370e2e5087432ae41a0e7abaace88690a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\da56d101c2610c1fa4f76daa.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:45.382882+00:00",
+      "source_sha256": "3f3f838f619609663295a6a8915b6c1003f03ed2a9fddd0bc643fd4627330dea",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\da56d101c2610c1f\\3f3f838f619609663295a6a8915b6c1003f03ed2a9fddd0bc643fd4627330dea.html.gz"
     },
     {
       "name": "Chauvin Curling Club",
@@ -468,9 +468,9 @@
       "public_phone": "780-858-3944",
       "club_website": "https://www.facebook.com/chauvinCC",
       "source_url": "https://curlingalberta.ca/clubs/chauvin-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:14.066982+00:00",
-      "source_sha256": "e496460a70dd3f4e390cef92d6c2298df1de2dd27be06ddd6ca2015295616108",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\29f801c4c71a9512fc893c80.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:47.892472+00:00",
+      "source_sha256": "896e9f3b66d4cd0c53012eec39523e625099c28c52e1293fae69cc9e3d943d59",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\29f801c4c71a9512\\896e9f3b66d4cd0c53012eec39523e625099c28c52e1293fae69cc9e3d943d59.html.gz"
     },
     {
       "name": "Chestermere Curling Club",
@@ -484,9 +484,9 @@
       "public_phone": "403-272-7170",
       "club_website": "https://chestermerecurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/chestermere-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:14.937730+00:00",
-      "source_sha256": "6c3d01f680bc6abe2f0a80fc8446164e8c155c6fe1d5d23225ccff258c73f677",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\e624b307052a849f66724a01.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:50.418199+00:00",
+      "source_sha256": "764417d9c32401c24aed4a0c9e5f1131c11786e9b16a8fa5cb4fcff9a1dedf39",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\e624b307052a849f\\764417d9c32401c24aed4a0c9e5f1131c11786e9b16a8fa5cb4fcff9a1dedf39.html.gz"
     },
     {
       "name": "Chetwynd Curling Club",
@@ -500,9 +500,9 @@
       "public_phone": "250-788-2317",
       "club_website": "https://www.gochetwynd.com/residents/recreation-centre/curling-rink/",
       "source_url": "https://curlingalberta.ca/clubs/chetwynd-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:15.804217+00:00",
-      "source_sha256": "0ee717a905f6d59a05cde75699ff246cb84c40b3f4b57e1760566fd7b7c7837d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\dc0ebe002d5791f371d5b407.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:53.531814+00:00",
+      "source_sha256": "93a4e9e93f04e2ea46a4c76940b199676abe9142b5457877a513846af39dd111",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\dc0ebe002d5791f3\\93a4e9e93f04e2ea46a4c76940b199676abe9142b5457877a513846af39dd111.html.gz"
     },
     {
       "name": "Claresholm Curling Club",
@@ -516,9 +516,9 @@
       "public_phone": "403-625-3933",
       "club_website": "https://www.facebook.com/Claresholm-Curling-Club-536022903089283/",
       "source_url": "https://curlingalberta.ca/clubs/claresholm-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:16.668540+00:00",
-      "source_sha256": "92fafc7bbb99e8f89db28de4f6b488bf428abf3ee0f2855e0e1b4d13249785a0",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\348346bbcc34df51421fa9ae.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:56.706918+00:00",
+      "source_sha256": "20f323b2a847d42a2b52d039047f5703601e9430ace6c99445ea340d5d4471a7",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\348346bbcc34df51\\20f323b2a847d42a2b52d039047f5703601e9430ace6c99445ea340d5d4471a7.html.gz"
     },
     {
       "name": "Coaldale Granite Club",
@@ -532,9 +532,9 @@
       "public_phone": "403-345-4742",
       "club_website": "https://coaldale.curling.io/en/pages/1588-home",
       "source_url": "https://curlingalberta.ca/clubs/coaldale-granite-club/",
-      "source_retrieved_at": "2026-09-26T11:39:17.559220+00:00",
-      "source_sha256": "51942320667f2a1c14574de4bd55b53fe331fec9aff53bacec5e4ee5164b1e23",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\15e71105f95c050e4d7e431a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:59.146130+00:00",
+      "source_sha256": "9a7732fb704abb8353d64f3f6bcbb8956a7180d7561d2c64b91a7e45bed2a71e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\15e71105f95c050e\\9a7732fb704abb8353d64f3f6bcbb8956a7180d7561d2c64b91a7e45bed2a71e.html.gz"
     },
     {
       "name": "Cochrane Curling Club",
@@ -548,9 +548,9 @@
       "public_phone": "403-932-2077",
       "club_website": "https://cochranecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/cochrane-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:18.546101+00:00",
-      "source_sha256": "d19515413395a58ede2f2aa7c6c8a13ac8bef8c9248bcdebcba328af62ac2995",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\fde9d57ed073a76e04302e58.html.gz"
+      "source_retrieved_at": "2026-10-12T02:07:59.958460+00:00",
+      "source_sha256": "99c6d811da6b874be3d6c4b9629f4b49bd8554ed407fa07f6d142964af5f03b6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\fde9d57ed073a76e\\99c6d811da6b874be3d6c4b9629f4b49bd8554ed407fa07f6d142964af5f03b6.html.gz"
     },
     {
       "name": "Cold Lake Curling Club",
@@ -564,9 +564,9 @@
       "public_phone": "780-594-5341",
       "club_website": "http://www.coldlakecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/cold-lake-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:19.438310+00:00",
-      "source_sha256": "23e868442a66434a18ad85067d5ccd1b68aa4461938254aaf500939db2b61f49",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2ca7ff4dc7d2157a1bbc6693.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:02.319367+00:00",
+      "source_sha256": "cd2b46e40fda9d6e93d4d04a255b0041c517b7c7034f089f6115a35dbe094a88",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2ca7ff4dc7d2157a\\cd2b46e40fda9d6e93d4d04a255b0041c517b7c7034f089f6115a35dbe094a88.html.gz"
     },
     {
       "name": "Consort Curling Club",
@@ -580,9 +580,9 @@
       "public_phone": "403-575-5499",
       "club_website": "https://www.facebook.com/consortcurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/consort-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:20.289239+00:00",
-      "source_sha256": "345a08b53cc31ba0e6afc459b1c140b8f5828e66325fbb12c3cbc5957abedf9a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\819a1332eb32ba3078932fa3.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:03.149663+00:00",
+      "source_sha256": "ed3e724655a469ecff4dd398b94a85278398615716e297960e2a80bafc91969b",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\819a1332eb32ba30\\ed3e724655a469ecff4dd398b94a85278398615716e297960e2a80bafc91969b.html.gz"
     },
     {
       "name": "Cremona Curling Club",
@@ -596,9 +596,9 @@
       "public_phone": "403-637-3812",
       "club_website": "https://www.cremonacurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/cremona-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:21.147143+00:00",
-      "source_sha256": "f3050aa847db68b59f2375684b3ffc80046d24548f63d60520346dbbbb959f45",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\5ac9dd65ba9fbc08709c040e.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:05.382669+00:00",
+      "source_sha256": "bad49f2128dd5c7ccec75831a9d05a1437718bad60612eea4691ce553e45e0da",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\5ac9dd65ba9fbc08\\bad49f2128dd5c7ccec75831a9d05a1437718bad60612eea4691ce553e45e0da.html.gz"
     },
     {
       "name": "Crestwood Curling Centre",
@@ -612,9 +612,9 @@
       "public_phone": "780-452-4174",
       "club_website": "https://crestwoodcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/crestwood-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:22.010114+00:00",
-      "source_sha256": "6e6256458e60735bb60dac90be52939601f152c6d6996c246ebbc288159e80a0",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ebd0f4f0cbf6b8c5c73d81b2.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:07.791252+00:00",
+      "source_sha256": "df970345004f796df49a962ad6d795b5937fc8c35b05ed1b9e58c2a0aa9a7e78",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ebd0f4f0cbf6b8c5\\df970345004f796df49a962ad6d795b5937fc8c35b05ed1b9e58c2a0aa9a7e78.html.gz"
     },
     {
       "name": "Crossfield Curling Club",
@@ -628,9 +628,9 @@
       "public_phone": "403-946-5994",
       "club_website": "https://www.crossfieldalberta.com/en/explore-crossfield/curling-club.asp",
       "source_url": "https://curlingalberta.ca/clubs/crossfield-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:22.861149+00:00",
-      "source_sha256": "c0d355abef11d3b925c5ce986d0b19a2c80523d2606a45d90eb1d350b220aba5",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\91610055e8c772448dfa1912.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:10.937591+00:00",
+      "source_sha256": "a0978921ba58560b998e3c00cd8f19a9199f961a0b2d1bb3a8313bc665dcc8be",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\91610055e8c77244\\a0978921ba58560b998e3c00cd8f19a9199f961a0b2d1bb3a8313bc665dcc8be.html.gz"
     },
     {
       "name": "Crowsnest Curling Club",
@@ -644,9 +644,9 @@
       "public_phone": "",
       "club_website": "http://crowsnestcurlingclub.ca/?fbclid=IwAR06pivhXfDP9-WYPYIyqj3gKlWvnDKXyUqqOCls4tWTOFfMOtBZC3Yenrc",
       "source_url": "https://curlingalberta.ca/clubs/crowsnest-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:23.700354+00:00",
-      "source_sha256": "7a7c1dea77710d696f3fc820f14a0958358b889241a2fd0a8188e82f581df914",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\9afcc8bda09cf84e6c813e7a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:13.826941+00:00",
+      "source_sha256": "b67a5e89c2165be2aad8c2eb3f9d50a60cdc94b0f56827399b9754d0d7f4b097",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\9afcc8bda09cf84e\\b67a5e89c2165be2aad8c2eb3f9d50a60cdc94b0f56827399b9754d0d7f4b097.html.gz"
     },
     {
       "name": "Dawson Creek Curling Club",
@@ -660,9 +660,9 @@
       "public_phone": "250-782-4080",
       "club_website": "https://dccurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/dawson-creek-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:25.210592+00:00",
-      "source_sha256": "62a60a3bd5a6d224d498914743b3507876a066d8092722d442d32c8194bd971d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\484df3efc1a16fa7c002d939.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:16.608294+00:00",
+      "source_sha256": "e24c0173ef466ee0506daf649939e6dca47370365f14ca273f7a1ca0ea137445",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\484df3efc1a16fa7\\e24c0173ef466ee0506daf649939e6dca47370365f14ca273f7a1ca0ea137445.html.gz"
     },
     {
       "name": "Daysland & District Memorial",
@@ -676,9 +676,9 @@
       "public_phone": "780-608-0892",
       "club_website": "https://www.facebook.com/groups/157553530946854",
       "source_url": "https://curlingalberta.ca/clubs/daysland-district-memorial/",
-      "source_retrieved_at": "2026-09-26T11:39:26.977160+00:00",
-      "source_sha256": "db20b8c7b08e28538c2b47c748cdf3bc181bd8c0471954741011fadda0cbfd77",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\63a8a24362aca0b355d4099a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:19.051882+00:00",
+      "source_sha256": "cda0289ef6ffabf5099e2f130063ab3a3d5070039ea5a806482cf31b9971c928",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\63a8a24362aca0b3\\cda0289ef6ffabf5099e2f130063ab3a3d5070039ea5a806482cf31b9971c928.html.gz"
     },
     {
       "name": "Delburne Curling Club",
@@ -692,9 +692,9 @@
       "public_phone": "403=749-3855",
       "club_website": "https://www.facebook.com/Delburne-Curling-Club-406865146128602/",
       "source_url": "https://curlingalberta.ca/clubs/delburne-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:27.305896+00:00",
-      "source_sha256": "48c796f377948833819d6419c0ace84fc3209f2d613db811c5abe342c226c700",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\a34e3ebf472a8c3addd86a81.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:20.013589+00:00",
+      "source_sha256": "8a65a65e631dfdb755c42b2b25945c171788e6134fea04c6d4248891652448db",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\a34e3ebf472a8c3a\\8a65a65e631dfdb755c42b2b25945c171788e6134fea04c6d4248891652448db.html.gz"
     },
     {
       "name": "Delia Curling Club",
@@ -708,9 +708,9 @@
       "public_phone": "403-364-3939",
       "club_website": "https://delia.ca/delia-curling-rink/",
       "source_url": "https://curlingalberta.ca/clubs/delia-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:28.196955+00:00",
-      "source_sha256": "169a50a908d5d5288c9ec80891cadcc76efdc8329471bc46efa5c74479bafaee",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\61844c109c8d1ba95abc414d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:21.030973+00:00",
+      "source_sha256": "f3af5416981549ba4455d3d514c094cc4804403c821990a9d9d39fd7ff5e38a9",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\61844c109c8d1ba9\\f3af5416981549ba4455d3d514c094cc4804403c821990a9d9d39fd7ff5e38a9.html.gz"
     },
     {
       "name": "Derrick Curling Club",
@@ -724,9 +724,9 @@
       "public_phone": "780-437-1833",
       "club_website": "https://www.derrickclub.com/athletics/curling.aspx",
       "source_url": "https://curlingalberta.ca/clubs/derrick-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:29.081289+00:00",
-      "source_sha256": "cc254edc48b5f5af6b5f5478dc954869e7375133b52475abd33d5fac24e58481",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2efefb8d12afb82c7213fc38.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:23.712888+00:00",
+      "source_sha256": "6d698832d89ae6b68f4ab2c50deb1e2afb5eca0ffb89ae6670ec4905a60cd809",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2efefb8d12afb82c\\6d698832d89ae6b68f4ab2c50deb1e2afb5eca0ffb89ae6670ec4905a60cd809.html.gz"
     },
     {
       "name": "Didsbury Curling Club",
@@ -740,9 +740,9 @@
       "public_phone": "403-335-3661",
       "club_website": "http://www.didsbury.ca/main.aspx?CategoryCode=71C5B41B-2BE9-45BB-BE76-B808B9C1C779&pageCode=812ED1EA-491B-488E-837D-17525BA17D51&subPageCode=9B1C1318-1F56-42E3-BC02-A43AFAF2053D",
       "source_url": "https://curlingalberta.ca/clubs/didsbury-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:29.965074+00:00",
-      "source_sha256": "4881b94ca96b93c0854982b9f26fab9b7e30c86a24df638b1b10ecb7f4b3d921",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\28a871482b8b11f6396ca9e4.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:26.067668+00:00",
+      "source_sha256": "a9a08b200dffd5af42930a67868947b4ec27dcde14ac2ed1cd5b8f37bcb73e71",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\28a871482b8b11f6\\a9a08b200dffd5af42930a67868947b4ec27dcde14ac2ed1cd5b8f37bcb73e71.html.gz"
     },
     {
       "name": "Drayton Valley",
@@ -756,9 +756,9 @@
       "public_phone": "780-542-4795",
       "club_website": "http://www.dvcurling.ca",
       "source_url": "https://curlingalberta.ca/clubs/drayton-valley/",
-      "source_retrieved_at": "2026-09-26T11:39:30.844065+00:00",
-      "source_sha256": "10fc54eaa1b9c006de660daef265d7257c9ab789cf40b1c5da34fd2db922856d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\11877230dcf95cc325eca394.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:28.329634+00:00",
+      "source_sha256": "510d69b4f81d5f9577f2aa51c47c320e86460ddec26d67a44b356badf3c211b9",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\11877230dcf95cc3\\510d69b4f81d5f9577f2aa51c47c320e86460ddec26d67a44b356badf3c211b9.html.gz"
     },
     {
       "name": "Duchess Curling Club",
@@ -772,9 +772,9 @@
       "public_phone": "403-378-4239",
       "club_website": "http://www.villageofduchess.com/recreation/",
       "source_url": "https://curlingalberta.ca/clubs/duchess-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:31.748545+00:00",
-      "source_sha256": "ad2cc80c407042f683450d91a68c2165050ab63301604841564c102e61565d81",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c10ba08836e0015b8a84fa35.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:30.977770+00:00",
+      "source_sha256": "dffea74b92eff392589486c2062851f075561b82727c18693422f3c85a4d062b",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c10ba08836e0015b\\dffea74b92eff392589486c2062851f075561b82727c18693422f3c85a4d062b.html.gz"
     },
     {
       "name": "Eckville curling Club",
@@ -788,9 +788,9 @@
       "public_phone": "403-746-2442",
       "club_website": "https://eckvillecurlingclu.wixsite.com/eckvillecurling",
       "source_url": "https://curlingalberta.ca/clubs/eckville-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:32.608825+00:00",
-      "source_sha256": "591e55da4eccaf1d4fe48ad164d36e0b32d58344c0b203175912f0c11eba0a65",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\81aa3510d2b6c58e45508acf.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:33.128779+00:00",
+      "source_sha256": "4ed077279e92b898ff14966b79684bf28b779b921e26ed3864ec0a9afc936d9c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\81aa3510d2b6c58e\\4ed077279e92b898ff14966b79684bf28b779b921e26ed3864ec0a9afc936d9c.html.gz"
     },
     {
       "name": "Edgerton Curling Club",
@@ -804,9 +804,9 @@
       "public_phone": "(780) 755-3802",
       "club_website": "https://www.facebook.com/groups/621778054601636/",
       "source_url": "https://curlingalberta.ca/clubs/edgerton-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:33.441922+00:00",
-      "source_sha256": "966863f7bc1c149a0e412efe0a930724f302f114b21141ceaa394ffac6edf4d0",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b5c7444367314d954c47220b.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:35.276794+00:00",
+      "source_sha256": "6d57315f8e48e99d96049f4d01e4580fc93777d6afb8c4a5e5dac50ad0a93caf",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b5c7444367314d95\\6d57315f8e48e99d96049f4d01e4580fc93777d6afb8c4a5e5dac50ad0a93caf.html.gz"
     },
     {
       "name": "Edmonton Garrison Memorial Golf and Curling Club",
@@ -820,9 +820,9 @@
       "public_phone": "780-973-3033 ext.222",
       "club_website": "https://www.egmgolf.com/curling-2/",
       "source_url": "https://curlingalberta.ca/clubs/edmonton-garrison-memorial-golf-and-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:34.290564+00:00",
-      "source_sha256": "6d75055b366c4159b7fee660ef0046ff2e24aaa0496df08023639ea29d89f764",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\bdf6653a7a1e6b0f03b8002d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:37.635708+00:00",
+      "source_sha256": "56455416e0154c1158e75768d85c10ea56919a9b6a7a68ebbfa802251b8b9f0d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\bdf6653a7a1e6b0f\\56455416e0154c1158e75768d85c10ea56919a9b6a7a68ebbfa802251b8b9f0d.html.gz"
     },
     {
       "name": "Elk Point Curling Club",
@@ -836,9 +836,9 @@
       "public_phone": "780-614-1951",
       "club_website": "https://www.facebook.com/pages/category/Nonprofit-Organization/Elk-Point-Curling-Club-386007575153728/",
       "source_url": "https://curlingalberta.ca/clubs/elk-point-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:35.127032+00:00",
-      "source_sha256": "84a352d0d54ef7edddab58b711cc570d427d0823d0cda25a73826f641d6d1e3b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\621d0ec8cb151cc5e7a9ec89.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:39.881775+00:00",
+      "source_sha256": "9b23e1c442c317500499bc31aa99af7ac0878fc9b13fe90c8958200e6d735798",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\621d0ec8cb151cc5\\9b23e1c442c317500499bc31aa99af7ac0878fc9b13fe90c8958200e6d735798.html.gz"
     },
     {
       "name": "Ellerslie Curling Club",
@@ -852,9 +852,9 @@
       "public_phone": "780-988-5784",
       "club_website": "https://www.ellersliecurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/ellerslie-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:36.002160+00:00",
-      "source_sha256": "96ac2e9a26da7d494220b45c39eb8281752a5256dd014ba859a99984e7c5a8f1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\4ab2de7ad185af1fa704b294.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:42.447335+00:00",
+      "source_sha256": "2cce20a859e93f961455eb287c349b38de58b1e6c318a1e7c5c298a921f74f11",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\4ab2de7ad185af1f\\2cce20a859e93f961455eb287c349b38de58b1e6c318a1e7c5c298a921f74f11.html.gz"
     },
     {
       "name": "Erskine Curling Club",
@@ -868,9 +868,9 @@
       "public_phone": "403-742-5073",
       "club_website": "https://www.facebook.com/groups/187876277968363/",
       "source_url": "https://curlingalberta.ca/clubs/erskine-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:36.874626+00:00",
-      "source_sha256": "22c9773bf1e95edcdd8f75aab2de3a13bdd8d9f1359fd1d0b92e1f0e0fc66758",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\a2f5196cc0378953cd28034a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:44.956405+00:00",
+      "source_sha256": "77af417a3a6058438135d4395929da5f412e4c36005f21d87b65810ddf26c145",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\a2f5196cc0378953\\77af417a3a6058438135d4395929da5f412e4c36005f21d87b65810ddf26c145.html.gz"
     },
     {
       "name": "Fairview Curling Club",
@@ -884,9 +884,9 @@
       "public_phone": "780-835-2828",
       "club_website": "http://www.fairviewcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/fairview-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:37.970153+00:00",
-      "source_sha256": "4aa4ff88645125de47d2103a63f9f397e72fde842c248c0fe2b8c7f090543f80",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d357ad58b4d6b28b3889c2f8.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:47.248370+00:00",
+      "source_sha256": "c52a52022b4e058816cdcfc65727a0e7dc4a127b824a5baaebe1657a81a3755c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d357ad58b4d6b28b\\c52a52022b4e058816cdcfc65727a0e7dc4a127b824a5baaebe1657a81a3755c.html.gz"
     },
     {
       "name": "Falher Curling Club",
@@ -900,9 +900,9 @@
       "public_phone": "780-837-2556",
       "club_website": "https://smokyriverregion.com/work/en/business/falher/falher-curling-club/",
       "source_url": "https://curlingalberta.ca/clubs/falher-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:38.928763+00:00",
-      "source_sha256": "d89e16fec8fa2617a5c1583c2b40ca7e082396cd9383e4842793657b57fdeceb",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\76ddccf123e296a739a3f303.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:50.212612+00:00",
+      "source_sha256": "495b743d3d1a4221508c3588567a9a1dcb7a23ada80654a7c3e9f9b5a1f59379",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\76ddccf123e296a7\\495b743d3d1a4221508c3588567a9a1dcb7a23ada80654a7c3e9f9b5a1f59379.html.gz"
     },
     {
       "name": "Forestburg Curling Club",
@@ -916,9 +916,9 @@
       "public_phone": "780-582-3693",
       "club_website": "http://www.forestburg.ca/content/curling",
       "source_url": "https://curlingalberta.ca/clubs/forestburg-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:39.809576+00:00",
-      "source_sha256": "e3e5b11fa7683675181d80cc4d345aa3bc0e8910f010109946743643e94be0d5",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\497c18dfeaf66762886a8b6b.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:52.843332+00:00",
+      "source_sha256": "3297d259491cbd546656bef7d4a88903072da22292a38bf6d1bc168e2460ac27",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\497c18dfeaf66762\\3297d259491cbd546656bef7d4a88903072da22292a38bf6d1bc168e2460ac27.html.gz"
     },
     {
       "name": "Fort Macleod curling Club",
@@ -932,9 +932,9 @@
       "public_phone": "Fort Macleod “Sturling” Spiel",
       "club_website": "https://www.facebook.com/Fort-Macleod-Curling-Club-435383799987763/",
       "source_url": "https://curlingalberta.ca/clubs/fort-macleod-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:40.771231+00:00",
-      "source_sha256": "ffc522a228d833c853b6f1b83abf0047c8438301f149fc9fab59cf884d885219",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\26d5be321327623a6476c509.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:55.050220+00:00",
+      "source_sha256": "c02798b372e7758453a8d99363bc9a495450f774f50c0c9042d312af08b2cb06",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\26d5be321327623a\\c02798b372e7758453a8d99363bc9a495450f774f50c0c9042d312af08b2cb06.html.gz"
     },
     {
       "name": "Fort McMurray Oilsands C.C",
@@ -948,9 +948,9 @@
       "public_phone": "780-791-7615",
       "club_website": "http://www.fmoilsandscurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/fort-mcmurray-oilsands-c-c/",
-      "source_retrieved_at": "2026-09-26T11:39:41.716530+00:00",
-      "source_sha256": "cfad67af9c6c92e645b80bccccd3e262c33fc234df2d82e5a2f4c940c294f371",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\18f27c3ec3b9e09ebde9d622.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:57.315392+00:00",
+      "source_sha256": "3599ced6656384de4d0f74dcf5364a8ceeb1554e85f074cb3cf01ff4554962ba",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\18f27c3ec3b9e09e\\3599ced6656384de4d0f74dcf5364a8ceeb1554e85f074cb3cf01ff4554962ba.html.gz"
     },
     {
       "name": "Fort Nelson Curling Club",
@@ -964,9 +964,9 @@
       "public_phone": "250-774-2266",
       "club_website": "https://www.findglocal.com/CA/Fort-Nelson/100920652823321/Fort-Nelson-Curling-Club",
       "source_url": "https://curlingalberta.ca/clubs/fort-nelson-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:42.581112+00:00",
-      "source_sha256": "dce5dfb9bc8c74ef236a36bd989beb72d56f9a36f2c3332b7f91bc2e695a4e9c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\72810450492c9182c730baf2.html.gz"
+      "source_retrieved_at": "2026-10-12T02:08:59.797112+00:00",
+      "source_sha256": "4dfb445e73c8e1359b35540957a653e4b0d7c68936e7f4a7d98da72d90f5de76",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\72810450492c9182\\4dfb445e73c8e1359b35540957a653e4b0d7c68936e7f4a7d98da72d90f5de76.html.gz"
     },
     {
       "name": "Fort Saskatchewan Curling Club",
@@ -980,9 +980,9 @@
       "public_phone": "780-998-3372",
       "club_website": "https://www.fortsaskgolf.com/",
       "source_url": "https://curlingalberta.ca/clubs/fort-saskatchewan-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:43.447370+00:00",
-      "source_sha256": "8f6bf00f2085671467fd3bbba9cd07f09f26747362713ec5838974fb4c4b4c01",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\287968f068578f1db4d154d6.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:02.772968+00:00",
+      "source_sha256": "a4b25107ada00d6a18fc957b686716222092c0d5f9c83203904458d79b688957",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\287968f068578f1d\\a4b25107ada00d6a18fc957b686716222092c0d5f9c83203904458d79b688957.html.gz"
     },
     {
       "name": "Fort St. John Curling Club",
@@ -996,9 +996,9 @@
       "public_phone": "250-785-2037",
       "club_website": "https://www.fsjcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/fort-st-john-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:44.309049+00:00",
-      "source_sha256": "fd715a8ba5f8750b515089781d35b781fddc20651a6e37ea4f066da2549578f4",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\30401aed98d7b17d8b5c735e.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:04.984353+00:00",
+      "source_sha256": "b949129baa93be6dd52f2dca3e7f322c1736930dbaa941cd43e6fd2d22e516c2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\30401aed98d7b17d\\b949129baa93be6dd52f2dca3e7f322c1736930dbaa941cd43e6fd2d22e516c2.html.gz"
     },
     {
       "name": "Garrison Curling Club",
@@ -1012,9 +1012,9 @@
       "public_phone": "403-242-8191",
       "club_website": "https://garrisoncurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/garrison-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:45.192105+00:00",
-      "source_sha256": "9532ad3cb8d58599cedad0cf1e02f343cb731c7f8c0cd9ec4c8e9c89296e5517",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7763c64ba0c7b03072610214.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:07.036994+00:00",
+      "source_sha256": "e00100ad27ef5a1feb81292d11329e4d081d832f12d5a0622c810a68ee1b1de8",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7763c64ba0c7b030\\e00100ad27ef5a1feb81292d11329e4d081d832f12d5a0622c810a68ee1b1de8.html.gz"
     },
     {
       "name": "Gibbons Curling Club",
@@ -1028,9 +1028,9 @@
       "public_phone": "780-921-2558",
       "club_website": "https://sites.google.com/view/gibbons-curling-club?fbclid=IwAR0Drpd77eL7zPP7eJO1Fc_YS9fevdrjV0t37VLtQROIIWzW7QjR1lZ8RnM",
       "source_url": "https://curlingalberta.ca/clubs/gibbons-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:46.091734+00:00",
-      "source_sha256": "9c0080565beffac2b8903e6d77f7a9b98f02e776bf69a6bf1afa47332345c216",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\90b96e205d472bacf3021fc0.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:09.130086+00:00",
+      "source_sha256": "6293b02eaa36c2ba002ffa4a40cf35b77ed0cd13469479c78e931cbd63a20e08",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\90b96e205d472bac\\6293b02eaa36c2ba002ffa4a40cf35b77ed0cd13469479c78e931cbd63a20e08.html.gz"
     },
     {
       "name": "Glencoe Club",
@@ -1044,9 +1044,9 @@
       "public_phone": "403-287-4123",
       "club_website": "https://glencoe.org/curling",
       "source_url": "https://curlingalberta.ca/clubs/glencoe-club/",
-      "source_retrieved_at": "2026-09-26T11:39:47.362216+00:00",
-      "source_sha256": "1d2fdc5ebd4b87f21393263efff99cd68cf2365bc84fd567cadd43504aa61b2c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\95ac993c72a6a90017ebfb76.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:11.312110+00:00",
+      "source_sha256": "c8a2984f56ba89f1d6049a2e4b6b08793b517357a5350d66c97b4e34957a87da",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\95ac993c72a6a900\\c8a2984f56ba89f1d6049a2e4b6b08793b517357a5350d66c97b4e34957a87da.html.gz"
     },
     {
       "name": "Glendon Curling Club",
@@ -1060,9 +1060,9 @@
       "public_phone": "780-635-3036",
       "club_website": "https://www.facebook.com/Glendon-Curling-Club-938778082826627/",
       "source_url": "https://curlingalberta.ca/clubs/glendon-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:48.304649+00:00",
-      "source_sha256": "324e7e00adad9588dfb43f66b456ec5d063f7072b6ea6c7052f30a792513c875",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d80f7f5a1967786c6e6d2bcd.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:13.693925+00:00",
+      "source_sha256": "7cf62de9aae93c50ade17e5dd8ad73191f4b735c067a78b657804551417f9515",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d80f7f5a1967786c\\7cf62de9aae93c50ade17e5dd8ad73191f4b735c067a78b657804551417f9515.html.gz"
     },
     {
       "name": "Grande Cache Curling Club",
@@ -1076,9 +1076,9 @@
       "public_phone": "780-827-2436",
       "club_website": "http://gccurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/grande-cache-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:49.165642+00:00",
-      "source_sha256": "5394f06e9714f5344cb2fb77d18e1364dd190f12f0495b2abf010636b6855895",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\972a6c62e1fe453f47ded540.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:15.994966+00:00",
+      "source_sha256": "bc4098e499b7d69d7d72e78a9f800aa7b854f2b76cd2d4bed1225b4ce9c1c618",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\972a6c62e1fe453f\\bc4098e499b7d69d7d72e78a9f800aa7b854f2b76cd2d4bed1225b4ce9c1c618.html.gz"
     },
     {
       "name": "Grande Prairie Curling Centre",
@@ -1092,9 +1092,9 @@
       "public_phone": "780-532-7221",
       "club_website": "https://gpcurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/grande-prairie-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:50.027883+00:00",
-      "source_sha256": "2a0072461e3f42691388884f7f6ae6d9f14eb378740d11edc2c763e44b4f43fd",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\83f42797b2b7a90e905e9410.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:19.148844+00:00",
+      "source_sha256": "16f520886b95dca86cf7ca3e760255627d1c0daa55e2636356ff647f740749d8",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\83f42797b2b7a90e\\16f520886b95dca86cf7ca3e760255627d1c0daa55e2636356ff647f740749d8.html.gz"
     },
     {
       "name": "Granite Curling Club",
@@ -1108,9 +1108,9 @@
       "public_phone": "780-439-0695",
       "club_website": "http://www.granitecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/granite-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:50.878779+00:00",
-      "source_sha256": "eef632d57ff345a8b9476786a7e6daf78a617800362b044751cc3dbe97594a16",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c8dc8b878a8946c6d2fdfa50.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:21.182013+00:00",
+      "source_sha256": "880edeeb4e58612ebde2b608c16f4c78318a3fd9ea2986dae04d65f5c85e1755",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c8dc8b878a8946c6\\880edeeb4e58612ebde2b608c16f4c78318a3fd9ea2986dae04d65f5c85e1755.html.gz"
     },
     {
       "name": "Grimshaw Curling Club",
@@ -1124,9 +1124,9 @@
       "public_phone": "780-625-5429",
       "club_website": "https://www.facebook.com/Grimshaw-Curling-Club-540192472789900/",
       "source_url": "https://curlingalberta.ca/clubs/grimshaw-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:51.720425+00:00",
-      "source_sha256": "e1ce505150bea3fdf7da246f359c557cabfe849d5b85dcdc2187cd23c970c527",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ee9e5fa8b382a5c39d427b16.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:23.300193+00:00",
+      "source_sha256": "cf0762e91c3b608a9ca45f2c1b75a9d275eecb101ec6c9a4c6f03bde1cf31342",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ee9e5fa8b382a5c3\\cf0762e91c3b608a9ca45f2c1b75a9d275eecb101ec6c9a4c6f03bde1cf31342.html.gz"
     },
     {
       "name": "Hanna Curling Club",
@@ -1140,9 +1140,9 @@
       "public_phone": "403-854-3665",
       "club_website": "http://www.hanna.ca/curling-rink",
       "source_url": "https://curlingalberta.ca/clubs/hanna-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:52.585596+00:00",
-      "source_sha256": "7992005c3987eecd3dd873d4bcefdf03be997caa80fe7fbd51e218fe664868de",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b9cd9fbcc7a3cdbe1949cac8.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:25.549360+00:00",
+      "source_sha256": "7085aff178ced8be6b9fe6e9f0f206134c72c3abeb2e526de178fa7f0d9ddcda",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b9cd9fbcc7a3cdbe\\7085aff178ced8be6b9fe6e9f0f206134c72c3abeb2e526de178fa7f0d9ddcda.html.gz"
     },
     {
       "name": "Hay Lakes Curling Club",
@@ -1156,9 +1156,9 @@
       "public_phone": "780-878-3332",
       "club_website": "https://www.facebook.com/pages/category/Sports-Event/Hay-Lakes-Curling-Club-1840731806160920/",
       "source_url": "https://curlingalberta.ca/clubs/hay-lakes-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:53.443849+00:00",
-      "source_sha256": "d95bf8ba3a934ee9b9a4ba02c73f3b69fe5a1d7a0b3a57c5b2fcb9a41b8af545",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\56142d4c76af4f94567e56dd.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:28.118263+00:00",
+      "source_sha256": "5b4195efaabaa7563b1f8d94ce067cf135c06db5148c4ca30361693e0c94f112",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\56142d4c76af4f94\\5b4195efaabaa7563b1f8d94ce067cf135c06db5148c4ca30361693e0c94f112.html.gz"
     },
     {
       "name": "Heather Curling Club",
@@ -1172,9 +1172,9 @@
       "public_phone": "780-632-2010",
       "club_website": "https://www.facebook.com/Heathercurlingclubvegreville/",
       "source_url": "https://curlingalberta.ca/clubs/heather-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:54.289148+00:00",
-      "source_sha256": "1787449a8ad918cc848447cb6b55e45977bc7d25b0908cca5033e5fa83b08cac",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f8b09e7a3a292d24cc3ea68a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:30.380387+00:00",
+      "source_sha256": "769a38b2c5afc75bd0c2dd113eda12d671d5d28d173beff8bbfb8fe7eae2aa12",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f8b09e7a3a292d24\\769a38b2c5afc75bd0c2dd113eda12d671d5d28d173beff8bbfb8fe7eae2aa12.html.gz"
     },
     {
       "name": "High Prairie Curling Club",
@@ -1188,9 +1188,9 @@
       "public_phone": "780-532-3588",
       "club_website": "https://www.facebook.com/groups/426835927437137",
       "source_url": "https://curlingalberta.ca/clubs/high-prairie-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:55.200067+00:00",
-      "source_sha256": "2ab3f8e9aeca0cb369da02079678ef7532d29fc5501e112580888ddef089f076",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\4e994107b8cbb0e32565d8bc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:32.545553+00:00",
+      "source_sha256": "e54b79e1af9d7bf4cb011864692519189ffc34064cfd23e489d4db5f6f340e80",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\4e994107b8cbb0e3\\e54b79e1af9d7bf4cb011864692519189ffc34064cfd23e489d4db5f6f340e80.html.gz"
     },
     {
       "name": "Highwood Curling Club",
@@ -1204,9 +1204,9 @@
       "public_phone": "403-652-2774",
       "club_website": "http://www.highwoodcurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/highwood-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:56.049901+00:00",
-      "source_sha256": "c90e1e6228090323ce6f3d30f09f593e9af05ea4aa1eb69781cd52ef86fbdf70",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\0b73588bb1a766c2b2a429a5.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:34.753922+00:00",
+      "source_sha256": "d7f8ce99183d7af1d124a83f17f14019a666e0a83fca46a98f14b49913b42814",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\0b73588bb1a766c2\\d7f8ce99183d7af1d124a83f17f14019a666e0a83fca46a98f14b49913b42814.html.gz"
     },
     {
       "name": "Hinton Curling Club",
@@ -1220,9 +1220,9 @@
       "public_phone": "780-865-2413",
       "club_website": "https://www.facebook.com/pages/Hinton-Curling-Club/344162575615341",
       "source_url": "https://curlingalberta.ca/clubs/hinton-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:57.034225+00:00",
-      "source_sha256": "c767fff0f5e4248f7619d1c070ed5d2e10525c5c279a52d0d2a8d8fc73dbf3d8",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\bbf56104d7cd6324793aec6d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:36.824999+00:00",
+      "source_sha256": "b824a1edc8b9eec58296cba75485c5dad7ede8a3900d3a6bf34614b6e2644717",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\bbf56104d7cd6324\\b824a1edc8b9eec58296cba75485c5dad7ede8a3900d3a6bf34614b6e2644717.html.gz"
     },
     {
       "name": "Huntington Hills Curling Club",
@@ -1236,9 +1236,9 @@
       "public_phone": "5873922264",
       "club_website": "https://www.huntingtonhillscommunity.ca",
       "source_url": "https://curlingalberta.ca/clubs/huntington-hills-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:58.056840+00:00",
-      "source_sha256": "9223e2b5b9ed7d8ba42e426962e438ff3db2a89cc777333cfb790cf1dfb4610d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\41063f7e57c27e9699816ecb.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:39.114990+00:00",
+      "source_sha256": "f373dceb67cb5327003d16711eefb7039234ae989626e94cb48322986b52716d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\41063f7e57c27e96\\f373dceb67cb5327003d16711eefb7039234ae989626e94cb48322986b52716d.html.gz"
     },
     {
       "name": "Hussar Curling Club",
@@ -1252,9 +1252,9 @@
       "public_phone": "403-787-3950",
       "club_website": "https://www.facebook.com/pages/category/Community-Organization/Hussar-Curling-Club-1286907028006260/",
       "source_url": "https://curlingalberta.ca/clubs/hussar-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:58.909929+00:00",
-      "source_sha256": "fb57019c3a1fb7f1423a3ac8ca1e3b7e2493ce06b69157e7269e790936d839ae",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b2076f4372b3113346586ce9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:41.368654+00:00",
+      "source_sha256": "a75ae47a4b9ac4f84de051945b6c51865033e7f879dd67b83aee96cbcc767c7d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b2076f4372b31133\\a75ae47a4b9ac4f84de051945b6c51865033e7f879dd67b83aee96cbcc767c7d.html.gz"
     },
     {
       "name": "Inglewood Curling Club",
@@ -1268,9 +1268,9 @@
       "public_phone": "403-272-9709",
       "club_website": "https://www.inglewoodgolfclub.ca/Curling.aspx",
       "source_url": "https://curlingalberta.ca/clubs/inglewood-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:39:59.245741+00:00",
-      "source_sha256": "d1f0fb4e57d1fefa6b754a78bbbe40d6adaa139a1e347448294b4cf2322cb2b0",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\dcc11fc169b870100cc60d9f.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:44.027871+00:00",
+      "source_sha256": "a443372f5ec0f9c4ef549d2f49b6e7d0b22e041d98a58e3a52b946b12039a3d1",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\dcc11fc169b87010\\a443372f5ec0f9c4ef549d2f49b6e7d0b22e041d98a58e3a52b946b12039a3d1.html.gz"
     },
     {
       "name": "Innisfail Curling Club",
@@ -1284,9 +1284,9 @@
       "public_phone": "403-227-3079",
       "club_website": "https://www.innisfailcurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/innisfail-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:00.128411+00:00",
-      "source_sha256": "98bd9f2ecdeb131881771fb0c27c7055fa675c0f9f85eed5215e828923382077",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\cfebe0b2449ea18d0022a18d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:46.358471+00:00",
+      "source_sha256": "5c31d6a81d05ae828016df51d1ea9d48e48d8ed28b7fa655d14c6f94ac8835c9",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\cfebe0b2449ea18d\\5c31d6a81d05ae828016df51d1ea9d48e48d8ed28b7fa655d14c6f94ac8835c9.html.gz"
     },
     {
       "name": "Innisfree Curling Club",
@@ -1300,9 +1300,9 @@
       "public_phone": "780-592-3828",
       "club_website": "https://www.facebook.com/people/Innisfree-Curling-Club/100010602072259",
       "source_url": "https://curlingalberta.ca/clubs/innisfree-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:01.000438+00:00",
-      "source_sha256": "293e5b933a2ee564f6efb978af95b958c43e8daa7bae41a27453e4c4431403bc",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c528ed74600993d617dcb4c8.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:48.579849+00:00",
+      "source_sha256": "029b0324cd79c8530f5667c53538912d6df9fa3c69ecc40425533ff367ae8e87",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c528ed74600993d6\\029b0324cd79c8530f5667c53538912d6df9fa3c69ecc40425533ff367ae8e87.html.gz"
     },
     {
       "name": "Irma Curling Club",
@@ -1316,9 +1316,9 @@
       "public_phone": "780-754-3650",
       "club_website": "https://www.facebook.com/Irma-Curling-Club-164534606930832/",
       "source_url": "https://curlingalberta.ca/clubs/irma-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:01.866433+00:00",
-      "source_sha256": "04f336e501202a0474d9a05f6c048449ad1cec5111024df5ab8576d5f38d6e06",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\a049f6fd48e3a8be90285e2c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:50.906443+00:00",
+      "source_sha256": "e72728a8e9aab81a61cbd0056af381a61e0a3b0873cd1cd526e94af16b1a0794",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\a049f6fd48e3a8be\\e72728a8e9aab81a61cbd0056af381a61e0a3b0873cd1cd526e94af16b1a0794.html.gz"
     },
     {
       "name": "Irricana Curling Club",
@@ -1332,9 +1332,9 @@
       "public_phone": "403-935-4628",
       "club_website": "https://www.facebook.com/IrricanaCurlingClub/",
       "source_url": "https://curlingalberta.ca/clubs/irricana-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:02.712897+00:00",
-      "source_sha256": "dc8008a22f86473840dcf1ee4a5282f607f4cd4c2abf883360999bd53ba17e6b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ee40d82644b8039803364d67.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:53.523504+00:00",
+      "source_sha256": "714593eb8d5a888745cb8f13d85a3fa9f772a01dfdcb137ba85324f01bb6ddf3",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ee40d82644b80398\\714593eb8d5a888745cb8f13d85a3fa9f772a01dfdcb137ba85324f01bb6ddf3.html.gz"
     },
     {
       "name": "Jasper Curling Club",
@@ -1348,9 +1348,9 @@
       "public_phone": "780-852-4512",
       "club_website": "https://jaspercurlingclub.weebly.com/?fbclid=IwAR3UWmROPn7pszxHj-PgrddESgJ0cUIs14Tv7XxvNc-ifBoOpMefh4yXNQs",
       "source_url": "https://curlingalberta.ca/clubs/jasper-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:03.603519+00:00",
-      "source_sha256": "b8ef0d6a9532f8786cf0f0b0dd497b2122c65786929b490e2f65cc1d20079251",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\fb01663524fc7a015bcdd8e9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:55.865400+00:00",
+      "source_sha256": "fb15963b1d93566aa70063327c7b32f0ca3e54d1d44ef533308ca3407f8f4dc8",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\fb01663524fc7a01\\fb15963b1d93566aa70063327c7b32f0ca3e54d1d44ef533308ca3407f8f4dc8.html.gz"
     },
     {
       "name": "Jasper Place Curling Club",
@@ -1364,9 +1364,9 @@
       "public_phone": "780-489-6428",
       "club_website": "http://www.jasperplacecurling.ca/page-1663062",
       "source_url": "https://curlingalberta.ca/clubs/jasper-place-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:04.477144+00:00",
-      "source_sha256": "2da2e4912588360b316a7b029e42fe3bcad09ee324368f035d4075e2dfa3853c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\3f22eb33a4cd1e7e89212b93.html.gz"
+      "source_retrieved_at": "2026-10-12T02:09:58.039723+00:00",
+      "source_sha256": "e48885503919de40c2f01b855433be8c404864bbf60fa5fdea0af9a23d4a82e1",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\3f22eb33a4cd1e7e\\e48885503919de40c2f01b855433be8c404864bbf60fa5fdea0af9a23d4a82e1.html.gz"
     },
     {
       "name": "Kitscoty Curling Club",
@@ -1380,9 +1380,9 @@
       "public_phone": "780-846-2492",
       "club_website": "https://www.facebook.com/pages/category/Community/Kitscoty-Curling-Club-1490569277907440/",
       "source_url": "https://curlingalberta.ca/clubs/kitscoty-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:05.352690+00:00",
-      "source_sha256": "dee8e77e90273d10277515922e63415625f1998c2d26471adfba5f02537000c1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f6ef6a7da1e246a578693ea9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:00.093822+00:00",
+      "source_sha256": "ecde7c1f1d0f9c5d2b1bc08f7dd62b2e7a851926aa0f6be714392f48e150959c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f6ef6a7da1e246a5\\ecde7c1f1d0f9c5d2b1bc08f7dd62b2e7a851926aa0f6be714392f48e150959c.html.gz"
     },
     {
       "name": "Lac La Biche Curling Club",
@@ -1396,9 +1396,9 @@
       "public_phone": "780-623-7706",
       "club_website": "https://www.laclabichecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/lac-la-biche-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:06.204578+00:00",
-      "source_sha256": "a831a6fa55549da108762f57f72383ac265e51606f1186db4345803a896a1fd1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f35bb02be4a33ed91bc371d1.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:02.221431+00:00",
+      "source_sha256": "f571f380e8b149da6507f4452dd2ecfd6962b06472e70a2e7271bf13341c0238",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f35bb02be4a33ed9\\f571f380e8b149da6507f4452dd2ecfd6962b06472e70a2e7271bf13341c0238.html.gz"
     },
     {
       "name": "Lacombe Curling Club",
@@ -1412,9 +1412,9 @@
       "public_phone": "403-782-6277",
       "club_website": "https://lacombecurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/lacombe-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:07.149956+00:00",
-      "source_sha256": "6ed676f099bb72617158f25ba74c38091ebc17bfc9bded6ab7ad62f28887f1cf",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f887023ecc3a9c6d4f60feb5.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:04.458333+00:00",
+      "source_sha256": "84b0db174fd61126c88dc9dd0aa0c2983accbfe26f68a15f8026239f0d81e109",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f887023ecc3a9c6d\\84b0db174fd61126c88dc9dd0aa0c2983accbfe26f68a15f8026239f0d81e109.html.gz"
     },
     {
       "name": "Lakeside Curling Club",
@@ -1428,9 +1428,9 @@
       "public_phone": "780-797-3776",
       "club_website": "https://www.facebook.com/Lakesidecurlingseba/",
       "source_url": "https://curlingalberta.ca/clubs/lakeside-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:08.098095+00:00",
-      "source_sha256": "3fe6bcd224d79ecf1580dfff676263fdc5b6bd137ad66ad1fceafdee1776e988",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b6747725941ecaca486afd4a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:06.724127+00:00",
+      "source_sha256": "ec3e13cfc421df110d0dd586442d3d55326e4b53fa6151b598890787b6b36bf2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b6747725941ecaca\\ec3e13cfc421df110d0dd586442d3d55326e4b53fa6151b598890787b6b36bf2.html.gz"
     },
     {
       "name": "Lamont Curling Club",
@@ -1444,9 +1444,9 @@
       "public_phone": "780-895-2511",
       "club_website": "https://www.lamont.ca/places/Lamont-Curling-Rink_8396",
       "source_url": "https://curlingalberta.ca/clubs/lamont-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:09.108310+00:00",
-      "source_sha256": "5b89069b1f46163559752d4a882c7b6b10df6a225c6038f1ff1e5e563d82d12e",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f16e32c82924eb477c590d2d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:08.858564+00:00",
+      "source_sha256": "38f1e118ad3960e08ffb3c3dc46a745cd8b60371d81d958dadb497bd3bf87b62",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f16e32c82924eb47\\38f1e118ad3960e08ffb3c3dc46a745cd8b60371d81d958dadb497bd3bf87b62.html.gz"
     },
     {
       "name": "Leduc Curling Club",
@@ -1460,9 +1460,9 @@
       "public_phone": "780-986-3553",
       "club_website": "https://leduccurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/leduc-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:10.111429+00:00",
-      "source_sha256": "eea1f45ba0365c69be5aaacac7080e2cc1ac9e196615fd845f6cc04dd4855ecf",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7c564d304db69c8370b624d9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:11.177617+00:00",
+      "source_sha256": "7259476ba22832ea9fd56d5f5bba5f5e1e3d9b54c7033eceac849b67b3c7bf08",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7c564d304db69c83\\7259476ba22832ea9fd56d5f5bba5f5e1e3d9b54c7033eceac849b67b3c7bf08.html.gz"
     },
     {
       "name": "Lethbridge Curling Club",
@@ -1476,9 +1476,9 @@
       "public_phone": "403-327-1213",
       "club_website": "http://www.lethbridgecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/lethbridge-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:10.989234+00:00",
-      "source_sha256": "fab26b1bff0108a3198ebe82ade286b43707eb32ab7de43ff436b8e0b7e55b71",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\77ba7c3a064234498421c04a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:13.286017+00:00",
+      "source_sha256": "10e85953c563dc03ffe8191110f7508bfecd887cd1e2a661b03b3be105c46b26",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\77ba7c3a06423449\\10e85953c563dc03ffe8191110f7508bfecd887cd1e2a661b03b3be105c46b26.html.gz"
     },
     {
       "name": "Madden Curling Club",
@@ -1492,9 +1492,9 @@
       "public_phone": "403-946-5911",
       "club_website": "https://www.facebook.com/pages/category/Social-Club/Madden-Curling-Club-1426237507513306/",
       "source_url": "https://curlingalberta.ca/clubs/madden-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:11.853568+00:00",
-      "source_sha256": "e0f17f321481e9dbc4c273c8d075f0db5c48fe3c514a51180157805bc070057b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\fc5bea96346b0ec460e6dbcc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:15.324287+00:00",
+      "source_sha256": "6d813ea310b83b9ebf53a26735d74ac3fcc3aec0d9ef2f15ad477461484043d3",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\fc5bea96346b0ec4\\6d813ea310b83b9ebf53a26735d74ac3fcc3aec0d9ef2f15ad477461484043d3.html.gz"
     },
     {
       "name": "Manning Curling Club",
@@ -1508,9 +1508,9 @@
       "public_phone": "780-836-3779",
       "club_website": "https://www.facebook.com/pages/category/Community-Organization/Manning-Curling-Club-1622948777966860/",
       "source_url": "https://curlingalberta.ca/clubs/manning-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:12.702664+00:00",
-      "source_sha256": "bc5923fb51c592270ad0beef3aa6a0aba6d8f904fd20cdcbbcf01c5dc22bd5f6",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\8001f961381fa6e90c011d0c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:17.459201+00:00",
+      "source_sha256": "237b3b76824e35be4bfcd8e14a228905b6a70cb55783af2ed5bc640d6213db14",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\8001f961381fa6e9\\237b3b76824e35be4bfcd8e14a228905b6a70cb55783af2ed5bc640d6213db14.html.gz"
     },
     {
       "name": "Mayerthorpe Curling Club",
@@ -1524,9 +1524,9 @@
       "public_phone": "780-786-2371",
       "club_website": "https://www.facebook.com/mayerthorpecurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/mayerthorpe-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:13.565993+00:00",
-      "source_sha256": "37be481ce0bf1b68a6310a62bdcd5b1bc47dd90d22ce7370dca2d5465ee8f893",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d2195ded61cd0f22e8a5b7dc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:19.519020+00:00",
+      "source_sha256": "291f007c0445916b2e7a16ba2b510d476964403b20f295ae8b3b8be11026f189",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d2195ded61cd0f22\\291f007c0445916b2e7a16ba2b510d476964403b20f295ae8b3b8be11026f189.html.gz"
     },
     {
       "name": "Medicine Hat Curling Centre",
@@ -1540,9 +1540,9 @@
       "public_phone": "403-526-3821",
       "club_website": "http://mhcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/medicine-hat-curling-centre/",
-      "source_retrieved_at": "2026-09-26T11:40:14.433478+00:00",
-      "source_sha256": "6899cbccd9ded640eb92767330077cfe8c82cc9cff2a929e65758672cde77fca",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\40342bbe4bb8434ce69e219a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:21.675237+00:00",
+      "source_sha256": "94848e551da5a062151d9090f7969c1fdbba7d8291a74094b4a1264e3822064b",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\40342bbe4bb8434c\\94848e551da5a062151d9090f7969c1fdbba7d8291a74094b4a1264e3822064b.html.gz"
     },
     {
       "name": "Michener Hill Curling Club",
@@ -1556,9 +1556,9 @@
       "public_phone": "403-346-0440",
       "club_website": "http://michenerhillcurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/michener-hill-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:15.312604+00:00",
-      "source_sha256": "9297fd084cd62a1e78c77e961e42375969168f4e68e95060b7b900d030acd9b4",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\13ea70ab131848d6795bc9f2.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:23.720693+00:00",
+      "source_sha256": "e4617362437dbd100c32ad4085a60556eee59611552a2c2e30681a5cccafaeb4",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\13ea70ab131848d6\\e4617362437dbd100c32ad4085a60556eee59611552a2c2e30681a5cccafaeb4.html.gz"
     },
     {
       "name": "Millet Curling Club",
@@ -1572,9 +1572,9 @@
       "public_phone": "780-387-4221",
       "club_website": "https://www.millet.ca/places/Millet-Curling-Club_7679",
       "source_url": "https://curlingalberta.ca/clubs/millet-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:16.163239+00:00",
-      "source_sha256": "28b575296b1deea7d35e9376536da9c7ffeec9d5be398cd965453651cfbbc814",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\4830ed6dfe3a745022fd0b77.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:25.796752+00:00",
+      "source_sha256": "e007af6ab5b65e586be1c5a12dc09daf9cebf7ba5b760cda2a718d9114ca0639",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\4830ed6dfe3a7450\\e007af6ab5b65e586be1c5a12dc09daf9cebf7ba5b760cda2a718d9114ca0639.html.gz"
     },
     {
       "name": "Milo Curling Club",
@@ -1588,9 +1588,9 @@
       "public_phone": "403-599-3877",
       "club_website": "https://www.villageofmilo.ca/services/recreational-facilities/milo-curling-rink",
       "source_url": "https://curlingalberta.ca/clubs/milo-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:17.060851+00:00",
-      "source_sha256": "1166fe520ea2d9f09a3ae602559deb16e7240248b3cb22a5c58c75de4436d8bc",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c0b1529e6fba6a1d733846ef.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:28.124040+00:00",
+      "source_sha256": "97002a7749ba10043ef9b30bee1ba476bc78139ae8178008cdb0c08c1e62e62e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c0b1529e6fba6a1d\\97002a7749ba10043ef9b30bee1ba476bc78139ae8178008cdb0c08c1e62e62e.html.gz"
     },
     {
       "name": "Morinville Curling Club",
@@ -1604,9 +1604,9 @@
       "public_phone": "780-939-4393",
       "club_website": "http://www.morinvillecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/morinville-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:17.392913+00:00",
-      "source_sha256": "43b787a0a134d72c69704062fe9fd224c584e86ce597402f02a87711f80fb04b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\499a52664a1883ee5c8a68f3.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:30.397003+00:00",
+      "source_sha256": "7d9d75bee55a3bd37b913177c40dc51b3edc730dbb4c1bd2942c08ce2dff684a",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\499a52664a1883ee\\7d9d75bee55a3bd37b913177c40dc51b3edc730dbb4c1bd2942c08ce2dff684a.html.gz"
     },
     {
       "name": "Mundare Curling Club",
@@ -1620,9 +1620,9 @@
       "public_phone": "780-764-3899",
       "club_website": "https://www.mundarecurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/mundare-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:18.276153+00:00",
-      "source_sha256": "4d9949b036e5a917797bfe2e062ef7672b5d255ae458a639fac77f4b667e8053",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\e5d86d4412d88d0c05610d46.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:32.432799+00:00",
+      "source_sha256": "79198ac3b31cb48aadd3188e7f1a91847f0b11f61080fd50ba8ed0dbdd168d96",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\e5d86d4412d88d0c\\79198ac3b31cb48aadd3188e7f1a91847f0b11f61080fd50ba8ed0dbdd168d96.html.gz"
     },
     {
       "name": "Myrnam Curling Club",
@@ -1636,9 +1636,9 @@
       "public_phone": "780-787-0446",
       "club_website": "https://www.facebook.com/pages/category/Sports---Recreation/Myrnam-Curling-Club-494426141041513/",
       "source_url": "https://curlingalberta.ca/clubs/myrnam-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:19.149732+00:00",
-      "source_sha256": "e170cf133487c866e8927f57a2e7ccf4136d156b50ad49d1f0ac54752c6eb87a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\76adf6607d9c07beccf36cb8.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:34.689919+00:00",
+      "source_sha256": "81cb46f060a911082973960f0f0c49c54849d5dcad008ac39939a1b6500486d8",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\76adf6607d9c07be\\81cb46f060a911082973960f0f0c49c54849d5dcad008ac39939a1b6500486d8.html.gz"
     },
     {
       "name": "Nanton Curling Club",
@@ -1652,9 +1652,9 @@
       "public_phone": "403-646-2530",
       "club_website": "http://www.nantoncurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/nanton-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:20.209315+00:00",
-      "source_sha256": "57a4b5e513cc6413a1f6e94466ec94ce76e0b9dcf23c2c8f7ab3b38fe4420f8d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f27dcd07181a1f971d0a664c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:37.040318+00:00",
+      "source_sha256": "4fdf0003645b7f8271ef4f6e73667a5eb91b38e02f89671d3f05f1f45d5d7de2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f27dcd07181a1f97\\4fdf0003645b7f8271ef4f6e73667a5eb91b38e02f89671d3f05f1f45d5d7de2.html.gz"
     },
     {
       "name": "North Hill Community Curling Club",
@@ -1668,9 +1668,9 @@
       "public_phone": "403-277-3158",
       "club_website": "https://www.northhillcurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/north-hill-community-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:21.076304+00:00",
-      "source_sha256": "6e5a697af059eb1c7737521ce62eddff72e94fcee1bac3497893171fb83cd188",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b79d733bfa323445582447f6.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:39.219794+00:00",
+      "source_sha256": "cc9868fc4d655aaf7ee336a59d32d5d6acdea7d48672893d20b8e31e62b7a63e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b79d733bfa323445\\cc9868fc4d655aaf7ee336a59d32d5d6acdea7d48672893d20b8e31e62b7a63e.html.gz"
     },
     {
       "name": "Oilfields Curling, Black Diamond",
@@ -1684,9 +1684,9 @@
       "public_phone": "403-933-7324",
       "club_website": "http://www.occcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/black-diamond-oilfields-curling/",
-      "source_retrieved_at": "2026-09-26T11:40:22.064712+00:00",
-      "source_sha256": "feac8318425cfdb4702d127823cc65c966f3bdd12c39877d8f031e6462b044cb",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d272bdf81e4f49ebd0661264.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:41.437921+00:00",
+      "source_sha256": "54620ab047885b8edf81c9e8d2eea4e9c078f4bb38818b3056972cd8e2a3017e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d272bdf81e4f49eb\\54620ab047885b8edf81c9e8d2eea4e9c078f4bb38818b3056972cd8e2a3017e.html.gz"
     },
     {
       "name": "Okotoks Curling Club",
@@ -1700,9 +1700,9 @@
       "public_phone": "403-938-2847",
       "club_website": "https://okotokscurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/okotoks-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:23.014448+00:00",
-      "source_sha256": "780fd7e28249d273a7426a6eb0634f65162ba94dfaf1f9eebd1f64687e29efb2",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2d190dcb01cf60be2a436db3.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:43.596918+00:00",
+      "source_sha256": "15bca0847eea67043a9ef66e110588ea911f54f954874d8ca8e98bba459b1cb6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2d190dcb01cf60be\\15bca0847eea67043a9ef66e110588ea911f54f954874d8ca8e98bba459b1cb6.html.gz"
     },
     {
       "name": "Olds Curling Club",
@@ -1716,9 +1716,9 @@
       "public_phone": "403-556-3235",
       "club_website": "http://oldscurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/olds-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:23.893059+00:00",
-      "source_sha256": "813ad3cbad92ead78071d8365327951a9013bfee473e75902d3e2b8d4897d211",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\e8da0a1baab531148d4e1422.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:46.442813+00:00",
+      "source_sha256": "97f722404b8998f593c4bc6f904e616b4298cf94befc5e5888a4ee2b031634f6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\e8da0a1baab53114\\97f722404b8998f593c4bc6f904e616b4298cf94befc5e5888a4ee2b031634f6.html.gz"
     },
     {
       "name": "Onoway curling Club",
@@ -1732,9 +1732,9 @@
       "public_phone": "780-967-5342",
       "club_website": "https://www.facebook.com/Onoway-Curling-Club-709187052485526/",
       "source_url": "https://curlingalberta.ca/clubs/onoway-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:24.762036+00:00",
-      "source_sha256": "2326637e63b54b571525debd27452c3bdf6bc5d44a6d2e25c3978d7dbc9f20fa",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c953decf48cf647f961fb39f.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:49.410116+00:00",
+      "source_sha256": "98f064887451a433a61c4953ad27cc0ad21df90ea8d89c5efa020e9e4f0e8dbf",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c953decf48cf647f\\98f064887451a433a61c4953ad27cc0ad21df90ea8d89c5efa020e9e4f0e8dbf.html.gz"
     },
     {
       "name": "Ottewell Curling Club",
@@ -1748,9 +1748,9 @@
       "public_phone": "780-469-8404",
       "club_website": "http://www.ottewellcurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/ottewell-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:25.650065+00:00",
-      "source_sha256": "a6ceb0396c8f82644ae29c3f444fb939b2ac560abf09478f69541ea4099bbae6",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\3339c7229c125378acfa4c99.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:50.292907+00:00",
+      "source_sha256": "2f8eeaa6b8939262b71d98bb43ab6b6b470c6b21cdd60968a1c4e79675de2905",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\3339c7229c125378\\2f8eeaa6b8939262b71d98bb43ab6b6b470c6b21cdd60968a1c4e79675de2905.html.gz"
     },
     {
       "name": "Oyen Curling Club",
@@ -1764,9 +1764,9 @@
       "public_phone": "403-664-3638",
       "club_website": "https://www.townofoyen.com/p/oyen-district-curling-club",
       "source_url": "https://curlingalberta.ca/clubs/oyen-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:26.500919+00:00",
-      "source_sha256": "1999d9010b2c138da84747511f12735daa16174f072d557984a7cdfba3ea2ab1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\9a95db134059358e4cae1c3c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:52.471292+00:00",
+      "source_sha256": "652ec84848714ccb10dbf36698863ac6f51ea22c5f3b04a927b5ea2a36b34c85",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\9a95db134059358e\\652ec84848714ccb10dbf36698863ac6f51ea22c5f3b04a927b5ea2a36b34c85.html.gz"
     },
     {
       "name": "Peace River Curling Club",
@@ -1780,9 +1780,9 @@
       "public_phone": "780-624-2861",
       "club_website": "http://prcc.squarespace.com/",
       "source_url": "https://curlingalberta.ca/clubs/peace-river-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:27.371576+00:00",
-      "source_sha256": "7f4e48d92a4966b2a6d1c55fb5961523a22ddfe1e590a2eafbd6a32e879b380a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\997cdc8de580bfe05c181eff.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:54.549219+00:00",
+      "source_sha256": "2e78b98933d71de888ab90e2950acf1a0103c41b80c39fe21d735816002eb875",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\997cdc8de580bfe0\\2e78b98933d71de888ab90e2950acf1a0103c41b80c39fe21d735816002eb875.html.gz"
     },
     {
       "name": "Picture Butte Curling Club",
@@ -1796,9 +1796,9 @@
       "public_phone": "403-732-4255",
       "club_website": "https://www.picturebutte.ca/residents/recreational/arena",
       "source_url": "https://curlingalberta.ca/clubs/picture-butte-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:28.222125+00:00",
-      "source_sha256": "26f605ffbcdee77fb8fd0189ccb445f4817badb1e93b1e7f7991c1639821356c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2a0f88401f8d9ff5c3189477.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:56.517616+00:00",
+      "source_sha256": "b0acf48bb42e2bb3545a37b4e8936c5cf224705cf6c4370393150f84c6c924eb",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2a0f88401f8d9ff5\\b0acf48bb42e2bb3545a37b4e8936c5cf224705cf6c4370393150f84c6c924eb.html.gz"
     },
     {
       "name": "Pidherney Curling Centre- Red Deer",
@@ -1812,9 +1812,9 @@
       "public_phone": "403-346-3777",
       "club_website": "https://www.reddeercurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/red-deer-curling-centre/",
-      "source_retrieved_at": "2026-09-26T11:40:29.129135+00:00",
-      "source_sha256": "45b9421c4fea78d37b320808a6e9a083eaa31c2475b5d59ac5d0d26fd98334f3",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2c561edbeb03cca4636282b9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:57.210972+00:00",
+      "source_sha256": "9c706b917da92b9ccbb4848fd474155376fc66be77de1531c1b99999356b7492",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2c561edbeb03cca4\\9c706b917da92b9ccbb4848fd474155376fc66be77de1531c1b99999356b7492.html.gz"
     },
     {
       "name": "Pincher Creek Curling Club",
@@ -1828,9 +1828,9 @@
       "public_phone": "403-627-4141",
       "club_website": "https://www.pinchercreekcurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/pincher-creek-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:29.987478+00:00",
-      "source_sha256": "f46596144cd68b79ef35fdd2c33dd2cdc646ed2348d4f64a1447df59963e1a7a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b6f4b1a0d87957dd356a470d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:10:59.183782+00:00",
+      "source_sha256": "8b05123533469b3f47bfd1b7f981e34637e2668a1afa2349ae6a275945e353c0",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b6f4b1a0d87957dd\\8b05123533469b3f47bfd1b7f981e34637e2668a1afa2349ae6a275945e353c0.html.gz"
     },
     {
       "name": "Plamondon Curling Club",
@@ -1844,9 +1844,9 @@
       "public_phone": "780-798-3334",
       "club_website": "https://www.facebook.com/PlamondonCurling/",
       "source_url": "https://curlingalberta.ca/clubs/plamondon-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:30.862791+00:00",
-      "source_sha256": "1f966cf82ed64b7d8b207393ac993438f673db040ddb11265b41d4984f7a01c1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\27f998e81b3a1bc3c0760366.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:01.228964+00:00",
+      "source_sha256": "1c43039ed4d6b7a1946ef64092b26e08561493950187427b1b58420cb3fed232",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\27f998e81b3a1bc3\\1c43039ed4d6b7a1946ef64092b26e08561493950187427b1b58420cb3fed232.html.gz"
     },
     {
       "name": "Ponoka Curling Club",
@@ -1860,9 +1860,9 @@
       "public_phone": "403-783-5717",
       "club_website": "https://ponokacurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/ponoka-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:31.727831+00:00",
-      "source_sha256": "6a61d91e28a74b2677c034d316e1bff58f1a77221c9025a5de67175edc5a12ff",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f882d0d0641ddd5094f6c337.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:03.280891+00:00",
+      "source_sha256": "fce532ecbca9a04da8a6ae382049b29b1b04e10cb2f848d1eb2f963e04ac3ad2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f882d0d0641ddd50\\fce532ecbca9a04da8a6ae382049b29b1b04e10cb2f848d1eb2f963e04ac3ad2.html.gz"
     },
     {
       "name": "Provost Curling Club",
@@ -1876,9 +1876,9 @@
       "public_phone": "780-753-6222",
       "club_website": "http://www.provostcurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/provost-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:32.590849+00:00",
-      "source_sha256": "15dec307306239cbbaa6ab8cd14c7ff92dd9941c9935e6c80461dcc493474a73",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\277b12e651eaf48a26a7dbc1.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:05.287286+00:00",
+      "source_sha256": "2287639d9e3c7a8cd18715425ae2cc1d45d92c21e684483176f8326dc19bda52",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\277b12e651eaf48a\\2287639d9e3c7a8cd18715425ae2cc1d45d92c21e684483176f8326dc19bda52.html.gz"
     },
     {
       "name": "Red Willow Curling Club",
@@ -1892,9 +1892,9 @@
       "public_phone": "780-524-3824",
       "club_website": "https://valleyview.ca/red-willow-curling-club/",
       "source_url": "https://curlingalberta.ca/clubs/red-willow-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:33.441147+00:00",
-      "source_sha256": "9aa5629b02f1c2110feadfa2ea317e19ced931e73134c4fbabc566eedcadf444",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\74f2466bff25556d5a0bf39d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:07.252872+00:00",
+      "source_sha256": "1b19e5ca1c8a55cd98d70f11f21ac36b5d02099446566ae49aa683ec01bf42f1",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\74f2466bff25556d\\1b19e5ca1c8a55cd98d70f11f21ac36b5d02099446566ae49aa683ec01bf42f1.html.gz"
     },
     {
       "name": "Redcliff Curling Club",
@@ -1908,9 +1908,9 @@
       "public_phone": "(403) 548-6422",
       "club_website": "https://www.facebook.com/redcliffcurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/redcliff-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:34.284516+00:00",
-      "source_sha256": "adf751a3b83dd3461c3e65c1703810eca01f8f26feda646ebea0101d9781fc1d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b8fdf4fc0145dc9a81a5f9e9.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:09.240474+00:00",
+      "source_sha256": "8f63dac1ce31106a85f3fb6b6653b22a7ed30da7b93f6ff0adb5437a1aa00a5c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b8fdf4fc0145dc9a\\8f63dac1ce31106a85f3fb6b6653b22a7ed30da7b93f6ff0adb5437a1aa00a5c.html.gz"
     },
     {
       "name": "Redwater Curling Club",
@@ -1924,9 +1924,9 @@
       "public_phone": "780-504-4725",
       "club_website": "https://www.facebook.com/RedwaterCurlingClub1/",
       "source_url": "https://curlingalberta.ca/clubs/redwater-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:35.138520+00:00",
-      "source_sha256": "1784697c3bfd6f48b3edfb725fa2b927c781c774c1eb1f8b171bd03632ce1f85",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\3300dcf0e43a18b9721a498a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:12.456807+00:00",
+      "source_sha256": "0b8dc359252636660685ebd33a4a105f818b6c7877dcd097050c624e1be3e6d3",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\3300dcf0e43a18b9\\0b8dc359252636660685ebd33a4a105f818b6c7877dcd097050c624e1be3e6d3.html.gz"
     },
     {
       "name": "Rimbey Curling Club",
@@ -1940,9 +1940,9 @@
       "public_phone": "403-843-2737",
       "club_website": "http://rimbeycurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/rimbey-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:35.994335+00:00",
-      "source_sha256": "ff6fd6d3ba7966a801ace98be1e26d8f054a9cca61c45f7e8f66e72e4b337356",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\0a2fd3b1ba7fc3e382a8028b.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:14.752105+00:00",
+      "source_sha256": "76dc2db93fa361cf47b66b4634964088ab9357c74a93ceb187ce7fe326cf7c91",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\0a2fd3b1ba7fc3e3\\76dc2db93fa361cf47b66b4634964088ab9357c74a93ceb187ce7fe326cf7c91.html.gz"
     },
     {
       "name": "Rocky Curling Club",
@@ -1956,9 +1956,9 @@
       "public_phone": "403-845-2397",
       "club_website": "https://rockycurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/rocky-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:36.931175+00:00",
-      "source_sha256": "291b0ee5eda68e8eecf34da45eb17300bc9540dd265f4c0af5a9379e7120c809",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\dafd63e361095b64c20e4def.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:16.849890+00:00",
+      "source_sha256": "615ef97923472baf45781333d5b33a0f0feaf5dbd8cada1c3765c74cd0764541",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\dafd63e361095b64\\615ef97923472baf45781333d5b33a0f0feaf5dbd8cada1c3765c74cd0764541.html.gz"
     },
     {
       "name": "Rockyford Curling Club",
@@ -1972,9 +1972,9 @@
       "public_phone": "403-533-3883",
       "club_website": "https://www.facebook.com/rockyfordcurling",
       "source_url": "https://curlingalberta.ca/clubs/rockyford-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:37.788996+00:00",
-      "source_sha256": "9b2917319b5c921123a7985fa82ff81092fd002a090ce6dd70046e706055ea9e",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\094d284e8358bf4f50c1b0b5.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:18.882382+00:00",
+      "source_sha256": "2128441f8ed642c91b8992d0441785332e486167104d91c594c8ba46ddee8a3b",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\094d284e8358bf4f\\2128441f8ed642c91b8992d0441785332e486167104d91c594c8ba46ddee8a3b.html.gz"
     },
     {
       "name": "Rose City Curling Club",
@@ -1988,9 +1988,9 @@
       "public_phone": "780-672-4152",
       "club_website": "http://camrosecurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/rose-city-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:38.666487+00:00",
-      "source_sha256": "9e0dd0ed6b933a985774d5b1f671cba951695bedee002d68d38c11e7fab7f6c9",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\3182aebfbd32dca4ff8822dd.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:21.179977+00:00",
+      "source_sha256": "7b1fd36f5eac9bfc7fb2523b37812a88d9b792f3b69fcf7cdfa91b9f37d0b1eb",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\3182aebfbd32dca4\\7b1fd36f5eac9bfc7fb2523b37812a88d9b792f3b69fcf7cdfa91b9f37d0b1eb.html.gz"
     },
     {
       "name": "Rumsey & Dist. Ag Society",
@@ -2004,9 +2004,9 @@
       "public_phone": "403-368-3777",
       "club_website": "https://www.albertaagsocieties.ca/agsocieties/rumsey/rumsey-district-ag-society/",
       "source_url": "https://curlingalberta.ca/clubs/rumsey-dist-ag-society/",
-      "source_retrieved_at": "2026-09-26T11:40:39.525293+00:00",
-      "source_sha256": "9d2149a8e8120185385b96b8c0204b095ab1d53789046256437b66c1844614e7",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ffe4b002b844d37ba0b8ee22.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:23.420789+00:00",
+      "source_sha256": "f6f0e432b96e1fe2b6b319f72d0d62636e816faa443c88012c419b2bfd5efd80",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ffe4b002b844d37b\\f6f0e432b96e1fe2b6b319f72d0d62636e816faa443c88012c419b2bfd5efd80.html.gz"
     },
     {
       "name": "Saville Community Sports",
@@ -2020,9 +2020,9 @@
       "public_phone": "780-492-5519",
       "club_website": "https://www.ualberta.ca/saville-community-sports-centre/index.html",
       "source_url": "https://curlingalberta.ca/clubs/saville-community-sports/",
-      "source_retrieved_at": "2026-09-26T11:40:40.397106+00:00",
-      "source_sha256": "03a32c1a9040caa9c3c09582eec44dac268d4a2cdc7a76c30e28849abd215e9e",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7afc805973250b85a52475cc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:25.743297+00:00",
+      "source_sha256": "05b858ad372433dfdc053f4fe18d3afdea12f1fec57f2580ba06c6282b8ad0fc",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7afc805973250b85\\05b858ad372433dfdc053f4fe18d3afdea12f1fec57f2580ba06c6282b8ad0fc.html.gz"
     },
     {
       "name": "Sedgewick Curling Club",
@@ -2036,9 +2036,9 @@
       "public_phone": "780-384-3004",
       "club_website": "https://sedgewick.ca/services/recreation-and-culture/clubs-and-organizations/",
       "source_url": "https://curlingalberta.ca/clubs/sedgewick-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:41.287993+00:00",
-      "source_sha256": "e0704b9c31f475c3f28fe6d7024261ba3f2e702c293f00faa6dec32075abcc50",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c14ea4b258c754ec15f34521.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:27.904033+00:00",
+      "source_sha256": "9a03fe62f1a7c0293d24e8a88c162702dd3e5f9ae4f8b54c08791d0b323295dc",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c14ea4b258c754ec\\9a03fe62f1a7c0293d24e8a88c162702dd3e5f9ae4f8b54c08791d0b323295dc.html.gz"
     },
     {
       "name": "Sexsmith Curling Club",
@@ -2052,9 +2052,9 @@
       "public_phone": "780-568-3633",
       "club_website": "https://sexsmithcurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/sexsmith-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:42.167042+00:00",
-      "source_sha256": "7853dc294297cb3b073b4f0b5862b429a7ab7e799186daded529c5f2fc9ff0ab",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\86109c201b716af311560605.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:30.074077+00:00",
+      "source_sha256": "fc0443612a18048ce15fe7f2155befaceb5d0ada124426a863199b85d5ced0c1",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\86109c201b716af3\\fc0443612a18048ce15fe7f2155befaceb5d0ada124426a863199b85d5ced0c1.html.gz"
     },
     {
       "name": "Shamrock Curling Club",
@@ -2068,9 +2068,9 @@
       "public_phone": "780-466-5789",
       "club_website": "https://www.shamrockcurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/shamrock-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:43.000266+00:00",
-      "source_sha256": "e5438ae8ba9fe72eb2033fed095046d03077f8b9011c0dd25d53936c3661a0ec",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\cb3be7d82dd3d2ef3f26bd0b.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:32.167266+00:00",
+      "source_sha256": "dd398e28f8c12c5654a0c57c2751d8a90278ea8d60d8f7dddd87845d31412642",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\cb3be7d82dd3d2ef\\dd398e28f8c12c5654a0c57c2751d8a90278ea8d60d8f7dddd87845d31412642.html.gz"
     },
     {
       "name": "Sherwood Park Curling Club",
@@ -2084,9 +2084,9 @@
       "public_phone": "780-467-9412",
       "club_website": "https://sherwoodparkcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/sherwood-park-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:43.856109+00:00",
-      "source_sha256": "5dca835315f8669b66cb542682eb619d0dd558aca311ebc3ad9affdf0ae2eb01",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\5d74eb9580125ae6e3c2978a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:34.514680+00:00",
+      "source_sha256": "93c2d82f09d797e1e34bbe36129ac19c36a8fb5692a34139c33add4ce0e73569",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\5d74eb9580125ae6\\93c2d82f09d797e1e34bbe36129ac19c36a8fb5692a34139c33add4ce0e73569.html.gz"
     },
     {
       "name": "Slave Lake Curling Club",
@@ -2100,9 +2100,9 @@
       "public_phone": "780-849-4641",
       "club_website": "http://www.curlslavelake.ca/",
       "source_url": "https://curlingalberta.ca/clubs/slave-lake-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:44.704979+00:00",
-      "source_sha256": "3fb325873fbd6b97ac1d32da984e0afaabba9387579ba7c0dbf7bc3f14aa705f",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\74110860eb96da3180e3cdfb.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:36.925673+00:00",
+      "source_sha256": "78e7f74bbbb02d7abed89b46857f09c7bc65f1e1302b137e8ab8dbe33df94faa",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\74110860eb96da31\\78e7f74bbbb02d7abed89b46857f09c7bc65f1e1302b137e8ab8dbe33df94faa.html.gz"
     },
     {
       "name": "Smoky Lake Curling Club",
@@ -2116,9 +2116,9 @@
       "public_phone": "780-656-3850",
       "club_website": "https://www.smokylake.ca/smoky-lake-curling-club/",
       "source_url": "https://curlingalberta.ca/clubs/smoky-lake-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:45.551988+00:00",
-      "source_sha256": "b841a952875d6b7e7738e0964012e3cb37f87559f2d5a337ad005eb8a6aa82d6",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\9f58ef6011f3584dcf36ce47.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:39.087019+00:00",
+      "source_sha256": "b5f739bb6c18f11b4285b1400f4aec0440aea6806cce95c55cc8eb3fc9f2e82a",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\9f58ef6011f3584d\\b5f739bb6c18f11b4285b1400f4aec0440aea6806cce95c55cc8eb3fc9f2e82a.html.gz"
     },
     {
       "name": "Spirit River Curling Club",
@@ -2132,9 +2132,9 @@
       "public_phone": "780-864-2264",
       "club_website": "https://www.facebook.com/spiritrivercurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/spirit-river-curlin-club/",
-      "source_retrieved_at": "2026-09-26T11:40:45.859382+00:00",
-      "source_sha256": "fd2e012da60d8204fa6026795e66e1ff8f3855633443796f0cd031284fa98fc3",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\94dcd36de4560c8a1a556c28.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:41.193838+00:00",
+      "source_sha256": "2b42183954cb41e8e6546fe8b37f069ca4bf15c76094da035e4461f2f87087a2",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\94dcd36de4560c8a\\2b42183954cb41e8e6546fe8b37f069ca4bf15c76094da035e4461f2f87087a2.html.gz"
     },
     {
       "name": "Springbank Curling Club",
@@ -2148,9 +2148,9 @@
       "public_phone": "403-242-2223",
       "club_website": "https://springbankcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/springbank-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:46.770141+00:00",
-      "source_sha256": "6418930f42ff16cda62b86a78950139be59c1f9f1920e0efca5c85491df09345",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\496171df878be7943888a1af.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:42.007607+00:00",
+      "source_sha256": "e01f1a936dc08e51bcdc4c0c3cfb044a6a3b05127b950ab66d7c317e40947491",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\496171df878be794\\e01f1a936dc08e51bcdc4c0c3cfb044a6a3b05127b950ab66d7c317e40947491.html.gz"
     },
     {
       "name": "Spruce Grove Curling Club",
@@ -2164,9 +2164,9 @@
       "public_phone": "780-962-3222",
       "club_website": "http://www.sprucegrovecurlingcentre.ca/",
       "source_url": "https://curlingalberta.ca/clubs/spruce-grove-curling-centre/",
-      "source_retrieved_at": "2026-09-26T11:40:47.631956+00:00",
-      "source_sha256": "1d236601b84529a471f2db4ba31f4c3d776ddc57c2e0891e0d8d0fdda99b636c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\1565d50687e3793b68f0ebd0.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:44.317728+00:00",
+      "source_sha256": "fac1ef75b22aa7b958d545dde701c40ea10e3b925c9d308b537de9ccfd2ecc05",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\1565d50687e3793b\\fac1ef75b22aa7b958d545dde701c40ea10e3b925c9d308b537de9ccfd2ecc05.html.gz"
     },
     {
       "name": "St. Albert Curling Club",
@@ -2180,9 +2180,9 @@
       "public_phone": "780-459-7007",
       "club_website": "https://stalbertcurling.com/",
       "source_url": "https://curlingalberta.ca/clubs/st-albert-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:48.491279+00:00",
-      "source_sha256": "509c9d307da8455dc09dbce3c04c40d4aea0365223c49a98d884cb674c80376b",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\be06c756ea0054b4425f1dbc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:46.471392+00:00",
+      "source_sha256": "34bf5e67de33b726b428222fcdd17559a0ee66a3761d9d48b4bd6d3daa01b2ed",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\be06c756ea0054b4\\34bf5e67de33b726b428222fcdd17559a0ee66a3761d9d48b4bd6d3daa01b2ed.html.gz"
     },
     {
       "name": "St. Paul Curling Club",
@@ -2196,9 +2196,9 @@
       "public_phone": "780-210-1387",
       "club_website": "https://www.stpaulcurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/st-paul-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:49.358294+00:00",
-      "source_sha256": "0a8550fc826fb6a4573f6702f641fd5d1e4b925633425545b05211c12df1f100",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c7329961e7659d68928fd69a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:48.656549+00:00",
+      "source_sha256": "eb1eb04fd83685d985c68d7c8b74fbf0bca774365200972715bf7b1169a8f4e6",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c7329961e7659d68\\eb1eb04fd83685d985c68d7c8b74fbf0bca774365200972715bf7b1169a8f4e6.html.gz"
     },
     {
       "name": "Standard Curling Club",
@@ -2212,9 +2212,9 @@
       "public_phone": "403-644-3794",
       "club_website": "https://www.facebook.com/profile.php?id=100086919974203",
       "source_url": "https://curlingalberta.ca/clubs/standard-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:50.236264+00:00",
-      "source_sha256": "6d40f3a9fa0ec5302d10d43275255012aa6999f6530411e4f87ff2f8db079c7d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\262829cb0f54b51b2caf2e26.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:51.281846+00:00",
+      "source_sha256": "ba71eb18905a4ebdb1d6cbbabb75435df30e87f1e25eee17a7c7fa9807c55dbe",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\262829cb0f54b51b\\ba71eb18905a4ebdb1d6cbbabb75435df30e87f1e25eee17a7c7fa9807c55dbe.html.gz"
     },
     {
       "name": "Stettler Curling Club",
@@ -2228,9 +2228,9 @@
       "public_phone": "403-742-3111",
       "club_website": "https://stettlercurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/stettler-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:51.121341+00:00",
-      "source_sha256": "0d40d8f15b3032c7c73683829deeb2e0d673f0494bf7bc3f08175a890f178efd",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c3e1ffe7b3a0ebbe9ef4e60a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:53.857970+00:00",
+      "source_sha256": "f4a599f8018f37aa86fd6fa8d919d072115f7c23e108950a1cba6e19feb40bd5",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c3e1ffe7b3a0ebbe\\f4a599f8018f37aa86fd6fa8d919d072115f7c23e108950a1cba6e19feb40bd5.html.gz"
     },
     {
       "name": "Stony Plain Curling (Westridge)",
@@ -2244,9 +2244,9 @@
       "public_phone": "780-963-3109",
       "club_website": "https://stonyplaincurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/westridge-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:52.031012+00:00",
-      "source_sha256": "2875890ed1097a7d8385b366d217008b1c89f26b422454c4835bd6de54db0678",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\2ff396032d6591c7cf7f03c0.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:55.799755+00:00",
+      "source_sha256": "88db6340d1f17e66e2221aff0b23321e26505092576ae9b833447ac85dbff66f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\2ff396032d6591c7\\88db6340d1f17e66e2221aff0b23321e26505092576ae9b833447ac85dbff66f.html.gz"
     },
     {
       "name": "Strathcona Curling Club",
@@ -2260,9 +2260,9 @@
       "public_phone": "780-922-7181",
       "club_website": "https://strathcona.curling.io",
       "source_url": "https://curlingalberta.ca/clubs/strathcona-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:52.925225+00:00",
-      "source_sha256": "87b7d0d5b75ed833ee8be42ce7c43fa9fea8a355e7b7b4ae77e0253ba02b2056",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7af819af708f2acc1a7054fe.html.gz"
+      "source_retrieved_at": "2026-10-12T02:11:58.083683+00:00",
+      "source_sha256": "d288fe9c4d01a30b7480d7319aa5f3eafb6bba8c97ce363606fd521c73e05e9e",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7af819af708f2acc\\d288fe9c4d01a30b7480d7319aa5f3eafb6bba8c97ce363606fd521c73e05e9e.html.gz"
     },
     {
       "name": "Strathmore & Dist. Curling Club",
@@ -2276,9 +2276,9 @@
       "public_phone": "403-934-2996",
       "club_website": "https://strathmorecurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/strathmore-dist-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:53.855913+00:00",
-      "source_sha256": "17610d81b9bb150f68da9877e683e26484dd94f312ea05d276b69086c4c4815d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\a580893525eabb171f463b3d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:00.496430+00:00",
+      "source_sha256": "a396dfaa530fa185e42e2b664f1635b242058754563cf01090934e553f2e4902",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\a580893525eabb17\\a396dfaa530fa185e42e2b664f1635b242058754563cf01090934e553f2e4902.html.gz"
     },
     {
       "name": "Strome Curling Club",
@@ -2292,9 +2292,9 @@
       "public_phone": "780-376-3785",
       "club_website": "https://www.facebook.com/strome.curlingclub",
       "source_url": "https://curlingalberta.ca/clubs/strome-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:54.764512+00:00",
-      "source_sha256": "b1ec4e881f54b74d3bf31db08849aba4c30f656651f369b0ec13293d2c2e75c1",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\51d3b69c510baf38c59b1ff6.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:02.842983+00:00",
+      "source_sha256": "f5cb919d758a085727bd485b1fd1741aadd3ae2499bf6d617ec7848f3db2c21d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\51d3b69c510baf38\\f5cb919d758a085727bd485b1fd1741aadd3ae2499bf6d617ec7848f3db2c21d.html.gz"
     },
     {
       "name": "Sundre & District Curling Club",
@@ -2308,9 +2308,9 @@
       "public_phone": "4035565066",
       "club_website": "https://www.sundrecurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/sundre-district-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:55.684559+00:00",
-      "source_sha256": "51f3d01735319723ce17c718a2570bd5d5bede1df2701af1019baaa7db6fd141",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\520a913869c23f5cf50f491a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:04.876566+00:00",
+      "source_sha256": "8eba7fff7790f7c1c9c7a993d62c72b35c0c7c2141386b13cb57d1f0dfb05909",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\520a913869c23f5c\\8eba7fff7790f7c1c9c7a993d62c72b35c0c7c2141386b13cb57d1f0dfb05909.html.gz"
     },
     {
       "name": "Swan Hills Curling Club",
@@ -2324,9 +2324,9 @@
       "public_phone": "780-333-3020",
       "club_website": "https://www.townofswanhills.com/lifestyle/facilities/curling-arena",
       "source_url": "https://curlingalberta.ca/clubs/swan-hills-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:56.616936+00:00",
-      "source_sha256": "d6a31e7a391bf59e2fb29a3b9ca6ca2dbedc5baac9e4c550cfaf0214fdf8edc7",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\c9c93e803c092927d368017f.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:06.846099+00:00",
+      "source_sha256": "4e0f46f8f8e83b481c7b705febb17d2017b55e923696766a26143564aae7aaf4",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\c9c93e803c092927\\4e0f46f8f8e83b481c7b705febb17d2017b55e923696766a26143564aae7aaf4.html.gz"
     },
     {
       "name": "Sylvan Lake Curling Club",
@@ -2340,9 +2340,9 @@
       "public_phone": "403-887-7760",
       "club_website": "http://www.sylvanlakecurling.ca/",
       "source_url": "https://curlingalberta.ca/clubs/sylvan-lake-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:57.627369+00:00",
-      "source_sha256": "01772d2595ddeca8eaab83b1a2d2524cbab880f75fb67a86e3e757340cf38ec5",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\4c3155fea301c440c1402163.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:08.979821+00:00",
+      "source_sha256": "fb11cb9a538194f10d73ba2a1e12378b590ed20f7801c17544a540f32cf68eeb",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\4c3155fea301c440\\fb11cb9a538194f10d73ba2a1e12378b590ed20f7801c17544a540f32cf68eeb.html.gz"
     },
     {
       "name": "Taber Curling Club",
@@ -2356,9 +2356,9 @@
       "public_phone": "403-223-2959",
       "club_website": "https://www.facebook.com/tabercurl/",
       "source_url": "https://curlingalberta.ca/clubs/tabercurling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:58.494240+00:00",
-      "source_sha256": "4a752d62cddf6631f5388d514bc34577fb9e97291056896cbd543986b9094e89",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\5f7f6d7c5fe5dfbd4d77aea5.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:12.468950+00:00",
+      "source_sha256": "ef4836f5bc84bb2b5795d0cdedf5f9abda7a4d0cbe21ffea0dd791e18673514a",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\5f7f6d7c5fe5dfbd\\ef4836f5bc84bb2b5795d0cdedf5f9abda7a4d0cbe21ffea0dd791e18673514a.html.gz"
     },
     {
       "name": "Taylor Curling Club",
@@ -2372,9 +2372,9 @@
       "public_phone": "250-789-3734",
       "club_website": "https://www.facebook.com/taylorcurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/taylor-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:40:59.352890+00:00",
-      "source_sha256": "50497f8486d5eda57bbd237177a07d3ab7148635e538ae71ed9346a1f7c96a71",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\681635854e1dadc36c72d192.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:14.780566+00:00",
+      "source_sha256": "5af105c3fbfda6f1d48bd98537aa7d5d7e56c0e2e2a47a773b4e374c7b9926b4",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\681635854e1dadc3\\5af105c3fbfda6f1d48bd98537aa7d5d7e56c0e2e2a47a773b4e374c7b9926b4.html.gz"
     },
     {
       "name": "Thistle Curling Club",
@@ -2388,9 +2388,9 @@
       "public_phone": "780-477-8142",
       "club_website": "https://www.thistlecurling.ab.ca/",
       "source_url": "https://curlingalberta.ca/clubs/thistle-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:00.227491+00:00",
-      "source_sha256": "98640d92deb6333ec662ab508377b2322472286e7656e87504be3e9b365c76bd",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\5f74c1786cf3dc32de9c8d6c.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:16.930539+00:00",
+      "source_sha256": "19b52e0c8d4d4121207a025f39274fdc95f3eefc4b556be28d04ac3913155e6f",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\5f74c1786cf3dc32\\19b52e0c8d4d4121207a025f39274fdc95f3eefc4b556be28d04ac3913155e6f.html.gz"
     },
     {
       "name": "Three Hills Curling Club",
@@ -2404,9 +2404,9 @@
       "public_phone": "403-443-5252",
       "club_website": "https://www.facebook.com/pg/Three-Hills-Curling-Club-727742650678252/posts/?ref=page_internal",
       "source_url": "https://curlingalberta.ca/clubs/three-hills-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:01.236913+00:00",
-      "source_sha256": "f9ef2e0d8c59dc7043eeaf9a528ff3fd2a2c5f2a9ccf761caceb7eefb14744ee",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\d94806aca8092b044bc2eac4.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:18.951420+00:00",
+      "source_sha256": "05ff815e7c6aa472d827e6a9a25c794206a21b908adf3b27a3f49d1e597f6ebd",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\d94806aca8092b04\\05ff815e7c6aa472d827e6a9a25c794206a21b908adf3b27a3f49d1e597f6ebd.html.gz"
     },
     {
       "name": "Tofield Curling Club",
@@ -2420,9 +2420,9 @@
       "public_phone": "780-662-4011",
       "club_website": "https://tofieldcurlingclub.ca/",
       "source_url": "https://curlingalberta.ca/clubs/tofield-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:02.134885+00:00",
-      "source_sha256": "3c2b274232efe1da4b802e1b681a5b9e8f206d23563d7657dff9ade02dd46f33",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ecb8b9684c5b750756ff5abd.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:21.416467+00:00",
+      "source_sha256": "fa0c7c16ecb2fe8d332f581ca379d6c9c4bf50ccbffb47e54f6e55a9529f44d7",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ecb8b9684c5b7507\\fa0c7c16ecb2fe8d332f581ca379d6c9c4bf50ccbffb47e54f6e55a9529f44d7.html.gz"
     },
     {
       "name": "Torrington Curling Club",
@@ -2436,9 +2436,9 @@
       "public_phone": "403-631-2163",
       "club_website": "https://www.torringtonarena.com/",
       "source_url": "https://curlingalberta.ca/clubs/torrington-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:03.296221+00:00",
-      "source_sha256": "03dc818ea2b6cb5617610b006c077cc87901cb13aae4d532f3b935eb06e22386",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b513ffbbf6de547fed7b0eca.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:23.425805+00:00",
+      "source_sha256": "be2ef1036b87506008a2e93f6b01695462ed43b96652e248820d360656b255fd",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b513ffbbf6de547f\\be2ef1036b87506008a2e93f6b01695462ed43b96652e248820d360656b255fd.html.gz"
     },
     {
       "name": "Tumbler Ridge Curling Club",
@@ -2452,9 +2452,9 @@
       "public_phone": "250-242-4242",
       "club_website": "https://www.districtoftumblerridge.ca/p/curling-rink",
       "source_url": "https://curlingalberta.ca/clubs/tumbler-ridge-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:03.616048+00:00",
-      "source_sha256": "7c8a077a55df72026df3e62ab6cd32a5897f280aebf7197109fec6fb591a8c11",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\984487f8a3a37a7e1873ac10.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:25.641089+00:00",
+      "source_sha256": "986a55784541ebf754bdf6e93f6c3885e2f3d08abf86b97bdcc4be362d679d74",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\984487f8a3a37a7e\\986a55784541ebf754bdf6e93f6c3885e2f3d08abf86b97bdcc4be362d679d74.html.gz"
     },
     {
       "name": "Vauxhall & Dist Curling Assn",
@@ -2468,9 +2468,9 @@
       "public_phone": "403-654-5263",
       "club_website": "https://www.facebook.com/vauxhallcurlingclub1/",
       "source_url": "https://curlingalberta.ca/clubs/vauxhall-dist-curling-assn/",
-      "source_retrieved_at": "2026-09-26T11:41:04.513927+00:00",
-      "source_sha256": "cfe8054ba3f0016fb79b00db2a768933f86204e6aada5a4b5e6532c42a55f13a",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\56225c818361a80b5362522d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:27.784240+00:00",
+      "source_sha256": "fa2a7d62d941189494d9eba7f29ef596d17d54a9e3b899836f105a80fdd00d16",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\56225c818361a80b\\fa2a7d62d941189494d9eba7f29ef596d17d54a9e3b899836f105a80fdd00d16.html.gz"
     },
     {
       "name": "Vermilion Curling Club",
@@ -2484,9 +2484,9 @@
       "public_phone": "780-853-5638",
       "club_website": "https://www.facebook.com/vermilioncurlingclub/",
       "source_url": "https://curlingalberta.ca/clubs/vermilion-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:04.829240+00:00",
-      "source_sha256": "3e50343dc44eaebdef58c386fcd19f0b757b35f950c2ba61d652a898a025dbea",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\b77323f508081e3ebfde8826.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:30.213789+00:00",
+      "source_sha256": "c64ec6770ab4afac61f1df53e4c864802f0c220abe6131f2bb73d9cf1a1c3898",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\b77323f508081e3e\\c64ec6770ab4afac61f1df53e4c864802f0c220abe6131f2bb73d9cf1a1c3898.html.gz"
     },
     {
       "name": "Viking Curling Club",
@@ -2500,9 +2500,9 @@
       "public_phone": "780-336-3424",
       "club_website": "http://viking.ca/p/viking-curling-club",
       "source_url": "https://curlingalberta.ca/clubs/viking-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:05.698232+00:00",
-      "source_sha256": "3515fecb799f7b00cc2fbb834d6924c2a74969fadd7ddd17c222debe93a88f08",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\aeeadd2ea5cb9c53976b5346.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:30.883599+00:00",
+      "source_sha256": "2eb14132651ab1694e31e5b7840436f9395c2e3e9063703353f3258435e2410c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\aeeadd2ea5cb9c53\\2eb14132651ab1694e31e5b7840436f9395c2e3e9063703353f3258435e2410c.html.gz"
     },
     {
       "name": "Vilna Curling Club",
@@ -2516,9 +2516,9 @@
       "public_phone": "780-649-0986",
       "club_website": "https://www.facebook.com/VilnaCurling/",
       "source_url": "https://curlingalberta.ca/clubs/vilna-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:06.559321+00:00",
-      "source_sha256": "220ba4fd9fc4b8ca292985918cf99a4dc7af515b907c69ac224bc4311e681287",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\25aeb0f83f76e87d42eeb6c2.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:33.712022+00:00",
+      "source_sha256": "3338f91e8a0badbc5743bd8946642f8d68c562cd8ad51e2e7b3684df41f5cd78",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\25aeb0f83f76e87d\\3338f91e8a0badbc5743bd8946642f8d68c562cd8ad51e2e7b3684df41f5cd78.html.gz"
     },
     {
       "name": "Vulcan Curling Club",
@@ -2532,9 +2532,9 @@
       "public_phone": "403-485-2566",
       "club_website": "https://www.facebook.com/VulcanCurlingClub",
       "source_url": "https://curlingalberta.ca/clubs/vulcan-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:06.858682+00:00",
-      "source_sha256": "d4eb71c5b0f6dceac974b7d8e6276f9063467a25e2cc874d2362991721ae9be8",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\08a58985033e9069d42a847a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:35.726536+00:00",
+      "source_sha256": "23c70adfff1c0c93672f951534368002ea0c1028c960ce1779b6a668760efbc0",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\08a58985033e9069\\23c70adfff1c0c93672f951534368002ea0c1028c960ce1779b6a668760efbc0.html.gz"
     },
     {
       "name": "Wainwright Curling Club",
@@ -2548,9 +2548,9 @@
       "public_phone": "780-842-3220",
       "club_website": "http://www.wainwrightcurlingclub1979.com/",
       "source_url": "https://curlingalberta.ca/clubs/wainwright-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:07.766867+00:00",
-      "source_sha256": "8deeb6009daa999452eb704ec9d8eee0016dc037230536e5e84aee4b108d4816",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\bd05db4da1fc1d5e8ca86937.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:38.023577+00:00",
+      "source_sha256": "2c655a2d7040ae011a5e6e42bc9724d729addf35307ac6e46ddfa3224cbddfc0",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\bd05db4da1fc1d5e\\2c655a2d7040ae011a5e6e42bc9724d729addf35307ac6e46ddfa3224cbddfc0.html.gz"
     },
     {
       "name": "Warburg Curling Club",
@@ -2564,9 +2564,9 @@
       "public_phone": "780-789-3723.",
       "club_website": "",
       "source_url": "https://curlingalberta.ca/clubs/warburg-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:09.001050+00:00",
-      "source_sha256": "2debdbdbf0528837f52ec9881aa4460b05b03b590931f725474d4e9abe974562",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\cdd3c6997c3c9e13502cc4dc.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:40.401934+00:00",
+      "source_sha256": "fc285347e76c4e97d2806eb63323ed8d90bf22da32e1314643eff689546b4c4c",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\cdd3c6997c3c9e13\\fc285347e76c4e97d2806eb63323ed8d90bf22da32e1314643eff689546b4c4c.html.gz"
     },
     {
       "name": "Waskatenau Curling Club",
@@ -2580,9 +2580,9 @@
       "public_phone": "780-358-2363",
       "club_website": "https://www.facebook.com/profile.php?id=61582985276704",
       "source_url": "https://curlingalberta.ca/clubs/waskatenau-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:09.850626+00:00",
-      "source_sha256": "c27ed7a82902742e48e2834da7c0d896548338b81e026a0b3f07a4f284af731c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ee687afc13bea3ff795ba17d.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:42.580487+00:00",
+      "source_sha256": "679ffc546681c1e6465bda8f5138dbf2afa90027e935e8648a05f4085e0b5219",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ee687afc13bea3ff\\679ffc546681c1e6465bda8f5138dbf2afa90027e935e8648a05f4085e0b5219.html.gz"
     },
     {
       "name": "Westlock Curling Club",
@@ -2596,9 +2596,9 @@
       "public_phone": "780-349-3566",
       "club_website": "http://www.curlwestlock.ca/",
       "source_url": "https://curlingalberta.ca/clubs/westlock-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:10.750060+00:00",
-      "source_sha256": "3b9c5e3dac9fa9c276e5574d0741d17c6e6c6e85093f960e5ece84dcbf80055c",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\aef7188b8662b86b22a4d851.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:43.131092+00:00",
+      "source_sha256": "24012c16018d6a73a2351652963a84d3f1f7f729d6d3f4f051d9293d945b4590",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\aef7188b8662b86b\\24012c16018d6a73a2351652963a84d3f1f7f729d6d3f4f051d9293d945b4590.html.gz"
     },
     {
       "name": "Wetaskiwin Curling Club",
@@ -2612,9 +2612,9 @@
       "public_phone": "780-352-7088",
       "club_website": "http://www.wetaskiwincurlingclub.com/",
       "source_url": "https://curlingalberta.ca/clubs/wetaskiwin-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:11.759292+00:00",
-      "source_sha256": "2a74b1e21c48864399c606943f8ab388b3df58e2574d114088095bb4ffc6b4c9",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\fba9f67300710257cb097dda.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:45.356551+00:00",
+      "source_sha256": "54a6a18365eb3b7807389de7a12e0c78fa905f086d223c7d4d4746b103d426ad",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\fba9f67300710257\\54a6a18365eb3b7807389de7a12e0c78fa905f086d223c7d4d4746b103d426ad.html.gz"
     },
     {
       "name": "Whitecourt Curling Club",
@@ -2628,9 +2628,9 @@
       "public_phone": "780-706-1717",
       "club_website": "https://www.facebook.com/pages/category/Stadium--Arena---Sports-Venue/Whitecourt-Curling-Club-208130522886526/",
       "source_url": "https://curlingalberta.ca/clubs/whitecourt-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:12.652238+00:00",
-      "source_sha256": "4eaf500d8829dc4cf2b6340b38fc23c36cc91a1fd5ea251105c8d87399576506",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\7dc686c8f854deb7b5ed21ca.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:47.857223+00:00",
+      "source_sha256": "3a5d511f244adea689d0aa075be9b09eaa814c9180f5961432d9fe962cb76426",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\7dc686c8f854deb7\\3a5d511f244adea689d0aa075be9b09eaa814c9180f5961432d9fe962cb76426.html.gz"
     },
     {
       "name": "Wildwood Curling Club",
@@ -2644,9 +2644,9 @@
       "public_phone": "780-204-0876",
       "club_website": "https://www.facebook.com/pages/category/Sports-League/Wildwood-Curling-Club-1543155399254952/",
       "source_url": "https://curlingalberta.ca/clubs/wildwood-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:13.568949+00:00",
-      "source_sha256": "cc10d7f0475926576a0943db258f5c276314306ce3c64b98d16082131b8ba1d9",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\f881b061dfdbf4175c552a9a.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:50.314080+00:00",
+      "source_sha256": "3cbdf576a5ec25d51dacf278173d0f48999d5c4c594b9b4fa0a2cd997f2628f7",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\f881b061dfdbf417\\3cbdf576a5ec25d51dacf278173d0f48999d5c4c594b9b4fa0a2cd997f2628f7.html.gz"
     },
     {
       "name": "Youngstown Curling Club",
@@ -2660,9 +2660,9 @@
       "public_phone": "403-779-3828",
       "club_website": "https://www.facebook.com/youngstown.curling.club",
       "source_url": "https://curlingalberta.ca/clubs/youngstown-curling-club/",
-      "source_retrieved_at": "2026-09-26T11:41:14.502139+00:00",
-      "source_sha256": "fb8ed51835c1a1af062bb09035803b2082e5bf56c865376f914d43273760476d",
-      "raw_path": "data\\raw\\canada-clubs\\ab\\ec946842fa8ee636473ea41f.html.gz"
+      "source_retrieved_at": "2026-10-12T02:12:52.646096+00:00",
+      "source_sha256": "d33b08c0080085b009c8f32ee76070a45cb52518f4d36b480afa1615ef03610d",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-ab\\ec946842fa8ee636\\d33b08c0080085b009c8f32ee76070a45cb52518f4d36b480afa1615ef03610d.html.gz"
     }
   ],
   "errors": []

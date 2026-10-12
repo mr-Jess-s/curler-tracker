@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:55.155702+00:00",
+  "generated_at": "2026-10-12T02:18:01.775948+00:00",
   "country_code": "HUN",
   "country": "Hungary",
   "association": "Hungarian Curling Federation",
@@ -11,187 +11,178 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.curling.hu",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 82292,
-      "sha256": "06b7613724e8eeae56443cb1da93ffd869e35858bd5d7b435f9100f905b0317f",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség"
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2019/05/MCSZ_Elnökségi_JEGYZŐKÖNYV_2018.09.25.Jegyzőkönyv.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 48: ordinal not in range(128)"
     },
     {
-      "url": "http://www.curling.hu/curling/magyar-curling-szovetseg",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 63157,
-      "sha256": "1733f5324243075c449496bac7adc85b62aa920e3af6b2cbf87252a2f8456886",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Magyar Curling Szövetség"
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2018/09/MCSZ_Elnökségi_JEGYZŐKÖNYV_2018.06-végleges.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 48: ordinal not in range(128)"
     },
     {
-      "url": "https://www.curling.hu/curling-sporttorteneti-kiadvany",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67098,
-      "sha256": "535ff003a5bc60a300961160cc462db4cef4eeb3ed68382300623c7b35aab4f8",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Curling sporttörténeti kiadvány"
-    },
-    {
-      "url": "https://www.curling.hu/magyar-curling-szovetseg/szabalyzatok",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 64964,
-      "sha256": "6f685ab2a04f5d9951d56c38f8ef479b6e24eeb50210dad3f87331bf2f74adf4",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Szabályzatok"
-    },
-    {
-      "url": "https://www.curling.hu/magyar-curling-szovetseg/dokumentumok",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 122127,
-      "sha256": "2ae585a6abc0a12f140599e2e8ca9cd472e31386169bf00a03ebe5de6f1a3a5d",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Dokumentumok"
-    },
-    {
-      "url": "https://www.curling.hu/magyar-curling-szovetseg/dopping",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 57986,
-      "sha256": "52434cbb8aa7fb4bd287d34977517bc28b399d3e37c8c8e16045ad6a186dbd4b",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Dopping"
-    },
-    {
-      "url": "https://www.curling.hu/szezonertekelok",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 57107,
-      "sha256": "0c0918e8db3c2b162b18ace6f191c531072e4a483363e9797757b0cf32818170",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Szezonértékelők"
-    },
-    {
-      "url": "https://www.curling.hu/valogatottak",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 112089,
-      "sha256": "056b93b51c360a3e118c2bfa71caf0ec5367d75ced29d2ce7d79faff3a0bb785",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Válogatottak"
-    },
-    {
-      "url": "https://www.curling.hu/tagegyesuletek",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 56795,
-      "sha256": "555b430dd2c9a7f2ce4b689e9d35b41b0ca14fab4893c634454de9849e6fb9e1",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Tagegyesületek"
-    },
-    {
-      "url": "https://www.curling.hu/nyiltnap",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 63267,
-      "sha256": "ddd18830c2b52608b23a1b20ad00d7fae6f814d45e4021d197f33065c8b1de07",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » CURLING NYÍLT NAP"
-    },
-    {
-      "url": "https://www.curling.hu/curling-akademia",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 70468,
-      "sha256": "ba00cc9aad79a4d852fedcf57e92c2874e19b38c3f2b899a84891b2d856ec226",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség"
-    },
-    {
-      "url": "https://www.curling.hu/ceges-rendezvenyek",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 59470,
-      "sha256": "3a12137f8387c6a124471802c292f574a5aa424a346141bb76fbe186ffec766a",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » CURLING, MINT RENDEZVÉNY"
-    },
-    {
-      "url": "https://www.curling.hu/floor-curling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 71366,
-      "sha256": "847f132a0933c7e6db4b9eb42a040dd14c6025b6b317a76c482feefa6c54be85",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Floor Curling"
-    },
-    {
-      "url": "https://www.curling.hu/curling-oktatas/curling-suli",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 69370,
-      "sha256": "3e577e28a4e78854b5a4c73c0c83e76756a2675c30524285937b1d74f9cbb157",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Curling suli – ahol a jég a játszótér!"
-    },
-    {
-      "url": "https://www.curling.hu/curling-oktatas/a-curling-szabalyai",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 64954,
-      "sha256": "9f74be8dd91d8aa0576c784725202ee132ab68eb4584d1686446505402220e3a",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » A Curling szabályai"
-    },
-    {
-      "url": "https://www.curling.hu/keor-sportedzo-curling-kepzes",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 56542,
-      "sha256": "900bceefa899f4dadc032c597c1325a3c2738c1407c6bf1d5e4faffad71818b9",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » KEOR Sportedző – curling képzés"
-    },
-    {
-      "url": "https://www.curling.hu/mtse-bsc-kepzes",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 57015,
-      "sha256": "8460b13c3fdcb86a92c6ec07f3b9c2dfed24cd8acac18993a1b14e5a399aeef9",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » MTSE Bsc – képzés"
-    },
-    {
-      "url": "https://www.curling.hu/nevezes-az-mcsz-altal-szervezett-versenyekre-2026-2027",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 75558,
-      "sha256": "fefdce5f08e68d5360bc0ec6aae0cd42d679d28aea24b19df3d4386a5958c85c",
-      "source_families": [],
-      "title": "Magyar Curling Szövetség » Nevezés az MCSZ által szervezett versenyekre 2026-2027"
-    },
-    {
-      "url": "https://www.curling.hu/curling/wp-content/uploads/2026/08/Versenynaptar-2026-2027.pdf",
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/MCSZ-elnoksegi-jegyzokonyv-2018.05.08.pdf",
       "status": 200,
       "content_type": "application/pdf",
-      "bytes": 415682,
-      "sha256": "392067a8e0276efaf6aac125a16c7055fd2835046af58bf178886b0e173050bd",
-      "source_families": []
+      "bytes": 5532787,
+      "sha256": "c4761b3a1f699d342af9071b5a874c63bfa9c6d3e5f41d8e69300bf919d4bf9c",
+      "etag": "\"546c73-5f26997846823\"",
+      "last_modified": "Mon, 16 Jan 2023 23:03:31 GMT",
+      "retrieved_at": "2026-10-12T02:17:38.713578+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\40c474baafe91794\\c4761b3a1f699d342af9071b5a874c63bfa9c6d3e5f41d8e69300bf919d4bf9c.bin.gz"
     },
     {
-      "url": "https://www.curling.hu/elo-eredmenykovetes",
+      "url": "https://www.curling.hu/meghivo-a-mcsz-soron-kovetkezo-elnoksegi-ulesere-19",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 58944,
-      "sha256": "02e555904fad16f3014163ccccd54fe68a2e42882de928d61ab63c6d1ceb1f7f",
+      "bytes": 61071,
+      "sha256": "2e8b54eef5d282bdd9699a2caaf32523d09fadfbc49ae09d31b05b58541f00b7",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:40.493457+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Magyar Curling Szövetség » Élő eredménykövetés"
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\3c7f01682d5603f1\\2e8b54eef5d282bdd9699a2caaf32523d09fadfbc49ae09d31b05b58541f00b7.html.gz",
+      "title": "Magyar Curling Szövetség » Meghívó a MCSZ soron következő elnökségi ülésére"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/MCSZ-Elnökségi-ülés-jegyzőkönyv-2018.02.27.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 48: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/meghivo-a-mcsz-soron-kovetkezo-elnoksegi-ulesere-18",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 62235,
+      "sha256": "322a63f4822b947466814f8a7c3f3545dd333c888901e451909b592348ac54c4",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:42.661380+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\389d82adaa4f22cf\\322a63f4822b947466814f8a7c3f3545dd333c888901e451909b592348ac54c4.html.gz",
+      "title": "Magyar Curling Szövetség » Meghívó a MCSZ soron következő elnökségi ülésére"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/MCSZ-elnökségi-ülés-jegyzőkönyv-2018.01.17.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 48: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/meghivo-a-mcsz-soron-kovetkezo-elnoksegi-ulesere-17",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 61782,
+      "sha256": "278602b5837bc1f1ac457807f8680117b7a01d2d92748dd480ab113ddd9992d6",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:44.623106+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\af3cc7b975cddbc3\\278602b5837bc1f1ac457807f8680117b7a01d2d92748dd480ab113ddd9992d6.html.gz",
+      "title": "Magyar Curling Szövetség » Meghívó a MCSZ soron következő elnökségi ülésére"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2019/05/FB-jegyzokonyv-12.15.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 217048,
+      "sha256": "188a53d984631f404139f87af0fc85392aef51244ceb9cca8e4c74d730dc983a",
+      "etag": "\"34fd8-5f2699c8257d0\"",
+      "last_modified": "Mon, 16 Jan 2023 23:04:54 GMT",
+      "retrieved_at": "2026-10-12T02:17:46.037427+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\142c77ed57eefd1e\\188a53d984631f404139f87af0fc85392aef51244ceb9cca8e4c74d730dc983a.bin.gz"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2018/09/Jegyzőkönyv_2018_09_13.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\u030b' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/Jegyzőkönyv_2018_05_24.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\u030b' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/Jegyzőkönyv_2018_03_08.docx",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\u030b' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2018/11/FB_Határozatok_2018.doc",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\u0301' in position 47: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/Határozatok-jegyzéke-MCSZ-2017.12.041.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xe1' in position 43: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/?p=5936",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 58764,
+      "sha256": "172a2683aaa06e21156f7eb35480bbd5dfe48124387d356b046a0233c206d622",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:51.963446+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\d97a8674fd3a4784\\172a2683aaa06e21156f7eb35480bbd5dfe48124387d356b046a0233c206d622.html.gz",
+      "title": "Magyar Curling Szövetség » Kölcsönadási nyilvántartás 2017"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/Mcsz-megismételt-közgyűlés-20170621.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xe9' in position 51: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/meghivo-a-magyar-curling-szovetseg-2017-evi-rendkivuli-kuldottgyulesere",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60837,
+      "sha256": "b6b107aa6543c28435ac188babe13a237596dc99e50efa839eb436abc30606f1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:57.241246+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\57e23d42d39611b5\\b6b107aa6543c28435ac188babe13a237596dc99e50efa839eb436abc30606f1.html.gz",
+      "title": "Magyar Curling Szövetség » Meghívó a Magyar Curling Szövetség 2017. évi rendkívüli küldöttgyűlésére"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/Mcsz-közgyűlés-jegyzőkönyv-20170621.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/curling/wp-content/uploads/2014/11/MCSZ-közgyűlés-2017.03.22.pdf",
+      "status": "error",
+      "error": "'ascii' codec can't encode character '\\xf6' in position 46: ordinal not in range(128)"
+    },
+    {
+      "url": "https://www.curling.hu/meghivo-a-magyar-curling-szovetseg-2017-evi-beszamolo-kuldottgyulesere",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 62654,
+      "sha256": "827fac3be0fddcaffbf754970c8531405215cc55f64e08cdb855e1255da81dc8",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:01.630280+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hun\\5d37c22824afc025\\827fac3be0fddcaffbf754970c8531405215cc55f64e08cdb855e1255da81dc8.html.gz",
+      "title": "Magyar Curling Szövetség » Meghívó a Magyar Curling Szövetség 2017. évi beszámoló küldöttgyűlésére"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 8,
   "pages_blocked": 0,
-  "pages_failed": 0,
+  "pages_failed": 12,
   "family_candidates": []
 }

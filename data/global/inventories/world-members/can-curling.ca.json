@@ -1,242 +1,543 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:30.870042+00:00",
+  "generated_at": "2026-10-11T11:05:22.399016+00:00",
   "country_code": "CAN",
   "country": "Canada",
   "association": "Curling Canada",
   "seed_url": "https://www.curling.ca",
   "source": "https://worldcurling.org/member-association/canada/",
-  "max_pages": 20,
+  "max_pages": 40,
   "robots_url": "https://www.curling.ca/robots.txt",
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.curling.ca",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 374268,
-      "sha256": "fb35db75de9efb4d80ced608c9308cdff762983763b4de8fc0c5cd0f912ea684",
-      "source_families": [],
-      "title": "Home - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/search",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 232432,
-      "sha256": "ca10b0861b599e5e94c7804c3c3a4497a144040fb27ca6671c7aea9344a15386",
-      "source_families": [],
-      "title": "Search - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/events/upcoming-events",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 286309,
-      "sha256": "354de9871f30943cde6cb477537c56d400d933bb473fececdbec3add2f705758",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Curling Canada Events - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027scotties",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 296641,
-      "sha256": "8cc982cb5f2ee855e4ac4a4d6828eec0283911413a4918ff90acca4f85aea549",
-      "source_families": [],
-      "title": "2027 Scotties - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027brier",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 282967,
-      "sha256": "6cb1b3cfcba9856c9037f1c0f6a59672b6a5a16a783a04a43a0e0158f15916c8",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Event - 2027 Montana’s Brier - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027worldmen",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 284924,
-      "sha256": "0037af0cabfb47839d506d3596abb27f586190c750ce0295713aa2e24901eb5f",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event - 2027 BKT World Men’s Curling Championship - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2026mixed",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 267541,
-      "sha256": "c1cbf7c2738d5c9983c0012a96d2ae680817ce9e8ee856099b5df5bc567e3429",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event - 2026 canadian mixed curling championship - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2026seniors",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 268243,
-      "sha256": "a6097715d34307eb446899637b41af42ff3811658d38cb27548c270a3ee30886",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2026 Senior Championships - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027university",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 260840,
-      "sha256": "33a32ece1ec6aae212b5afb65580cf6c01e7105ff8b33d1ad0d945b47403c413",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2027 U SPORTS/Curling Canada University Curling Championships - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027college",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 259911,
-      "sha256": "06156990f4d81fb83920b9e1dc643f1f48bf7249a07774909dbdb1fc74dabde1",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2027 CCAA/Curling Canada College Curling Championships - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027u20",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 260539,
-      "sha256": "705043f4687453a4c604c520191d84e529e063e6fc8c8a9deb911e8bd35c7796",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2027 New Holland Canadian Under-20 Curling Championships - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027u18",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 260790,
-      "sha256": "bcb8e94459c8775866c2083f0eb97a4a9d7aeb5cae750612fe5145004cd50b1a",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2027 Canadian Under-18 Curling Championships - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/2027wheelchair",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 261034,
-      "sha256": "fad8b769333e93d2418e9c9b974e0ec7671c5b578d52517fc772bb13c4d4dcb9",
-      "source_families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "title": "Event – 2027 Canadian Wheelchair Curling Championship - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/scoreboard",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 241593,
-      "sha256": "fbc25ce466cb7879c03ac153515f46e80776b55e0448c9a2a95ea430acae2142",
-      "source_families": [
-        "national_events_results"
-      ],
-      "title": "Scores - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/events/broadcast",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 291306,
-      "sha256": "8c5dfda68b4bceec6256a5d7b15ff6ca80da357f8cfb458ec07f0b15c6af1c61",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Broadcast Schedule - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/get-involved/event-hosting-bidding",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 286748,
-      "sha256": "bf193dc7dda4e228f43c5fb7c336e621d12fa0015408ad86c1013bce449299f9",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Event Hosting & Bidding - Curling Canada"
-    },
-    {
-      "url": "https://www.curling.ca/wp-content/uploads/2025/11/25-26-Playdown-Schedule.pdf",
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2010-Scotties-Tournament-of-Hearts.pdf",
       "status": 200,
       "content_type": "application/pdf",
-      "bytes": 36692,
-      "sha256": "64c2312d2a06a633a217597b845e7696c26b38209bdc8f06443e7d779eef73b1",
-      "source_families": []
+      "bytes": 161234,
+      "sha256": "faa615183c0ed4048132e5e4af1ceb88ebdc448211166c2c9cd8b2c51ce769d2",
+      "etag": "\"275d2-678a2a9f-70d11e92998ec419;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:07 GMT",
+      "retrieved_at": "2026-10-11T11:02:31.542661+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\fd8fbc34aeff9e08\\faa615183c0ed4048132e5e4af1ceb88ebdc448211166c2c9cd8b2c51ce769d2.bin.gz"
     },
     {
-      "url": "https://www.curling.ca/events/affiliated-events",
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2009_Scotties_Tournament_of_Hearts.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 245938,
-      "sha256": "86f2db7f754bdff925e943d880a17dfc7f88cef239522d0e5d206225b61e7878",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Affiliated Events - Curling Canada"
+      "content_type": "application/pdf",
+      "bytes": 158905,
+      "sha256": "0e68d112062cf99efb35c875a8ac6b836ea53f65c4029bf378d6974a4985e2b4",
+      "etag": "\"26cb9-678a2a9f-459d3d9f6759131e;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:07 GMT",
+      "retrieved_at": "2026-10-11T11:02:32.184756+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\111a6da0542293d9\\0e68d112062cf99efb35c875a8ac6b836ea53f65c4029bf378d6974a4985e2b4.bin.gz"
     },
     {
-      "url": "https://www.curling.ca/events/international-events",
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2008_Scotties_Tournament_of_Hearts.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 236761,
-      "sha256": "3313f75dd97efb05d710ad57280131537675ab3c25c191799d19451baf03ea2c",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "International Events - Curling Canada"
+      "content_type": "application/pdf",
+      "bytes": 162924,
+      "sha256": "c0b12a10d8502d1ce433a7e551b3a85605a3defc5e5dc7f43d77d164264496af",
+      "etag": "\"27c6c-678a2a9e-101a064b95c741f3;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:06 GMT",
+      "retrieved_at": "2026-10-11T11:02:41.612625+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\fc38ba2a3265ef37\\c0b12a10d8502d1ce433a7e551b3a85605a3defc5e5dc7f43d77d164264496af.bin.gz"
     },
     {
-      "url": "https://www.curling.ca/events/event-archives",
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2007_Scotties_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 156609,
+      "sha256": "3a38e21a4dcb51c586bd3b9248604b474b77651b19ea919af5e1693e1aa82fd4",
+      "etag": "\"263c1-678a2a9e-22ba0a4f4bcf577;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:06 GMT",
+      "retrieved_at": "2026-10-11T11:02:42.172826+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\3c1c6b8fb8bc3f0c\\3a38e21a4dcb51c586bd3b9248604b474b77651b19ea919af5e1693e1aa82fd4.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2006_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 84267,
+      "sha256": "c83bed7113999f28ae162e9e6d17ff25b3d3c69d77de198ebca8c9346fb026b1",
+      "etag": "\"1492b-678a2a9e-e06021155e931cf8;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:06 GMT",
+      "retrieved_at": "2026-10-11T11:02:42.698926+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\6cdb4c7599811ba4\\c83bed7113999f28ae162e9e6d17ff25b3d3c69d77de198ebca8c9346fb026b1.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2005_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 121611,
+      "sha256": "f56cf54d405e45ef4e65f9afe6bbe2216405d9be3fd6ae7ed53ac964294ec470",
+      "etag": "\"1db0b-678a2a9d-c94afa9606714a1e;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:05 GMT",
+      "retrieved_at": "2026-10-11T11:02:51.529781+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\9637e3f642f8b6e0\\f56cf54d405e45ef4e65f9afe6bbe2216405d9be3fd6ae7ed53ac964294ec470.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2004_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 119352,
+      "sha256": "1344422fc5394b13eac38f061b3dd5a39187e3905b9717e61f6eae7c61e7d444",
+      "etag": "\"1d238-678a2a9d-f693c69348823b1c;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:05 GMT",
+      "retrieved_at": "2026-10-11T11:02:52.229612+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\d6831a20b4f34029\\1344422fc5394b13eac38f061b3dd5a39187e3905b9717e61f6eae7c61e7d444.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2003_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 120484,
+      "sha256": "9d4d3aa10368534f8eeea1f9bcb717ccf9f5500d28e2c69600c9a60be13fdbe3",
+      "etag": "\"1d6a4-678a2a9d-2b2f126bc43c03fd;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:05 GMT",
+      "retrieved_at": "2026-10-11T11:03:01.679441+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\bf1f7fe1ff41ebaf\\9d4d3aa10368534f8eeea1f9bcb717ccf9f5500d28e2c69600c9a60be13fdbe3.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2002_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 83299,
+      "sha256": "f1cd5c3e28d82c0b1981c06df38c6c59ecbcd61b6266fd97a70bc402fe673232",
+      "etag": "\"14563-678a2a9c-cce4a6099e5e7a43;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:04 GMT",
+      "retrieved_at": "2026-10-11T11:03:02.353421+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\fb87d5bc9be799a3\\f1cd5c3e28d82c0b1981c06df38c6c59ecbcd61b6266fd97a70bc402fe673232.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2001_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 86806,
+      "sha256": "78d0a88179e3979977b8cd9d416541022704661548d7b683f1f8e83191f83651",
+      "etag": "\"15316-678a2a9c-686736b5e1e894cd;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:04 GMT",
+      "retrieved_at": "2026-10-11T11:03:02.942762+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\f7dbe5e5c2426fd8\\78d0a88179e3979977b8cd9d416541022704661548d7b683f1f8e83191f83651.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2000_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 84630,
+      "sha256": "565f99103ee660c5d30bf082705bb57e6646820860d8ce4024c776775ef9b0db",
+      "etag": "\"14a96-678a2a9b-5ed47647073593b0;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:03 GMT",
+      "retrieved_at": "2026-10-11T11:03:11.526690+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\2beddc65b9cd1b67\\565f99103ee660c5d30bf082705bb57e6646820860d8ce4024c776775ef9b0db.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1999_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 85071,
+      "sha256": "7e0049ea3ead9250dc7f76498c757a58d0ccf5aadd29e6d0f6436d290ab810e9",
+      "etag": "\"14c4f-678a2a9b-51ac19d8a6d67ec7;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:03 GMT",
+      "retrieved_at": "2026-10-11T11:03:12.216993+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\5d07909cc3478a08\\7e0049ea3ead9250dc7f76498c757a58d0ccf5aadd29e6d0f6436d290ab810e9.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1998_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 83645,
+      "sha256": "f35399a37f884f2d760d17dc0f496bdfcda5882cae354f0e5d439a2c23080083",
+      "etag": "\"146bd-678a2a9b-3fba7d6e1420133;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:03 GMT",
+      "retrieved_at": "2026-10-11T11:03:21.594357+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\753314ff8deb33b9\\f35399a37f884f2d760d17dc0f496bdfcda5882cae354f0e5d439a2c23080083.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1997_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 83560,
+      "sha256": "58f6c26c6664377cb8eefb253b7ae512549cd040c1462d6022e7ca2576b60b3a",
+      "etag": "\"14668-678a2a9a-55f522f511e64130;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:02 GMT",
+      "retrieved_at": "2026-10-11T11:03:22.397624+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\0eb12dfe8a6375a9\\58f6c26c6664377cb8eefb253b7ae512549cd040c1462d6022e7ca2576b60b3a.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1996_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 85913,
+      "sha256": "7bee3339f234c7d5dc75b14e09e443fabae730c624f7fd4f47f421169df3d9d3",
+      "etag": "\"14f99-678a2a9a-8dbe467c0bd24522;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:02 GMT",
+      "retrieved_at": "2026-10-11T11:03:31.523949+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\2f018bdb7b93adeb\\7bee3339f234c7d5dc75b14e09e443fabae730c624f7fd4f47f421169df3d9d3.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1995_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 85095,
+      "sha256": "1dc20d2abcdfda9c270194040724a1e368c2f988afc33158105d844b6869066b",
+      "etag": "\"14c67-678a2a9a-16ed0ff285a18b57;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:02 GMT",
+      "retrieved_at": "2026-10-11T11:03:31.949359+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\d4841595a8d8a228\\1dc20d2abcdfda9c270194040724a1e368c2f988afc33158105d844b6869066b.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1994_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 82840,
+      "sha256": "3353ed79fc41d9f2e9e98a97e6b576dea3e2daaa6c85cfaab1a08fd57cb5d383",
+      "etag": "\"14398-678a2a99-7d92295c9050862b;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:01 GMT",
+      "retrieved_at": "2026-10-11T11:03:32.392212+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\08f4566ce02133bf\\3353ed79fc41d9f2e9e98a97e6b576dea3e2daaa6c85cfaab1a08fd57cb5d383.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1993_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 79462,
+      "sha256": "5b800f2ab581fdc5bf0c42ed2b1c30548cf75ce286a6025839de6dca6243be5b",
+      "etag": "\"13666-678a2a99-c006cca45b08af4f;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:01 GMT",
+      "retrieved_at": "2026-10-11T11:03:41.479236+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\dd3e8e4447ef7e43\\5b800f2ab581fdc5bf0c42ed2b1c30548cf75ce286a6025839de6dca6243be5b.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1992_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 80627,
+      "sha256": "369d3b25132e6f91a227ae09a9423a7aed6c06a6fd0ea8cb96c9219ee4377cf1",
+      "etag": "\"13af3-678a2a99-2645aa527dfa3192;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:01 GMT",
+      "retrieved_at": "2026-10-11T11:03:41.997944+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\eeda16cc670c74f3\\369d3b25132e6f91a227ae09a9423a7aed6c06a6fd0ea8cb96c9219ee4377cf1.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1991_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 80314,
+      "sha256": "926870ceada88bd50e32873adb2fe3d4189b4b589114b3d5a7b9c7f69da12d0e",
+      "etag": "\"139ba-678a2a98-6b0b9fec61434e2b;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:00 GMT",
+      "retrieved_at": "2026-10-11T11:03:51.459777+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\99c8955ebdc5cdf6\\926870ceada88bd50e32873adb2fe3d4189b4b589114b3d5a7b9c7f69da12d0e.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1990_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 79078,
+      "sha256": "58e3ff02d45ceb36528c11bd952695a61631855e66347835c72a6bafbff28b65",
+      "etag": "\"134e6-678a2a98-3433de37d095fba4;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:00 GMT",
+      "retrieved_at": "2026-10-11T11:03:51.979397+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\2b5279d9271d0816\\58e3ff02d45ceb36528c11bd952695a61631855e66347835c72a6bafbff28b65.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1989_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 81304,
+      "sha256": "3337179fffacfa28af84cd1adc1ac90c277d7d6d65a8eb9aeda26bd723f1b396",
+      "etag": "\"13d98-678a2a98-efc34d07d75aff8a;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:00 GMT",
+      "retrieved_at": "2026-10-11T11:04:01.433695+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\5099ef95c70ad5a1\\3337179fffacfa28af84cd1adc1ac90c277d7d6d65a8eb9aeda26bd723f1b396.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1988_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 79988,
+      "sha256": "8037f3d6c41d3052770fc7c925b2fa24671bfa008444cc150d3f760a3d7825ae",
+      "etag": "\"13874-678a2a97-c555ef64efc134df;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:01:59 GMT",
+      "retrieved_at": "2026-10-11T11:04:02.016782+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\0f6193f861e6b827\\8037f3d6c41d3052770fc7c925b2fa24671bfa008444cc150d3f760a3d7825ae.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1987_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 80805,
+      "sha256": "664fc6d8453e34aff76061b802986ba6f23ce8fcb947d6103f105a8be4adcf28",
+      "etag": "\"13ba5-678a2a97-b3ec2085fd30c607;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:01:59 GMT",
+      "retrieved_at": "2026-10-11T11:04:11.548396+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\6214478257b15708\\664fc6d8453e34aff76061b802986ba6f23ce8fcb947d6103f105a8be4adcf28.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1986_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 78626,
+      "sha256": "71bdf63e11261c76a3a178efaed3ce8111993f00d356ddb265daffa657a5e0fd",
+      "etag": "\"13322-678a2aa3-7fb9cac58f9bcd53;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:11 GMT",
+      "retrieved_at": "2026-10-11T11:04:12.396492+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\c985b92796092d56\\71bdf63e11261c76a3a178efaed3ce8111993f00d356ddb265daffa657a5e0fd.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1985_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 67918,
+      "sha256": "6188d304a9ee2b3f9b73b6b7d5e2eb1282afca44edaef4500ef2a2231b93c8b5",
+      "etag": "\"1094e-678a2aa2-42173469e801d5c2;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:10 GMT",
+      "retrieved_at": "2026-10-11T11:04:21.570135+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\340972129ae51afb\\6188d304a9ee2b3f9b73b6b7d5e2eb1282afca44edaef4500ef2a2231b93c8b5.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1984_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 68525,
+      "sha256": "f5bf7be8cba4f47fb6550fd963b46aa1b8fdcc3e93726d72493393798726d136",
+      "etag": "\"10bad-678a2aa2-d24a2a6fedfb1cba;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:10 GMT",
+      "retrieved_at": "2026-10-11T11:04:22.038502+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\2ff68577aeb795d7\\f5bf7be8cba4f47fb6550fd963b46aa1b8fdcc3e93726d72493393798726d136.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1983_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 66488,
+      "sha256": "e27ad517683ed75ccc081780356190eecd3ab6a21f0bd587c0d0953780e13ed7",
+      "etag": "\"103b8-678a2aa2-7458b27097929a74;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:10 GMT",
+      "retrieved_at": "2026-10-11T11:04:22.573915+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\f3add26f7c0a95a1\\e27ad517683ed75ccc081780356190eecd3ab6a21f0bd587c0d0953780e13ed7.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/1982_Scott_Tournament_of_Hearts.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 68670,
+      "sha256": "974fa100ae4838a332eb2c9901ae6c99bb55a539afddc3b8882c19f968c2d271",
+      "etag": "\"10c3e-678a2aa1-26c4ec727f3fa9ca;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:09 GMT",
+      "retrieved_at": "2026-10-11T11:04:31.552384+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\ba084a621ac4544d\\974fa100ae4838a332eb2c9901ae6c99bb55a539afddc3b8882c19f968c2d271.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/scores",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 356069,
-      "sha256": "4cfd4b2c0ee8dfc14ddcec52d1f8be227f0a8daea78b80a78250f92409341a34",
+      "bytes": 240935,
+      "sha256": "da3e62ab41a4ed267f50f5b44727d2017b68423b51977ff65c2cd061bc1da3ef",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-11T11:04:34.248441+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
-        "calendar_draws",
-        "historical_digital_archives"
+        "national_events_results"
       ],
-      "title": "Event Archives - Curling Canada"
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\89d11afd546dfff7\\da3e62ab41a4ed267f50f5b44727d2017b68423b51977ff65c2cd061bc1da3ef.html.gz",
+      "title": "Scores - 2026 BKT World Women’s Curling Championship - Curling Canada"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2017-Continental-Cup-Complete.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 118347,
+      "sha256": "02e8bd4632d6e06806defa787ce19a0a61e3662e87f95323a2446e3ce04f3450",
+      "etag": "\"1ce4b-678a2aa7-884198f2478b5b85;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:15 GMT",
+      "retrieved_at": "2026-10-11T11:04:41.573940+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\bd20b0ac0b90cc34\\02e8bd4632d6e06806defa787ce19a0a61e3662e87f95323a2446e3ce04f3450.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2016-Continental-Cup-Complete.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 112792,
+      "sha256": "bf4ad00d183f37f899c2bf9e1ca7a9126d3b9062e67f2c128e42010267aee1e3",
+      "etag": "\"1b898-678a2aa7-5b99901e70290f21;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:15 GMT",
+      "retrieved_at": "2026-10-11T11:04:42.227046+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\06f3933afa4b7dd2\\bf4ad00d183f37f899c2bf9e1ca7a9126d3b9062e67f2c128e42010267aee1e3.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2015-Continental-Cup-Complete.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 110212,
+      "sha256": "2cdc71d70e8395e6c49abc6b56267bca7f81f75494bc93319d4a371acffcae2e",
+      "etag": "\"1ae84-678a2aa6-586d4a28c6b003a5;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:14 GMT",
+      "retrieved_at": "2026-10-11T11:04:51.498923+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\19460ec347ed9489\\2cdc71d70e8395e6c49abc6b56267bca7f81f75494bc93319d4a371acffcae2e.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2014-Continental-Cup-Complete.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 146334,
+      "sha256": "c042b173421887249b3b5a67ca12e8a92f27224f380ee17a8d3440176a312622",
+      "etag": "\"23b9e-678a2aa6-a679fb424c8f8bd3;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:14 GMT",
+      "retrieved_at": "2026-10-11T11:04:52.136058+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\45816382be41b9cc\\c042b173421887249b3b5a67ca12e8a92f27224f380ee17a8d3440176a312622.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2014-Canada-Cup-men.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 47230,
+      "sha256": "50461d1a4e1d8c55b9d55cd2f007d287c86f983cbe9bf2d8232df45c32e1db2b",
+      "etag": "\"b87e-678a2aa8-2e0b3dd8f3284266;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:16 GMT",
+      "retrieved_at": "2026-10-11T11:05:01.446887+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\dd06a8bae377eb8a\\50461d1a4e1d8c55b9d55cd2f007d287c86f983cbe9bf2d8232df45c32e1db2b.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2014-Canada-Cup-women.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 48118,
+      "sha256": "1df5f79c47efcf3278545a3ce7580ff8a8660e3d5748385237983fe436e73aaa",
+      "etag": "\"bbf6-678a2aa8-f5ee631b5cabb04b;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:16 GMT",
+      "retrieved_at": "2026-10-11T11:05:01.885640+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\c77721f1d58fdf29\\1df5f79c47efcf3278545a3ce7580ff8a8660e3d5748385237983fe436e73aaa.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2012CanadaCupMen-Souvenir_Report.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 87673,
+      "sha256": "0be3edbecf770e87daa0cbd61f78c530b6d8201b953b30485c00c8558179ddcb",
+      "etag": "\"15679-678a2aa7-c3d1301cc7dbcd9a;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:15 GMT",
+      "retrieved_at": "2026-10-11T11:05:11.518436+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\ab6801eb13e82935\\0be3edbecf770e87daa0cbd61f78c530b6d8201b953b30485c00c8558179ddcb.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/2012CanadaCupWomen-Souvenir_Report.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 87704,
+      "sha256": "670fe4702da736fb1427c4e149c17e9a8c58bb6dba46c115a50c7a24767da72e",
+      "etag": "\"15698-678a2aa9-6f522288972752de;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:17 GMT",
+      "retrieved_at": "2026-10-11T11:05:13.008808+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\0075df1670eb0d3f\\670fe4702da736fb1427c4e149c17e9a8c58bb6dba46c115a50c7a24767da72e.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/canadacup2011m.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 46587,
+      "sha256": "10b86aae04e86ae0109f63e1ce02b9f5c1b4b23fd3a1d6d8f421f33cf7684213",
+      "etag": "\"b5fb-678a2aa9-7711174513376d5e;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:17 GMT",
+      "retrieved_at": "2026-10-11T11:05:21.617121+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\92ac193a6a5657bb\\10b86aae04e86ae0109f63e1ce02b9f5c1b4b23fd3a1d6d8f421f33cf7684213.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ca/wp-content/uploads/2024/10/canadacup2011w.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 46571,
+      "sha256": "b2b47d74441fcb8398a57d4db7f3db13be423f815a334b3c02334d1c3a3d1bcf",
+      "etag": "\"b5eb-678a2aa8-9a8b0ac34d6509bb;;;\"",
+      "last_modified": "Fri, 17 Jan 2025 10:02:16 GMT",
+      "retrieved_at": "2026-10-11T11:05:22.263495+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-can\\80400df212ec5139\\b2b47d74441fcb8398a57d4db7f3db13be423f815a334b3c02334d1c3a3d1bcf.bin.gz"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 40,
   "pages_blocked": 0,
   "pages_failed": 0,
   "family_candidates": [
-    "calendar_draws",
-    "historical_digital_archives",
     "national_events_results"
   ]
 }

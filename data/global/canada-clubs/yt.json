@@ -3,9 +3,9 @@
   "province": "Yukon",
   "province_code": "YT",
   "directory_source": "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs",
-  "generated_at": "2026-09-26T11:39:55.290620+00:00",
-  "source_sha256": "f07705bae4b3879f58b78d64e5894959d4712e498b0d62a3290462be39935e62",
-  "raw_path": "data\\raw\\canada-clubs\\yt\\directory.html.gz",
+  "generated_at": "2026-10-12T02:12:55.607018+00:00",
+  "source_sha256": "7ae7dc9aec2333e9e8c32ff9070849dd472ddf7359d8f1cb469a453c094f662f",
+  "raw_path": "data\\raw\\canada-clubs\\canada-clubs-yt\\a92c466ee43844a5\\7ae7dc9aec2333e9e8c32ff9070849dd472ddf7359d8f1cb469a453c094f662f.html.gz",
   "club_count": 5,
   "clubs": [
     {

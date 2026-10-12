@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:36:56.409003+00:00",
+  "generated_at": "2026-10-12T02:06:35.723026+00:00",
   "association_count": 14,
-  "inventoried": 13,
+  "inventoried": 10,
   "site_not_listed": 1,
   "failed": 0,
+  "blocked": 3,
   "results": [
     {
       "code": "CAN-AB",
@@ -76,7 +77,7 @@
       "code": "CAN-NO",
       "association": "Northern Ontario Curling Association",
       "seed_url": "https://www.curlnoca.ca",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
@@ -87,7 +88,7 @@
       "code": "CAN-NS",
       "association": "Nova Scotia Curling Association",
       "seed_url": "https://www.nscurl.com",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
@@ -120,17 +121,20 @@
       "association": "Curling Ontario",
       "seed_url": "https://www.curlingontario.ca",
       "status": "inventoried",
-      "pages_fetched": 0,
+      "pages_fetched": 18,
       "pages_blocked": 0,
-      "pages_failed": 1,
-      "families": [],
+      "pages_failed": 0,
+      "families": [
+        "clubs_facilities",
+        "national_events_results"
+      ],
       "output": "data\\global\\inventories\\canada\\on-curlingontario.ca.json"
     },
     {
       "code": "CAN-PE",
       "association": "Curl PEI",
       "seed_url": "https://www.peicurling.com",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
@@ -155,7 +159,7 @@
       "association": "CURLSASK",
       "seed_url": "https://www.curlsask.ca",
       "status": "inventoried",
-      "pages_fetched": 38,
+      "pages_fetched": 36,
       "pages_blocked": 0,
       "pages_failed": 2,
       "families": [
@@ -172,10 +176,15 @@
       "association": "Yukon Curling Association",
       "seed_url": "https://www.yukoncurling.ca",
       "status": "inventoried",
-      "pages_fetched": 0,
-      "pages_blocked": 0,
+      "pages_fetched": 44,
+      "pages_blocked": 75,
       "pages_failed": 1,
-      "families": [],
+      "families": [
+        "athlete_team_profiles",
+        "clubs_facilities",
+        "national_events_results",
+        "subnational_governance"
+      ],
       "output": "data\\global\\inventories\\canada\\yt-yukoncurling.ca.json"
     }
   ]

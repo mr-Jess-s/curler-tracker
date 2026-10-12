@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-por",
+  "pages": {
+    "https://www.fdiportugal.pt": {
+      "url": "https://www.fdiportugal.pt",
+      "status": 200,
+      "final_url": "https://fdiportugal.pt/",
+      "content_type": "text/html",
+      "bytes": 270311,
+      "sha256": "695ea1e037f42f5d05ea37dfce6263665e8241b37f26545835b8ee72c5416aec",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:48.096560+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-por\\196b3586ad9a0641\\695ea1e037f42f5d05ea37dfce6263665e8241b37f26545835b8ee72c5416aec.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:21:48.228907+00:00",
+  "checkpoint_seed": null
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-tur",
+  "pages": {
+    "https://www.curling.gov.tr": {
+      "url": "https://www.curling.gov.tr",
+      "status": 200,
+      "final_url": "https://www.curling.gov.tr",
+      "content_type": "text/html",
+      "bytes": 3680,
+      "sha256": "ef2740487aa7457d17bf68d41f38382df9973acb316544c564999ef3d6e1cc14",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:30.015220+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-tur\\2a4f6e7344bfc587\\ef2740487aa7457d17bf68d41f38382df9973acb316544c564999ef3d6e1cc14.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:23:30.140699+00:00",
+  "checkpoint_seed": null
+}

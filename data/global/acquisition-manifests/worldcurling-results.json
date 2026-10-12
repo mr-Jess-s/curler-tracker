@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_id": "worldcurling-results",
+  "pages": {
+    "https://results.worldcurling.org/Association": {
+      "url": "https://results.worldcurling.org/Association",
+      "status": 200,
+      "final_url": "https://results.worldcurling.org/Association",
+      "content_type": "text/html",
+      "bytes": 111811,
+      "sha256": "d136bbe4574fd29a448d14b6a197604287ebb8c890d6caa0d321d7ffa55155d0",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T20:38:32.028744+00:00",
+      "raw_path": "data\\raw\\worldcurling-results\\worldcurling-results\\38cec5fe611939b1\\d136bbe4574fd29a448d14b6a197604287ebb8c890d6caa0d321d7ffa55155d0.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T20:38:32.028843+00:00"
+}

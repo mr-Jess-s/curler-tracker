@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:26:28.623581+00:00",
+  "generated_at": "2026-10-12T02:25:04.466558+00:00",
   "country_code": "WAL",
   "country": "Wales",
   "association": "Welsh Curling Association",
@@ -11,236 +11,247 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.welshcurling.org.uk",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 88382,
-      "sha256": "dbfe22a8ea4c0ffe2b0d31b0753ebaa801354afc99650fb1eed0594fc948d704",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Welsh Curling Association – Cymdeithas Cwrlio Cymru"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/about-2",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 112034,
-      "sha256": "b5bdd2a0c26ce28019f69472eb4777236f2bbf68fc0fbc6fa1b9ab5e1de4a7cf",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Welsh Curling Association – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/about-curling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 75819,
-      "sha256": "0ac6708cbb70aaf9c57af234a431e9a5539da2960f6fa71b87efddf76cd96728",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "About Curling – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/welsh-curling-a-history",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 88462,
-      "sha256": "6f9e14816ba860895550cffe03cb0af6d9761f12d596c0549b65d79cee7b54ae",
-      "source_families": [
-        "historical_digital_archives",
-        "subnational_governance"
-      ],
-      "title": "Welsh Curling: A History – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/try-curling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 81417,
-      "sha256": "cba5310a37d45c79496d616a5dee5e101dc7735231561c95137e0c23c8c15624",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Try Curling – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/wales-teams",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 91747,
-      "sha256": "a074d1e3bb99d2378b46ceb877189fb93836231ceefa5067c391cb0c2da1a7a2",
-      "source_families": [
-        "athlete_team_profiles",
-        "subnational_governance"
-      ],
-      "title": "Wales Teams – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67102,
-      "sha256": "9698b2e271a91ae457be0b06cea1ff529b4d7dfb21e05098ae9f19531099bc61",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Governance – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/anti-doping",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 92541,
-      "sha256": "d2702e8381ce2c9c04ad221e715ff28ffe32e6ee25d500c35f65ebf40cbaa332",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Anti-Doping – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/equality-policy",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67698,
-      "sha256": "d7c4a955bf661380ca2175215a8b23d6648cccc4461305a4809001d966b4395a",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "EDI Policy – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/safeguarding",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 95785,
-      "sha256": "e87300703a7302150aa5522855b71e0ad6e1a6492c33c11f7d729397478ed2aa",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Safeguarding – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/disciplinary-policy-procedures",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 69902,
-      "sha256": "ea3ef6a704e5b94aa0539ec26e2bb6ce38c2da124512197c9d56649e690d213b",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Disciplinary Policy & Procedures – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/code-of-ethics",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67497,
-      "sha256": "d777442b48e64357eb597fa8c016fd0e15c6d2de5487d1630fb803105d1ee769",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Code of Ethics – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/whistleblowing",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67843,
-      "sha256": "363515fd4cb73bad4dc0adb249d877088d47a2ea5f26cd019a1918958cc82d33",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Whistleblowing – Welsh Curling Association"
-    },
-    {
-      "url": "https://www.welshcurling.org.uk/governance/privacy-policy",
+      "url": "https://www.welshcurling.org.uk/privacy-policy",
       "status": 200,
       "content_type": "text/html",
       "bytes": 79031,
-      "sha256": "d375a78dbd9de8d4a5f2866877de87c327c6f0a254b6e2a738e875abb9455ae7",
+      "sha256": "acabcb754fca2d198ce328bbcf268bde832e72b03f538f18ed26223a2a068eb7",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:36.535550+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\afd475997387aab8\\acabcb754fca2d198ce328bbcf268bde832e72b03f538f18ed26223a2a068eb7.html.gz",
       "title": "Privacy Policy – Welsh Curling Association"
     },
     {
-      "url": "https://www.welshcurling.org.uk/governance/gdpr",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 97913,
-      "sha256": "4d0d3c39d502041820623a403f8691230eae740abaf587fc1fa785e3df97667c",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "GDPR – Welsh Curling Association"
+      "url": "https://www.welshcurling.org.uk/governance/protectyoursport@reportdoping.com",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
     },
     {
-      "url": "https://www.welshcurling.org.uk/governance/financial-policy-and-procedures",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67954,
-      "sha256": "be2f4cf4b2cfcd980a197a9122353b0c3faefa1f9c26be95368d3617bf32e249",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Financial Policy and Procedures – Welsh Curling Association"
+      "url": "https://www.welshcurling.org.uk/governance/ukad@ukad.org.uk",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
     },
     {
-      "url": "https://www.welshcurling.org.uk/governance/complaints-policy",
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2026/05/EDI-policy.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 69855,
-      "sha256": "c226ead737ee97590d8823cd072573a5cbd817f66c2f5387f09ebc540ed035c4",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Complaints Policy – Welsh Curling Association"
+      "content_type": "application/pdf",
+      "bytes": 369797,
+      "sha256": "c2cdf3ec288762357e50d7227278f68ab0f01d4c24c8e6430d6e5a4883ddeea1",
+      "etag": null,
+      "last_modified": "Wed, 06 May 2026 21:26:41 GMT",
+      "retrieved_at": "2026-10-12T02:23:41.061674+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\84af68847e6411aa\\c2cdf3ec288762357e50d7227278f68ab0f01d4c24c8e6430d6e5a4883ddeea1.bin.gz"
     },
     {
-      "url": "https://www.welshcurling.org.uk/welsh-bonspiel",
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2025/02/2025-02-WCA-Safeguarding-Policy-Rev2.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 127746,
-      "sha256": "0f686f13b900a2ea0df972a02da2b7fd285e873e62551606aafb37a8eec0cb2f",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Welsh Bonspiel – Welsh Curling Association"
+      "content_type": "application/pdf",
+      "bytes": 911190,
+      "sha256": "9d6923a00c26836beb72061fce6e6d5c04ee054374bd36aec39bfa49dc2b07b2",
+      "etag": null,
+      "last_modified": "Sat, 15 Feb 2025 17:26:19 GMT",
+      "retrieved_at": "2026-10-12T02:23:44.418337+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\68be619bc9fdddfa\\9d6923a00c26836beb72061fce6e6d5c04ee054374bd36aec39bfa49dc2b07b2.bin.gz"
     },
     {
-      "url": "https://www.welshcurling.org.uk/calendar",
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2026/02/Adult-Safeguading-Policy.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 59525,
-      "sha256": "ce1e7b0addb7f029cf571ea997c85f6051cac4d45318a5269e70f674c933515a",
-      "source_families": [
-        "calendar_draws",
-        "subnational_governance"
-      ],
-      "title": "Calendar – Welsh Curling Association"
+      "content_type": "application/pdf",
+      "bytes": 399212,
+      "sha256": "c3c6d564436380ce6e1bcdeaebad37ae0d6c3f73942994d24b89f706286afbec",
+      "etag": null,
+      "last_modified": "Sun, 08 Feb 2026 20:18:57 GMT",
+      "retrieved_at": "2026-10-12T02:23:46.449995+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\ffd1846aa3cb2e86\\c3c6d564436380ce6e1bcdeaebad37ae0d6c3f73942994d24b89f706286afbec.bin.gz"
     },
     {
-      "url": "https://www.welshcurling.org.uk/first-province-of-wales",
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2026/02/Adult-Safeguarding-Procedures.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 377833,
+      "sha256": "dbd5fee0903ddaa74715433ada347c8deddde37cd68c61bbac7d8baf2e9b80be",
+      "etag": null,
+      "last_modified": "Sun, 08 Feb 2026 20:20:04 GMT",
+      "retrieved_at": "2026-10-12T02:23:50.009404+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\4efa31b81e648772\\dbd5fee0903ddaa74715433ada347c8deddde37cd68c61bbac7d8baf2e9b80be.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2025/09/CodeofConduct_Athletesv2.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 506766,
+      "sha256": "b0701af6809902e967b670ac93b6955ca71ca0fbf5790903e5570e042bd83918",
+      "etag": null,
+      "last_modified": "Fri, 05 Sep 2025 14:59:07 GMT",
+      "retrieved_at": "2026-10-12T02:23:58.836666+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\b3dc1b041fe221db\\b0701af6809902e967b670ac93b6955ca71ca0fbf5790903e5570e042bd83918.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2024/10/CodeofConduct_Parents.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 139456,
+      "sha256": "105e7c4c5961af31e057a04cfe2cb32861b107079cc2aed0d3426eb32106bc1a",
+      "etag": null,
+      "last_modified": "Sun, 27 Oct 2024 12:15:38 GMT",
+      "retrieved_at": "2026-10-12T02:24:07.721200+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\5e828f82c6b1275e\\105e7c4c5961af31e057a04cfe2cb32861b107079cc2aed0d3426eb32106bc1a.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2024/10/CodeofConduct_StaffandVolunteers.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 138231,
+      "sha256": "2794aa3046bc2d3862db91fa2233b76985545e82c43311a4d1afe1252e343733",
+      "etag": null,
+      "last_modified": "Sun, 27 Oct 2024 12:17:11 GMT",
+      "retrieved_at": "2026-10-12T02:24:12.122554+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\5e3af61bd96367a8\\2794aa3046bc2d3862db91fa2233b76985545e82c43311a4d1afe1252e343733.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2024/10/CodeofConduct_YoungPeople.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 137366,
+      "sha256": "1337c0b0b2d4184cd7d856588df25ab57409f651a7e9809c7db32e0f58f6700c",
+      "etag": null,
+      "last_modified": "Sun, 27 Oct 2024 12:18:14 GMT",
+      "retrieved_at": "2026-10-12T02:24:17.548898+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\51e3cad13e503687\\1337c0b0b2d4184cd7d856588df25ab57409f651a7e9809c7db32e0f58f6700c.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2025/03/Disciplinary-Policy-and-Procedures-v2.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 221493,
+      "sha256": "af90a549d3d91cac4c8f836118b78cfdab052a8a68aa7ecd6b3e92e4e854eb07",
+      "etag": null,
+      "last_modified": "Wed, 26 Mar 2025 22:09:32 GMT",
+      "retrieved_at": "2026-10-12T02:24:22.228685+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\0ab6da53e01d107a\\af90a549d3d91cac4c8f836118b78cfdab052a8a68aa7ecd6b3e92e4e854eb07.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2025/03/Code-of-Ethics-v1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 211710,
+      "sha256": "3f3f760448f09d6efd0105730077ded14a0076734e140ed3ffaef847d811af6e",
+      "etag": null,
+      "last_modified": "Wed, 26 Mar 2025 22:19:15 GMT",
+      "retrieved_at": "2026-10-12T02:24:29.261933+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\97c2138e35b5e26c\\3f3f760448f09d6efd0105730077ded14a0076734e140ed3ffaef847d811af6e.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2025/03/Whistleblowing-policy-v1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 208440,
+      "sha256": "c08f74e7e080ecd4f78ab741527f6a811e81235b4679a5420b6531f97c338a89",
+      "etag": null,
+      "last_modified": "Wed, 26 Mar 2025 22:26:45 GMT",
+      "retrieved_at": "2026-10-12T02:24:33.900135+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\6beec763d17fe316\\c08f74e7e080ecd4f78ab741527f6a811e81235b4679a5420b6531f97c338a89.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2026/02/Financial_Policy_and_Procedures_Manual.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 332104,
+      "sha256": "69119ea1e54e74a9ac73cbd114a94551bd4f7fac795ea156ab0c7d0b2b21567d",
+      "etag": null,
+      "last_modified": "Sun, 08 Feb 2026 20:24:18 GMT",
+      "retrieved_at": "2026-10-12T02:24:38.793456+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\ad67676a1efb0e3f\\69119ea1e54e74a9ac73cbd114a94551bd4f7fac795ea156ab0c7d0b2b21567d.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/wp-content/uploads/2026/05/Complaints-policy.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 303336,
+      "sha256": "f46000281dbbe47fee64158559c7b50739a71459f9af1dac011d36aa2535ba8e",
+      "etag": null,
+      "last_modified": "Wed, 06 May 2026 21:32:53 GMT",
+      "retrieved_at": "2026-10-12T02:24:48.032573+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\c80464cce1386662\\f46000281dbbe47fee64158559c7b50739a71459f9af1dac011d36aa2535ba8e.bin.gz"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/schedules",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/fpow-6pm-league",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 72032,
-      "sha256": "386f82c912f2f8aea8e6ada3e90c98d00ef1a0a7680b871dad61bdc388267efe",
+      "bytes": 73060,
+      "sha256": "fe0b26525ea7fd3212d44966016f7d9c71b7587e8845233baaf5813c323ce122",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:55.025703+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
-      "title": "First Province of Wales – Welsh Curling Association"
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\a148c21cd759d483\\fe0b26525ea7fd3212d44966016f7d9c71b7587e8845233baaf5813c323ce122.html.gz",
+      "title": "FPOW 6pm league: 2014 season final table – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/fpow-8pm-league",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 74714,
+      "sha256": "0777309fe07f73c7faf763cd577a1a67173b3a2f7a4068f82e00136622d8c08c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:25:01.655670+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-wal\\88d135a81d6dfd0c\\0777309fe07f73c7faf763cd577a1a67173b3a2f7a4068f82e00136622d8c08c.html.gz",
+      "title": "FPOW 8pm league: Autumn 2014 season final table – Welsh Curling Association"
+    },
+    {
+      "url": "https://www.welshcurling.org.uk/first-province-of-wales/membership@welshcurling.org.uk",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 16,
   "pages_blocked": 0,
-  "pages_failed": 0,
+  "pages_failed": 4,
   "family_candidates": [
-    "athlete_team_profiles",
-    "calendar_draws",
-    "historical_digital_archives",
     "subnational_governance"
   ]
 }

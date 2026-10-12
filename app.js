@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.14';
+const APP_VERSION = 'v26.15';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',

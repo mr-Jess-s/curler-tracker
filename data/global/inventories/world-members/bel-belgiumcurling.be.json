@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:08.964541+00:00",
+  "generated_at": "2026-10-12T02:15:31.965051+00:00",
   "country_code": "BEL",
   "country": "Belgium",
   "association": "Belgian Curling Association",
@@ -8,202 +8,322 @@
   "source": "https://worldcurling.org/member-association/belgium/",
   "max_pages": 20,
   "robots_url": "https://www.belgiumcurling.be/robots.txt",
-  "robots_loaded": false,
+  "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.belgiumcurling.be",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bclcompetitieresults.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 82352,
-      "sha256": "4521df85866ce39a0812d70e63e9cb1ffa0ec0f7a5f622156dcb8cd9bd406bf6",
+      "bytes": 99138,
+      "sha256": "d7fb7242ed39cc87a0efc87ecb03cef00fb72cb40971d7905d013cdc4fb44006",
+      "etag": "W/\"18342-65d771338758a-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:25 GMT",
+      "retrieved_at": "2026-10-12T02:13:01.332752+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\fb62c1b39f319b66\\d7fb7242ed39cc87a0efc87ecb03cef00fb72cb40971d7905d013cdc4fb44006.html.gz",
+      "title": "bclcompetitieresults1819a"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-spring-matches-a.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 111337,
+      "sha256": "b856d198fcf12a49199d84b2f4977675aa5f748caa883a276360bbaa35b40c97",
+      "etag": "W/\"1b2e9-65d771a47eb8f-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:06:23 GMT",
+      "retrieved_at": "2026-10-12T02:13:02.584942+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "belgiumcurling.be"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\f7b10366a065e9ae\\b856d198fcf12a49199d84b2f4977675aa5f748caa883a276360bbaa35b40c97.html.gz",
+      "title": "2023.2024 Spring Matches A | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/intropage%202017.html",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-spring-matches-c.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 87706,
-      "sha256": "27cf154113b04bf175b8f2b79e98c519816167124bcd49d84df94ee7d9760678",
+      "bytes": 93016,
+      "sha256": "8b1aead70b557c9a3cd9af38d57ece70444b654b7f26329981b3c5dc63345827",
+      "etag": "W/\"16b58-65d771a2e0ae4-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:06:21 GMT",
+      "retrieved_at": "2026-10-12T02:13:11.629802+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "home"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\f3a766824a05a309\\8b1aead70b557c9a3cd9af38d57ece70444b654b7f26329981b3c5dc63345827.html.gz",
+      "title": "2023.2024 Spring Matches B | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/heren",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-spring-ranking-b.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 46296,
-      "sha256": "15acddf71bfd42baba209ff3fb527689c7a7fdcf060f63453b58b05b0d888270",
+      "bytes": 88002,
+      "sha256": "91022b92a5b42f287c9a17f2333b463b6b12e1f340f0bf9733a31d5f93d8da49",
+      "etag": "W/\"157c2-65d77139f60a3-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:31 GMT",
+      "retrieved_at": "2026-10-12T02:13:21.554815+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
-        "athlete_team_profiles"
-      ],
-      "title": "nationaleteams"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/competities",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 46168,
-      "sha256": "32acb03c34340a56a6b38fff5a6539ecb26f6ab7d84b066ef42f65e48699dd19",
-      "source_families": [],
-      "title": "competities"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/clubs",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 20088,
-      "sha256": "64644e5cf77bd8d64ca1e1418d09f0c88a911eac212535344ac916d1156fc0da",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Clubs | belgiumcurling.be"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/clubs/cc%20zemst.html",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 42884,
-      "sha256": "c3ad3377487030fc0053f4584a0e4fe7ca89708f36b8f8a27367eff777dd2254",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "cczemst"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/clubs/campina%20ct.html",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 42414,
-      "sha256": "423e21199a81447645922f8da276750c001dc3572d1c2edf7850ec8c9a93ffb2",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "campinacturnhout"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/clubs/cc%20gent.html",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 42986,
-      "sha256": "8741190ae733d4a2664c252376e90c7607686275df8cffd957c5ffde0474c69d",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "ccgent"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/programma",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 20044,
-      "sha256": "bf025242f3dbd3e6fb493701f1f2ceeff652dba02b37a6ffac9161475d3d8ff7",
-      "source_families": [],
-      "title": "statistieken"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/programma/programma.html",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 89446,
-      "sha256": "a336e484e1f04785312c4e4990d2c401736c07335985f6b5542ef6ab031de277",
-      "source_families": [],
-      "title": "programma"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/programma/teams",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 167494,
-      "sha256": "14fd66e98115078687066974e22b980cae8790e8aa8dd1d799fa0c06658e72ee",
-      "source_families": [
-        "athlete_team_profiles"
-      ],
-      "title": "Teams | belgiumcurling.be"
-    },
-    {
-      "url": "https://www.belgiumcurling.be/programma/rankings-players",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 46851,
-      "sha256": "3ca852f82549bdafc013bd909eca68c9ad9cac4996fedf0fc95dcd62a76c42ac",
-      "source_families": [
-        "athlete_team_profiles",
         "rankings"
       ],
-      "title": "Rankings Players | belgiumcurling.be"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\462a3d79e2bf8adb\\91022b92a5b42f287c9a17f2333b463b6b12e1f340f0bf9733a31d5f93d8da49.html.gz",
+      "title": "2023.2024 Spring Ranking B | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/nieuws.html",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-spring-round-c.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 98392,
-      "sha256": "89e4a3c148ed252e0b3ec1d9c8c03aa9bc6d8748fd7208b3a48825cbfe882312",
+      "bytes": 93109,
+      "sha256": "f84e2172c7608f1e7b2178ee8936dbaea7f9d049c6d3a6c9406b8b76d6d1e2c1",
+      "etag": "W/\"16bb5-65d771a28afdd-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:06:21 GMT",
+      "retrieved_at": "2026-10-12T02:13:31.487673+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "nieuws"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\289c7b0b87ba9307\\f84e2172c7608f1e7b2178ee8936dbaea7f9d049c6d3a6c9406b8b76d6d1e2c1.html.gz",
+      "title": "2023.2024 Spring Round C | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/contact.html",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-spring-ranking-c.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 28390,
-      "sha256": "282dbb4f25cfc1d7490c12f94724e37e97b8a6d2ce2b298eecc6689d9c24b0c7",
-      "source_families": [],
-      "title": "contact"
+      "bytes": 88436,
+      "sha256": "c6cbf1b3bbd9196d391cbb29940cf122ebf6b857f710029be51ac8309c671af5",
+      "etag": "W/\"15974-65d77139d97a0-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:31 GMT",
+      "retrieved_at": "2026-10-12T02:13:32.466407+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "rankings"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\e2775f859028fb44\\c6cbf1b3bbd9196d391cbb29940cf122ebf6b857f710029be51ac8309c671af5.html.gz",
+      "title": "2023.2024 Spring Ranking C | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/news-uk.html",
+      "url": "https://www.belgiumcurling.be/competities/bcl-competitie/bcl-central/2023.2024-lsd-ranking.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 76908,
-      "sha256": "5a66aa6355b7ccf688c216fd2e12f20abda0c59b629d0dc62d6b28ba6963ec42",
-      "source_families": [],
-      "title": "News UK | belgiumcurling.be"
+      "bytes": 95354,
+      "sha256": "5713b0ee2b424df740e9dda7d4e7de2ecb2d07d2f9fc80e4b6b99de1ad5771fb",
+      "etag": "W/\"1747a-65d771a60797d-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:06:25 GMT",
+      "retrieved_at": "2026-10-12T02:13:41.546558+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "rankings"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\eb7b2ef08dac3809\\5713b0ee2b424df740e9dda7d4e7de2ecb2d07d2f9fc80e4b6b99de1ad5771fb.html.gz",
+      "title": "2023.2024 LSD Ranking | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/bcl-2026.2027-home.html",
+      "url": "https://www.belgiumcurling.be/competities/dubbels/bmdl.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 109391,
-      "sha256": "8d97b59b8957f6c4084a3ce88fd5dde08269eecdb45b9929419f0fd404e56ceb",
+      "bytes": 162356,
+      "sha256": "f24508df3979cfe60934ddd8a441c5f231c850cc0fb2093113cbf1f4a665f464",
+      "etag": "W/\"27a34-65d77139b22c0-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:31 GMT",
+      "retrieved_at": "2026-10-12T02:13:42.647473+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "BCL 2026.2027 Home | belgiumcurling.be"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\01312ee9216d7e35\\f24508df3979cfe60934ddd8a441c5f231c850cc0fb2093113cbf1f4a665f464.html.gz",
+      "title": "BMDL 23.24 | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/bekervanbelgie.html",
+      "url": "https://www.belgiumcurling.be/competities/dubbels/bmdl-24.25.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 39491,
-      "sha256": "49fa0b10071b55490fb97a1a988f1ec67c00ea3d0733b76efbd459db72f2e205",
+      "bytes": 139381,
+      "sha256": "8a6db827be7a9bca4967aff85aac1b029cea6c3028688fb57b6de97330123ad5",
+      "etag": "W/\"22075-65d7713c815fc-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:34 GMT",
+      "retrieved_at": "2026-10-12T02:13:51.878509+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "BekervanBelgie | belgiumcurling.be"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\5d657646975e902e\\8a6db827be7a9bca4967aff85aac1b029cea6c3028688fb57b6de97330123ad5.html.gz",
+      "title": "BMDL 24.25 | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/competities/dubbels/bmdl-25.26.html",
+      "url": "https://www.belgiumcurling.be/competities/dubbels/belgian-doubles-cup-2024.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 183005,
-      "sha256": "8dcb74c1ff01233d37b709cc8cab00286ed3e15251df495252d7310edc402514",
+      "bytes": 44769,
+      "sha256": "e498a548d967f381b8da2d7b7dadf2be7ee3bc05b21d314904ad7ec61ef59a1c",
+      "etag": "W/\"aee1-65d77138c1762-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:30 GMT",
+      "retrieved_at": "2026-10-12T02:14:01.614848+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "BMDL 25.26 | belgiumcurling.be"
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\0e9b661bd8d3a449\\e498a548d967f381b8da2d7b7dadf2be7ee3bc05b21d314904ad7ec61ef59a1c.html.gz",
+      "title": "Belgian Doubles Cup 2024 | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/competities/dubbels/bodl-25.26.html",
+      "url": "https://www.belgiumcurling.be/competities/clubkampioenschap/ck-zemst-24.25.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 118419,
-      "sha256": "29989b007cc9bae5feced2297efcd69d9dd6173bc8d87e1723f85a338bfb8af6",
-      "source_families": [],
-      "title": "BODL 25.26 | belgiumcurling.be"
+      "bytes": 92413,
+      "sha256": "ea59b7e1d42c523d9ed2fa70474e7e6f090b554c04db42ab3d2d1e1d600e1141",
+      "etag": "W/\"168fd-65d7712dba30c-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:19 GMT",
+      "retrieved_at": "2026-10-12T02:14:11.995221+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\edb4143c9ebd12c7\\ea59b7e1d42c523d9ed2fa70474e7e6f090b554c04db42ab3d2d1e1d600e1141.html.gz",
+      "title": "CK Zemst 24.25 | belgiumcurling.be"
     },
     {
-      "url": "https://www.belgiumcurling.be/cover-stories-belgian-shrimps-be.html",
+      "url": "https://www.belgiumcurling.be/competities/clubkampioenschap/ck-campina-24.25.html",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 39789,
-      "sha256": "bac3e201daeac07cab1a77dbf0c1b696e871a41b806ee07e29e83e1ee26348c9",
-      "source_families": [],
-      "title": "Cover Stories Belgian Shrimps BE | belgiumcurling.be"
+      "bytes": 48463,
+      "sha256": "9324e95fc1935e3c5d7fbfd6ab2f6af479155ee1dd32a6d25a852994fce255ea",
+      "etag": "W/\"bd4f-65d7713a55b14-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:32 GMT",
+      "retrieved_at": "2026-10-12T02:14:21.425979+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\0a6fba257dda5301\\9324e95fc1935e3c5d7fbfd6ab2f6af479155ee1dd32a6d25a852994fce255ea.html.gz",
+      "title": "CK Campina 23.24 | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/competities/clubkampioenschap/ck-gent-24.25.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 61221,
+      "sha256": "e9151dcebd0c1bc747d846e5e4fef8d9865b51114d79fd32f5594a077b648e2d",
+      "etag": "W/\"ef25-65d77139abc71-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:31 GMT",
+      "retrieved_at": "2026-10-12T02:14:31.627609+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\8d0a0c8f1a05c7e6\\e9151dcebd0c1bc747d846e5e4fef8d9865b51114d79fd32f5594a077b648e2d.html.gz",
+      "title": "CK Gent 24.25 | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2026-team-verreycken.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 1234558,
+      "sha256": "b3ab9f82c2ec21f7166ed28d330aae1c76ebc904c46d64546290cb74517b3772",
+      "etag": "W/\"12d67e-65d77141e34f8-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:40 GMT",
+      "retrieved_at": "2026-10-12T02:14:33.626258+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\03736425c5c39625\\b3ab9f82c2ec21f7166ed28d330aae1c76ebc904c46d64546290cb74517b3772.html.gz",
+      "title": "Team Verreycken History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2026-steengoed.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 453024,
+      "sha256": "ba677d05258ed49637d937d099d76d2c21a76be8537d3dc2f1453e86d7d47274",
+      "etag": "W/\"6e9a0-65d77137bde7d-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:29 GMT",
+      "retrieved_at": "2026-10-12T02:14:42.230395+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\6b83571764c5911e\\ba677d05258ed49637d937d099d76d2c21a76be8537d3dc2f1453e86d7d47274.html.gz",
+      "title": "Steengoed History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2025-n19-campina.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 437787,
+      "sha256": "080ee0c86f9f310f54f86cc29f34852da5a081406aba3e2e9d5e46b98fbeaf6b",
+      "etag": "W/\"6ae1b-65d7713c498b5-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:34 GMT",
+      "retrieved_at": "2026-10-12T02:14:52.203298+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\16931507e2db590d\\080ee0c86f9f310f54f86cc29f34852da5a081406aba3e2e9d5e46b98fbeaf6b.html.gz",
+      "title": "N19 Campina History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2025-wipe-my-ijs.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 332046,
+      "sha256": "7253d90fcd047e0be11e7605575e9e543fe7749b8be6c8e0b4fd6ffac1bb5fbf",
+      "etag": "W/\"5110e-65d77134a47d8-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:26 GMT",
+      "retrieved_at": "2026-10-12T02:15:02.058514+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\12e95049eed96812\\7253d90fcd047e0be11e7605575e9e543fe7749b8be6c8e0b4fd6ffac1bb5fbf.html.gz",
+      "title": "Wipe My IJs History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2025-rammsteen.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 382289,
+      "sha256": "a115e9f62ff444f54e1981c1eaaf182e0ab30e9a61958c3184e6bf7e03fa6965",
+      "etag": "W/\"5d551-65d7713bc4bd0-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:33 GMT",
+      "retrieved_at": "2026-10-12T02:15:12.066480+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\0b55b855c4cccd4e\\a115e9f62ff444f54e1981c1eaaf182e0ab30e9a61958c3184e6bf7e03fa6965.html.gz",
+      "title": "Hogline Heroes History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/take-out-tigers-2025.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 597436,
+      "sha256": "b6c3a2351d67738de7cb95d6f6f9d20c53097bd628573554fd11de9c3c89074c",
+      "etag": "W/\"91dbc-65d771316c6ea-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:04:23 GMT",
+      "retrieved_at": "2026-10-12T02:15:25.575524+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\4a4b2bdee047c129\\b6c3a2351d67738de7cb95d6f6f9d20c53097bd628573554fd11de9c3c89074c.html.gz",
+      "title": "Take-Out Tigers History | belgiumcurling.be"
+    },
+    {
+      "url": "https://www.belgiumcurling.be/programma/teams/2027-curling-cubs.html",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 294348,
+      "sha256": "0b0880fd06a34dca9de1f25046ecd07d7536a89544f03eb03e0b125292972ff1",
+      "etag": "W/\"47dcc-65d771a57139d-gzip\"",
+      "last_modified": "Sat, 10 Oct 2026 07:06:24 GMT",
+      "retrieved_at": "2026-10-12T02:15:31.835927+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "historical_digital_archives"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-bel\\f3cce19fd35c36e8\\0b0880fd06a34dca9de1f25046ecd07d7536a89544f03eb03e0b125292972ff1.html.gz",
+      "title": "Curling Cubs History | belgiumcurling.be"
     }
   ],
   "pages_fetched": 20,
@@ -212,6 +332,8 @@
   "family_candidates": [
     "athlete_team_profiles",
     "clubs_facilities",
+    "historical_digital_archives",
+    "national_events_results",
     "rankings"
   ]
 }

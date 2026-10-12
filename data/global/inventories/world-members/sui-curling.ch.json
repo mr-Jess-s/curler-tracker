@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:51.055102+00:00",
+  "generated_at": "2026-10-12T02:30:57.823212+00:00",
   "country_code": "SUI",
   "country": "Switzerland",
   "association": "Swiss Curling Association",
@@ -11,203 +11,268 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.curling.ch",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2025/2025-HnR-N2-353__3_.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 114279,
-      "sha256": "95cad4fb51d09f0a7edfacc14e40f9cacfb873e7bc1272769b524ea67101931d",
+      "content_type": "application/pdf",
+      "bytes": 14150374,
+      "sha256": "7d9d647c291ced1703ebf1ab5ed907d3d4ea94d041637ed8ae8631f50bb8745d",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:31 GMT",
+      "retrieved_at": "2026-10-12T02:23:23.616559+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Home | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\4b59d4566d8e459a\\7d9d647c291ced1703ebf1ab5ed907d3d4ea94d041637ed8ae8631f50bb8745d.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/medien",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2025/2025-HnR-N3-354__2_.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 123752,
-      "sha256": "016cbf5c79988cbc2f75348564a49c3e18c9c56652e71129d82d922ce9bb9ed0",
+      "content_type": "application/pdf",
+      "bytes": 13760660,
+      "sha256": "58ab8c00bba33a815dd0b1b2da7a17b2921108517d939f48d0b1043338c7673a",
+      "etag": null,
+      "last_modified": "Thu, 05 Mar 2026 15:13:01 GMT",
+      "retrieved_at": "2026-10-12T02:24:09.391300+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Medien | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\9a0d3d4ec11f9e7c\\58ab8c00bba33a815dd0b1b2da7a17b2921108517d939f48d0b1043338c7673a.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/verband/kontakt",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2024/2024-Nr1-348__1_.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 95262,
-      "sha256": "d8a340679ec7250fba723a4e464e10c052310690cd3a10cda05247b8d2986e63",
+      "content_type": "application/pdf",
+      "bytes": 13262968,
+      "sha256": "6ffab2bd7bf4b71c551cf22a76bf2c6db832e8a3caab03273327963d5be1868b",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:26:45 GMT",
+      "retrieved_at": "2026-10-12T02:24:56.717861+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Kontakt | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\aeae76467f8c8c0e\\6ffab2bd7bf4b71c551cf22a76bf2c6db832e8a3caab03273327963d5be1868b.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/fr",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2024/pk_2024-Nr2-349_V04.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 116428,
-      "sha256": "efbde85a975a2c9587af56c44ce56b2750845cd9b1e3f5474811e2972fbdc9a7",
+      "content_type": "application/pdf",
+      "bytes": 10905258,
+      "sha256": "1c3e4bd016e17052b6eb89af8ee276fea3d8d9273eb93d3a47c79834af310bf1",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:27:01 GMT",
+      "retrieved_at": "2026-10-12T02:25:43.555956+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Home | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\3367ca4767c67a72\\1c3e4bd016e17052b6eb89af8ee276fea3d8d9273eb93d3a47c79834af310bf1.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/suche",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2024/2024-Nr3-350__4_.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 86807,
-      "sha256": "ab4793dced6932500c56f7be3adccbdce743e8ad90a6cde2c100f7021bafa207",
+      "content_type": "application/pdf",
+      "bytes": 8004507,
+      "sha256": "6a6a082742b91db397bf44af6206b7f71fde017973ac789cd1d96e3f5d54fcd1",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:24 GMT",
+      "retrieved_at": "2026-10-12T02:26:16.521062+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Suche | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\d4574b2ae54172db\\6a6a082742b91db397bf44af6206b7f71fde017973ac789cd1d96e3f5d54fcd1.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/wettkampf/turniercenter",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2024/2024-Nr4-351_241208_1658__1_.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 88716,
-      "sha256": "6b7a20a4b08459d887eeca6736ef4931a0f5ca3d6679bd73fc5fb587c977fcce",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Turniercenter | Swiss Curling"
-    },
-    {
-      "url": "https://www.curling.ch/wettkampf/turniercenter/schweizermeisterschaften",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 164805,
-      "sha256": "0818244a460b7a8c740fb764efcaba43abac5dbeef810bf7f8d63d51957c6ce7",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Schweizermeisterschaften | Swiss Curling"
-    },
-    {
-      "url": "https://www.curling.ch/wettkampf/turniercenter/turnierkalender-schweiz",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 87684,
-      "sha256": "c55bbd3f1f1e5911875cc26d5e0f464f83a025815d2052f5710436156eabed29",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Turnierkalender Schweiz | Swiss Curling"
-    },
-    {
-      "url": "https://www.curling.ch/wettkampf/turniercenter/international",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 95536,
-      "sha256": "ee703e03a7dc6f8e3f9428c071b5a3075e940249973b71b90ac4d2ca7296162c",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "International | Swiss Curling"
-    },
-    {
-      "url": "https://www.curling.ch/wettkampf/resultate",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 713891,
-      "sha256": "52fc4de41a22448ff03534d8c820f608d7bce3181cf0f02bdf79b46c356fb1a5",
-      "source_families": [
-        "national_events_results"
-      ],
-      "title": "Resultate | Swiss Curling"
-    },
-    {
-      "url": "https://www.curling.ch/newsroom",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 94763,
-      "sha256": "7ac637761d0884c9450809ec7947dbd4a080654639b1990da9dca4d7c2359ffd",
+      "content_type": "application/pdf",
+      "bytes": 8852106,
+      "sha256": "3f12ddea362125235da28e3c3556bd78a143bb693673b4d4b2d77b9b8d7f3932",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:24 GMT",
+      "retrieved_at": "2026-10-12T02:26:49.084182+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Newsroom | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\027d10c3cfd44556\\3f12ddea362125235da28e3c3556bd78a143bb693673b4d4b2d77b9b8d7f3932.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/national-curling-week",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2023/2023_-_Nr._1.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 90488,
-      "sha256": "ebe2d1b89f59710d8d8426f2d43b370f53722a65e6f6368d11d561a683b2860a",
+      "content_type": "application/pdf",
+      "bytes": 5703165,
+      "sha256": "9218bfeac597b99ee8fe4c78bd6c05aa209f857ba6b371224082017e24d53ea8",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:15 GMT",
+      "retrieved_at": "2026-10-12T02:27:16.845106+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "National Curling Week | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\00c904909f9a36b5\\9218bfeac597b99ee8fe4c78bd6c05aa209f857ba6b371224082017e24d53ea8.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/einfuehrung-ins-curling",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2023/H_R_Juni_2023_Nr._2.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 100342,
-      "sha256": "b5a6a140ff56b59fcf1384a7e24bc35ea51a902a68220729e49f79ac41e8df43",
+      "content_type": "application/pdf",
+      "bytes": 10197487,
+      "sha256": "f0d3b71880bbd96b78be086575b06a6a7b09cb25f48eef7229fe51cadaf7a78b",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:15 GMT",
+      "retrieved_at": "2026-10-12T02:27:49.754067+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Einführung ins Curling | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\9c6bc4a083817ffb\\f0d3b71880bbd96b78be086575b06a6a7b09cb25f48eef7229fe51cadaf7a78b.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/curling-ausporbieren",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2023/H_R_2023_Nr._3.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 87605,
-      "sha256": "cdd9c614e71ff934274eaf82176d9e64e2825c3e31d73f6a571d051f1c743524",
+      "content_type": "application/pdf",
+      "bytes": 3014864,
+      "sha256": "751a6ee38904bec5e551fae57d9e8200cb97315f04818625ede0f0dcc0d1251e",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:15 GMT",
+      "retrieved_at": "2026-10-12T02:28:01.940553+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Curling ausprobieren | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\883f57fbe601babf\\751a6ee38904bec5e551fae57d9e8200cb97315f04818625ede0f0dcc0d1251e.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/geschichte",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2023/H_R_Dezember_2023_Nr._4.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 98288,
-      "sha256": "65373aa2c5b40d3afb814feca05dce7e8c3aa5137712295e71d768d5e71c36e0",
+      "content_type": "application/pdf",
+      "bytes": 3014864,
+      "sha256": "751a6ee38904bec5e551fae57d9e8200cb97315f04818625ede0f0dcc0d1251e",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:15 GMT",
+      "retrieved_at": "2026-10-12T02:28:17.877479+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Geschichte | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\fe7757ef209476ef\\751a6ee38904bec5e551fae57d9e8200cb97315f04818625ede0f0dcc0d1251e.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2022/2022-Nr.1-340.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 97711,
-      "sha256": "334f13b226bf84871926f47385f4fd59ce74a2e29c13fc99669bb289d7d4745c",
+      "content_type": "application/pdf",
+      "bytes": 8169871,
+      "sha256": "6691bee98f62755da4540305d1478178efb22f2d08ad27e251b20113f11feaf7",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:07 GMT",
+      "retrieved_at": "2026-10-12T02:28:59.995954+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Schulprogramm Learn to Curl | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\cab22eb0cd413d97\\6691bee98f62755da4540305d1478178efb22f2d08ad27e251b20113f11feaf7.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl/lehrpersonen",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2022/2022-Nr.2-341.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 94285,
-      "sha256": "f64e5bdad2f9406006f9ffc122e61161a6e32d745e724049a49f6c751678cb08",
+      "content_type": "application/pdf",
+      "bytes": 5860203,
+      "sha256": "41c3bb00a4514f026b680e7783baed5d529861e93016193f5b1a5ad8d864eee5",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:07 GMT",
+      "retrieved_at": "2026-10-12T02:29:24.247957+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Lehrpersonen | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\be90d682fab2f497\\41c3bb00a4514f026b680e7783baed5d529861e93016193f5b1a5ad8d864eee5.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/schulprogramm-learn-to-curl/ausleihstellen",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2022/2022-Nr.3-342-1.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 93649,
-      "sha256": "9ed4c05c2156cd786372d6f08bcacdb71319c1fd40bd0612f99c7202e20e4c38",
+      "content_type": "application/pdf",
+      "bytes": 5748428,
+      "sha256": "1afe4ed98346111aa560a61b8c19f6681ad0d395d660ddd249b00783c0a0c560",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:07 GMT",
+      "retrieved_at": "2026-10-12T02:29:48.475493+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Ausleihstellen | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\56960a1e288d40a2\\1afe4ed98346111aa560a61b8c19f6681ad0d395d660ddd249b00783c0a0c560.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/curling-entdecken/leihmaterial",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2022/2022-Nr.4-343.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 94179,
-      "sha256": "7cac529b3165deb923e8f69ff5bb49ea7106a0fa8bf7439782475dcc21ac01e7",
+      "content_type": "application/pdf",
+      "bytes": 4856294,
+      "sha256": "9df031b7ee69604a380476b76326de7f0d32f12f81ea418466d53c0cb183e277",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:07:07 GMT",
+      "retrieved_at": "2026-10-12T02:30:03.218539+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Leihmaterial | Swiss Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\795474f72d15f12a\\9df031b7ee69604a380476b76326de7f0d32f12f81ea418466d53c0cb183e277.bin.gz"
     },
     {
-      "url": "https://www.curling.ch/mitglied/clubs",
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2021/2021-Nr.1-336-web.pdf",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 88204,
-      "sha256": "cc42b6b5241d7a823cdcbe602871416c01cd90ac11e1285a27bb601b0c991649",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Clubs | Swiss Curling"
+      "content_type": "application/pdf",
+      "bytes": 2672264,
+      "sha256": "442a0e39762d4784eb4b5b7bd6d20fef32692b10f322c2e36de77347b86bd151",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:06:54 GMT",
+      "retrieved_at": "2026-10-12T02:30:12.600551+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\4a49036148e0aaf5\\442a0e39762d4784eb4b5b7bd6d20fef32692b10f322c2e36de77347b86bd151.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2021/2021-Nr.2-337-Web.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 5544971,
+      "sha256": "b4e1782bd5d3730451ee4764f173e2a007fa534892830504fa53bfdc68aaf6f4",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:06:55 GMT",
+      "retrieved_at": "2026-10-12T02:30:36.116241+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\b5cad70e97bd8424\\b4e1782bd5d3730451ee4764f173e2a007fa534892830504fa53bfdc68aaf6f4.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2021/2021-Nr.3-338.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1660446,
+      "sha256": "beae350bcaca9596dea3b5588dbf7e82ce8eefc334c62e3ffed33c2e78f488a0",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:06:54 GMT",
+      "retrieved_at": "2026-10-12T02:30:43.242226+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\1c36c8a5afe9554e\\beae350bcaca9596dea3b5588dbf7e82ce8eefc334c62e3ffed33c2e78f488a0.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Mitglied/Hit_and_Roll/2021/2021-Nr.4-339.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1511080,
+      "sha256": "c98ebbcbf829a34cc69ef8b44e046f0ce5732f73c4bf25e3f8ceaa215f0ad42e",
+      "etag": null,
+      "last_modified": "Thu, 03 Jul 2025 13:06:54 GMT",
+      "retrieved_at": "2026-10-12T02:30:49.647657+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\781ff86c18160358\\c98ebbcbf829a34cc69ef8b44e046f0ce5732f73c4bf25e3f8ceaa215f0ad42e.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Sport/Elite/Milano_Cortina_2026_Qualification_System_for_Curling_V1.1__1_.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1045542,
+      "sha256": "160180e0a2a340a7659fc622a52cfad003ed5c1febc2a60ecde2c9977362de95",
+      "etag": null,
+      "last_modified": "Thu, 14 Mar 2024 15:40:26 GMT",
+      "retrieved_at": "2026-10-12T02:30:55.439849+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\d9f3f35b606db336\\160180e0a2a340a7659fc622a52cfad003ed5c1febc2a60ecde2c9977362de95.bin.gz"
+    },
+    {
+      "url": "https://www.curling.ch/fileadmin/user_upload/Home/Sport/Elite/SCA_Road_to_WMCC_und_WWCC_2026_VR_HB_241217.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 204435,
+      "sha256": "27b018112d2277cdcbb36f9f294ac032ef1793de129d542b5829001ad459a59b",
+      "etag": null,
+      "last_modified": "Thu, 19 Dec 2024 14:58:41 GMT",
+      "retrieved_at": "2026-10-12T02:30:57.695913+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-sui\\6b947d988942f262\\27b018112d2277cdcbb36f9f294ac032ef1793de129d542b5829001ad459a59b.bin.gz"
     }
   ],
   "pages_fetched": 20,
   "pages_blocked": 0,
   "pages_failed": 0,
-  "family_candidates": [
-    "clubs_facilities",
-    "national_events_results"
-  ]
+  "family_candidates": []
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:05.463195+00:00",
+  "generated_at": "2026-10-12T02:19:32.285574+00:00",
   "country_code": "KOS",
   "country": "Kosovo",
   "association": "Kosovo Curling Federation",
@@ -11,159 +11,13 @@
   "robots_loaded": false,
   "pages": [
     {
-      "url": "http://www.kosovocurling.org",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 80809,
-      "sha256": "adaca1a7cce1228cb6a8baf8f6e053e7723334ee5ff6e2a2ba4981938377bd72",
-      "source_families": [],
-      "title": "Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 80809,
-      "sha256": "adaca1a7cce1228cb6a8baf8f6e053e7723334ee5ff6e2a2ba4981938377bd72",
-      "source_families": [],
-      "title": "Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/discover-curling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 78513,
-      "sha256": "67b00f42fb0e1cb1cb2c5402cd61b4ea2855e50bf7612915284353d08a449892",
-      "source_families": [],
-      "title": "Discover Curling | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/discover-curling/watch",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 58741,
-      "sha256": "ecc2741ece41092436cac9d616288a58fc60de5e564f47a549c69a710649e16d",
-      "source_families": [],
-      "title": "Watch Curling | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/discover-curling/resources",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 58894,
-      "sha256": "4b6977214ead250570c674d86f272f475c008019e36bdf6a85d34b638f2035d8",
-      "source_families": [],
-      "title": "Resources | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/discover-curling/play-online",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 52463,
-      "sha256": "97d48047b69cc6c97d611fb15d5625ac10877ee752b835452ccbde4fcbb8b13c",
-      "source_families": [],
-      "title": "Play Curling Online | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/discover-curling/programs",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 123444,
-      "sha256": "4f0462a6d2c6c89ba068a98c7aa39e5c45e98eca066ddd0c4d4453f564de4827",
-      "source_families": [],
-      "title": "Programs | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/our-federation",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 74080,
-      "sha256": "57a655ce65e9c6bb559efb5e3c30e2e5e4c3d4abe1cb9ee2bbfa3d7eca47c10d",
-      "source_families": [],
-      "title": "Our Federation | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/news",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 67581,
-      "sha256": "92bc9ff8ffb20a24e084fdffda752f6400b13174789a019dc7f842701fb6e2ba",
-      "source_families": [],
-      "title": "News | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/donate",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 51624,
-      "sha256": "ed87cf653aa4285b76e5941fc0780afc4e4fd8c2f99aef26638fd9edb6abf6eb",
-      "source_families": [],
-      "title": "Donate | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/contact",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 54137,
-      "sha256": "856f84207be2e03d5d89df4767a5125ea19ee3b2130d57ade8e8d4656d63dbea",
-      "source_families": [],
-      "title": "Contact Us | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/news/mens-national-team-debut",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 62160,
-      "sha256": "d44b1a535182ec32387b7b8c16edc49f7cb8f4813af4f1c69edfd0447826d140",
-      "source_families": [
-        "athlete_team_profiles"
-      ],
-      "title": "Historic Milestone: Kosovo Men's National Curling Team to Make International Debut in Switzerland | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/news/inaugural-youth-curling-camp",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 63448,
-      "sha256": "46dd73776e049be1b79877437141a903ed2bdd4b984bd8f1681a3dd31400f9da",
-      "source_families": [],
-      "title": "Inaugural Youth Curling Camp | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/news/world-mixed-doubles-qualifier",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 62357,
-      "sha256": "0522db274bc732a4a44d74cf03cf0517927588b854be31d3086d411ee057f3e4",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "Kosovo Competes at World Mixed Doubles Qualification Event | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/contact",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 54137,
-      "sha256": "856f84207be2e03d5d89df4767a5125ea19ee3b2130d57ade8e8d4656d63dbea",
-      "source_families": [],
-      "title": "Contact Us | Curling Kosovo Federation"
-    },
-    {
-      "url": "http://www.kosovocurling.org/en/news/historic-first-win-mixed",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 70428,
-      "sha256": "2a8028a669f9032030ce2bd85447742536d2a60debea0f3ff74069b4b13b43ea",
-      "source_families": [],
-      "title": "Kosovo Achieves Historic First International Victory | Curling Kosovo Federation"
+      "url": "http://www.kosovocurling.org/",
+      "status": "robots_unavailable",
+      "error": "Could not verify robots.txt; collection stopped."
     }
   ],
-  "pages_fetched": 16,
+  "pages_fetched": 0,
   "pages_blocked": 0,
-  "pages_failed": 0,
-  "family_candidates": [
-    "athlete_team_profiles",
-    "calendar_draws"
-  ]
+  "pages_failed": 1,
+  "family_candidates": []
 }

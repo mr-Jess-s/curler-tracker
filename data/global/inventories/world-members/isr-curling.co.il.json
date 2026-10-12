@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:33.529683+00:00",
+  "generated_at": "2026-10-12T02:18:00.560334+00:00",
   "country_code": "ISR",
   "country": "Israel",
   "association": "Israel Curling Association",
@@ -12,8 +12,8 @@
   "pages": [
     {
       "url": "https://www.curling.co.il",
-      "status": "error",
-      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+      "status": "robots_unavailable",
+      "error": "Could not verify robots.txt; collection stopped."
     }
   ],
   "pages_fetched": 0,

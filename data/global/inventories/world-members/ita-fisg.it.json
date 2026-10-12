@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:26.424635+00:00",
+  "generated_at": "2026-10-12T02:19:31.735092+00:00",
   "country_code": "ITA",
   "country": "Italy",
   "association": "Italian Ice Sports Federation",
@@ -11,188 +11,309 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.fisg.it",
+      "url": "https://www.fisg.it/club/?id=482",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 258789,
-      "sha256": "ba3016e6b83e81a496d7c90d4e670e299e58b916b82c21d401a8c0494fcbdd75",
-      "source_families": [],
-      "title": "FISG - Federazione Italiana Sport del Ghiaccio"
+      "bytes": 140374,
+      "sha256": "618fd9667fe20da7d04e6ba27f5bb017b24d97f6bd3d5cf2e7eadb9674c1bdcd",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:07.464049+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\d612f2970d858a66\\618fd9667fe20da7d04e6ba27f5bb017b24d97f6bd3d5cf2e7eadb9674c1bdcd.html.gz",
+      "title": "A.s.d. Aosta Skating Club 2000"
     },
     {
-      "url": "https://www.fisg.it/backend",
+      "url": "https://www.fisg.it/competition/?id=7166",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 84232,
-      "sha256": "e815fbd10530255ccc8f292c57fec9ee7ef09589fa2442d3a6ba4360d51aae35",
+      "bytes": 77361,
+      "sha256": "a007e5deefe6da0ec11f75f21b2454819941a683a2c94574073f7085635ed501",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:11.721905+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Fisgonline"
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\8e76b81eb2bf7d58\\a007e5deefe6da0ec11f75f21b2454819941a683a2c94574073f7085635ed501.html.gz",
+      "title": "SINCRONIZZATO - 2° Gara Nazionale + ADULTI SINCRONIZZATO"
     },
     {
-      "url": "https://www.fisg.it/category/federazione/news-federazione",
+      "url": "https://www.fisg.it/club/?id=612",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 74999,
-      "sha256": "9b84e4b898ab13c05dc7d075449ad5daafb354d0dcbdf01ebd3e651a03a1e3c2",
-      "source_families": [],
-      "title": "Categoria: News Federazione"
+      "bytes": 158864,
+      "sha256": "89bd50605b936e7a6374d11e0a21dd7800a1a5b6d00814f3f677eebfb52c9abf",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:18.342544+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\6786f69dabba1e84\\89bd50605b936e7a6374d11e0a21dd7800a1a5b6d00814f3f677eebfb52c9abf.html.gz",
+      "title": "A.s.d. H.C. Aosta Gladiators"
     },
     {
-      "url": "https://www.fisg.it/chi-siamo",
+      "url": "https://www.fisg.it/club/?id=416",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 60684,
-      "sha256": "d4ce912d958d9921daa1cc08e6a48c40cdb9ab366ba9576f0012d8481fbd06dc",
-      "source_families": [],
-      "title": "Chi siamo"
+      "bytes": 105555,
+      "sha256": "d67ee75cd8f2247b8101f6419f25789677e70e70153330b61378244cec51c8b3",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:22.446831+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\a9ae1ae9b761c90b\\d67ee75cd8f2247b8101f6419f25789677e70e70153330b61378244cec51c8b3.html.gz",
+      "title": "A.s.d. Artistique h.i.l. Vallée d'Aoste"
     },
     {
-      "url": "https://www.fisg.it/federazione-trasparente",
+      "url": "https://www.fisg.it/club/?id=639",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 76855,
-      "sha256": "a3adcb640f2e7a2d2ceb60bef26ecf324043d85e6332255b365c90ca646bd7a4",
-      "source_families": [],
-      "title": "Federazione Trasparente"
+      "bytes": 89648,
+      "sha256": "967bba0e4e2ff03763dfbefd97acbc250e0eac4f1b95e658efe519a17ccddf3e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:26.952649+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\7968c02b223d4611\\967bba0e4e2ff03763dfbefd97acbc250e0eac4f1b95e658efe519a17ccddf3e.html.gz",
+      "title": "A.s.d. Liguria Ghiaccio"
     },
     {
-      "url": "https://www.fisg.it/documenti-e-comunicazioni",
+      "url": "https://www.fisg.it/club/?id=766",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 70993,
-      "sha256": "05c0117e25892e28e48b0d4ae0ac2a00c246fc4ecf74c57aa03e83f828fffdce",
-      "source_families": [],
-      "title": "Documenti e Comunicazioni"
+      "bytes": 78583,
+      "sha256": "2730f44533ad308b7bd2eb5d5f2014e52874d4e6d95cf3b99e4098724592b78e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:31.286282+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\1ac6b2500fe86384\\2730f44533ad308b7bd2eb5d5f2014e52874d4e6d95cf3b99e4098724592b78e.html.gz",
+      "title": "Centro Sportivo Esercito"
     },
     {
-      "url": "https://www.fisg.it/48a-assemblea-nazionale-ordinaria-elettiva",
+      "url": "https://www.fisg.it/club/?id=650",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 61513,
-      "sha256": "7851d55dde732982c470acbfc0f90c0853de972161c7117436714c81a7f3c565",
-      "source_families": [],
-      "title": "48ª Assemblea Nazionale Ordinaria Elettiva"
+      "bytes": 83606,
+      "sha256": "58d3ddc810a50c5eed8bf5254dd2bab69c4679a3a7faf0f512aea6c4cfd83d88",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:37.085467+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\bf33d9c5e83e5e0b\\58d3ddc810a50c5eed8bf5254dd2bab69c4679a3a7faf0f512aea6c4cfd83d88.html.gz",
+      "title": "Disabili Sportivi Valdostani S.S.D. rl"
     },
     {
-      "url": "https://www.fisg.it/assicurazioni-ed-infortuni",
+      "url": "https://www.fisg.it/club/?id=790",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 69456,
-      "sha256": "9257f3c0bbd86ea87f715d8b61fe52056428816d4273d82a8046e24b021154ed",
-      "source_families": [],
-      "title": "Assicurazioni ed Infortuni"
+      "bytes": 101197,
+      "sha256": "c766537c377ceae1de17fd95ee36992a9db9241cb7b0ff0e85129ab474fa5988",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:41.800798+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\f3c8e1ba0506e91a\\c766537c377ceae1de17fd95ee36992a9db9241cb7b0ff0e85129ab474fa5988.html.gz",
+      "title": "Ecole de Patinage Aosta"
     },
     {
-      "url": "https://www.fisg.it/organi-territoriali",
+      "url": "https://www.fisg.it/competition/?id=7194",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 72250,
-      "sha256": "314a6b29ce5020cc9715e0f645ed5396dcdd608f6e63e7354b8fc052f729e4e2",
+      "bytes": 81463,
+      "sha256": "5ed140cde006f486856820b0e300efef19adf46d4b654c0252e41a0375685042",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:46.350652+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Organi Territoriali"
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\bdd210b33452bd42\\5ed140cde006f486856820b0e300efef19adf46d4b654c0252e41a0375685042.html.gz",
+      "title": "1° Prova Triveneto Cup - 1° Prova Piccole Schegge"
     },
     {
-      "url": "https://www.fisg.it/organi-di-giustizia",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 66081,
-      "sha256": "ed73e1471ad64e7cb74c63ad1c03ed1d68be24d8d9ced3f20184e626bc8c0ac1",
-      "source_families": [],
-      "title": "Organi di Giustizia"
+      "url": "https://www.fisg.it/club/?id=",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
     },
     {
-      "url": "https://www.fisg.it/sponsor",
+      "url": "https://www.fisg.it/club/?id=181",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 76855,
-      "sha256": "0097e45baf7aa36c4896202a058f9bd9ca49fcd4748c173fa66536b762db5a72",
-      "source_families": [],
-      "title": "Sponsor"
+      "bytes": 160223,
+      "sha256": "bfca5eb163ca1777042dfebf0497952da8fd721511b38ce525c2d232b1d12f6f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:18:57.882867+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\de614f69c691c68c\\bfca5eb163ca1777042dfebf0497952da8fd721511b38ce525c2d232b1d12f6f.html.gz",
+      "title": "Ritten Sport ASV - A.s.d."
     },
     {
-      "url": "https://www.fisg.it/hockey-3",
+      "url": "https://www.fisg.it/club/?id=224",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 139464,
-      "sha256": "352de75b410fe511ef899809a52dbb8a8bc239f3ba31ea3d5c30f6004cb44ed0",
-      "source_families": [],
-      "title": "Hockey"
+      "bytes": 77906,
+      "sha256": "c53d57d31490dff8b435193ebbd42607a7a4e58cdafb050db0f8124196d9c4f3",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:01.408662+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\b4d93cafaa3f31c1\\c53d57d31490dff8b435193ebbd42607a7a4e58cdafb050db0f8124196d9c4f3.html.gz",
+      "title": "Amateursportclub Sarntal"
     },
     {
-      "url": "https://www.fisg.it/para-ice-hockey",
+      "url": "https://www.fisg.it/club/?id=668",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 76404,
-      "sha256": "9defa67f85cb3f579f808fe950dabd8ea7cf1edc424bc313ad05852cc044d5af",
-      "source_families": [],
-      "title": "Para Ice Hockey"
+      "bytes": 95783,
+      "sha256": "1e511f1fc633b229422fc07ae0c19c6620624f7722cb81cc392caa33c2f9baed",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:06.977496+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\d94f962d6587a985\\1e511f1fc633b229422fc07ae0c19c6620624f7722cb81cc392caa33c2f9baed.html.gz",
+      "title": "Ritten Sport Hockey Ssd Arl"
     },
     {
-      "url": "https://www.fisg.it/artistico-2",
+      "url": "https://www.fisg.it/competition/?id=7152",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 126271,
-      "sha256": "512a22105190030323eab0f59a8e87c38f9e82321bca8a4d52d0b57be0f7da87",
+      "bytes": 88633,
+      "sha256": "e8384341dfc4b1c4ceed4a329f7df376e73ef7c73662181748ec7af157705534",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:11.545682+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Artistico"
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\7e55490041c2206b\\e8384341dfc4b1c4ceed4a329f7df376e73ef7c73662181748ec7af157705534.html.gz",
+      "title": "GARA OPEN - COPPA DELL'AMICIZIA 2026"
     },
     {
-      "url": "https://www.fisg.it/danza-4",
+      "url": "https://www.fisg.it/club/?id=781",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 125315,
-      "sha256": "bb150b99b10cb4424a3d01bbe1300f4d918c08f6467c8541a56e9a2dcf0bd8db",
-      "source_families": [],
-      "title": "Danza"
+      "bytes": 86639,
+      "sha256": "33ae598aa3f2b86a143c712f0cb673d23366e3e91467c3a1c051a74c15baa174",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:17.778130+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\1a573d3b07c3c423\\33ae598aa3f2b86a143c712f0cb673d23366e3e91467c3a1c051a74c15baa174.html.gz",
+      "title": "Sportclub Meran Amateur Sportverein"
     },
     {
-      "url": "https://www.fisg.it/sincronizzato-3",
+      "url": "https://www.fisg.it/competition/?id=7120",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 109497,
-      "sha256": "8ff6286d3d98e094887d30c9f3ed27c6f4d74f1b503230b8ca37582534fd8ae7",
+      "bytes": 68990,
+      "sha256": "1879eaba3e17f351f9085a03663981dce1a24657cdcedcd5105f7f1429a05cfd",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:21.456703+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Sincronizzato"
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\dafc08c90f4d0700\\1879eaba3e17f351f9085a03663981dce1a24657cdcedcd5105f7f1429a05cfd.html.gz",
+      "title": "Merano Ice Trophy - Memorial Martina Barricelli"
     },
     {
-      "url": "https://www.fisg.it/speed-skating",
+      "url": "https://www.fisg.it/club/?id=736",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 112312,
-      "sha256": "c639c1a733290a5f52b4042e457888df2415dd19156e5c63501c035ddf19d79a",
-      "source_families": [],
-      "title": "Pista Lunga"
+      "bytes": 97503,
+      "sha256": "1debd38a78d1f10a623d6d250ed081a16905e5e69ed174cfbb4ce105010283b1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:23.913234+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\075860780cacef0d\\1debd38a78d1f10a623d6d250ed081a16905e5e69ed174cfbb4ce105010283b1.html.gz",
+      "title": "A.S. Merano ASD"
     },
     {
-      "url": "https://www.fisg.it/short-track",
+      "url": "https://www.fisg.it/competition/?id=7177",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 125085,
-      "sha256": "ab7be7bc28fd374a18803a2ed7ae994085efc48518e214a64fab6b3d88679a70",
+      "bytes": 91282,
+      "sha256": "9f0aa3dbe23b549f1828d94ac28d7996a0b5ef7b28080ca7af5ce25e772e69d3",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:26.371108+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Short Track"
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\dd976e62b77c815f\\9f0aa3dbe23b549f1828d94ac28d7996a0b5ef7b28080ca7af5ce25e772e69d3.html.gz",
+      "title": "CAMPIONATO ITALIANO (ELITE) - 3° prova"
     },
     {
-      "url": "https://www.fisg.it/curling-2",
+      "url": "https://www.fisg.it/club/?id=522",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 127222,
-      "sha256": "95f945e01d3697797c93022b5d68aa336546d44e4abdae99351440657196f8ec",
-      "source_families": [],
-      "title": "Curling"
+      "bytes": 153922,
+      "sha256": "8f7b1246258a808c56c9c90edef1cc452cb7b9be6a5e6a55525fd9d0732c4020",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:29.509736+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\f588edef9f8b18a6\\8f7b1246258a808c56c9c90edef1cc452cb7b9be6a5e6a55525fd9d0732c4020.html.gz",
+      "title": "Amateursportverein Hockey Club Meran Junior"
     },
     {
-      "url": "https://www.fisg.it/wheelchair-curling-3",
+      "url": "https://www.fisg.it/club/?id=81",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 76832,
-      "sha256": "8cbf10efada14a2526a2a6cabc4e652b67900c0fb6120a57070f1e96eeb6774e",
-      "source_families": [],
-      "title": "Wheelchair Curling"
+      "bytes": 81325,
+      "sha256": "2c8ff8cb1be3541cd1d7ad00e2d7b2e54d2f9af7e75366e7d14ba53652148834",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:31.580067+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-ita\\0795bc8911073bfe\\2c8ff8cb1be3541cd1d7ad00e2d7b2e54d2f9af7e75366e7d14ba53652148834.html.gz",
+      "title": "ASC Schenna"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 19,
   "pages_blocked": 0,
-  "pages_failed": 0,
-  "family_candidates": []
+  "pages_failed": 1,
+  "family_candidates": [
+    "clubs_facilities"
+  ]
 }

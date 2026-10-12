@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:43.613581+00:00",
+  "generated_at": "2026-10-12T02:22:36.220582+00:00",
   "country_code": "LUX",
   "country": "Luxembourg",
   "association": "Luxembourg Curling Association",
@@ -11,198 +11,299 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.curling.lu",
+      "url": "https://www.curling.lu/category/2015-2016/page/7",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 90872,
-      "sha256": "87753da5fe017659a0f35232bc94b3ab47b37c36d9fcb9f635b0b7eac5a7a72d",
+      "bytes": 80640,
+      "sha256": "3cdcaa00261c43c2932896435f4d1b2c9e31d4114b6bdf81fc9f048aa44996dc",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:56.238386+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Curling Luxembourg – Curling spirit, Luxembourg style"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\a086d9969d7ebeb5\\3cdcaa00261c43c2932896435f4d1b2c9e31d4114b6bdf81fc9f048aa44996dc.html.gz",
+      "title": "2015-2016 – Page 7 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/training",
+      "url": "https://www.curling.lu/2012-coupe-de-luxembourg-round-2-round-3",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 78483,
-      "sha256": "9b8c74e1c6753132605c71db2fa3270446a1f911b725ce385b3adbd357865c41",
+      "bytes": 85078,
+      "sha256": "e18ea682e696ca23fa0693bc8a5cb04c69de3ecc546ad50de41ef8dae1847db3",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:06.309201+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Training – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\b91e753b9625e9fb\\e18ea682e696ca23fa0693bc8a5cb04c69de3ecc546ad50de41ef8dae1847db3.html.gz",
+      "title": "2012 Coupe de Luxembourg – Round 2 & Round 3 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/activities",
+      "url": "https://www.curling.lu/2012-coupe-de-luxembourg-round-1",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 79882,
-      "sha256": "39b4a120f7e09b2966794118dd5653ef03a3d12403ec292f59fdbe1228e17fef",
+      "bytes": 82330,
+      "sha256": "a6fe02acd175a24f9d6c1f5096846b919e9457b298997dda268edf6fe02e3a45",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:16.285640+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Activities – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\96ff681031080a1b\\a6fe02acd175a24f9d6c1f5096846b919e9457b298997dda268edf6fe02e3a45.html.gz",
+      "title": "2012 Coupe de Luxembourg – Round 1 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/competitions",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 77303,
-      "sha256": "1f4c1ebfc605c8386b55a81d193ba027b21bdee1574f89267b3c9dbf47bbd798",
-      "source_families": [],
-      "title": "Competitions – Curling Luxembourg"
-    },
-    {
-      "url": "https://www.curling.lu/coupe-de-lamitie",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 81757,
-      "sha256": "eb705764d4cc5b2c8ca12cce585262dba0f49e01cf1f42a2b8730e5d06ee39ab",
-      "source_families": [],
-      "title": "Coupe de l’Amitié – Curling Luxembourg"
-    },
-    {
-      "url": "https://www.curling.lu/latest",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 97262,
-      "sha256": "adbe4edfbe11c4aae0c7e4a876dcfaa8884253cb59a770f6a7c1033ba68d7622",
-      "source_families": [],
-      "title": "Latest – Curling Luxembourg"
-    },
-    {
-      "url": "https://www.curling.lu/contact_us",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 73977,
-      "sha256": "320303c3cbe09426d3ca9c96d7a305ff8638d2343fc75c50ee92a58e6fbd3113",
-      "source_families": [],
-      "title": "Contact us – Curling Luxembourg"
-    },
-    {
-      "url": "https://www.curling.lu/news-from-world-curling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 77852,
-      "sha256": "7f039490cd61a5e4f1de878b5296d97b16573a6971603de6e22b10995cf0a202",
-      "source_families": [],
-      "title": "News from World Curling – Curling Luxembourg"
-    },
-    {
-      "url": "https://www.curling.lu/wp-login.php",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 5806,
-      "sha256": "30a1de927f7ec5e9317a5c615730a2ceeae433f8dd308ced1eb71be87876956d",
-      "source_families": [],
-      "title": "Log In ‹ Curling Luxembourg — WordPress"
-    },
-    {
-      "url": "https://www.curling.lu/feed",
-      "status": 200,
-      "content_type": "application/rss+xml",
-      "bytes": 11336,
-      "sha256": "e1aa7b937f05529a6969362a8c60aaf11f5b993dc821e6e095079ae3607c9e6f",
-      "source_families": []
-    },
-    {
-      "url": "https://www.curling.lu/comments/feed",
-      "status": 200,
-      "content_type": "application/rss+xml",
-      "bytes": 751,
-      "sha256": "157b3318a90dbfab4c93716b57f1ec33641c35f7ea0a14cb815e9d7b775e777d",
-      "source_families": []
-    },
-    {
-      "url": "https://www.curling.lu/wp-content/uploads/2026/07/50th-Anniversary-Postcard.jpg",
+      "url": "http://www.curling.lu/wp-content/uploads/2012/03/IMAG0160.jpg",
       "status": 200,
       "content_type": "image/jpeg",
-      "bytes": 27868,
-      "sha256": "083354627e3ef2efb1efcf9fac4b10c6249699ecbea120e659b5cf24090f1d8f",
-      "source_families": []
-    },
-    {
-      "url": "https://www.curling.lu/luxembourg-at-curling-europeans",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 87227,
-      "sha256": "d12cc7026734dae4fc8b33f284ad7cc6032093f0ffb990a39a95ce54d059cfb1",
+      "bytes": 93983,
+      "sha256": "e1d08a4a592d4ed196b342797c87944c42e7d176dcfd8d6a54b8e03e1625d4cf",
+      "etag": "\"16f1f-4bab88ff835c0\"",
+      "last_modified": "Thu, 08 Mar 2012 10:15:59 GMT",
+      "retrieved_at": "2026-10-12T02:20:24.474614+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Luxembourg at Curling European’s – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\3798e4ab8caf1c3c\\e1d08a4a592d4ed196b342797c87944c42e7d176dcfd8d6a54b8e03e1625d4cf.bin.gz"
     },
     {
-      "url": "https://www.curling.lu/wp-content/uploads/2025/10/20250430-102340_-6518-scaled.jpg",
-      "status": 200,
-      "content_type": "image/jpeg",
-      "bytes": 572780,
-      "sha256": "73d00440b4aadc5ae05edb628a4f6b5795b519db8d0bc25187569bec6464d882",
-      "source_families": []
-    },
-    {
-      "url": "https://www.curling.lu/team-letzebuerg-2-wins-2022-edition-of-4nations-cup",
+      "url": "https://www.curling.lu/category/news-archive/page/3",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 86411,
-      "sha256": "0a9da225bd87479ac548328c73adc81517f6d443e399df3e850a7fbc957907e8",
+      "bytes": 85538,
+      "sha256": "779805d8b5c131bee9f54d6fa6382418c4a6e82cf361d8e1e1f442ec8c99ca50",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:27.019699+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
-        "athlete_team_profiles"
+        "historical_digital_archives"
       ],
-      "title": "Team Lëtzebuerg 2 Wins 2022 Edition of 4Nations Cup – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\9c0faaa51c2e780f\\779805d8b5c131bee9f54d6fa6382418c4a6e82cf361d8e1e1f442ec8c99ca50.html.gz",
+      "title": "News Archive – Page 3 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/2021-edition-of-4-nations-cup-won-by-team-andorra",
+      "url": "https://www.curling.lu/category/news-archive/page/www.sport.public.lu/fr/sport-loisir/calendrier-sportif/sport-loisir_016-025.pdf",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.curling.lu/category/news-archive/page/6",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 80523,
-      "sha256": "7e3773971e43e0b115dbe9294de34b73709de019b8fae590a01a9ac66fad8d33",
+      "bytes": 84049,
+      "sha256": "96d196cc6de85e0a7a20a0e49b3674f4fbaf6ae2e8307f353d7ccd288f350339",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:37.092014+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
-        "athlete_team_profiles"
+        "historical_digital_archives"
       ],
-      "title": "Team Andorra Wins 2021 Edition of 4 Nations Cup – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\0a0ba0596de7cb0f\\96d196cc6de85e0a7a20a0e49b3674f4fbaf6ae2e8307f353d7ccd288f350339.html.gz",
+      "title": "News Archive – Page 6 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/latest/page/2",
+      "url": "https://www.curling.lu/victoire-finale-in-extremis-de-notre-equipe-nationale",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 86940,
-      "sha256": "ce7da0a8bb09d86d8680446ed0f40243b86ad930e3700bb888a308ab9990a361",
+      "bytes": 81344,
+      "sha256": "fbd254957a9b0ad8ad306f41c3990613016be2c5f4e2679f1735406bf868641d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:46.541895+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Latest – Page 2 – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\b513f23e8f4535da\\fbd254957a9b0ad8ad306f41c3990613016be2c5f4e2679f1735406bf868641d.html.gz",
+      "title": "VICTOIRE FINALE IN EXTREMIS DE NOTRE EQUIPE NATIONALE – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/latest/page/57",
+      "url": "https://www.curling.lu/category/competitions/mini-tournament/page/2",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 79261,
-      "sha256": "b5be043f9f04ef1136099a5fb5606416f0a289cc611327fd56cc68a2c457302e",
+      "bytes": 92332,
+      "sha256": "281ccebd69b0d60f0ba42a2d3f63dab8b42b339d77460968db30b6d71fc285ed",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:56.251203+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Latest – Page 57 – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\38d4bd7f746f4a25\\281ccebd69b0d60f0ba42a2d3f63dab8b42b339d77460968db30b6d71fc285ed.html.gz",
+      "title": "Mini Tournament – Page 2 – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/last-stone-draw-decides-2021-22-coupe-de-luxembourg",
+      "url": "https://www.curling.lu/category/competitions/mini-tournament/page/3",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 80420,
-      "sha256": "2df62a543f019ff5302124ef1fee4602354c57a82b2895896e2837edc8fbd4c9",
+      "bytes": 80029,
+      "sha256": "5753bf37fb2edd1a9e4a954bed80ebfdbe72a3b77cc7019a95bf905b3a6f8f47",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:07.751113+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\bc652051c8d11602\\5753bf37fb2edd1a9e4a954bed80ebfdbe72a3b77cc7019a95bf905b3a6f8f47.html.gz",
+      "title": "Mini Tournament – Page 3 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/category/competitions/european-championships/page/2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 81329,
+      "sha256": "05ea77fb8eedd8e5096362b7dd1d27d0e47f7f82d8ba2f12ec3ad43aae2e9fb8",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:16.489852+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\2c52271d4ca65e36\\05ea77fb8eedd8e5096362b7dd1d27d0e47f7f82d8ba2f12ec3ad43aae2e9fb8.html.gz",
+      "title": "European Championships – Page 2 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/category/competitions/european-championships/page/6",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 270251,
+      "sha256": "b02fba337b4b159574c6c41a0055f8020b42b54ca30561906cbb9551285f0af2",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:26.416343+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\2dad9c26371be858\\b02fba337b4b159574c6c41a0055f8020b42b54ca30561906cbb9551285f0af2.html.gz",
+      "title": "European Championships – Page 6 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/category/competitions/european-championships/ecc-c-erzurum-2012",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 104784,
+      "sha256": "0af9b0e052d7f6bbe7bb8888a40fc8bbb49daa5b82d7485821a366504ec1b9a1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:29.397177+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\859729458cf6eed7\\0af9b0e052d7f6bbe7bb8888a40fc8bbb49daa5b82d7485821a366504ec1b9a1.html.gz",
+      "title": "ECC-C Erzurum 2012 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/ecc-c-erzurum-2012-final-ranking",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 88444,
+      "sha256": "229a0d1a0b798793c34fe45836d85194d8788b25d6b8ee0af8cbda3a40827805",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:36.227600+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "rankings"
+      ],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\ff02be4c1574c4e1\\229a0d1a0b798793c34fe45836d85194d8788b25d6b8ee0af8cbda3a40827805.html.gz",
+      "title": "ECC-C Erzurum 2012 – Final Ranking – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/802",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 83790,
+      "sha256": "b446883b291761747060afec1ecf4c0ad76827b78e77d7700a2dd350ea86b44f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:46.751689+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "calendar_draws",
-        "national_events_results"
+        "clubs_facilities"
       ],
-      "title": "Last Stone Draw decides 2021/22 Coupe de Luxembourg – Curling Luxembourg"
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\b5f0814338f91890\\b446883b291761747060afec1ecf4c0ad76827b78e77d7700a2dd350ea86b44f.html.gz",
+      "title": "4 Neighbour Nations Curling Club Cup 2012 – Schedule – Curling Luxembourg"
     },
     {
-      "url": "https://www.curling.lu/team-letzeburg-wins-beneleux-championship",
+      "url": "https://www.curling.lu/zoetermeer-summercup-2015",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 82287,
-      "sha256": "da66f92bb7401eea3bd5ee25acbf26d68b31d22f5ac5f40ffd7fc2fc555aee63",
-      "source_families": [
-        "athlete_team_profiles",
-        "national_events_results"
-      ],
-      "title": "Team Lëtzebuerg Wins Beneleux Championship – Curling Luxembourg"
+      "bytes": 77668,
+      "sha256": "df32ac880bee39d51213a5f2cedae3d2b8fcbf0e7a63bf6e40dd6006aa0f152d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:56.417336+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\5beb86f20a80c3d8\\df32ac880bee39d51213a5f2cedae3d2b8fcbf0e7a63bf6e40dd6006aa0f152d.html.gz",
+      "title": "Zoetermeer Summercup 2015 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/latest/page/8",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 78807,
+      "sha256": "626943440e572d9166957429f852f94011e3a6d9613428c179584212cfaa3ac5",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:22:06.386395+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\3e7bc2b798dd31e2\\626943440e572d9166957429f852f94011e3a6d9613428c179584212cfaa3ac5.html.gz",
+      "title": "Latest – Page 8 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/author/webmaster/page/5",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 79217,
+      "sha256": "a90efb3cedb5f896a220731898ec43cd1e0ddcaceab7f8516df0d9767659a077",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:22:16.269891+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\4e8a7d8f6704be30\\a90efb3cedb5f896a220731898ec43cd1e0ddcaceab7f8516df0d9767659a077.html.gz",
+      "title": "webmaster – Page 5 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/author/webmaster/page/50",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 84920,
+      "sha256": "251c57d01bb965a6d9df00511431cba3f3424ca8096e65d8ebbd10ff7952a922",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:22:26.107020+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\84320ab03b3e008e\\251c57d01bb965a6d9df00511431cba3f3424ca8096e65d8ebbd10ff7952a922.html.gz",
+      "title": "webmaster – Page 50 – Curling Luxembourg"
+    },
+    {
+      "url": "https://www.curling.lu/5160-2",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 80653,
+      "sha256": "94e0e10a2d4257a27aabd022b1d3bb396f4efbf28a11e25a3fd707c86b2b389c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:22:36.076917+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lux\\d026f6b61feb0223\\94e0e10a2d4257a27aabd022b1d3bb396f4efbf28a11e25a3fd707c86b2b389c.html.gz",
+      "title": "4.Lentparkpokal in Cologne – Curling Luxembourg"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 19,
   "pages_blocked": 0,
-  "pages_failed": 0,
+  "pages_failed": 1,
   "family_candidates": [
-    "athlete_team_profiles",
     "calendar_draws",
-    "national_events_results"
+    "clubs_facilities",
+    "historical_digital_archives",
+    "national_events_results",
+    "rankings"
   ]
 }

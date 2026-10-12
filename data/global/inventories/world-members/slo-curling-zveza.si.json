@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:27.994936+00:00",
+  "generated_at": "2026-10-12T02:22:45.942303+00:00",
   "country_code": "SLO",
   "country": "Slovenia",
   "association": "Slovenian Curling Association",
@@ -12,8 +12,8 @@
   "pages": [
     {
       "url": "https://www.curling-zveza.si",
-      "status": "error",
-      "error": "HTTP Error 403: Forbidden"
+      "status": "robots_unavailable",
+      "error": "Could not verify robots.txt; collection stopped."
     }
   ],
   "pages_fetched": 0,

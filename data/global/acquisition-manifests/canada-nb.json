@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-nb",
+  "pages": {
+    "https://www.curlingnb.com": {
+      "url": "https://www.curlingnb.com",
+      "status": 304,
+      "final_url": "https://curlingnb.com/",
+      "content_type": "text/html",
+      "bytes": 231938,
+      "sha256": "ba6a41d692c360e731d4e399daa347cca79a8b1bb8dc6b34be9980dd640dc8f5",
+      "etag": null,
+      "last_modified": "Sun, 11 Oct 2026 07:41:53 GMT",
+      "retrieved_at": "2026-10-11T17:29:22.281469+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-nb\\f2eeec8990a61f77\\ba6a41d692c360e731d4e399daa347cca79a8b1bb8dc6b34be9980dd640dc8f5.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T02:03:33.371168+00:00"
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:03:33.507398+00:00",
+  "checkpoint_seed": null
+}

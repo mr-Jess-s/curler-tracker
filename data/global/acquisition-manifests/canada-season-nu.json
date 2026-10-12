@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-season-nu",
+  "pages": {
+    "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f": {
+      "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f",
+      "status": 304,
+      "final_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f",
+      "content_type": "application/json",
+      "bytes": 619,
+      "sha256": "7186409f96c398edb7a0a336b2ea2c78711527cedc05936f6bd68dcb9de8aeb7",
+      "etag": "W/\"7186409f96c398edb7a0a336b2ea2c78\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T01:51:43.023281+00:00",
+      "raw_path": "data\\raw\\canada-current-season\\canada-season-nu\\5af85173dde1952f\\7186409f96c398edb7a0a336b2ea2c78711527cedc05936f6bd68dcb9de8aeb7.bin.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T01:57:40.241542+00:00"
+    },
+    "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f": {
+      "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f",
+      "status": 304,
+      "final_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f",
+      "content_type": "application/json",
+      "bytes": 356,
+      "sha256": "05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485",
+      "etag": "W/\"05eee123b73575bc0e65cb4f04c36b91\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T01:58:57.965256+00:00",
+      "raw_path": "data\\raw\\canada-current-season\\canada-season-nu\\513de4234bb06be5\\05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485.bin.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T01:59:55.501811+00:00"
+    },
+    "https://api.curling.io/en/clubs/nu/competitions": {
+      "url": "https://api.curling.io/en/clubs/nu/competitions",
+      "status": 304,
+      "final_url": "https://api.curling.io/en/clubs/nu/competitions",
+      "content_type": "application/json",
+      "bytes": 356,
+      "sha256": "05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485",
+      "etag": "W/\"05eee123b73575bc0e65cb4f04c36b91\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T08:11:23.380337+00:00",
+      "raw_path": "data\\raw\\canada-current-season\\canada-season-nu\\a254a9713087119d\\05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485.bin.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T20:35:31.614591+00:00"
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T20:35:31.614603+00:00"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:10.472524+00:00",
+  "generated_at": "2026-10-12T02:16:48.837719+00:00",
   "country_code": "ENG",
   "country": "England",
   "association": "English Curling Association",
@@ -15,10 +15,15 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 50241,
-      "sha256": "1f5a7b32e4df911e8c3c91e1de279d71c9534846586f92b4107aaf3ee2ca2b16",
+      "sha256": "f33197df86a102600b38e376c3aec0ac7d4cb6852dcdf5f6bb0637ff189ac644",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:15.191956+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\86a2efe31272f46c\\f33197df86a102600b38e376c3aec0ac7d4cb6852dcdf5f6bb0637ff189ac644.html.gz",
       "title": "English Curling Association"
     },
     {
@@ -26,10 +31,15 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 50234,
-      "sha256": "f3a0b0cd7ed1056d411c16d0bfc949c78bc1e4bda9880fee5cdf4b900ee7ef03",
+      "sha256": "e5db1982b22347548adb99bf356296b0e2fc0f0eab69905b7e7725bf59d987a2",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:16.973702+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\1fc3b41303880ba7\\e5db1982b22347548adb99bf356296b0e2fc0f0eab69905b7e7725bf59d987a2.html.gz",
       "title": "News – English Curling Association"
     },
     {
@@ -37,10 +47,15 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 50457,
-      "sha256": "9aba1fb3260bdd22c88353377ee68025302a6ef234dbae30960324696d0c63bd",
+      "sha256": "9ad6e93da6602cf85e994ae14aa7f19a244fd26f9e687e90b89bfed437efb52b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:18.426765+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\037cb81c8cef5e5c\\9ad6e93da6602cf85e994ae14aa7f19a244fd26f9e687e90b89bfed437efb52b.html.gz",
       "title": "Structure – English Curling Association"
     },
     {
@@ -48,11 +63,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 51745,
-      "sha256": "741018208daf0a840655d81e9520f175d23362df31f632afa5625782e2a6be4a",
+      "sha256": "964e8d6c63f3065c55590a245acc8353c3ad1841f4f76b133f8e5f169ab8f61e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:20.105861+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "historical_digital_archives",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\6bf2c8b89fa7c0eb\\964e8d6c63f3065c55590a245acc8353c3ad1841f4f76b133f8e5f169ab8f61e.html.gz",
       "title": "History – English Curling Association"
     },
     {
@@ -60,10 +80,15 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 50202,
-      "sha256": "d22b916186e6bee671ddcfab144854da6c55ccb4955461b163bb294a8d726845",
+      "sha256": "d68491a07ceb68e6d7d823d488035bc238c7668b8ecc846851b34f25dd9c5a29",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:21.969736+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\ccda70e2c67a153e\\d68491a07ceb68e6d7d823d488035bc238c7668b8ecc846851b34f25dd9c5a29.html.gz",
       "title": "Upcoming Competitions – English Curling Association"
     },
     {
@@ -71,11 +96,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 59518,
-      "sha256": "3496845f7ce411381a2cacb4fa85b2128eebbe5b87abe6a3bd2439cac9e9e993",
+      "sha256": "b002a8f2e9cc24d4a4d73b9c144ef6a13f009bfcf136cac9b38c0ea41fb2a23e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:23.930166+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\b603bc6a660cdef2\\b002a8f2e9cc24d4a4d73b9c144ef6a13f009bfcf136cac9b38c0ea41fb2a23e.html.gz",
       "title": "Men’s Championship – Winners – English Curling Association"
     },
     {
@@ -83,11 +113,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 52869,
-      "sha256": "a7e50c85967df45bcbfd78be06f377fd28dbcc27f95d7f23bfd3fb9208c29388",
+      "sha256": "df3f3e5e1223dfe3d069c7c4ef74f6247b19d0d995e028c79ec8a92ddf1436fc",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:25.937090+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\05a55f10080cf224\\df3f3e5e1223dfe3d069c7c4ef74f6247b19d0d995e028c79ec8a92ddf1436fc.html.gz",
       "title": "Women’s Championship – English Curling Association"
     },
     {
@@ -95,11 +130,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 47449,
-      "sha256": "e2d3bb937ec2763dc2241fabfdb384951ec5dcb8868c490ac1387b49f5261f7e",
+      "sha256": "9f1075b787a2d363ec8703a136b6212f7cb2836f8ef8ffd1d2c4c7173f360b39",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:27.611901+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\36b4bdb14e627870\\9f1075b787a2d363ec8703a136b6212f7cb2836f8ef8ffd1d2c4c7173f360b39.html.gz",
       "title": "Mixed Doubles Championships – English Curling Association"
     },
     {
@@ -107,11 +147,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 48271,
-      "sha256": "e9afb333c9885ac5be45ec1e21016a0b4a57c8b532480cdf8a240b43a5baef41",
+      "sha256": "a23726dd210d93840cda9b5c9d3633d3144763f702a9e4ee5941ceb09b1f638d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:29.682992+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\24148e74f04799b3\\a23726dd210d93840cda9b5c9d3633d3144763f702a9e4ee5941ceb09b1f638d.html.gz",
       "title": "Junior Girls Championships – English Curling Association"
     },
     {
@@ -119,11 +164,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 48152,
-      "sha256": "6cceb83d989ead5f454d3a4908dc916f2f1c4caa367d99ab22a7dce57ac7d121",
+      "sha256": "517019175aac70ab3ac38e65dd904660562eca5115e05e21b457ef35b1314504",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:31.569041+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\9abacd5f2c9c9024\\517019175aac70ab3ac38e65dd904660562eca5115e05e21b457ef35b1314504.html.gz",
       "title": "Junior Boys Championships – English Curling Association"
     },
     {
@@ -131,11 +181,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 51227,
-      "sha256": "ff30a955b4f08654c37287e3dcb1016a7f2de011c81440a1f25255ce2afdf272",
+      "sha256": "e9d2a0a410c53004f44024d80851197a6722d63a0f0878becaa6961719066e31",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:33.157668+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\daa850749969d681\\e9d2a0a410c53004f44024d80851197a6722d63a0f0878becaa6961719066e31.html.gz",
       "title": "Mixed Championship – English Curling Association"
     },
     {
@@ -143,11 +198,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 48574,
-      "sha256": "72ce100fbfcc9790e18314a07a00ef6bc63c92310b2590a1ef607e4a9cd8732b",
+      "sha256": "1da9f1e8c2ed24974f3035991f39df236f91f3238cb95e150bd28a8a4ffae2eb",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:35.047131+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\721c45f2cb80f1dd\\1da9f1e8c2ed24974f3035991f39df236f91f3238cb95e150bd28a8a4ffae2eb.html.gz",
       "title": "Senior Women’s Championships – English Curling Association"
     },
     {
@@ -155,11 +215,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 49473,
-      "sha256": "092f5f85a4f04f72fe67edab2ec363d05443190be39965dbcb58cfa5324e4e81",
+      "sha256": "46783279683badf7f5fa84de04bdeb425e0dcffa688ff5f0d6145d1023ab5e3c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:36.726636+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\8232ac31393a80fa\\46783279683badf7f5fa84de04bdeb425e0dcffa688ff5f0d6145d1023ab5e3c.html.gz",
       "title": "Senior Men’s Championship – English Curling Association"
     },
     {
@@ -167,11 +232,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 46318,
-      "sha256": "a35866fc851f31a3509eb18ef3de1946925162a58c0b0d4ab39fb6bcc8f849bc",
+      "sha256": "023427690b4a928a4a343d39cca490ea1ca7edc84bfa77d9171e0846c1f36937",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:38.230279+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\0e1531b0c2b5d45e\\023427690b4a928a4a343d39cca490ea1ca7edc84bfa77d9171e0846c1f36937.html.gz",
       "title": "Clubs – English Curling Association"
     },
     {
@@ -179,11 +249,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 46066,
-      "sha256": "49ababb4a62e6c6e3127af2a81c637145b2c7f28c6a5f22751b23b6c1fa3d951",
+      "sha256": "32894775a6bcd2a14b0d74a4e35407abfa265224958c12aceb58b0ebddb0e616",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:39.967457+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\f4e893b5fbb35d0d\\32894775a6bcd2a14b0d74a4e35407abfa265224958c12aceb58b0ebddb0e616.html.gz",
       "title": "Glendale CC Info – English Curling Association"
     },
     {
@@ -191,11 +266,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 45823,
-      "sha256": "fca7f6bddc58516d2bf963a54ab17efb2ccccc6e300ecb98b941a4d38255027a",
+      "sha256": "46d88dda59124194a730bab3d96600b377e5164d790534e7ec0d060b37c35c0f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:41.541453+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\1f96575ed6b14dd9\\46d88dda59124194a730bab3d96600b377e5164d790534e7ec0d060b37c35c0f.html.gz",
       "title": "London CC Info – English Curling Association"
     },
     {
@@ -203,11 +283,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 48708,
-      "sha256": "69f10d769470ed891b595b3268b321e221fbd072b42e207f0bff4d606980e30b",
+      "sha256": "74f91702cad9eec151f4a88518af37400516f2d18bee7566cf7e4bac9757d48a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:43.849921+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\52f144a178fb8f71\\74f91702cad9eec151f4a88518af37400516f2d18bee7566cf7e4bac9757d48a.html.gz",
       "title": "Preston CC Info – English Curling Association"
     },
     {
@@ -215,11 +300,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 46061,
-      "sha256": "5cbac87b1b3955896f7245fca802480500514d098be6f8accbfee2e1b5ac15a9",
+      "sha256": "0e30bd6a71ec64661e51bf8bc0f6a3d1bf10bd87852b821541c51770568248fc",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:45.535611+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\5e513511923b1fd6\\0e30bd6a71ec64661e51bf8bc0f6a3d1bf10bd87852b821541c51770568248fc.html.gz",
       "title": "South of England CC Info – English Curling Association"
     },
     {
@@ -227,11 +317,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 45704,
-      "sha256": "b9178dea0771d27075ee1fa2c43a085d9f4884a9482343b4e12c905d0bdd6834",
+      "sha256": "c55b61503dd85f508c16cf54e322163c6394fb7e7714d3770c84cd0c19f2f37b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:47.106872+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\bff20ee6635abe62\\c55b61503dd85f508c16cf54e322163c6394fb7e7714d3770c84cd0c19f2f37b.html.gz",
       "title": "St George’s Curling Club Info – English Curling Association"
     },
     {
@@ -239,11 +334,16 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 47344,
-      "sha256": "8a69779c02f8fd5e2048ca3d2370670980f727b74b76605af008de1ef3a99caf",
+      "sha256": "b59658df2ac3023bb069ddab11af1ccce1119c4fa4b11222431943489a37832a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:48.712455+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "clubs_facilities",
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-eng\\9ce11d72b15439c9\\b59658df2ac3023bb069ddab11af1ccce1119c4fa4b11222431943489a37832a.html.gz",
       "title": "Cambridge CC Info – English Curling Association"
     }
   ],

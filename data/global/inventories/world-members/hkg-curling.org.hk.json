@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:30.176298+00:00",
+  "generated_at": "2026-10-12T02:17:42.852814+00:00",
   "country_code": "HKG",
   "country": "Hong Kong, China",
   "association": "Curling Hong Kong China",
@@ -14,9 +14,14 @@
       "url": "https://www.curling.org.hk",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 29838,
-      "sha256": "0c781ffe233d483ee9efe4ce3db03789772e41539712bdc8478af6f4285e553a",
+      "bytes": 29848,
+      "sha256": "511b012660442e7376feee43ec5121e8a9e77661e881ebb989d93efb28b87727",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:20.556848+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\fde9005cc37bd29a\\511b012660442e7376feee43ec5121e8a9e77661e881ebb989d93efb28b87727.html.gz",
       "title": "Curling Hong Kong China"
     },
     {
@@ -24,8 +29,13 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 30545,
-      "sha256": "6abd413836dd6097f4e23b501b591ec012f141bde9076936bab2595c50a5bec4",
+      "sha256": "249b71cf57336c9c5a645fcf2ff58a1aeb04327e4fb191955d7030b4ea16dab8",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:21.978357+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\a956a5f04ae755cc\\249b71cf57336c9c5a645fcf2ff58a1aeb04327e4fb191955d7030b4ea16dab8.html.gz",
       "title": "About Us - Curling Hong Kong China"
     },
     {
@@ -33,8 +43,13 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 27213,
-      "sha256": "ee32827af8480283bd6acf6ac741510eb60d555efa6edaf0547e1293c2bfd5db",
+      "sha256": "2ca6710a4292d40b01f5b2d244836357417649ea4082bdf87e0132254ef790de",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:23.302084+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\0f4042f9c5b7b6f6\\2ca6710a4292d40b01f5b2d244836357417649ea4082bdf87e0132254ef790de.html.gz",
       "title": "What is Curling - Curling Hong Kong China"
     },
     {
@@ -42,19 +57,29 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 272852,
-      "sha256": "5bf5e39028c3ce8978c890c17f8788be12ff0d8248460aedb95fbec010f58e72",
+      "sha256": "61ec74ae7db5f3937eb564a90f7796dd40d1841ec4d37268aee5486152d63b23",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:25.665025+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "athlete_team_profiles"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\7b8ca23cc28e10f4\\61ec74ae7db5f3937eb564a90f7796dd40d1841ec4d37268aee5486152d63b23.html.gz",
       "title": "Our Teams - Curling Hong Kong China"
     },
     {
       "url": "https://www.curling.org.hk/en/news-media",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 121208,
-      "sha256": "3701bc7038aba5605f9e59a1b48f20ca7758fe302ef67fa9740932393ba1e911",
+      "bytes": 131141,
+      "sha256": "5ac1a698a9aba45d33318b6af7c1d4898e921fe2df25c81f1149eb7ec5b21d64",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:29.225393+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\615f13379c0b409b\\5ac1a698a9aba45d33318b6af7c1d4898e921fe2df25c81f1149eb7ec5b21d64.html.gz",
       "title": "News & Documents - Curling Hong Kong China"
     },
     {
@@ -62,17 +87,27 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 24914,
-      "sha256": "abddcb4853741e97bdc174369ccd62401a4146176e77e4758e3f1640a2019d11",
+      "sha256": "b8e80ff53d19e54b82529f6d0b72fa0b7d914d95228a6670ae9da556fb211281",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:30.854244+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\685cd0aaab9c322f\\b8e80ff53d19e54b82529f6d0b72fa0b7d914d95228a6670ae9da556fb211281.html.gz",
       "title": "Contact Us - Curling Hong Kong China"
     },
     {
       "url": "https://www.curling.org.hk/zh-hant",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 30197,
-      "sha256": "4c526342acb6d2cd7a1edb0877df0698e796a362039c6fc7b45ad410d6363268",
+      "bytes": 29694,
+      "sha256": "4bbc94f7050457f14d52c8df5c7ac7612499319877575ba67d489124539f925b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:32.248085+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\2108b1c2223591ef\\4bbc94f7050457f14d52c8df5c7ac7612499319877575ba67d489124539f925b.html.gz",
       "title": "中國香港冰壺"
     },
     {
@@ -80,8 +115,13 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 29200,
-      "sha256": "a77992fe23c08cc134b210a3ee85fc0d2a06f9a8561e05d9b745833183ed3698",
+      "sha256": "4ce177285d8a761c22e2d5c73ad165a455159cb5f35423984d1011186f94b38b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:35.465567+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\4c823672bc066ce6\\4ce177285d8a761c22e2d5c73ad165a455159cb5f35423984d1011186f94b38b.html.gz",
       "title": "關於我們 - 中國香港冰壺"
     },
     {
@@ -89,8 +129,13 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 27039,
-      "sha256": "7f1be0981b83ffab0857c1d0ef4ee18e4abbb868b219e2a866b70bd73a6f5347",
+      "sha256": "a6f9e94243e405baa57fced6f3c6f21718c7a828ec8185c0177c796faea30c9c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:37.296398+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\3e9549a969ae9f93\\a6f9e94243e405baa57fced6f3c6f21718c7a828ec8185c0177c796faea30c9c.html.gz",
       "title": "什麼是冰壺 - 中國香港冰壺"
     },
     {
@@ -98,19 +143,29 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 267821,
-      "sha256": "930f97911886b6b286039d3dae8f61b1c72370c123b52050005c79ca055dd9a6",
+      "sha256": "0fd3225c6f9db8a41e5198101bdc26a815dbea3b84d09c9e04cc1ebfa47c9900",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:39.443771+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "athlete_team_profiles"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\ebdc139ca20afc0d\\0fd3225c6f9db8a41e5198101bdc26a815dbea3b84d09c9e04cc1ebfa47c9900.html.gz",
       "title": "我們的團隊 - 中國香港冰壺"
     },
     {
       "url": "https://www.curling.org.hk/zh-hant/news-media",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 125005,
-      "sha256": "1e0f0d3daa92695deaab37a8b83eb2dcbe4c819294ed3b29557b6e9c4e110d81",
+      "bytes": 133253,
+      "sha256": "cb44c05c2e67d807780a507ae0f740d3a5e39b1099b74a92c44b6b96feaad93f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:41.315841+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\536bc14562630343\\cb44c05c2e67d807780a507ae0f740d3a5e39b1099b74a92c44b6b96feaad93f.html.gz",
       "title": "消息及文件 - 中國香港冰壺"
     },
     {
@@ -134,6 +189,10 @@
       "status": "robots_disallowed"
     },
     {
+      "url": "https://www.curling.org.hk/storage/media/Corporate Documents/Membership Guidelines Curling Hong Kong China.pdf",
+      "status": "robots_disallowed"
+    },
+    {
       "url": "https://www.curling.org.hk/storage/media/Corporate Documents/Selection Policy.pdf",
       "status": "robots_disallowed"
     },
@@ -142,13 +201,18 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 25014,
-      "sha256": "0a4e690a0b5389cae3f13b136d9863b8abc30a759c8e8846ff11bc9513dd81d1",
+      "sha256": "da3531e363172eb8c9dbbf5aef55adb5f81f171dfe3a49748317d23321264203",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:42.709178+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-hkg\\0156471e1a0bea60\\da3531e363172eb8c9dbbf5aef55adb5f81f171dfe3a49748317d23321264203.html.gz",
       "title": "聯繫我們 - 中國香港冰壺"
     }
   ],
   "pages_fetched": 12,
-  "pages_blocked": 6,
+  "pages_blocked": 7,
   "pages_failed": 0,
   "family_candidates": [
     "athlete_team_profiles"

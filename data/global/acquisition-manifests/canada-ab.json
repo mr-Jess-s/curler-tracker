@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-ab",
+  "pages": {
+    "https://www.curlingalberta.ca": {
+      "url": "https://www.curlingalberta.ca",
+      "status": 200,
+      "final_url": "https://curlingalberta.ca/",
+      "content_type": "text/html",
+      "bytes": 458394,
+      "sha256": "587b020fb8679d7c45213ed7e6c10f61937aa945cb7183fd9a8db8b3f1f0dadf",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:28.085753+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-ab\\a88c84cf225948ec\\587b020fb8679d7c45213ed7e6c10f61937aa945cb7183fd9a8db8b3f1f0dadf.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:03:28.221671+00:00",
+  "checkpoint_seed": null
+}

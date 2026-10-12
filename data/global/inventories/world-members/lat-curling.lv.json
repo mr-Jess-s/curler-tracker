@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:00.138891+00:00",
+  "generated_at": "2026-10-12T02:19:38.337621+00:00",
   "country_code": "LAT",
   "country": "Latvia",
   "association": "Latvian Curling Association",
@@ -14,9 +14,14 @@
       "url": "https://www.curling.lv",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 183647,
-      "sha256": "9333f6ec7e48d69f7e0db94f7ac04c304330f24892fb56e96535b8fdb617ab3f",
+      "bytes": 182832,
+      "sha256": "cfc3f768021d4bc9fe40346755433886d9e6f4a18d197bbbecee086ddf0b32be",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:38.206950+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-lat\\cbb0d3fe0196bb76\\cfc3f768021d4bc9fe40346755433886d9e6f4a18d197bbbecee086ddf0b32be.html.gz",
       "title": "Latvijas Kērlinga Asociācija – Jaunumi un aktualitātes Latvijas kērlingā"
     }
   ],

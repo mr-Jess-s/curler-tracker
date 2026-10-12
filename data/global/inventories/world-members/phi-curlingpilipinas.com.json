@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:25:18.882289+00:00",
+  "generated_at": "2026-10-12T02:21:37.162211+00:00",
   "country_code": "PHI",
   "country": "Philippines",
   "association": "Curling Pilipinas",
@@ -14,11 +14,16 @@
       "url": "https://www.curlingpilipinas.com",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 279970,
-      "sha256": "db5bd866953514507eefcbbddc11b531cc5222c955663ecd519e307489fe707b",
+      "bytes": 283217,
+      "sha256": "c153efbbdf8e68615741e3879794e35bb069190b082d1919be899d27f2759e7a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:37.018552+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "subnational_governance"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-phi\\acb2031509dc3f4b\\c153efbbdf8e68615741e3879794e35bb069190b082d1919be899d27f2759e7a.html.gz",
       "title": "Curling Pilipinas – The National Sports Association (NSA) of Philippine curling."
     }
   ],

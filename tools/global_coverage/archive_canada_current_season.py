@@ -125,7 +125,7 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
             source["inspected_competitions"] = max_checks
             source["truncated"] = max_checks < len(published)
             source["event_fetch_errors"] = failures[:10]
-            source["state"] = "partial" if (source["truncated"] or failures) else "complete"
+            source["state"] = "partial" if (source["truncated"] or failures or len(candidates) > max_events_per_source) else "complete"
             source["published_events_in_season"] = len(candidates)
         except Exception as exc:
             source["state"] = "stale" if previous_sources.get(subdomain, {}).get("events") else "failed"

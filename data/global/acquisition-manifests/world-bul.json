@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-bul",
+  "pages": {
+    "https://www.curling.bg": {
+      "url": "https://www.curling.bg",
+      "status": 200,
+      "final_url": "https://curling.bg/bg/%d0%bd%d0%b0%d1%87%d0%b0%d0%bb%d0%be/",
+      "content_type": "text/html",
+      "bytes": 43938,
+      "sha256": "10c1d6ad0c1e33ce0088fb4c1c9ae4666e93c61f5b80067564b3b97312863e71",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:13:33.263335+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-bul\\eb3ae2a7abe8e431\\10c1d6ad0c1e33ce0088fb4c1c9ae4666e93c61f5b80067564b3b97312863e71.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:13:33.388626+00:00",
+  "checkpoint_seed": null
+}

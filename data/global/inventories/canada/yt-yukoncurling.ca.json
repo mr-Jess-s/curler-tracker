@@ -1,21 +1,1025 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:35:16.503228+00:00",
+  "generated_at": "2026-10-12T02:04:48.198982+00:00",
   "country_code": "CAN-YT",
   "association": "Yukon Curling Association",
   "scope": "Yukon",
   "seed_url": "https://www.yukoncurling.ca",
   "robots_url": "https://www.yukoncurling.ca/robots.txt",
-  "robots_loaded": false,
+  "robots_loaded": true,
   "pages": [
     {
       "url": "https://www.yukoncurling.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 32774,
+      "sha256": "022e367e2cd601973c3bd0c3ea9486019ab824605ba3248439a15a39f3597446",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:17.856772+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\ea679731bb339e29\\022e367e2cd601973c3bd0c3ea9486019ab824605ba3248439a15a39f3597446.html.gz",
+      "title": "Welcome to the Yukon Curling Association"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2f",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29033,
+      "sha256": "cf51c3c4de8ed10c75da0e052cb77f2f7442ce9fb0df6b852d81a26c70b869d7",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:18.368744+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\2c808420ea911665\\cf51c3c4de8ed10c75da0e052cb77f2f7442ce9fb0df6b852d81a26c70b869d7.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/About-the-Yukon-Curling-Association",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 27226,
+      "sha256": "1e377928b67c06de3c2245c55d9684d23f80215879ebee9f27ecaddf3fa3c109",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:18.946125+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\91a48df10661f353\\1e377928b67c06de3c2245c55d9684d23f80215879ebee9f27ecaddf3fa3c109.html.gz",
+      "title": "About the Yukon Curling Association"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/Board-of-Directors-2023-2024",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26121,
+      "sha256": "567be5038cb3257ad932de1fcb42d94fd5eb7883280e9acd487db1f6c15c8236",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:19.763932+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\cfa05708dd1c3165\\567be5038cb3257ad932de1fcb42d94fd5eb7883280e9acd487db1f6c15c8236.html.gz",
+      "title": "Yukon Curling Association Board of Directors"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/Bylaws",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 25648,
+      "sha256": "0ef96f728f6ac7900a682fdbd80afd5e9196d3637ece2ff137d0fe0fc731df9d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:20.547156+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\ffa6552d3d824a0e\\0ef96f728f6ac7900a682fdbd80afd5e9196d3637ece2ff137d0fe0fc731df9d.html.gz",
+      "title": "Yukon Curling Association > About Us > Bylaws"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/Policy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26297,
+      "sha256": "dbf621fb89b298cb335201ada07db960e89efea47dbc853257b93040a1030c67",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:21.236752+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\40891cc1f9f30076\\dbf621fb89b298cb335201ada07db960e89efea47dbc853257b93040a1030c67.html.gz",
+      "title": "Yukon Curling Association > About Us > Policy"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/Contact-Info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26944,
+      "sha256": "60d750b3653115473bc8a04ccf2c11aa25511c571559bd8345cf0a182eec455a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:21.713048+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\5fd8d19182ce1bcd\\60d750b3653115473bc8a04ccf2c11aa25511c571559bd8345cf0a182eec455a.html.gz",
+      "title": "Yukon Curling Association > About Us > Contact Info"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/About-Us/Photos",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 114999,
+      "sha256": "b80cf3d6fbf6efb3c20992c08adf026add0d6bac81f9f9eebcd7481cbf7f318e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:23.188217+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\84670e825d10986e\\b80cf3d6fbf6efb3c20992c08adf026add0d6bac81f9f9eebcd7481cbf7f318e.html.gz",
+      "title": "Yukon Curling Association > About Us > Photos"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 54448,
+      "sha256": "ac4d9fe9a34d7f4b9998dc41ce7a31ed84324214a186c08b86534dba28209314",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:23.862714+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\70b9651cc9a09725\\ac4d9fe9a34d7f4b9998dc41ce7a31ed84324214a186c08b86534dba28209314.html.gz",
+      "title": "Yukon Curling Association > Championship > Championships"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Juniors-U15-U18-U21",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 49501,
+      "sha256": "b4cfc993f3a866e7bb4a63d78adad4cdb9ea515e660428cbf4601b1c2b9b4f71",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:24.471303+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\9d7845f4877d1e17\\b4cfc993f3a866e7bb4a63d78adad4cdb9ea515e660428cbf4601b1c2b9b4f71.html.gz",
+      "title": "Yukon Curling Association > Championship > Juniors U15, U18, U21"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Scotties-and-Brier",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 48491,
+      "sha256": "f2ca23250ad7ff17b2205d22e468c4e78565f8763e2d30c7de811afd011ced21",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:25.128855+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\3472e680fb9bb227\\f2ca23250ad7ff17b2205d22e468c4e78565f8763e2d30c7de811afd011ced21.html.gz",
+      "title": "Yukon Curling Association > Championship > Scotties and Brier"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Seniors-and-Masters",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 43068,
+      "sha256": "d9f7afde4741ed97d39d5697d17999bea5d46189a085a69e8254dc2178be256b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:25.611361+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\33806f9183d0644f\\d9f7afde4741ed97d39d5697d17999bea5d46189a085a69e8254dc2178be256b.html.gz",
+      "title": "Yukon Curling Association > Championship > Seniors and Masters"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Mixed-and-Mixed-Doubles",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 47396,
+      "sha256": "d6f68f44aba61805bb5249a66486bd55118b8bd47e3f1bb4734a3439d7fd57b9",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:26.251068+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\016a54d87af0a0b8\\d6f68f44aba61805bb5249a66486bd55118b8bd47e3f1bb4734a3439d7fd57b9.html.gz",
+      "title": "Yukon Curling Association > Championship > Mixed and Mixed Doubles"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/Club-Championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 25831,
+      "sha256": "7e2672906fde2bc87dc2815fb67f221b98717d4892aa094a48b550649926139f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:26.936208+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities",
+        "national_events_results",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\3d12d4e1758d79d0\\7e2672906fde2bc87dc2815fb67f221b98717d4892aa094a48b550649926139f.html.gz",
+      "title": "Yukon Curling Association > Championship > Club Championships"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Championship/CWG",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 37442,
+      "sha256": "144efd32061b544fca0c88a3ca56670a8bb0227fa9fb1fc896fa440e807b3c5c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:27.473841+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\d68b8d374991d9d0\\144efd32061b544fca0c88a3ca56670a8bb0227fa9fb1fc896fa440e807b3c5c.html.gz",
+      "title": "Canada Winter Games"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Membership/CC",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26495,
+      "sha256": "7888c1dc3c2bfba7968ab9dbf8b4a0be400a4e3f08d5bcc56f60daf3168cc441",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:27.976689+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\a3e43d6f4f841c1f\\7888c1dc3c2bfba7968ab9dbf8b4a0be400a4e3f08d5bcc56f60daf3168cc441.html.gz",
+      "title": "Yukon Curling Association > Membership > CC"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29881,
+      "sha256": "897310fa9d34f60f9b446066d940d77cae05c5a92aa94271a8c58fbcf46bde19",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:28.512014+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\a92c466ee43844a5\\897310fa9d34f60f9b446066d940d77cae05c5a92aa94271a8c58fbcf46bde19.html.gz",
+      "title": "Yukon Curling Association > Membership > Yukon Curling Clubs"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 25859,
+      "sha256": "faf3db650a50dd546625c8d1e943ed239ca3173da99bcc7e5473b4647cf4a589",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:28.988741+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\2b417958222bf44c\\faf3db650a50dd546625c8d1e943ed239ca3173da99bcc7e5473b4647cf4a589.html.gz",
+      "title": "Yukon Curling Association > Programs"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Athlete-Development",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26749,
+      "sha256": "41997886e2c6c0515e3e529770b6c8e89267b4e7043919e415bde9df2172caac",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:29.612645+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "athlete_team_profiles",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\2d1ef1c68c853eb2\\41997886e2c6c0515e3e529770b6c8e89267b4e7043919e415bde9df2172caac.html.gz",
+      "title": "Yukon Curling Association > Programs > Athlete Development"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Club-Development",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26784,
+      "sha256": "8129f2e744b75c73d8d50f8d7180a4798f62224c6f965a6d7f959349001bddb8",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:30.570716+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities",
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\cdb2b383889ab1cb\\8129f2e744b75c73d8d50f8d7180a4798f62224c6f965a6d7f959349001bddb8.html.gz",
+      "title": "Yukon Curling Association > Programs > Club Development"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Officials",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29575,
+      "sha256": "8a5124ac6146cdbb563d779be35dd5dfd5f46d4612deb7d8604d835da89375e6",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:31.146635+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\8195e88712a9dc95\\8a5124ac6146cdbb563d779be35dd5dfd5f46d4612deb7d8604d835da89375e6.html.gz",
+      "title": "Yukon Curling Association > Programs > Officials"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Coaching",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 32783,
+      "sha256": "7da3b9cf93501c31f035b34c6ca98aa59e68421f7db749551b9dd44eb32eab41",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:31.676899+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\4bc8600315601d10\\7da3b9cf93501c31f035b34c6ca98aa59e68421f7db749551b9dd44eb32eab41.html.gz",
+      "title": "Yukon Curling Association > Programs > Coaching"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Awards",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 26480,
+      "sha256": "116c95db67ef01d8bf633948838c7121831ad367bbc00e0fc1b29d869838d439",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:32.321568+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\363230d278cfc5c2\\116c95db67ef01d8bf633948838c7121831ad367bbc00e0fc1b29d869838d439.html.gz",
+      "title": "Yukon Curling Association > Programs > Awards"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Funding",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 33400,
+      "sha256": "62b68704d6bd31df8979d835ab6622d96f38ee4f5764c86bc4b4b62c45d6a052",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:32.788372+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\188795d4df4aa8bc\\62b68704d6bd31df8979d835ab6622d96f38ee4f5764c86bc4b4b62c45d6a052.html.gz",
+      "title": "Yukon Curling Association > Programs > Funding"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Links",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 27156,
+      "sha256": "e24050ea6aaeb8882de8477ae51b92cea55d2567021948c66e34a6ef9a2c3fe6",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:33.543668+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\1a23e3081f580d7f\\e24050ea6aaeb8882de8477ae51b92cea55d2567021948c66e34a6ef9a2c3fe6.html.gz",
+      "title": "Yukon Curling Association > Links"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Programs/Officials/Training-for-Officials",
       "status": "error",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/YCA%20Policies%202024%20update_1.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/YCA%202026%202027%20draft%20champ%20schedule_1.xlsx",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/Rules%20of%20Curling%20CC%202026%20ENGLISH.docx",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/2016-18_Sweeping-Moratorium.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Terms",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 60806,
+      "sha256": "801bdfb7b33207f116ec377e5e094c39af021427ef8896d8e2e207ffecf293c7",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:35.397027+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\80fd524f5ec35851\\801bdfb7b33207f116ec377e5e094c39af021427ef8896d8e2e207ffecf293c7.html.gz",
+      "title": "Welcome to the Yukon Curling Association"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Privacy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 41857,
+      "sha256": "afeb42b011d2736adb40142792a9f0f539a5e085a48c58f3c491023ced57d293",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:36.214169+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\0dfe45fd3eceea52\\afeb42b011d2736adb40142792a9f0f539a5e085a48c58f3c491023ced57d293.html.gz",
+      "title": "Welcome to the Yukon Curling Association"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fLogin",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29043,
+      "sha256": "38a9af88d815faf6baf5d33289b3e280818474bfe8fd95ee91dd4fc8dbc9f4f9",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:36.829395+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\ee2f999cef8af8d3\\38a9af88d815faf6baf5d33289b3e280818474bfe8fd95ee91dd4fc8dbc9f4f9.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Home/ctl/SendPassword?returnurl=https://www.yukoncurling.ca",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 25802,
+      "sha256": "c540e4ad2ea343c1bd9514842b84a6dc69386bdc457fc01c9696d176d464096c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:37.415049+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\06ebbd3ebdd90753\\c540e4ad2ea343c1bd9514842b84a6dc69386bdc457fc01c9696d176d464096c.html.gz",
+      "title": "Welcome to the Yukon Curling Association"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fAbout-the-Yukon-Curling-Association",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29123,
+      "sha256": "fd630bf68b3d265f7088efbc5de36894216ce97e02db1f28034ecad8122af454",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:37.935993+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "subnational_governance"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\290cb239b6deb9a2\\fd630bf68b3d265f7088efbc5de36894216ce97e02db1f28034ecad8122af454.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fBoard-of-Directors-2023-2024",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29109,
+      "sha256": "148d7277ba85b81732d41f63d48747070005e40a7a4f6660257153740ce128f5",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:39.021527+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\d819ba97f3fef368\\148d7277ba85b81732d41f63d48747070005e40a7a4f6660257153740ce128f5.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fBylaws",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29065,
+      "sha256": "03aa372bf9465b5ccfde3efd5ad57eca3b2e15918e9b80943e7890d1fb84b607",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:39.863280+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\6a3e9cd6ee498474\\03aa372bf9465b5ccfde3efd5ad57eca3b2e15918e9b80943e7890d1fb84b607.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/YCA%20bylaws%20_1.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fPolicy",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29065,
+      "sha256": "3cf2d94f53eeb1d32b22c57a546b78f0e337d7945c5f10fbb6c014e75b1adbfa",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:40.713871+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\6b26be2ad337169b\\3cf2d94f53eeb1d32b22c57a546b78f0e337d7945c5f10fbb6c014e75b1adbfa.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/YCA%20Policies%202024%20update.docx",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fContact-Info",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29077,
+      "sha256": "2b7f2ee5c96c9a8cf57e4dc70ee1955419cf3f91146c1874cf6e6d8c95dd3577",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:41.309061+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\af0c4d01943ed441\\2b7f2ee5c96c9a8cf57e4dc70ee1955419cf3f91146c1874cf6e6d8c95dd3577.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fAbout-Us%2fPhotos",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29065,
+      "sha256": "4071dc2f6e84a20f232f477896377048b2127609a2995cc68f0ce89e72218801",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:41.936401+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\fbf76c4fb403c354\\4071dc2f6e84a20f232f477896377048b2127609a2995cc68f0ce89e72218801.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-solberg.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-sias.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/martin-and-yk-stone.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/kevin-martin-and-yk-stone.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/marg-white.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/yukon-mencoach-002-.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/hostteamykon-all-002-.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-williams.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-miller.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-eby.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-dorosz.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-d-mikkelsen.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/senior-mens.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/yukon-junior-men-2008.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/yt_ladies_team.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/young_curlers.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/womens-pin.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/tj_delivery.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-hilderman-seniors.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/suzanneb.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/sg5_2281.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/sg5_2235.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/mitchs-shot.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/junior_skip.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/j_boys-house.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/house-sweep.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/hewitt217.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/entering.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/curling.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/curling-shot.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/curling-house.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-team-yeulet-senior.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-team-yeulet-mens.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-team-hilderman-s.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-koltun-team.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-doug-gee.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-darol.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2010-team-yukon-m.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2010-scotties-leslie.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2010-scotties-leslie-grant.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2008-girls-dec-07.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2008-boys-dec-07.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2007cwg-026.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/09-3-girls-curling.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-yukon-photo_1.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/team-yukon-photo.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/wheelchairwednesday.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/patty.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/juniors.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/andrea-and-kevin.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/piper.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/nwt-2-galusha.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/nwt-1-cormier.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/leaving-the-ice.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/hewitt-yt-2.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/first-rock.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/first-rock-2.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/cormier-nwt-1.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/baldwin-yt-1.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/2011-team-galusha-nwt.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/ModuleDNNGridGallery/3-olympians.jpg",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fChampionships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29087,
+      "sha256": "45bccf2851f236cb02733f3617aa64f35e7ca910837758cb4b70565cfacffb04",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:43.661170+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\7dc140a6956bd32e\\45bccf2851f236cb02733f3617aa64f35e7ca910837758cb4b70565cfacffb04.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/Illness%20Policy.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/FREE%20AGENT%20POLICY.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/residency-policy-formsfinal2017.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/eligibility_eventsSept2017.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fJuniors-U15-U18-U21",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29099,
+      "sha256": "b2ae2e761fe3ce60aaddf211558be40a182b54972fc8e95e4e58d845b98e3672",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:44.277439+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\045bcec6a1c7da5f\\b2ae2e761fe3ce60aaddf211558be40a182b54972fc8e95e4e58d845b98e3672.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/U-15%20Regional%20RockFest%20events%20%26%20Singles%20App%20FAQ.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/Exemption-Forms%282019%29-EN.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fScotties-and-Brier",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29097,
+      "sha256": "8a4e98025d26cd1f92b6dde6cc72a0afe8030df8cdc3e5c1c9a24b6da478ad79",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:44.858253+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\3481c5ffad4c553e\\8a4e98025d26cd1f92b6dde6cc72a0afe8030df8cdc3e5c1c9a24b6da478ad79.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fSeniors-and-Masters",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29099,
+      "sha256": "4bbea897799c27f7bcc04a209d59fb1d9b9398ee6ee6fc194fd498761fff6e33",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:45.381755+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\8ab1e6d2f9bd3449\\4bbea897799c27f7bcc04a209d59fb1d9b9398ee6ee6fc194fd498761fff6e33.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fMixed-and-Mixed-Doubles",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29107,
+      "sha256": "012f0f9fd88660913894487e60c9ad2e2f1a85f2e086d043250ac880f7a39999",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:45.896964+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\7edd1cee000e60c1\\012f0f9fd88660913894487e60c9ad2e2f1a85f2e086d043250ac880f7a39999.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fClub-Championships",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29097,
+      "sha256": "5564246f6105564390a745085d46c12d758df64c7c6190859b0aacea9872dd81",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:46.421007+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities",
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\33bd230e4161c3c0\\5564246f6105564390a745085d46c12d758df64c7c6190859b0aacea9872dd81.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Portals/0/Simplified_Curling%20Club%20Championships%20Eligibility_ENGLISH%20-%20Simplified_Curling%20Club%20Championships%20Eligibility_ENGLISH_1.pdf",
+      "status": "robots_disallowed"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fChampionship%2fCWG",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29067,
+      "sha256": "07bc34f0869d609efe0e39f56e4b7887d6c7a8f5ecb46816f24e219118873067",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:46.906381+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "national_events_results"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\34d6319259a2842a\\07bc34f0869d609efe0e39f56e4b7887d6c7a8f5ecb46816f24e219118873067.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fMembership%2fCC",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29061,
+      "sha256": "5c88b8313cdc5fa7efac7624d6b651a216420e9d18c5c5e5ef9fcd94f7a7c607",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:47.423556+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\f8f10c186aaea27f\\5c88b8313cdc5fa7efac7624d6b651a216420e9d18c5c5e5ef9fcd94f7a7c607.html.gz",
+      "title": "User Log In"
+    },
+    {
+      "url": "https://www.yukoncurling.ca/Login?returnurl=%2fMembership%2fYukon-Curling-Clubs",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 29095,
+      "sha256": "78f66b41861ad3b3d82b5ebfb5c41e45fdc1faa3121386d0dd2cd4a376bea021",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:04:48.081740+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [
+        "clubs_facilities"
+      ],
+      "raw_path": "data\\raw\\canada-associations\\canada-yt\\61a0e98d4ee148d9\\78f66b41861ad3b3d82b5ebfb5c41e45fdc1faa3121386d0dd2cd4a376bea021.html.gz",
+      "title": "User Log In"
     }
   ],
-  "pages_fetched": 0,
-  "pages_blocked": 0,
+  "pages_fetched": 44,
+  "pages_blocked": 75,
   "pages_failed": 1,
-  "family_candidates": []
+  "family_candidates": [
+    "athlete_team_profiles",
+    "clubs_facilities",
+    "national_events_results",
+    "subnational_governance"
+  ]
 }

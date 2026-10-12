@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:26:28.626505+00:00",
+  "generated_at": "2026-10-12T02:30:57.824856+00:00",
   "member_count": 80,
-  "inventoried": 57,
+  "inventoried": 44,
   "site_not_listed": 23,
-  "failed": 0,
+  "failed": 2,
+  "blocked": 11,
   "results": [
     {
       "code": "AFG",
@@ -19,14 +20,11 @@
       "association": "Andorra Curling Association",
       "seed_url": "https://www.faeg.ad",
       "status": "inventoried",
-      "pages_fetched": 19,
+      "pages_fetched": 20,
       "pages_blocked": 0,
-      "pages_failed": 1,
-      "families": [
-        "clubs_facilities",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:23:47.530122+00:00",
+      "pages_failed": 0,
+      "families": [],
+      "started_at": "2026-10-12T02:12:58.996468+00:00",
       "output": "data\\global\\inventories\\world-members\\and-faeg.ad.json"
     },
     {
@@ -53,11 +51,10 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [
-        "athlete_team_profiles",
         "calendar_draws",
         "national_events_results"
       ],
-      "started_at": "2026-09-26T11:23:47.530683+00:00",
+      "started_at": "2026-10-12T02:12:58.997173+00:00",
       "output": "data\\global\\inventories\\world-members\\aus-curling.org.au.json"
     },
     {
@@ -72,7 +69,7 @@
       "families": [
         "calendar_draws"
       ],
-      "started_at": "2026-09-26T11:23:47.531014+00:00",
+      "started_at": "2026-10-12T02:12:58.997691+00:00",
       "output": "data\\global\\inventories\\world-members\\aut-curling-austria.at.json"
     },
     {
@@ -87,9 +84,11 @@
       "families": [
         "athlete_team_profiles",
         "clubs_facilities",
+        "historical_digital_archives",
+        "national_events_results",
         "rankings"
       ],
-      "started_at": "2026-09-26T11:23:47.531092+00:00",
+      "started_at": "2026-10-12T02:12:58.997854+00:00",
       "output": "data\\global\\inventories\\world-members\\bel-belgiumcurling.be.json"
     },
     {
@@ -118,12 +117,12 @@
       "country": "Brazil",
       "association": "Brazilian Ice Sports Federation",
       "seed_url": "https://www.cbdg.org.br",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:23:47.581185+00:00",
+      "started_at": "2026-10-12T02:13:12.788264+00:00",
       "output": "data\\global\\inventories\\world-members\\bra-cbdg.org.br.json"
     },
     {
@@ -136,7 +135,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:23:47.581348+00:00",
+      "started_at": "2026-10-12T02:13:13.309456+00:00",
       "output": "data\\global\\inventories\\world-members\\bul-curling.bg.json"
     },
     {
@@ -144,29 +143,21 @@
       "country": "Canada",
       "association": "Curling Canada",
       "seed_url": "https://www.curling.ca",
-      "status": "inventoried",
-      "pages_fetched": 20,
-      "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [
-        "calendar_draws",
-        "historical_digital_archives",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:23:47.581504+00:00",
-      "output": "data\\global\\inventories\\world-members\\can-curling.ca.json"
+      "status": "failed",
+      "error": "[WinError 5] Access is denied: 'C:\\\\Jess\\\\curler-tracker\\\\data\\\\global\\\\acquisition-manifests\\\\world-can.json.tmp' -> 'C:\\\\Jess\\\\curler-tracker\\\\data\\\\global\\\\acquisition-manifests\\\\world-can.json'",
+      "started_at": "2026-10-12T02:13:33.391614+00:00"
     },
     {
       "code": "CHN",
       "country": "China",
       "association": "Chinese Curling Association",
       "seed_url": "https://www.sport.gov.cn",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:23:47.581776+00:00",
+      "started_at": "2026-10-12T02:14:33.274298+00:00",
       "output": "data\\global\\inventories\\world-members\\chn-sport.gov.cn.json"
     },
     {
@@ -179,7 +170,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:23:48.530597+00:00",
+      "started_at": "2026-10-12T02:14:33.951954+00:00",
       "output": "data\\global\\inventories\\world-members\\cro-curling.hr.json"
     },
     {
@@ -191,10 +182,8 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [
-        "subnational_governance"
-      ],
-      "started_at": "2026-09-26T11:23:48.926341+00:00",
+      "families": [],
+      "started_at": "2026-10-12T02:14:42.212886+00:00",
       "output": "data\\global\\inventories\\world-members\\cze-curling.cz.json"
     },
     {
@@ -206,11 +195,8 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:23:50.787941+00:00",
+      "families": [],
+      "started_at": "2026-10-12T02:15:31.966594+00:00",
       "output": "data\\global\\inventories\\world-members\\den-curling.dk.json"
     },
     {
@@ -235,7 +221,7 @@
         "national_events_results",
         "subnational_governance"
       ],
-      "started_at": "2026-09-26T11:23:52.573636+00:00",
+      "started_at": "2026-10-12T02:16:11.797559+00:00",
       "output": "data\\global\\inventories\\world-members\\eng-curlingengland.com.json"
     },
     {
@@ -247,11 +233,8 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [
-        "clubs_facilities",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:23:52.766887+00:00",
+      "families": [],
+      "started_at": "2026-10-12T02:16:12.300760+00:00",
       "output": "data\\global\\inventories\\world-members\\esp-rfedh.es.json"
     },
     {
@@ -264,7 +247,7 @@
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:05.553723+00:00",
+      "started_at": "2026-10-12T02:16:38.383919+00:00",
       "output": "data\\global\\inventories\\world-members\\est-kurling.ee.json"
     },
     {
@@ -277,7 +260,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:06.562312+00:00",
+      "started_at": "2026-10-12T02:16:47.825775+00:00",
       "output": "data\\global\\inventories\\world-members\\fin-curling.fi.json"
     },
     {
@@ -290,7 +273,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:08.967519+00:00",
+      "started_at": "2026-10-12T02:16:48.838811+00:00",
       "output": "data\\global\\inventories\\world-members\\fra-ffsg.org.json"
     },
     {
@@ -313,13 +296,13 @@
       "association": "German Curling Association",
       "seed_url": "https://www.curling-dcv.de/",
       "status": "inventoried",
-      "pages_fetched": 19,
+      "pages_fetched": 20,
       "pages_blocked": 0,
-      "pages_failed": 1,
+      "pages_failed": 0,
       "families": [
         "athlete_team_profiles"
       ],
-      "started_at": "2026-09-26T11:24:10.476553+00:00",
+      "started_at": "2026-10-12T02:16:59.893906+00:00",
       "output": "data\\global\\inventories\\world-members\\ger-curling-dcv.de.json"
     },
     {
@@ -332,7 +315,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:13.815600+00:00",
+      "started_at": "2026-10-12T02:17:12.737785+00:00",
       "output": "data\\global\\inventories\\world-members\\gre-wintersports.gr.json"
     },
     {
@@ -349,12 +332,12 @@
       "seed_url": "https://www.curling.org.hk/",
       "status": "inventoried",
       "pages_fetched": 12,
-      "pages_blocked": 6,
+      "pages_blocked": 7,
       "pages_failed": 0,
       "families": [
         "athlete_team_profiles"
       ],
-      "started_at": "2026-09-26T11:24:15.673775+00:00",
+      "started_at": "2026-10-12T02:17:17.683015+00:00",
       "output": "data\\global\\inventories\\world-members\\hkg-curling.org.hk.json"
     },
     {
@@ -363,11 +346,11 @@
       "association": "Hungarian Curling Federation",
       "seed_url": "https://www.curling.hu",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 8,
       "pages_blocked": 0,
-      "pages_failed": 0,
+      "pages_failed": 12,
       "families": [],
-      "started_at": "2026-09-26T11:24:18.379129+00:00",
+      "started_at": "2026-10-12T02:17:22.287716+00:00",
       "output": "data\\global\\inventories\\world-members\\hun-curling.hu.json"
     },
     {
@@ -380,20 +363,20 @@
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:30.178167+00:00",
+      "started_at": "2026-10-12T02:17:22.574328+00:00",
       "output": "data\\global\\inventories\\world-members\\ind-curlingindia.in.json"
     },
     {
       "code": "IRI",
       "country": "Iran",
-      "association": "Iran Curling Association",
+      "association": "Iran Ski and Winter Sports Federation",
       "seed_url": "https://www.skifed.ir",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:30.874305+00:00",
+      "started_at": "2026-10-12T02:17:42.854132+00:00",
       "output": "data\\global\\inventories\\world-members\\iri-skifed.ir.json"
     },
     {
@@ -401,12 +384,12 @@
       "country": "Ireland",
       "association": "Irish Curling Association",
       "seed_url": "https://www.irish-curling.org",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:31.017896+00:00",
+      "started_at": "2026-10-12T02:17:43.368142+00:00",
       "output": "data\\global\\inventories\\world-members\\irl-irish-curling.org.json"
     },
     {
@@ -415,11 +398,13 @@
       "association": "Icelandic Sport Federation",
       "seed_url": "https://www.sasport.is/krulla",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 12,
       "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [],
-      "started_at": "2026-09-26T11:24:31.443406+00:00",
+      "pages_failed": 8,
+      "families": [
+        "historical_digital_archives"
+      ],
+      "started_at": "2026-10-12T02:17:43.717003+00:00",
       "output": "data\\global\\inventories\\world-members\\isl-sasport.is.json"
     },
     {
@@ -427,12 +412,12 @@
       "country": "Israel",
       "association": "Israel Curling Association",
       "seed_url": "https://www.curling.co.il",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:33.263773+00:00",
+      "started_at": "2026-10-12T02:18:00.430387+00:00",
       "output": "data\\global\\inventories\\world-members\\isr-curling.co.il.json"
     },
     {
@@ -448,11 +433,13 @@
       "association": "Italian Ice Sports Federation",
       "seed_url": "https://www.fisg.it",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 19,
       "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [],
-      "started_at": "2026-09-26T11:24:33.532384+00:00",
+      "pages_failed": 1,
+      "families": [
+        "clubs_facilities"
+      ],
+      "started_at": "2026-10-12T02:18:00.561508+00:00",
       "output": "data\\global\\inventories\\world-members\\ita-fisg.it.json"
     },
     {
@@ -461,15 +448,11 @@
       "association": "Curling Jamaica",
       "seed_url": "https://www.curlingjamaica.com",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 0,
       "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [
-        "athlete_team_profiles",
-        "calendar_draws",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:24:33.997495+00:00",
+      "pages_failed": 1,
+      "families": [],
+      "started_at": "2026-10-12T02:18:01.777984+00:00",
       "output": "data\\global\\inventories\\world-members\\jam-curlingjamaica.com.json"
     },
     {
@@ -482,10 +465,9 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [
-        "calendar_draws",
-        "historical_digital_archives"
+        "national_events_results"
       ],
-      "started_at": "2026-09-26T11:24:41.513503+00:00",
+      "started_at": "2026-10-12T02:18:15.117263+00:00",
       "output": "data\\global\\inventories\\world-members\\jpn-curling.or.jp.json"
     },
     {
@@ -493,12 +475,12 @@
       "country": "Kazakhstan",
       "association": "Kazakhstan Curling, Floor Curling & Petanque Federation",
       "seed_url": "https://www.olympic.kz",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 1,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:45.158729+00:00",
+      "started_at": "2026-10-12T02:18:54.207981+00:00",
       "output": "data\\global\\inventories\\world-members\\kaz-olympic.kz.json"
     },
     {
@@ -507,11 +489,11 @@
       "association": "Kenya Curling Federation",
       "seed_url": "https://www.kenyacurlingfederation.org",
       "status": "inventoried",
-      "pages_fetched": 19,
+      "pages_fetched": 20,
       "pages_blocked": 0,
-      "pages_failed": 1,
+      "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:47.724431+00:00",
+      "started_at": "2026-10-12T02:18:57.902975+00:00",
       "output": "data\\global\\inventories\\world-members\\ken-kenyacurlingfederation.org.json"
     },
     {
@@ -526,12 +508,12 @@
       "country": "Korea",
       "association": "Korea Curling Federation",
       "seed_url": "https://www.koreacurling.co.kr",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:24:50.247565+00:00",
+      "started_at": "2026-10-12T02:19:20.746899+00:00",
       "output": "data\\global\\inventories\\world-members\\kor-koreacurling.co.kr.json"
     },
     {
@@ -539,15 +521,12 @@
       "country": "Kosovo",
       "association": "Kosovo Curling Federation",
       "seed_url": "http://www.kosovocurling.org/",
-      "status": "inventoried",
-      "pages_fetched": 16,
+      "status": "blocked",
+      "pages_fetched": 0,
       "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [
-        "athlete_team_profiles",
-        "calendar_draws"
-      ],
-      "started_at": "2026-09-26T11:24:53.186801+00:00",
+      "pages_failed": 1,
+      "families": [],
+      "started_at": "2026-10-12T02:19:26.505798+00:00",
       "output": "data\\global\\inventories\\world-members\\kos-kosovocurling.org.json"
     },
     {
@@ -574,7 +553,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:24:55.159318+00:00",
+      "started_at": "2026-10-12T02:19:31.736794+00:00",
       "output": "data\\global\\inventories\\world-members\\lat-curling.lv.json"
     },
     {
@@ -593,8 +572,10 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [],
-      "started_at": "2026-09-26T11:24:57.677417+00:00",
+      "families": [
+        "athlete_team_profiles"
+      ],
+      "started_at": "2026-10-12T02:19:32.286332+00:00",
       "output": "data\\global\\inventories\\world-members\\ltu-curling.lt.json"
     },
     {
@@ -603,15 +584,17 @@
       "association": "Luxembourg Curling Association",
       "seed_url": "https://www.curling.lu",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 19,
       "pages_blocked": 0,
-      "pages_failed": 0,
+      "pages_failed": 1,
       "families": [
-        "athlete_team_profiles",
         "calendar_draws",
-        "national_events_results"
+        "clubs_facilities",
+        "historical_digital_archives",
+        "national_events_results",
+        "rankings"
       ],
-      "started_at": "2026-09-26T11:25:00.140553+00:00",
+      "started_at": "2026-10-12T02:19:34.570587+00:00",
       "output": "data\\global\\inventories\\world-members\\lux-curling.lu.json"
     },
     {
@@ -624,7 +607,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:03.435755+00:00",
+      "started_at": "2026-10-12T02:19:38.338263+00:00",
       "output": "data\\global\\inventories\\world-members\\mex-curlingmexico.com.json"
     },
     {
@@ -651,7 +634,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:05.466542+00:00",
+      "started_at": "2026-10-12T02:19:42.197400+00:00",
       "output": "data\\global\\inventories\\world-members\\ned-curling.nl.json"
     },
     {
@@ -671,7 +654,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:06.136881+00:00",
+      "started_at": "2026-10-12T02:19:50.326874+00:00",
       "output": "data\\global\\inventories\\world-members\\nor-curling.no.json"
     },
     {
@@ -688,7 +671,7 @@
         "national_events_results",
         "subnational_governance"
       ],
-      "started_at": "2026-09-26T11:25:08.048549+00:00",
+      "started_at": "2026-10-12T02:19:54.820036+00:00",
       "output": "data\\global\\inventories\\world-members\\nzl-curling.org.nz.json"
     },
     {
@@ -703,7 +686,7 @@
       "families": [
         "calendar_draws"
       ],
-      "started_at": "2026-09-26T11:25:08.999816+00:00",
+      "started_at": "2026-10-12T02:20:05.990566+00:00",
       "output": "data\\global\\inventories\\world-members\\pak-curling.pk.json"
     },
     {
@@ -718,7 +701,7 @@
       "families": [
         "subnational_governance"
       ],
-      "started_at": "2026-09-26T11:25:09.873141+00:00",
+      "started_at": "2026-10-12T02:21:26.735098+00:00",
       "output": "data\\global\\inventories\\world-members\\phi-curlingpilipinas.com.json"
     },
     {
@@ -726,12 +709,12 @@
       "country": "Poland",
       "association": "Polish Curling Clubs Federation",
       "seed_url": "https://www.pfkc.pl",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:25:17.380833+00:00",
+      "started_at": "2026-10-12T02:21:37.162931+00:00",
       "output": "data\\global\\inventories\\world-members\\pol-pfkc.pl.json"
     },
     {
@@ -744,7 +727,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:17.814570+00:00",
+      "started_at": "2026-10-12T02:21:37.598702+00:00",
       "output": "data\\global\\inventories\\world-members\\por-fdiportugal.pt.json"
     },
     {
@@ -753,11 +736,11 @@
       "association": "Puerto Rican Curling Federation",
       "seed_url": "https://www.puertoricancurling.org",
       "status": "inventoried",
-      "pages_fetched": 8,
+      "pages_fetched": 9,
       "pages_blocked": 0,
       "pages_failed": 3,
       "families": [],
-      "started_at": "2026-09-26T11:25:18.737165+00:00",
+      "started_at": "2026-10-12T02:21:48.233199+00:00",
       "output": "data\\global\\inventories\\world-members\\pur-puertoricancurling.org.json"
     },
     {
@@ -772,12 +755,12 @@
       "country": "Romania",
       "association": "Romanian Curling Federation",
       "seed_url": "https://www.curling-romania.com",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:25:18.883572+00:00",
+      "started_at": "2026-10-12T02:22:14.902345+00:00",
       "output": "data\\global\\inventories\\world-members\\rou-curling-romania.com.json"
     },
     {
@@ -789,10 +772,8 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [
-        "subnational_governance"
-      ],
-      "started_at": "2026-09-26T11:25:20.630183+00:00",
+      "families": [],
+      "started_at": "2026-10-12T02:22:15.996091+00:00",
       "output": "data\\global\\inventories\\world-members\\rus-curling.ru.json"
     },
     {
@@ -800,18 +781,9 @@
       "country": "Scotland",
       "association": "Scottish Curling",
       "seed_url": "https://www.scottishcurling.org",
-      "status": "inventoried",
-      "pages_fetched": 20,
-      "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [
-        "athlete_team_profiles",
-        "clubs_facilities",
-        "historical_digital_archives",
-        "subnational_governance"
-      ],
-      "started_at": "2026-09-26T11:25:25.269235+00:00",
-      "output": "data\\global\\inventories\\world-members\\sco-scottishcurling.org.json"
+      "status": "failed",
+      "error": "[WinError 5] Access is denied: 'C:\\\\Jess\\\\curler-tracker\\\\data\\\\global\\\\acquisition-manifests\\\\world-sco.json.tmp' -> 'C:\\\\Jess\\\\curler-tracker\\\\data\\\\global\\\\acquisition-manifests\\\\world-sco.json'",
+      "started_at": "2026-10-12T02:22:36.222208+00:00"
     },
     {
       "code": "SGP",
@@ -825,12 +797,12 @@
       "country": "Slovenia",
       "association": "Slovenian Curling Association",
       "seed_url": "https://www.curling-zveza.si",
-      "status": "inventoried",
+      "status": "blocked",
       "pages_fetched": 0,
       "pages_blocked": 0,
       "pages_failed": 1,
       "families": [],
-      "started_at": "2026-09-26T11:25:26.426779+00:00",
+      "started_at": "2026-10-12T02:22:45.010378+00:00",
       "output": "data\\global\\inventories\\world-members\\slo-curling-zveza.si.json"
     },
     {
@@ -843,7 +815,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:26.875449+00:00",
+      "started_at": "2026-10-12T02:22:45.942924+00:00",
       "output": "data\\global\\inventories\\world-members\\srb-curling.rs.json"
     },
     {
@@ -855,11 +827,8 @@
       "pages_fetched": 20,
       "pages_blocked": 0,
       "pages_failed": 0,
-      "families": [
-        "clubs_facilities",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:25:27.996409+00:00",
+      "families": [],
+      "started_at": "2026-10-12T02:22:48.795070+00:00",
       "output": "data\\global\\inventories\\world-members\\sui-curling.ch.json"
     },
     {
@@ -872,7 +841,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:32.732186+00:00",
+      "started_at": "2026-10-12T02:22:56.792196+00:00",
       "output": "data\\global\\inventories\\world-members\\svk-curling.sk.json"
     },
     {
@@ -881,14 +850,11 @@
       "association": "Swedish Curling Association",
       "seed_url": "https://www.curling.se",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 18,
       "pages_blocked": 0,
-      "pages_failed": 0,
-      "families": [
-        "athlete_team_profiles",
-        "national_events_results"
-      ],
-      "started_at": "2026-09-26T11:25:40.531408+00:00",
+      "pages_failed": 2,
+      "families": [],
+      "started_at": "2026-10-12T02:23:07.247006+00:00",
       "output": "data\\global\\inventories\\world-members\\swe-curling.se.json"
     },
     {
@@ -915,7 +881,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:43.617020+00:00",
+      "started_at": "2026-10-12T02:23:14.184890+00:00",
       "output": "data\\global\\inventories\\world-members\\tpe-tpecurling.org.json"
     },
     {
@@ -928,7 +894,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:44.031115+00:00",
+      "started_at": "2026-10-12T02:23:26.084896+00:00",
       "output": "data\\global\\inventories\\world-members\\tur-curling.gov.tr.json"
     },
     {
@@ -948,7 +914,7 @@
       "pages_blocked": 0,
       "pages_failed": 0,
       "families": [],
-      "started_at": "2026-09-26T11:25:45.054339+00:00",
+      "started_at": "2026-10-12T02:23:28.565798+00:00",
       "output": "data\\global\\inventories\\world-members\\ukr-curlingukraine.org.json"
     },
     {
@@ -957,16 +923,13 @@
       "association": "United States Curling Association",
       "seed_url": "https://www.usacurling.org",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 16,
       "pages_blocked": 0,
-      "pages_failed": 0,
+      "pages_failed": 4,
       "families": [
-        "calendar_draws",
-        "clubs_facilities",
-        "national_events_results",
-        "subnational_governance"
+        "national_events_results"
       ],
-      "started_at": "2026-09-26T11:25:47.220001+00:00",
+      "started_at": "2026-10-12T02:23:30.143024+00:00",
       "output": "data\\global\\inventories\\world-members\\usa-usacurling.org.json"
     },
     {
@@ -975,16 +938,13 @@
       "association": "Welsh Curling Association",
       "seed_url": "https://www.welshcurling.org.uk",
       "status": "inventoried",
-      "pages_fetched": 20,
+      "pages_fetched": 16,
       "pages_blocked": 0,
-      "pages_failed": 0,
+      "pages_failed": 4,
       "families": [
-        "athlete_team_profiles",
-        "calendar_draws",
-        "historical_digital_archives",
         "subnational_governance"
       ],
-      "started_at": "2026-09-26T11:25:48.189300+00:00",
+      "started_at": "2026-10-12T02:23:32.019218+00:00",
       "output": "data\\global\\inventories\\world-members\\wal-welshcurling.org.uk.json"
     }
   ]

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-nl",
+  "pages": {
+    "https://www.curlingnl.ca": {
+      "url": "https://www.curlingnl.ca",
+      "status": 200,
+      "final_url": "https://curlingnl.ca/",
+      "content_type": "text/html",
+      "bytes": 47973,
+      "sha256": "ae7e71e887576856e6b37d3f6137718a292cf6236dac858fffa424092399ad91",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:03:35 GMT",
+      "retrieved_at": "2026-10-12T02:03:35.781199+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-nl\\1ead4b612d206895\\ae7e71e887576856e6b37d3f6137718a292cf6236dac858fffa424092399ad91.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curlingnl.ca/?page_id=45": {
+      "url": "https://www.curlingnl.ca/?page_id=45",
+      "status": 200,
+      "final_url": "https://curlingnl.ca/schedule/",
+      "content_type": "text/html",
+      "bytes": 58101,
+      "sha256": "eeeccabd77b36fdd5a2d5e9fa579de832df6acbed1b6181a6289527c057a3a02",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:03:45 GMT",
+      "retrieved_at": "2026-10-12T02:03:45.578381+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-nl\\f7eab1cb51a67f8a\\eeeccabd77b36fdd5a2d5e9fa579de832df6acbed1b6181a6289527c057a3a02.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curlingnl.ca/scoreboard": {
+      "url": "https://www.curlingnl.ca/scoreboard",
+      "status": 200,
+      "final_url": "https://curlingnl.ca/scoreboard/",
+      "content_type": "text/html",
+      "bytes": 43517,
+      "sha256": "30499140e5d8eeedb4d1791ebabf033df710c0a630a723b4ca1e4e75cd149791",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:03:55 GMT",
+      "retrieved_at": "2026-10-12T02:03:55.704847+00:00",
+      "raw_path": "data\\raw\\canada-associations\\canada-nl\\33cb5b1c2c0c3155\\30499140e5d8eeedb4d1791ebabf033df710c0a630a723b4ca1e4e75cd149791.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:03:55.825080+00:00",
+  "checkpoint_seed": null
+}

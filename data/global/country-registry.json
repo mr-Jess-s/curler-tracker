@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T09:18:54.755633+00:00",
+  "generated_at": "2026-10-12T02:12:58.828796+00:00",
   "world_member_source": "https://worldcurling.org/member-associations/",
   "world_member_count": 80,
   "definition": {
@@ -21,7 +21,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/afghanistan/",
-          "last_checked": "2026-09-26T09:18:54.747740+00:00",
+          "last_checked": "2026-10-12T02:12:58.826515+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -151,16 +151,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/71",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/p/Afghanistan-Curling-Federation-100057130432848/",
-        "https://www.instagram.com/afghanistan_curling/?hl=en",
-        "https://www.youtube.com/channel/UCnLIfHrSBlM9-2sdlagUSuA"
-      ],
       "world_results_association_id": 71
     },
     {
@@ -169,14 +159,14 @@
       "association_name": "Andorra Curling Association",
       "member_since": 1991,
       "world_member_url": "https://worldcurling.org/member-association/andorra/",
-      "association_website": "https://www.faeg.ad/",
+      "association_website": "https://www.faeg.ad",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/andorra/",
-          "last_checked": "2026-09-26T09:18:54.747776+00:00",
+          "last_checked": "2026-10-12T02:12:58.826535+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -185,7 +175,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://www.faeg.ad/",
+          "source_url": "https://www.faeg.ad",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -306,15 +296,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/26",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/Andorracurling/",
-        "https://www.instagram.com/faegel"
-      ],
       "world_results_association_id": 26
     },
     {
@@ -330,7 +311,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/argentina/",
-          "last_checked": "2026-09-26T09:18:54.747797+00:00",
+          "last_checked": "2026-10-12T02:12:58.826543+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -460,14 +441,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "",
-      "world_profile_people": {
-        "president": "Alejandro Almada",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.instagram.com/argentina.curling?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D"
-      ],
       "world_results_association_id": 92
     },
     {
@@ -483,7 +456,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/armenia/",
-          "last_checked": "2026-09-26T09:18:54.747808+00:00",
+          "last_checked": "2026-10-12T02:12:58.828082+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -613,14 +586,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/p/Armenian-wheelchair-curling-61551841473489/"
-      ],
       "world_results_association_id": 91
     },
     {
@@ -629,14 +594,14 @@
       "association_name": "Curling Australia",
       "member_since": 1986,
       "world_member_url": "https://worldcurling.org/member-association/australia/",
-      "association_website": "https://curling.org.au/",
+      "association_website": "https://curling.org.au",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/australia/",
-          "last_checked": "2026-09-26T09:18:54.747816+00:00",
+          "last_checked": "2026-10-12T02:12:58.828101+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -645,7 +610,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://curling.org.au/",
+          "source_url": "https://curling.org.au",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -766,15 +731,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/30",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/CurlingAustralia/",
-        "https://www.instagram.com/curlingaustralia"
-      ],
       "world_results_association_id": 30
     },
     {
@@ -783,14 +739,14 @@
       "association_name": "Austrian Curling Association",
       "member_since": 1982,
       "world_member_url": "https://worldcurling.org/member-association/austria/",
-      "association_website": "http://www.curling-austria.at/",
+      "association_website": "https://www.curling-austria.at",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/austria/",
-          "last_checked": "2026-09-26T09:18:54.747826+00:00",
+          "last_checked": "2026-10-12T02:12:58.828113+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -799,7 +755,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.curling-austria.at/",
+          "source_url": "https://www.curling-austria.at",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -920,15 +876,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/23",
-      "world_profile_people": {
-        "president": "Marcus Schmitt",
-        "secretary_general": "Saskia Müller-Gastell"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/curling.austria/",
-        "https://www.instagram.com/curlingaustria/"
-      ],
       "world_results_association_id": 23
     },
     {
@@ -937,14 +884,14 @@
       "association_name": "Belgian Curling Association",
       "member_since": 2005,
       "world_member_url": "https://worldcurling.org/member-association/belgium/",
-      "association_website": "http://www.belgiumcurling.be/",
+      "association_website": "https://www.belgiumcurling.be",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/belgium/",
-          "last_checked": "2026-09-26T09:18:54.747835+00:00",
+          "last_checked": "2026-10-12T02:12:58.828120+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -953,7 +900,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.belgiumcurling.be/",
+          "source_url": "https://www.belgiumcurling.be",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -1074,16 +1021,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/39",
-      "world_profile_people": {
-        "president": "Chris Van Rosmalen",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/belgiancurling/",
-        "https://www.instagram.com/belgiancurling/",
-        "https://www.youtube.com/@curdiatv"
-      ],
       "world_results_association_id": 39
     },
     {
@@ -1099,7 +1036,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/bosnia-and-herzegovina/",
-          "last_checked": "2026-09-26T09:18:54.747841+00:00",
+          "last_checked": "2026-10-12T02:12:58.828127+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1229,15 +1166,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/72",
-      "world_profile_people": {
-        "president": "Miro Klepić",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/people/KARS-BiH-Karling-savez-Bosne-i-Hercegovine/61554870420902/?mibextid=LQQJ4d",
-        "https://www.instagram.com/curling_bih/"
-      ],
       "world_results_association_id": 72
     },
     {
@@ -1253,7 +1181,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/belarus/",
-          "last_checked": "2026-09-26T09:18:54.747849+00:00",
+          "last_checked": "2026-10-12T02:12:58.828132+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1383,12 +1311,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 28
     },
     {
@@ -1404,7 +1326,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/bolivia/",
-          "last_checked": "2026-09-26T09:18:54.747859+00:00",
+          "last_checked": "2026-10-12T02:12:58.828140+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1534,14 +1456,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/73",
-      "world_profile_people": {
-        "president": "Banesa Ninache Gutierrez",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/p/Curling-Bolivia-FBC-100063621990275/?_rdr"
-      ],
       "world_results_association_id": 73
     },
     {
@@ -1550,14 +1464,14 @@
       "association_name": "Brazilian Ice Sports Federation",
       "member_since": 1998,
       "world_member_url": "https://worldcurling.org/member-association/brazil/",
-      "association_website": "http://www.cbdg.org.br",
+      "association_website": "https://www.cbdg.org.br",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/brazil/",
-          "last_checked": "2026-09-26T09:18:54.747866+00:00",
+          "last_checked": "2026-10-12T02:12:58.828146+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1566,9 +1480,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.cbdg.org.br",
+          "source_url": "https://www.cbdg.org.br",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -1687,17 +1601,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/52",
-      "world_profile_people": {
-        "president": "Emilio de Souza Strapasson",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://twitter.com/CBDGbr",
-        "https://www.facebook.com/desportosnogelo/",
-        "https://www.instagram.com/icebrasil",
-        "https://www.youtube.com/channel/UCQ0dzhXBmzqm815RYTXk7A/feed"
-      ],
       "world_results_association_id": 52
     },
     {
@@ -1713,7 +1616,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/bulgaria/",
-          "last_checked": "2026-09-26T09:18:54.747875+00:00",
+          "last_checked": "2026-10-12T02:12:58.828151+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1843,12 +1746,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/25",
-      "world_profile_people": {
-        "president": "Nikolay Runtov",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 25
     },
     {
@@ -1864,7 +1761,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/canada/",
-          "last_checked": "2026-09-26T09:18:54.747884+00:00",
+          "last_checked": "2026-10-12T02:12:58.828158+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -1875,7 +1772,7 @@
           "status": "verified",
           "source_url": "https://www.curling.ca",
           "last_checked": null,
-          "ingest_status": "ingested",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -1988,23 +1885,12 @@
         "applicability_unknown": 4,
         "sources_discovered_or_verified": 3,
         "sources_verified": 3,
-        "sources_ingested": 3,
+        "sources_ingested": 2,
         "discovery_percent": 37.5,
-        "ingestion_percent": 100.0,
+        "ingestion_percent": 66.7,
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/7",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://twitter.com/CurlingCanada",
-        "https://www.facebook.com/curlingcanada/",
-        "https://www.instagram.com/curlingcanada/?hl=en",
-        "https://www.youtube.com/CurlingCanada"
-      ],
       "world_results_association_id": 7
     },
     {
@@ -2013,14 +1899,14 @@
       "association_name": "Chinese Curling Association",
       "member_since": 2002,
       "world_member_url": "https://worldcurling.org/member-association/china/",
-      "association_website": "https://www.sport.gov.cn/dyzx/",
+      "association_website": "https://www.sport.gov.cn",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/china/",
-          "last_checked": "2026-09-26T09:18:54.747893+00:00",
+          "last_checked": "2026-10-12T02:12:58.828165+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2029,9 +1915,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://www.sport.gov.cn/dyzx/",
+          "source_url": "https://www.sport.gov.cn",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -2150,14 +2036,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/35",
-      "world_profile_people": {
-        "president": "Sun Yuanfu",
-        "secretary_general": "Yu Haiyan"
-      },
-      "world_profile_social_links": [
-        "https://x.com/CurlingChina"
-      ],
       "world_results_association_id": 35
     },
     {
@@ -2173,7 +2051,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/croatia/",
-          "last_checked": "2026-09-26T09:18:54.747902+00:00",
+          "last_checked": "2026-10-12T02:12:58.828171+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2303,14 +2181,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/49",
-      "world_profile_people": {
-        "president": "Neven Pufnik",
-        "secretary_general": "Drazen Cutic"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/people/Hrvatski-curling-savez/100063479680004/"
-      ],
       "world_results_association_id": 49
     },
     {
@@ -2326,7 +2196,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/czechia/",
-          "last_checked": "2026-09-26T09:18:54.747910+00:00",
+          "last_checked": "2026-10-12T02:12:58.828177+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2456,17 +2326,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/21",
-      "world_profile_people": {
-        "president": "Karolina Frederiksen",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/cesky.curling",
-        "https://www.instagram.com/ceskycurling/",
-        "https://www.youtube.com/channel/UC0t2SaebwTriOBgYlSkVT1Q",
-        "https://x.com/ceskycurling"
-      ],
       "world_results_association_id": 40
     },
     {
@@ -2475,14 +2334,14 @@
       "association_name": "Danish Curling Association",
       "member_since": 1971,
       "world_member_url": "https://worldcurling.org/member-association/denmark/",
-      "association_website": "http://www.curling.dk/",
+      "association_website": "https://www.curling.dk/",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/denmark/",
-          "last_checked": "2026-09-26T09:18:54.747917+00:00",
+          "last_checked": "2026-10-12T02:12:58.828184+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2491,7 +2350,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.curling.dk/",
+          "source_url": "https://www.curling.dk/",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -2612,16 +2471,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/14",
-      "world_profile_people": {
-        "president": "Henrik Juul Christoffersen",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/DanskCurlingForbund",
-        "https://www.instagram.com/danskcurlingforbund/",
-        "https://www.youtube.com/channel/UCb7h48ViYVflXW-6eA8W68g"
-      ],
       "world_results_association_id": 14
     },
     {
@@ -2637,7 +2486,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/dominican-republic/",
-          "last_checked": "2026-09-26T09:18:54.747927+00:00",
+          "last_checked": "2026-10-12T02:12:58.828189+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2767,16 +2616,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/74",
-      "world_profile_people": {
-        "president": "Austo Rafael Arias",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://twitter.com/Fedohielo1",
-        "https://www.facebook.com/fedohielo",
-        "https://www.instagram.com/fedohielo/"
-      ],
       "world_results_association_id": 74
     },
     {
@@ -2785,14 +2624,14 @@
       "association_name": "English Curling Association",
       "member_since": 1971,
       "world_member_url": "https://worldcurling.org/member-association/england/",
-      "association_website": "https://www.curlingengland.com/",
+      "association_website": "https://www.curlingengland.com",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/england/",
-          "last_checked": "2026-09-26T09:18:54.747935+00:00",
+          "last_checked": "2026-10-12T02:12:58.828196+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2801,7 +2640,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://www.curlingengland.com/",
+          "source_url": "https://www.curlingengland.com",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -2922,16 +2761,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/15",
-      "world_profile_people": {
-        "president": "Gordon Lyon",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/englishcurling/?locale=en_GB",
-        "https://www.instagram.com/english_curling/",
-        "https://x.com/english_curling"
-      ],
       "world_results_association_id": 15
     },
     {
@@ -2940,14 +2769,14 @@
       "association_name": "Royal Spanish Ice Sports Federation",
       "member_since": 1999,
       "world_member_url": "https://worldcurling.org/member-association/spain/",
-      "association_website": "https://www.rfedh.es/",
+      "association_website": "https://www.rfedh.es",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/spain/",
-          "last_checked": "2026-09-26T09:18:54.747942+00:00",
+          "last_checked": "2026-10-12T02:12:58.828203+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -2956,7 +2785,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://www.rfedh.es/",
+          "source_url": "https://www.rfedh.es",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -3077,17 +2906,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/22",
-      "world_profile_people": {
-        "president": "Francisco Gonzáalez González",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://twitter.com/fedhielo",
-        "https://www.facebook.com/fedhielo/",
-        "https://www.instagram.com/Fedhielo/",
-        "https://www.youtube.com/channel/UCuys7LUNfFcwwToSG3yMocw"
-      ],
       "world_results_association_id": 22
     },
     {
@@ -3096,14 +2914,14 @@
       "association_name": "Estonian Curling Association",
       "member_since": 2003,
       "world_member_url": "https://worldcurling.org/member-association/estonia/",
-      "association_website": "https://kurling.ee/",
+      "association_website": "https://www.kurling.ee",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/estonia/",
-          "last_checked": "2026-09-26T09:18:54.747950+00:00",
+          "last_checked": "2026-10-12T02:12:58.828208+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3112,7 +2930,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://kurling.ee/",
+          "source_url": "https://www.kurling.ee",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -3233,12 +3051,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/47",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 47
     },
     {
@@ -3247,14 +3059,14 @@
       "association_name": "Finnish Curling Association",
       "member_since": 1979,
       "world_member_url": "https://worldcurling.org/member-association/finland/",
-      "association_website": "https://www.curling.fi/en",
+      "association_website": "https://www.curling.fi/",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/finland/",
-          "last_checked": "2026-09-26T09:18:54.747961+00:00",
+          "last_checked": "2026-10-12T02:12:58.828215+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3263,7 +3075,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://www.curling.fi/en",
+          "source_url": "https://www.curling.fi/",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -3384,16 +3196,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/24",
-      "world_profile_people": {
-        "president": "Toni SEPPERI",
-        "secretary_general": "Jaana LAURIKKA"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/CurlingFinland/",
-        "https://www.instagram.com/curling.fi/?hl=en",
-        "https://www.youtube.com/c/curlingfinlandofficial"
-      ],
       "world_results_association_id": 24
     },
     {
@@ -3402,14 +3204,14 @@
       "association_name": "French Ice Sports Federation",
       "member_since": 1966,
       "world_member_url": "https://worldcurling.org/member-association/france/",
-      "association_website": "https://ffsg.org/discipline/curling/",
+      "association_website": "https://www.ffsg.org/",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/france/",
-          "last_checked": "2026-09-26T09:18:54.747968+00:00",
+          "last_checked": "2026-10-12T02:12:58.828222+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3418,7 +3220,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://ffsg.org/discipline/curling/",
+          "source_url": "https://www.ffsg.org/",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -3539,15 +3341,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/12",
-      "world_profile_people": {
-        "president": "Gwenaëlle Noury",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/sportsdeglace",
-        "https://x.com/ffsportsdeglace"
-      ],
       "world_results_association_id": 12
     },
     {
@@ -3563,7 +3356,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/great-britain/",
-          "last_checked": "2026-09-26T09:18:54.747977+00:00",
+          "last_checked": "2026-10-12T02:12:58.828227+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3693,12 +3486,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 34
     },
     {
@@ -3714,7 +3501,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/georgia/",
-          "last_checked": "2026-09-26T09:18:54.747987+00:00",
+          "last_checked": "2026-10-12T02:12:58.828233+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3844,14 +3631,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/63",
-      "world_profile_people": {
-        "president": "Avtandil Enukidze",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/georgiancurling/"
-      ],
       "world_results_association_id": 63
     },
     {
@@ -3867,7 +3646,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/germany/",
-          "last_checked": "2026-09-26T09:18:54.747993+00:00",
+          "last_checked": "2026-10-12T02:12:58.828241+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -3997,14 +3776,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/13",
-      "world_profile_people": {
-        "president": "Peter Gaedeke",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.instagram.com/teamdeutschland_curling/"
-      ],
       "world_results_association_id": 13
     },
     {
@@ -4013,14 +3784,14 @@
       "association_name": "Hellenic Winter Sports Federation",
       "member_since": 2015,
       "world_member_url": "https://worldcurling.org/member-association/greece/",
-      "association_website": "http://www.wintersports.gr",
+      "association_website": "https://www.wintersports.gr",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/greece/",
-          "last_checked": "2026-09-26T09:18:54.748001+00:00",
+          "last_checked": "2026-10-12T02:12:58.828246+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4029,7 +3800,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.wintersports.gr",
+          "source_url": "https://www.wintersports.gr",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -4150,15 +3921,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/42",
-      "world_profile_people": {
-        "president": "Georgious Nikitidis",
-        "secretary_general": "Ilias Milios"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/eoxa.hwsf/",
-        "https://www.instagram.com/wintersports.gr/"
-      ],
       "world_results_association_id": 42
     },
     {
@@ -4174,7 +3936,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/guyana/",
-          "last_checked": "2026-09-26T09:18:54.748010+00:00",
+          "last_checked": "2026-10-12T02:12:58.828252+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4312,14 +4074,14 @@
       "association_name": "Curling Hong Kong China",
       "member_since": 2014,
       "world_member_url": "https://worldcurling.org/member-association/hong-kong-china/",
-      "association_website": "https://curling.org.hk/",
+      "association_website": "https://www.curling.org.hk/",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/hong-kong-china/",
-          "last_checked": "2026-09-26T09:18:54.748019+00:00",
+          "last_checked": "2026-10-12T02:12:58.828259+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4328,7 +4090,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://curling.org.hk/",
+          "source_url": "https://www.curling.org.hk/",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -4449,16 +4211,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/64",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": "Kelvin Cheung"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/Hong-Kong-Curling-Association- 839946452785250/",
-        "https://www.instagram.com/hkcurling/",
-        "https://www.youtube.com/ @hongkongcurlingassociation2067"
-      ],
       "world_results_association_id": 64
     },
     {
@@ -4474,7 +4226,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/hungary/",
-          "last_checked": "2026-09-26T09:18:54.748026+00:00",
+          "last_checked": "2026-10-12T02:12:58.828265+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4619,7 +4371,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/india/",
-          "last_checked": "2026-09-26T09:18:54.748037+00:00",
+          "last_checked": "2026-10-12T02:12:58.828272+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4754,7 +4506,7 @@
     {
       "country_or_member": "Iran",
       "world_code": "IRI",
-      "association_name": "Iran Curling Association",
+      "association_name": "Iran Ski and Winter Sports Federation",
       "member_since": 2024,
       "world_member_url": "https://worldcurling.org/member-association/iran/",
       "association_website": "https://www.skifed.ir",
@@ -4764,7 +4516,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/iran/",
-          "last_checked": "2026-09-26T09:18:54.748044+00:00",
+          "last_checked": "2026-10-12T02:12:58.828279+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4775,7 +4527,7 @@
           "status": "verified",
           "source_url": "https://www.skifed.ir",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -4902,14 +4654,14 @@
       "association_name": "Irish Curling Association",
       "member_since": 2003,
       "world_member_url": "https://worldcurling.org/member-association/ireland/",
-      "association_website": "http://www.irish-curling.org",
+      "association_website": "https://www.irish-curling.org",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/ireland/",
-          "last_checked": "2026-09-26T09:18:54.748053+00:00",
+          "last_checked": "2026-10-12T02:12:58.828285+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -4918,9 +4670,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.irish-curling.org",
+          "source_url": "https://www.irish-curling.org",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -5039,16 +4791,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/43",
-      "world_profile_people": {
-        "president": "Steve Callan",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/IrishCurlingAssociation/",
-        "https://www.instagram.com/irishcurling/",
-        "https://x.com/irishcurling?lang=en"
-      ],
       "world_results_association_id": 43
     },
     {
@@ -5064,7 +4806,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/iceland/",
-          "last_checked": "2026-09-26T09:18:54.748062+00:00",
+          "last_checked": "2026-10-12T02:12:58.828293+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5194,12 +4936,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/48",
-      "world_profile_people": {
-        "president": "Líney Rut Halldórdóttir",
-        "secretary_general": "Hallgrímuir Valsson"
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 48
     },
     {
@@ -5208,14 +4944,14 @@
       "association_name": "Israel Curling Association",
       "member_since": 2013,
       "world_member_url": "https://worldcurling.org/member-association/israel/",
-      "association_website": "http://www.curling.co.il",
+      "association_website": "https://www.curling.co.il",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/israel/",
-          "last_checked": "2026-09-26T09:18:54.748068+00:00",
+          "last_checked": "2026-10-12T02:12:58.828299+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5224,9 +4960,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.curling.co.il",
+          "source_url": "https://www.curling.co.il",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -5345,16 +5081,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/57",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/curlingisrael",
-        "https://www.instagram.com/israelcurlingfed/",
-        "https://x.com/israelcurling?lang=en"
-      ],
       "world_results_association_id": 57
     },
     {
@@ -5370,7 +5096,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/us-virgin-islands/",
-          "last_checked": "2026-09-26T09:18:54.748076+00:00",
+          "last_checked": "2026-10-12T02:12:58.828303+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5500,14 +5226,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/58",
-      "world_profile_people": {
-        "president": "Kevin Wenk",
-        "secretary_general": "Dale Benedict"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/VIWinterSports/"
-      ],
       "world_results_association_id": 58
     },
     {
@@ -5516,14 +5234,14 @@
       "association_name": "Italian Ice Sports Federation",
       "member_since": 1972,
       "world_member_url": "https://worldcurling.org/member-association/italy/",
-      "association_website": "http://www.fisg.it",
+      "association_website": "https://www.fisg.it",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/italy/",
-          "last_checked": "2026-09-26T09:18:54.748085+00:00",
+          "last_checked": "2026-10-12T02:12:58.828309+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5532,7 +5250,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.fisg.it",
+          "source_url": "https://www.fisg.it",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -5653,17 +5371,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/16",
-      "world_profile_people": {
-        "president": "Andrea Gios",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://twitter.com/fisg_it",
-        "https://www.facebook.com/fisg.it/",
-        "https://www.instagram.com/federazione_sport_ghiaccio/",
-        "https://www.youtube.com/channel/UCKGTWYnNCtrmQnn6aXQX89Q"
-      ],
       "world_results_association_id": 16
     },
     {
@@ -5672,14 +5379,14 @@
       "association_name": "Curling Jamaica",
       "member_since": 2022,
       "world_member_url": "https://worldcurling.org/member-association/jamaica/",
-      "association_website": "http://www.curlingjamaica.com",
+      "association_website": "https://www.curlingjamaica.com",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/jamaica/",
-          "last_checked": "2026-09-26T09:18:54.748092+00:00",
+          "last_checked": "2026-10-12T02:12:58.828319+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5688,9 +5395,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.curlingjamaica.com",
+          "source_url": "https://www.curlingjamaica.com",
           "last_checked": null,
-          "ingest_status": "ingested",
+          "ingest_status": "failed",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -5803,21 +5510,12 @@
         "applicability_unknown": 4,
         "sources_discovered_or_verified": 3,
         "sources_verified": 3,
-        "sources_ingested": 3,
+        "sources_ingested": 2,
         "discovery_percent": 37.5,
-        "ingestion_percent": 100.0,
+        "ingestion_percent": 66.7,
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/85",
-      "world_profile_people": {
-        "president": "Ian Robertson",
-        "secretary_general": "Hannah Robertson"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/people/Curling- Jamaica/100092511746776/",
-        "https://www.instagram.com/curlingjamaica/"
-      ],
       "world_results_association_id": 85
     },
     {
@@ -5826,14 +5524,14 @@
       "association_name": "Japan Curling Association",
       "member_since": 1985,
       "world_member_url": "https://worldcurling.org/member-association/japan/",
-      "association_website": "http://www.curling.or.jp",
+      "association_website": "https://www.curling.or.jp",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/japan/",
-          "last_checked": "2026-09-26T09:18:54.748100+00:00",
+          "last_checked": "2026-10-12T02:12:58.828325+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5842,7 +5540,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.curling.or.jp",
+          "source_url": "https://www.curling.or.jp",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -5963,16 +5661,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/33",
-      "world_profile_people": {
-        "president": "Teruyuki Kaimori",
-        "secretary_general": "Masatsugu Odaka"
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/japancurling/",
-        "https://www.instagram.com/japan_curling/?hl=en-gb",
-        "https://www.youtube.com/@CurlingJapan"
-      ],
       "world_results_association_id": 33
     },
     {
@@ -5981,14 +5669,14 @@
       "association_name": "Kazakhstan Curling, Floor Curling & Petanque Federation",
       "member_since": 2003,
       "world_member_url": "https://worldcurling.org/member-association/kazakhstan/",
-      "association_website": "https://olympic.kz/en/sport/15-assotsiatsiya-kerlinga-respubliki-kazakhstan",
+      "association_website": "https://www.olympic.kz",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/kazakhstan/",
-          "last_checked": "2026-09-26T09:18:54.748120+00:00",
+          "last_checked": "2026-10-12T02:12:58.828330+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -5997,9 +5685,9 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "https://olympic.kz/en/sport/15-assotsiatsiya-kerlinga-respubliki-kazakhstan",
+          "source_url": "https://www.olympic.kz",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -6118,14 +5806,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/45",
-      "world_profile_people": {
-        "president": "Amantay Z Kurenbekov",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.instagram.com/curlingkz/?hl=en-gb"
-      ],
       "world_results_association_id": 45
     },
     {
@@ -6134,14 +5814,14 @@
       "association_name": "Kenya Curling Federation",
       "member_since": 2021,
       "world_member_url": "https://worldcurling.org/member-association/kenya/",
-      "association_website": "http://www.kenyacurlingfederation.org",
+      "association_website": "https://www.kenyacurlingfederation.org",
       "source_families": [
         {
           "family": "world_member_record",
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/kenya/",
-          "last_checked": "2026-09-26T09:18:54.748128+00:00",
+          "last_checked": "2026-10-12T02:12:58.828340+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -6150,7 +5830,7 @@
           "family": "national_governing_body",
           "applicable": true,
           "status": "verified",
-          "source_url": "http://www.kenyacurlingfederation.org",
+          "source_url": "https://www.kenyacurlingfederation.org",
           "last_checked": null,
           "ingest_status": "ingested",
           "document_inventory_status": "not_started",
@@ -6271,16 +5951,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/83",
-      "world_profile_people": {
-        "president": "Laventer Atieno Oguta",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [
-        "https://www.facebook.com/p/KENYA-curling-federation-100063908721441/",
-        "https://www.instagram.com/kenya_curlingfederation/",
-        "https://x.com/KenyaCurling?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
-      ],
       "world_results_association_id": 83
     },
     {
@@ -6296,7 +5966,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/kyrgyzstan/",
-          "last_checked": "2026-09-26T09:18:54.748136+00:00",
+          "last_checked": "2026-10-12T02:12:58.828346+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -6426,12 +6096,6 @@
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
-      "world_results_url": "https://results.worldcurling.org/Association/Details/76",
-      "world_profile_people": {
-        "president": "",
-        "secretary_general": ""
-      },
-      "world_profile_social_links": [],
       "world_results_association_id": 76
     },
     {
@@ -6447,7 +6111,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/korea/",
-          "last_checked": "2026-09-26T09:18:54.748144+00:00",
+          "last_checked": "2026-10-12T02:12:58.828354+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -6458,7 +6122,7 @@
           "status": "verified",
           "source_url": "https://www.koreacurling.co.kr",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -6592,7 +6256,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/kosovo/",
-          "last_checked": "2026-09-26T09:18:54.748153+00:00",
+          "last_checked": "2026-10-12T02:12:58.828359+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -6603,7 +6267,7 @@
           "status": "verified",
           "source_url": "http://www.kosovocurling.org/",
           "last_checked": null,
-          "ingest_status": "ingested",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -6714,9 +6378,9 @@
         "applicability_unknown": 4,
         "sources_discovered_or_verified": 3,
         "sources_verified": 2,
-        "sources_ingested": 2,
+        "sources_ingested": 1,
         "discovery_percent": 25.0,
-        "ingestion_percent": 100.0,
+        "ingestion_percent": 50.0,
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       }
@@ -6734,7 +6398,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/saudi-arabia/",
-          "last_checked": "2026-09-26T09:18:54.748161+00:00",
+          "last_checked": "2026-10-12T02:12:58.828365+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -6879,7 +6543,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/kuwait/",
-          "last_checked": "2026-09-26T09:18:54.748170+00:00",
+          "last_checked": "2026-10-12T02:12:58.828373+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7024,7 +6688,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/latvia/",
-          "last_checked": "2026-09-26T09:18:54.748176+00:00",
+          "last_checked": "2026-10-12T02:12:58.828379+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7169,7 +6833,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/liechtenstein/",
-          "last_checked": "2026-09-26T09:18:54.748191+00:00",
+          "last_checked": "2026-10-12T02:12:58.828384+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7314,7 +6978,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/lithuania/",
-          "last_checked": "2026-09-26T09:18:54.748200+00:00",
+          "last_checked": "2026-10-12T02:12:58.828391+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7459,7 +7123,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/luxembourg/",
-          "last_checked": "2026-09-26T09:18:54.748206+00:00",
+          "last_checked": "2026-10-12T02:12:58.828397+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7604,7 +7268,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/mexico/",
-          "last_checked": "2026-09-26T09:18:54.748214+00:00",
+          "last_checked": "2026-10-12T02:12:58.828402+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7749,7 +7413,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/mongolia/",
-          "last_checked": "2026-09-26T09:18:54.748242+00:00",
+          "last_checked": "2026-10-12T02:12:58.828408+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -7894,7 +7558,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/monaco/",
-          "last_checked": "2026-09-26T09:18:54.748250+00:00",
+          "last_checked": "2026-10-12T02:12:58.828417+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8039,7 +7703,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/netherlands/",
-          "last_checked": "2026-09-26T09:18:54.748258+00:00",
+          "last_checked": "2026-10-12T02:12:58.828422+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8184,7 +7848,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/nigeria/",
-          "last_checked": "2026-09-26T09:18:54.748268+00:00",
+          "last_checked": "2026-10-12T02:12:58.828427+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8329,7 +7993,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/norway/",
-          "last_checked": "2026-09-26T09:18:54.748274+00:00",
+          "last_checked": "2026-10-12T02:12:58.828433+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8474,7 +8138,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/new-zealand/",
-          "last_checked": "2026-09-26T09:18:54.748282+00:00",
+          "last_checked": "2026-10-12T02:12:58.828438+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8619,7 +8283,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/pakistan/",
-          "last_checked": "2026-09-26T09:18:54.748291+00:00",
+          "last_checked": "2026-10-12T02:12:58.828445+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8764,7 +8428,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/philippines/",
-          "last_checked": "2026-09-26T09:18:54.751745+00:00",
+          "last_checked": "2026-10-12T02:12:58.828451+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8909,7 +8573,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/poland/",
-          "last_checked": "2026-09-26T09:18:54.751786+00:00",
+          "last_checked": "2026-10-12T02:12:58.828459+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -8920,7 +8584,7 @@
           "status": "verified",
           "source_url": "https://www.pfkc.pl",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -9054,7 +8718,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/portugal/",
-          "last_checked": "2026-09-26T09:18:54.751817+00:00",
+          "last_checked": "2026-10-12T02:12:58.828466+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9199,7 +8863,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/puerto-rico/",
-          "last_checked": "2026-09-26T09:18:54.751900+00:00",
+          "last_checked": "2026-10-12T02:12:58.828473+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9344,7 +9008,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/qatar/",
-          "last_checked": "2026-09-26T09:18:54.751922+00:00",
+          "last_checked": "2026-10-12T02:12:58.828478+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9489,7 +9153,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/romania/",
-          "last_checked": "2026-09-26T09:18:54.751934+00:00",
+          "last_checked": "2026-10-12T02:12:58.828484+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9500,7 +9164,7 @@
           "status": "verified",
           "source_url": "https://www.curling-romania.com",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -9634,7 +9298,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/russia/",
-          "last_checked": "2026-09-26T09:18:54.751942+00:00",
+          "last_checked": "2026-10-12T02:12:58.828502+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9779,7 +9443,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/scotland/",
-          "last_checked": "2026-09-26T09:18:54.751954+00:00",
+          "last_checked": "2026-10-12T02:12:58.828508+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -9790,7 +9454,7 @@
           "status": "verified",
           "source_url": "https://www.scottishcurling.org",
           "last_checked": null,
-          "ingest_status": "ingested",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -9903,9 +9567,9 @@
         "applicability_unknown": 4,
         "sources_discovered_or_verified": 3,
         "sources_verified": 3,
-        "sources_ingested": 3,
+        "sources_ingested": 2,
         "discovery_percent": 37.5,
-        "ingestion_percent": 100.0,
+        "ingestion_percent": 66.7,
         "overall_percent": null,
         "overall_reason": "Overall percentage withheld until source applicability is fully surveyed."
       },
@@ -9924,7 +9588,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/singapore/",
-          "last_checked": "2026-09-26T09:18:54.755194+00:00",
+          "last_checked": "2026-10-12T02:12:58.828516+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10069,7 +9733,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/slovenia/",
-          "last_checked": "2026-09-26T09:18:54.755222+00:00",
+          "last_checked": "2026-10-12T02:12:58.828522+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10080,7 +9744,7 @@
           "status": "verified",
           "source_url": "https://www.curling-zveza.si",
           "last_checked": null,
-          "ingest_status": "failed",
+          "ingest_status": "not_started",
           "document_inventory_status": "not_started",
           "notes": "Official website published by World Curling; document inventory not yet complete."
         },
@@ -10214,7 +9878,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/serbia/",
-          "last_checked": "2026-09-26T09:18:54.755232+00:00",
+          "last_checked": "2026-10-12T02:12:58.828527+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10359,7 +10023,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/switzerland/",
-          "last_checked": "2026-09-26T09:18:54.755241+00:00",
+          "last_checked": "2026-10-12T02:12:58.828532+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10504,7 +10168,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/slovakia/",
-          "last_checked": "2026-09-26T09:18:54.755250+00:00",
+          "last_checked": "2026-10-12T02:12:58.828541+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10649,7 +10313,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/sweden/",
-          "last_checked": "2026-09-26T09:18:54.755258+00:00",
+          "last_checked": "2026-10-12T02:12:58.828547+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10794,7 +10458,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/thailand/",
-          "last_checked": "2026-09-26T09:18:54.755266+00:00",
+          "last_checked": "2026-10-12T02:12:58.828552+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -10939,7 +10603,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/turkmenistan/",
-          "last_checked": "2026-09-26T09:18:54.755274+00:00",
+          "last_checked": "2026-10-12T02:12:58.828559+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11084,7 +10748,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/chinese-taipei/",
-          "last_checked": "2026-09-26T09:18:54.755282+00:00",
+          "last_checked": "2026-10-12T02:12:58.828565+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11229,7 +10893,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/turkiye/",
-          "last_checked": "2026-09-26T09:18:54.755290+00:00",
+          "last_checked": "2026-10-12T02:12:58.828572+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11374,7 +11038,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/united-arab-emirates/",
-          "last_checked": "2026-09-26T09:18:54.755297+00:00",
+          "last_checked": "2026-10-12T02:12:58.828577+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11516,7 +11180,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/ukraine/",
-          "last_checked": "2026-09-26T09:18:54.755309+00:00",
+          "last_checked": "2026-10-12T02:12:58.828584+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11661,7 +11325,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/united-states/",
-          "last_checked": "2026-09-26T09:18:54.755324+00:00",
+          "last_checked": "2026-10-12T02:12:58.828590+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11806,7 +11470,7 @@
           "applicable": true,
           "status": "verified",
           "source_url": "https://worldcurling.org/member-association/wales/",
-          "last_checked": "2026-09-26T09:18:54.755331+00:00",
+          "last_checked": "2026-10-12T02:12:58.828600+00:00",
           "ingest_status": "ingested",
           "document_inventory_status": "partial",
           "notes": ""
@@ -11938,6 +11602,5 @@
       },
       "world_results_association_id": 27
     }
-  ],
-  "profile_enriched_at": "2026-09-26T11:29:58.217676+00:00"
+  ]
 }

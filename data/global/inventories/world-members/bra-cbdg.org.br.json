@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:23:48.529264+00:00",
+  "generated_at": "2026-10-12T02:13:13.308792+00:00",
   "country_code": "BRA",
   "country": "Brazil",
   "association": "Brazilian Ice Sports Federation",
@@ -12,8 +12,8 @@
   "pages": [
     {
       "url": "https://www.cbdg.org.br",
-      "status": "error",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1032)>"
+      "status": "robots_unavailable",
+      "error": "Could not verify robots.txt; collection stopped."
     }
   ],
   "pages_fetched": 0,

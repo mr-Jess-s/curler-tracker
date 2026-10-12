@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-nor",
+  "pages": {
+    "https://www.curling.no": {
+      "url": "https://www.curling.no",
+      "status": 200,
+      "final_url": "https://curling.no/",
+      "content_type": "text/html",
+      "bytes": 38066,
+      "sha256": "a9f5e16eaafa481362e62237570fe8fb35eeca970195c9a48eb6a1a5ac438940",
+      "etag": null,
+      "last_modified": "Mon, 12 Oct 2026 02:19:54 GMT",
+      "retrieved_at": "2026-10-12T02:19:54.697173+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-nor\\b44c50f19649768a\\a9f5e16eaafa481362e62237570fe8fb35eeca970195c9a48eb6a1a5ac438940.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:19:54.818125+00:00",
+  "checkpoint_seed": null
+}

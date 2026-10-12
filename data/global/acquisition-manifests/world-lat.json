@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-lat",
+  "pages": {
+    "https://www.curling.lv": {
+      "url": "https://www.curling.lv",
+      "status": 200,
+      "final_url": "https://curling.lv/",
+      "content_type": "text/html",
+      "bytes": 182832,
+      "sha256": "cfc3f768021d4bc9fe40346755433886d9e6f4a18d197bbbecee086ddf0b32be",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:38.206950+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-lat\\cbb0d3fe0196bb76\\cfc3f768021d4bc9fe40346755433886d9e6f4a18d197bbbecee086ddf0b32be.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:19:38.335171+00:00",
+  "checkpoint_seed": null
+}

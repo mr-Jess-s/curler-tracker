@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source_id": "world-mex",
+  "pages": {
+    "https://www.curlingmexico.com": {
+      "url": "https://www.curlingmexico.com",
+      "status": 304,
+      "final_url": "https://www.curlingmexico.com",
+      "content_type": "text/html",
+      "bytes": 1687788,
+      "sha256": "cc35d7b1d4929eb9ebc981e1eba5618a266893553d7f1e90b73027bbed592b67",
+      "etag": "W/\"a01513c22146894c462c0ed9be957cd6\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-11T11:14:40.293403+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-mex\\dd29396ce03b25e5\\cc35d7b1d4929eb9ebc981e1eba5618a266893553d7f1e90b73027bbed592b67.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T02:19:44.292634+00:00"
+    },
+    "https://www.curlingmexico.com/contact": {
+      "url": "https://www.curlingmexico.com/contact",
+      "status": 200,
+      "final_url": "https://www.curlingmexico.com/contact",
+      "content_type": "text/html",
+      "bytes": 1182254,
+      "sha256": "ee5f538c40ad46c9fdd14f13bc6365995f0524609af8bc51c6a30c51f9bb1c2e",
+      "etag": "W/\"377ba05daa8f3b50079f6550c77aad01\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:45.815969+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-mex\\2c92932ff0c4d493\\ee5f538c40ad46c9fdd14f13bc6365995f0524609af8bc51c6a30c51f9bb1c2e.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curlingmexico.com/terms-and-conditions": {
+      "url": "https://www.curlingmexico.com/terms-and-conditions",
+      "status": 200,
+      "final_url": "https://www.curlingmexico.com/terms-and-conditions",
+      "content_type": "text/html",
+      "bytes": 1075806,
+      "sha256": "25a2074266f6d46b29a27f58192573db60c88039e5f0426368e88a4365e74c5f",
+      "etag": "W/\"0509d12ba92621a499ab384268c03687\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:57.224245+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-mex\\a980d2e79b1a39cd\\25a2074266f6d46b29a27f58192573db60c88039e5f0426368e88a4365e74c5f.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curlingmexico.com/privacy-policy": {
+      "url": "https://www.curlingmexico.com/privacy-policy",
+      "status": 200,
+      "final_url": "https://www.curlingmexico.com/privacy-policy",
+      "content_type": "text/html",
+      "bytes": 1075310,
+      "sha256": "02013d4677bb847a9161e83447ec9a553ba58eb7c5ce7829dcfe585f09c31cee",
+      "etag": "W/\"31a8ebde8a77dfe569f04b2c505b40e8\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:20:05.828426+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-mex\\eb10a7d06cd0936e\\02013d4677bb847a9161e83447ec9a553ba58eb7c5ce7829dcfe585f09c31cee.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:20:05.970720+00:00",
+  "checkpoint_seed": null
+}

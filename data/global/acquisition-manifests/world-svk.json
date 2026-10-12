@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source_id": "world-svk",
+  "pages": {
+    "https://www.curling.sk": {
+      "url": "https://www.curling.sk",
+      "status": 200,
+      "final_url": "https://curling.sk/",
+      "content_type": "text/html",
+      "bytes": 168951,
+      "sha256": "f6b4e72f56bf74c7843462845f498d0c68555ec7d2c7ecb7d1e357e1bc850f84",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:03.907579+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-svk\\761223b34daa2289\\f6b4e72f56bf74c7843462845f498d0c68555ec7d2c7ecb7d1e357e1bc850f84.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    },
+    "https://www.curling.sk/kalendar-akcii": {
+      "url": "https://www.curling.sk/kalendar-akcii",
+      "status": 200,
+      "final_url": "https://curling.sk/kalendar-akcii/",
+      "content_type": "text/html",
+      "bytes": 218350,
+      "sha256": "61aceaebe038fefb102201d8d2c657fb939c2bc44027b1920ad3ec08e2d8e73f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:07.067217+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-svk\\15eb0f3d319c82f4\\61aceaebe038fefb102201d8d2c657fb939c2bc44027b1920ad3ec08e2d8e73f.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:23:07.244253+00:00",
+  "checkpoint_seed": null
+}

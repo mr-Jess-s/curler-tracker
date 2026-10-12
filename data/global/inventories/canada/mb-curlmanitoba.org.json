@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:35:11.219289+00:00",
+  "generated_at": "2026-10-12T02:03:36.061021+00:00",
   "country_code": "CAN-MB",
   "association": "CurlManitoba",
   "scope": "Manitoba",
@@ -12,32 +12,44 @@
       "url": "https://www.curlmanitoba.org",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 157295,
-      "sha256": "3681190ed81c6adf594085786e3bf5ff73860b57021de0b36766c842136b7e4a",
+      "bytes": 156116,
+      "sha256": "19f842872ade4ba0fa43f9cd12eedfa358b620f8509a5411217572a70f09a4c4",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:26.748673+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "raw_path": "data\\raw\\canada-associations\\mb\\16dd2ded632acd381e85.html.gz",
+      "raw_path": "data\\raw\\canada-associations\\canada-mb\\16dd2ded632acd38\\19f842872ade4ba0fa43f9cd12eedfa358b620f8509a5411217572a70f09a4c4.html.gz",
       "title": "CurlManitoba – Promoting, developing and growing the sport of curling in Manitoba"
     },
     {
       "url": "https://www.curlmanitoba.org/events/list",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 204222,
-      "sha256": "0a10f1c0c5e1c3b59fc0b72ff8d34082f9ecbf957b7f77a58c19a084067d7362",
+      "bytes": 205054,
+      "sha256": "ed918b0f5ffe052dcf2b8dc8a0939e63176418a50a0b92599cb4411f93eb5d26",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:29.027991+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "calendar_draws"
       ],
-      "raw_path": "data\\raw\\canada-associations\\mb\\c23498e6cf754b55d4e2.html.gz",
-      "title": "Events from October 1 – December 3 – CurlManitoba"
+      "raw_path": "data\\raw\\canada-associations\\canada-mb\\c23498e6cf754b55\\ed918b0f5ffe052dcf2b8dc8a0939e63176418a50a0b92599cb4411f93eb5d26.html.gz",
+      "title": "Events from October 23 – December 3 – CurlManitoba"
     },
     {
       "url": "https://www.curlmanitoba.org/news/youth-development",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 109443,
-      "sha256": "309c0333cef2e7f0e33c2ed8a1dc8aa1794027b7dedace054fd68a1a7fc65c87",
+      "bytes": 109465,
+      "sha256": "7bd8324ba228148e5327d34d139dff4f78b69c44c3bb8f69aa2cb9fe33715df9",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:31.211238+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "raw_path": "data\\raw\\canada-associations\\mb\\eab9e2715f249d2b8101.html.gz",
+      "raw_path": "data\\raw\\canada-associations\\canada-mb\\eab9e2715f249d2b\\7bd8324ba228148e5327d34d139dff4f78b69c44c3bb8f69aa2cb9fe33715df9.html.gz",
       "title": "Youth Development – CurlManitoba"
     },
     {
@@ -45,22 +57,30 @@
       "status": 200,
       "content_type": "text/html",
       "bytes": 109179,
-      "sha256": "ea74d50dd2d140c376d4fb732328227892002a5bea2c88758c4bce5bc0f43f70",
+      "sha256": "7f908af6aeab4397c2fb8ee69c8a687f4616cfb41861320afa6a84a792a83b1c",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:33.295403+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "raw_path": "data\\raw\\canada-associations\\mb\\4464c96a8030bba25d85.html.gz",
+      "raw_path": "data\\raw\\canada-associations\\canada-mb\\4464c96a8030bba2\\7f908af6aeab4397c2fb8ee69c8a687f4616cfb41861320afa6a84a792a83b1c.html.gz",
       "title": "Contact Us – CurlManitoba"
     },
     {
       "url": "https://www.curlmanitoba.org/events",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 246225,
-      "sha256": "83ea9cc7113615401ba254b2c50117ebfcedf8ae4e9a189c1ceffc42f5dcbc45",
+      "bytes": 257696,
+      "sha256": "55f3699ad4ca823e5f071532098ab93ec32bbb3a0bc5f3de0ba784dbef219d5d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:03:35.595043+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "calendar_draws"
       ],
-      "raw_path": "data\\raw\\canada-associations\\mb\\b36383ee687e37df3ed5.html.gz",
-      "title": "Events for September 2026 – CurlManitoba"
+      "raw_path": "data\\raw\\canada-associations\\canada-mb\\b36383ee687e37df\\55f3699ad4ca823e5f071532098ab93ec32bbb3a0bc5f3de0ba784dbef219d5d.html.gz",
+      "title": "Events for October 2026 – CurlManitoba"
     },
     {
       "url": "https://www.curlmanitoba.org/cdn-cgi/l/email-protection",

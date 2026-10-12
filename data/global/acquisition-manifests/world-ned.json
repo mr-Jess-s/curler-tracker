@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-ned",
+  "pages": {
+    "https://www.curling.nl": {
+      "url": "https://www.curling.nl",
+      "status": 200,
+      "final_url": "https://curling.nl/",
+      "content_type": "text/html",
+      "bytes": 123515,
+      "sha256": "ecbcd5563be6c2e265b2d305515cfb4a490b8c630241c0def7d0ab2c16bd835f",
+      "etag": "\"8104-1791771589;;;\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:19:50.188485+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-ned\\a5afb20dcc777ecf\\ecbcd5563be6c2e265b2d305515cfb4a490b8c630241c0def7d0ab2c16bd835f.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:19:50.322968+00:00",
+  "checkpoint_seed": null
+}

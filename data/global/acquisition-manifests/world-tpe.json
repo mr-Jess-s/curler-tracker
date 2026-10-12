@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-tpe",
+  "pages": {
+    "https://www.tpecurling.org": {
+      "url": "https://www.tpecurling.org",
+      "status": 200,
+      "final_url": "https://tpecurling.org/en/",
+      "content_type": "text/html",
+      "bytes": 171016,
+      "sha256": "e323af455af25d6f8e8121c909a1aa2d7c22515c29ce67eaf06c27198c8b0e70",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:25.946160+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-tpe\\be0cb90672f49e2e\\e323af455af25d6f8e8121c909a1aa2d7c22515c29ce67eaf06c27198c8b0e70.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:23:26.081688+00:00",
+  "checkpoint_seed": null
+}

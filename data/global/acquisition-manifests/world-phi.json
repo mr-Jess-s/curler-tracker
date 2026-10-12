@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-phi",
+  "pages": {
+    "https://www.curlingpilipinas.com": {
+      "url": "https://www.curlingpilipinas.com",
+      "status": 200,
+      "final_url": "https://curlingpilipinas.com/",
+      "content_type": "text/html",
+      "bytes": 283217,
+      "sha256": "c153efbbdf8e68615741e3879794e35bb069190b082d1919be899d27f2759e7a",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:21:37.018552+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-phi\\acb2031509dc3f4b\\c153efbbdf8e68615741e3879794e35bb069190b082d1919be899d27f2759e7a.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:21:37.160120+00:00",
+  "checkpoint_seed": null
+}

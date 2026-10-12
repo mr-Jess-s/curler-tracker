@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-fra",
+  "pages": {
+    "https://www.ffsg.org": {
+      "url": "https://www.ffsg.org",
+      "status": 200,
+      "final_url": "https://www.ffsportsdeglace.fr/",
+      "content_type": "text/html",
+      "bytes": 349444,
+      "sha256": "3292fa5c181a4760521340cd6a57b82537b4d37cca92b81dfff872d1619b028d",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:16:59.766528+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-fra\\f95fffbcce4c0656\\3292fa5c181a4760521340cd6a57b82537b4d37cca92b81dfff872d1619b028d.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:16:59.892197+00:00",
+  "checkpoint_seed": null
+}

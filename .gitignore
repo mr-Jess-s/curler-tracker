@@ -7,6 +7,8 @@ tools/__pycache__/
 
 data/raw/
 data/global/collector-status.json
+data/global/collector-runtime.json
+data/global/acquisition-manifests/*.json.tmp
 
 tools/global_coverage/__pycache__/
 data/global/maintenance-state.json

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-gre",
+  "pages": {
+    "https://www.wintersports.gr": {
+      "url": "https://www.wintersports.gr",
+      "status": 200,
+      "final_url": "https://wintersports.gr/",
+      "content_type": "text/html",
+      "bytes": 483117,
+      "sha256": "727da93fdda5281b6fce28a934fdf1a0d30342ab38fe7e4e69c2a19326b696ae",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:22.136558+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-gre\\667f3e58d7d1abad\\727da93fdda5281b6fce28a934fdf1a0d30342ab38fe7e4e69c2a19326b696ae.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:17:22.285309+00:00",
+  "checkpoint_seed": null
+}

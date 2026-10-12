@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:24:18.376804+00:00",
+  "generated_at": "2026-10-12T02:17:22.287125+00:00",
   "country_code": "GRE",
   "country": "Greece",
   "association": "Hellenic Winter Sports Federation",
@@ -14,9 +14,14 @@
       "url": "https://www.wintersports.gr",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 481677,
-      "sha256": "cdfcf8383ca2ce48ece7606121d882622565a413c2f37dd69f4235c9ab4d73cf",
+      "bytes": 483117,
+      "sha256": "727da93fdda5281b6fce28a934fdf1a0d30342ab38fe7e4e69c2a19326b696ae",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:17:22.136558+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-gre\\667f3e58d7d1abad\\727da93fdda5281b6fce28a934fdf1a0d30342ab38fe7e4e69c2a19326b696ae.html.gz",
       "title": "Ελληνική Ομοσπονδία Xειμερινών Αθλημάτων | ΕΟΧΑ – Ελληνική Ομοσπονδία Xειμερινών Αθλημάτων | ΕΟΧΑ – Η επίσημη ιστοσελίδα της Ελληνικής Ομοσπονδίας Xειμερινών Αθλημάτων | EOXA | Hellenic Ski Federation"
     }
   ],

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_id": "world-cro",
+  "pages": {
+    "https://www.curling.hr": {
+      "url": "https://www.curling.hr",
+      "status": 200,
+      "final_url": "https://curling.hr/",
+      "content_type": "text/html",
+      "bytes": 137510,
+      "sha256": "1e3aec9504c6876d07aae12317decc672748f68d385a480218709ff01810ec11",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:14:42.080343+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-cro\\6fd8f7894cabfe46\\1e3aec9504c6876d07aae12317decc672748f68d385a480218709ff01810ec11.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:14:42.209727+00:00",
+  "checkpoint_seed": null
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_id": "world-aut",
+  "pages": {
+    "https://www.curling-austria.at": {
+      "url": "https://www.curling-austria.at",
+      "status": 304,
+      "final_url": "https://curling-austria.at/",
+      "content_type": "text/html",
+      "bytes": 116003,
+      "sha256": "f51ea01299b6bb5dcd1051bd57e504ad17c86c5ebb492b002a0a89a80ae00250",
+      "etag": null,
+      "last_modified": "Fri, 09 Oct 2026 07:00:37 GMT",
+      "retrieved_at": "2026-10-10T00:37:06.119416+00:00",
+      "raw_path": "data\\raw\\world-member-sites\\world-aut\\bbfa664b1f870f88\\f51ea01299b6bb5dcd1051bd57e504ad17c86c5ebb492b002a0a89a80ae00250.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1,
+      "not_modified_at": "2026-10-12T02:13:12.650505+00:00"
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:13:12.784038+00:00",
+  "checkpoint_seed": null
+}

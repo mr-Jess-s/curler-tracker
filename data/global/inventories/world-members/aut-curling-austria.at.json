@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:23:52.764506+00:00",
+  "generated_at": "2026-10-12T02:13:12.786745+00:00",
   "country_code": "AUT",
   "country": "Austria",
   "association": "Austrian Curling Association",
@@ -12,13 +12,18 @@
   "pages": [
     {
       "url": "https://www.curling-austria.at",
-      "status": 200,
+      "status": 304,
       "content_type": "text/html",
-      "bytes": 115995,
-      "sha256": "f9947bfaa1716dde8b4fc39a823596bffb5381f0eeecbc487f81f29a7ee959ba",
+      "bytes": 116003,
+      "sha256": "f51ea01299b6bb5dcd1051bd57e504ad17c86c5ebb492b002a0a89a80ae00250",
+      "etag": null,
+      "last_modified": "Fri, 09 Oct 2026 07:00:37 GMT",
+      "retrieved_at": "2026-10-10T00:37:06.119416+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "calendar_draws"
       ],
+      "raw_path": "data\\raw\\world-member-sites\\world-aut\\bbfa664b1f870f88\\f51ea01299b6bb5dcd1051bd57e504ad17c86c5ebb492b002a0a89a80ae00250.html.gz",
       "title": "Home - Curling Austriasearchclosearrow-circle-o-downfacebookglobeinstagrammap-markercalendar-fullcrossmenuchevron-rightarrow-uparrow-right"
     }
   ],

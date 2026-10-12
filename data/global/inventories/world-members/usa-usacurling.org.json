@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T11:26:03.174193+00:00",
+  "generated_at": "2026-10-12T02:24:38.415685+00:00",
   "country_code": "USA",
   "country": "United States",
   "association": "United States Curling Association",
@@ -11,203 +11,247 @@
   "robots_loaded": true,
   "pages": [
     {
-      "url": "https://www.usacurling.org",
+      "url": "https://www.usacurling.org/press-releases/26-27qualification-procedures",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 595265,
-      "sha256": "f320828db2b274c3e756e1de847d60ff629de141d782d593dc6aaf9a9b1464a7",
+      "bytes": 228936,
+      "sha256": "d65ed819197e87cc6fa82572a340a8a8464336054eb6b7b88ccac874fa76b568",
+      "etag": "W/\"06c36a04fce7d4f24dba9569bb5c5532\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:31.836458+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "USA Curling"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\89325b71bc3204f0\\d65ed819197e87cc6fa82572a340a8a8464336054eb6b7b88ccac874fa76b568.html.gz",
+      "title": "2026-27 QUALIFICATION PROCEDURES NOW POSTED — USA CURLING"
     },
     {
-      "url": "https://www.usacurling.org/cart",
+      "url": "https://www.usacurling.org/press-releases/seniornationals2027-xbkxd",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 702413,
-      "sha256": "685e151f513838fea2f09d2f0bffcc149421887db7242ef877efab14e3757bb3",
+      "bytes": 227277,
+      "sha256": "57898f8a011f13ab1bfbfd6e52f5f6c4ff3ad311ee6c03b4fc943109ed609049",
+      "etag": "W/\"c7f34a604043dc507cea65c9a4620986\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:33.186152+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\171b26fd0e4e8233\\57898f8a011f13ab1bfbfd6e52f5f6c4ff3ad311ee6c03b4fc943109ed609049.html.gz",
+      "title": "2027 SENIOR NATIONALS SLATED FOR CURL MESABI IN EVELETH — USA CURLING"
     },
     {
-      "url": "https://www.usacurling.org/find-a-club",
+      "url": "https://www.usacurling.org/press-releases/wug2027",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 277344,
-      "sha256": "867660048bbd627c2414838e1c82d93a0f4c528d18aaa1e3a6546deaf09c7a4e",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "Find a Club — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/getinvolved",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 372781,
-      "sha256": "ea3ae758952f32c3b7b0896bb95a89bb0cbe8e28f4d28c15473c99bd6a40b94f",
+      "bytes": 403622,
+      "sha256": "de3fe35360922d9ca0ce3d7c59453e5e597b72fa99d70265038b6fb45f9fbdfe",
+      "etag": "W/\"177688d3fd1e266ef7f68998f5dd238f\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:34.321760+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Get Involved — USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\afafc80a56cbc31d\\de3fe35360922d9ca0ce3d7c59453e5e597b72fa99d70265038b6fb45f9fbdfe.html.gz",
+      "title": "WORLD UNIVERSITY GAMES ANNOUNCEMENT — USA CURLING"
     },
     {
-      "url": "https://www.usacurling.org/intro-to-curling",
+      "url": "https://www.usacurling.org/programs",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.usacurling.org/qualification-procedures",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.usacurling.org/press-releases?format=rss",
       "status": 200,
-      "content_type": "text/html",
-      "bytes": 1072963,
-      "sha256": "8e163a5823b21be23b08b2e1df16917036015f6bda21d1805d3b78639ae6f667",
+      "content_type": "application/rss+xml",
+      "bytes": 174460,
+      "sha256": "433fa0be535e7b63fc6ff49d65e042f720e99295bacbb7e5b9b70df24bfb2d4b",
+      "etag": "W/\"7a9abeaa5bf45a9ecb533aad601eac31\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:36.352918+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "Intro to Curling — USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\2b411dad96275255\\433fa0be535e7b63fc6ff49d65e042f720e99295bacbb7e5b9b70df24bfb2d4b.bin.gz"
     },
     {
-      "url": "https://www.usacurling.org/press-releases",
+      "url": "https://www.usacurling.org/press-releases/category/CHAMPIONSHIPS",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 346967,
-      "sha256": "f0c45b050b883ac70a45f81624a2aad49f9599ed95e92e57347967cfd6e7e6da",
-      "source_families": [],
-      "title": "PRESS RELEASES — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/media-inquiries",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 748059,
-      "sha256": "5982626ddac9178dc84ec573bc08dd849da104d0b1258d6c5a1aa203a780620c",
-      "source_families": [],
-      "title": "MEDIA INQUIRIES — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/monthly-news",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 218066,
-      "sha256": "92565ae8d2f2125164917284715bd8124d6c11fc08e5019334d112a36258a52e",
-      "source_families": [],
-      "title": "MONTHLY NEWS — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/member-hub",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 722315,
-      "sha256": "d818190d3b17a8b4f5bb062af3e15bd2e75bb6e3c102eb25d013a7052c112b75",
-      "source_families": [],
-      "title": "USA Curling Member Information — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/membership",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 536745,
-      "sha256": "dd3802abcb2ba28eb8051f6901aead9dfb7be00365052228fd6f3eda9c80f9fb",
-      "source_families": [],
-      "title": "Membership — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/become-a-member-club",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 308060,
-      "sha256": "4c92fa42254b7718159451434c97c5c7b356a6ff00069e52a5e0dc4d486b8c9e",
-      "source_families": [
-        "clubs_facilities"
-      ],
-      "title": "ABOUT MEMBERSHIP — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/insurance",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 477530,
-      "sha256": "186110c4274b1799d284da1a84dee8a6f5c6bd554aaa926e4ebd613b21321703",
-      "source_families": [],
-      "title": "INSURANCE — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/member-programs",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 1055938,
-      "sha256": "36ab35e7c4a7213e0a5d542c2be472c822c7f5c461f1f724c08cd044a096f7db",
-      "source_families": [],
-      "title": "Member Programs — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/bonspiel-calendar",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 236693,
-      "sha256": "754114e4bb67a3c7487c0f221d4a3e52b844ffc08c7f693c4cd652e497bd0492",
-      "source_families": [
-        "calendar_draws"
-      ],
-      "title": "BONSPIEL CALENDAR — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/summercurling",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 727259,
-      "sha256": "0a5c3c305bf8ef55b52da40df90fc7a24046e1639b385c89372b2210eccf1cad",
-      "source_families": [],
-      "title": "SUMMER CURLING — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/championships",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 832641,
-      "sha256": "20b77e009f5eaf1503ff9b47bed641a74afe6061860bf67e06f89c3686d92326",
+      "bytes": 351302,
+      "sha256": "dfc9ac3a940a9529ea4a65fcd54c4f7c9c1fc6737bd3f26129426fae0935a5bf",
+      "etag": "W/\"bd29e078d6e9bc82d4bc8e5d13cd793f\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:38.135806+00:00",
+      "terms_status": "unreviewed",
       "source_families": [
         "national_events_results"
       ],
-      "title": "CHAMPIONSHIPS — USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\c6e1bb8a2570e3b1\\dfc9ac3a940a9529ea4a65fcd54c4f7c9c1fc6737bd3f26129426fae0935a5bf.html.gz",
+      "title": "CHAMPIONSHIPS — PRESS RELEASES — USA CURLING"
     },
     {
-      "url": "https://www.usacurling.org/regions-cup",
+      "url": "https://www.usacurling.org/press-releases?offset=1784821424052",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 782762,
-      "sha256": "44d7383a8a10e93990ce2354dabf4bf64022286a2bdc0fa2c7bf9cb1d5c966c0",
-      "source_families": [
-        "subnational_governance"
-      ],
-      "title": "Regions Cup — USA CURLING"
-    },
-    {
-      "url": "https://www.usacurling.org/bid-info",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 955366,
-      "sha256": "9fbe0c5e2c81d5dc6743da201ca30d5d96420dcb1795f7b4013b9c7170d02f28",
+      "bytes": 299703,
+      "sha256": "89d64877cd45c65e470e13a357976fd04bcec56e1ebc3a65563c55990ddcc202",
+      "etag": "W/\"bd8839136a5436be892c37482805b3d8\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:40.648048+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "QUALIFICATION PROCEDURES — USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\0605e2f6dcfd968e\\89d64877cd45c65e470e13a357976fd04bcec56e1ebc3a65563c55990ddcc202.html.gz",
+      "title": "PRESS RELEASES — USA CURLING"
     },
     {
-      "url": "https://www.usacurling.org/safesport",
-      "status": 200,
-      "content_type": "text/html",
-      "bytes": 695360,
-      "sha256": "c11c2546b4589c8b819ec14f72f150a5e397dc1e950ce2896f3da9a1bbed1c01",
-      "source_families": [],
-      "title": "SAFESPORT — USA CURLING"
+      "url": "https://www.usacurling.org/watch",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
     },
     {
-      "url": "https://www.usacurling.org/report-an-incident",
+      "url": "https://www.usacurling.org/the-whole-spiel",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.usacurling.org/s/myusacurling-profile-and-menu.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 512124,
+      "sha256": "9b3c0c3f63afdf880caf42c3bde9626ccf79463093c03c51ce525033ce48986e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:44.906095+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\c42cc95b2b3583fb\\9b3c0c3f63afdf880caf42c3bde9626ccf79463093c03c51ce525033ce48986e.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/MyUSACurling-FAQs-1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 120441,
+      "sha256": "3117ff489f5e17fb27bd14314e835b1e3db3ed50ab634bf63aedbb7bd5ccb263",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:46.438820+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\8f2eefd61b3d29db\\3117ff489f5e17fb27bd14314e835b1e3db3ed50ab634bf63aedbb7bd5ccb263.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/MyUSACurling-Event-Registration.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 2104859,
+      "sha256": "9034592569135dd9cca72a41666a55750cd6c20416e60cfd27fae802e9eedbe1",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:56.397980+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\02e424c24d368c83\\9034592569135dd9cca72a41666a55750cd6c20416e60cfd27fae802e9eedbe1.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/MyUSACurling-New-Event-Wizard-Guide-1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 1036795,
+      "sha256": "1b9d7e4de9e4e521bec73fefe31757e401d4a96526c468b89d59d6f73593f75b",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:23:59.064138+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\bff953aa0c70ebb4\\1b9d7e4de9e4e521bec73fefe31757e401d4a96526c468b89d59d6f73593f75b.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/Silver-and-Gold-Gift-Selections.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 351846,
+      "sha256": "75dfe86c85f7361ded6d336d3942828c0a2b37a60d890fa8f14983a8c6890d0e",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:18.531398+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\b78a3b3bf5e415f2\\75dfe86c85f7361ded6d336d3942828c0a2b37a60d890fa8f14983a8c6890d0e.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/USA_Curling_25-26_Roster_Template.xlsx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "bytes": 77516,
+      "sha256": "82e3a240b8176603b082129fd5d15be32ca41ca9f51f0ec6cc6f388ec5ab95de",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:21.122696+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\970ae2d5550ffa31\\82e3a240b8176603b082129fd5d15be32ca41ca9f51f0ec6cc6f388ec5ab95de.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/contact-member-services",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 237800,
-      "sha256": "a053579d1897ff17a527adf35aeec6cef3e4e1d5363f60117e1ec81df034d61a",
+      "bytes": 1252708,
+      "sha256": "6de3c35d92af24e7073f64588ed5502d498b803876e9c3b3c8356b1f3a12f0d9",
+      "etag": "W/\"1012f7b43d1e216581d367790c68edb0\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:26.320996+00:00",
+      "terms_status": "unreviewed",
       "source_families": [],
-      "title": "REPORT AN INCIDENT — USA CURLING"
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\b9eeb4a1d2a5ba49\\6de3c35d92af24e7073f64588ed5502d498b803876e9c3b3c8356b1f3a12f0d9.html.gz",
+      "title": "CONTACT MEMBER SERVICES — USA CURLING"
+    },
+    {
+      "url": "https://www.usacurling.org/s/25-26-USA-Curling-Participant-Accident-Insurance-Summary.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 265662,
+      "sha256": "a5d835564c92fa6f80976cdb77e54d8334d35abb0c130829e8db4b039e2b6957",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:32.864089+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\7b470dc1a47b7823\\a5d835564c92fa6f80976cdb77e54d8334d35abb0c130829e8db4b039e2b6957.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/s/25-26-USA-Curling-General-Liability-Insurance-Summary.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 216398,
+      "sha256": "7e5c0d1a1d1ad8fa1c1076f5eede5bfa3144fab7f5a6ddef86702214d90563ca",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:36.480906+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\d0d9ef55ae7457d0\\7e5c0d1a1d1ad8fa1c1076f5eede5bfa3144fab7f5a6ddef86702214d90563ca.bin.gz"
+    },
+    {
+      "url": "https://www.usacurling.org/virtual-education",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 351065,
+      "sha256": "bec1eb9331ba47315aa54d21f1fdf44b13c472f62cae4755bf414c7c929459e3",
+      "etag": "W/\"2f6f5ca8562829bb86ed16485c98611d\"",
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:24:38.266622+00:00",
+      "terms_status": "unreviewed",
+      "source_families": [],
+      "raw_path": "data\\raw\\world-member-sites\\world-usa\\19e3681b2ff6e2a1\\bec1eb9331ba47315aa54d21f1fdf44b13c472f62cae4755bf414c7c929459e3.html.gz",
+      "title": "Virtual Education Series — USA CURLING"
     }
   ],
-  "pages_fetched": 20,
+  "pages_fetched": 16,
   "pages_blocked": 0,
-  "pages_failed": 0,
+  "pages_failed": 4,
   "family_candidates": [
-    "calendar_draws",
-    "clubs_facilities",
-    "national_events_results",
-    "subnational_governance"
+    "national_events_results"
   ]
 }

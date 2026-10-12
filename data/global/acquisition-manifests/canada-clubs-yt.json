@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_id": "canada-clubs-yt",
+  "pages": {
+    "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs": {
+      "url": "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs",
+      "status": 200,
+      "final_url": "https://www.yukoncurling.ca/Membership/Yukon-Curling-Clubs",
+      "content_type": "text/html",
+      "bytes": 29881,
+      "sha256": "7ae7dc9aec2333e9e8c32ff9070849dd472ddf7359d8f1cb469a453c094f662f",
+      "etag": null,
+      "last_modified": null,
+      "retrieved_at": "2026-10-12T02:12:55.605075+00:00",
+      "raw_path": "data\\raw\\canada-clubs\\canada-clubs-yt\\a92c466ee43844a5\\7ae7dc9aec2333e9e8c32ff9070849dd472ddf7359d8f1cb469a453c094f662f.html.gz",
+      "terms_status": "unreviewed",
+      "terms_url": null,
+      "attempts": 1
+    }
+  },
+  "pending_urls": [],
+  "seen_urls": [],
+  "updated_at": "2026-10-12T02:12:55.605141+00:00"
+}
