@@ -32,7 +32,7 @@ try {
     }
     $DataOut = Join-Path $Stage 'data'
     New-Item -ItemType Directory -Path $DataOut -Force | Out-Null
-    foreach ($name in @('home-summary.json','history-manifest.json')) {
+    foreach ($name in @('home-summary.json','history-manifest.json','curler-source-records.json')) {
         Copy-Item (Join-Path $Root ('data\' + $name)) (Join-Path $DataOut $name) -ErrorAction Stop
     }
     foreach ($folder in @('history','offline-curler-index')) {

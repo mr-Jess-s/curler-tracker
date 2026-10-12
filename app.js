@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.13';
+const APP_VERSION = 'v26.14';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -982,6 +982,11 @@ function renderHeadline(snapshot) {
     return;
   }
 
+  if (snapshot.view === 'documented-history') {
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">Documented curling history</div><div class="headline-sub">First-party event or club references found. A current competition team has not been confirmed.</div></div>';
+    return;
+  }
+
   if (snapshot.view === 'archived-team') {
     const season = snapshot.archiveSeason ? ` · ${escapeHtml(snapshot.archiveSeason)}` : '';
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Last recorded team: ${escapeHtml(snapshot.teamName || 'Unknown')}</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Archived Curling I/O appearance')}${season}</div></div>`;
@@ -1212,6 +1217,9 @@ function updateBadge(view) {
   } else if (view === 'recent-event') {
     els.liveBadge.classList.add('complete');
     els.liveBadge.textContent = 'Recent';
+  } else if (view === 'documented-history') {
+    els.liveBadge.classList.add('muted');
+    els.liveBadge.textContent = 'Sources';
   } else if (view === 'archived-team') {
     els.liveBadge.classList.add('muted');
     els.liveBadge.textContent = 'Archive';
@@ -1374,6 +1382,48 @@ async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs) {
   const record = (identity.records || []).find(row => row.team_name && row.event_name);
   if (!record) diagnostics.offlineLookup = 'no-team-record';
   return record ? buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) : null;
+}
+
+async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
+  const archive = await fetchJson(`./data/curler-source-records.json?v=${encodeURIComponent(APP_VERSION)}`, {
+    ttlMs: 60 * 60 * 1000,
+    cacheGroup: 'documented-curler-sources'
+  });
+  if (archive?.schema_version !== 1 || !archive.names || typeof archive.names !== 'object') {
+    throw new Error('Documentary source index is unavailable or invalid.');
+  }
+  const entry = archive.names[normalizeName(playerName)];
+  if (!entry) return null;
+  if (normalizeName(entry.name) !== normalizeName(playerName) || !Array.isArray(entry.records) || !entry.records.length ||
+    entry.records.some(row => !row.title || !row.detail || !row.source || !row.source_url ||
+      !['organizer_event_report', 'official_club_role'].includes(row.kind) ||
+      !/^https:\/\//.test(row.source_url))) {
+    throw new Error('Documentary source evidence or exact-name match is invalid.');
+  }
+  const careerHistory = entry.records.map(row => ({
+    title: row.title,
+    detail: row.detail,
+    source: row.source,
+    sourceUrl: row.source_url,
+    startsOn: row.event_date || ''
+  }));
+  diagnostics.documentarySourceCount = careerHistory.length;
+  return {
+    playerName,
+    displayPlayer: entry.name,
+    view: 'documented-history',
+    eventName: 'Historical curling references',
+    teamName: '',
+    ends: [],
+    scheduleRows: [],
+    careerHistory,
+    timelineHint: 'Historical source records are available below. No live result, current team or score is confirmed.',
+    scheduleHint: 'No current competition was verified in this search. Documentary club roles are not game appearances.',
+    nextCheckAt: Date.now() + delayMs,
+    lastUpdatedAt: archive.generated_at,
+    lastUpdatedLabel: `Indexed ${formatSnapshotDate(archive.generated_at)}`,
+    diagnostics
+  };
 }
 
 function findSavedTeamSnapshot(playerName, previous, diagnostics, delayMs) {
@@ -1888,14 +1938,17 @@ async function runTracker({ reason }) {
       });
 
       if (discovery.timedOut) {
-        const snapshot = computeErrorSnapshot(
-          state.playerName,
-          diagnostics,
-          APP.errorRetryMs,
-          'The search took too long. Try Refresh now.'
-        );
-        render(snapshot);
-        setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
+        let documentary = null;
+        try { documentary = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
+        catch (err) { diagnostics.documentaryError = err.message; }
+        if (generation !== state.playerGeneration) return;
+        if (documentary) {
+          render(documentary);
+          setStatus(`Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. Current competition search timed out; retrying in 30 minutes.`);
+        } else {
+          render(computeErrorSnapshot(state.playerName, diagnostics, APP.errorRetryMs, 'The search took too long. Try Refresh now.'));
+          setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
+        }
         scheduleNextRun(APP.errorRetryMs);
       } else {
         updateSearchProgress('No current match yet. Checking recent completed competitions…');
@@ -1934,8 +1987,14 @@ async function runTracker({ reason }) {
           if (recentDiscovery.timedOut || recentDiscovery.checked.some(item => item.error)) {
             throw new Error('Recent competition search is incomplete. Please retry.');
           }
-          render(computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
-          setStatus(`No current event found for ${state.playerName}. Next scan in about 72 hours.`);
+          let documentary = null;
+          try { documentary = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.idleScanMs); }
+          catch (err) { diagnostics.documentaryError = err.message; }
+          if (generation !== state.playerGeneration) return;
+          render(documentary || computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
+          setStatus(documentary
+            ? `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. No current game confirmed in the checked sources.`
+            : `No current event found for ${state.playerName}. Next scan in about 72 hours.`);
           scheduleNextRun(APP.idleScanMs);
         }
       }
@@ -2025,11 +2084,17 @@ async function runTracker({ reason }) {
         diagnostics.offlineArchiveError = archiveError.message;
       }
     }
+    if (!fallback && diagnostics.offlineLookup !== 'ambiguous-source-identities') {
+      try { fallback = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
+      catch (err) { diagnostics.documentaryError = err.message; }
+    }
     if (generation !== state.playerGeneration) return;
 
     if (fallback) {
       render(fallback);
-      setStatus(`Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
+      setStatus(fallback.view === 'documented-history'
+        ? `Found ${fallback.careerHistory.length} cited curling references for ${state.playerName}. Live sources are incomplete; retrying in 30 minutes.`
+        : `Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
       scheduleNextRun(APP.errorRetryMs);
       return;
     }
