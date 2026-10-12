@@ -139,7 +139,7 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
                 source["state"] = "stale"
             if source["state"] == "stale":
                 source["last_success_at"] = old_source.get("last_success_at") or max((row.get("retrieved_at", "") for row in source["events"]), default="")
-        elif source["state"] == "complete":
+        elif source["state"] in {"complete", "partial"}:
             source["last_success_at"] = max((row.get("retrieved_at", "") for row in source["events"]), default="")
         rows.append(source)
         print(f"{subdomain}: {source['state']} archived={len(source['events'])}", flush=True)
