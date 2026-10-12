@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.12';
+const APP_VERSION = 'v26.13';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -467,12 +467,14 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   }
 }
 
-async function mapWithConcurrency(items, limit, worker) {
+async function mapWithConcurrency(items, limit, worker, deadlineAt = Infinity) {
   const results = new Array(items.length);
   let nextIndex = 0;
 
   async function runWorker() {
-    while (true) {
+    // Do not queue new source requests once this discovery phase has run out
+    // of time. In-flight requests retain their own 12-second fetch timeout.
+    while (Date.now() < deadlineAt) {
       const current = nextIndex++;
       if (current >= items.length) return;
       results[current] = await worker(items[current], current);
@@ -484,7 +486,7 @@ async function mapWithConcurrency(items, limit, worker) {
     () => runWorker()
   );
   await Promise.all(workers);
-  return results;
+  return results.filter(row => row !== undefined);
 }
 
 function competitionsUrl(subdomain, delta) {
@@ -1517,7 +1519,7 @@ async function discoverPlayerEvents(playerName) {
     } catch (error) {
       return { subdomain, delta, listUrl, items: [], skipped: true, error: error.message };
     }
-  });
+  }, deadlineAt);
 
   for (const result of listResults) {
     checked.push({
@@ -1572,7 +1574,7 @@ async function discoverPlayerEvents(playerName) {
         checked.push({ subdomain: result.subdomain, eventId: item.id, error: error.message });
         return null;
       }
-    });
+    }, deadlineAt);
 
     if (strongCandidate) {
       saveDiscoveryFastPath(playerNorm, strongCandidate);
@@ -1622,7 +1624,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
     } catch (error) {
       return { subdomain, delta, listUrl, items: [], skipped: true, error: error.message };
     }
-  });
+  }, deadlineAt);
 
   for (const result of listResults) {
     checked.push({
@@ -1669,7 +1671,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
         checked.push({ subdomain: result.subdomain, eventId: item.id, error: error.message });
         return null;
       }
-    });
+    }, deadlineAt);
   }
 
   candidates.sort((a, b) => {
@@ -1682,7 +1684,8 @@ async function discoverMostRecentCompletedEvent(playerName) {
   });
 
   const result = { checked, candidates, timedOut: Date.now() >= deadlineAt };
-  writeTimedCache('recent-event', cacheKey, result);
+  // Incomplete searches must be retried, not presented as a cached full survey.
+  if (!result.timedOut && !checked.some(row => row.error)) writeTimedCache('recent-event', cacheKey, result);
   return result;
 }
 
@@ -1925,7 +1928,7 @@ async function runTracker({ reason }) {
 
           const recentSnapshot = buildRecentEventSnapshot(state.playerName, recentChosen, recentDiagnostics);
           render(recentSnapshot);
-          setStatus(`No current event found for ${state.playerName}. Showing the most recent completed competition.`);
+          setStatus(`No current event found for ${state.playerName}. Showing a recent completed competition found in the checked sources.`);
           scheduleNextRun(APP.idleScanMs);
         } else {
           if (recentDiscovery.timedOut || recentDiscovery.checked.some(item => item.error)) {

@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 BASE_URL=os.environ.get('CT_BASE_URL','http://127.0.0.1:8766').rstrip('/')
-OUT=ROOT/'qa'/'v26.12-20261011'
+OUT=ROOT/'qa'/'v26.13-20261011'
 OUT.mkdir(exist_ok=True)
 opts=Options()
 opts.add_argument('--headless=new')
@@ -73,7 +73,7 @@ try:
  driver.find_element(By.ID,'feedbackSource').send_keys('https://ab.curling.io/en/events/24023')
  driver.execute_script("document.getElementById('feedbackType').value='identity-or-name-update';document.getElementById('feedbackRelationship').value='self'")
  packet=driver.execute_script('return buildFeedbackPacket()')
- check(packet['app_version']=='v26.12' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
+ check(packet['app_version']=='v26.13' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
  check(packet['submitter_relationship']=='self','Declared contributor relationship retained')
  click_in_view(driver.find_element(By.ID,'feedbackCloseBtn'))
  check(driver.find_element(By.ID,'feedbackDialog').get_attribute('open') is None,'Feedback dialog closes')
@@ -93,13 +93,13 @@ try:
  click_in_view(driver.find_element(By.ID,'careerLoadBtn'))
  WebDriverWait(driver,10).until(lambda d:not d.execute_script('return state.careerLoading'))
  driver.refresh()
- WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.12'"))
- check(driver.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.12'"),'Updated release survives reload')
+ WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.13'"))
+ check(driver.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.13'"),'Updated release survives reload')
  driver.get(BASE_URL+'/?player=Ferrol%20Asham')
  WebDriverWait(driver,90).until(lambda d:d.execute_script("return typeof state!=='undefined'&&!state.isRunning&&!!state.snapshot"))
  check('Team not established' not in driver.find_element(By.ID,'careerPath').text,'Source outage or no current roster never appears as a fake career record')
  driver.execute_async_script("const done=arguments[0];navigator.serviceWorker.ready.then(async()=>done(await caches.keys())).catch(()=>done([]))")
- check('curler-tracker-v26-12' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
+ check('curler-tracker-v26-13' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
  # Simulate a slow official source without inventing curler results or relying on network timing.
  driver.execute_script("window.qaSavedDiscovery=discoverPlayerEvents;window.qaSearchResolves=[];discoverPlayerEvents=()=>new Promise(resolve=>qaSearchResolves.push(resolve));startTracking('First Search QA','qa-progress')")
  WebDriverWait(driver,3).until(lambda d:d.execute_script("return state.isRunning && !document.getElementById('searchProgress').classList.contains('hidden')"))

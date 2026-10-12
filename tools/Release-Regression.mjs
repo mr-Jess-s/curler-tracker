@@ -189,4 +189,15 @@ await check('Switching people starts a fresh search without stale progress overw
  assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),true);
  assert.equal(a.run('state.snapshot.playerName'),'Second Curler');
 });
+await check('Source discovery stops scheduling new requests after its deadline',async()=>{
+ const a=app();
+ a.run("globalThis.qaStarted=[];globalThis.qaResolvers=[]");
+ const pending=a.run("mapWithConcurrency([0,1,2,3,4,5],2,async i=>{qaStarted.push(i);await new Promise(resolve=>qaResolvers.push(resolve));return i},Date.now()+10)");
+ await new Promise(resolve=>setTimeout(resolve,25));
+ assert.equal(a.run("qaStarted.length"),2);
+ a.run("qaResolvers.forEach(resolve=>resolve())");
+ const results=await pending;
+ assert.deepEqual(Array.from(results),[0,1]);
+ assert.equal(a.run("qaStarted.length"),2);
+});
 console.log(count+' release regression checks passed.');
