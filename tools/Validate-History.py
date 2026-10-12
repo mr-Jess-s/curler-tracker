@@ -19,7 +19,7 @@ for f in manifest['files']:
  sample_key=next((key for key,items in grouped.items() if len(items)>1),next(iter(grouped)))
  for cid,row in rows:
   assert cid.isdigit() and row['published_name'] and row['event_id'] and row['team_id']
-  assert row['source_url']==f"https://api-curlingio.global.ssl.fastly.net/en/clubs/{f['subdomain']}/events/{row['event_id']}"
+  assert row['source_url']==f"https://api.curling.io/en/clubs/{f['subdomain']}/events/{row['event_id']}"
  total+=len(rows)
  cid=sample_key[0]; row=grouped[sample_key][0]
  with urllib.request.urlopen(urllib.request.Request(row['source_url'],headers={'Accept':'application/json','User-Agent':'CurlerTracker/26.4 source-validation'}),timeout=25) as response: event=json.load(response)

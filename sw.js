@@ -1,11 +1,11 @@
-const CACHE = 'curler-tracker-v26-9';
+const CACHE = 'curler-tracker-v26-10';
 const APP_ASSETS = [
   './',
   './index.html',
-  './styles.css?v=v26.9',
-  './app.js?v=v26.9',
-  './manifest.webmanifest?v=v26.9',
-  './data/home-summary.json?v=v26.9',
+  './styles.css?v=v26.10',
+  './app.js?v=v26.10',
+  './manifest.webmanifest?v=v26.10',
+  './data/home-summary.json?v=v26.10',
   './noble-beaver.svg',
   './noble-beaver-icon.svg'
 ];

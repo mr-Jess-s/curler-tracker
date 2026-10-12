@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.9';
+const APP_VERSION = 'v26.10';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -383,11 +383,20 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   const timeoutId = window.setTimeout(() => controller.abort(), APP.fetchTimeoutMs);
 
   try {
-    const res = await fetch(url, {
+    let res = await fetch(url, {
       headers: { Accept: 'application/json' },
       cache: 'no-store',
       signal: controller.signal
     });
+    if (!res.ok && url.startsWith('./data/')) {
+      const relativePath = url.replace(/^\.\//, '').split('?')[0];
+      const fallbackUrl = `https://raw.githubusercontent.com/mr-Jess-s/curler-tracker/main/${relativePath}?v=${encodeURIComponent(APP_VERSION)}`;
+      res = await fetch(fallbackUrl, {
+        headers: { Accept: 'application/json' },
+        cache: 'no-store',
+        signal: controller.signal
+      });
+    }
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
     const payload = await res.json();
     if (ttlMs) writeTimedCache(cacheGroup, url, payload);
@@ -423,11 +432,11 @@ async function mapWithConcurrency(items, limit, worker) {
 }
 
 function competitionsUrl(subdomain, delta) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
+  return `https://api.curling.io/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
 }
 
 function eventUrl(subdomain, eventId) {
-  return `https://api-curlingio.global.ssl.fastly.net/${APP.language}/clubs/${subdomain}/events/${eventId}`;
+  return `https://api.curling.io/${APP.language}/clubs/${subdomain}/events/${eventId}`;
 }
 
 function parseEventDateToMs(value) {

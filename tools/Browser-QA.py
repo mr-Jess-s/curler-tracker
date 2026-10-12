@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 BASE_URL=os.environ.get('CT_BASE_URL','http://127.0.0.1:8766').rstrip('/')
-OUT=ROOT/'qa'/'v26.9-20261010'
+OUT=ROOT/'qa'/'v26.10-20261011'
 OUT.mkdir(exist_ok=True)
 opts=Options()
 opts.add_argument('--headless=new')
@@ -30,10 +30,10 @@ def click_in_view(element):
  element.click()
 try:
  driver.get(BASE_URL+'/')
- WebDriverWait(driver,20).until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>0)
+ WebDriverWait(driver,20).until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
  WebDriverWait(driver,20).until(lambda d:d.execute_script("return document.readyState==='complete'&&document.querySelector('.brand-mark')?.getBoundingClientRect().width>0"))
  check(driver.execute_script("return document.querySelector('.brand-mark')?.getBoundingClientRect().width>0"),'Brand mark visible on homepage')
- check(driver.find_element(By.ID,'seasonSelect').get_attribute('value')=='2025 / 2026','Last full season shown by default')
+ check(driver.execute_script("return document.querySelector('#seasonSelect option:checked')?.textContent.includes('last full season')===true") ,'Last full season shown by default')
  check(len(driver.find_elements(By.CSS_SELECTOR,'.event-link'))>=8,'Historical events visible before search')
  check(len(driver.find_elements(By.CSS_SELECTOR,'.curler-chip'))>=6,'Example careers visible before search')
  check(not driver.find_element(By.ID,'trackerResults').is_displayed(),'Empty live panels stay hidden before search')
@@ -68,7 +68,7 @@ try:
  driver.find_element(By.ID,'feedbackSource').send_keys('https://ab.curling.io/en/events/24023')
  driver.execute_script("document.getElementById('feedbackType').value='identity-or-name-update';document.getElementById('feedbackRelationship').value='self'")
  packet=driver.execute_script('return buildFeedbackPacket()')
- check(packet['app_version']=='v26.9' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
+ check(packet['app_version']=='v26.10' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
  check(packet['submitter_relationship']=='self','Declared contributor relationship retained')
  click_in_view(driver.find_element(By.ID,'feedbackCloseBtn'))
  check(driver.find_element(By.ID,'feedbackDialog').get_attribute('open') is None,'Feedback dialog closes')

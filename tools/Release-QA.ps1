@@ -34,7 +34,7 @@ try {
   Check ($app -notmatch 'linked = !!ourPos \|\| aliasMatch') 'Alias text alone cannot assert that a game belongs to the tracked team.'
   Check ($app -match "careerLookbackSeasons: \[0, -1, -2\]") 'Recent career lookup is bounded to three Curling I/O seasons.'
 
-  $base = 'https://api-curlingio.global.ssl.fastly.net/en/clubs/ab/events'
+  $base = 'https://api.curling.io/en/clubs/ab/events'
   $e2026 = Invoke-RestMethod -Uri "$base/24023" -TimeoutSec 20
   $e2025 = Invoke-RestMethod -Uri "$base/20424" -TimeoutSec 20
   $eU18  = Invoke-RestMethod -Uri "$base/20396" -TimeoutSec 20
@@ -61,11 +61,11 @@ try {
   }
 
   foreach($subdomain in @('mb','canada')) {
-    $list = Invoke-RestMethod -Uri "https://api-curlingio.global.ssl.fastly.net/en/clubs/$subdomain/competitions?occurred=-1&registrations=f" -TimeoutSec 20
+    $list = Invoke-RestMethod -Uri "https://api.curling.io/en/clubs/$subdomain/competitions?occurred=-1&registrations=f" -TimeoutSec 20
     $published = @($list.items | Where-Object { $_.publish_results })[0]
     Check ($null -ne $published) ("$subdomain source exposes a published-results event for the prior season.")
     if($published) {
-      $event = Invoke-RestMethod -Uri "https://api-curlingio.global.ssl.fastly.net/en/clubs/$subdomain/events/$($published.id)" -TimeoutSec 20
+      $event = Invoke-RestMethod -Uri "https://api.curling.io/en/clubs/$subdomain/events/$($published.id)" -TimeoutSec 20
       $lineupRows = @($event.teams | ForEach-Object { $_.lineup } | Where-Object { $_ })
       Check (($event.teams.Count -gt 0) -and ($lineupRows.Count -gt 0)) ("$subdomain event payload exposes team and lineup records.")
     }

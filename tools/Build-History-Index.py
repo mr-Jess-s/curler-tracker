@@ -7,7 +7,7 @@ OUTDIR=ROOT/'data'/'history'
 MANIFEST=ROOT/'data'/'history-manifest.json'
 SUBDOMAINS=['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt']
 DELTAS=[0,-1,-2]
-BASE='https://api-curlingio.global.ssl.fastly.net/en/clubs/{sub}'
+BASE='https://api.curling.io/en/clubs/{sub}'
 
 def fetch_json(url, attempts=2):
     last=None

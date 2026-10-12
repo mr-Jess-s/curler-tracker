@@ -12,7 +12,7 @@ from acquisition_support import fetch_snapshot, utc_now
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "data" / "global" / "canada-current-season.json"
 SUBDOMAINS = ["ab", "bc", "mb", "nb", "nl", "nt", "ns", "nu", "on", "pe", "qc", "sk", "yt", "canada"]
-API = "https://api-curlingio.global.ssl.fastly.net/en/clubs"
+API = "https://api.curling.io/en/clubs"
 
 
 def current_season_start(today=None):
