@@ -88,13 +88,13 @@ try:
  click_in_view(driver.find_element(By.ID,'careerLoadBtn'))
  WebDriverWait(driver,10).until(lambda d:not d.execute_script('return state.careerLoading'))
  driver.refresh()
- WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.9'"))
- check(driver.execute_script("return APP_VERSION")=='v26.9','Updated release survives reload')
+ WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.10'"))
+ check(driver.execute_script("return APP_VERSION")=='v26.10','Updated release survives reload')
  driver.get(BASE_URL+'/?player=Ferrol%20Asham')
  WebDriverWait(driver,90).until(lambda d:d.execute_script("return typeof state!=='undefined'&&!state.isRunning&&!!state.snapshot"))
  check('Team not established' not in driver.find_element(By.ID,'careerPath').text,'Source outage or no current roster never appears as a fake career record')
  driver.execute_async_script("const done=arguments[0];navigator.serviceWorker.ready.then(async()=>done(await caches.keys())).catch(()=>done([]))")
- check('curler-tracker-v26-9' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
+ check('curler-tracker-v26-10' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
  passed=True
  print('BROWSER_QA_PASS '+str(len(checks)),flush=True)
 finally:

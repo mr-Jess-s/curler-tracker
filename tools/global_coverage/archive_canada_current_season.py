@@ -93,25 +93,39 @@ def run(max_sources=14, max_events_per_source=10, delay=0.5):
     rows = []
     for subdomain in SUBDOMAINS[:max_sources]:
         source_id = f"canada-season-{subdomain}"
-        list_url = f"{API}/{quote(subdomain)}/competitions?occurred=-1&registrations=f"
+        list_url = f"{API}/{quote(subdomain)}/competitions"
         source = {"subdomain": subdomain, "list_url": list_url, "events": []}
         try:
             listing, _ = request_json(list_url, source_id)
+            published = [event for event in listing.get("items", []) if event.get("publish_results") is True and event.get("id") is not None]
             candidates = []
-            for event in listing.get("items", []):
-                start = event_date(event)
-                if event.get("publish_results") is True and event.get("id") is not None and start and start >= season_start:
-                    candidates.append((start, event))
-            candidates.sort(key=lambda item: (item[0], int(item[1]["id"])), reverse=True)
-            for start, event in candidates[:max_events_per_source]:
+            failures = []
+            # The listing omits calendar years. Verify dates from official event
+            # details, but cap the work so a new large association cannot hang
+            # this background collector indefinitely.
+            max_checks = min(len(published), max(30, max_events_per_source * 4))
+            for event in published[:max_checks]:
                 event_id = int(event["id"])
                 event_url = f"{API}/{quote(subdomain)}/events/{event_id}"
-                payload, record = request_json(event_url, source_id)
-                record["url"] = event_url
-                source["events"].append(event_snapshot(event, payload, record, start, subdomain))
+                try:
+                    payload, record = request_json(event_url, source_id)
+                except Exception as exc:
+                    failures.append({"event_id": event_id, "error": str(exc)[:200]})
+                    continue
+                start = event_date(payload) or event_date(event)
+                if start and start >= season_start:
+                    record["url"] = event_url
+                    candidates.append((start, event, payload, record))
                 if delay:
                     time.sleep(delay)
-            source["state"] = "complete"
+            candidates.sort(key=lambda item: (item[0], int(item[1]["id"])), reverse=True)
+            for start, event, payload, record in candidates[:max_events_per_source]:
+                source["events"].append(event_snapshot(event, payload, record, start, subdomain))
+            source["listed_published_competitions"] = len(published)
+            source["inspected_competitions"] = max_checks
+            source["truncated"] = max_checks < len(published)
+            source["event_fetch_errors"] = failures[:10]
+            source["state"] = "partial" if (source["truncated"] or failures) else "complete"
             source["published_events_in_season"] = len(candidates)
         except Exception as exc:
             source["state"] = "stale" if previous_sources.get(subdomain, {}).get("events") else "failed"
