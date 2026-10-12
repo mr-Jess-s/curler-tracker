@@ -8,8 +8,13 @@ const source=fs.readFileSync(path.join(root,'app.js'),'utf8').replace(/bootFromS
 function app() {
   const elements=new Map();
   const element=id=>{
-    if(!elements.has(id)) elements.set(id,{value:'',textContent:'',innerHTML:'',disabled:false,handlers:{},
-      classList:{add(){},remove(){},toggle(){}},addEventListener(name,fn){this.handlers[name]=fn;}});
+    if(!elements.has(id)) {
+      const classes=new Set();
+      elements.set(id,{value:'',textContent:'',innerHTML:'',disabled:false,handlers:{},attributes:{},
+        classList:{add(...names){names.forEach(n=>classes.add(n));},remove(...names){names.forEach(n=>classes.delete(n));},toggle(name,force){if(force===undefined)force=!classes.has(name);if(force)classes.add(name);else classes.delete(name);},contains(name){return classes.has(name);}},
+        setAttribute(name,value){this.attributes[name]=String(value);},removeAttribute(name){delete this.attributes[name];},
+        addEventListener(name,fn){this.handlers[name]=fn;}});
+    }
     return elements.get(id);
   };
   const context=vm.createContext({console,URL,URLSearchParams,AbortController,Intl,Date,Map,Set,Promise,queueMicrotask,
@@ -145,5 +150,42 @@ await check('No archived player match explains that club league rosters may be a
  await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');
  assert.match(a.run('state.snapshot.errorHint'),/Club league rosters may not be published/);
  assert.doesNotMatch(a.elements.get('careerPath').innerHTML,/Team not established/);
+});
+await check('Search shows a prominent progress state and finishes with a distinct error',async()=>{
+ const a=app();
+ a.run("state.playerName='Slow Curler';discoverPlayerEvents=()=>new Promise(resolve=>globalThis.qaResolve=resolve);findOfflineTeamSnapshot=async()=>null");
+ a.elements.get('searchProgress').classList.add('hidden');
+ const pending=a.run("runTracker({reason:'qa-progress'})");
+ assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),false);
+ assert.equal(a.elements.get('searchSubmitBtn').textContent,'Searching…');
+ assert.equal(a.elements.get('searchProgressTitle').textContent,'Searching for Slow Curler');
+ assert.match(a.elements.get('searchProgressDetail').textContent,/current-season/);
+ assert.equal(a.elements.get('playerForm').attributes['aria-busy'],'true');
+ a.run("qaResolve({candidates:[],checked:[{error:'simulated source failure'}],timedOut:false})");
+ await pending;
+ assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),true);
+ assert.equal(a.elements.get('searchSubmitBtn').textContent,'View curler');
+ assert.equal(a.elements.get('playerForm').attributes['aria-busy'],undefined);
+ assert.match(a.elements.get('statusLine').textContent,/could not refresh/i);
+});
+await check('Switching people starts a fresh search without stale progress overwrites',async()=>{
+ const a=app();
+ a.run("globalThis.qaResolves=[];discoverPlayerEvents=()=>new Promise(resolve=>qaResolves.push(resolve));findOfflineTeamSnapshot=async()=>null");
+ a.run("startTracking('First Curler','manual-start')");
+ assert.equal(a.run('state.isRunning'),true);
+ assert.equal(a.run('qaResolves.length'),1);
+ a.run("startTracking('Second Curler','manual-start')");
+ assert.equal(a.run('qaResolves.length'),2);
+ assert.equal(a.elements.get('searchProgressTitle').textContent,'Searching for Second Curler');
+ a.run("qaResolves[0]({candidates:[],checked:[{error:'old failed'}],timedOut:false})");
+ await Promise.resolve(); await Promise.resolve();
+ assert.equal(a.run('state.isRunning'),true);
+ assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),false);
+ assert.equal(a.run('state.playerName'),'Second Curler');
+ a.run("qaResolves[1]({candidates:[],checked:[{error:'new failed'}],timedOut:false})");
+ await new Promise(resolve=>setTimeout(resolve,0));
+ assert.equal(a.run('state.isRunning'),false);
+ assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),true);
+ assert.equal(a.run('state.snapshot.playerName'),'Second Curler');
 });
 console.log(count+' release regression checks passed.');

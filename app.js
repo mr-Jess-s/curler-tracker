@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.10';
+const APP_VERSION = 'v26.11';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -35,6 +35,11 @@ const APP = {
 const els = {
   form: document.getElementById('playerForm'),
   playerInput: document.getElementById('playerInput'),
+  searchSubmitBtn: document.getElementById('searchSubmitBtn'),
+  searchProgress: document.getElementById('searchProgress'),
+  searchProgressTitle: document.getElementById('searchProgressTitle'),
+  searchProgressDetail: document.getElementById('searchProgressDetail'),
+  searchElapsed: document.getElementById('searchElapsed'),
   shareBtn: document.getElementById('shareBtn'),
   refreshBtn: document.getElementById('refreshBtn'),
   demoCurlerBtn: document.getElementById('demoCurlerBtn'),
@@ -86,6 +91,8 @@ const state = {
   lastRunAt: 0,
   lastVisibilityScanAt: 0,
   isRunning: false,
+  searchStartedAt: 0,
+  searchProgressTimerId: null,
   pendingRunReason: null,
   careerHistory: [],
   careerLoading: false,
@@ -309,6 +316,45 @@ function formatClock(value) {
 
 function setStatus(text) {
   els.statusLine.textContent = text;
+}
+
+function updateSearchProgress(detail) {
+  if (!state.isRunning) return;
+  if (els.searchProgressDetail) els.searchProgressDetail.textContent = detail;
+}
+
+function endSearchProgress() {
+  if (state.searchProgressTimerId !== null) {
+    clearTimeout(state.searchProgressTimerId);
+    state.searchProgressTimerId = null;
+  }
+  state.searchStartedAt = 0;
+  els.searchProgress?.classList.add('hidden');
+  els.form?.removeAttribute('aria-busy');
+  if (els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'View curler';
+  if (els.refreshBtn) els.refreshBtn.disabled = false;
+  if (state.snapshot?.playerName) updateBadge(state.snapshot.view || 'idle');
+}
+
+function beginSearchProgress(name) {
+  endSearchProgress();
+  state.searchStartedAt = Date.now();
+  els.searchProgress?.classList.remove('hidden');
+  if (els.searchProgressTitle) els.searchProgressTitle.textContent = 'Searching for ' + name;
+  if (els.searchProgressDetail) els.searchProgressDetail.textContent = 'Checking current-season competitions…';
+  els.form?.setAttribute('aria-busy', 'true');
+  if (els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'Searching…';
+  if (els.refreshBtn) els.refreshBtn.disabled = true;
+  if (els.liveBadge) {
+    els.liveBadge.className = 'badge upcoming';
+    els.liveBadge.textContent = 'Searching';
+  }
+  const tick = () => {
+    if (!state.isRunning || !state.searchStartedAt) return;
+    if (els.searchElapsed) els.searchElapsed.textContent = String(Math.floor((Date.now() - state.searchStartedAt) / 1000)) + 's';
+    state.searchProgressTimerId = window.setTimeout(tick, 1000);
+  };
+  tick();
 }
 
 function savePlayer(player) {
@@ -1794,6 +1840,10 @@ async function runTracker({ reason }) {
   if (!state.playerName) return;
 
   if (state.isRunning) {
+    if (reason === 'manual-start' || reason === 'manual-refresh' || reason === 'manual-refresh-start') {
+      updateSearchProgress('Search already in progress. Checking official records…');
+      return;
+    }
     state.pendingRunReason = reason || 'queued';
     return;
   }
@@ -1802,6 +1852,7 @@ async function runTracker({ reason }) {
   const generation = state.playerGeneration;
   const requestedPlayer = state.playerName;
   state.lastRunAt = Date.now();
+  beginSearchProgress(requestedPlayer);
   setStatus(`Checking for ${state.playerName}...`);
 
   try {
@@ -1834,6 +1885,7 @@ async function runTracker({ reason }) {
         setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
         scheduleNextRun(APP.errorRetryMs);
       } else {
+        updateSearchProgress('No current match yet. Checking recent completed competitions…');
         const recentDiscovery = await discoverMostRecentCompletedEvent(requestedPlayer);
         if (generation !== state.playerGeneration) return;
 
@@ -1951,6 +2003,7 @@ async function runTracker({ reason }) {
       error: error.message
     });
 
+    updateSearchProgress('Live sources could not complete. Checking saved event archives…');
     let fallback = findSavedTeamSnapshot(state.playerName, state.snapshot, diagnostics, APP.errorRetryMs);
     if (!fallback) {
       try {
@@ -1984,12 +2037,15 @@ async function runTracker({ reason }) {
     setStatus(`Could not refresh right now. Retrying in 30 minutes. ${error.message}`);
     scheduleNextRun(APP.errorRetryMs);
   } finally {
-    state.isRunning = false;
-
-    if (state.pendingRunReason) {
-      const queuedReason = state.pendingRunReason;
-      state.pendingRunReason = null;
-      queueMicrotask(() => runTracker({ reason: queuedReason }));
+    // Slower, superseded requests must not hide the new search or replay old work.
+    if (generation === state.playerGeneration) {
+      state.isRunning = false;
+      endSearchProgress();
+      if (state.pendingRunReason) {
+        const queuedReason = state.pendingRunReason;
+        state.pendingRunReason = null;
+        queueMicrotask(() => runTracker({ reason: queuedReason }));
+      }
     }
   }
 }
@@ -1998,6 +2054,10 @@ function startTracking(playerName, reason = 'manual-start') {
   const nextPlayer = playerName.trim();
   if (normalizeName(nextPlayer) !== normalizeName(state.playerName)) {
     state.playerGeneration++;
+    // A new person takes priority; the previous request is ignored when it finishes.
+    state.isRunning = false;
+    state.pendingRunReason = null;
+    endSearchProgress();
     state.careerHistory = [];
     state.careerMessage = '';
     state.careerLoading = false;
@@ -2077,7 +2137,7 @@ els.form.addEventListener('submit', event => {
   const value = els.playerInput.value.trim();
   if (!value) return;
   startTracking(value, 'manual-start');
-  requestAnimationFrame(() => els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  requestAnimationFrame(() => (state.isRunning ? els.searchProgress : els.trackerResults)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 });
 
 
@@ -2154,13 +2214,16 @@ els.demoCurlerBtn?.addEventListener('click', () => {
   const player = 'Sophie Abbs';
   els.playerInput.value = player;
   startTracking(player, 'verified-example');
-  requestAnimationFrame(() => els.trackerResults?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  requestAnimationFrame(() => (state.isRunning ? els.searchProgress : els.trackerResults)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 });
 
 els.homeBtn?.addEventListener('click', () => {
   if (state.timerId) clearTimeout(state.timerId);
   state.timerId = null;
   state.playerGeneration++;
+  state.isRunning = false;
+  state.pendingRunReason = null;
+  endSearchProgress();
   state.playerName = '';
   state.snapshot = null;
   state.careerHistory = [];

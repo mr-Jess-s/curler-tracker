@@ -162,6 +162,32 @@ h1 {
 .actions .demo-button { border-color: #bad2e8; background: var(--surface-blue); color: var(--blue-dark); }
 .actions .demo-button:hover { border-color: #8fb8dc; background: #e0eef9; }
 .status-line { margin: 12px 2px 0; color: var(--muted); font-size: .88rem; line-height: 1.45; }
+.search-progress {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  margin-top: 13px;
+  padding: 13px 14px;
+  border: 1px solid #b5d5ee;
+  border-radius: 12px;
+  background: var(--surface-blue);
+  color: var(--blue-dark);
+}
+.search-spinner {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #a9cde9;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: curler-search-spin .8s linear infinite;
+}
+.search-progress-copy { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.search-progress-copy strong { font-weight: 750; font-size: .96rem; line-height: 1.35; }
+.search-progress-copy > span { color: var(--muted); font-size: .85rem; line-height: 1.4; }
+.search-elapsed { flex: 0 0 auto; color: var(--blue-dark); font-size: .82rem; font-variant-numeric: tabular-nums; }
+@keyframes curler-search-spin { to { transform: rotate(360deg); } }
 .quick-value {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -389,6 +415,7 @@ h1 {
   .feedback-form { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .search-spinner { animation: none; border-top-color: var(--blue-dark); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
