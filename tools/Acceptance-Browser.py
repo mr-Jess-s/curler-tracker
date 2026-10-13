@@ -1,0 +1,87 @@
+"""Rendered-browser UAT. Fault injection affects this isolated browser only."""
+import sys,time,json,os,datetime
+from pathlib import Path
+sys.path.insert(0,r'C:\Temp\ct-selenium')
+from selenium import webdriver
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+ROOT=Path(__file__).resolve().parents[1]
+BASE=os.environ.get('CT_BASE_URL','http://127.0.0.1:8768').rstrip('/')
+OUT=ROOT/'release-evidence'/'2026-10-13';OUT.mkdir(parents=True,exist_ok=True)
+opts=Options();opts.add_argument('--headless=new');opts.add_argument('--window-size=390,844');opts.binary_location=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+d=webdriver.Edge(options=opts);d.set_script_timeout(120)
+checks=[];metrics=[]
+def check(name,condition,detail=None):
+    row={'name':name,'status':'PASS' if condition else 'FAIL','timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'detail':detail};checks.append(row);print(json.dumps(row),flush=True)
+def wait(js,seconds=25):return WebDriverWait(d,seconds).until(lambda _:d.execute_script('return '+js))
+def js(code):return d.execute_script(code)
+try:
+    started=time.perf_counter();d.get(BASE+'/');wait("document.querySelectorAll('.curler-chip').length>=6")
+    # Allow the first service-worker activation reload to settle before timing interactions.
+    time.sleep(2);wait("document.querySelectorAll('.curler-chip').length>=6")
+    check('first_visit_archive',d.find_element(By.ID,'archiveHome').is_displayed())
+    check('homepage_brand',d.find_element(By.TAG_NAME,'h1').text=='Curler Tracker')
+    metrics.append({'name':'first_visit_archive_ms','value':round((time.perf_counter()-started)*1000),'includes_service_worker_settle_ms':2000})
+    for w,h in [(320,740),(390,844),(1365,900)]:
+        d.set_window_size(w,h);check('viewport_no_overflow_'+str(w),js('return document.documentElement.scrollWidth<=innerWidth'))
+        d.save_screenshot(str(OUT/f'homepage-{w}.png'))
+    d.find_element(By.ID,'currentSeasonBtn').click();check('season_switch_current',d.find_element(By.ID,'seasonSelect').get_attribute('value')=='2026 / 2027')
+    js("document.querySelector('#seasonSelect').value='2025 / 2026';document.querySelector('#seasonSelect').dispatchEvent(new Event('change'))")
+    check('season_switch_history',len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
+    check('source_links_safe',js("return [...document.querySelectorAll('.event-link')].every(a=>a.href.startsWith('https://')&&a.rel.includes('noopener'))"))
+    check('privacy_link',len(d.find_elements(By.CSS_SELECTOR,'a[href="./privacy.html"]'))==1)
+    # Real sources, with bounded waits; each result remains source-qualified.
+    for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
+        start=time.perf_counter();js('startTracking('+json.dumps(name)+',"uat-real")')
+        wait("state.isRunning && !document.getElementById('searchProgress').classList.contains('hidden')",3)
+        progress=round((time.perf_counter()-start)*1000);check(name+'_progress_under_500ms',progress<500,progress)
+        try:
+            wait("['archived-team','documented-history','recent-event','live','upcoming','idle-event'].includes(state.snapshot?.view)",90)
+            useful=round((time.perf_counter()-start)*1000)
+            wait('!state.isRunning',100)
+            result=js("return {name:state.snapshot?.playerName,view:state.snapshot?.view,status:document.querySelector('#statusLine').textContent,records:state.snapshot?.careerHistory?.length||0,source:state.snapshot?.sourceSubdomain,sourceId:state.snapshot?.sourceCurlerId}")
+            check(name+'_sourced_result',result['view'] not in ['error','idle'],result)
+            metrics.append({'name':name,'progress_ms':progress,'first_useful_result_ms':useful,'completed_ms':round((time.perf_counter()-start)*1000)})
+            if name=='Farrol Asham':
+                check('Farrol_exact_published_name',result['name']=='Farrol Asham' and result['view']=='documented-history')
+                check('Farrol_two_document_sources',len(d.find_elements(By.CSS_SELECTOR,'#careerPath .career-source'))==2)
+                d.save_screenshot(str(OUT/'farrol-result.png'))
+        except Exception as e:check(name+'_sourced_result',False,str(e))
+    # Save implementations before isolated failure/slow/race scenarios.
+    js("window.uatOriginal={discovery:discoverPlayerEvents,recent:discoverMostRecentCompletedEvent,offline:findOfflineTeamSnapshot,docs:findDocumentedCurlingSnapshot};findOfflineTeamSnapshot=async()=>null;findDocumentedCurlingSnapshot=async()=>null;discoverMostRecentCompletedEvent=async()=>({candidates:[],checked:[],timedOut:false});discoverPlayerEvents=async()=>({candidates:[],checked:[],timedOut:false})")
+    js("startTracking('Unverified UAT Name','uat-empty')");wait('!state.isRunning')
+    check('empty_means_sources_checked', 'sources checked' in d.find_element(By.ID,'statusLine').text.lower())
+    for label,message in [('rate_limit','HTTP 429'),('source_outage','HTTP 503'),('disconnected','Failed to fetch')]:
+        js('discoverPlayerEvents=async()=>{throw new Error('+json.dumps(message)+')};startTracking('+json.dumps('UAT '+label)+',"uat-failure")');wait('!state.isRunning')
+        check(label+'_explicit_incomplete',js("return state.snapshot.view==='error' && document.querySelector('#statusLine').textContent.includes('Search incomplete')"))
+        check(label+'_progress_cleared',js("return document.querySelector('#searchProgress').classList.contains('hidden')"))
+    js("window.uatResolves=[];discoverPlayerEvents=()=>new Promise(r=>uatResolves.push(r));startTracking('First UAT','uat-slow')")
+    check('slow_search_announced',js("return document.querySelector('#searchProgress').getAttribute('role')==='status' && document.querySelector('#playerForm').getAttribute('aria-busy')==='true'"))
+    js("startTracking('Second UAT','uat-switch');uatResolves[0]({candidates:[],checked:[],timedOut:false})")
+    check('stale_search_isolation',js("return state.playerName==='Second UAT' && state.isRunning && document.querySelector('#searchProgressTitle').textContent.includes('Second UAT')"))
+    js("uatResolves[1]({candidates:[],checked:[],timedOut:false})");wait('!state.isRunning')
+    js("discoverPlayerEvents=uatOriginal.discovery;discoverMostRecentCompletedEvent=uatOriginal.recent;findOfflineTeamSnapshot=uatOriginal.offline;findDocumentedCurlingSnapshot=uatOriginal.docs;document.querySelector('#homeBtn').click()")
+    check('return_to_archive',d.find_element(By.ID,'archiveHome').is_displayed())
+    js("document.querySelector('#feedbackBtn').click()")
+    check('feedback_dialog',d.find_element(By.ID,'feedbackDialog').get_attribute('open') is not None)
+    js("document.querySelector('#feedbackCopyBtn').click()")
+    check('feedback_empty_validation','add your feedback' in d.find_element(By.ID,'feedbackStatus').text)
+    js("document.querySelector('#feedbackCloseBtn').click()")
+    d.execute_cdp_cmd('Emulation.setEmulatedMedia',{'features':[{'name':'prefers-reduced-motion','value':'reduce'}]})
+    check('reduced_motion',js("return matchMedia('(prefers-reduced-motion: reduce)').matches"))
+    d.get(BASE+'/privacy.html');check('privacy_page_readable','Privacy, coverage' in d.find_element(By.TAG_NAME,'h1').text)
+    d.back();wait("document.querySelector('#playerInput')!==null")
+    check('browser_back_from_privacy',d.find_element(By.ID,'playerInput').is_displayed())
+    d.execute_cdp_cmd('Network.enable',{})
+    d.execute_cdp_cmd('Network.emulateNetworkConditions',{'offline':True,'latency':0,'downloadThroughput':0,'uploadThroughput':0})
+    d.refresh();wait("document.querySelector('#playerInput')!==null")
+    check('offline_application_shell',d.find_element(By.ID,'playerInput').is_displayed())
+    d.execute_cdp_cmd('Network.emulateNetworkConditions',{'offline':False,'latency':0,'downloadThroughput':-1,'uploadThroughput':-1})
+    d.refresh();wait("document.querySelectorAll('.event-link').length>=8")
+    check('network_recovery',len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
+except Exception as error:
+    check('suite_completed',False,str(error))
+finally:
+    report={'url':BASE,'browser':d.capabilities.get('browserVersion'),'device':'Edge desktop with viewport emulation; not physical Safari','timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'checks':checks,'metrics':metrics,'passed':sum(c['status']=='PASS' for c in checks),'failed':sum(c['status']=='FAIL' for c in checks)}
+    (OUT/'acceptance-browser.json').write_text(json.dumps(report,indent=2),encoding='utf-8');d.quit();print(json.dumps({'passed':report['passed'],'failed':report['failed']}),flush=True)

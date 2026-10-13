@@ -1924,6 +1924,20 @@ async function runTracker({ reason }) {
   beginSearchProgress(requestedPlayer);
   setStatus(`Checking for ${state.playerName}...`);
 
+  // Show verified local history while the separately qualified live check continues.
+  // Generation and running guards prevent a delayed preview replacing a final result.
+  Promise.allSettled([
+    findOfflineTeamSnapshot(requestedPlayer, { phase: 'archive-preview' }, APP.errorRetryMs),
+    findDocumentedCurlingSnapshot(requestedPlayer, { phase: 'archive-preview' }, APP.errorRetryMs)
+  ]).then(results => {
+    if (generation !== state.playerGeneration || !state.isRunning || !['idle', 'error'].includes(state.snapshot?.view || 'idle')) return;
+    const preview = results.find(result => result.status === 'fulfilled' && result.value)?.value;
+    if (!preview) return;
+    render(preview);
+    if (els.liveBadge) els.liveBadge.textContent = 'Searching';
+    setStatus('Partial historical records shown below. Search still running: checking current Curling I/O competitions.');
+  }).catch(() => {});
+
   try {
     const discovery = await discoverPlayerEvents(requestedPlayer);
     if (generation !== state.playerGeneration) return;

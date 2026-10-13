@@ -36,6 +36,7 @@ try:
  WebDriverWait(driver,30).until(lambda d:d.execute_script("return document.querySelector('#seasonSelect option:checked')?.textContent.includes('last full season')===true"))
  check(driver.execute_script("return document.querySelector('#seasonSelect option:checked')?.textContent.includes('last full season')===true") ,'Last full season shown by default')
  check(len(driver.find_elements(By.CSS_SELECTOR,'.event-link'))>=8,'Historical events visible before search')
+ WebDriverWait(driver,20).until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'.curler-chip'))>=6)
  check(len(driver.find_elements(By.CSS_SELECTOR,'.curler-chip'))>=6,'Example careers visible before search')
  check(not driver.find_element(By.ID,'trackerResults').is_displayed(),'Empty live panels stay hidden before search')
  check(len(driver.find_elements(By.CSS_SELECTOR,'.quick-value span'))==3,'Now Event Career value proposition visible')
