@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://curler-tracker.vercel.app/sitemap.xml

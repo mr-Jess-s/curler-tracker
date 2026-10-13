@@ -120,11 +120,11 @@ await check('Failed responses cannot poison the app cache',async()=>{
 });
 await check('Incomplete current-source search produces an explicit issue state',async()=>{
  const a=app();a.run("state.playerName='First';discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false})");
- await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');assert.match(a.elements.get('statusLine').textContent,/could not refresh/i);
+ await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');assert.match(a.elements.get('statusLine').textContent,/search incomplete/i);
 });
 await check('Incomplete recent search cannot be reported as no history',async()=>{
  const a=app();a.run("state.playerName='First';discoverPlayerEvents=async()=>({candidates:[],checked:[],timedOut:false});discoverMostRecentCompletedEvent=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false})");
- await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');assert.match(a.elements.get('statusLine').textContent,/could not refresh/i);
+ await a.run("runTracker({reason:'test'})");assert.equal(a.run('state.snapshot.view'),'error');assert.match(a.elements.get('statusLine').textContent,/search incomplete/i);
 });
 await check('Refresh errors never become unsupported career records',async()=>{
  const a=app();a.run("render(computeErrorSnapshot('Ferrol Asham',{phase:'error'},30000,'source unavailable'))");
@@ -167,7 +167,7 @@ await check('Search shows a prominent progress state and finishes with a distinc
  assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),true);
  assert.equal(a.elements.get('searchSubmitBtn').textContent,'View curler');
  assert.equal(a.elements.get('playerForm').attributes['aria-busy'],undefined);
- assert.match(a.elements.get('statusLine').textContent,/could not refresh/i);
+ assert.match(a.elements.get('statusLine').textContent,/search incomplete/i);
 });
 await check('Switching people starts a fresh search without stale progress overwrites',async()=>{
  const a=app();
@@ -224,5 +224,15 @@ await check('Source outage uses documentary history instead of unsupported no-re
  assert.doesNotMatch(a.elements.get('headlineBlock').innerHTML,/live game|last recorded team/i);
  assert.match(a.elements.get('careerPath').innerHTML,/Manitoba Curling Tour/);
  assert.match(a.elements.get('careerPath').innerHTML,/source spells the name Farrol Asham/i);
+});
+await check('Published Farrol spelling resolves exact documentary references without identity merging',async()=>{
+ const a=app(); a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
+ a.run("fetchJson=async()=>citedIndex");
+ const r=await a.run("findDocumentedCurlingSnapshot('Farrol Asham',{},30000)");
+ assert.equal(r.displayPlayer,'Farrol Asham');assert.equal(r.view,'documented-history');assert.equal(r.careerHistory.length,2);
+ assert.equal(r.sourceCurlerId,undefined);assert.equal(r.teamName,'');
+});
+await check('Unsafe imported source links cannot execute JavaScript',async()=>{
+ const a=app();assert.equal(a.run("safeSourceUrl('javascript:alert(1)')"),'');assert.equal(a.run("safeSourceUrl('data:text/html,test')"),'');assert.equal(a.run("safeSourceUrl('https://ab.curling.io/en/events/24023')"),'https://ab.curling.io/en/events/24023');
 });
 console.log(count+' release regression checks passed.');

@@ -8,7 +8,7 @@
       "records": [
         {
           "title": "Dauphin Clinic Pharmacy Cash Spiel - runner-up (2009)",
-          "detail": "The Manitoba Curling Tour source spells the name Farrol Asham and identifies him with Travis Graham, Grant Brown and Glen Ringrose on the runner-up team. This record is indexed under Ferrol Asham following the user's name correction; the source itself does not establish that spelling.",
+          "detail": "The Manitoba Curling Tour source spells the name Farrol Asham and identifies him with Travis Graham, Grant Brown and Glen Ringrose on the runner-up team. The source spells the name Farrol Asham; the Ferrol spelling is an unverified search variant, not a confirmed identity link.",
           "source": "Manitoba Curling Tour (December 7, 2009)",
           "source_url": "https://www.mancurltour.ca/news-archives/",
           "kind": "organizer_event_report",
@@ -16,7 +16,28 @@
         },
         {
           "title": "Fort Rouge Curling Club - ice technician listing",
-          "detail": "The club source spells the name Farrol Asham and lists him as Head Ice Technician. This record is indexed under Ferrol Asham following the user's name correction; the source itself does not establish that spelling. This is a club staff role, not a current competition-team confirmation.",
+          "detail": "The club source spells the name Farrol Asham and lists him as Head Ice Technician. The source spells the name Farrol Asham; the Ferrol spelling is an unverified search variant, not a confirmed identity link.",
+          "source": "Fort Rouge Curling Club (official staff listing)",
+          "source_url": "https://curlfortrouge.ca/our-club/board-of-directors",
+          "kind": "official_club_role",
+          "event_date": ""
+        }
+      ]
+    },
+    "farrol asham": {
+      "name": "Farrol Asham",
+      "records": [
+        {
+          "title": "Dauphin Clinic Pharmacy Cash Spiel - runner-up (2009)",
+          "detail": "The Manitoba Curling Tour names Farrol Asham alongside Travis Graham, Grant Brown and Glen Ringrose on the runner-up team in its December 7, 2009 report. This is a historical event reference, not a current team confirmation.",
+          "source": "Manitoba Curling Tour (December 7, 2009)",
+          "source_url": "https://www.mancurltour.ca/news-archives/",
+          "kind": "organizer_event_report",
+          "event_date": "2009-12-07"
+        },
+        {
+          "title": "Fort Rouge Curling Club - ice technician listing",
+          "detail": "The official club staff page lists Farrol Asham alongside Jayden Asham under Head Ice Technician. A club staff role is not a competition appearance. Matching published names alone does not establish continuity between these documents.",
           "source": "Fort Rouge Curling Club (official staff listing)",
           "source_url": "https://curlfortrouge.ca/our-club/board-of-directors",
           "kind": "official_club_role",

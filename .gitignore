@@ -13,3 +13,5 @@ data/global/acquisition-manifests/*.json.tmp
 tools/global_coverage/__pycache__/
 data/global/maintenance-state.json
 data/global/maintenance-cycle.lock
+
+data/global/*.json.tmp

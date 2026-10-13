@@ -6,8 +6,14 @@
   <meta name="theme-color" content="#f2f6fa">
   <title>Curler Tracker</title>
   <meta name="description" content="Follow Canadian curlers through live event context and verified career records.">
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.15">
-  <link rel="stylesheet" href="./styles.css?v=v26.15">
+  <link rel="canonical" href="https://curler-tracker.vercel.app/">
+  <meta property="og:title" content="Curler Tracker · Noble Beaver edition">
+  <meta property="og:description" content="Find published curling records, teams and events. Source coverage is incomplete; missing history stays unknown.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://curler-tracker.vercel.app/">
+  <meta name="referrer" content="no-referrer">
+  <link rel="manifest" href="./manifest.webmanifest?v=v26.16">
+  <link rel="stylesheet" href="./styles.css?v=v26.16">
 </head>
 <body><a class="skip-link" href="#main-content">Skip to content</a>
   <main class="app-shell" id="main-content" tabindex="-1">
@@ -30,7 +36,7 @@
         <p>Find a curler to see current context, recent events and sourced career records.</p>
       </div>
       <form id="playerForm" class="player-form" role="search">
-        <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="name" />
+        <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="off" maxlength="120" required />
         <button id="searchSubmitBtn" type="submit">View curler</button>
       </form>
       <div id="searchProgress" class="search-progress hidden" role="status" aria-live="polite" aria-atomic="true">
@@ -155,6 +161,8 @@
     </div>
     <footer class="app-footer">
       <p>Results shown from identified source records. Missing history stays unknown.</p>
+      <a href="./privacy.html">Privacy, coverage &amp; corrections</a>
+      <p>Built for the curling community · Noble Beaver edition<sup>TM</sup></p>
       <button id="feedbackBtn" class="ghost feedback-open" type="button">Feedback</button>
     </footer>
   </main>
@@ -208,6 +216,6 @@
     </form>
   </dialog>
 
-  <script src="./app.js?v=v26.15"></script>
+  <script src="./app.js?v=v26.16"></script>
 </body>
 </html>

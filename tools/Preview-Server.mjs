@@ -10,7 +10,7 @@ http.createServer((request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname;
   const relative = pathname === '/' ? 'index.html' : decodeURIComponent(pathname.slice(1));
   const target = path.resolve(root, relative);
-  if (!target.startsWith(root) || !fs.existsSync(target) || fs.statSync(target).isDirectory()) {
+  if (!(target === root || target.startsWith(root + path.sep)) || !fs.existsSync(target) || fs.statSync(target).isDirectory()) {
     response.writeHead(404).end('Not found');
     return;
   }

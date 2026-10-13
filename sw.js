@@ -1,12 +1,12 @@
-const CACHE = 'curler-tracker-v26-15';
+const CACHE = 'curler-tracker-v26-16';
 const APP_ASSETS = [
   './',
   './index.html',
-  './styles.css?v=v26.15',
-  './app.js?v=v26.15',
-  './manifest.webmanifest?v=v26.15',
-  './data/home-summary.json?v=v26.15',
-  './data/curler-source-records.json?v=v26.15',
+  './styles.css?v=v26.16',
+  './app.js?v=v26.16',
+  './manifest.webmanifest?v=v26.16',
+  './data/home-summary.json?v=v26.16',
+  './data/curler-source-records.json?v=v26.16',
   './noble-beaver.svg',
   './noble-beaver-icon.svg'
 ];
@@ -21,7 +21,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)));
+    await Promise.all(keys.filter((key) => key.startsWith('curler-tracker-') && key !== CACHE).map((key) => caches.delete(key)));
     await self.clients.claim();
   })());
 });

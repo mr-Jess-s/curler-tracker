@@ -11,6 +11,7 @@ import urllib.request
 import urllib.parse
 import urllib.robotparser
 from pathlib import Path
+from atomic_state import atomic_json
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "global"
@@ -32,11 +33,7 @@ def utc_now():
 
 
 def _atomic_json(path, payload):
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_name(path.name + ".tmp")
-    temp.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    temp.replace(path)
+    atomic_json(path, payload)
 
 
 def source_policy(host):

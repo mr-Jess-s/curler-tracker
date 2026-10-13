@@ -6,6 +6,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from atomic_state import atomic_json
 
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS = ROOT / "tools" / "global_coverage"
@@ -39,9 +40,7 @@ def load_state():
 def save_state(state):
     STATE.parent.mkdir(parents=True, exist_ok=True)
     state["updated_at"] = now().isoformat()
-    temp = STATE.with_suffix(".json.tmp")
-    temp.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
-    temp.replace(STATE)
+    atomic_json(STATE, state)
 
 def due(entry, hours):
     retry_at = entry.get("next_retry_at")

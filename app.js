@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.15';
+const APP_VERSION = 'v26.16';
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -116,7 +116,7 @@ function renderArchiveSeason(summary, seasonName) {
   els.coverageCurlers.textContent = formatNumber(season.curlers);
   els.coverageAppearances.textContent = formatNumber(season.appearances);
   els.recentEvents.innerHTML = (season.recent_events || []).map(event =>
-    `<a class="event-link" href="${escapeHtml(event.source_url)}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(event.association)} · ${escapeHtml(event.starts_on || 'Date not listed')}</span></a>`
+    `<a class="event-link" href="${escapeHtml(safeSourceUrl(event.source_url))}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(event.association)} · ${escapeHtml(event.starts_on || 'Date not listed')}</span></a>`
   ).join('') || '<p class="hint">No published events are indexed for this season.</p>';
 }
 
@@ -441,7 +441,7 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   try {
     let res = await fetch(url, {
       headers: { Accept: 'application/json' },
-      cache: 'no-store',
+      cache: url.startsWith('./data/') ? 'default' : 'no-store',
       signal: controller.signal
     });
     if (!res.ok && url.startsWith('./data/')) {
@@ -955,6 +955,10 @@ function saveFeedbackDraft(packet) {
   } catch {}
 }
 
+function safeSourceUrl(value) {
+  try { const url = new URL(value); return url.protocol === 'https:' ? url.href : ''; } catch { return ''; }
+}
+
 function renderHeadline(snapshot) {
   if (!snapshot) {
     els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler\'s name to begin.</p>';
@@ -978,7 +982,7 @@ function renderHeadline(snapshot) {
   }
 
   if (snapshot.view === 'recent-event') {
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">Most recent competition</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Most recent completed event')}</div></div>`;
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">Recent competition found</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Most recent completed event')}</div></div>`;
     return;
   }
 
@@ -994,12 +998,12 @@ function renderHeadline(snapshot) {
   }
 
   if (snapshot.view === 'idle' && snapshot.diagnostics?.phase !== 'searching') {
-    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No published roster was found in the competitions we checked.</div></div>';
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No verified records found in the sources checked. This does not mean the person has no curling history.</div></div>';
     return;
   }
 
   if (snapshot.view === 'error') {
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">Temporary refresh issue</div><div class="headline-sub">${escapeHtml(snapshot.errorHint || 'Please try again shortly.')}</div></div>`;
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">Search incomplete</div><div class="headline-sub">${escapeHtml(snapshot.errorHint || 'Please try again shortly.')}</div></div>`;
     return;
   }
 
@@ -1080,8 +1084,8 @@ function renderCareerPath(snapshot) {
   els.careerPath.className = items.length ? 'career-path' : 'career-path empty';
   els.careerPath.innerHTML = items.length
     ? items.map(item => {
-        const source = item.sourceUrl
-          ? `<a class="career-source" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.source || 'Official source')}</a>`
+        const source = safeSourceUrl(item.sourceUrl)
+          ? `<a class="career-source" href="${escapeHtml(safeSourceUrl(item.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.source || 'Official source')}</a>`
           : `<small>${escapeHtml(item.source || '')}</small>`;
         return `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div>${source}</article>`;
       }).join('')
@@ -1300,7 +1304,7 @@ function computeErrorSnapshot(playerName, diagnostics, delayMs, errorHint) {
   return {
     playerName,
     view: 'error',
-    eventName: 'Temporary refresh issue',
+    eventName: 'Search incomplete',
     ends: [],
     scheduleRows: [],
     timelineHint: 'Refresh did not complete.',
@@ -1562,6 +1566,7 @@ async function discoverPlayerEvents(playerName) {
 
   const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
     const listUrl = competitionsUrl(subdomain, delta);
+    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking Curling I/O · ${subdomain.toUpperCase()} · ${delta === 0 ? 'current season' : `${Math.abs(delta)} season(s) back`}…`);
     try {
       const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
       const items = rankCompetitionItems(payload.items || []);
@@ -1663,6 +1668,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
 
   const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
     const listUrl = competitionsUrl(subdomain, delta);
+    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking Curling I/O · ${subdomain.toUpperCase()} · ${delta === 0 ? 'current season' : `${Math.abs(delta)} season(s) back`}…`);
     try {
       const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
       const rankedItems = rankCompetitionItems(payload.items || []).sort((a, b) => {
@@ -1981,7 +1987,7 @@ async function runTracker({ reason }) {
 
           const recentSnapshot = buildRecentEventSnapshot(state.playerName, recentChosen, recentDiagnostics);
           render(recentSnapshot);
-          setStatus(`No current event found for ${state.playerName}. Showing a recent completed competition found in the checked sources.`);
+          setStatus(`No current event found for ${state.playerName}. Showing a recent completed competition found in the checked sources.${recentDiscovery.timedOut || recentDiscovery.checked.some(item => item.error) ? ' Search incomplete: this may not be the latest appearance.' : ''}`);
           scheduleNextRun(APP.idleScanMs);
         } else {
           if (recentDiscovery.timedOut || recentDiscovery.checked.some(item => item.error)) {
@@ -1994,7 +2000,7 @@ async function runTracker({ reason }) {
           render(documentary || computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
           setStatus(documentary
             ? `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. No current game confirmed in the checked sources.`
-            : `No current event found for ${state.playerName}. Next scan in about 72 hours.`);
+            : `No verified records found for ${state.playerName} in the sources checked. Coverage is incomplete; missing history remains unknown.`);
           scheduleNextRun(APP.idleScanMs);
         }
       }
@@ -2065,6 +2071,7 @@ async function runTracker({ reason }) {
       setStatus(`${prefix}Matched ${chosen.match.curler.name} in ${chosen.event.name}. No live draw right now.`);
     }
 
+    if (discovery.timedOut || discovery.checked.some(item => item.error)) setStatus(els.statusLine.textContent + ' Search incomplete: other sources could not all be checked.');
     scheduleNextRun(Math.max(5000, snapshot.nextCheckAt - Date.now()));
   } catch (error) {
     if (generation !== state.playerGeneration) return;
@@ -2093,7 +2100,7 @@ async function runTracker({ reason }) {
     if (fallback) {
       render(fallback);
       setStatus(fallback.view === 'documented-history'
-        ? `Found ${fallback.careerHistory.length} cited curling references for ${state.playerName}. Live sources are incomplete; retrying in 30 minutes.`
+        ? `Partial historical records: ${fallback.careerHistory.length} cited curling references for ${state.playerName}. Live sources are incomplete; retrying in 30 minutes.`
         : `Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
       scheduleNextRun(APP.errorRetryMs);
       return;
@@ -2112,7 +2119,7 @@ async function runTracker({ reason }) {
     );
 
     render(snapshot);
-    setStatus(`Could not refresh right now. Retrying in 30 minutes. ${error.message}`);
+    setStatus(`Search incomplete. A source is unavailable or the search timed out. Try Refresh now. ${error.message}`);
     scheduleNextRun(APP.errorRetryMs);
   } finally {
     // Slower, superseded requests must not hide the new search or replay old work.
