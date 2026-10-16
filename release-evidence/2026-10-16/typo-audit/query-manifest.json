@@ -1,0 +1,506 @@
+{
+  "reference_file_sha256": "099a5b0dd093a47b02951d4ba32ea25dc5e0e7a1e8afa307c7fcaea4930a6c2b",
+  "baseline_file_sha256": {
+    "production": "9ea7fe667ed0800c7fcf7f775caa9dfc1ec1e4054673b6e9e69615f78133308d",
+    "staging": "7490defce26c9c3fee836017ad45e45f9561edd6d3c6aae8cb04335d763d6d98"
+  },
+  "queries": [
+    {
+      "name": "Colby Sherwick",
+      "query": "Colby Shetwock",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "76577"
+    },
+    {
+      "name": "Justin Morlock",
+      "query": "Juston Motlock",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "129197"
+    },
+    {
+      "name": "Julia Kennedy",
+      "query": "Juloa Kennedy",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "103512"
+    },
+    {
+      "name": "Sophie Abbs",
+      "query": "Sophoe Abbs",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "49287"
+    },
+    {
+      "name": "Aaron Sluchinski",
+      "query": "Aaton Sluchonsko",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "114970"
+    },
+    {
+      "name": "Alexa Greenhough",
+      "query": "Alexa Gteenhough",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "162088"
+    },
+    {
+      "name": "Chadd McKenzie",
+      "query": "Chadd McKenzoe",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "8164"
+    },
+    {
+      "name": "Sloane Hebert",
+      "query": "Sloane Hebett",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "151521"
+    },
+    {
+      "name": "Scott Moncur",
+      "query": "Scott Moncut",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "59726"
+    },
+    {
+      "name": "Doug Small",
+      "query": "Doug Small",
+      "changed": false,
+      "association": "ab",
+      "reference_source_curler_id": "135524"
+    },
+    {
+      "name": "Norma Douglass",
+      "query": "Notma Douglass",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "34710"
+    },
+    {
+      "name": "Chad Lemay",
+      "query": "Chad Lemay",
+      "changed": false,
+      "association": "ab",
+      "reference_source_curler_id": "34860"
+    },
+    {
+      "name": "Zoe Cinnamon",
+      "query": "Zoe Connamon",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "55699"
+    },
+    {
+      "name": "Keelie Duncan",
+      "query": "Keeloe Duncan",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "59422"
+    },
+    {
+      "name": "Dave Manser",
+      "query": "Dave Manset",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "148377"
+    },
+    {
+      "name": "Callie Padget",
+      "query": "Calloe Padget",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "95593"
+    },
+    {
+      "name": "Caroline Warren",
+      "query": "Catolone Watten",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "47483"
+    },
+    {
+      "name": "Rachel Jacques",
+      "query": "Tachel Jacques",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "97041"
+    },
+    {
+      "name": "Michael Dumont",
+      "query": "Mochael Dumont",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "54120"
+    },
+    {
+      "name": "Carley Hardie",
+      "query": "Catley Hatdoe",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": "99901"
+    },
+    {
+      "name": "Maksym Russo",
+      "query": "Maksym Tusso",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "60735"
+    },
+    {
+      "name": "Sherry Mullin",
+      "query": "Shetty Mullon",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "149130"
+    },
+    {
+      "name": "Curtis Ross",
+      "query": "Cuttos Toss",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "16761"
+    },
+    {
+      "name": "Branden Jorgensen",
+      "query": "Btanden Jotgensen",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "18767"
+    },
+    {
+      "name": "Warren Erickson",
+      "query": "Watten Etockson",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "18231"
+    },
+    {
+      "name": "Christian Trotter",
+      "query": "Chtostoan Ttottet",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "10567"
+    },
+    {
+      "name": "Dale Lott",
+      "query": "Dale Lott",
+      "changed": false,
+      "association": "mb",
+      "reference_source_curler_id": "97920"
+    },
+    {
+      "name": "Craig Nichol",
+      "query": "Ctaog Nochol",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "108929"
+    },
+    {
+      "name": "Warren Alexander",
+      "query": "Watten Alexandet",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "60111"
+    },
+    {
+      "name": "Gina Giasson",
+      "query": "Gona Goasson",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "103998"
+    },
+    {
+      "name": "Michelle Wadelius",
+      "query": "Mochelle Wadelous",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "40966"
+    },
+    {
+      "name": "Sam Antila",
+      "query": "Sam Antola",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "48160"
+    },
+    {
+      "name": "Julia Millan",
+      "query": "Juloa Mollan",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "13589"
+    },
+    {
+      "name": "Nadine Jolicoeur",
+      "query": "Nadone Jolocoeut",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "54717"
+    },
+    {
+      "name": "Rhonda Varnes",
+      "query": "Thonda Vatnes",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "124431"
+    },
+    {
+      "name": "Murray Cameron",
+      "query": "Muttay Cameton",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "28861"
+    },
+    {
+      "name": "Ron McMillan",
+      "query": "Ton McMollan",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "145842"
+    },
+    {
+      "name": "Tracy Igonia",
+      "query": "Ttacy Ogonoa",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "17132"
+    },
+    {
+      "name": "Paul Kruk",
+      "query": "Paul Ktuk",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "43873"
+    },
+    {
+      "name": "Jennifer Clark-Rouire",
+      "query": "Jennofet Clatk-Touote",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": "14020"
+    },
+    {
+      "name": "Peter Mackey",
+      "query": "Petet Mackey",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "9211"
+    },
+    {
+      "name": "Robyn Mackey",
+      "query": "Tobyn Mackey",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "8860"
+    },
+    {
+      "name": "Kibo Mulima",
+      "query": "Kobo Muloma",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "15408"
+    },
+    {
+      "name": "Taj McKenzie",
+      "query": "Taj McKenzoe",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "58222"
+    },
+    {
+      "name": "Mia Toner",
+      "query": "Moa Tonet",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "171565"
+    },
+    {
+      "name": "Abby Whitbread",
+      "query": "Abby Whotbtead",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "124086"
+    },
+    {
+      "name": "Christie Gamble",
+      "query": "Chtostoe Gamble",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "8337"
+    },
+    {
+      "name": "Emma Artichuk",
+      "query": "Emma Attochuk",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "32293"
+    },
+    {
+      "name": "Wyatt Small",
+      "query": "Wyatt Small",
+      "changed": false,
+      "association": "canada",
+      "reference_source_curler_id": "68959"
+    },
+    {
+      "name": "Katrina Frlan",
+      "query": "Kattona Ftlan",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "32782"
+    },
+    {
+      "name": "Sean Beland",
+      "query": "Sean Beland",
+      "changed": false,
+      "association": "canada",
+      "reference_source_curler_id": "66232"
+    },
+    {
+      "name": "Jeff Nadeau",
+      "query": "Jeff Nadeau",
+      "changed": false,
+      "association": "canada",
+      "reference_source_curler_id": "58254"
+    },
+    {
+      "name": "Erin Fitzgibbon",
+      "query": "Eton Fotzgobbon",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "58919"
+    },
+    {
+      "name": "Félix Asselin",
+      "query": "Félox Asselon",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "9744"
+    },
+    {
+      "name": "Olivia McDonah",
+      "query": "Olovoa McDonah",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "30114"
+    },
+    {
+      "name": "Amanda Wong",
+      "query": "Amanda Wong",
+      "changed": false,
+      "association": "canada",
+      "reference_source_curler_id": "25402"
+    },
+    {
+      "name": "D'arcy Delorey",
+      "query": "D'atcy Delotey",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "7477"
+    },
+    {
+      "name": "Sarah Wong",
+      "query": "Satah Wong",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "25398"
+    },
+    {
+      "name": "Riley Winters",
+      "query": "Toley Wontets",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "154383"
+    },
+    {
+      "name": "Geneva Chislett",
+      "query": "Geneva Choslett",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": "73923"
+    },
+    {
+      "name": "Kevin Koe",
+      "query": "Kevon Koe",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Tyler Tardi",
+      "query": "Tylet Tatdo",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Karrick Martin",
+      "query": "Kattock Matton",
+      "changed": true,
+      "association": "ab",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Braden Calvert",
+      "query": "Btaden Calvett",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Corey Chambers",
+      "query": "Cotey Chambets",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Kyle Kurz",
+      "query": "Kyle Kutz",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Brendan Bilawka",
+      "query": "Btendan Bolawka",
+      "changed": true,
+      "association": "mb",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Brad Jacobs",
+      "query": "Btad Jacobs",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Marc Kennedy",
+      "query": "Matc Kennedy",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Brett Gallant",
+      "query": "Btett Gallant",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": null
+    },
+    {
+      "name": "Ben Hebert",
+      "query": "Ben Hebett",
+      "changed": true,
+      "association": "canada",
+      "reference_source_curler_id": null
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "target": "production",
+  "url": "https://curler-tracker.vercel.app",
+  "started_at": "2026-10-16T15:55:02.542310+00:00",
+  "rule": "Apply i→o and r→t simultaneously, case-insensitively, preserving case; no other spelling changes.",
+  "results": [
+    {
+      "name": "Colby Sherwick",
+      "query": "Colby Shetwock",
+      "association": "ab",
+      "started_at": "2026-10-16T15:55:08.599601+00:00",
+      "search_ms": 16395,
+      "observation": {
+        "displayed_history": 0,
+        "headline": "Temporary refresh issue\nRecent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Colby Shetwock. Club league rosters may not be published to the sources we track.",
+        "history_links": [],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "No sourced career records loaded yet. Missing history is not treated as no history.",
+        "name": "Colby Shetwock",
+        "schedule_text": "No scheduled draws to show.",
+        "snapshot": {
+          "diagnostics": {
+            "appVersion": "v26.15",
+            "error": "Recent competition search is incomplete. Please retry.",
+            "offlineLookup": "no-exact-match",
+            "phase": "error",
+            "playerName": "Colby Shetwock",
+            "reason": "manual-start",
+            "timestamp": "2026-10-16T15:55:24.471Z"
+          },
+          "ends": [],
+          "errorHint": "Recent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Colby Shetwock. Club league rosters may not be published to the sources we track.",
+          "eventName": "Temporary refresh issue",
+          "lastUpdatedLabel": "10:55 a.m.",
+          "nextCheckAt": 1792167924950,
+          "playerName": "Colby Shetwock",
+          "scheduleHint": "Retrying automatically.",
+          "scheduleRows": [],
+          "timelineHint": "Refresh did not complete.",
+          "view": "error"
+        },
+        "status": "Could not refresh right now. Retrying in 30 minutes. Recent competition search is incomplete. Please retry.",
+        "version": "v26.15"
+      },
+      "comparison": {
+        "profile_recovery": "NO_SOURCED_PROFILE",
+        "baseline_profile": [
+          "ab",
+          "76577"
+        ],
+        "returned_profile": null,
+        "returned_roster_names": [],
+        "source_comparison": {
+          "outcome": "NO_HISTORY_SHOWN",
+          "identity": "UNRESOLVED",
+          "reference_history_events": 3,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "20397",
+            "22189",
+            "26408"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": true,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 21,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "OUTSIDE_CHECKED_REFERENCE",
+          "returned_source_roster_names": [],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        },
+        "changed_query": true,
+        "baseline_had_profile": true,
+        "baseline_source_comparison": {
+          "outcome": "REFERENCE_HISTORY_MATCH",
+          "identity": "MATCH",
+          "reference_history_events": 3,
+          "matched_history_events": [
+            "20397",
+            "22189",
+            "26408"
+          ],
+          "missing_history_events": [],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": false,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 21,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "VERIFIED_RETURNED_SOURCE_RECORD",
+          "returned_source_roster_names": [
+            "Colby Sherwick"
+          ],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        }
+      },
+      "finished_at": "2026-10-16T15:55:25.119254+00:00"
+    },
+    {
+      "name": "Justin Morlock",
+      "query": "Juston Motlock",
+      "association": "ab",
+      "started_at": "2026-10-16T15:55:27.124591+00:00",
+      "search_ms": 15292,
+      "observation": {
+        "displayed_history": 0,
+        "headline": "Temporary refresh issue\nRecent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Juston Motlock. Club league rosters may not be published to the sources we track.",
+        "history_links": [],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "No sourced career records loaded yet. Missing history is not treated as no history.",
+        "name": "Juston Motlock",
+        "schedule_text": "No scheduled draws to show.",
+        "snapshot": {
+          "diagnostics": {
+            "appVersion": "v26.15",
+            "error": "Recent competition search is incomplete. Please retry.",
+            "offlineLookup": "no-exact-match",
+            "phase": "error",
+            "playerName": "Juston Motlock",
+            "reason": "manual-start",
+            "timestamp": "2026-10-16T15:55:41.869Z"
+          },
+          "ends": [],
+          "errorHint": "Recent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Juston Motlock. Club league rosters may not be published to the sources we track.",
+          "eventName": "Temporary refresh issue",
+          "lastUpdatedLabel": "10:55 a.m.",
+          "nextCheckAt": 1792167942323,
+          "playerName": "Juston Motlock",
+          "scheduleHint": "Retrying automatically.",
+          "scheduleRows": [],
+          "timelineHint": "Refresh did not complete.",
+          "view": "error"
+        },
+        "status": "Could not refresh right now. Retrying in 30 minutes. Recent competition search is incomplete. Please retry.",
+        "version": "v26.15"
+      },
+      "comparison": {
+        "profile_recovery": "NO_SOURCED_PROFILE",
+        "baseline_profile": [
+          "ab",
+          "129197"
+        ],
+        "returned_profile": null,
+        "returned_roster_names": [],
+        "source_comparison": {
+          "outcome": "NO_HISTORY_SHOWN",
+          "identity": "UNRESOLVED",
+          "reference_history_events": 2,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "20479",
+            "24016"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": true,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 14,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "OUTSIDE_CHECKED_REFERENCE",
+          "returned_source_roster_names": [],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        },
+        "changed_query": true,
+        "baseline_had_profile": true,
+        "baseline_source_comparison": {
+          "outcome": "REFERENCE_HISTORY_MATCH",
+          "identity": "MATCH",
+          "reference_history_events": 2,
+          "matched_history_events": [
+            "20479",
+            "24016"
+          ],
+          "missing_history_events": [],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": false,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 14,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "VERIFIED_RETURNED_SOURCE_RECORD",
+          "returned_source_roster_names": [
+            "Justin Morlock"
+          ],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        }
+      },
+      "finished_at": "2026-10-16T15:55:42.443972+00:00"
+    },
+    {
+      "name": "Julia Kennedy",
+      "query": "Juloa Kennedy",
+      "association": "ab",
+      "started_at": "2026-10-16T15:55:44.449817+00:00",
+      "search_ms": 14821,
+      "observation": {
+        "displayed_history": 0,
+        "headline": "Temporary refresh issue\nRecent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Juloa Kennedy. Club league rosters may not be published to the sources we track.",
+        "history_links": [],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "No sourced career records loaded yet. Missing history is not treated as no history.",
+        "name": "Juloa Kennedy",
+        "schedule_text": "No scheduled draws to show.",
+        "snapshot": {
+          "diagnostics": {
+            "appVersion": "v26.15",
+            "error": "Recent competition search is incomplete. Please retry.",
+            "offlineLookup": "no-exact-match",
+            "phase": "error",
+            "playerName": "Juloa Kennedy",
+            "reason": "manual-start",
+            "timestamp": "2026-10-16T15:55:58.704Z"
+          },
+          "ends": [],
+          "errorHint": "Recent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Juloa Kennedy. Club league rosters may not be published to the sources we track.",
+          "eventName": "Temporary refresh issue",
+          "lastUpdatedLabel": "10:55 a.m.",
+          "nextCheckAt": 1792167959019,
+          "playerName": "Juloa Kennedy",
+          "scheduleHint": "Retrying automatically.",
+          "scheduleRows": [],
+          "timelineHint": "Refresh did not complete.",
+          "view": "error"
+        },
+        "status": "Could not refresh right now. Retrying in 30 minutes. Recent competition search is incomplete. Please retry.",
+        "version": "v26.15"
+      },
+      "comparison": {
+        "profile_recovery": "NO_SOURCED_PROFILE",
+        "baseline_profile": [
+          "ab",
+          "168162"
+        ],
+        "returned_profile": null,
+        "returned_roster_names": [],
+        "source_comparison": {
+          "outcome": "NO_HISTORY_SHOWN",
+          "identity": "UNRESOLVED",
+          "reference_history_events": 5,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "20396",
+            "20424",
+            "22188",
+            "23945",
+            "26402"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": true,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 35,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "OUTSIDE_CHECKED_REFERENCE",
+          "returned_source_roster_names": [],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        },
+        "changed_query": true,
+        "baseline_had_profile": true,
+        "baseline_source_comparison": {
+          "outcome": "CROSS_SOURCE_OR_ID_REVIEW",
+          "identity": "DIFFERENT_SOURCE_ID_REQUIRES_REVIEW",
+          "reference_history_events": 5,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "20396",
+            "20424",
+            "22188",
+            "23945",
+            "26402"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": false,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 35,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "VERIFIED_RETURNED_SOURCE_RECORD",
+          "returned_source_roster_names": [
+            "Julia Kennedy"
+          ],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        }
+      },
+      "finished_at": "2026-10-16T15:55:59.345981+00:00"
+    },
+    {
+      "name": "Sophie Abbs",
+      "query": "Sophoe Abbs",
+      "association": "ab",
+      "started_at": "2026-10-16T15:56:01.352271+00:00",
+      "search_ms": 15397,
+      "observation": {
+        "displayed_history": 0,
+        "headline": "Temporary refresh issue\nRecent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Sophoe Abbs. Club league rosters may not be published to the sources we track.",
+        "history_links": [],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "No sourced career records loaded yet. Missing history is not treated as no history.",
+        "name": "Sophoe Abbs",
+        "schedule_text": "No scheduled draws to show.",
+        "snapshot": {
+          "diagnostics": {
+            "appVersion": "v26.15",
+            "error": "Recent competition search is incomplete. Please retry.",
+            "offlineLookup": "no-exact-match",
+            "phase": "error",
+            "playerName": "Sophoe Abbs",
+            "reason": "manual-start",
+            "timestamp": "2026-10-16T15:56:15.624Z"
+          },
+          "ends": [],
+          "errorHint": "Recent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Sophoe Abbs. Club league rosters may not be published to the sources we track.",
+          "eventName": "Temporary refresh issue",
+          "lastUpdatedLabel": "10:56 a.m.",
+          "nextCheckAt": 1792167976235,
+          "playerName": "Sophoe Abbs",
+          "scheduleHint": "Retrying automatically.",
+          "scheduleRows": [],
+          "timelineHint": "Refresh did not complete.",
+          "view": "error"
+        },
+        "status": "Could not refresh right now. Retrying in 30 minutes. Recent competition search is incomplete. Please retry.",
+        "version": "v26.15"
+      },
+      "comparison": {
+        "profile_recovery": "NO_SOURCED_PROFILE",
+        "baseline_profile": [
+          "ab",
+          "49287"
+        ],
+        "returned_profile": null,
+        "returned_roster_names": [],
+        "source_comparison": {
+          "outcome": "NO_HISTORY_SHOWN",
+          "identity": "UNRESOLVED",
+          "reference_history_events": 7,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "16442",
+            "20396",
+            "20424",
+            "23945",
+            "24020",
+            "24023",
+            "26402"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": true,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 40,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "OUTSIDE_CHECKED_REFERENCE",
+          "returned_source_roster_names": [],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        },
+        "changed_query": true,
+        "baseline_had_profile": true,
+        "baseline_source_comparison": {
+          "outcome": "PARTIAL_HISTORY",
+          "identity": "MATCH",
+          "reference_history_events": 7,
+          "matched_history_events": [
+            "20396",
+            "20424",
+            "23945",
+            "24020",
+            "24023",
+            "26402"
+          ],
+          "missing_history_events": [
+            "16442"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": false,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 40,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "VERIFIED_RETURNED_SOURCE_RECORD",
+          "returned_source_roster_names": [
+            "Sophie Abbs"
+          ],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        }
+      },
+      "finished_at": "2026-10-16T15:56:16.801105+00:00"
+    },
+    {
+      "name": "Aaron Sluchinski",
+      "query": "Aaton Sluchonsko",
+      "association": "ab",
+      "started_at": "2026-10-16T15:56:18.805640+00:00",
+      "search_ms": 15369,
+      "observation": {
+        "displayed_history": 0,
+        "headline": "Temporary refresh issue\nRecent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Aaton Sluchonsko. Club league rosters may not be published to the sources we track.",
+        "history_links": [],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "No sourced career records loaded yet. Missing history is not treated as no history.",
+        "name": "Aaton Sluchonsko",
+        "schedule_text": "No scheduled draws to show.",
+        "snapshot": {
+          "diagnostics": {
+            "appVersion": "v26.15",
+            "error": "Recent competition search is incomplete. Please retry.",
+            "offlineLookup": "no-exact-match",
+            "phase": "error",
+            "playerName": "Aaton Sluchonsko",
+            "reason": "manual-start",
+            "timestamp": "2026-10-16T15:56:33.399Z"
+          },
+          "ends": [],
+          "errorHint": "Recent competition search is incomplete. Please retry. The saved event archive has no exact roster record for Aaton Sluchonsko. Club league rosters may not be published to the sources we track.",
+          "eventName": "Temporary refresh issue",
+          "lastUpdatedLabel": "10:56 a.m.",
+          "nextCheckAt": 1792167993671,
+          "playerName": "Aaton Sluchonsko",
+          "scheduleHint": "Retrying automatically.",
+          "scheduleRows": [],
+          "timelineHint": "Refresh did not complete.",
+          "view": "error"
+        },
+        "status": "Could not refresh right now. Retrying in 30 minutes. Recent competition search is incomplete. Please retry.",
+        "version": "v26.15"
+      },
+      "comparison": {
+        "profile_recovery": "NO_SOURCED_PROFILE",
+        "baseline_profile": [
+          "canada",
+          "114970"
+        ],
+        "returned_profile": null,
+        "returned_roster_names": [],
+        "source_comparison": {
+          "outcome": "NO_HISTORY_SHOWN",
+          "identity": "UNRESOLVED",
+          "reference_history_events": 4,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "12577",
+            "20378",
+            "22261",
+            "26753"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": true,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 16,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "OUTSIDE_CHECKED_REFERENCE",
+          "returned_source_roster_names": [],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        },
+        "changed_query": true,
+        "baseline_had_profile": true,
+        "baseline_source_comparison": {
+          "outcome": "CROSS_SOURCE_OR_ID_REVIEW",
+          "identity": "DIFFERENT_SOURCE_ID_REQUIRES_REVIEW",
+          "reference_history_events": 4,
+          "matched_history_events": [],
+          "missing_history_events": [
+            "12577",
+            "20378",
+            "22261",
+            "26753"
+          ],
+          "unexpected_history_events_with_verified_conflict": [],
+          "current_event_check": "NOT_ESTABLISHED_IN_REFERENCE",
+          "search_explicitly_incomplete": false,
+          "verified_live_games": 0,
+          "missing_live_game_ids": [],
+          "verified_upcoming_games": 0,
+          "missing_upcoming_game_ids": [],
+          "verified_source_game_count": 16,
+          "source_score_conflict_game_ids": [],
+          "history_field_differences": [],
+          "returned_record_validation": "VERIFIED_RETURNED_SOURCE_RECORD",
+          "returned_source_roster_names": [
+            "Aaron Sluchinski"
+          ],
+          "upcoming_check": "Matched source fixtures only; no whole-internet absence claim",
+          "ui_history_limit": 20,
+          "note": "Reference history matching does not establish complete internet/career coverage."
+        }
+      },
+      "finished_at": "2026-10-16T15:56:34.205603+00:00"
+    }
+  ],
+  "browser_version": "155.0.4283.45",
+  "updated_at": "2026-10-16T15:56:34.205619+00:00",
+  "summary": {
+    "NO_SOURCED_PROFILE": 5
+  }
+}

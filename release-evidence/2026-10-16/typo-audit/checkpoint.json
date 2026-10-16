@@ -1,0 +1,10 @@
+{
+  "updated_at": "2026-10-16T15:56:34.208098+00:00",
+  "target": "production",
+  "completed": 5,
+  "total": 71,
+  "last_name": "Aaron Sluchinski",
+  "last_query": "Aaton Sluchonsko",
+  "exact_resume_command": "python tools/Curler-Typo-Audit.py --run production",
+  "process_note": "Continuation requires an actual running process."
+}

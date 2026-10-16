@@ -1,0 +1,25 @@
+{
+  "reported_at": "2026-10-16T15:56:35.010743+00:00",
+  "sample_size": 71,
+  "changed_names": 64,
+  "rule": "i→o; r→t; simultaneous and case-insensitive, preserving case",
+  "targets": {
+    "production": {
+      "complete": false,
+      "completed": 5,
+      "baseline_profile_count": 71,
+      "same_profile_recovered": 0,
+      "changed_query_eligible": 5,
+      "changed_query_recovered": 0,
+      "outcomes": {
+        "NO_SOURCED_PROFILE": 5
+      },
+      "versions": [
+        "v26.15"
+      ],
+      "history_outcomes": {
+        "NO_HISTORY_SHOWN": 5
+      }
+    }
+  }
+}
