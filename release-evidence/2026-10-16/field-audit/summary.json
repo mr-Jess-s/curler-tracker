@@ -1,5 +1,5 @@
 {
-  "reported_at": "2026-10-16T15:08:22.080898+00:00",
+  "reported_at": "2026-10-16T15:13:03.425121+00:00",
   "sample_size": 71,
   "per_association": {
     "ab": 23,
@@ -161,16 +161,58 @@
   ],
   "target_summaries": {
     "production": {
-      "completed": 63,
-      "complete": false,
+      "completed": 71,
+      "complete": true,
       "outcomes": {
-        "REFERENCE_HISTORY_MATCH": 54,
+        "REFERENCE_HISTORY_MATCH": 35,
         "CROSS_SOURCE_OR_ID_REVIEW": 6,
-        "EXTERNAL_EVENT_TITLE_REQUIRES_REVIEW": 3
+        "PARTIAL_HISTORY": 19,
+        "EXTERNAL_BRIER_ROSTER_MATCH": 8,
+        "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3
       },
       "versions": [
         "v26.15"
-      ]
+      ],
+      "search_explicitly_incomplete_cases": 0,
+      "upcoming_fixture_cases": 20,
+      "upcoming_fixture_cases_matched": 20,
+      "live_fixture_cases": 0,
+      "harness_errors": 0,
+      "preserved_harness_retry_attempts": 11,
+      "missing_verified_history_appearances": 60,
+      "search_ms": {
+        "median": 14338,
+        "p95_nearest_rank": 15432,
+        "maximum": 16491
+      },
+      "observation_started_at": "2026-10-16T14:53:02.043236+00:00",
+      "observation_finished_at": "2026-10-16T15:10:17.112077+00:00"
+    },
+    "staging": {
+      "completed": 8,
+      "complete": false,
+      "outcomes": {
+        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 4,
+        "CROSS_SOURCE_OR_ID_REVIEW": 2,
+        "PARTIAL_HISTORY": 2
+      },
+      "versions": [
+        "v26.19"
+      ],
+      "search_explicitly_incomplete_cases": 8,
+      "upcoming_fixture_cases": 0,
+      "upcoming_fixture_cases_matched": 0,
+      "live_fixture_cases": 0,
+      "harness_errors": 0,
+      "preserved_harness_retry_attempts": 0,
+      "missing_verified_history_appearances": 12,
+      "search_ms": {
+        "median": 15380,
+        "p95_nearest_rank": 18094,
+        "maximum": 18094
+      },
+      "observation_started_at": "2026-10-16T15:10:21.307593+00:00",
+      "observation_finished_at": null
     }
   }
 }

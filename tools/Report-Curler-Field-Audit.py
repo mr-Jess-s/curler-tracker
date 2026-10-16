@@ -37,6 +37,19 @@ data={'reported_at':dt.datetime.now(dt.timezone.utc).isoformat(),'sample_size':l
       'older_history_spot_checks':oracle.get('older_history_extension'),
       'source_catalog':oracle['catalog'],
       'target_summaries':{k:{'completed':len(v['results']),'complete':v.get('complete',False),'outcomes':dict(Counter(r['comparison']['outcome'] for r in v['results'])),'versions':sorted(set(r.get('observation',{}).get('version','unknown') for r in v['results']))} for k,v in reports.items()}}
+for target,report in reports.items():
+ results=report['results'];comparisons=[r['comparison'] for r in results]
+ times=sorted(r['search_ms'] for r in results if r.get('search_ms') is not None)
+ data['target_summaries'][target].update({
+  'search_explicitly_incomplete_cases':sum(bool(c.get('search_explicitly_incomplete')) for c in comparisons),
+  'upcoming_fixture_cases':sum(c.get('verified_upcoming_games',0)>0 for c in comparisons),
+  'upcoming_fixture_cases_matched':sum(c.get('verified_upcoming_games',0)>0 and not c.get('missing_upcoming_game_ids') for c in comparisons),
+  'live_fixture_cases':sum(c.get('verified_live_games',0)>0 for c in comparisons),
+  'harness_errors':sum(bool(r.get('error')) for r in results),
+  'preserved_harness_retry_attempts':len(report.get('harness_retry_observations',[])),
+  'missing_verified_history_appearances':sum(len(c.get('missing_history_events',[])) for c in comparisons),
+  'search_ms':{'median':times[len(times)//2] if times else None,'p95_nearest_rank':times[max(0,__import__('math').ceil(.95*len(times))-1)] if times else None,'maximum':max(times) if times else None},
+  'observation_started_at':report.get('started_at'),'observation_finished_at':report.get('finished_at')})
 (OUT/'summary.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
 def key(person):return (person['association'],str(person.get('source_curler_id')),person['name'])
 indexes={target:{key(row):row for row in report['results']} for target,report in reports.items()}
@@ -54,6 +67,9 @@ for person in oracle['sample']:
   row[target+'_upcoming_reference_games']=c.get('verified_upcoming_games')
   row[target+'_current_event']=c.get('current_event_check','NOT_RUN')
   row[target+'_search_ms']=result.get('search_ms')
+  row[target+'_search_incomplete']=c.get('search_explicitly_incomplete')
+  row[target+'_missing_event_ids']=';'.join(c.get('missing_history_events',[]))
+  row[target+'_rendered_status']=result.get('observation',{}).get('status')
  rows.append(row)
 with (OUT/'curler-comparison.csv').open('w',newline='',encoding='utf-8-sig') as f:
  writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
@@ -62,6 +78,10 @@ lines=['# Independent curler field audit', '', f"Reported {data['reported_at']}.
        '', 'Both sites use actual rendered Edge390px searches, normal form submission and the visible history control. Neither application matching nor discovery functions supply the expected records. Source requests are paced at most1per second and cached; a401/403/429stops independent source acquisition. Every completed search writes a checkpoint.',
        '', '## Results','', '| Target | Cases completed | Build versions | Outcomes |','|---|---:|---|---|']
 for target,s in data['target_summaries'].items():lines.append(f"| {target} | {s['completed']}/{len(rows)} | {', '.join(s['versions'])} | {json.dumps(s['outcomes'])} |")
+lines+=['','| Target | Upcoming fixture cases matched | Verified live cases | Explicitly incomplete searches | Search median / p95 |','|---|---:|---:|---:|---|']
+for target,s in data['target_summaries'].items():
+ timing=s['search_ms'];lines.append(f"| {target} | {s['upcoming_fixture_cases_matched']}/{s['upcoming_fixture_cases']} | {s['live_fixture_cases']} | {s['search_explicitly_incomplete_cases']} | {timing['median']} / {timing['p95_nearest_rank']} ms |")
+lines+=['','Search timings measure form interaction to the app leaving its running state, including source waits; they exclude the subsequent history-control request. These are sequential mobile-emulated Edge observations with reused browser caches, not cold-load or load-test measurements. A search can have matched historical records and still be explicitly incomplete.']
 lines+=['','## Per-curler comparison','','History entries below count distinct source events. Missing entries do not imply invented data. A different source-native ID requires identity review; matching names alone do not establish an error or an identity merge.','', '| Curler | Association | Reference events | Production | Staging | Source |','|---|---|---:|---|---|---|']
 for r in rows:
  def label(target):
@@ -74,6 +94,17 @@ for r in rows:
 if oracle.get('older_history_extension'):
  ext=oracle['older_history_extension']
  lines+=['','## Older history spot checks','',f"Independently checked {ext['verified_events']}older published events across2023/24and2022/23, selecting nine evenly spaced events per association/season. These verified {ext['selected_curler_appearances']}additional appearances for {ext['selected_curlers_with_older_records']}of the fixed71people, linked only through the same association+source-nativeID. This is not exhaustive older coverage. Final comparisons include these verified records; the original browser observations remain saved."]
+lines+=['','## Reproduce coverage discrepancies','','Open the curler links above, submit the name, then open the history control. Compare the following independently published source records. A source/profile review requires disambiguation before merging identities.','', '| Curler | Target | Finding | Missing published records |','|---|---|---|---|']
+for person in oracle['sample']:
+ for target in ['production','staging']:
+  result=indexes.get(target,{}).get(key(person),{});c=result.get('comparison',{});outcome=c.get('outcome')
+  if outcome not in ('PARTIAL_HISTORY','CROSS_SOURCE_OR_ID_REVIEW','VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN','CURRENT_OR_UPCOMING_MISSING','VERIFIED_PROVENANCE_OR_SCORE_CONFLICT','REFERENCE_EVENT_DETAILS_DIFFER'):continue
+  missing=set(c.get('missing_history_events',[]));links=[]
+  for h in person['reference_history']:
+   if str(h['event_id']) in missing and h['source_url'] not in [u for u,_ in links]:links.append((h['source_url'],h['name']))
+  if person.get('external_reference'):
+   e=person['external_reference'];links.append((e['source_url'],e['event']))
+  lines.append(f"| {person['name']} | {target} | {outcome} | "+'; '.join(f'[{title}]({url})' for url,title in links)+' |')
 lines+=['','## Interpretation and limits','', 'REFERENCE_HISTORY_MATCH means all events in this independently checked reference subset appear; it does not mean a complete career. HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE retains a live-source availability failure. PARTIAL_HISTORY identifies precise missing verified eventIDs in the JSON. VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN identifies an independently documented Brier appearance that the UI did not show. EXTERNAL_BRIER_ROSTER_MATCH requires the independently read officialBrier roster plus a freshI/Oevent roster and exact returned source-nativeID/eventID, not a matching title alone. CROSS_SOURCE_OR_ID_REVIEW needs manual identity/provenance review. Only a confirmed source roster/score conflict should become a wrong-person or wrong-score defect.',
        '', 'Current/upcoming checks apply only to independently observed source fixtures and dated rosters. If the selected sources supply no live/upcoming assignment, the corresponding behaviour remains untested, notpassed. The base/current-two-prior-season collection plus older spotchecks do not encompass all internet records. Unpublished rosters were not fetched. Any source errors and collection limits remain in reference.json.gz. Sources may change between retrieval and UIsearch; live-score differences require a fresh recheck.',
        '', 'This audit changes no production code/data and sends no feedback or other messages. Detailed observations, URLs, retrieval timestamps, payload hashes, missing eventIDs, scores and checkpoints accompany this report.']
