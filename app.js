@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.17';
+const APP_VERSION = 'v26.18';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -27,7 +27,7 @@ const APP = {
   maxParallelEventsPerList: 4,
   localKeys: {
     player: 'curler-tracker-player-v263',
-    snapshot: 'curler-tracker-snapshot-v263',
+    snapshot: 'curler-tracker-snapshot-v2618',
     cachePrefix: 'curler-tracker-cache-v263:',
     discoveryPrefix: 'curler-tracker-discovery-v263:'
   }
@@ -1378,7 +1378,7 @@ async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
     throw new Error('Documentary source index is unavailable or invalid.');
   }
   const entry = archive.names[normalizeName(playerName)];
-  if (!entry) return null;
+  if (!entry || entry.unverified_search_variant === true) return null;
   if (normalizeName(entry.name) !== normalizeName(playerName) || !Array.isArray(entry.records) || !entry.records.length ||
     entry.records.some(row => !row.title || !row.detail || !row.source || !row.source_url ||
       !['organizer_event_report', 'official_club_role'].includes(row.kind) ||

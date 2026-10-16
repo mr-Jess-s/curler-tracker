@@ -204,26 +204,26 @@ await check('Independent first-party documents supply evidence without inventing
  const a=app();
  a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
  a.run("fetchJson=async()=>citedIndex");
- const result=await a.run("findDocumentedCurlingSnapshot('Ferrol Asham',{phase:'error'},30000)");
+ const result=await a.run("findDocumentedCurlingSnapshot('Farrol Asham',{phase:'error'},30000)");
  assert.equal(result.view,'documented-history');
  assert.equal(result.teamName,'');
  assert.equal(result.careerHistory.length,2);
  assert(result.careerHistory.every(row=>row.sourceUrl.startsWith('https://') && row.source));
  assert(result.careerHistory.some(row=>row.sourceUrl.includes('mancurltour.ca')));
  assert(result.careerHistory.some(row=>row.sourceUrl.includes('curlfortrouge.ca')));
- assert(result.careerHistory.every(row=>/source spells the name Farrol Asham/i.test(row.detail)));
+ assert(result.careerHistory.every(row=>/Farrol Asham/i.test(row.detail)));
  assert.equal(await a.run("findDocumentedCurlingSnapshot('No Published Person',{phase:'error'},30000)"),null);
 });
 await check('Source outage uses documentary history instead of unsupported no-record error',async()=>{
  const a=app();
  a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
- a.run("state.playerName='Ferrol Asham';discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async()=>null;fetchJson=async()=>citedIndex");
+ a.run("state.playerName='Farrol Asham';discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async()=>null;fetchJson=async()=>citedIndex");
  await a.run("runTracker({reason:'test'})");
  assert.equal(a.run('state.snapshot.view'),'documented-history');
  assert.match(a.elements.get('statusLine').textContent,/cited curling references/);
  assert.doesNotMatch(a.elements.get('headlineBlock').innerHTML,/live game|last recorded team/i);
  assert.match(a.elements.get('careerPath').innerHTML,/Manitoba Curling Tour/);
- assert.match(a.elements.get('careerPath').innerHTML,/source spells the name Farrol Asham/i);
+ assert.match(a.elements.get('careerPath').innerHTML,/Farrol Asham/i);
 });
 await check('Published Farrol spelling resolves exact documentary references without identity merging',async()=>{
  const a=app(); a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
@@ -241,5 +241,10 @@ await check('Partial names and ambiguous same-name teams never select an identit
  assert.equal(a.run("findMatchingTeam(event,'farrol asham').curler.curler_id"),1);
  a.run("event.teams[1].lineup[0].name='Farrol Asham'");
  assert.equal(a.run("findMatchingTeam(event,'farrol asham')"),null);
+});
+await check('Unverified spelling variants cannot receive another published name’s documentary records',async()=>{
+ const a=app();a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
+ a.run("fetchJson=async()=>citedIndex");
+ assert.equal(await a.run("findDocumentedCurlingSnapshot('Ferrol Asham',{},30000)"),null);
 });
 console.log(count+' release regression checks passed.');
