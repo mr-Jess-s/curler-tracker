@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-16T14:19:56.598021+00:00",
+  "url": "https://curler-tracker-cfsx8a51e-jess-and-roo.vercel.app",
+  "browser": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "keyboard_search_submission",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "share_curler_url",
+      "status": "PASS",
+      "detail": {
+        "text": "Follow Farrol Asham on Curler Tracker.",
+        "title": "Farrol Asham \u00b7 Curler Tracker",
+        "url": "https://curler-tracker-cfsx8a51e-jess-and-roo.vercel.app/?player=Farrol+Asham"
+      }
+    },
+    {
+      "name": "dialog_focus_inside",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "feedback_copy_content_and_disclosure",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "feedback_download_generated",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "dialog_keyboard_close",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "feedback_computed_contrast",
+      "status": "PASS",
+      "detail": {
+        "ratio": 6.119921205294512,
+        "background": "rgb(255, 255, 255)",
+        "foreground": "rgb(79, 100, 121)"
+      }
+    },
+    {
+      "name": "share_website_no_stale_curler",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "fresh_cache_hit",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "expired_cache_miss",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_spinner_stopped",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "slow_network_archive_usable",
+      "status": "PASS",
+      "detail": {
+        "milliseconds": 801,
+        "latency_ms": 150,
+        "download_bytes_per_second": 200000
+      }
+    }
+  ],
+  "passed": 12,
+  "failed": 0,
+  "limitation": "Share/download mocked inside isolated browser; no messages sent. Edge mobile emulation is not physical Safari."
+}

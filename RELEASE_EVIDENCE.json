@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-16T14:23:50.406Z",
+  "status": "BLOCKED",
+  "public_launch_ready": false,
+  "television_advertising_ready": false,
+  "tested_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+  "production": {
+    "url": "https://curler-tracker.vercel.app",
+    "deployment": "dpl_2SUeUnQud5GorUoaBDpwkvHA7feW",
+    "observed_version": "v26.15",
+    "commit": null
+  },
+  "staging": {
+    "url": "https://curler-tracker-cfsx8a51e-jess-and-roo.vercel.app",
+    "deployment": "dpl_J4cAKNiWhJHNju3vXhpq3Ft1iTmq",
+    "version": "v26.19",
+    "commit": "98b988ec507090f436958c38d1ae995417f635e5",
+    "verified": true,
+    "stable_alias": "https://curler-tracker-uat-20261016.vercel.app",
+    "manifest_verified_files": 53
+  },
+  "tests": {
+    "regression": 34,
+    "browser_local": 38,
+    "release_source": 18,
+    "acquisition": 7,
+    "operations_unit": 2,
+    "gate_unit": 3,
+    "failed_in_these_suites": 0,
+    "staging_security": 14,
+    "extended_edge": 12,
+    "extended_chrome": 12,
+    "total_assertions_in_latest_suites": 140,
+    "final_suite_failures": 0
+  },
+  "backup": {
+    "restore_passed": true,
+    "cloud_sync_verified": false,
+    "artifact": "release-evidence/2026-10-16/candidate-backup-restore.json",
+    "restored_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+    "finished_at": "2026-10-16T14:22:13.476852+00:00"
+  },
+  "collector": {
+    "healthy": true,
+    "checked_at": "2026-10-16T14:21:27Z",
+    "actual_latest_raw_write": "2026-10-16T13:23:27Z"
+  },
+  "gates": {
+    "functional_uat": {
+      "status": "BLOCKED"
+    },
+    "data_integrity": {
+      "status": "PASS",
+      "artifact": "release-evidence/2026-10-16/staging-browser.json",
+      "timestamp": "2026-10-16T14:19:22Z"
+    },
+    "accessibility": {
+      "status": "BLOCKED"
+    },
+    "security_privacy": {
+      "status": "BLOCKED"
+    },
+    "backup_restore": {
+      "status": "PASS",
+      "artifact": "release-evidence/2026-10-16/candidate-backup-restore.json",
+      "timestamp": "2026-10-16T14:22:13.476852+00:00"
+    },
+    "collector_operational": {
+      "status": "PASS",
+      "artifact": "release-evidence/2026-10-16/operations-health.json",
+      "timestamp": "2026-10-16T14:21:27Z"
+    },
+    "monitoring_recovery": {
+      "status": "BLOCKED"
+    },
+    "rollback_rehearsal": {
+      "status": "BLOCKED"
+    },
+    "staging_verification": {
+      "status": "PASS",
+      "artifact": "release-evidence/2026-10-16/staging-v2619-verification.json",
+      "timestamp": "2026-10-16T14:18:47Z"
+    }
+  },
+  "checkpoint": {
+    "development_device": "Polly",
+    "development_path": "C:\\Jess\\curler-tracker-release-20261016",
+    "next_action": "Preserve/push final reports and evidence; then obtain a private privacy-request contact, rights-clearance evidence, and approved always-on/source-traffic/incident capacity scope. Complete physical Safari/AT and remaining UAT, stage production without aliasing, test, rehearse production rollback, and promote only after all mandatory gates pass.",
+    "running_processes_at_checkpoint": [],
+    "commands": [
+      "python tools/Acceptance-Browser.py",
+      "python tools/Accessibility-QA.py",
+      "python tools/Verify-Deployment.py <staging-url> <build> --out <artifact>",
+      "python tools/Controlled-Load.py <staging-url> <artifact>"
+    ],
+    "blockers": [
+      "private privacy channel",
+      "artwork/source rights clearance",
+      "shared upstream request protection and capacity",
+      "full UAT/AT/iPhone and rollback/incident recovery"
+    ],
+    "completed_work": [
+      "v26.19 fixes committed/pushed",
+      "Final staged140assertions and53file hashes passed",
+      "Staging rollback passed",
+      "Exact candidate+1.64GBarchive backup restoration passed",
+      "Scheduled collector/backup/health verified",
+      "Production remainsv26.15 and gated"
+    ],
+    "background_work": "No independent engineering process. Installed Arthur collector, backup and15minutehealth schedules continue while Windows is powered/networked and signed in."
+  },
+  "staging_rollback": {
+    "status": "PASS",
+    "production_endpoint_tested": false,
+    "artifact": "release-evidence/2026-10-16/staging-rollback-v2619.json",
+    "timestamp": "2026-10-16T14:19:19Z"
+  },
+  "static_load": {
+    "status": "PASS",
+    "national_capacity_verified": false,
+    "artifact": "release-evidence/2026-10-16/controlled-load-v2619.json",
+    "p95_ms": 451.46,
+    "errors": 0
+  }
+}

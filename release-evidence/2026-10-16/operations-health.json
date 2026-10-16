@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-16T14:21:27.902911+00:00",
+  "checks": [
+    {
+      "name": "collector_heartbeat",
+      "status": "PASS",
+      "detail": {
+        "last_heartbeat": "2026-10-16T14:20:38.3946750Z",
+        "phase": "idle"
+      }
+    },
+    {
+      "name": "collection_canada_current_season",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-16T13:23:24.935839+00:00",
+        "state": "complete",
+        "maximum_age_hours": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_offline_curler_index",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-16T13:23:25.494450+00:00",
+        "state": "complete",
+        "maximum_age_hours": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_world_results",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-16T13:23:27.572506+00:00",
+        "state": "complete",
+        "maximum_age_hours": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_coverage_update",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-16T13:23:27.638411+00:00",
+        "state": "complete",
+        "maximum_age_hours": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_history_refresh",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-12T02:50:19.096054+00:00",
+        "state": "complete",
+        "maximum_age_hours": 192,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_home_summary",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-12T02:50:19.237709+00:00",
+        "state": "complete",
+        "maximum_age_hours": 192,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_country_registry",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-15T18:48:57.926667+00:00",
+        "state": "complete",
+        "maximum_age_hours": 48,
+        "error": null
+      }
+    },
+    {
+      "name": "collection_world_site_inventory",
+      "status": "PASS",
+      "detail": {
+        "last_success": "2026-10-15T19:03:12.199738+00:00",
+        "state": "complete",
+        "maximum_age_hours": 96,
+        "error": null
+      }
+    },
+    {
+      "name": "backup_local_freshness",
+      "status": "PASS",
+      "detail": {
+        "last_copy": "2026-10-16T14:20:06.8506035Z",
+        "copy_exit": 3,
+        "cloud_sync_verified": false
+      }
+    },
+    {
+      "name": "disk_space",
+      "status": "PASS",
+      "detail": {
+        "free_bytes": 621972459520,
+        "minimum_bytes": 10737418240
+      }
+    }
+  ],
+  "healthy": true,
+  "note": "No emails sent. A fresh heartbeat cannot override stale collection results."
+}

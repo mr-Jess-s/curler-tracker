@@ -1,0 +1,29 @@
+{
+  "scope": "Staging alias rollback only; production alias and production rollback endpoint were not exercised.",
+  "timestamp": "2026-10-16T14:19:19.0181428Z",
+  "alias": "https://curler-tracker-uat-20261016.vercel.app",
+  "steps": [
+    {
+      "actual_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+      "step": "candidate",
+      "timestamp": "2026-10-16T14:19:05.5387039Z",
+      "expected_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+      "passed": true
+    },
+    {
+      "actual_commit": "a6d6f816918862d699e7bbc131b333f2e37750df",
+      "step": "rollback",
+      "timestamp": "2026-10-16T14:19:13.0631416Z",
+      "expected_commit": "a6d6f816918862d699e7bbc131b333f2e37750df",
+      "passed": true
+    },
+    {
+      "actual_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+      "step": "restore_candidate",
+      "timestamp": "2026-10-16T14:19:19.0181428Z",
+      "expected_commit": "98b988ec507090f436958c38d1ae995417f635e5",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

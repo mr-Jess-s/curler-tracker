@@ -1,0 +1,9 @@
+{
+  "scope": "v26.17 documentary identity fallback",
+  "test": "Unverified spelling variants cannot receive another published name’s documentary records",
+  "before_fix": {"exit_code": 1, "actual": "documented-history for Ferrol using Farrol documents", "expected": null},
+  "cause": "Curated Ferrol search key explicitly warned of an unverified variant but still returned a documentary success snapshot",
+  "repair": "Mark variant as unverified and return no documentary match; preserve source records; rotate snapshot cache key to exclude legacy results",
+  "after_fix": {"regression_passed": 33, "regression_failed": 0, "commit": "ca34d04fc5c560756fb8b7b60d0907c9620b3e9d"},
+  "production_changed": false
+}

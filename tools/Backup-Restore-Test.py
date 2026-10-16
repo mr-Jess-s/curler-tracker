@@ -8,7 +8,7 @@ def digest(path):
         for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
     return h.hexdigest()
 
-def run(backup,out):
+def run(backup,out,release_ref=None):
     started=datetime.datetime.now(datetime.timezone.utc).isoformat()
     destination=Path(tempfile.mkdtemp(prefix='CurlerTracker-full-restore-'))
     backup=Path(backup); project=backup/'project'; restored=destination/'project'
@@ -30,9 +30,13 @@ def run(backup,out):
             try:json.loads(target.read_text(encoding='utf-8-sig'));json_count+=1
             except Exception as e:invalid.append({'file':str(relative),'error':str(e)})
     clone=subprocess.run(['git','clone',str(backup/'curler-tracker-repository.bundle'),str(destination/'git')],capture_output=True,text=True)
+    selected=subprocess.run(['git','-C',str(destination/'git'),'switch','--detach',release_ref],capture_output=True,text=True) if clone.returncode==0 and release_ref else clone
+    restored_commit=subprocess.check_output(['git','-C',str(destination/'git'),'rev-parse','HEAD'],text=True).strip() if selected.returncode==0 else None
     fsck=subprocess.run(['git','-C',str(destination/'git'),'fsck','--full'],capture_output=True,text=True) if clone.returncode==0 else clone
     regress=subprocess.run(['node',str(destination/'git'/'tools'/'Release-Regression.mjs')],capture_output=True,text=True) if clone.returncode==0 else clone
     report={'started_at':started,'finished_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'restore_directory':str(destination),'files_restored':len(files),'bytes_restored':total,'raw_files_restored':raw_count,'raw_bytes_restored':raw_bytes,'normalized_json_validated':json_count,'mismatches':mismatches,'invalid_files':invalid,'git_clone_exit':clone.returncode,'git_fsck_exit':fsck.returncode,'restored_regression_exit':regress.returncode,'restored_regression_log':regress.stdout,'cloud_sync_verified':False,'passed':not mismatches and not invalid and clone.returncode==fsck.returncode==regress.returncode==0}
+    report.update({'requested_release_ref':release_ref,'restored_commit':restored_commit,'release_checkout_exit':selected.returncode})
+    report['passed']=report['passed'] and selected.returncode==0 and (not release_ref or restored_commit==release_ref)
     Path(out).parent.mkdir(parents=True,exist_ok=True);Path(out).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');print(json.dumps(report))
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('backup');p.add_argument('out');a=p.parse_args();run(a.backup,a.out)
+    p=argparse.ArgumentParser();p.add_argument('backup');p.add_argument('out');p.add_argument('--release-ref');a=p.parse_args();run(a.backup,a.out,a.release_ref)

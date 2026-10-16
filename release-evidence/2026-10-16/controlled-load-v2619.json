@@ -1,0 +1,440 @@
+{
+  "timestamp": "2026-10-16T14:18:59.199144+00:00",
+  "url": "https://curler-tracker-cfsx8a51e-jess-and-roo.vercel.app",
+  "scope": "60 static requests; maximum concurrency 5; no more than 5 requests/second; no source API traffic",
+  "duration_seconds": 12.01,
+  "requests": 60,
+  "errors": 0,
+  "p50_ms": 301.625,
+  "p95_ms": 451.46,
+  "max_ms": 605.19,
+  "total_bytes": 2327560,
+  "thresholds": {
+    "max_errors": 0,
+    "p95_ms": 2000
+  },
+  "results": [
+    {
+      "path": "/",
+      "ms": 247.21,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 349.94,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 246.74,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 239.97,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 404.01,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 193.24,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 191.11,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 270.66,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 193.12,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 186.19,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 260.82,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 271.22,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 197.31,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 605.19,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 300.78,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 187.21,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 231.63,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 166.7,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 168.55,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 258.16,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 343.2,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 342.76,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 406.33,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 414.66,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 407.46,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 285.07,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 284.25,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 216.88,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 344.91,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 213.76,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 199.42,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 398.95,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 198.71,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 309.61,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 444.4,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 312.78,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 315.12,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 384.38,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 239.88,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 312.81,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 304.86,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 219.26,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 228.46,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 406.26,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 218.43,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 324.53,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 377.66,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 327.53,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 451.46,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 451.34,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 300.44,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 302.47,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 361.15,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 303.91,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 462.81,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 292.5,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 314.66,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    },
+    {
+      "path": "/",
+      "ms": 314.42,
+      "status": 200,
+      "bytes": 10666,
+      "cache": "HIT"
+    },
+    {
+      "path": "/app.js",
+      "ms": 503.91,
+      "status": 200,
+      "bytes": 97685,
+      "cache": "HIT"
+    },
+    {
+      "path": "/data/home-summary.json",
+      "ms": 291.68,
+      "status": 200,
+      "bytes": 8027,
+      "cache": "HIT"
+    }
+  ],
+  "capacity_claim": "This limited probe does not establish television surge capacity.",
+  "passed": true
+}
