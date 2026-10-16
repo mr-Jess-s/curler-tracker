@@ -354,7 +354,7 @@ h1 {
 .feedback-form textarea { min-height: 120px; resize: vertical; }
 .feedback-form .section-head { padding: 0 0 2px; }
 .feedback-form .section-head h2 { margin: 0; color: var(--ink); }
-.feedback-form .section-head .hint { max-width: 400px; }
+.feedback-form .section-head .hint { max-width: 400px; background: var(--surface); }
 
 @media (min-width: 820px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
