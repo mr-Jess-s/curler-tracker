@@ -51,7 +51,7 @@ Full WCAG/physicalSafari, all requested UAT edge cases, production rollback endp
 
 ## Independent 71-curler field audit — 2026-10-16
 
-Source-reference acquisition and actual rendered searches finished at 2026-10-16T15:30:24.084083+00:00. Production v26.15 and staging v26.19 each ran all 71 names. Details, exact statuses, timestamps and source URLs are in release-evidence/2026-10-16/field-audit/.
+Source-reference acquisition and actual rendered searches finished at 2026-10-16T15:32:14.225522+00:00. Production v26.15 and staging v26.19 each ran all 71 names. Details, exact statuses, timestamps and source URLs are in release-evidence/2026-10-16/field-audit/.
 
 | Requirement | Status | Actual result |
 |---|---|---|

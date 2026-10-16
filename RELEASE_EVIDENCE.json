@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-16T15:30:24.592652+00:00",
+  "updated_at": "2026-10-16T15:32:14.678904+00:00",
   "status": "BLOCKED",
   "public_launch_ready": false,
   "television_advertising_ready": false,
@@ -125,7 +125,7 @@
   },
   "independent_curler_field_audit": {
     "summary": {
-      "reported_at": "2026-10-16T15:30:24.084083+00:00",
+      "reported_at": "2026-10-16T15:32:14.225522+00:00",
       "sample_size": 71,
       "per_association": {
         "ab": 23,
