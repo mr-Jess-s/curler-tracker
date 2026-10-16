@@ -240,6 +240,19 @@
           "source_url": "https://ab.curling.io/en/events/20396",
           "retrieved_at": "2026-10-16T14:49:12.887101+00:00",
           "published_name": "Sophie Abbs"
+        },
+        {
+          "team_id": 56900,
+          "team_name": "Abbs",
+          "event_id": 16442,
+          "name": "2023/24 U18 Girls Provincial Qualifier - Okotoks Curling Club",
+          "starts_on": "Dec 07, 2023",
+          "ends_on": "Dec 10, 2023",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16442",
+          "retrieved_at": "2026-10-16T15:04:00.587979+00:00",
+          "published_name": "Sophie Abbs"
         }
       ],
       "current_or_future_roster": false,
@@ -287,6 +300,19 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20378",
           "retrieved_at": "2026-10-16T14:49:05.068804+00:00",
+          "published_name": "Aaron Sluchinski"
+        },
+        {
+          "team_id": 43385,
+          "team_name": "Aaron Sluchinski",
+          "event_id": 12577,
+          "name": "2022/23 Men's Provincial Qualifier - Okotoks Curling Club",
+          "starts_on": "Dec 08, 2022",
+          "ends_on": "Dec 11, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/12577",
+          "retrieved_at": "2026-10-16T15:04:10.870051+00:00",
           "published_name": "Aaron Sluchinski"
         }
       ],
@@ -396,6 +422,32 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20405",
           "retrieved_at": "2026-10-16T14:49:02.867550+00:00",
+          "published_name": "Chadd McKenzie"
+        },
+        {
+          "team_id": 57898,
+          "team_name": "Friesz",
+          "event_id": 16437,
+          "name": "2023/24 Men's Provincial Qualifier (Last Chance) - Calgary Curling Club",
+          "starts_on": "Jan 04, 2024",
+          "ends_on": "Jan 07, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16437",
+          "retrieved_at": "2026-10-16T15:03:58.471875+00:00",
+          "published_name": "Chadd McKenzie"
+        },
+        {
+          "team_id": 43386,
+          "team_name": "Rhett Friesz",
+          "event_id": 12577,
+          "name": "2022/23 Men's Provincial Qualifier - Okotoks Curling Club",
+          "starts_on": "Dec 08, 2022",
+          "ends_on": "Dec 11, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/12577",
+          "retrieved_at": "2026-10-16T15:04:10.870051+00:00",
           "published_name": "Chadd McKenzie"
         }
       ],
@@ -650,6 +702,19 @@
           "source_url": "https://ab.curling.io/en/events/20479",
           "retrieved_at": "2026-10-16T14:48:42.104060+00:00",
           "published_name": "Chad Lemay"
+        },
+        {
+          "team_id": 61615,
+          "team_name": "Spruce Grove C.C. #2",
+          "event_id": 16482,
+          "name": "2023/24 Curling Club Championship Men's Provincial Qualifier - Leduc Curling Club",
+          "starts_on": "Mar 07, 2024",
+          "ends_on": "Mar 10, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16482",
+          "retrieved_at": "2026-10-16T15:03:55.420347+00:00",
+          "published_name": "Chad Lemay"
         }
       ],
       "current_or_future_roster": false,
@@ -697,6 +762,19 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20378",
           "retrieved_at": "2026-10-16T14:49:05.068804+00:00",
+          "published_name": "Zoe Cinnamon"
+        },
+        {
+          "team_id": 47042,
+          "team_name": "Zach Davies",
+          "event_id": 13064,
+          "name": "2022/23 U21 Mixed Doubles Provincial Championship - Saville Sports Centre (Edmonton)",
+          "starts_on": "Mar 02, 2023",
+          "ends_on": "Mar 05, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/13064",
+          "retrieved_at": "2026-10-16T15:04:04.915573+00:00",
           "published_name": "Zoe Cinnamon"
         }
       ],
@@ -784,6 +862,19 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20402",
           "retrieved_at": "2026-10-16T14:49:03.894843+00:00",
+          "published_name": "Keelie Duncan"
+        },
+        {
+          "team_id": 62451,
+          "team_name": "Duncan/Keenan",
+          "event_id": 16492,
+          "name": "2023/24 U21 Mixed Doubles Provincial Championship - Lethbridge Curling Club",
+          "starts_on": "Apr 03, 2024",
+          "ends_on": "Apr 07, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16492",
+          "retrieved_at": "2026-10-16T15:03:53.435649+00:00",
           "published_name": "Keelie Duncan"
         }
       ],
@@ -920,6 +1011,19 @@
           "source_url": "https://ab.curling.io/en/events/22737",
           "retrieved_at": "2026-10-16T14:48:37.174893+00:00",
           "published_name": "Callie Padget"
+        },
+        {
+          "team_id": 58199,
+          "team_name": "Callie Padget",
+          "event_id": 16467,
+          "name": "2023/24 U15 Boys & Girls Provincial Qualifier - Sundre Curling Club",
+          "starts_on": "Feb 01, 2024",
+          "ends_on": "Feb 04, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16467",
+          "retrieved_at": "2026-10-16T15:03:57.450085+00:00",
+          "published_name": "Callie Padget"
         }
       ],
       "current_or_future_roster": false,
@@ -1029,6 +1133,32 @@
           "source_url": "https://ab.curling.io/en/events/22260",
           "retrieved_at": "2026-10-16T14:48:59.074639+00:00",
           "published_name": "Rachel Jacques"
+        },
+        {
+          "team_id": 47060,
+          "team_name": "Rachel Jacques",
+          "event_id": 13064,
+          "name": "2022/23 U21 Mixed Doubles Provincial Championship - Saville Sports Centre (Edmonton)",
+          "starts_on": "Mar 02, 2023",
+          "ends_on": "Mar 05, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/13064",
+          "retrieved_at": "2026-10-16T15:04:04.915573+00:00",
+          "published_name": "Rachel Jacques"
+        },
+        {
+          "team_id": 44120,
+          "team_name": "Gracelyn Richards",
+          "event_id": 12649,
+          "name": "2022/23 U20 Women Provincial Qualifier - Spruce Grove Curling Club",
+          "starts_on": "Dec 29, 2022",
+          "ends_on": "Jan 01, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/12649",
+          "retrieved_at": "2026-10-16T15:04:08.651526+00:00",
+          "published_name": "Rachel Jacques"
         }
       ],
       "current_or_future_roster": false,
@@ -1115,6 +1245,32 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20432",
           "retrieved_at": "2026-10-16T14:48:34.858645+00:00",
+          "published_name": "Michael Dumont"
+        },
+        {
+          "team_id": 45136,
+          "team_name": "Dumont/Wytrychowski",
+          "event_id": 12652,
+          "name": "2022/23 Mixed Doubles Provincial Qualifier - Crowsnest Curling Club",
+          "starts_on": "Feb 02, 2023",
+          "ends_on": "Feb 05, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/12652",
+          "retrieved_at": "2026-10-16T15:04:05.728497+00:00",
+          "published_name": "Michael Dumont"
+        },
+        {
+          "team_id": 43387,
+          "team_name": "Warren Kozak",
+          "event_id": 12577,
+          "name": "2022/23 Men's Provincial Qualifier - Okotoks Curling Club",
+          "starts_on": "Dec 08, 2022",
+          "ends_on": "Dec 11, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://ab.curling.io/en/events/12577",
+          "retrieved_at": "2026-10-16T15:04:10.870051+00:00",
           "published_name": "Michael Dumont"
         }
       ],
@@ -1228,6 +1384,19 @@
           "delta": -2,
           "source_url": "https://ab.curling.io/en/events/20402",
           "retrieved_at": "2026-10-16T14:49:03.894843+00:00",
+          "published_name": "Carley Hardie"
+        },
+        {
+          "team_id": 62443,
+          "team_name": "Hardie/Cinnamon",
+          "event_id": 16492,
+          "name": "2023/24 U21 Mixed Doubles Provincial Championship - Lethbridge Curling Club",
+          "starts_on": "Apr 03, 2024",
+          "ends_on": "Apr 07, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://ab.curling.io/en/events/16492",
+          "retrieved_at": "2026-10-16T15:03:53.435649+00:00",
           "published_name": "Carley Hardie"
         }
       ],
@@ -1974,6 +2143,19 @@
           "source_url": "https://mb.curling.io/en/events/19378",
           "retrieved_at": "2026-10-16T14:51:21.932800+00:00",
           "published_name": "Sam Antila"
+        },
+        {
+          "team_id": 56566,
+          "team_name": "Sam Antila",
+          "event_id": 15979,
+          "name": "2023-24 Seagram's Whisky Curling Club Men's North Regional Qualifiers",
+          "starts_on": "Nov 23, 2023",
+          "ends_on": "Nov 26, 2023",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://mb.curling.io/en/events/15979",
+          "retrieved_at": "2026-10-16T15:04:19.676481+00:00",
+          "published_name": "Sam Antila"
         }
       ],
       "current_or_future_roster": false,
@@ -2047,6 +2229,19 @@
           "delta": -2,
           "source_url": "https://mb.curling.io/en/events/19363",
           "retrieved_at": "2026-10-16T14:51:26.968005+00:00",
+          "published_name": "Julia Millan"
+        },
+        {
+          "team_id": 57070,
+          "team_name": "Lukowich",
+          "event_id": 15980,
+          "name": "2023-24 Scotties Women's Winnipeg Regional Qualifiers presented by RME",
+          "starts_on": "Dec 07, 2023",
+          "ends_on": "Dec 10, 2023",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://mb.curling.io/en/events/15980",
+          "retrieved_at": "2026-10-16T15:04:17.641810+00:00",
           "published_name": "Julia Millan"
         }
       ],
@@ -2766,6 +2961,19 @@
           "source_url": "https://canada.curling.io/en/events/18860",
           "retrieved_at": "2026-10-16T14:52:10.650421+00:00",
           "published_name": "Robyn Mackey"
+        },
+        {
+          "team_id": 43207,
+          "team_name": "Nunavut (Chislett)",
+          "event_id": 11988,
+          "name": "2022 Everest Canadian Seniors Curling Championships - Women",
+          "starts_on": "Dec 05, 2022",
+          "ends_on": "Dec 10, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/11988",
+          "retrieved_at": "2026-10-16T15:04:50.213016+00:00",
+          "published_name": "Robyn Mackey"
         }
       ],
       "current_or_future_roster": true,
@@ -2839,6 +3047,32 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/21516",
           "retrieved_at": "2026-10-16T14:52:11.425314+00:00",
+          "published_name": "Kibo Mulima"
+        },
+        {
+          "team_id": 61913,
+          "team_name": "Wilfrid Laurier - M",
+          "event_id": 18209,
+          "name": "2024 U SPORTS/CCAA Championships",
+          "starts_on": "Mar 12, 2024",
+          "ends_on": "Mar 16, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18209",
+          "retrieved_at": "2026-10-16T15:04:37.112285+00:00",
+          "published_name": "Kibo Mulima"
+        },
+        {
+          "team_id": 39254,
+          "team_name": "Wilfrid Laurier Hawks",
+          "event_id": 12796,
+          "name": "2022 FISU World University Games Qualifier - Men",
+          "starts_on": "Sep 22, 2022",
+          "ends_on": "Sep 25, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/12796",
+          "retrieved_at": "2026-10-16T15:04:50.775662+00:00",
           "published_name": "Kibo Mulima"
         }
       ],
@@ -2962,6 +3196,32 @@
           "source_url": "https://canada.curling.io/en/events/22103",
           "retrieved_at": "2026-10-16T14:52:00.026225+00:00",
           "published_name": "Mia Toner"
+        },
+        {
+          "team_id": 61775,
+          "team_name": "Northern Ontario #2 (Toner)",
+          "event_id": 18215,
+          "name": "2024 New Holland Canadian Under-21 Curling Championships - Women",
+          "starts_on": "Mar 24, 2024",
+          "ends_on": "Mar 31, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18215",
+          "retrieved_at": "2026-10-16T15:04:33.789598+00:00",
+          "published_name": "Mia Toner"
+        },
+        {
+          "team_id": 45639,
+          "team_name": "Northern Ontario #1 (Toner)",
+          "event_id": 14676,
+          "name": "2023 Canadian U-18 Championships - Girls",
+          "starts_on": "Feb 05, 2023",
+          "ends_on": "Feb 11, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/14676",
+          "retrieved_at": "2026-10-16T15:04:49.311486+00:00",
+          "published_name": "Mia Toner"
         }
       ],
       "current_or_future_roster": true,
@@ -3048,6 +3308,32 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/21516",
           "retrieved_at": "2026-10-16T14:52:11.425314+00:00",
+          "published_name": "Abby Whitbread"
+        },
+        {
+          "team_id": 58750,
+          "team_name": "Alberta #2 (Whitbread)",
+          "event_id": 18207,
+          "name": "2024 Canadian Under-18 Championships - Female",
+          "starts_on": "Feb 04, 2024",
+          "ends_on": "Feb 10, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18207",
+          "retrieved_at": "2026-10-16T15:04:38.849472+00:00",
+          "published_name": "Abby Whitbread"
+        },
+        {
+          "team_id": 45414,
+          "team_name": "Alberta #2 (DeSchiffart)",
+          "event_id": 14676,
+          "name": "2023 Canadian U-18 Championships - Girls",
+          "starts_on": "Feb 05, 2023",
+          "ends_on": "Feb 11, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/14676",
+          "retrieved_at": "2026-10-16T15:04:49.311486+00:00",
           "published_name": "Abby Whitbread"
         }
       ],
@@ -3171,6 +3457,19 @@
           "source_url": "https://canada.curling.io/en/events/21516",
           "retrieved_at": "2026-10-16T14:52:11.425314+00:00",
           "published_name": "Emma Artichuk"
+        },
+        {
+          "team_id": 48183,
+          "team_name": "Ontario #1 (Zemmelink)",
+          "event_id": 14993,
+          "name": "2023 New Holland Canadian U-21 Women's Curling Championship",
+          "starts_on": "Mar 25, 2023",
+          "ends_on": "Apr 02, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/14993",
+          "retrieved_at": "2026-10-16T15:04:45.026467+00:00",
+          "published_name": "Emma Artichuk"
         }
       ],
       "current_or_future_roster": true,
@@ -3258,6 +3557,19 @@
           "source_url": "https://canada.curling.io/en/events/21516",
           "retrieved_at": "2026-10-16T14:52:11.425314+00:00",
           "published_name": "Wyatt Small"
+        },
+        {
+          "team_id": 61913,
+          "team_name": "Wilfrid Laurier - M",
+          "event_id": 18209,
+          "name": "2024 U SPORTS/CCAA Championships",
+          "starts_on": "Mar 12, 2024",
+          "ends_on": "Mar 16, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18209",
+          "retrieved_at": "2026-10-16T15:04:37.112285+00:00",
+          "published_name": "Wyatt Small"
         }
       ],
       "current_or_future_roster": true,
@@ -3318,6 +3630,32 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/22099",
           "retrieved_at": "2026-10-16T14:52:05.606357+00:00",
+          "published_name": "Katrina Frlan"
+        },
+        {
+          "team_id": 59107,
+          "team_name": "Ontario #1 (Vivier)",
+          "event_id": 18207,
+          "name": "2024 Canadian Under-18 Championships - Female",
+          "starts_on": "Feb 04, 2024",
+          "ends_on": "Feb 10, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18207",
+          "retrieved_at": "2026-10-16T15:04:38.849472+00:00",
+          "published_name": "Katrina Frlan"
+        },
+        {
+          "team_id": 45632,
+          "team_name": "Ontario #1 (Frlan)",
+          "event_id": 14676,
+          "name": "2023 Canadian U-18 Championships - Girls",
+          "starts_on": "Feb 05, 2023",
+          "ends_on": "Feb 11, 2023",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/14676",
+          "retrieved_at": "2026-10-16T15:04:49.311486+00:00",
           "published_name": "Katrina Frlan"
         }
       ],
@@ -3392,6 +3730,19 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/22100",
           "retrieved_at": "2026-10-16T14:52:04.336039+00:00",
+          "published_name": "Sean Beland"
+        },
+        {
+          "team_id": 61917,
+          "team_name": "University of New Brunswick - M",
+          "event_id": 18209,
+          "name": "2024 U SPORTS/CCAA Championships",
+          "starts_on": "Mar 12, 2024",
+          "ends_on": "Mar 16, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18209",
+          "retrieved_at": "2026-10-16T15:04:37.112285+00:00",
           "published_name": "Sean Beland"
         }
       ],
@@ -3541,6 +3892,19 @@
           "source_url": "https://canada.curling.io/en/events/22100",
           "retrieved_at": "2026-10-16T14:52:04.336039+00:00",
           "published_name": "Erin Fitzgibbon"
+        },
+        {
+          "team_id": 58559,
+          "team_name": "British Columbia #1 (Fitzgibbon)",
+          "event_id": 18207,
+          "name": "2024 Canadian Under-18 Championships - Female",
+          "starts_on": "Feb 04, 2024",
+          "ends_on": "Feb 10, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18207",
+          "retrieved_at": "2026-10-16T15:04:38.849472+00:00",
+          "published_name": "Erin Fitzgibbon"
         }
       ],
       "current_or_future_roster": true,
@@ -3614,6 +3978,19 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/20680",
           "retrieved_at": "2026-10-16T14:52:12.656558+00:00",
+          "published_name": "Félix Asselin"
+        },
+        {
+          "team_id": 38662,
+          "team_name": "Team Asselin",
+          "event_id": 12794,
+          "name": "2022 PointsBet Invitational - Men",
+          "starts_on": "Sep 21, 2022",
+          "ends_on": "Sep 25, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/12794",
+          "retrieved_at": "2026-10-16T15:04:51.977060+00:00",
           "published_name": "Félix Asselin"
         }
       ],
@@ -3727,6 +4104,19 @@
           "delta": -2,
           "source_url": "https://canada.curling.io/en/events/22099",
           "retrieved_at": "2026-10-16T14:52:05.606357+00:00",
+          "published_name": "Olivia McDonah"
+        },
+        {
+          "team_id": 58563,
+          "team_name": "Nova Scotia #1 (Regan)",
+          "event_id": 18207,
+          "name": "2024 Canadian Under-18 Championships - Female",
+          "starts_on": "Feb 04, 2024",
+          "ends_on": "Feb 10, 2024",
+          "season": "2023 / 2024",
+          "delta": -3,
+          "source_url": "https://canada.curling.io/en/events/18207",
+          "retrieved_at": "2026-10-16T15:04:38.849472+00:00",
           "published_name": "Olivia McDonah"
         }
       ],
@@ -4059,6 +4449,19 @@
           "source_url": "https://canada.curling.io/en/events/18860",
           "retrieved_at": "2026-10-16T14:52:10.650421+00:00",
           "published_name": "Geneva Chislett"
+        },
+        {
+          "team_id": 43207,
+          "team_name": "Nunavut (Chislett)",
+          "event_id": 11988,
+          "name": "2022 Everest Canadian Seniors Curling Championships - Women",
+          "starts_on": "Dec 05, 2022",
+          "ends_on": "Dec 10, 2022",
+          "season": "2022 / 2023",
+          "delta": -4,
+          "source_url": "https://canada.curling.io/en/events/11988",
+          "retrieved_at": "2026-10-16T15:04:50.213016+00:00",
+          "published_name": "Geneva Chislett"
         }
       ],
       "current_or_future_roster": true,
@@ -4300,9 +4703,69 @@
       "published": 14,
       "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f",
       "retrieved_at": "2026-10-16T14:51:57.851659+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 46,
+      "published": 46,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:03:52.606371+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 34,
+      "published": 34,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:02.614695+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 85,
+      "published": 85,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:12.679006+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 82,
+      "published": 82,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:22.695701+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 18,
+      "published": 18,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:32.625982+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 27,
+      "published": 27,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:43.852232+00:00"
     }
   ],
   "source_errors": [],
-  "reference_json_sha256": "466518370d76fff02347aead83672f070f65c4633aa2594387e35f4cf7cda6cf",
+  "reference_json_sha256": "e5c519b5124dc592cb0c553b663982afbdca60e9d3843822d193ba82a85e750d",
   "hash_note": "Event payload hashes cover normalized json.dumps(payload,sort_keys=True); not raw HTTP encoding."
 }

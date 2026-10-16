@@ -1,0 +1,176 @@
+{
+  "reported_at": "2026-10-16T15:08:22.080898+00:00",
+  "sample_size": 71,
+  "per_association": {
+    "ab": 23,
+    "mb": 24,
+    "canada": 24
+  },
+  "reference_event_count": 319,
+  "source_errors": [],
+  "older_history_spot_checks": {
+    "completed_at": "2026-10-16T15:04:52.849522+00:00",
+    "verified_events": 54,
+    "selected_curler_appearances": 31,
+    "selected_curlers_with_older_records": 24,
+    "method": "Nine evenly spaced published events per source in each of2023/24and2022/23. Same association+source-nativeID only;names not merged. No older-record absence claim.",
+    "errors": []
+  },
+  "source_catalog": [
+    {
+      "association": "ab",
+      "delta": 0,
+      "season": "2026 / 2027",
+      "listed": 0,
+      "published": 0,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f",
+      "retrieved_at": "2026-10-16T14:47:38.085432+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -1,
+      "season": "2025 / 2026",
+      "listed": 50,
+      "published": 50,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-1&registrations=f",
+      "retrieved_at": "2026-10-16T14:47:39.155790+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -2,
+      "season": "2024 / 2025",
+      "listed": 43,
+      "published": 43,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-2&registrations=f",
+      "retrieved_at": "2026-10-16T14:48:30.001792+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": 0,
+      "season": "2026 / 2027",
+      "listed": 0,
+      "published": 0,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f",
+      "retrieved_at": "2026-10-16T14:49:13.752028+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -1,
+      "season": "2025 / 2026",
+      "listed": 69,
+      "published": 69,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-1&registrations=f",
+      "retrieved_at": "2026-10-16T14:49:14.889536+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -2,
+      "season": "2024 / 2025",
+      "listed": 62,
+      "published": 62,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-2&registrations=f",
+      "retrieved_at": "2026-10-16T14:50:24.925102+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": 0,
+      "season": "2026 / 2027",
+      "listed": 4,
+      "published": 4,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f",
+      "retrieved_at": "2026-10-16T14:51:27.921742+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -1,
+      "season": "2025 / 2026",
+      "listed": 23,
+      "published": 23,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-1&registrations=f",
+      "retrieved_at": "2026-10-16T14:51:32.949907+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -2,
+      "season": "2024 / 2025",
+      "listed": 14,
+      "published": 14,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f",
+      "retrieved_at": "2026-10-16T14:51:57.851659+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 46,
+      "published": 46,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:03:52.606371+00:00"
+    },
+    {
+      "association": "ab",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 34,
+      "published": 34,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:02.614695+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 85,
+      "published": 85,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:12.679006+00:00"
+    },
+    {
+      "association": "mb",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 82,
+      "published": 82,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:22.695701+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -3,
+      "season": "2023 / 2024",
+      "listed": 18,
+      "published": 18,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-3&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:32.625982+00:00"
+    },
+    {
+      "association": "canada",
+      "delta": -4,
+      "season": "2022 / 2023",
+      "listed": 27,
+      "published": 27,
+      "spot_check_event_count": 9,
+      "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-4&registrations=f",
+      "retrieved_at": "2026-10-16T15:04:43.852232+00:00"
+    }
+  ],
+  "target_summaries": {
+    "production": {
+      "completed": 63,
+      "complete": false,
+      "outcomes": {
+        "REFERENCE_HISTORY_MATCH": 54,
+        "CROSS_SOURCE_OR_ID_REVIEW": 6,
+        "EXTERNAL_EVENT_TITLE_REQUIRES_REVIEW": 3
+      },
+      "versions": [
+        "v26.15"
+      ]
+    }
+  }
+}

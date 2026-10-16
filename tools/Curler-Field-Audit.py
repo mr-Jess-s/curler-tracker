@@ -196,8 +196,20 @@ def compare(person,obs,oracle):
         texts=[str(r.get('title','')) for r in history]+[str(s.get('eventName',''))]
         title_candidate=any('2026' in t and 'brier' in t.lower() and not re.search(r'qualif|playdown|provincial',t,re.I) for t in texts)
         exact_link=expected['source_url'] in obs.get('history_links',[])
-        return {'outcome':'EXTERNAL_EVENT_TITLE_REQUIRES_REVIEW' if title_candidate or exact_link else 'VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN',
+        corroborated=[]
+        for event in oracle['events']:
+            if event['association']!='canada' or '2026' not in event['name'] or 'brier' not in event['name'].lower() or re.search(r'qualif|provincial|playdown',event['name'],re.I):continue
+            for team in event['teams']:
+                for curler in team['lineup']:
+                    if norm(curler['name'])==norm(person['name']):corroborated.append({'event_id':str(event['event_id']),'curler_id':str(curler['id']),'team_name':team['name'],'source_url':event['source_url']})
+        shown={str(r.get('eventId')) for r in history if r.get('eventId')}
+        for url in obs.get('history_links',[]):
+            match=re.search(r'/events/(\d+)',url)
+            if match:shown.add(match.group(1))
+        verified=any(r['event_id'] in shown and s.get('sourceSubdomain')=='canada' and str(s.get('sourceCurlerId'))==r['curler_id'] for r in corroborated)
+        return {'outcome':'EXTERNAL_BRIER_ROSTER_MATCH' if verified else ('EXTERNAL_EVENT_TITLE_REQUIRES_REVIEW' if title_candidate or exact_link else 'VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN'),
                 'external_reference':expected,'source_native_identity':'Not asserted across websites from a matching name alone',
+                'independent_io_roster_corroboration':corroborated,
                 'current_event_check':'Historical event only; current/upcoming status not inferred',
                 'search_explicitly_incomplete':bool(re.search(r'incomplete|unavailable|could not',obs.get('status',''),re.I))}
     expected={(str(r['event_id']),str(r['team_id'])) for r in person['reference_history']}
@@ -208,6 +220,12 @@ def compare(person,obs,oracle):
         m=re.search(r'/events/(\d+)',url)
         if m:shown_ids.add(m.group(1))
     source=s.get('sourceSubdomain');cid=s.get('sourceCurlerId')
+    returned_events=[e for e in oracle['events'] if e['association']==source and str(e['event_id'])==str(s.get('eventId'))]
+    returned_rosters=[(event,team,p) for event in returned_events for team in event['teams'] for p in team['lineup'] if str(p['id'])==str(cid)]
+    if not returned_events:returned_record='OUTSIDE_CHECKED_REFERENCE'
+    elif not returned_rosters:returned_record='SOURCE_CURler_ID_NOT_ON_RETURNED_EVENT_ROSTER'
+    elif not any(norm(team['name'])==norm(s.get('teamName','')) for event,team,p in returned_rosters):returned_record='RETURNED_TEAM_DIFFERS_FROM_SOURCE'
+    else:returned_record='VERIFIED_RETURNED_SOURCE_RECORD'
     identity='MATCH' if source==person['association'] and str(cid)==person['source_curler_id'] else 'UNRESOLVED'
     if source and cid and identity!='MATCH':identity='DIFFERENT_SOURCE_ID_REQUIRES_REVIEW'
     unexpected=[]
@@ -238,18 +256,34 @@ def compare(person,obs,oracle):
             if str(matches[0].get('state','')).lower() in ('complete','completed','final','finished') and scores(actual)!=scores(matches[0]['positions']):conflicts.append(str(row.get('gameId')))
     missing=sorted(expected_ids-shown_ids)
     matching=sorted(expected_ids&shown_ids)
+    field_differences=[]
+    if identity=='MATCH':
+        for row in history:
+            eid=str(row.get('eventId') or '')
+            if not eid:
+                match=re.search(r'/events/(\d+)',str(row.get('sourceUrl','')))
+                if match:eid=match.group(1)
+            expected_rows=[r for r in person['reference_history'] if str(r['event_id'])==eid]
+            if not expected_rows:continue
+            if norm(row.get('title','')) not in {norm(r['name']) for r in expected_rows}:field_differences.append({'event_id':eid,'field':'event_title','displayed':row.get('title'),'source':sorted(set(r['name'] for r in expected_rows))})
+            if row.get('startsOn') and all(date(row['startsOn'])!=date(r['starts_on']) for r in expected_rows):field_differences.append({'event_id':eid,'field':'start_date','displayed':row.get('startsOn'),'source':sorted(set(str(r['starts_on']) for r in expected_rows))})
+            if not any(norm(r['team_name']) in norm(row.get('detail','')) for r in expected_rows):field_differences.append({'event_id':eid,'field':'team_name','displayed':row.get('detail'),'source':sorted(set(r['team_name'] for r in expected_rows))})
     incomplete=bool(re.search(r'incomplete|unavailable|timed out|could not|couldn.t',obs.get('status',''),re.I))
-    if unexpected or conflicts:outcome='VERIFIED_PROVENANCE_OR_SCORE_CONFLICT'
+    if unexpected or conflicts or returned_record in ('SOURCE_CURler_ID_NOT_ON_RETURNED_EVENT_ROSTER','RETURNED_TEAM_DIFFERS_FROM_SOURCE'):outcome='VERIFIED_PROVENANCE_OR_SCORE_CONFLICT'
     elif identity=='DIFFERENT_SOURCE_ID_REQUIRES_REVIEW':outcome='CROSS_SOURCE_OR_ID_REVIEW'
     elif current=='VERIFIED_CURRENT_EVENT_NOT_SHOWN' or upcoming_missing or live_missing:outcome='CURRENT_OR_UPCOMING_MISSING'
     elif not shown_ids:outcome='NO_HISTORY_SHOWN'
     elif missing:outcome='PARTIAL_HISTORY'
+    elif field_differences:outcome='REFERENCE_EVENT_DETAILS_DIFFER'
     elif incomplete:outcome='HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE'
     else:outcome='REFERENCE_HISTORY_MATCH'
     return {'outcome':outcome,'identity':identity,'reference_history_events':len(expected_ids),'matched_history_events':matching,'missing_history_events':missing,
             'unexpected_history_events_with_verified_conflict':unexpected,'current_event_check':current,'search_explicitly_incomplete':incomplete,
             'verified_live_games':len(live),'missing_live_game_ids':live_missing,'verified_upcoming_games':len(upcoming),'missing_upcoming_game_ids':upcoming_missing,
             'verified_source_game_count':len(reference_games),'source_score_conflict_game_ids':conflicts,
+            'history_field_differences':field_differences,
+            'returned_record_validation':returned_record,
+            'returned_source_roster_names':sorted(set(p['name'] for event,team,p in returned_rosters)),
             'upcoming_check':'Matched source fixtures only; no whole-internet absence claim','ui_history_limit':20,'note':'Reference history matching does not establish complete internet/career coverage.'}
 
 def run(target):

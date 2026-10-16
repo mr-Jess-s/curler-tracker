@@ -1,0 +1,9 @@
+{
+  "updated_at": "2026-10-16T15:08:06.980639+00:00",
+  "target": "production",
+  "completed": 63,
+  "total": 71,
+  "last_curler": "Karrick Martin",
+  "exact_resume_command": "python tools\\Curler-Field-Audit.py --run production",
+  "no_background_claim": "This checkpoint records actual completed searches; a process must be running to continue."
+}
