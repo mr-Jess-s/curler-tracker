@@ -15,3 +15,7 @@ data/global/maintenance-state.json
 data/global/maintenance-cycle.lock
 
 data/global/*.json.tmp
+
+# Full field-audit source reference is persisted as reference.json.gz.
+release-evidence/2026-10-16/field-audit/reference.json
+release-evidence/2026-10-16/field-audit/*.tmp
