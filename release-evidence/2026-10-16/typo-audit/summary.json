@@ -1,24 +1,52 @@
 {
-  "reported_at": "2026-10-16T15:56:35.010743+00:00",
+  "reported_at": "2026-10-16T16:35:11.827807+00:00",
   "sample_size": 71,
   "changed_names": 64,
   "rule": "i→o; r→t; simultaneous and case-insensitive, preserving case",
   "targets": {
     "production": {
-      "complete": false,
-      "completed": 5,
+      "complete": true,
+      "completed": 71,
       "baseline_profile_count": 71,
-      "same_profile_recovered": 0,
-      "changed_query_eligible": 5,
+      "same_profile_recovered": 7,
+      "changed_query_eligible": 64,
       "changed_query_recovered": 0,
       "outcomes": {
-        "NO_SOURCED_PROFILE": 5
+        "NO_SOURCED_PROFILE": 64,
+        "SAME_PROFILE_AS_EXACT_SEARCH": 7
       },
       "versions": [
         "v26.15"
       ],
       "history_outcomes": {
-        "NO_HISTORY_SHOWN": 5
+        "NO_HISTORY_SHOWN": 37,
+        "REFERENCE_HISTORY_MATCH": 4,
+        "PARTIAL_HISTORY": 3,
+        "CURRENT_OR_UPCOMING_MISSING": 16,
+        "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 11
+      }
+    },
+    "staging": {
+      "complete": true,
+      "completed": 71,
+      "baseline_profile_count": 70,
+      "same_profile_recovered": 7,
+      "changed_query_eligible": 63,
+      "changed_query_recovered": 0,
+      "outcomes": {
+        "NO_SOURCED_PROFILE": 64,
+        "SAME_PROFILE_AS_EXACT_SEARCH": 7
+      },
+      "versions": [
+        "v26.19"
+      ],
+      "history_outcomes": {
+        "NO_HISTORY_SHOWN": 37,
+        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 2,
+        "PARTIAL_HISTORY": 3,
+        "CURRENT_OR_UPCOMING_MISSING": 16,
+        "REFERENCE_HISTORY_MATCH": 2,
+        "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 11
       }
     }
   }

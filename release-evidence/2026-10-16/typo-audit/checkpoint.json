@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-16T15:56:34.208098+00:00",
-  "target": "production",
-  "completed": 5,
-  "total": 71,
-  "last_name": "Aaron Sluchinski",
-  "last_query": "Aaton Sluchonsko",
-  "exact_resume_command": "python tools/Curler-Typo-Audit.py --run production",
-  "process_note": "Continuation requires an actual running process."
+  "status": "TYPO_AUDIT_COMPLETE",
+  "primary_cases": 142,
+  "changed_queries_per_target": 64,
+  "changed_name_recoveries": 0,
+  "harness_errors": 0,
+  "process_status": "Both browser workers finished; no typo audit process is running.",
+  "exact_next_action": "Implement source-backed spelling suggestions with explicit user confirmation; rerun this fixed 64-changed-name benchmark and preserve these original observations.",
+  "summary_file": "release-evidence/2026-10-16/typo-audit/summary.json"
 }

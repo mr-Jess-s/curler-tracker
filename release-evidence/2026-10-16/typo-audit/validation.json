@@ -1,0 +1,22 @@
+{
+  "production": {
+    "cases": 71,
+    "changed": 64,
+    "errors": [],
+    "median_changed_ms": 14923,
+    "maximum_changed_ms": 19485,
+    "no_result_views": {
+      "error": 64
+    }
+  },
+  "staging": {
+    "cases": 71,
+    "changed": 64,
+    "errors": [],
+    "median_changed_ms": 15427,
+    "maximum_changed_ms": 21024,
+    "no_result_views": {
+      "error": 64
+    }
+  }
+}
