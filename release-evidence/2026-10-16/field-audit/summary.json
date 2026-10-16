@@ -1,5 +1,5 @@
 {
-  "reported_at": "2026-10-16T15:13:03.425121+00:00",
+  "reported_at": "2026-10-16T15:19:25.043450+00:00",
   "sample_size": 71,
   "per_association": {
     "ab": 23,
@@ -189,26 +189,26 @@
       "observation_finished_at": "2026-10-16T15:10:17.112077+00:00"
     },
     "staging": {
-      "completed": 8,
+      "completed": 31,
       "complete": false,
       "outcomes": {
-        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 4,
-        "CROSS_SOURCE_OR_ID_REVIEW": 2,
-        "PARTIAL_HISTORY": 2
+        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 20,
+        "CROSS_SOURCE_OR_ID_REVIEW": 6,
+        "PARTIAL_HISTORY": 5
       },
       "versions": [
         "v26.19"
       ],
-      "search_explicitly_incomplete_cases": 8,
+      "search_explicitly_incomplete_cases": 29,
       "upcoming_fixture_cases": 0,
       "upcoming_fixture_cases_matched": 0,
       "live_fixture_cases": 0,
       "harness_errors": 0,
       "preserved_harness_retry_attempts": 0,
-      "missing_verified_history_appearances": 12,
+      "missing_verified_history_appearances": 42,
       "search_ms": {
-        "median": 15380,
-        "p95_nearest_rank": 18094,
+        "median": 14894,
+        "p95_nearest_rank": 17383,
         "maximum": 18094
       },
       "observation_started_at": "2026-10-16T15:10:21.307593+00:00",

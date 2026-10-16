@@ -74,6 +74,7 @@ for person in oracle['sample']:
 with (OUT/'curler-comparison.csv').open('w',newline='',encoding='utf-8-sig') as f:
  writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
 lines=['# Independent curler field audit', '', f"Reported {data['reported_at']}. Sample: {len(rows)} curlers. Official reference event payloads: {len(oracle['events'])}.",
+       '', '**Verdict: the checked history is not equivalent to all verified online records.** The production run found older-season omissions, provincial/national source separation, and source-profile ambiguity. Matching a recent record or upcoming fixture does not establish complete career coverage. This audit does not approve public launch or advertising.',
        '', 'The first60names come from freshly read published Alberta,Manitoba andCurling Canada Curling I/O rosters (20each), not the app archive. Additional Brier names come from Curling Canada’s official2026team page. Selection favours multi-season records and any verified current/future rosters; it does not estimate population-wide success rates.',
        '', 'Both sites use actual rendered Edge390px searches, normal form submission and the visible history control. Neither application matching nor discovery functions supply the expected records. Source requests are paced at most1per second and cached; a401/403/429stops independent source acquisition. Every completed search writes a checkpoint.',
        '', '## Results','', '| Target | Cases completed | Build versions | Outcomes |','|---|---:|---|---|']
@@ -82,6 +83,15 @@ lines+=['','| Target | Upcoming fixture cases matched | Verified live cases | Ex
 for target,s in data['target_summaries'].items():
  timing=s['search_ms'];lines.append(f"| {target} | {s['upcoming_fixture_cases_matched']}/{s['upcoming_fixture_cases']} | {s['live_fixture_cases']} | {s['search_explicitly_incomplete_cases']} | {timing['median']} / {timing['p95_nearest_rank']} ms |")
 lines+=['','Search timings measure form interaction to the app leaving its running state, including source waits; they exclude the subsequent history-control request. These are sequential mobile-emulated Edge observations with reused browser caches, not cold-load or load-test measurements. A search can have matched historical records and still be explicitly incomplete.']
+lines+=['','## Findings and next engineering work','',
+ '1. **History depth:** the app requests the current and two prior seasons for its selected source profile. The older reference checks expose precisely cited omissions. A truthful recent-history label is useful, but it does not satisfy a complete career-history claim.',
+ '2. **Association coverage:** Braden Calvert, Corey Chambers and Kyle Kurz have independently documented 2026 Brier appearances. Their provincial history can be returned without that national appearance. History should let the visitor inspect verified source profiles across associations, with provenance and safe identity disambiguation.',
+ '3. **Profile ambiguity:** Julia Kennedy, Aaron Sluchinski, Zoe Cinnamon, Rachel Jacques, Michael Dumont and Carley Hardie were selected from one verified profile but production chose another. Both may be legitimate records. Do not merge different people or declare wrong identity from a shared name; offer source/profile selection and investigate the linked rosters.',
+ '4. **Incomplete search:** the staging warning is evidence of bounded source checking, not proof the person lacks other records. Preserve that warning while improving coverage. A result must not become an all-sources success because one matching event was found.',
+ '5. **Regression gate:** use this fixed source sample and its exact missing event IDs when verifying any repair. No production code or deployment was changed during this comparison.']
+for target,s in data['target_summaries'].items():
+ if s['preserved_harness_retry_attempts']:
+  lines+=['',f"Harness disclosure: {target} retained {s['preserved_harness_retry_attempts']} initial click-intercept attempts caused by the test driver scrolling before a native click. The runner was repaired to scroll instantly and those cases were rerun. Original attempts remain in the raw evidence; they are not silently counted as product failures or successes."]
 lines+=['','## Per-curler comparison','','History entries below count distinct source events. Missing entries do not imply invented data. A different source-native ID requires identity review; matching names alone do not establish an error or an identity merge.','', '| Curler | Association | Reference events | Production | Staging | Source |','|---|---|---:|---|---|---|']
 for r in rows:
  def label(target):
