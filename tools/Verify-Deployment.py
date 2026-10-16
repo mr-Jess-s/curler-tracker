@@ -19,4 +19,4 @@ def verify(base,build):
     return result
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('url');p.add_argument('build');p.add_argument('--out',required=True);a=p.parse_args()
-    r=verify(a.url,a.build);Path(a.out).write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'passed':r['passed'],'files':len(r['checks']),'commit':r['commit']}));sys.exit(0 if r['passed'] else 1)
+    r=verify(a.url,a.build);Path(a.out).parent.mkdir(parents=True,exist_ok=True);Path(a.out).write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'passed':r['passed'],'files':len(r['checks']),'commit':r['commit']}));sys.exit(0 if r['passed'] else 1)

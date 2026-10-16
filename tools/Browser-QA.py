@@ -1,6 +1,6 @@
 import sys,time,json,os
 from pathlib import Path
-sys.path.insert(0,r'C:\Temp\ct-selenium')
+sys.path.insert(0,os.environ.get('CT_SELENIUM_PATH',r'C:\Temp\ct-selenium'))
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
@@ -60,7 +60,8 @@ try:
  check(len(driver.find_elements(By.CSS_SELECTOR,'.career-item'))>=3,'Sourced historical appearances load')
  check(all(a.get_attribute('href').startswith('https://ab.curling.io/') for a in driver.find_elements(By.CSS_SELECTOR,'.career-source')),'Official source links')
  for width,height in [(390,844),(320,740),(1365,900)]:
-  driver.set_window_size(width,height)
+  driver.execute_cdp_cmd('Emulation.setDeviceMetricsOverride',{'width':width,'height':height,'deviceScaleFactor':1,'mobile':width<600})
+  check(driver.execute_script('return innerWidth')==width,f'Actual viewport is {width}px')
   check(driver.execute_script('return document.documentElement.scrollWidth<=window.innerWidth'),f'No horizontal overflow at {width}px')
   driver.execute_script("window.scrollTo({top:0,behavior:'instant'})")
   driver.save_screenshot(str(OUT/f'top-{width}.png'))

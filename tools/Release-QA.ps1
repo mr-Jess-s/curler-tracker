@@ -1,7 +1,7 @@
 param()
 
 $ErrorActionPreference = 'Stop'
-$ProjectRoot = 'C:\Jess\curler-tracker'
+$ProjectRoot = Split-Path -Parent $PSScriptRoot
 $failures = New-Object System.Collections.Generic.List[string]
 $passes = New-Object System.Collections.Generic.List[string]
 

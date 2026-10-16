@@ -20,7 +20,7 @@ function app() {
   const context=vm.createContext({console,URL,URLSearchParams,AbortController,Intl,Date,Map,Set,Promise,queueMicrotask,
     clearTimeout(){},setTimeout(){return 1;},fetch(){throw new Error('Unexpected network');},
     localStorage:{getItem(){return null;},setItem(){},removeItem(){}},
-    navigator:{},history:{replaceState(){}},
+    navigator:{},history:{replaceState(){},pushState(){}},
     document:{getElementById:element,addEventListener(){}},
     window:{location:{search:'',href:'http://localhost/'},addEventListener(){},setTimeout(){return 1;},clearTimeout(){}}
   });
@@ -234,5 +234,12 @@ await check('Published Farrol spelling resolves exact documentary references wit
 });
 await check('Unsafe imported source links cannot execute JavaScript',async()=>{
  const a=app();assert.equal(a.run("safeSourceUrl('javascript:alert(1)')"),'');assert.equal(a.run("safeSourceUrl('data:text/html,test')"),'');assert.equal(a.run("safeSourceUrl('https://ab.curling.io/en/events/24023')"),'https://ab.curling.io/en/events/24023');
+});
+await check('Partial names and ambiguous same-name teams never select an identity',async()=>{
+ const a=app();a.run("globalThis.event={teams:[{id:1,name:'One',lineup:[{curler_id:1,name:'Farrol Asham'}]},{id:2,name:'Two',lineup:[{curler_id:2,name:'Jayden Asham'}]}]}");
+ assert.equal(a.run("findMatchingTeam(event,'asham')"),null);
+ assert.equal(a.run("findMatchingTeam(event,'farrol asham').curler.curler_id"),1);
+ a.run("event.teams[1].lineup[0].name='Farrol Asham'");
+ assert.equal(a.run("findMatchingTeam(event,'farrol asham')"),null);
 });
 console.log(count+' release regression checks passed.');

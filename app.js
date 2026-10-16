@@ -1,4 +1,5 @@
-const APP_VERSION = 'v26.16';
+const APP_VERSION = 'v26.17';
+const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
   language: 'en',
@@ -398,7 +399,7 @@ function updateUrlPlayer(player) {
   const url = new URL(window.location.href);
   if (player) url.searchParams.set('player', player);
   else url.searchParams.delete('player');
-  history.replaceState({}, '', url.toString());
+  if (url.toString() !== window.location.href) history.pushState({}, '', url.toString());
 }
 
 function setDiagnostics(obj) {
@@ -436,6 +437,8 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   if (cached) return cached;
 
   const controller = new AbortController();
+  const external = !url.startsWith('./data/');
+  if (external) externalRequests.add(controller);
   const timeoutId = window.setTimeout(() => controller.abort(), APP.fetchTimeoutMs);
 
   try {
@@ -464,6 +467,7 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
     throw error;
   } finally {
     window.clearTimeout(timeoutId);
+    externalRequests.delete(controller);
   }
 }
 
@@ -576,43 +580,15 @@ function teamAliases(team) {
 }
 
 function findMatchingTeam(event, playerNameNorm) {
-  const wantedParts = playerNameNorm.split(' ').filter(Boolean);
-  const wantedFirst = wantedParts[0] || '';
-  const wantedLast = wantedParts[wantedParts.length - 1] || '';
-  let best = null;
-
+  // A partial name is a search clue, not sufficient evidence to select an identity.
+  const matches = [];
   for (const team of (event.teams || [])) {
     for (const curler of (team.lineup || [])) {
-      const norm = normalizeName(curler.name);
-      if (!norm) continue;
-
-      const parts = norm.split(' ').filter(Boolean);
-      const first = parts[0] || '';
-      const last = parts[parts.length - 1] || '';
-      const overlap = wantedParts.filter(part => parts.includes(part));
-      const fullJoined = parts.join(' ');
-
-      let score = 0;
-      if (norm === playerNameNorm) {
-        score = 100;
-      } else if (wantedLast && last === wantedLast) {
-        if (overlap.length >= 2) score = 90;
-        else if (fullJoined.includes(playerNameNorm) || playerNameNorm.includes(fullJoined)) score = 80;
-        else if (wantedFirst && first === wantedFirst) score = 70;
-        else score = 0;
-      } else if (overlap.length >= 2) {
-        score = 40;
-      } else {
-        score = 0;
-      }
-
-      if (score > (best?.score || 0)) {
-        best = { team, curler, score };
-      }
+      if (normalizeName(curler.name) === playerNameNorm) matches.push({ team, curler, score: 100 });
     }
   }
-
-  return best && best.score >= 55 ? best : null;
+  const identities = new Set(matches.map(row => `${row.curler.curler_id ?? 'unknown'}:${row.team.id ?? row.team.name}`));
+  return identities.size === 1 ? matches[0] : null;
 }
 
 function getGamePositions(game) {
@@ -960,6 +936,10 @@ function safeSourceUrl(value) {
 }
 
 function renderHeadline(snapshot) {
+  if (snapshot?.diagnostics?.phase === 'searching') {
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">Searching published records</div><div class="headline-sub">No conclusion yet. Source checks are still running.</div></div>';
+    return;
+  }
   if (!snapshot) {
     els.headlineBlock.innerHTML = '<p class="headline-empty">Enter a curler\'s name to begin.</p>';
     return;
@@ -998,7 +978,7 @@ function renderHeadline(snapshot) {
   }
 
   if (snapshot.view === 'idle' && snapshot.diagnostics?.phase !== 'searching') {
-    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No verified records found in the sources checked. This does not mean the person has no curling history.</div></div>';
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No verified records found in the sources checked. Try the full published name. This does not mean the person has no curling history.</div></div>';
     return;
   }
 
@@ -1286,16 +1266,17 @@ function getOutcomeBranchRows(event, matchedTeam, selection) {
 }
 
 function computeIdleSnapshot(playerName, diagnostics, delayMs) {
+  const searching = diagnostics?.phase === 'searching';
   return {
     playerName,
     view: 'idle',
-    eventName: 'No active event found',
+    eventName: searching ? 'Checking sources…' : 'No active event found',
     ends: [],
     scheduleRows: [],
-    timelineHint: 'No current published competition entry found yet.',
+    timelineHint: searching ? 'Search still running; scores are not yet verified.' : 'No current published competition entry found yet.',
     scheduleHint: 'Club league teams may not appear in published competition records.',
-    nextCheckAt: Date.now() + delayMs,
-    lastUpdatedLabel: formatClock(Date.now()),
+    nextCheckAt: searching ? null : Date.now() + delayMs,
+    lastUpdatedLabel: searching ? 'Search in progress' : formatClock(Date.now()),
     diagnostics
   };
 }
@@ -2153,6 +2134,8 @@ function startTracking(playerName, reason = 'manual-start') {
   const nextPlayer = playerName.trim();
   if (normalizeName(nextPlayer) !== normalizeName(state.playerName)) {
     state.playerGeneration++;
+    for (const request of externalRequests) request.abort();
+    externalRequests.clear();
     // A new person takes priority; the previous request is ignored when it finishes.
     state.isRunning = false;
     state.pendingRunReason = null;
@@ -2407,6 +2390,12 @@ if ('serviceWorker' in navigator) {
     } catch {}
   });
 }
+
+window.addEventListener('popstate', () => {
+  const player = parsePlayerFromUrl();
+  if (player) startTracking(player, 'history-navigation');
+  else els.homeBtn.click();
+});
 
 window.addEventListener('pageshow', () => maybeRunOpenScan('pageshow'));
 document.addEventListener('visibilitychange', () => {

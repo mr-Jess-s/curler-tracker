@@ -1,14 +1,14 @@
 """Rendered-browser UAT. Fault injection affects this isolated browser only."""
 import sys,time,json,os,datetime
 from pathlib import Path
-sys.path.insert(0,r'C:\Temp\ct-selenium')
+sys.path.insert(0,os.environ.get('CT_SELENIUM_PATH',r'C:\Temp\ct-selenium'))
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 BASE=os.environ.get('CT_BASE_URL','http://127.0.0.1:8768').rstrip('/')
-OUT=ROOT/'release-evidence'/'2026-10-13';OUT.mkdir(parents=True,exist_ok=True)
+OUT=ROOT/'release-evidence'/os.environ.get('CT_EVIDENCE_DATE','2026-10-16');OUT.mkdir(parents=True,exist_ok=True)
 opts=Options();opts.add_argument('--headless=new');opts.add_argument('--window-size=390,844');opts.binary_location=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 d=webdriver.Edge(options=opts);d.set_script_timeout(120)
 checks=[];metrics=[]
@@ -24,8 +24,9 @@ try:
     check('homepage_brand',d.find_element(By.TAG_NAME,'h1').text=='Curler Tracker')
     metrics.append({'name':'first_visit_archive_ms','value':round((time.perf_counter()-started)*1000),'includes_service_worker_settle_ms':2000})
     for w,h in [(320,740),(390,844),(1365,900)]:
-        d.set_window_size(w,h);check('viewport_no_overflow_'+str(w),js('return document.documentElement.scrollWidth<=innerWidth'))
+        d.execute_cdp_cmd('Emulation.setDeviceMetricsOverride',{'width':w,'height':h,'deviceScaleFactor':1,'mobile':w<600});check('viewport_exact_width_'+str(w),js('return innerWidth')==w);check('viewport_no_overflow_'+str(w),js('return document.documentElement.scrollWidth<=innerWidth'))
         d.save_screenshot(str(OUT/f'homepage-{w}.png'))
+    d.execute_cdp_cmd('Emulation.setDeviceMetricsOverride',{'width':390,'height':844,'deviceScaleFactor':1,'mobile':True})
     d.find_element(By.ID,'currentSeasonBtn').click();check('season_switch_current',d.find_element(By.ID,'seasonSelect').get_attribute('value')=='2026 / 2027')
     js("document.querySelector('#seasonSelect').value='2025 / 2026';document.querySelector('#seasonSelect').dispatchEvent(new Event('change'))")
     check('season_switch_history',len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
@@ -63,6 +64,7 @@ try:
     js("uatResolves[1]({candidates:[],checked:[],timedOut:false})");wait('!state.isRunning')
     js("discoverPlayerEvents=uatOriginal.discovery;discoverMostRecentCompletedEvent=uatOriginal.recent;findOfflineTeamSnapshot=uatOriginal.offline;findDocumentedCurlingSnapshot=uatOriginal.docs;document.querySelector('#homeBtn').click()")
     check('return_to_archive',d.find_element(By.ID,'archiveHome').is_displayed())
+    d.back();wait("state.playerName==='Second UAT'");check('browser_back_restores_curler',js("return state.playerName==='Second UAT'"));js("document.querySelector('#homeBtn').click()")
     js("document.querySelector('#feedbackBtn').click()")
     check('feedback_dialog',d.find_element(By.ID,'feedbackDialog').get_attribute('open') is not None)
     js("document.querySelector('#feedbackCopyBtn').click()")
