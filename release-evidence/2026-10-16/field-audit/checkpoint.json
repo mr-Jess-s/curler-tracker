@@ -1,9 +1,32 @@
 {
-  "updated_at": "2026-10-16T15:19:14.978389+00:00",
-  "target": "staging",
-  "completed": 31,
-  "total": 71,
-  "last_curler": "Michelle Wadelius",
-  "exact_resume_command": "python tools\\Curler-Field-Audit.py --run staging",
-  "no_background_claim": "This checkpoint records actual completed searches; a process must be running to continue."
+  "updated_at": "2026-10-16T15:30:24.592652+00:00",
+  "status": "AUDIT_COMPLETE_RELEASE_BLOCKED",
+  "independent_events": 319,
+  "curlers": 71,
+  "primary_browser_cases": 142,
+  "browser_case_harness_errors": 0,
+  "reports": [
+    "CURLER_FIELD_AUDIT_REPORT.md",
+    "release-evidence/2026-10-16/field-audit/curler-comparison.csv",
+    "RELEASE_EVIDENCE.json"
+  ],
+  "commands_completed": [
+    "python tools/Curler-Field-Audit.py --prepare --event-limit 360",
+    "python tools/Curler-Field-Audit.py --run production",
+    "python tools/Curler-Field-Audit.py --run staging",
+    "python tools/Extend-Field-Audit-History.py",
+    "python tools/Validate-Field-Audit-Rendering.py",
+    "python tools/Retest-Field-Audit-Ambiguity.py",
+    "python tools/Report-Curler-Field-Audit.py",
+    "python tools/Finalize-Curler-Field-Audit.py"
+  ],
+  "outstanding": [
+    "Cross-association history gaps",
+    "Older-season history coverage",
+    "Safe source-profile selection",
+    "Intermittent incomplete Kyle Kurz result",
+    "Existing release privacy/capacity/recovery gates"
+  ],
+  "exact_next_action": "Reproduce Braden Calvert in staging and compare the missing Canada event 26635 against the cited provincial history; implement a safe source-profile chooser before merging identities. Preserve this audit directory unchanged for regression comparison.",
+  "process_status": "Audit browser workers finished. No independent AI engineering worker is running. Installed operational schedules are separate."
 }

@@ -32,3 +32,13 @@ All53served public files and release.json matched the staging build. Four axe vi
 These facts supersede earlier pending test statements. Public/advertising readiness remains BLOCKED: private privacy channel, source/artwork clearance, aggregate source traffic protection/incident delivery, physicalSafari/assistive-technology review and final production acceptance remain outstanding. No full unattended-publication or television-capacity claim is justified.
 
 Final candidate restoration PASS at2026-10-16T14:22:13Z:11,045files,1,642,665,887bytes;10,699raw files,1,608,178,339bytes;205normalizedJSONvalid;0hash mismatches/invalid files;Git clone/fsck/checkout/regression exits0. The restored commit exactly matched98b988ec507090f436958c38d1ae995417f635e5 and all34regressions passed. Artifact:candidate-backup-restore.json. Cloud synchronization remainsunverified. This result supersedes the preceding pending-restoration statement.
+
+## Independent 71-curler field audit — 2026-10-16
+
+The 71-curler independent field comparison finished on both production v26.15 and staging v26.19. Reference sources contain 319 independently fetched published events, including older spot checks and corroborating official Brier rosters. This audit changes no public application code or deployment.
+
+Production outcomes: {"REFERENCE_HISTORY_MATCH": 35, "CROSS_SOURCE_OR_ID_REVIEW": 6, "PARTIAL_HISTORY": 19, "EXTERNAL_BRIER_ROSTER_MATCH": 8, "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3}.
+
+Staging outcomes: {"HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 27, "CROSS_SOURCE_OR_ID_REVIEW": 6, "PARTIAL_HISTORY": 19, "REFERENCE_HISTORY_MATCH": 8, "EXTERNAL_BRIER_ROSTER_MATCH": 8, "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3}.
+
+The selected upcoming fixtures matched, but verified historical omissions and profile separation prevent a complete-history acceptance. Launch and advertising remain BLOCKED. Use CURLER_FIELD_AUDIT_REPORT.md, curler-comparison.csv and the raw saved observations to reproduce each discrepancy.

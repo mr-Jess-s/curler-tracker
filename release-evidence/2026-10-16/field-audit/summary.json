@@ -1,5 +1,5 @@
 {
-  "reported_at": "2026-10-16T15:19:25.043450+00:00",
+  "reported_at": "2026-10-16T15:30:24.084083+00:00",
   "sample_size": 71,
   "per_association": {
     "ab": 23,
@@ -178,6 +178,7 @@
       "upcoming_fixture_cases_matched": 20,
       "live_fixture_cases": 0,
       "harness_errors": 0,
+      "no_verified_profile_cases": 0,
       "preserved_harness_retry_attempts": 11,
       "missing_verified_history_appearances": 60,
       "search_ms": {
@@ -189,30 +190,34 @@
       "observation_finished_at": "2026-10-16T15:10:17.112077+00:00"
     },
     "staging": {
-      "completed": 31,
-      "complete": false,
+      "completed": 71,
+      "complete": true,
       "outcomes": {
-        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 20,
+        "HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 27,
         "CROSS_SOURCE_OR_ID_REVIEW": 6,
-        "PARTIAL_HISTORY": 5
+        "PARTIAL_HISTORY": 19,
+        "REFERENCE_HISTORY_MATCH": 8,
+        "EXTERNAL_BRIER_ROSTER_MATCH": 8,
+        "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3
       },
       "versions": [
         "v26.19"
       ],
-      "search_explicitly_incomplete_cases": 29,
-      "upcoming_fixture_cases": 0,
-      "upcoming_fixture_cases_matched": 0,
+      "search_explicitly_incomplete_cases": 48,
+      "upcoming_fixture_cases": 20,
+      "upcoming_fixture_cases_matched": 20,
       "live_fixture_cases": 0,
       "harness_errors": 0,
+      "no_verified_profile_cases": 1,
       "preserved_harness_retry_attempts": 0,
-      "missing_verified_history_appearances": 42,
+      "missing_verified_history_appearances": 60,
       "search_ms": {
-        "median": 14894,
-        "p95_nearest_rank": 17383,
+        "median": 14341,
+        "p95_nearest_rank": 15614,
         "maximum": 18094
       },
       "observation_started_at": "2026-10-16T15:10:21.307593+00:00",
-      "observation_finished_at": null
+      "observation_finished_at": "2026-10-16T15:25:38.699042+00:00"
     }
   }
 }

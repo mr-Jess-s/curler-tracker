@@ -19,3 +19,14 @@ Current memory caches are per visitor, not shared globally. Static data has CDN 
 staging-browser.json14:19:22Z: initial archive3,356ms including2,000ms deliberate settle; Farrol progress61ms/first useful575ms/live checkcomplete22,219ms;Jody37ms/559ms/14,991ms;Adam40ms/554ms/14,408ms. Useful initial records are explicitly archived, not live verification.
 controlled-load-v2619.json14:18:59Z:60static requests,12.01s,0errors,p50=301.625ms,p95=451.46ms,max605.19ms,2,327,560bytes;probe thresholdsPASS. No source requests originated from this load generator.
 Slow-network render check:150msconfigured latency,200,000bytes/sec download; exact observed times remain in extended-browser.json and extended-browser-chrome.json. These reloads may use the application service-worker cache and are not cold mobile-vitals measurements. Prior local results above remain historical observations, not substitutes for public tests.
+
+## Independent 71-curler field audit — 2026-10-16
+
+Actual sequential Edge 155 browser searches at a 390px mobile-emulated viewport used normal user form submission and reused browser/source caches. Timing ends when the app leaves its running state, before the separate history request.
+
+| Target | Cases | Median | p95 nearest rank | Maximum |
+|---|---:|---:|---:|---:|
+| Production v26.15 | 71 | 14338 ms | 15432 ms | 16491 ms |
+| Staging v26.19 | 71 | 14341 ms | 15614 ms | 18094 ms |
+
+These are source-backed user-search observations, not cold page-load, concurrent-user, physical iPhone or national-advertising capacity measurements. No controlled high-volume traffic was sent to third-party curling sources. Search progress latency was not separately sampled in this field run.

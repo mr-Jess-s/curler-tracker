@@ -46,6 +46,7 @@ for target,report in reports.items():
   'upcoming_fixture_cases_matched':sum(c.get('verified_upcoming_games',0)>0 and not c.get('missing_upcoming_game_ids') for c in comparisons),
   'live_fixture_cases':sum(c.get('verified_live_games',0)>0 for c in comparisons),
   'harness_errors':sum(bool(r.get('error')) for r in results),
+  'no_verified_profile_cases':sum(not (r.get('observation',{}).get('snapshot') or {}).get('sourceCurlerId') for r in results),
   'preserved_harness_retry_attempts':len(report.get('harness_retry_observations',[])),
   'missing_verified_history_appearances':sum(len(c.get('missing_history_events',[])) for c in comparisons),
   'search_ms':{'median':times[len(times)//2] if times else None,'p95_nearest_rank':times[max(0,__import__('math').ceil(.95*len(times))-1)] if times else None,'maximum':max(times) if times else None},
@@ -70,6 +71,11 @@ for person in oracle['sample']:
   row[target+'_search_incomplete']=c.get('search_explicitly_incomplete')
   row[target+'_missing_event_ids']=';'.join(c.get('missing_history_events',[]))
   row[target+'_rendered_status']=result.get('observation',{}).get('status')
+  snapshot=result.get('observation',{}).get('snapshot') or {}
+  row[target+'_returned_association']=snapshot.get('sourceSubdomain')
+  row[target+'_returned_curler_id']=snapshot.get('sourceCurlerId')
+  row[target+'_returned_event']=snapshot.get('eventName')
+  row[target+'_tested_at']=result.get('finished_at')
  rows.append(row)
 with (OUT/'curler-comparison.csv').open('w',newline='',encoding='utf-8-sig') as f:
  writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
@@ -115,8 +121,19 @@ for person in oracle['sample']:
   if person.get('external_reference'):
    e=person['external_reference'];links.append((e['source_url'],e['event']))
   lines.append(f"| {person['name']} | {target} | {outcome} | "+'; '.join(f'[{title}]({url})' for url,title in links)+' |')
+validation_path=OUT/'rendered-source-validation.json'
+if validation_path.exists():
+ validation=json.loads(validation_path.read_text(encoding='utf-8'))
+ lines+=['','## Independent check of rendered source facts','',f"Saved DOM text and links were checked against the independently retrieved source payloads: {validation['passing_assertions']} assertions PASS, {validation['failing_assertions']} FAIL, and {validation.get('review_assertions',0)} REVIEW. These are individual title/link, fixture-label/count and completed-score assertions, not separate user journeys. Full and short source team names are preserved in source-team-names.json. Any remaining label REVIEW is excluded from PASS. See rendered-source-validation.json for every assertion and its source event/game ID."]
+lines+=['','## Staging no-result case','', 'In the primary 71-case run, Kyle Kurz returned an explicit incomplete-search error and no sourced history on staging. The UI disclosed multiple archived source identities and declined to choose a team. Production returned provincial records. This is a visible unresolved search/identity-selection limitation, separately from the missing national Brier appearance; zero browser timeouts does not mean every app search succeeded.']
+retest_path=OUT/'ambiguity-retest.json'
+if retest_path.exists():
+ retest=json.loads(retest_path.read_text(encoding='utf-8'))
+ lines+=['','Fresh-browser follow-up (the original failure remains unchanged):','']
+ for r in retest['results']:
+  lines.append(f"- {r['finished_at']} — {r['name']}: {r['observation']['status']}")
 lines+=['','## Interpretation and limits','', 'REFERENCE_HISTORY_MATCH means all events in this independently checked reference subset appear; it does not mean a complete career. HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE retains a live-source availability failure. PARTIAL_HISTORY identifies precise missing verified eventIDs in the JSON. VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN identifies an independently documented Brier appearance that the UI did not show. EXTERNAL_BRIER_ROSTER_MATCH requires the independently read officialBrier roster plus a freshI/Oevent roster and exact returned source-nativeID/eventID, not a matching title alone. CROSS_SOURCE_OR_ID_REVIEW needs manual identity/provenance review. Only a confirmed source roster/score conflict should become a wrong-person or wrong-score defect.',
-       '', 'Current/upcoming checks apply only to independently observed source fixtures and dated rosters. If the selected sources supply no live/upcoming assignment, the corresponding behaviour remains untested, notpassed. The base/current-two-prior-season collection plus older spotchecks do not encompass all internet records. Unpublished rosters were not fetched. Any source errors and collection limits remain in reference.json.gz. Sources may change between retrieval and UIsearch; live-score differences require a fresh recheck.',
+       '', 'Current/upcoming checks apply only to independently observed source fixtures and dated rosters. If the selected sources supply no live/upcoming assignment, the corresponding behaviour remains untested, not passed. The current-and-two-prior-season collection plus older spot checks do not encompass all internet records. Unpublished rosters were not fetched. Any source errors and collection limits remain in reference.json.gz. Sources may change between retrieval and UI search; live-score differences require a fresh recheck. The explicitly-incomplete-search count concerns the current/recent search status, separately from the history panel’s standing incomplete-career disclosure.',
        '', 'This audit changes no production code/data and sends no feedback or other messages. Detailed observations, URLs, retrieval timestamps, payload hashes, missing eventIDs, scores and checkpoints accompany this report.']
 (ROOT/'CURLER_FIELD_AUDIT_REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print(json.dumps(data,indent=2))

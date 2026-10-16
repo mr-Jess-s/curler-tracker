@@ -1,0 +1,2591 @@
+{
+  "url": "https://curler-tracker-uat-20261016.vercel.app",
+  "method": "Fresh Edge browser; Kyle, Braden, Kyle submitted through actual UI. Original 71-case observation retained unchanged.",
+  "results": [
+    {
+      "name": "Kyle Kurz",
+      "started_at": "2026-10-16T15:28:42.121080+00:00",
+      "finished_at": "2026-10-16T15:28:58.252472+00:00",
+      "observation": {
+        "displayed_history": 3,
+        "headline": "Recent competition found\n2026 Chicken Chef Mixed Open Provincial Championship",
+        "history_links": [
+          "https://mb.curling.io/en/events/23582",
+          "https://mb.curling.io/en/events/23571",
+          "https://mb.curling.io/en/events/19596"
+        ],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "2026 Chicken Chef Mixed Open Provincial Championship\nTeam: Kurz · Position: alternate_1 · 2025 / 2026 · Published as: Kyle Kurz\nCurling I/O · mb\n2026 Bunge Championship\nTeam: Calvert · Position: second · 2025 / 2026 · Published as: Kyle Kurz\nCurling I/O · mb\n2025 Viterra Championship\nTeam: Calvert · Position: second · 2024 / 2025 · Published as: Kyle Kurz\nCurling I/O · mb",
+        "name": "Kyle Kurz",
+        "schedule_text": "Kurz vs Jonasson\nComplete - won 10 - 3\nApr 09 at 5:30 pm\nKurz vs Irwin\nComplete - won 7 - 5\nApr 10 at 3:00 pm\nKurz vs Calvert\nComplete - won 7 - 3\nApr 11 at 11:30 am\nKurz vs Calvert\nComplete - won 6 - 5\nApr 12 at 12:30 pm\nKurz vs Chambers\nComplete - won 6 - 0\nApr 12 at 4:00 pm\nKurz vs Pearson\nComplete - won 9 - 4\nApr 12 at 7:00 pm",
+        "snapshot": {
+          "activeGameId": null,
+          "careerHistory": [
+            {
+              "detail": "Team: Kurz · Position: alternate_1 · 2025 / 2026 · Published as: Kyle Kurz",
+              "eventId": 23582,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23582",
+              "startsOn": "Apr 09, 2026",
+              "title": "2026 Chicken Chef Mixed Open Provincial Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: second · 2025 / 2026 · Published as: Kyle Kurz",
+              "eventId": 23571,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23571",
+              "startsOn": "Feb 03, 2026",
+              "title": "2026 Bunge Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: second · 2024 / 2025 · Published as: Kyle Kurz",
+              "eventId": 19596,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/19596",
+              "startsOn": "Feb 04, 2025",
+              "title": "2025 Viterra Championship"
+            }
+          ],
+          "currentEndLabel": "Apr 12 at  7:00 pm",
+          "diagnostics": {
+            "appVersion": "v26.19",
+            "checkedCurrent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 5,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "pe",
+                "url": "https://api.curling.io/en/clubs/pe/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "qc",
+                "url": "https://api.curling.io/en/clubs/qc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 7,
+                "skipped": false,
+                "subdomain": "sk",
+                "url": "https://api.curling.io/en/clubs/sk/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "yt",
+                "url": "https://api.curling.io/en/clubs/yt/competitions?occurred=0&registrations=f"
+              }
+            ],
+            "checkedRecent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 50,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 43,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 23,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 69,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 62,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 17,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 16,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 13,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 34,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 33,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-2&registrations=f"
+              }
+            ],
+            "completedGameAt": 1776038400000,
+            "completedGameId": "3af9a46b",
+            "eventId": 23582,
+            "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+            "matchScore": 100,
+            "matchedCurler": "Kyle Kurz",
+            "matchedTeam": "Kurz",
+            "payloadStructure": {
+              "drawGameRefs": 43,
+              "drawsCount": 16,
+              "gamesCount": 43,
+              "stagesCount": 1
+            },
+            "phase": "recent-match",
+            "playerName": "Kyle Kurz",
+            "reason": "manual-start",
+            "sourceSubdomain": "mb",
+            "timestamp": "2026-10-16T15:28:57.080Z"
+          },
+          "displayPlayer": "Kyle Kurz",
+          "drawTitle": "",
+          "ends": {
+            "rows": [
+              {
+                "active": false,
+                "end": 1,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "1"
+              },
+              {
+                "active": false,
+                "end": 2,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 3,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "3"
+              },
+              {
+                "active": false,
+                "end": 4,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 5,
+                "hammerOwner": "team",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 6,
+                "hammerOwner": "team",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 7,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "5"
+              },
+              {
+                "active": false,
+                "end": 8,
+                "hammerOwner": "opponent",
+                "opponent": "X",
+                "team": "X"
+              }
+            ],
+            "total": {
+              "opponent": "4",
+              "team": "9"
+            }
+          },
+          "eventId": 23582,
+          "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+          "gameTitle": "P1",
+          "hammerNext": "Pearson",
+          "hammerSubtitle": "Pearson has hammer",
+          "lastUpdatedAt": "2026-10-16T15:28:57.082Z",
+          "lastUpdatedLabel": "10:28 a.m.",
+          "nextCheckAt": 1792423737082,
+          "nextCheckReason": "event complete, resume periodic scans",
+          "nextGameConfirmed": false,
+          "nextGameId": null,
+          "nextGameLabel": "No current event scheduled",
+          "opponentName": "Pearson",
+          "opponentScore": 4,
+          "playerName": "Kyle Kurz",
+          "progressSignature": "",
+          "scheduleHint": "Showing completed games from the most recent competition found.",
+          "scheduleRows": [
+            {
+              "drawLabel": "B1",
+              "epochMs": 1775773800000,
+              "game": {
+                "coords": {
+                  "col": 6,
+                  "group_id": 1,
+                  "row": 6
+                },
+                "id": "3baa2c8e",
+                "loser_to_game_id": "2b387c0c",
+                "loser_to_side": 0,
+                "name": "A10",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      5,
+                      1,
+                      3,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 10,
+                    "team_id": 118038,
+                    "top_rock": true
+                  },
+                  {
+                    "end_scores": [
+                      2,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118042
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "97ba6d9e",
+                "winner_to_side": 1
+              },
+              "gameId": "3baa2c8e",
+              "gameName": "A10",
+              "opponent": "Jonasson",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 09 at  5:30 pm",
+              "stateLabel": "Complete - won 10 - 3",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B5",
+              "epochMs": 1775851200000,
+              "game": {
+                "coords": {
+                  "col": 11,
+                  "group_id": 1,
+                  "row": 7
+                },
+                "id": "97ba6d9e",
+                "loser_to_game_id": "c7481bfd",
+                "loser_to_side": 1,
+                "name": "A5",
+                "sides": [
+                  {
+                    "end_scores": [
+                      2,
+                      0,
+                      0,
+                      1,
+                      0,
+                      1,
+                      1,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "lost",
+                    "score": 5,
+                    "team_id": 118043,
+                    "top_rock": true,
+                    "winner_id": "7cf1d573"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      3,
+                      0,
+                      3,
+                      0,
+                      0,
+                      1
+                    ],
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118038,
+                    "winner_id": "3baa2c8e"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "a48d11b2",
+                "winner_to_side": 0
+              },
+              "gameId": "97ba6d9e",
+              "gameName": "A5",
+              "opponent": "Irwin",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 10 at  3:00 pm",
+              "stateLabel": "Complete - won 7 - 5",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B9",
+              "epochMs": 1775925000000,
+              "game": {
+                "coords": {
+                  "col": 16,
+                  "group_id": 1,
+                  "row": 5
+                },
+                "id": "a48d11b2",
+                "loser_to_game_id": "02ebaecb",
+                "loser_to_side": 1,
+                "name": "A2",
+                "sides": [
+                  {
+                    "end_scores": [
+                      1,
+                      1,
+                      0,
+                      4,
+                      1,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "97ba6d9e"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      2,
+                      0,
+                      0,
+                      1
+                    ],
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118044,
+                    "winner_id": "1bd0f4ef"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "336e014d",
+                "winner_to_side": 1
+              },
+              "gameId": "a48d11b2",
+              "gameName": "A2",
+              "opponent": "Calvert",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 11 at 11:30 am",
+              "stateLabel": "Complete - won 7 - 3",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B14",
+              "epochMs": 1776015000000,
+              "game": {
+                "coords": {
+                  "col": 2,
+                  "group_id": 4,
+                  "row": 1
+                },
+                "id": "336e014d",
+                "name": "P4",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      1,
+                      0,
+                      2,
+                      1,
+                      0,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 5,
+                    "team_id": 118044,
+                    "top_rock": true,
+                    "winner_id": "835ebe4d"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      0,
+                      0,
+                      3,
+                      0,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 6,
+                    "team_id": 118038,
+                    "winner_id": "a48d11b2"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "ecdd1683",
+                "winner_to_side": 0
+              },
+              "gameId": "336e014d",
+              "gameName": "P4",
+              "opponent": "Calvert",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at 12:30 pm",
+              "stateLabel": "Complete - won 6 - 5",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B15",
+              "epochMs": 1776027600000,
+              "game": {
+                "coords": {
+                  "col": 7,
+                  "group_id": 4,
+                  "row": 2
+                },
+                "id": "ecdd1683",
+                "name": "P2",
+                "sides": [
+                  {
+                    "end_scores": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 6,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "336e014d"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 0,
+                    "team_id": 118035,
+                    "winner_id": "d02dec00"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "3af9a46b",
+                "winner_to_side": 0
+              },
+              "gameId": "ecdd1683",
+              "gameName": "P2",
+              "opponent": "Chambers",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at  4:00 pm",
+              "stateLabel": "Complete - won 6 - 0",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B16",
+              "epochMs": 1776038400000,
+              "game": {
+                "coords": {
+                  "col": 12,
+                  "group_id": 4,
+                  "row": 4
+                },
+                "id": "3af9a46b",
+                "name": "P1",
+                "sides": [
+                  {
+                    "end_scores": [
+                      1,
+                      0,
+                      3,
+                      0,
+                      0,
+                      0,
+                      5
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 9,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "ecdd1683"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      1,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 4,
+                    "team_id": 118045,
+                    "winner_id": "8b370b6c"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete"
+              },
+              "gameId": "3af9a46b",
+              "gameName": "P1",
+              "opponent": "Pearson",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at  7:00 pm",
+              "stateLabel": "Complete - won 9 - 4",
+              "team": "Kurz"
+            }
+          ],
+          "sourceCurlerId": 14896,
+          "sourceSubdomain": "mb",
+          "teamName": "Kurz",
+          "teamScore": 9,
+          "timelineHint": "Showing the latest completed game from the most recent competition found.",
+          "view": "recent-event"
+        },
+        "status": "No current event found for Kyle Kurz. Showing a recent completed competition found in the checked sources. Search incomplete: this may not be the latest appearance.",
+        "version": "v26.19"
+      }
+    },
+    {
+      "name": "Braden Calvert",
+      "started_at": "2026-10-16T15:29:00.277268+00:00",
+      "finished_at": "2026-10-16T15:29:15.618813+00:00",
+      "observation": {
+        "displayed_history": 3,
+        "headline": "Recent competition found\n2026 Chicken Chef Mixed Open Provincial Championship",
+        "history_links": [
+          "https://mb.curling.io/en/events/23582",
+          "https://mb.curling.io/en/events/23571",
+          "https://mb.curling.io/en/events/19596"
+        ],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "2026 Chicken Chef Mixed Open Provincial Championship\nTeam: Calvert · Position: fourth · 2025 / 2026 · Published as: Braden Calvert\nCurling I/O · mb\n2026 Bunge Championship\nTeam: Calvert · Position: fourth · 2025 / 2026 · Published as: Braden Calvert\nCurling I/O · mb\n2025 Viterra Championship\nTeam: Calvert · Position: fourth · 2024 / 2025 · Published as: Braden Calvert\nCurling I/O · mb",
+        "name": "Braden Calvert",
+        "schedule_text": "Calvert vs Van Ryssel\nComplete - won 9 - 1\nApr 10 at 8:30 am\nCalvert vs Johnson\nComplete - won 5 - 3\nApr 10 at 3:00 pm\nCalvert vs Kurz\nComplete - lost 3 - 7\nApr 11 at 11:30 am\nCalvert vs Irwin\nComplete - lost 7 - 8\nApr 11 at 3:00 pm\nCalvert vs Barkman\nComplete - won 7 - 0\nApr 11 at 9:30 pm\nCalvert vs Kurz\nComplete - lost 5 - 6\nApr 12 at 12:30 pm",
+        "snapshot": {
+          "activeGameId": null,
+          "careerHistory": [
+            {
+              "detail": "Team: Calvert · Position: fourth · 2025 / 2026 · Published as: Braden Calvert",
+              "eventId": 23582,
+              "publishedName": "Braden Calvert",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23582",
+              "startsOn": "Apr 09, 2026",
+              "title": "2026 Chicken Chef Mixed Open Provincial Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: fourth · 2025 / 2026 · Published as: Braden Calvert",
+              "eventId": 23571,
+              "publishedName": "Braden Calvert",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23571",
+              "startsOn": "Feb 03, 2026",
+              "title": "2026 Bunge Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: fourth · 2024 / 2025 · Published as: Braden Calvert",
+              "eventId": 19596,
+              "publishedName": "Braden Calvert",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/19596",
+              "startsOn": "Feb 04, 2025",
+              "title": "2025 Viterra Championship"
+            }
+          ],
+          "currentEndLabel": "Apr 12 at 12:30 pm",
+          "diagnostics": {
+            "appVersion": "v26.19",
+            "checkedCurrent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 5,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "pe",
+                "url": "https://api.curling.io/en/clubs/pe/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "qc",
+                "url": "https://api.curling.io/en/clubs/qc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 7,
+                "skipped": false,
+                "subdomain": "sk",
+                "url": "https://api.curling.io/en/clubs/sk/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "yt",
+                "url": "https://api.curling.io/en/clubs/yt/competitions?occurred=0&registrations=f"
+              }
+            ],
+            "checkedRecent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 50,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 43,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 23,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 69,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 62,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 17,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 16,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 13,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 34,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 33,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 5,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 19,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 17,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 99,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 87,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=-2&registrations=f"
+              }
+            ],
+            "completedGameAt": 1776015000000,
+            "completedGameId": "336e014d",
+            "eventId": 23582,
+            "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+            "matchScore": 100,
+            "matchedCurler": "Braden Calvert",
+            "matchedTeam": "Calvert",
+            "payloadStructure": {
+              "drawGameRefs": 43,
+              "drawsCount": 16,
+              "gamesCount": 43,
+              "stagesCount": 1
+            },
+            "phase": "recent-match",
+            "playerName": "Braden Calvert",
+            "reason": "manual-start",
+            "sourceSubdomain": "mb",
+            "timestamp": "2026-10-16T15:29:14.672Z"
+          },
+          "displayPlayer": "Braden Calvert",
+          "drawTitle": "",
+          "ends": {
+            "rows": [
+              {
+                "active": false,
+                "end": 1,
+                "hammerOwner": "opponent",
+                "opponent": "0",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 2,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 3,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "1"
+              },
+              {
+                "active": false,
+                "end": 4,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 5,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "2"
+              },
+              {
+                "active": false,
+                "end": 6,
+                "hammerOwner": "opponent",
+                "opponent": "0",
+                "team": "1"
+              },
+              {
+                "active": false,
+                "end": 7,
+                "hammerOwner": "opponent",
+                "opponent": "3",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 8,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "1"
+              },
+              {
+                "active": false,
+                "end": 9,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              }
+            ],
+            "total": {
+              "opponent": "6",
+              "team": "5"
+            }
+          },
+          "eventId": 23582,
+          "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+          "gameTitle": "P4",
+          "hammerNext": "Calvert",
+          "hammerSubtitle": "Calvert has hammer",
+          "lastUpdatedAt": "2026-10-16T15:29:14.673Z",
+          "lastUpdatedLabel": "10:29 a.m.",
+          "nextCheckAt": 1792423754673,
+          "nextCheckReason": "event complete, resume periodic scans",
+          "nextGameConfirmed": false,
+          "nextGameId": null,
+          "nextGameLabel": "No current event scheduled",
+          "opponentName": "Kurz",
+          "opponentScore": 6,
+          "playerName": "Braden Calvert",
+          "progressSignature": "",
+          "scheduleHint": "Showing completed games from the most recent competition found.",
+          "scheduleRows": [
+            {
+              "drawLabel": "B3",
+              "epochMs": 1775827800000,
+              "game": {
+                "coords": {
+                  "col": 6,
+                  "group_id": 1,
+                  "row": 2
+                },
+                "id": "207abb41",
+                "loser_to_game_id": "8fe73d03",
+                "loser_to_side": 1,
+                "name": "A8",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      0,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 1,
+                    "team_id": 118033,
+                    "top_rock": true,
+                    "winner_id": "c7f9851f"
+                  },
+                  {
+                    "end_scores": [
+                      4,
+                      0,
+                      3,
+                      0,
+                      2
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 9,
+                    "team_id": 118044
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "1bd0f4ef",
+                "winner_to_side": 0
+              },
+              "gameId": "207abb41",
+              "gameName": "A8",
+              "opponent": "Van Ryssel",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 10 at  8:30 am",
+              "stateLabel": "Complete - won 9 - 1",
+              "team": "Calvert"
+            },
+            {
+              "drawLabel": "B5",
+              "epochMs": 1775851200000,
+              "game": {
+                "coords": {
+                  "col": 11,
+                  "group_id": 1,
+                  "row": 3
+                },
+                "id": "1bd0f4ef",
+                "loser_to_game_id": "21ec69e7",
+                "loser_to_side": 1,
+                "name": "A4",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      1,
+                      1,
+                      0,
+                      1
+                    ],
+                    "result": "won",
+                    "score": 5,
+                    "team_id": 118044,
+                    "top_rock": true,
+                    "winner_id": "207abb41"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      2,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118037,
+                    "winner_id": "6aa469fa"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "a48d11b2",
+                "winner_to_side": 1
+              },
+              "gameId": "1bd0f4ef",
+              "gameName": "A4",
+              "opponent": "Johnson",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 10 at  3:00 pm",
+              "stateLabel": "Complete - won 5 - 3",
+              "team": "Calvert"
+            },
+            {
+              "drawLabel": "B9",
+              "epochMs": 1775925000000,
+              "game": {
+                "coords": {
+                  "col": 16,
+                  "group_id": 1,
+                  "row": 5
+                },
+                "id": "a48d11b2",
+                "loser_to_game_id": "02ebaecb",
+                "loser_to_side": 1,
+                "name": "A2",
+                "sides": [
+                  {
+                    "end_scores": [
+                      1,
+                      1,
+                      0,
+                      4,
+                      1,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "97ba6d9e"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      2,
+                      0,
+                      0,
+                      1
+                    ],
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118044,
+                    "winner_id": "1bd0f4ef"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "336e014d",
+                "winner_to_side": 1
+              },
+              "gameId": "a48d11b2",
+              "gameName": "A2",
+              "opponent": "Kurz",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 11 at 11:30 am",
+              "stateLabel": "Complete - lost 3 - 7",
+              "team": "Calvert"
+            },
+            {
+              "drawLabel": "B10",
+              "epochMs": 1775937600000,
+              "game": {
+                "coords": {
+                  "col": 16,
+                  "group_id": 2,
+                  "row": 12
+                },
+                "id": "02ebaecb",
+                "loser_to_game_id": "835ebe4d",
+                "loser_to_side": 0,
+                "name": "B7",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      1,
+                      0,
+                      3,
+                      0,
+                      0,
+                      4
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 8,
+                    "team_id": 118043,
+                    "top_rock": true,
+                    "winner_id": "511929c4"
+                  },
+                  {
+                    "end_scores": [
+                      3,
+                      0,
+                      0,
+                      2,
+                      0,
+                      1,
+                      1,
+                      0
+                    ],
+                    "loser_id": "a48d11b2",
+                    "result": "lost",
+                    "score": 7,
+                    "team_id": 118044
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "1bd5240f",
+                "winner_to_side": 0
+              },
+              "gameId": "02ebaecb",
+              "gameName": "B7",
+              "opponent": "Irwin",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 11 at  3:00 pm",
+              "stateLabel": "Complete - lost 7 - 8",
+              "team": "Calvert"
+            },
+            {
+              "drawLabel": "B12",
+              "epochMs": 1775961000000,
+              "game": {
+                "coords": {
+                  "col": 16,
+                  "group_id": 3,
+                  "row": 11
+                },
+                "id": "835ebe4d",
+                "name": "C7",
+                "sides": [
+                  {
+                    "end_scores": [
+                      4,
+                      1,
+                      1,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "loser_id": "02ebaecb",
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118044,
+                    "top_rock": true
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 0,
+                    "team_id": 118041,
+                    "winner_id": "21631fc5"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "336e014d",
+                "winner_to_side": 0
+              },
+              "gameId": "835ebe4d",
+              "gameName": "C7",
+              "opponent": "Barkman",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 11 at  9:30 pm",
+              "stateLabel": "Complete - won 7 - 0",
+              "team": "Calvert"
+            },
+            {
+              "drawLabel": "B14",
+              "epochMs": 1776015000000,
+              "game": {
+                "coords": {
+                  "col": 2,
+                  "group_id": 4,
+                  "row": 1
+                },
+                "id": "336e014d",
+                "name": "P4",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      1,
+                      0,
+                      2,
+                      1,
+                      0,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 5,
+                    "team_id": 118044,
+                    "top_rock": true,
+                    "winner_id": "835ebe4d"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      0,
+                      0,
+                      3,
+                      0,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 6,
+                    "team_id": 118038,
+                    "winner_id": "a48d11b2"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "ecdd1683",
+                "winner_to_side": 0
+              },
+              "gameId": "336e014d",
+              "gameName": "P4",
+              "opponent": "Kurz",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at 12:30 pm",
+              "stateLabel": "Complete - lost 5 - 6",
+              "team": "Calvert"
+            }
+          ],
+          "sourceCurlerId": 15077,
+          "sourceSubdomain": "mb",
+          "teamName": "Calvert",
+          "teamScore": 5,
+          "timelineHint": "Showing the latest completed game from the most recent competition found.",
+          "view": "recent-event"
+        },
+        "status": "No current event found for Braden Calvert. Showing a recent completed competition found in the checked sources. Search incomplete: this may not be the latest appearance.",
+        "version": "v26.19"
+      }
+    },
+    {
+      "name": "Kyle Kurz",
+      "started_at": "2026-10-16T15:29:17.656189+00:00",
+      "finished_at": "2026-10-16T15:29:32.936970+00:00",
+      "observation": {
+        "displayed_history": 3,
+        "headline": "Recent competition found\n2026 Chicken Chef Mixed Open Provincial Championship",
+        "history_links": [
+          "https://mb.curling.io/en/events/23582",
+          "https://mb.curling.io/en/events/23571",
+          "https://mb.curling.io/en/events/19596"
+        ],
+        "history_loading": false,
+        "history_message": "",
+        "history_text": "2026 Chicken Chef Mixed Open Provincial Championship\nTeam: Kurz · Position: alternate_1 · 2025 / 2026 · Published as: Kyle Kurz\nCurling I/O · mb\n2026 Bunge Championship\nTeam: Calvert · Position: second · 2025 / 2026 · Published as: Kyle Kurz\nCurling I/O · mb\n2025 Viterra Championship\nTeam: Calvert · Position: second · 2024 / 2025 · Published as: Kyle Kurz\nCurling I/O · mb",
+        "name": "Kyle Kurz",
+        "schedule_text": "Kurz vs Jonasson\nComplete - won 10 - 3\nApr 09 at 5:30 pm\nKurz vs Irwin\nComplete - won 7 - 5\nApr 10 at 3:00 pm\nKurz vs Calvert\nComplete - won 7 - 3\nApr 11 at 11:30 am\nKurz vs Calvert\nComplete - won 6 - 5\nApr 12 at 12:30 pm\nKurz vs Chambers\nComplete - won 6 - 0\nApr 12 at 4:00 pm\nKurz vs Pearson\nComplete - won 9 - 4\nApr 12 at 7:00 pm",
+        "snapshot": {
+          "activeGameId": null,
+          "careerHistory": [
+            {
+              "detail": "Team: Kurz · Position: alternate_1 · 2025 / 2026 · Published as: Kyle Kurz",
+              "eventId": 23582,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23582",
+              "startsOn": "Apr 09, 2026",
+              "title": "2026 Chicken Chef Mixed Open Provincial Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: second · 2025 / 2026 · Published as: Kyle Kurz",
+              "eventId": 23571,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/23571",
+              "startsOn": "Feb 03, 2026",
+              "title": "2026 Bunge Championship"
+            },
+            {
+              "detail": "Team: Calvert · Position: second · 2024 / 2025 · Published as: Kyle Kurz",
+              "eventId": 19596,
+              "publishedName": "Kyle Kurz",
+              "retrievedAt": "2026-10-12T02:50:18.898326+00:00",
+              "source": "Curling I/O · mb",
+              "sourceUrl": "https://mb.curling.io/en/events/19596",
+              "startsOn": "Feb 04, 2025",
+              "title": "2025 Viterra Championship"
+            }
+          ],
+          "currentEndLabel": "Apr 12 at  7:00 pm",
+          "diagnostics": {
+            "appVersion": "v26.19",
+            "checkedCurrent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 5,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "pe",
+                "url": "https://api.curling.io/en/clubs/pe/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "qc",
+                "url": "https://api.curling.io/en/clubs/qc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 7,
+                "skipped": false,
+                "subdomain": "sk",
+                "url": "https://api.curling.io/en/clubs/sk/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "yt",
+                "url": "https://api.curling.io/en/clubs/yt/competitions?occurred=0&registrations=f"
+              }
+            ],
+            "checkedRecent": [
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 50,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 43,
+                "skipped": false,
+                "subdomain": "ab",
+                "url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 4,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 23,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "canada",
+                "url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "bc",
+                "url": "https://api.curling.io/en/clubs/bc/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 69,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 62,
+                "skipped": false,
+                "subdomain": "mb",
+                "url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 3,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 17,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 16,
+                "skipped": false,
+                "subdomain": "nb",
+                "url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 9,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 13,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 10,
+                "skipped": false,
+                "subdomain": "nl",
+                "url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 34,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 33,
+                "skipped": false,
+                "subdomain": "ns",
+                "url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 5,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 19,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 17,
+                "skipped": false,
+                "subdomain": "nt",
+                "url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 0,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f"
+              },
+              {
+                "delta": -2,
+                "error": null,
+                "itemsCount": 1,
+                "skipped": false,
+                "subdomain": "nu",
+                "url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-2&registrations=f"
+              },
+              {
+                "delta": 0,
+                "error": null,
+                "itemsCount": 14,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f"
+              },
+              {
+                "delta": -1,
+                "error": null,
+                "itemsCount": 99,
+                "skipped": false,
+                "subdomain": "on",
+                "url": "https://api.curling.io/en/clubs/on/competitions?occurred=-1&registrations=f"
+              }
+            ],
+            "completedGameAt": 1776038400000,
+            "completedGameId": "3af9a46b",
+            "eventId": 23582,
+            "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+            "matchScore": 100,
+            "matchedCurler": "Kyle Kurz",
+            "matchedTeam": "Kurz",
+            "payloadStructure": {
+              "drawGameRefs": 43,
+              "drawsCount": 16,
+              "gamesCount": 43,
+              "stagesCount": 1
+            },
+            "phase": "recent-match",
+            "playerName": "Kyle Kurz",
+            "reason": "manual-start",
+            "sourceSubdomain": "mb",
+            "timestamp": "2026-10-16T15:29:31.894Z"
+          },
+          "displayPlayer": "Kyle Kurz",
+          "drawTitle": "",
+          "ends": {
+            "rows": [
+              {
+                "active": false,
+                "end": 1,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "1"
+              },
+              {
+                "active": false,
+                "end": 2,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 3,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "3"
+              },
+              {
+                "active": false,
+                "end": 4,
+                "hammerOwner": "opponent",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 5,
+                "hammerOwner": "team",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 6,
+                "hammerOwner": "team",
+                "opponent": "1",
+                "team": "0"
+              },
+              {
+                "active": false,
+                "end": 7,
+                "hammerOwner": "team",
+                "opponent": "0",
+                "team": "5"
+              },
+              {
+                "active": false,
+                "end": 8,
+                "hammerOwner": "opponent",
+                "opponent": "X",
+                "team": "X"
+              }
+            ],
+            "total": {
+              "opponent": "4",
+              "team": "9"
+            }
+          },
+          "eventId": 23582,
+          "eventName": "2026 Chicken Chef Mixed Open Provincial Championship",
+          "gameTitle": "P1",
+          "hammerNext": "Pearson",
+          "hammerSubtitle": "Pearson has hammer",
+          "lastUpdatedAt": "2026-10-16T15:29:31.896Z",
+          "lastUpdatedLabel": "10:29 a.m.",
+          "nextCheckAt": 1792423771896,
+          "nextCheckReason": "event complete, resume periodic scans",
+          "nextGameConfirmed": false,
+          "nextGameId": null,
+          "nextGameLabel": "No current event scheduled",
+          "opponentName": "Pearson",
+          "opponentScore": 4,
+          "playerName": "Kyle Kurz",
+          "progressSignature": "",
+          "scheduleHint": "Showing completed games from the most recent competition found.",
+          "scheduleRows": [
+            {
+              "drawLabel": "B1",
+              "epochMs": 1775773800000,
+              "game": {
+                "coords": {
+                  "col": 6,
+                  "group_id": 1,
+                  "row": 6
+                },
+                "id": "3baa2c8e",
+                "loser_to_game_id": "2b387c0c",
+                "loser_to_side": 0,
+                "name": "A10",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      5,
+                      1,
+                      3,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 10,
+                    "team_id": 118038,
+                    "top_rock": true
+                  },
+                  {
+                    "end_scores": [
+                      2,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118042
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "97ba6d9e",
+                "winner_to_side": 1
+              },
+              "gameId": "3baa2c8e",
+              "gameName": "A10",
+              "opponent": "Jonasson",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 09 at  5:30 pm",
+              "stateLabel": "Complete - won 10 - 3",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B5",
+              "epochMs": 1775851200000,
+              "game": {
+                "coords": {
+                  "col": 11,
+                  "group_id": 1,
+                  "row": 7
+                },
+                "id": "97ba6d9e",
+                "loser_to_game_id": "c7481bfd",
+                "loser_to_side": 1,
+                "name": "A5",
+                "sides": [
+                  {
+                    "end_scores": [
+                      2,
+                      0,
+                      0,
+                      1,
+                      0,
+                      1,
+                      1,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "lost",
+                    "score": 5,
+                    "team_id": 118043,
+                    "top_rock": true,
+                    "winner_id": "7cf1d573"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      3,
+                      0,
+                      3,
+                      0,
+                      0,
+                      1
+                    ],
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118038,
+                    "winner_id": "3baa2c8e"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "a48d11b2",
+                "winner_to_side": 0
+              },
+              "gameId": "97ba6d9e",
+              "gameName": "A5",
+              "opponent": "Irwin",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 10 at  3:00 pm",
+              "stateLabel": "Complete - won 7 - 5",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B9",
+              "epochMs": 1775925000000,
+              "game": {
+                "coords": {
+                  "col": 16,
+                  "group_id": 1,
+                  "row": 5
+                },
+                "id": "a48d11b2",
+                "loser_to_game_id": "02ebaecb",
+                "loser_to_side": 1,
+                "name": "A2",
+                "sides": [
+                  {
+                    "end_scores": [
+                      1,
+                      1,
+                      0,
+                      4,
+                      1,
+                      0
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 7,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "97ba6d9e"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      2,
+                      0,
+                      0,
+                      1
+                    ],
+                    "result": "lost",
+                    "score": 3,
+                    "team_id": 118044,
+                    "winner_id": "1bd0f4ef"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "336e014d",
+                "winner_to_side": 1
+              },
+              "gameId": "a48d11b2",
+              "gameName": "A2",
+              "opponent": "Calvert",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 11 at 11:30 am",
+              "stateLabel": "Complete - won 7 - 3",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B14",
+              "epochMs": 1776015000000,
+              "game": {
+                "coords": {
+                  "col": 2,
+                  "group_id": 4,
+                  "row": 1
+                },
+                "id": "336e014d",
+                "name": "P4",
+                "sides": [
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      1,
+                      0,
+                      2,
+                      1,
+                      0,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 5,
+                    "team_id": 118044,
+                    "top_rock": true,
+                    "winner_id": "835ebe4d"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      0,
+                      0,
+                      3,
+                      0,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 6,
+                    "team_id": 118038,
+                    "winner_id": "a48d11b2"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "ecdd1683",
+                "winner_to_side": 0
+              },
+              "gameId": "336e014d",
+              "gameName": "P4",
+              "opponent": "Calvert",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at 12:30 pm",
+              "stateLabel": "Complete - won 6 - 5",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B15",
+              "epochMs": 1776027600000,
+              "game": {
+                "coords": {
+                  "col": 7,
+                  "group_id": 4,
+                  "row": 2
+                },
+                "id": "ecdd1683",
+                "name": "P2",
+                "sides": [
+                  {
+                    "end_scores": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 6,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "336e014d"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 0,
+                    "team_id": 118035,
+                    "winner_id": "d02dec00"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete",
+                "winner_to_game_id": "3af9a46b",
+                "winner_to_side": 0
+              },
+              "gameId": "ecdd1683",
+              "gameName": "P2",
+              "opponent": "Chambers",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at  4:00 pm",
+              "stateLabel": "Complete - won 6 - 0",
+              "team": "Kurz"
+            },
+            {
+              "drawLabel": "B16",
+              "epochMs": 1776038400000,
+              "game": {
+                "coords": {
+                  "col": 12,
+                  "group_id": 4,
+                  "row": 4
+                },
+                "id": "3af9a46b",
+                "name": "P1",
+                "sides": [
+                  {
+                    "end_scores": [
+                      1,
+                      0,
+                      3,
+                      0,
+                      0,
+                      0,
+                      5
+                    ],
+                    "first_hammer": true,
+                    "result": "won",
+                    "score": 9,
+                    "team_id": 118038,
+                    "top_rock": true,
+                    "winner_id": "ecdd1683"
+                  },
+                  {
+                    "end_scores": [
+                      0,
+                      1,
+                      0,
+                      1,
+                      1,
+                      1,
+                      0
+                    ],
+                    "result": "lost",
+                    "score": 4,
+                    "team_id": 118045,
+                    "winner_id": "8b370b6c"
+                  }
+                ],
+                "stageId": 17228,
+                "stageName": "Chicken Chef Mixed Provincial Championship",
+                "stageType": "Bracket",
+                "state": "complete"
+              },
+              "gameId": "3af9a46b",
+              "gameName": "P1",
+              "opponent": "Pearson",
+              "stageName": "Chicken Chef Mixed Provincial Championship",
+              "startsAt": "Apr 12 at  7:00 pm",
+              "stateLabel": "Complete - won 9 - 4",
+              "team": "Kurz"
+            }
+          ],
+          "sourceCurlerId": 14896,
+          "sourceSubdomain": "mb",
+          "teamName": "Kurz",
+          "teamScore": 9,
+          "timelineHint": "Showing the latest completed game from the most recent competition found.",
+          "view": "recent-event"
+        },
+        "status": "No current event found for Kyle Kurz. Showing a recent completed competition found in the checked sources. Search incomplete: this may not be the latest appearance.",
+        "version": "v26.19"
+      }
+    }
+  ]
+}

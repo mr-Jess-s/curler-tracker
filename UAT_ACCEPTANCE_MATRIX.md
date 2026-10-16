@@ -48,3 +48,18 @@ All artifacts below target98b988ec507090f436958c38d1ae995417f635e5.
 | Flagged contrast manual/computed review | PASS |14:19:44Z;extended-browser.json+feedback-manual-review.png;6.12:1, no observed text obstruction |
 
 Full WCAG/physicalSafari, all requested UAT edge cases, production rollback endpoint, sensitive-correction workflow, production final build and television capacity remain BLOCKED/FAIL as stated above. Staging-only rollback does not certify production rollback. Do not sum repeated historical runs as unique test cases.
+
+## Independent 71-curler field audit — 2026-10-16
+
+Source-reference acquisition and actual rendered searches finished at 2026-10-16T15:30:24.084083+00:00. Production v26.15 and staging v26.19 each ran all 71 names. Details, exact statuses, timestamps and source URLs are in release-evidence/2026-10-16/field-audit/.
+
+| Requirement | Status | Actual result |
+|---|---|---|
+| Selected upcoming fixtures agree with published sources | PASS | Production 20/20; staging 20/20 cases; exact assigned game IDs checked |
+| History equals independently verified online records | FAIL | Production outcomes: {"REFERENCE_HISTORY_MATCH": 35, "CROSS_SOURCE_OR_ID_REVIEW": 6, "PARTIAL_HISTORY": 19, "EXTERNAL_BRIER_ROSTER_MATCH": 8, "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3}; staging: {"HISTORY_MATCH_LIVE_SEARCH_INCOMPLETE": 27, "CROSS_SOURCE_OR_ID_REVIEW": 6, "PARTIAL_HISTORY": 19, "REFERENCE_HISTORY_MATCH": 8, "EXTERNAL_BRIER_ROSTER_MATCH": 8, "VERIFIED_EXTERNAL_HISTORY_NOT_SHOWN": 3} |
+| All sample searches complete without harness timeout | PASS | Production 0 final harness errors; staging 0; initial scroll/click retries retained separately |
+| Rendered published titles, links, fixture labels and completed scores | PASS | 2270 assertions pass; 0 fail; 2 label assertions remain REVIEW; reviewed labels are excluded from PASS |
+| Positive live-game reference comparison | BLOCKED | No verified live fixture in the independently checked sample; not inferred from stale playing flags |
+| Complete career / all-internet history | FAIL | Restricted source-profile and season windows cannot substantiate this claim |
+
+An incomplete search can have matching historical records. Explicit incomplete statuses occurred in 0 production and 48 staging cases. This is not an all-sources success count.

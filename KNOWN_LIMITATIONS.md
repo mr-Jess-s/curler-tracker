@@ -16,3 +16,17 @@ No knownP0 was established by the checks performed; this is not a complete secur
 
 
 v26.19 additionally repairs the misleading unverified Ferrol documentary result and removes off-branch GitHub fallback. Both have regression evidence. Final staging passed the described automated checks;production remainsv26.15. Staging alias rollback passed; production rollback/acceptance and surge/incident/privacy gates remain open. Ongoing global archive acquisition is a justified nonblocking scope limitation only while public coverage claims remain accurate;the registry requirement itself remainsunsatisfied.
+
+## Independent 71-curler field audit — 2026-10-16
+
+The independently sourced 71-curler sample covers 23 Alberta, 24 Manitoba and 24 Curling Canada cases; 319 published event payloads support the comparison. See CURLER_FIELD_AUDIT_REPORT.md and its linked missing records.
+
+| Priority | Observed limitation | Evidence |
+|---|---|---|
+| P1 history | Provincial history omits independently documented national appearances | Production searches for Braden Calvert, Corey Chambers and Kyle Kurz omit their 2026 Brier appearance |
+| P2 history | UI recent-history window excludes verified older appearances | Production: 19 exact-profile cases omit 24 independently checked 2023/24 or 2022/23 appearances |
+| P2 identity/coverage | A name search can choose a different source profile | Six production cases require source/profile disambiguation; no wrong-person conclusion follows from shared names |
+| P1 search | Staging can fail to select a sourced profile for Kyle Kurz | Primary sample returned explicit incomplete-search/ambiguous-identities error and no history; original observation retained, follow-up in ambiguity-retest.json |
+| P2 performance | Historical searches usually take about 14 seconds | Sequential mobile-emulated browser measurement; not a traffic-capacity benchmark |
+
+These are empirical scope gaps. No complete-career or all-internet equivalence claim is supported. Current live-game behaviour was not established because the selected reference had no verified live fixtures. Production remains v26.15; the audit did not deploy changes.
