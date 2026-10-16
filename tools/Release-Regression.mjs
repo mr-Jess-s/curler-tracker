@@ -247,4 +247,11 @@ await check('Unverified spelling variants cannot receive another published nameâ
  a.run("fetchJson=async()=>citedIndex");
  assert.equal(await a.run("findDocumentedCurlingSnapshot('Ferrol Asham',{},30000)"),null);
 });
+await check('Missing release data cannot silently load unreviewed data from another branch',async()=>{
+ const a=app();a.context.fetches=[];
+ a.run("fetch=async url=>{fetches.push(url);return {ok:false,status:404}};");
+ await assert.rejects(a.run("fetchJson('./data/curler-source-records.json?v=test')"),/HTTP 404/);
+ assert.equal(a.context.fetches.length,1);
+ assert.equal(a.context.fetches[0],'./data/curler-source-records.json?v=test');
+});
 console.log(count+' release regression checks passed.');
