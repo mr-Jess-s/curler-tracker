@@ -66,7 +66,7 @@ const output = {
   schema_version: 1,
   generated_at: new Date().toISOString(),
   source_provider: 'Curling I/O',
-  coverage_note: 'Published roster appearances from current and two prior seasons. Coverage varies by association and event.',
+  coverage_note: `Published roster appearances across ${seasonRows.length} indexed seasons. Coverage varies by association and event; missing history remains unknown.`,
   default_season: seasonRows.reduce((best, row) => row.appearances > best.appearances ? row : best, seasonRows[0])?.season || '',
   seasons: seasonRows,
   featured_curlers: featured

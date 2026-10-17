@@ -1,8 +1,8 @@
 param([switch]$DryRun)
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent $PSScriptRoot
-$Stage = 'C:\Jess\CurlerTrackerRelease'
 $Cli = 'C:\Program Files\nodejs\npx.cmd'
+$Python = (Get-Command python.exe -ErrorAction Stop).Source
 $LogDir = Join-Path $env:LOCALAPPDATA 'CurlerTracker'
 $Log = Join-Path $LogDir 'publisher.log'
 $DigestFile = Join-Path $LogDir 'last-published-sha256.txt'
@@ -36,8 +36,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Cached service QA failed.' }
     & node tools\Name-Resolution-QA.mjs | Out-Null
     if ($LASTEXITCODE -ne 0) { throw 'Name-resolution QA failed.' }
-    & git diff --quiet HEAD -- $core
-    if ($LASTEXITCODE -ne 0) { throw 'Uncommitted website changes detected; refusing automatic publication.' }
+    $dirty = & git status --porcelain --untracked-files=no
+    if ($dirty) { throw 'Uncommitted tracked changes detected; refusing automatic publication.' }
   } finally { Pop-Location }
   $sources = foreach ($path in ($core + $data)) { Get-Item -LiteralPath (Join-Path $Root $path) }
   $sources += Get-ChildItem (Join-Path $Root 'data\history') -File -Recurse
@@ -61,26 +61,19 @@ try {
   Note "Release assets=$($sources.Count) digest=$digest changed=$($digest -ne $old)"
   if ($digest -eq $old) { Note 'No new verified assets; nothing to deploy.'; exit 0 }
   if ($DryRun) { Note 'Dry-run passed; no deployment executed.'; exit 0 }
-  New-Item -ItemType Directory -Force -Path $Stage | Out-Null
-  foreach ($path in $core) {
-    $destination = Join-Path $Stage $path
-    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $destination) | Out-Null
-    Copy-Item -LiteralPath (Join-Path $Root $path) -Destination $destination -Force
-  }
-  New-Item -ItemType Directory -Force -Path (Join-Path $Stage 'data') | Out-Null
-  foreach ($path in $data) { Copy-Item -LiteralPath (Join-Path $Root $path) -Destination (Join-Path $Stage $path) -Force }
-  foreach ($dir in @('data\history', 'data\offline-curler-index')) {
-    $dest = Join-Path $Stage $dir
-    if (Test-Path -LiteralPath $dest) { Remove-Item -LiteralPath $dest -Force -Recurse }
-    Copy-Item -LiteralPath (Join-Path $Root $dir) -Destination $dest -Recurse
-  }
-  $link = Join-Path $Stage '.vercel\project.json'
-  if (-not (Test-Path -LiteralPath $link)) { throw 'Release staging is not linked to Vercel.' }
-  $project = Get-Content -LiteralPath $link -Raw | ConvertFrom-Json
-  if ($project.projectId -ne 'prj_pWqCMpUkL1XyEYwSLidOcP0pzMno' -or $project.orgId -ne 'team_SDHPInEQjiVcXhbuKPZtQ6CA') {
-    throw 'Refusing unexpected Vercel project or team.'
-  }
+  $Stage = Join-Path $LogDir ('verified-release-' + [guid]::NewGuid().ToString('N'))
+  & $Python (Join-Path $PSScriptRoot 'Build-PublicRelease.py') $Stage
+  if ($LASTEXITCODE -ne 0) { throw 'Clean allowlisted release build failed.' }
+  $linkDir = Join-Path $Stage '.vercel'
+  New-Item -ItemType Directory -Force -Path $linkDir | Out-Null
+  '{"projectId":"prj_pWqCMpUkL1XyEYwSLidOcP0pzMno","orgId":"team_SDHPInEQjiVcXhbuKPZtQ6CA","projectName":"curler-tracker"}' |
+    Set-Content -LiteralPath (Join-Path $linkDir 'project.json') -Encoding ASCII
   $logFile = Join-Path $LogDir 'latest-publisher-deployment.log'
+  $priorFile = Join-Path $Stage 'prior-production.json'
+  & $Cli --yes vercel@63.1.2 inspect https://curler-tracker.vercel.app --json --scope jess-and-roo 1> $priorFile 2>> $logFile
+  if ($LASTEXITCODE -ne 0) { throw 'Could not identify the current production deployment; refusing publication without rollback target.' }
+  $prior = Get-Content -LiteralPath $priorFile -Raw | ConvertFrom-Json
+  if (-not $prior.url -or $prior.readyState -ne 'READY') { throw 'Current production deployment is not a verified rollback target.' }
   Push-Location $Stage
   try {
     & $Cli --yes vercel@63.1.2 deploy --prod --skip-domain --yes --scope jess-and-roo *> $logFile
@@ -89,19 +82,21 @@ try {
   if ($rc -ne 0) { throw "Vercel deployment failed ($rc); inspect $logFile." }
   $deployment = (Get-Content -LiteralPath $logFile | Select-String -Pattern 'https://[^ ]+\.vercel\.app' -AllMatches | ForEach-Object { $_.Matches.Value } | Select-Object -Last 1)
   if (-not $deployment) { throw 'Candidate deployment URL was not found in the deployment log.' }
-  $healthy = $false
-  for ($attempt = 0; $attempt -lt 5; $attempt++) {
-    try {
-      $response = Invoke-WebRequest $deployment -UseBasicParsing -TimeoutSec 20
-      if ($response.StatusCode -eq 200 -and $response.Content -match 'v26.20') { $healthy = $true; break }
-    } catch { }
-    Start-Sleep -Seconds 4
-  }
-  if (-not $healthy) { throw 'Candidate deployment finished, but its smoke check did not pass; production was not changed.' }
+  $candidateEvidence = Join-Path $Stage 'candidate-verification.json'
+  & $Python (Join-Path $PSScriptRoot 'Verify-Deployment.py') $deployment $Stage --out $candidateEvidence
+  if ($LASTEXITCODE -ne 0) { throw 'Candidate deployment bytes did not match the reviewed build; production was not changed.' }
   & $Cli --yes vercel@63.1.2 promote $deployment --yes --scope jess-and-roo *>> $logFile
   if ($LASTEXITCODE -ne 0) { throw 'Candidate passed smoke tests but promotion failed; existing production remains available.' }
-  $production = Invoke-WebRequest 'https://curler-tracker.vercel.app/' -UseBasicParsing -TimeoutSec 20
-  if ($production.StatusCode -ne 200 -or $production.Content -notmatch 'v26.20') { throw 'Promotion completed, but production verification failed.' }
+  $productionEvidence = Join-Path $Stage 'production-verification.json'
+  & $Python (Join-Path $PSScriptRoot 'Verify-Deployment.py') https://curler-tracker.vercel.app $Stage --out $productionEvidence
+  if ($LASTEXITCODE -ne 0) {
+    & $Cli --yes vercel@63.1.2 rollback ('https://' + $prior.url) --yes --scope jess-and-roo *>> $logFile
+    if ($LASTEXITCODE -ne 0) { throw 'Production verification and automatic rollback both failed; operator action is required.' }
+    throw 'Production verification failed; the prior verified deployment was restored.'
+  }
+  $manifest = Get-Content -LiteralPath (Join-Path $Stage 'release.json') -Raw | ConvertFrom-Json
+  [ordered]@{commit=$manifest.commit;version=$manifest.version;deployment=$deployment;prior_deployment=('https://' + $prior.url);published_at=(Get-Date).ToUniversalTime().ToString('o');evidence=$Stage} |
+    ConvertTo-Json | Set-Content -LiteralPath (Join-Path $LogDir 'last-published.json') -Encoding UTF8
   Set-Content -LiteralPath $DigestFile -Value $digest -Encoding ASCII
   Note 'Production release verified and digest recorded.'
 } catch {

@@ -31,12 +31,17 @@ self.addEventListener('fetch', (event) => {
 
   const requestUrl = new URL(event.request.url);
   const isLocalAsset = requestUrl.origin === self.location.origin;
+  const isVersionedIndex = requestUrl.pathname.endsWith('/data/curler-name-catalog.json');
 
   if (isLocalAsset) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE);
+      if (isVersionedIndex) {
+        const cached = await cache.match(event.request);
+        if (cached) return cached;
+      }
       try {
-        const response = await fetch(event.request, { cache: 'no-store' });
+        const response = await fetch(event.request, { cache: isVersionedIndex ? 'default' : 'no-store' });
         if (response.ok) await cache.put(event.request, response.clone());
         return response;
       } catch {

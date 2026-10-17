@@ -371,6 +371,16 @@ async function resolveAndStart(input, reason = 'manual-start') {
     const catalog = await loadNameCatalog();
     const result = findNameChoices(catalog, requested);
     if (!result.exact) {
+      const documentary = await fetchJson(`./data/curler-source-records.json?v=${encodeURIComponent(APP_VERSION)}`, {
+        ttlMs: 60 * 60 * 1000,
+        cacheGroup: 'documented-curler-sources'
+      });
+      const documentedEntry = documentary?.names?.[normalizeName(requested)];
+      if (documentedEntry && documentedEntry.unverified_search_variant !== true &&
+          normalizeName(documentedEntry.name) === normalizeName(requested)) {
+        startTracking(documentedEntry.name, reason);
+        return;
+      }
       if (!result.suggestions.length) {
         setStatus(`No verified exact name or close spelling was found for ${requested}. Missing records remain unknown.`);
         renderIdentityChoices('No exact spelling found. Try another spelling.', [], () => {});
@@ -589,9 +599,10 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
   const timeoutId = window.setTimeout(() => controller.abort(), APP.fetchTimeoutMs);
 
   try {
+    const firstPartyCacheable = url.startsWith('./data/') || url.startsWith('/api/');
     const res = await fetch(url, {
       headers: { Accept: 'application/json' },
-      cache: url.startsWith('./data/') ? 'default' : 'no-store',
+      cache: firstPartyCacheable ? 'default' : 'no-store',
       signal: controller.signal
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);

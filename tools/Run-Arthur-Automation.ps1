@@ -21,6 +21,21 @@ try {
     Run-Step 'release-regression' { node tools\Release-Regression.mjs }
     Run-Step 'cached-service-qa' { node tools\Cached-Service-QA.mjs }
     Run-Step 'name-resolution-qa' { node tools\Name-Resolution-QA.mjs }
+    $changes = @(& git status --porcelain --untracked-files=no)
+    foreach ($change in $changes) {
+      $path = $change.Substring(3).Replace('\', '/')
+      if ($path -notmatch '^data/(history/|history-manifest\.json$|offline-curler-index/|curler-name-catalog\.json$|home-summary\.json$)') {
+        throw "Automation found a non-data change and refused to commit it: $path"
+      }
+    }
+    if ($changes.Count -gt 0) {
+      & git add -- data/history data/history-manifest.json data/offline-curler-index data/curler-name-catalog.json data/home-summary.json
+      if ($LASTEXITCODE -ne 0) { throw 'Could not stage verified archive data.' }
+      & git commit -m ("Refresh verified curling archive " + (Get-Date -Format 'yyyy-MM-dd')) *>> $Log
+      if ($LASTEXITCODE -ne 0) { throw 'Could not commit verified archive data.' }
+      & git push origin HEAD:release/2026-10-13-readiness *>> $Log
+      if ($LASTEXITCODE -ne 0) { throw 'Could not push verified archive data.' }
+    }
     Run-Step 'backup' { powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File tools\Backup-CurlerTracker.ps1 }
   } finally { Pop-Location }
 } catch {

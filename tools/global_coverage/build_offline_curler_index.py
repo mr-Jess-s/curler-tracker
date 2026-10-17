@@ -158,7 +158,7 @@ def build():
         path = OUT_DIR / f"{shard}.json"
         if not path.exists() or path.read_text(encoding="utf-8") != encoded:
             temp = path.with_suffix(".json.tmp")
-            temp.write_text(encoded, encoding="utf-8")
+            temp.write_bytes(encoded.encode("utf-8"))
             temp.replace(path)
         manifest_shards.append({"key": shard, "file": path.name, "name_count": len(shard_map), "bytes": path.stat().st_size})
 
@@ -178,7 +178,7 @@ def build():
     encoded_manifest = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     if not manifest_path.exists() or manifest_path.read_text(encoding="utf-8") != encoded_manifest:
         temp = manifest_path.with_suffix(".json.tmp")
-        temp.write_text(encoded_manifest, encoding="utf-8")
+        temp.write_bytes(encoded_manifest.encode("utf-8"))
         temp.replace(manifest_path)
 
     # A compact, same-origin catalog lets the public application resolve exact
@@ -209,7 +209,7 @@ def build():
     encoded_catalog = json.dumps(catalog_payload, ensure_ascii=False, separators=(",", ":")) + "\n"
     if not CATALOG.exists() or CATALOG.read_text(encoding="utf-8") != encoded_catalog:
         temp = CATALOG.with_suffix(".json.tmp")
-        temp.write_text(encoded_catalog, encoding="utf-8")
+        temp.write_bytes(encoded_catalog.encode("utf-8"))
         temp.replace(CATALOG)
     print(f"Offline curler index: {payload['name_count']} names, {payload['identity_count']} source IDs across {payload['shard_count']} shards -> {OUT_DIR}; catalog -> {CATALOG}")
     return payload

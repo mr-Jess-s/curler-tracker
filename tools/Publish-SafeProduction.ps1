@@ -26,6 +26,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Service worker syntax failed.' }
     & node (Join-Path $PSScriptRoot 'Release-Regression.mjs')
     if ($LASTEXITCODE -ne 0) { throw 'Regression tests failed.' }
+    & node (Join-Path $PSScriptRoot 'Cached-Service-QA.mjs')
+    if ($LASTEXITCODE -ne 0) { throw 'Cached service tests failed.' }
+    & node (Join-Path $PSScriptRoot 'Name-Resolution-QA.mjs')
+    if ($LASTEXITCODE -ne 0) { throw 'Name-resolution tests failed.' }
     & powershell.exe -NoLogo -NoProfile -File (Join-Path $PSScriptRoot 'Release-QA.ps1')
     if ($LASTEXITCODE -ne 0) { throw 'Source verification failed.' }
     $Stage = Join-Path $StateDir ('release-' + [guid]::NewGuid().ToString('N'))

@@ -232,6 +232,12 @@ await check('Published Farrol spelling resolves exact documentary references wit
  assert.equal(r.displayPlayer,'Farrol Asham');assert.equal(r.view,'documented-history');assert.equal(r.careerHistory.length,2);
  assert.equal(r.sourceCurlerId,undefined);assert.equal(r.teamName,'');
 });
+await check('Published documentary-only names pass the local identity preflight',async()=>{
+ const a=app();a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
+ a.run("state.nameCatalog={schema_version:1,source_provider:'Curling I/O',names:[]};fetchJson=async url=>url.includes('curler-source-records')?citedIndex:state.nameCatalog;globalThis.started='';startTracking=name=>{started=name}");
+ await a.run("resolveAndStart('Farrol Asham','test')");
+ assert.equal(a.context.started,'Farrol Asham');
+});
 await check('Unsafe imported source links cannot execute JavaScript',async()=>{
  const a=app();assert.equal(a.run("safeSourceUrl('javascript:alert(1)')"),'');assert.equal(a.run("safeSourceUrl('data:text/html,test')"),'');assert.equal(a.run("safeSourceUrl('https://ab.curling.io/en/events/24023')"),'https://ab.curling.io/en/events/24023');
 });
@@ -253,5 +259,11 @@ await check('Missing release data cannot silently load unreviewed data from anot
  await assert.rejects(a.run("fetchJson('./data/curler-source-records.json?v=test')"),/HTTP 404/);
  assert.equal(a.context.fetches.length,1);
  assert.equal(a.context.fetches[0],'./data/curler-source-records.json?v=test');
+});
+await check('First-party source proxy requests remain CDN-cacheable',async()=>{
+ const a=app();a.context.options=null;
+ a.run("fetch=async(url,options)=>{globalThis.options=options;return {ok:true,json:async()=>({items:[]})}};");
+ await a.run("fetchJson('/api/curling-io?kind=competitions&subdomain=ab&occurred=0')");
+ assert.equal(a.context.options.cache,'default');
 });
 console.log(count+' release regression checks passed.');

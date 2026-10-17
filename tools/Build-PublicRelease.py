@@ -2,7 +2,7 @@
 import argparse,datetime,hashlib,json,shutil,subprocess,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-FILES=['index.html','app.js','styles.css','sw.js','manifest.webmanifest','noble-beaver.svg','noble-beaver-icon.svg','privacy.html','robots.txt','sitemap.xml','vercel.json','data/home-summary.json','data/history-manifest.json','data/curler-source-records.json']
+FILES=['index.html','app.js','styles.css','sw.js','manifest.webmanifest','package.json','api/curling-io.js','noble-beaver.svg','noble-beaver-icon.svg','privacy.html','robots.txt','sitemap.xml','vercel.json','data/home-summary.json','data/history-manifest.json','data/curler-name-catalog.json','data/curler-source-records.json']
 
 def build(destination):
     destination=Path(destination).resolve()

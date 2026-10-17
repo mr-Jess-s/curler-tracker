@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { performance } from 'node:perf_hooks';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const appSource = fs.readFileSync(path.join(root, 'app.js'), 'utf8').replace(/bootFromSavedState\(\);\s*loadArchiveHome\(\);\s*$/, '');
@@ -23,7 +24,13 @@ const context = vm.createContext({
   window: { location: { search: '', href: 'http://localhost/' }, addEventListener() {}, setTimeout() { return 1; }, clearTimeout() {} }
 });
 vm.runInContext(appSource, context);
-const resolve = (catalog, query) => vm.runInContext('findNameChoices(globalThis.qaCatalog, globalThis.qaQuery)', Object.assign(context, { qaCatalog: catalog, qaQuery: query }));
+const timings = [];
+const resolve = (catalog, query) => {
+  const started = performance.now();
+  const result = vm.runInContext('findNameChoices(globalThis.qaCatalog, globalThis.qaQuery)', Object.assign(context, { qaCatalog: catalog, qaQuery: query }));
+  timings.push(performance.now() - started);
+  return result;
+};
 
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data', 'curler-name-catalog.json'), 'utf8'));
 const selected = JSON.parse(fs.readFileSync(path.join(root, 'release-evidence', '2026-10-16', 'field-audit', 'selected-curlers.json'), 'utf8')).sample;
@@ -65,18 +72,22 @@ const realisticResults = selected.flatMap(row => realisticVariants(row.name).map
   return { name: row.name, ...variant, pass: names.includes(row.name) };
 }));
 const count = rows => rows.filter(row => row.pass).length;
+const sortedTimings = timings.slice().sort((a, b) => a - b);
+const percentile = value => Number(sortedTimings[Math.min(sortedTimings.length - 1, Math.ceil(sortedTimings.length * value) - 1)].toFixed(2));
 const report = {
   schema_version: 1,
   generated_at: new Date().toISOString(),
   app_version: vm.runInContext('APP_VERSION', context),
   catalog_names: catalog.name_count,
+  resolution_performance_ms: { samples: timings.length, median: percentile(0.5), p95: percentile(0.95), max: percentile(1) },
   exact: { passed: count(exactResults), total: exactResults.length, results: exactResults },
   severe_typo: { passed: count(severeResults), total: severeResults.length, results: severeResults },
   realistic_typo: { passed: count(realisticResults), total: realisticResults.length, results: realisticResults }
 };
 const out = process.argv[2];
 if (out) fs.writeFileSync(out, JSON.stringify(report, null, 2) + '\n');
-console.log(JSON.stringify({ exact: report.exact, severe_typo: report.severe_typo, realistic_typo: report.realistic_typo }, (key, value) => key === 'results' ? undefined : value));
+console.log(JSON.stringify({ exact: report.exact, severe_typo: report.severe_typo, realistic_typo: report.realistic_typo, resolution_performance_ms: report.resolution_performance_ms }, (key, value) => key === 'results' ? undefined : value));
 assert.equal(report.exact.passed, report.exact.total, 'Every reference identity must be present in its scoped source profile');
 assert.ok(report.severe_typo.passed / report.severe_typo.total >= 0.90, 'Severe typo recovery must be at least 90%');
 assert.ok(report.realistic_typo.passed / report.realistic_typo.total >= 0.98, 'Realistic typo recovery must be at least 98%');
+assert.ok(report.resolution_performance_ms.p95 < 3000, 'Local identity resolution p95 must remain under three seconds');

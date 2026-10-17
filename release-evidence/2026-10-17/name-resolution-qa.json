@@ -1,8 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T14:30:10.077Z",
+  "generated_at": "2026-10-17T14:39:26.455Z",
   "app_version": "v26.20",
-  "catalog_names": 10580,
+  "catalog_names": 13337,
+  "resolution_performance_ms": {
+    "samples": 419,
+    "median": 196.12,
+    "p95": 256.62,
+    "max": 278.58
+  },
   "exact": {
     "passed": 71,
     "total": 71,
@@ -443,7 +449,9 @@
         "name": "Colby Sherwick",
         "query": "Colby Shetwock",
         "suggestions": [
-          "Colby Sherwick"
+          "Colby Sherwick",
+          "Colby Benoit",
+          "Kyle Sherlock"
         ],
         "pass": true
       },
@@ -465,9 +473,9 @@
         "suggestions": [
           "Julia Kennedy",
           "Glen Kennedy",
+          "Kya Kennedy",
           "Angie Kennedy",
-          "Angus Kennedy",
-          "Ben Kennedy"
+          "Angus Kennedy"
         ],
         "pass": true
       },
@@ -485,7 +493,8 @@
         "query": "Aaton Sluchonsko",
         "suggestions": [
           "Aaron Sluchinski",
-          "Amanda Sluchinski"
+          "Amanda Sluchinski",
+          "David Sluchinski"
         ],
         "pass": true
       },
@@ -538,6 +547,7 @@
         "query": "Notma Douglass",
         "suggestions": [
           "Norma Douglass",
+          "Ella Douglas",
           "Aly Douglas",
           "NORM GLAS"
         ],
@@ -560,8 +570,8 @@
           "Keelie Duncan",
           "Hollie Duncan",
           "Kevin Duncan",
-          "Blaine Duncan",
-          "Brent Duncan"
+          "Bill Duncan",
+          "Blaine Duncan"
         ],
         "pass": true
       },
@@ -609,7 +619,7 @@
           "Andrew Jacques",
           "Claude Jacques",
           "Michel Marquis",
-          "Justice Jacques"
+          "Erika Jacques"
         ],
         "pass": true
       },
@@ -621,7 +631,7 @@
           "Michael Buxton",
           "Michael Caione",
           "Michael DOBSON",
-          "Michael Keon"
+          "Michael Hutton"
         ],
         "pass": true
       },
@@ -630,10 +640,10 @@
         "query": "Catley Hatdoe",
         "suggestions": [
           "Carley Hardie",
+          "Carley Waite",
+          "Ashley Hanke",
           "Cailey Locke",
-          "Callan Hamon",
-          "Carey Rafuse",
-          "Cathy Beaton"
+          "Callan Hamon"
         ],
         "pass": true
       },
@@ -651,9 +661,9 @@
         "suggestions": [
           "Sherry Mullin",
           "Betty Mattson",
+          "Brett Wilson",
           "Jesse Mullen",
-          "Rhett Mailloux",
-          "Scott Wilson"
+          "Rhett Mailloux"
         ],
         "pass": true
       },
@@ -680,6 +690,8 @@
         "suggestions": [
           "Warren Erickson",
           "Owen Erickson",
+          "Steven Erickson",
+          "Warren Johnson",
           "Wayne Jackson"
         ],
         "pass": true
@@ -717,7 +729,7 @@
           "Mona Chiasson",
           "Coda Rowson",
           "Don Dawson",
-          "Don Pearson"
+          "Don Gosse"
         ],
         "pass": true
       },
@@ -737,7 +749,8 @@
         "name": "Sam Antila",
         "query": "Sam Antola",
         "suggestions": [
-          "Sam Antila"
+          "Sam Antila",
+          "Pam Antila"
         ],
         "pass": true
       },
@@ -747,9 +760,9 @@
         "suggestions": [
           "Julia Millan",
           "Julie Tolman",
+          "Jacob Nowlan",
           "Julia Colter",
-          "Julia Goodin",
-          "Julia Kelly"
+          "Julia Goodin"
         ],
         "pass": true
       },
@@ -766,10 +779,10 @@
         "query": "Thonda Vatnes",
         "suggestions": [
           "Rhonda Varnes",
+          "Amanda Gates",
           "Amanda Kanters",
-          "John Bates",
-          "Rhonda Horte",
-          "Rhonda MacPhee"
+          "Jody Janes",
+          "John Bates"
         ],
         "pass": true
       },
@@ -789,9 +802,9 @@
         "suggestions": [
           "Ron McMillan",
           "Ian McMillan",
+          "Cam McMillan",
           "Glen McMillan",
-          "Ian MacMillan",
-          "Owen McMillan"
+          "Ian MacMillan"
         ],
         "pass": true
       },
@@ -829,9 +842,9 @@
         "suggestions": [
           "Peter Mackey",
           "Kent MacKay",
+          "Peter McAfee",
           "Steve Mackey",
-          "Kent McKee",
-          "Pete Heck"
+          "Kent McKee"
         ],
         "pass": true
       },
@@ -862,8 +875,8 @@
           "Taj McKenzie",
           "Sean Mckenzie",
           "Chadd McKenzie",
-          "Katie McKenzie",
-          "Lana MacKenzie"
+          "Emma McKenzie",
+          "Katie McKenzie"
         ],
         "pass": true
       },
@@ -873,7 +886,8 @@
         "suggestions": [
           "Mia Toner",
           "Joe Tower",
-          "Lee Toner"
+          "Lee Toner",
+          "Ron Jones"
         ],
         "pass": true
       },
@@ -891,7 +905,8 @@
         "name": "Christie Gamble",
         "query": "Chtostoe Gamble",
         "suggestions": [
-          "Christie Gamble"
+          "Christie Gamble",
+          "Victor Gamble"
         ],
         "pass": true
       },
@@ -940,7 +955,9 @@
         "query": "Olovoa McDonah",
         "suggestions": [
           "Olivia McDonah",
-          "Olivia MacDonald"
+          "Alex McDonah",
+          "Olivia MacDonald",
+          "Sarah McDonah"
         ],
         "pass": true
       },
@@ -976,7 +993,7 @@
           "Colby Coates",
           "Kyle Winters",
           "Tyler Jones",
-          "Daley Peters"
+          "Corey Follett"
         ],
         "pass": true
       },
@@ -996,8 +1013,8 @@
           "Kevin Koe",
           "Ava Koe",
           "Ben Koke",
-          "Kevin Boyle",
-          "Kevin Cook"
+          "Jevon Doane",
+          "Ken Cox"
         ],
         "pass": true
       },
@@ -1051,9 +1068,10 @@
         "query": "Kyle Kutz",
         "suggestions": [
           "Kyle Kurz",
+          "Kyle Boch",
+          "Kyle Reid",
           "Kyle Scott",
-          "Kylie Munn",
-          "Lyle Kent"
+          "Kylie Munn"
         ],
         "pass": true
       },
@@ -1062,6 +1080,7 @@
         "query": "Btendan Bolawka",
         "suggestions": [
           "Brendan Bilawka",
+          "Brendan Black",
           "Brenda Clark",
           "Brendan Cooke",
           "Brendan Rajala"
@@ -1094,10 +1113,10 @@
         "query": "Btett Gallant",
         "suggestions": [
           "Brett Gallant",
+          "Fred Gallant",
+          "Neil Gallant",
           "Robert Gallant",
-          "Audra Gallant",
-          "Diane Gallant",
-          "Karen Gallant"
+          "Audra Gallant"
         ],
         "pass": true
       },
@@ -1107,7 +1126,8 @@
         "suggestions": [
           "Ben Hebert",
           "Becca Hebert",
-          "Ben Meyers"
+          "Ben Meyers",
+          "Ray Hebert"
         ],
         "pass": true
       }
