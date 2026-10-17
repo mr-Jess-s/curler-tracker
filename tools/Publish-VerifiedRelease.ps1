@@ -16,8 +16,8 @@ try {
     Write-Output $message
   }
   if (-not (Test-Path -LiteralPath $Cli)) { throw 'Pinned deployment CLI launcher missing.' }
-  $core = @('index.html', 'app.js', 'styles.css', 'sw.js', 'manifest.webmanifest', 'noble-beaver.svg', 'noble-beaver-icon.svg')
-  $data = @('data\home-summary.json', 'data\history-manifest.json')
+  $core = @('index.html', 'privacy.html', 'robots.txt', 'sitemap.xml', 'app.js', 'styles.css', 'sw.js', 'manifest.webmanifest', 'package.json', 'vercel.json', 'api\curling-io.js', 'noble-beaver.svg', 'noble-beaver-icon.svg')
+  $data = @('data\home-summary.json', 'data\history-manifest.json', 'data\curler-name-catalog.json', 'data\curler-source-records.json')
   foreach ($path in ($core + $data)) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $path))) { throw "Missing release asset: $path" }
   }
@@ -32,6 +32,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Service worker syntax check failed.' }
     & node tools\Release-Regression.mjs | Out-Null
     if ($LASTEXITCODE -ne 0) { throw 'Release regression suite failed.' }
+    & node tools\Cached-Service-QA.mjs | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Cached service QA failed.' }
+    & node tools\Name-Resolution-QA.mjs | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Name-resolution QA failed.' }
     & git diff --quiet HEAD -- $core
     if ($LASTEXITCODE -ne 0) { throw 'Uncommitted website changes detected; refusing automatic publication.' }
   } finally { Pop-Location }
@@ -58,7 +62,11 @@ try {
   if ($digest -eq $old) { Note 'No new verified assets; nothing to deploy.'; exit 0 }
   if ($DryRun) { Note 'Dry-run passed; no deployment executed.'; exit 0 }
   New-Item -ItemType Directory -Force -Path $Stage | Out-Null
-  foreach ($path in $core) { Copy-Item -LiteralPath (Join-Path $Root $path) -Destination (Join-Path $Stage $path) -Force }
+  foreach ($path in $core) {
+    $destination = Join-Path $Stage $path
+    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $destination) | Out-Null
+    Copy-Item -LiteralPath (Join-Path $Root $path) -Destination $destination -Force
+  }
   New-Item -ItemType Directory -Force -Path (Join-Path $Stage 'data') | Out-Null
   foreach ($path in $data) { Copy-Item -LiteralPath (Join-Path $Root $path) -Destination (Join-Path $Stage $path) -Force }
   foreach ($dir in @('data\history', 'data\offline-curler-index')) {
@@ -75,19 +83,25 @@ try {
   $logFile = Join-Path $LogDir 'latest-publisher-deployment.log'
   Push-Location $Stage
   try {
-    & $Cli --yes vercel@63.1.2 deploy --prod --yes --scope jess-and-roo *> $logFile
+    & $Cli --yes vercel@63.1.2 deploy --prod --skip-domain --yes --scope jess-and-roo *> $logFile
     $rc = $LASTEXITCODE
   } finally { Pop-Location }
   if ($rc -ne 0) { throw "Vercel deployment failed ($rc); inspect $logFile." }
+  $deployment = (Get-Content -LiteralPath $logFile | Select-String -Pattern 'https://[^ ]+\.vercel\.app' -AllMatches | ForEach-Object { $_.Matches.Value } | Select-Object -Last 1)
+  if (-not $deployment) { throw 'Candidate deployment URL was not found in the deployment log.' }
   $healthy = $false
   for ($attempt = 0; $attempt -lt 5; $attempt++) {
     try {
-      $response = Invoke-WebRequest 'https://curler-tracker.vercel.app/' -UseBasicParsing -TimeoutSec 20
-      if ($response.StatusCode -eq 200 -and $response.Content -match 'Curler Tracker') { $healthy = $true; break }
+      $response = Invoke-WebRequest $deployment -UseBasicParsing -TimeoutSec 20
+      if ($response.StatusCode -eq 200 -and $response.Content -match 'v26.20') { $healthy = $true; break }
     } catch { }
     Start-Sleep -Seconds 4
   }
-  if (-not $healthy) { throw 'Deployment finished, but production smoke check did not pass.' }
+  if (-not $healthy) { throw 'Candidate deployment finished, but its smoke check did not pass; production was not changed.' }
+  & $Cli --yes vercel@63.1.2 promote $deployment --yes --scope jess-and-roo *>> $logFile
+  if ($LASTEXITCODE -ne 0) { throw 'Candidate passed smoke tests but promotion failed; existing production remains available.' }
+  $production = Invoke-WebRequest 'https://curler-tracker.vercel.app/' -UseBasicParsing -TimeoutSec 20
+  if ($production.StatusCode -ne 200 -or $production.Content -notmatch 'v26.20') { throw 'Promotion completed, but production verification failed.' }
   Set-Content -LiteralPath $DigestFile -Value $digest -Encoding ASCII
   Note 'Production release verified and digest recorded.'
 } catch {

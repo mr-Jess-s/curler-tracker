@@ -1,13 +1,15 @@
-import concurrent.futures, json, time, urllib.request
+import argparse, concurrent.futures, json, os, time, urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
 
-ROOT=Path(r'C:\Jess\curler-tracker')
+ROOT=Path(os.environ.get('CURLER_TRACKER_ROOT', Path(__file__).resolve().parents[1]))
 OUTDIR=ROOT/'data'/'history'
 MANIFEST=ROOT/'data'/'history-manifest.json'
 SUBDOMAINS=['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt']
-DELTAS=[0,-1,-2]
+DELTAS=[0,-1,-2,-3,-4]
 BASE='https://api.curling.io/en/clubs/{sub}'
+LOCK=ROOT/'data'/'global'/'history-index.lock'
+CACHE=ROOT/'data'/'raw'/'curling-io-events'
 
 def fetch_json(url, attempts=2):
     last=None
@@ -23,7 +25,14 @@ def fetch_json(url, attempts=2):
 def fetch_event(job):
     sub,item,season=job
     url=f"{BASE.format(sub=sub)}/events/{item['id']}"
-    try: event=fetch_json(url)
+    cached=CACHE/sub/f"{item['id']}.json"
+    try:
+        if cached.exists() and (time.time()-cached.stat().st_mtime)<7*24*60*60: event=json.loads(cached.read_text(encoding='utf-8-sig'))
+        else:
+            event=fetch_json(url)
+            cached.parent.mkdir(parents=True,exist_ok=True)
+            temp=cached.with_suffix('.json.tmp'); temp.write_text(json.dumps(event,ensure_ascii=False,separators=(',',':')),encoding='utf-8'); temp.replace(cached)
+            time.sleep(0.15)
     except Exception as e: return {'error':str(e),'subdomain':sub,'event_id':item.get('id'),'url':url,'rows':[]}
     rows=[]
     for team in event.get('teams') or []:
@@ -33,7 +42,7 @@ def fetch_event(job):
             rows.append({'source_provider':'Curling I/O','source_subdomain':sub,'source_curler_id':cid,'published_name':name,'event_id':event.get('id') or item.get('id'),'event_name':event.get('name') or item.get('name') or '','starts_on':event.get('starts_on') or '','ends_on':event.get('ends_on') or '','season':season,'team_id':team.get('id'),'team_name':team.get('name') or '','position':curler.get('position') or '','coach':team.get('coach') or '','affiliation':team.get('affiliation') or '','source_url':url})
     return {'error':None,'subdomain':sub,'event_id':item.get('id'),'url':url,'rows':rows}
 
-def main():
+def build(max_workers=2):
     OUTDIR.mkdir(parents=True,exist_ok=True); jobs=[]; lists=[]; errors=[]
     for sub in SUBDOMAINS:
         for delta in DELTAS:
@@ -44,7 +53,7 @@ def main():
             except Exception as e:
                 errors.append({'stage':'list','subdomain':sub,'delta':delta,'url':url,'error':str(e)}); print(f'LIST_FAIL {sub} {delta}: {e}',flush=True)
     print(f'FETCHING {len(jobs)} event payloads',flush=True); rows=[]; done=0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures=[ex.submit(fetch_event,j) for j in jobs]
         for fut in concurrent.futures.as_completed(futures):
             result=fut.result(); done+=1
@@ -80,5 +89,18 @@ def main():
     legacy=ROOT/'data'/'history-index.json'
     if legacy.exists(): legacy.unlink()
     print(f'DONE appearances={len(rows)} events={len(jobs)} errors={len(errors)} files={len(files)} bytes={sum(f["bytes"] for f in files)}',flush=True)
+
+def main():
+    parser=argparse.ArgumentParser(description='Build five-season, source-preserving Curling I/O history indexes.')
+    parser.add_argument('--max-workers',type=int,default=2,choices=range(1,5))
+    args=parser.parse_args()
+    LOCK.parent.mkdir(parents=True,exist_ok=True)
+    try:
+        fd=os.open(LOCK,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+        os.write(fd,f"{os.getpid()} {datetime.now(timezone.utc).isoformat()}\n".encode()); os.close(fd)
+    except FileExistsError:
+        raise SystemExit(f'History build already running or requires reviewed stale-lock removal: {LOCK}')
+    try: build(args.max_workers)
+    finally: LOCK.unlink(missing_ok=True)
 
 if __name__=='__main__': main()

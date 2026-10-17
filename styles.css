@@ -151,6 +151,30 @@ h1 {
   transition: background-color .14s ease, border-color .14s ease, box-shadow .14s ease;
 }
 .player-form button:hover { background: var(--blue-dark); }
+.identity-choices {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #c7d6e5;
+  border-radius: 12px;
+  background: #f7fafc;
+}
+.identity-choice-title { margin: 0 0 2px; color: var(--ink); font-weight: 750; }
+.identity-choice {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #9fb5ca;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.identity-choice:hover { border-color: var(--blue); background: #edf5fb; }
+.identity-choice:focus-visible { outline: 3px solid #f2b544; outline-offset: 2px; }
 .ghost {
   border-color: var(--line);
   background: var(--surface);

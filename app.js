@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.19';
+const APP_VERSION = 'v26.20';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -41,6 +41,7 @@ const els = {
   searchProgressTitle: document.getElementById('searchProgressTitle'),
   searchProgressDetail: document.getElementById('searchProgressDetail'),
   searchElapsed: document.getElementById('searchElapsed'),
+  identityChoices: document.getElementById('identityChoices'),
   shareBtn: document.getElementById('shareBtn'),
   refreshBtn: document.getElementById('refreshBtn'),
   demoCurlerBtn: document.getElementById('demoCurlerBtn'),
@@ -100,6 +101,8 @@ const state = {
   careerLoading: false,
   playerGeneration: 0,
   careerMessage: ''
+  ,selectedProfile: null
+  ,nameCatalog: null
 };
 
 const memoryCache = new Map();
@@ -277,6 +280,134 @@ function normalizeName(name) {
     .trim();
 }
 
+function boundedDamerauLevenshtein(a, b, limit = 3) {
+  if (Math.abs(a.length - b.length) > limit) return limit + 1;
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  let previousPrevious = null;
+  for (let i = 1; i <= a.length; i++) {
+    const current = [i];
+    let rowMin = current[0];
+    for (let j = 1; j <= b.length; j++) {
+      let value = Math.min(current[j - 1] + 1, previous[j] + 1, previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (previousPrevious && i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+        value = Math.min(value, previousPrevious[j - 2] + 1);
+      }
+      current[j] = value;
+      rowMin = Math.min(rowMin, value);
+    }
+    if (rowMin > limit) return limit + 1;
+    previousPrevious = previous.slice();
+    for (let j = 0; j < current.length; j++) previous[j] = current[j];
+  }
+  return previous[b.length];
+}
+
+async function loadNameCatalog() {
+  if (state.nameCatalog) return state.nameCatalog;
+  const catalog = await fetchJson(`./data/curler-name-catalog.json?v=${encodeURIComponent(APP_VERSION)}`, {
+    ttlMs: 24 * 60 * 60 * 1000,
+    cacheGroup: 'name-catalog'
+  });
+  if (catalog?.schema_version !== 1 || catalog?.source_provider !== 'Curling I/O' || !Array.isArray(catalog?.names)) {
+    throw new Error('Curler name catalog is unavailable or invalid.');
+  }
+  state.nameCatalog = catalog;
+  return catalog;
+}
+
+function findNameChoices(catalog, input) {
+  const query = normalizeName(input);
+  const exact = catalog.names.find(row => row.normalized === query);
+  if (exact) return { exact, suggestions: [] };
+  // A broad candidate window is safe because suggestions are never selected
+  // automatically. This also recovers repeated keyboard substitutions while
+  // preserving an explicit user confirmation boundary.
+  const limit = Math.min(6, Math.max(2, Math.ceil(query.length * 0.4)));
+  const suggestions = [];
+  for (const row of catalog.names) {
+    const distance = boundedDamerauLevenshtein(query, row.normalized, limit);
+    if (distance <= limit) suggestions.push({ row, distance });
+  }
+  suggestions.sort((a, b) => a.distance - b.distance || a.row.name.localeCompare(b.row.name));
+  return { exact: null, suggestions: suggestions.slice(0, 5).map(item => item.row) };
+}
+
+function clearIdentityChoices() {
+  if (!els.identityChoices) return;
+  els.identityChoices.innerHTML = '';
+  els.identityChoices.classList.add('hidden');
+}
+
+function profileLabel(profile) {
+  return `${String(profile.source_subdomain || '').toUpperCase()}${profile.team_name ? ` · ${profile.team_name}` : ''}${profile.season ? ` · ${profile.season}` : ''}`;
+}
+
+function renderIdentityChoices(title, rows, onChoose) {
+  clearIdentityChoices();
+  const heading = document.createElement('p');
+  heading.className = 'identity-choice-title';
+  heading.textContent = title;
+  els.identityChoices.appendChild(heading);
+  for (const row of rows) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'identity-choice';
+    button.textContent = row.label;
+    button.addEventListener('click', () => onChoose(row));
+    els.identityChoices.appendChild(button);
+  }
+  els.identityChoices.classList.remove('hidden');
+  els.identityChoices.querySelector('button')?.focus();
+}
+
+async function resolveAndStart(input, reason = 'manual-start') {
+  const requested = String(input || '').trim();
+  if (!requested) return;
+  clearIdentityChoices();
+  state.selectedProfile = null;
+  setStatus(`Checking the saved name index for ${requested}…`);
+  if (els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'Checking name…';
+  try {
+    const catalog = await loadNameCatalog();
+    const result = findNameChoices(catalog, requested);
+    if (!result.exact) {
+      if (!result.suggestions.length) {
+        setStatus(`No verified exact name or close spelling was found for ${requested}. Missing records remain unknown.`);
+        renderIdentityChoices('No exact spelling found. Try another spelling.', [], () => {});
+        return;
+      }
+      renderIdentityChoices('No exact spelling found. Did you mean:', result.suggestions.map(row => ({
+        label: row.name,
+        name: row.name,
+        row
+      })), choice => resolveAndStart(choice.name, 'confirmed-spelling'));
+      setStatus(`No exact spelling found for ${requested}. Choose a verified published name below.`);
+      return;
+    }
+    const profiles = result.exact.profiles || [];
+    if (profiles.length > 1) {
+      renderIdentityChoices(`Choose the source profile for ${result.exact.name}:`, profiles.map(profile => ({
+        label: profileLabel(profile),
+        name: result.exact.name,
+        profile
+      })), choice => {
+        state.selectedProfile = choice.profile;
+        clearIdentityChoices();
+        startTracking(choice.name, 'confirmed-profile');
+      });
+      setStatus(`${profiles.length} verified source profiles use this name. Choose one; Curler Tracker will not merge them automatically.`);
+      return;
+    }
+    state.selectedProfile = profiles[0] || null;
+    startTracking(result.exact.name, reason);
+  } catch (error) {
+    setStatus(`The local name index could not be checked. Continuing with an exact-name source search. ${error.message}`);
+    startTracking(requested, reason);
+  } finally {
+    if (!state.isRunning && els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'View curler';
+  }
+}
+
 function escapeHtml(text) {
   return String(text ?? '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -395,10 +526,26 @@ function parsePlayerFromUrl() {
   return new URLSearchParams(window.location.search).get('player')?.trim() || '';
 }
 
+function parseProfileFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const source_subdomain = params.get('source')?.trim().toLowerCase() || '';
+  const source_curler_id = params.get('curler')?.trim() || '';
+  return APP.clubSubdomains.includes(source_subdomain) && /^\d+$/.test(source_curler_id)
+    ? { source_subdomain, source_curler_id }
+    : null;
+}
+
 function updateUrlPlayer(player) {
   const url = new URL(window.location.href);
   if (player) url.searchParams.set('player', player);
   else url.searchParams.delete('player');
+  if (player && state.selectedProfile?.source_subdomain && state.selectedProfile?.source_curler_id) {
+    url.searchParams.set('source', state.selectedProfile.source_subdomain);
+    url.searchParams.set('curler', state.selectedProfile.source_curler_id);
+  } else {
+    url.searchParams.delete('source');
+    url.searchParams.delete('curler');
+  }
   if (url.toString() !== window.location.href) history.pushState({}, '', url.toString());
 }
 
@@ -485,11 +632,11 @@ async function mapWithConcurrency(items, limit, worker, deadlineAt = Infinity) {
 }
 
 function competitionsUrl(subdomain, delta) {
-  return `https://api.curling.io/${APP.language}/clubs/${subdomain}/competitions?occurred=${encodeURIComponent(delta)}&registrations=f`;
+  return `/api/curling-io?kind=competitions&subdomain=${encodeURIComponent(subdomain)}&occurred=${encodeURIComponent(delta)}`;
 }
 
 function eventUrl(subdomain, eventId) {
-  return `https://api.curling.io/${APP.language}/clubs/${subdomain}/events/${eventId}`;
+  return `/api/curling-io?kind=event&subdomain=${encodeURIComponent(subdomain)}&id=${encodeURIComponent(eventId)}`;
 }
 
 function parseEventDateToMs(value) {
@@ -1335,7 +1482,7 @@ function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, de
   };
 }
 
-async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs) {
+async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs, selectedProfile = state.selectedProfile) {
   const normalized = normalizeName(playerName);
   const shard = /^[a-z]/.test(normalized) ? normalized[0] : 'other';
   const index = await fetchJson(`./data/offline-curler-index/${shard}.json?v=${encodeURIComponent(APP_VERSION)}`, {
@@ -1350,11 +1497,14 @@ async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs) {
     diagnostics.offlineLookup = 'no-exact-match';
     return null;
   }
-  if (matches.length !== 1) {
+  const eligible = selectedProfile
+    ? matches.filter(identity => identity.source_subdomain === selectedProfile.source_subdomain && String(identity.source_curler_id) === String(selectedProfile.source_curler_id))
+    : matches;
+  if (eligible.length !== 1) {
     diagnostics.offlineLookup = 'ambiguous-source-identities';
     return null;
   }
-  const identity = matches[0];
+  const identity = eligible[0];
   const record = (identity.records || []).find(row => row.team_name && row.event_name);
   if (!record) diagnostics.offlineLookup = 'no-team-record';
   return record ? buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) : null;
@@ -1489,6 +1639,8 @@ async function tryFastPathCandidate(playerNorm) {
 
     const match = findMatchingTeam(event, playerNorm);
     if (!match) return null;
+    if (state.selectedProfile && (fastPath.subdomain !== state.selectedProfile.source_subdomain ||
+        String(match.curler?.curler_id ?? '') !== String(state.selectedProfile.source_curler_id))) return null;
 
     const selection = selectGamesForEvent(event, match.team);
     return {
@@ -1530,7 +1682,8 @@ async function discoverPlayerEvents(playerName) {
   }
 
   const listJobs = [];
-  for (const subdomain of APP.clubSubdomains) {
+  const sourceSubdomains = state.selectedProfile?.source_subdomain ? [state.selectedProfile.source_subdomain] : APP.clubSubdomains;
+  for (const subdomain of sourceSubdomains) {
     for (const delta of APP.lookaheadSeasons) {
       listJobs.push({ subdomain, delta });
     }
@@ -1579,6 +1732,7 @@ async function discoverPlayerEvents(playerName) {
 
         const match = findMatchingTeam(event, playerNorm);
         if (!match) return null;
+        if (state.selectedProfile && String(match.curler?.curler_id ?? '') !== String(state.selectedProfile.source_curler_id)) return null;
 
         const selection = selectGamesForEvent(event, match.team);
         const candidate = {
@@ -1632,7 +1786,8 @@ async function discoverMostRecentCompletedEvent(playerName) {
   const deadlineAt = Date.now() + APP.recentDiscoveryBudgetMs;
 
   const listJobs = [];
-  for (const subdomain of APP.clubSubdomains) {
+  const sourceSubdomains = state.selectedProfile?.source_subdomain ? [state.selectedProfile.source_subdomain] : APP.clubSubdomains;
+  for (const subdomain of sourceSubdomains) {
     for (const delta of APP.recentLookbackSeasons) {
       listJobs.push({ subdomain, delta });
     }
@@ -1680,6 +1835,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
 
         const match = findMatchingTeam(event, playerNorm);
         if (!match) return null;
+        if (state.selectedProfile && String(match.curler?.curler_id ?? '') !== String(state.selectedProfile.source_curler_id)) return null;
 
         const selection = selectGamesForEvent(event, match.team);
         if (!selection.lastCompleted) return null;
@@ -2192,6 +2348,7 @@ function maybeRunOpenScan(trigger) {
 
 function bootFromSavedState() {
   const fromUrl = parsePlayerFromUrl();
+  const fromUrlProfile = parseProfileFromUrl();
   let fromStorage = '';
   try { fromStorage = localStorage.getItem(APP.localKeys.player) || ''; } catch {}
   const player = fromUrl || fromStorage;
@@ -2202,14 +2359,21 @@ function bootFromSavedState() {
     const diagnostics = buildDiagnostics({ phase: 'saved-snapshot', playerName: player });
     render(findSavedTeamSnapshot(player, snapshot, diagnostics, APP.errorRetryMs) || snapshot);
   }
-  if (player) startTracking(player, 'boot-full-scan');
+  if (player) {
+    if (fromUrlProfile) {
+      state.selectedProfile = fromUrlProfile;
+      startTracking(player, 'boot-full-scan');
+    } else {
+      resolveAndStart(player, 'boot-full-scan');
+    }
+  }
 }
 
-els.form.addEventListener('submit', event => {
+els.form.addEventListener('submit', async event => {
   event.preventDefault();
   const value = els.playerInput.value.trim();
   if (!value) return;
-  startTracking(value, 'manual-start');
+  await resolveAndStart(value, 'manual-start');
   requestAnimationFrame(() => (state.isRunning ? els.searchProgress : els.trackerResults)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 });
 
@@ -2286,7 +2450,7 @@ els.careerLoadBtn?.addEventListener('click', async () => {
 els.demoCurlerBtn?.addEventListener('click', () => {
   const player = 'Sophie Abbs';
   els.playerInput.value = player;
-  startTracking(player, 'verified-example');
+  resolveAndStart(player, 'verified-example');
   requestAnimationFrame(() => (state.isRunning ? els.searchProgress : els.trackerResults)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 });
 
@@ -2302,6 +2466,8 @@ els.homeBtn?.addEventListener('click', () => {
   state.careerHistory = [];
   state.careerMessage = '';
   state.careerLoading = false;
+  state.selectedProfile = null;
+  clearIdentityChoices();
   els.playerInput.value = '';
   updateUrlPlayer('');
   try {
@@ -2319,6 +2485,10 @@ els.shareBtn.addEventListener('click', async () => {
   const player = state.playerName || els.playerInput.value.trim();
   const url = new URL(window.location.href);
   if (player) url.searchParams.set('player', player);
+  if (state.selectedProfile?.source_subdomain && state.selectedProfile?.source_curler_id) {
+    url.searchParams.set('source', state.selectedProfile.source_subdomain);
+    url.searchParams.set('curler', state.selectedProfile.source_curler_id);
+  }
   const shareData = {
     title: player ? `${player} · Curler Tracker` : 'Curler Tracker',
     text: player ? `Follow ${player} on Curler Tracker.` : 'Follow curlers through live events and sourced history.',
@@ -2384,7 +2554,9 @@ if ('serviceWorker' in navigator) {
 
 window.addEventListener('popstate', () => {
   const player = parsePlayerFromUrl();
-  if (player) startTracking(player, 'history-navigation');
+  const profile = parseProfileFromUrl();
+  if (player && profile) { state.selectedProfile = profile; startTracking(player, 'history-navigation'); }
+  else if (player) resolveAndStart(player, 'history-navigation');
   else els.homeBtn.click();
 });
 

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HISTORY = ROOT / "data" / "history"
 CURRENT = ROOT / "data" / "global" / "canada-current-season.json"
 OUT_DIR = ROOT / "data" / "offline-curler-index"
+CATALOG = ROOT / "data" / "curler-name-catalog.json"
 
 
 def read_json(path, default):
@@ -179,7 +180,38 @@ def build():
         temp = manifest_path.with_suffix(".json.tmp")
         temp.write_text(encoded_manifest, encoding="utf-8")
         temp.replace(manifest_path)
-    print(f"Offline curler index: {payload['name_count']} names, {payload['identity_count']} source IDs across {payload['shard_count']} shards -> {OUT_DIR}")
+
+    # A compact, same-origin catalog lets the public application resolve exact
+    # names, offer typo suggestions, and present same-name source profiles
+    # before it makes any network requests. Profiles remain source-native and
+    # are deliberately not merged across associations.
+    catalog_names = []
+    for normalized, candidates in sorted(names.items()):
+        catalog_names.append({
+            "normalized": normalized,
+            "name": candidates[0]["name"],
+            "profiles": [{
+                "source_subdomain": candidate["source_subdomain"],
+                "source_curler_id": str(candidate.get("source_curler_id") or ""),
+                "team_name": candidate["records"][0].get("team_name") or "",
+                "event_id": str(candidate["records"][0].get("event_id") or ""),
+                "season": candidate["records"][0].get("season") or "",
+            } for candidate in candidates],
+        })
+    catalog_payload = {
+        "schema_version": 1,
+        "generated_at": source_snapshot_at,
+        "source_provider": "Curling I/O",
+        "source_policy": "Names and profiles preserve source-native identities; suggestions require user confirmation and never merge identities.",
+        "name_count": len(catalog_names),
+        "names": catalog_names,
+    }
+    encoded_catalog = json.dumps(catalog_payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+    if not CATALOG.exists() or CATALOG.read_text(encoding="utf-8") != encoded_catalog:
+        temp = CATALOG.with_suffix(".json.tmp")
+        temp.write_text(encoded_catalog, encoding="utf-8")
+        temp.replace(CATALOG)
+    print(f"Offline curler index: {payload['name_count']} names, {payload['identity_count']} source IDs across {payload['shard_count']} shards -> {OUT_DIR}; catalog -> {CATALOG}")
     return payload
 
 

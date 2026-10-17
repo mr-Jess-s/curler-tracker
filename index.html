@@ -12,8 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://curler-tracker.vercel.app/">
   <meta name="referrer" content="no-referrer">
-  <link rel="manifest" href="./manifest.webmanifest?v=v26.19">
-  <link rel="stylesheet" href="./styles.css?v=v26.19">
+  <link rel="manifest" href="./manifest.webmanifest?v=v26.20">
+  <link rel="stylesheet" href="./styles.css?v=v26.20">
 </head>
 <body><a class="skip-link" href="#main-content">Skip to content</a>
   <main class="app-shell" id="main-content" tabindex="-1">
@@ -36,9 +36,10 @@
         <p>Find a curler to see current context, recent events and sourced career records.</p>
       </div>
       <form id="playerForm" class="player-form" role="search">
-        <input id="playerInput" aria-label="Curler name" type="text" placeholder="Try Sophie Abbs" autocomplete="off" maxlength="120" required />
+        <input id="playerInput" aria-label="Curler name" aria-controls="identityChoices" type="text" placeholder="Try Sophie Abbs" autocomplete="off" maxlength="120" required />
         <button id="searchSubmitBtn" type="submit">View curler</button>
       </form>
+      <div id="identityChoices" class="identity-choices hidden" role="region" aria-live="polite" aria-label="Curler matches"></div>
       <div id="searchProgress" class="search-progress hidden" role="status" aria-live="polite" aria-atomic="true">
         <span class="search-spinner" aria-hidden="true"></span>
         <span class="search-progress-copy">
@@ -216,6 +217,6 @@
     </form>
   </dialog>
 
-  <script src="./app.js?v=v26.19"></script>
+  <script src="./app.js?v=v26.20"></script>
 </body>
 </html>
