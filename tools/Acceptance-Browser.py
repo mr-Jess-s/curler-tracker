@@ -42,7 +42,7 @@ try:
             js("document.querySelector('#identityChoices .identity-choice').click()")
         else:
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
-        wait("state.isRunning && !document.getElementById('searchProgress').classList.contains('hidden')",3)
+        wait("!document.getElementById('searchProgress').classList.contains('hidden') && document.getElementById('playerForm').getAttribute('aria-busy')==='true'",3)
         progress=round((time.perf_counter()-start)*1000);check(name+'_progress_under_500ms',progress<500,progress)
         try:
             wait("['archived-team','documented-history','recent-event','live','upcoming','idle-event'].includes(state.snapshot?.view)",90)
