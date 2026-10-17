@@ -13,19 +13,25 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "$Name failed with exit code $LASTEXITCODE" }
     Add-Content -LiteralPath $Log -Value "$(Get-Date -Format o) PASS $Name"
   }
+  function Run-GitLogged([string]$Name, [string[]]$Arguments) {
+    $oldPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    & git @Arguments 2>&1 | ForEach-Object { $_.ToString() } | Add-Content -LiteralPath $Log
+    $code = $LASTEXITCODE
+    $ErrorActionPreference = $oldPreference
+    if ($code -ne 0) { throw "$Name failed with exit code $code" }
+  }
   Push-Location $Root
   try {
     $trackedChanges = @(& git status --porcelain --untracked-files=no)
     if ($trackedChanges.Count -gt 0) { throw 'Tracked changes exist before automation; refusing to overwrite operator work.' }
-    & git fetch origin release/2026-10-13-readiness *>> $Log
-    if ($LASTEXITCODE -ne 0) { throw 'Could not fetch the release branch.' }
+    Run-GitLogged 'release branch fetch' @('fetch','origin','release/2026-10-13-readiness')
     $current = (& git rev-parse HEAD).Trim()
     $remote = (& git rev-parse origin/release/2026-10-13-readiness).Trim()
     if ($current -ne $remote) {
       & git merge-base --is-ancestor $current $remote
       if ($LASTEXITCODE -ne 0) { throw 'Local automation commit diverged from the release branch; operator review is required.' }
-      & git switch --detach $remote *>> $Log
-      if ($LASTEXITCODE -ne 0) { throw 'Could not fast-forward the automation worktree.' }
+      Run-GitLogged 'automation worktree fast-forward' @('switch','--detach',$remote)
     }
     if (-not $SkipHistory) { Run-Step 'five-season-history' { python tools\Build-History-Index.py --max-workers 2 } }
     Run-Step 'offline-name-index' { python tools\global_coverage\build_offline_curler_index.py }
@@ -43,10 +49,8 @@ try {
     if ($changes.Count -gt 0) {
       & git add -- data/history data/history-manifest.json data/offline-curler-index data/curler-name-catalog.json data/home-summary.json
       if ($LASTEXITCODE -ne 0) { throw 'Could not stage verified archive data.' }
-      & git commit -m ("Refresh verified curling archive " + (Get-Date -Format 'yyyy-MM-dd')) *>> $Log
-      if ($LASTEXITCODE -ne 0) { throw 'Could not commit verified archive data.' }
-      & git push origin HEAD:release/2026-10-13-readiness *>> $Log
-      if ($LASTEXITCODE -ne 0) { throw 'Could not push verified archive data.' }
+      Run-GitLogged 'verified archive commit' @('commit','-m',("Refresh verified curling archive " + (Get-Date -Format 'yyyy-MM-dd')))
+      Run-GitLogged 'verified archive push' @('push','origin','HEAD:release/2026-10-13-readiness')
     }
     Run-Step 'backup' { powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File tools\Backup-CurlerTracker.ps1 }
   } finally { Pop-Location }
