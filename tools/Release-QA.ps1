@@ -32,7 +32,7 @@ try {
 
   Check ($app -notmatch 'return Number\(pos\?\.score \?\? pos\?\.total_score \?\? pos\?\.totalScore \?\? 0\)') 'Missing position scores are not converted into zero.'
   Check ($app -notmatch 'linked = !!ourPos \|\| aliasMatch') 'Alias text alone cannot assert that a game belongs to the tracked team.'
-  Check ($app -match "careerLookbackSeasons: \[0, -1, -2\]") 'Recent career lookup is bounded to three Curling I/O seasons.'
+  Check ($app -match "careerLookbackSeasons: \[0, -1, -2, -3, -4\]") 'Recent career lookup is bounded to five Curling I/O seasons.'
 
   $base = 'https://api.curling.io/en/clubs/ab/events'
   $e2026 = Invoke-RestMethod -Uri "$base/24023" -TimeoutSec 20

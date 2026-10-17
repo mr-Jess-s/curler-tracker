@@ -5,7 +5,7 @@ const APP = {
   language: 'en',
   lookaheadSeasons: [0],
   recentLookbackSeasons: [0, -1, -2],
-  careerLookbackSeasons: [0, -1, -2],
+  careerLookbackSeasons: [0, -1, -2, -3, -4],
   idleScanMs: 72 * 60 * 60 * 1000,
   preGameWindowMs: 45 * 60 * 1000,
   postGameWindowMs: 3 * 60 * 60 * 1000,
