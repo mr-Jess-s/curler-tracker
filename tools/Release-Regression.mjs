@@ -266,4 +266,13 @@ await check('First-party source proxy requests remain CDN-cacheable',async()=>{
  await a.run("fetchJson('/api/curling-io?kind=competitions&subdomain=ab&occurred=0')");
  assert.equal(a.context.options.cache,'default');
 });
+await check('Blocked proxy falls back to the official browser-readable source',async()=>{
+ const a=app();a.context.fetches=[];
+ a.run("fetch=async(url,options)=>{fetches.push({url,cache:options.cache});return fetches.length===1?{ok:false,status:502}:{ok:true,status:200,json:async()=>({items:[]})}};");
+ await a.run("fetchJson('/api/curling-io?kind=competitions&subdomain=ab&occurred=0')");
+ assert.equal(a.context.fetches.length,2);
+ assert.equal(a.context.fetches[0].cache,'default');
+ assert.equal(a.context.fetches[1].url,'https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f');
+ assert.equal(a.context.fetches[1].cache,'no-store');
+});
 console.log(count+' release regression checks passed.');
