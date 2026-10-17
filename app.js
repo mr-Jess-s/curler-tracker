@@ -338,6 +338,19 @@ function clearIdentityChoices() {
   els.identityChoices.classList.add('hidden');
 }
 
+function beginNameCheckProgress(name) {
+  els.searchProgress?.classList.remove('hidden');
+  if (els.searchProgressTitle) els.searchProgressTitle.textContent = 'Checking the published name index';
+  if (els.searchProgressDetail) els.searchProgressDetail.textContent = `Looking for an exact match or a close spelling for ${name}…`;
+  if (els.searchElapsed) els.searchElapsed.textContent = '0s';
+  els.form?.setAttribute('aria-busy', 'true');
+  if (els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'Checking name…';
+  if (els.liveBadge) {
+    els.liveBadge.className = 'badge upcoming';
+    els.liveBadge.textContent = 'Searching';
+  }
+}
+
 function profileLabel(profile) {
   return `${String(profile.source_subdomain || '').toUpperCase()}${profile.team_name ? ` · ${profile.team_name}` : ''}${profile.season ? ` · ${profile.season}` : ''}`;
 }
@@ -365,8 +378,8 @@ async function resolveAndStart(input, reason = 'manual-start') {
   if (!requested) return;
   clearIdentityChoices();
   state.selectedProfile = null;
+  beginNameCheckProgress(requested);
   setStatus(`Checking the saved name index for ${requested}…`);
-  if (els.searchSubmitBtn) els.searchSubmitBtn.textContent = 'Checking name…';
   try {
     const catalog = await loadNameCatalog();
     const result = findNameChoices(catalog, requested);
@@ -382,10 +395,12 @@ async function resolveAndStart(input, reason = 'manual-start') {
         return;
       }
       if (!result.suggestions.length) {
+        endSearchProgress();
         setStatus(`No verified exact name or close spelling was found for ${requested}. Missing records remain unknown.`);
         renderIdentityChoices('No exact spelling found. Try another spelling.', [], () => {});
         return;
       }
+      endSearchProgress();
       renderIdentityChoices('No exact spelling found. Did you mean:', result.suggestions.map(row => ({
         label: row.name,
         name: row.name,
@@ -396,6 +411,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
     }
     const profiles = result.exact.profiles || [];
     if (profiles.length > 1) {
+      endSearchProgress();
       renderIdentityChoices(`Choose the source profile for ${result.exact.name}:`, profiles.map(profile => ({
         label: profileLabel(profile),
         name: result.exact.name,

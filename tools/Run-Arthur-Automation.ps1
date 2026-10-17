@@ -15,6 +15,18 @@ try {
   }
   Push-Location $Root
   try {
+    $trackedChanges = @(& git status --porcelain --untracked-files=no)
+    if ($trackedChanges.Count -gt 0) { throw 'Tracked changes exist before automation; refusing to overwrite operator work.' }
+    & git fetch origin release/2026-10-13-readiness *>> $Log
+    if ($LASTEXITCODE -ne 0) { throw 'Could not fetch the release branch.' }
+    $current = (& git rev-parse HEAD).Trim()
+    $remote = (& git rev-parse origin/release/2026-10-13-readiness).Trim()
+    if ($current -ne $remote) {
+      & git merge-base --is-ancestor $current $remote
+      if ($LASTEXITCODE -ne 0) { throw 'Local automation commit diverged from the release branch; operator review is required.' }
+      & git switch --detach $remote *>> $Log
+      if ($LASTEXITCODE -ne 0) { throw 'Could not fast-forward the automation worktree.' }
+    }
     if (-not $SkipHistory) { Run-Step 'five-season-history' { python tools\Build-History-Index.py --max-workers 2 } }
     Run-Step 'offline-name-index' { python tools\global_coverage\build_offline_curler_index.py }
     Run-Step 'homepage-summary' { node tools\Build-Home-Summary.mjs }

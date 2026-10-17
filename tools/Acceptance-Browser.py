@@ -34,7 +34,14 @@ try:
     check('privacy_link',len(d.find_elements(By.CSS_SELECTOR,'a[href="./privacy.html"]'))==1)
     # Real sources, with bounded waits; each result remains source-qualified.
     for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
-        start=time.perf_counter();js('startTracking('+json.dumps(name)+',"uat-real")')
+        start=time.perf_counter()
+        if name=='Adam Flatt':
+            js('resolveAndStart('+json.dumps(name)+',"uat-real")')
+            wait("document.querySelectorAll('#identityChoices .identity-choice').length>=2",5)
+            check('Adam_Flatt_ambiguous_profile_picker',len(d.find_elements(By.CSS_SELECTOR,'#identityChoices .identity-choice'))>=2)
+            js("document.querySelector('#identityChoices .identity-choice').click()")
+        else:
+            js('resolveAndStart('+json.dumps(name)+',"uat-real")')
         wait("state.isRunning && !document.getElementById('searchProgress').classList.contains('hidden')",3)
         progress=round((time.perf_counter()-start)*1000);check(name+'_progress_under_500ms',progress<500,progress)
         try:
@@ -64,7 +71,9 @@ try:
     js("uatResolves[1]({candidates:[],checked:[],timedOut:false})");wait('!state.isRunning')
     js("discoverPlayerEvents=uatOriginal.discovery;discoverMostRecentCompletedEvent=uatOriginal.recent;findOfflineTeamSnapshot=uatOriginal.offline;findDocumentedCurlingSnapshot=uatOriginal.docs;document.querySelector('#homeBtn').click()")
     check('return_to_archive',d.find_element(By.ID,'archiveHome').is_displayed())
-    d.back();wait("state.playerName==='Second UAT'");check('browser_back_restores_curler',js("return state.playerName==='Second UAT'"));js("document.querySelector('#homeBtn').click()")
+    js("resolveAndStart('Jody Sutherland','uat-back')");wait("state.playerName==='Jody Sutherland'",10);wait('!state.isRunning',100)
+    js("document.querySelector('#homeBtn').click()");d.back();wait("state.playerName==='Jody Sutherland'",60)
+    check('browser_back_restores_curler',js("return state.playerName==='Jody Sutherland'"));js("document.querySelector('#homeBtn').click()")
     js("document.querySelector('#feedbackBtn').click()")
     check('feedback_dialog',d.find_element(By.ID,'feedbackDialog').get_attribute('open') is not None)
     js("document.querySelector('#feedbackCopyBtn').click()")

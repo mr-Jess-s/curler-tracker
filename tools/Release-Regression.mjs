@@ -275,4 +275,14 @@ await check('Blocked proxy falls back to the official browser-readable source',a
  assert.equal(a.context.fetches[1].url,'https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f');
  assert.equal(a.context.fetches[1].cache,'no-store');
 });
+await check('Name-index preflight immediately exposes an accessible progress state',async()=>{
+ const a=app();
+ a.run("loadNameCatalog=()=>new Promise(resolve=>globalThis.finishCatalog=resolve);startTracking=name=>{globalThis.started=name}");
+ const pending=a.run("resolveAndStart('Jody Sutherland','uat')");
+ assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),false);
+ assert.equal(a.elements.get('playerForm').attributes['aria-busy'],'true');
+ assert.match(a.elements.get('searchProgressTitle').textContent,/published name index/i);
+ a.run("finishCatalog({names:[{normalized:'jody sutherland',name:'Jody Sutherland',profiles:[{source_subdomain:'ab',source_curler_id:'29219'}]}]})");
+ await pending;assert.equal(a.run('started'),'Jody Sutherland');
+});
 console.log(count+' release regression checks passed.');
