@@ -11,11 +11,21 @@ def verify(base,build):
                 body=response.read();digest=hashlib.sha256(body).hexdigest()
                 return {'path':path,'pass':digest==record['sha256'],'status':response.status,'bytes':len(body),'sha256':digest}
         except Exception as error:return {'path':path,'pass':False,'error':str(error)}
-    # vercel.json config is intentionally not served as a public asset.
-    items=[item for item in manifest['files'].items() if item[0]!='vercel.json']
+    # Deployment configuration, dependency metadata, and function source are
+    # intentionally not exposed as static assets. Verify the function by its
+    # public contract below instead of expecting its source bytes.
+    private_paths={'vercel.json','package.json','api/curling-io.js'}
+    items=[item for item in manifest['files'].items() if item[0] not in private_paths]
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(one,items))
     with urllib.request.urlopen(base.rstrip('/')+'/release.json',timeout=30) as response:remote=json.load(response)
-    result={'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':base,'commit':manifest['commit'],'version':manifest['version'],'manifest_matches':remote==manifest,'checks':results,'passed':all(r['pass'] for r in results) and remote==manifest}
+    try:
+        api_url=base.rstrip('/')+'/api/curling-io?kind=competitions&subdomain=ab&occurred=0'
+        with urllib.request.urlopen(api_url,timeout=30) as response:
+            payload=json.load(response);cache_control=response.headers.get('cache-control','')
+            service_check={'path':'api/curling-io','pass':response.status==200 and isinstance(payload,dict) and 's-maxage=' in cache_control,'status':response.status,'cache_control':cache_control}
+    except Exception as error:
+        service_check={'path':'api/curling-io','pass':False,'error':str(error)}
+    result={'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':base,'commit':manifest['commit'],'version':manifest['version'],'manifest_matches':remote==manifest,'checks':results,'service_check':service_check,'passed':all(r['pass'] for r in results) and service_check['pass'] and remote==manifest}
     return result
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('url');p.add_argument('build');p.add_argument('--out',required=True);a=p.parse_args()
