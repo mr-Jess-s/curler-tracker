@@ -70,16 +70,16 @@ try {
     Set-Content -LiteralPath (Join-Path $linkDir 'project.json') -Encoding ASCII
   $logFile = Join-Path $LogDir 'latest-publisher-deployment.log'
   $priorFile = Join-Path $Stage 'prior-production.json'
-  $ErrorActionPreference = 'Continue'
-  & $Cli --yes vercel@63.1.2 inspect https://curler-tracker.vercel.app --json --scope jess-and-roo 1> $priorFile 2>> $logFile
-  $ErrorActionPreference = 'Stop'
-  if ($LASTEXITCODE -ne 0) { throw 'Could not identify the current production deployment; refusing publication without rollback target.' }
+  $inspectErr = Join-Path $Stage 'inspect-stderr.log'
+  $inspect = Start-Process -FilePath $Cli -ArgumentList @('--yes','vercel@63.1.2','inspect','https://curler-tracker.vercel.app','--json','--scope','jess-and-roo') -Wait -PassThru -NoNewWindow -RedirectStandardOutput $priorFile -RedirectStandardError $inspectErr
+  if ($inspect.ExitCode -ne 0) { throw 'Could not identify the current production deployment; refusing publication without rollback target.' }
   $prior = Get-Content -LiteralPath $priorFile -Raw | ConvertFrom-Json
   if (-not $prior.url -or $prior.readyState -ne 'READY') { throw 'Current production deployment is not a verified rollback target.' }
   Push-Location $Stage
   try {
-    & $Cli --yes vercel@63.1.2 deploy --prod --skip-domain --yes --scope jess-and-roo *> $logFile
-    $rc = $LASTEXITCODE
+    $deployError = Join-Path $Stage 'deploy-stderr.log'
+    $deployProcess = Start-Process -FilePath $Cli -ArgumentList @('--yes','vercel@63.1.2','deploy','--prod','--skip-domain','--yes','--scope','jess-and-roo') -Wait -PassThru -NoNewWindow -RedirectStandardOutput $logFile -RedirectStandardError $deployError
+    $rc = $deployProcess.ExitCode
   } finally { Pop-Location }
   if ($rc -ne 0) { throw "Vercel deployment failed ($rc); inspect $logFile." }
   $deployment = (Get-Content -LiteralPath $logFile | Select-String -Pattern 'https://[^ ]+\.vercel\.app' -AllMatches | ForEach-Object { $_.Matches.Value } | Select-Object -Last 1)
@@ -87,8 +87,10 @@ try {
   $candidateEvidence = Join-Path $Stage 'candidate-verification.json'
   & $Python (Join-Path $PSScriptRoot 'Verify-Deployment.py') $deployment $Stage --out $candidateEvidence
   if ($LASTEXITCODE -ne 0) { throw 'Candidate deployment bytes did not match the reviewed build; production was not changed.' }
-  & $Cli --yes vercel@63.1.2 promote $deployment --yes --scope jess-and-roo *>> $logFile
-  if ($LASTEXITCODE -ne 0) { throw 'Candidate passed smoke tests but promotion failed; existing production remains available.' }
+  $promoteLog = Join-Path $Stage 'promote-stdout.log'
+  $promoteError = Join-Path $Stage 'promote-stderr.log'
+  $promote = Start-Process -FilePath $Cli -ArgumentList @('--yes','vercel@63.1.2','promote',$deployment,'--yes','--scope','jess-and-roo') -Wait -PassThru -NoNewWindow -RedirectStandardOutput $promoteLog -RedirectStandardError $promoteError
+  if ($promote.ExitCode -ne 0) { throw 'Candidate passed smoke tests but promotion failed; existing production remains available.' }
   $productionEvidence = Join-Path $Stage 'production-verification.json'
   & $Python (Join-Path $PSScriptRoot 'Verify-Deployment.py') https://curler-tracker.vercel.app $Stage --out $productionEvidence
   if ($LASTEXITCODE -ne 0) {
