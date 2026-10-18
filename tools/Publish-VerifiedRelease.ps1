@@ -1,4 +1,4 @@
-param([switch]$DryRun)
+param([switch]$DryRun, [switch]$DeployReviewedNow)
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent $PSScriptRoot
 $Cli = 'C:\Program Files\nodejs\npx.cmd'
@@ -44,7 +44,7 @@ try {
   $sources += Get-ChildItem (Join-Path $Root 'data\offline-curler-index') -File -Recurse
   if (($sources | Measure-Object).Count -lt 20) { throw 'Refusing unexpectedly small release set.' }
   $newest = ($sources | Measure-Object -Property LastWriteTimeUtc -Maximum).Maximum
-  if (-not $DryRun -and $newest -gt (Get-Date).ToUniversalTime().AddMinutes(-5)) {
+  if (-not $DryRun -and -not $DeployReviewedNow -and $newest -gt (Get-Date).ToUniversalTime().AddMinutes(-5)) {
     Note 'Release data is being updated; deferring until it is stable.'
     exit 0
   }
