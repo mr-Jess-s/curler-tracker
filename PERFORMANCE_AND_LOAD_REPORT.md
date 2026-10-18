@@ -1,12 +1,13 @@
 # Performance and Load Report
 
-Evidence date: 2026-10-17/18 UTC. Candidate and production use the same verified public bytes.
+Evidence date: 2026-10-18 UTC.
 
-- First visible search progress: 6–25 ms in rendered production tests; threshold 500 ms.
-- Local indexed-name resolution: median 193.57 ms, p95 252.09 ms, maximum 269.37 ms.
-- Controlled staging load: 60 static requests, five concurrent over five seconds, 0 errors.
-- Load latency: p50 248.45 ms, p95 425.46 ms, maximum 503.86 ms.
-- Mobile widths tested: 320 px and 390 px; no horizontal overflow.
-- Cache policy: browser five minutes, shared cache one hour, stale-while-revalidate one day.
+- Candidate rendered search progress: 14–30 ms; release threshold: under 500 ms.
+- Candidate useful archived/documented result in local rendered UAT: approximately 0.5–0.6 seconds for exercised profiles.
+- Identity algorithm QA: 419 cases; median 190.85 ms, p95 249.49 ms, maximum 314.42 ms.
+- Name delivery changed from one 2.9 MB browser scan to keyed first-name/surname shards; 53 deterministic shards cover 13,338 names.
+- Mobile widths tested: 320 and 390 px; desktop: 1365 px; no horizontal overflow.
+- Existing controlled UAT load evidence: 60 static requests, concurrency 5, 0 errors, p95 425.46 ms.
+- Service-worker data handling is network-first with offline fallback, preventing an unchanged app cache name from pinning old data.
 
-This controlled run validates the release threshold for indexed and static traffic; it is not evidence of national-audience capacity. Curling I/O rejects the Vercel server egress path, so the bounded official-source browser fallback still scales some source traffic with visitors. National advertising remains blocked until this dependency is resolved or load-isolated.
+The reviewed candidate was not deployed, so a new exact-candidate staging load run is BLOCKED by Vercel team authorization. The current source proxy returns 502 and browser fallback traffic reaches the upstream service directly. The existing limited probe does not establish national-audience capacity. National advertising remains blocked until the source service is cache-isolated and the exact promoted build passes a controlled staging load test.

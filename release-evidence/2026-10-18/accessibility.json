@@ -1,0 +1,293 @@
+{
+  "timestamp": "2026-10-18T22:44:25.458041+00:00",
+  "url": "http://127.0.0.1:8768",
+  "engine": "axe-core 4.14.0",
+  "browser": "155.0.4283.62",
+  "viewport_width": 390,
+  "results": [
+    {
+      "view": "home",
+      "report": {
+        "incomplete": [],
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testEnvironment": {
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+          "windowHeight": 844,
+          "windowWidth": 390
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "timestamp": "2026-10-18T22:44:24.921Z",
+        "toolOptions": {
+          "reporter": "v1",
+          "runOnly": {
+            "type": "tag",
+            "values": [
+              "wcag2a",
+              "wcag2aa",
+              "wcag21aa",
+              "wcag22aa"
+            ]
+          }
+        },
+        "url": "http://127.0.0.1:8768/",
+        "violations": [],
+        "passed_rule_ids": [
+          "aria-allowed-attr",
+          "aria-conditional-attr",
+          "aria-deprecated-role",
+          "aria-hidden-body",
+          "aria-hidden-focus",
+          "aria-prohibited-attr",
+          "aria-required-attr",
+          "aria-roles",
+          "aria-valid-attr-value",
+          "aria-valid-attr",
+          "autocomplete-valid",
+          "button-name",
+          "bypass",
+          "color-contrast",
+          "document-title",
+          "duplicate-id-aria",
+          "form-field-multiple-labels",
+          "html-has-lang",
+          "html-lang-valid",
+          "image-alt",
+          "label",
+          "link-name",
+          "meta-viewport",
+          "nested-interactive",
+          "scrollable-region-focusable",
+          "select-name",
+          "target-size"
+        ]
+      }
+    },
+    {
+      "view": "historical-record",
+      "report": {
+        "incomplete": [],
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testEnvironment": {
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+          "windowHeight": 844,
+          "windowWidth": 390
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "timestamp": "2026-10-18T22:44:25.096Z",
+        "toolOptions": {
+          "reporter": "v1",
+          "runOnly": {
+            "type": "tag",
+            "values": [
+              "wcag2a",
+              "wcag2aa",
+              "wcag21aa",
+              "wcag22aa"
+            ]
+          }
+        },
+        "url": "http://127.0.0.1:8768/",
+        "violations": [],
+        "passed_rule_ids": [
+          "aria-allowed-attr",
+          "aria-conditional-attr",
+          "aria-deprecated-role",
+          "aria-hidden-body",
+          "aria-hidden-focus",
+          "aria-prohibited-attr",
+          "aria-required-attr",
+          "aria-roles",
+          "aria-valid-attr-value",
+          "aria-valid-attr",
+          "autocomplete-valid",
+          "button-name",
+          "bypass",
+          "color-contrast",
+          "document-title",
+          "duplicate-id-aria",
+          "form-field-multiple-labels",
+          "html-has-lang",
+          "html-lang-valid",
+          "image-alt",
+          "label",
+          "link-name",
+          "meta-viewport",
+          "nested-interactive",
+          "target-size"
+        ]
+      }
+    },
+    {
+      "view": "feedback",
+      "report": {
+        "incomplete": [
+          {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "all": [],
+                "any": [
+                  {
+                    "data": {
+                      "bgColor": null,
+                      "colorParse": null,
+                      "contrastRatio": 0,
+                      "expectedContrastRatio": "4.5:1",
+                      "fgColor": null,
+                      "fontSize": "10.8pt (14.4px)",
+                      "fontWeight": "normal",
+                      "messageKey": "elmPartiallyObscuring",
+                      "shadowColor": null
+                    },
+                    "id": "color-contrast",
+                    "impact": "serious",
+                    "message": "Element's background color could not be determined because it partially overlaps other elements",
+                    "relatedNodes": []
+                  }
+                ],
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+                "html": "<p class=\"hint\">Nothing is sent automatically. Copy or download the report and share it when you choose.</p>",
+                "impact": "serious",
+                "none": [],
+                "target": [
+                  ".feedback-form > .section-head > div > .hint"
+                ]
+              }
+            ],
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ]
+          }
+        ],
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testEnvironment": {
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+          "windowHeight": 844,
+          "windowWidth": 390
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "timestamp": "2026-10-18T22:44:25.229Z",
+        "toolOptions": {
+          "reporter": "v1",
+          "runOnly": {
+            "type": "tag",
+            "values": [
+              "wcag2a",
+              "wcag2aa",
+              "wcag21aa",
+              "wcag22aa"
+            ]
+          }
+        },
+        "url": "http://127.0.0.1:8768/",
+        "violations": [],
+        "passed_rule_ids": [
+          "aria-allowed-attr",
+          "aria-conditional-attr",
+          "aria-deprecated-role",
+          "aria-hidden-body",
+          "aria-hidden-focus",
+          "aria-prohibited-attr",
+          "aria-required-attr",
+          "aria-roles",
+          "aria-valid-attr-value",
+          "aria-valid-attr",
+          "button-name",
+          "color-contrast",
+          "duplicate-id-aria",
+          "form-field-multiple-labels",
+          "label",
+          "meta-viewport",
+          "nested-interactive",
+          "select-name",
+          "target-size"
+        ]
+      }
+    },
+    {
+      "view": "privacy",
+      "report": {
+        "incomplete": [],
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.14.0"
+        },
+        "testEnvironment": {
+          "orientationAngle": 0,
+          "orientationType": "landscape-primary",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+          "windowHeight": 844,
+          "windowWidth": 390
+        },
+        "testRunner": {
+          "name": "axe"
+        },
+        "timestamp": "2026-10-18T22:44:25.398Z",
+        "toolOptions": {
+          "reporter": "v1",
+          "runOnly": {
+            "type": "tag",
+            "values": [
+              "wcag2a",
+              "wcag2aa",
+              "wcag21aa",
+              "wcag22aa"
+            ]
+          }
+        },
+        "url": "http://127.0.0.1:8768/privacy.html",
+        "violations": [],
+        "passed_rule_ids": [
+          "aria-hidden-body",
+          "bypass",
+          "color-contrast",
+          "document-title",
+          "html-has-lang",
+          "html-lang-valid",
+          "link-in-text-block",
+          "link-name",
+          "meta-viewport",
+          "target-size"
+        ]
+      }
+    }
+  ],
+  "violations": 0,
+  "errors": 0,
+  "manual_review_items": 1,
+  "limitation": "Automated subset only; physical iPhone and assistive-technology review remain separate gates."
+}

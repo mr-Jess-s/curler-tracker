@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-18T22:41:28.451465+00:00",
+  "finished_at": "2026-10-18T22:44:29.158304+00:00",
+  "restore_directory": "C:\\Users\\mrjes\\AppData\\Local\\Temp\\CurlerTracker-archive-restore-l_38bmgc",
+  "files_restored": 11717,
+  "bytes_restored": 1864186726,
+  "raw_files_restored": 11555,
+  "normalized_json_validated": 162,
+  "mismatches": [],
+  "invalid_files": [],
+  "cloud_sync_verified": false,
+  "passed": true
+}

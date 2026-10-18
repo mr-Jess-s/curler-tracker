@@ -1,24 +1,29 @@
 # UAT Acceptance Matrix
 
-Evidence date: 2026-10-18 UTC. Build: v26.20 / `e2708537`.
+Evidence date: 2026-10-18 UTC. Candidate: v26.21 / `3a551ed`.
 
 | Requirement | Status | Evidence |
 |---|---|---|
-| Public website and exact build | PASS | Production byte verifier: 54 files, 0 mismatches |
-| First visit, navigation, seasons, back button | PASS | Production rendered UAT: 39/39 |
-| Known, unknown, partial and ambiguous searches | PASS | Production rendered UAT; fixed-name QA |
-| Typo suggestions without automatic identity selection | PASS | 71/71 exact, 64/64 severe, 284/284 realistic |
-| Search progress and stale-result isolation | PASS | Visible progress 6–25 ms; rendered UAT |
-| Farrol Asham case | PASS | Two cited records; partial/live-source warning; screenshot |
-| Mobile layouts | PASS | 320, 390 and 1365 px, no horizontal overflow |
-| Keyboard, reduced motion, semantics, contrast | PASS | Extended browser 12/12; axe 0 violations in four views |
-| Security headers and private-file exclusion | PASS | Production security 14/14 |
-| Archive automation | PASS | Scheduled cycle result 0; 44,847 sourced appearances |
-| Backup restoration | PASS | 12,789 files, 0 mismatches, Git fsck and 38 regressions pass |
-| Physical mobile and human screen-reader test | BLOCKED | Requires physical devices and qualified human testing |
-| Private correction channel | BLOCKED | Requires owner-approved destination; no personal address published |
-| Rights clearance | BLOCKED | Mascot/artwork/source-use documentation not supplied |
-| National-load capacity | BLOCKED | Controlled static load passed; national traffic not established |
-| External alert delivery | BLOCKED | Local health task works; no authorized external destination |
+| Public website responds | PASS | Public `release.json` returned v26.21 / `ffa60f3` |
+| Candidate syntax and deterministic regression | PASS | 39/39 release checks; 4/4 cache checks |
+| Exact and typo identity resolution | PASS | 71/71 exact; 64/64 severe; 284/284 realistic |
+| Rendered first visit, search, state changes and navigation | PASS | Local candidate Edge UAT 39/39 |
+| 320/390/1365 px responsive layouts | PASS | No horizontal overflow in rendered UAT |
+| Progress announcement and stale-search isolation | PASS | Rendered checks; visible progress 14–30 ms |
+| Ambiguous identities require visitor choice | PASS | Regression and rendered profile-picker checks |
+| Unknown, partial, unavailable, timed-out and incomplete states | PASS | Fault-injection and regression checks |
+| Season navigation and sourced history links | PASS | Rendered UAT and five-season manifest |
+| Automated accessibility subset | PASS | axe-core 4.14.0; four views; 0 violations/errors |
+| Arthur collector and archive automation | PASS | Scheduled cycle result 0; fresh heartbeat and 0 failed jobs |
+| Release-tree backup and restore | PASS | 1,964 files; 108,119,106 bytes; 0 mismatches; Git/fsck/regression pass |
+| Raw/global archive backup and restore | PASS | 11,717 files; 1,864,186,726 bytes; 0 mismatches/invalid files |
+| Candidate staging on Vercel | BLOCKED | Vercel CLI and connector return 403 for team scope |
+| Production source application service | FAIL | `/api/curling-io` returns 502; verifier now fails this condition |
+| Promote and verify reviewed candidate | BLOCKED | Cannot proceed without Vercel team authorization |
+| Off-computer alert delivery | BLOCKED | No owner-authorized alert destination |
+| Physical-device and human assistive-technology UAT | BLOCKED | Physical devices/qualified testers unavailable |
+| Private correction destination and retention workflow | BLOCKED | Owner decision required |
+| Media/source-use rights clearance | BLOCKED | Documentary clearance not supplied |
+| National-traffic capacity | BLOCKED | Existing controlled probe is not national-capacity evidence |
 
-Current release-gate suites total 554 PASS and 0 FAIL. Blocked requirements are not counted as passes.
+Local candidate assertions: 501 passed, 0 failed. Production acceptance: one active source-service failure. Blocked requirements are not counted as passes.

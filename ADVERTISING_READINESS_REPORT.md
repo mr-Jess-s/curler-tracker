@@ -1,20 +1,22 @@
 # Advertising Readiness Report
 
-## What passes
+## What is ready
 
-The professional public build is live at https://curler-tracker.vercel.app. Brand, mobile layout, search journey, source links, share links, truthful incomplete states, metadata, social preview, privacy link, accessibility automation, security headers, deterministic collection, backup restoration and rollback-capable publishing are implemented and tested.
+The public site has a clear brand and visitor journey, mobile layouts, search progress, explicit result states, source links, share links, five-season navigation, privacy disclosures, safe metadata, deterministic collection, tested recovery and a fail-closed release pipeline. The reviewed candidate resolves exact-name, typo, ambiguity, stale-cache, monitoring and backup defects locally.
 
 Allowed claim: **Verified curling records from participating public sources; coverage varies by association, event and season.**
 
-Do not claim every curler, complete career history, complete global coverage, guaranteed live results, or audited WCAG conformance.
+Do not claim every curler, complete career history, complete global coverage, guaranteed live results, audited accessibility conformance, or national-traffic capacity.
 
-## Verdict: BLOCKED for national advertising
+## Verdict: BLOCKED for professional national advertising
 
-1. Obtain documented mascot/artwork/trademark and source-reuse clearance.
-2. Approve a private correction/privacy destination and retention process.
-3. Complete physical iPhone/Android and human assistive-technology testing.
-4. Add off-computer incident alerts to an authorized destination.
-5. Resolve or isolate the official-source server-access limitation, then run a representative national-capacity test.
-6. Confirm OneDrive restoration from another device.
+1. Restore Vercel authorization and deploy/verify the reviewed candidate.
+2. Make the production source service return cacheable 200 responses; do not rely on per-visitor direct fallback under surge.
+3. Run the exact candidate through controlled staging load tests.
+4. Approve a private correction/privacy destination and retention process.
+5. Complete physical iPhone/Android and human assistive-technology testing.
+6. Document mascot/artwork/trademark and source-reuse clearance.
+7. Configure off-computer incident alerts to an authorized destination.
+8. Confirm OneDrive restoration from another device.
 
-The application is publicly operational; these blockers prevent a truthful national-advertising-ready declaration.
+The current site remains publicly accessible, but it is not responsible to launch national advertising while these material blockers remain.

@@ -1,48 +1,94 @@
 {
-  "schema_version": 2,
-  "recorded_at": "2026-10-18T14:20:00Z",
-  "release": "v26.20",
-  "production_url": "https://curler-tracker.vercel.app",
-  "staging_url": "https://curler-tracker-uat-20261017.vercel.app",
-  "git_commit": "e2708537cd9eb4bc924f25f834d69df4d3c27de3",
-  "production_deployment_id": "dpl_35TDmRKAv3TDhPE7QeJQDbdUtVx5",
-  "staging_deployment_id": "dpl_HHSc62oiA4bWRHzcRZ3PbYrdvfso",
+  "schema_version": 3,
+  "recorded_at": "2026-10-18T22:50:00Z",
+  "production": {
+    "url": "https://curler-tracker.vercel.app",
+    "version": "v26.21",
+    "git_commit": "ffa60f3880c0dcdbd2049a78cccf4f03ffbe4a6f",
+    "source_service_status": 502,
+    "verified_candidate_deployed": false
+  },
+  "staging": {
+    "url": "https://curler-tracker-uat-20261017.vercel.app",
+    "version": "v26.20",
+    "git_commit": "76f25188a31be5b9b49dbd9f1a26f8838cfbea24",
+    "matches_candidate": false
+  },
+  "candidate": {
+    "version": "v26.21",
+    "branch": "release/2026-10-13-readiness",
+    "code_data_commit": "3a551ed502ded7adf669bb77ea7f7a5d4fe0190d",
+    "public_files": 109,
+    "deployment_attempt": "BLOCKED",
+    "deployment_error": "Vercel HTTP 403: not authorized for jess-and-roo scope"
+  },
   "tests": {
-    "release_gate_passed": 554,
-    "release_gate_failed": 0,
-    "production_rendered": {"passed": 39, "failed": 0},
-    "production_security": {"passed": 14, "failed": 0},
-    "name_qa": {"exact": "71/71", "severe_typo": "64/64", "realistic_typo": "284/284"},
-    "regression": {"passed": 38, "failed": 0},
-    "controlled_load": {"requests": 60, "errors": 0, "p95_ms": 425.46},
-    "axe": {"views": 4, "violations": 0, "manual_review_items": 1}
+    "local_candidate_assertions_passed": 501,
+    "local_candidate_assertions_failed": 0,
+    "release_regression": {"passed": 39, "failed": 0},
+    "cache_qa": {"passed": 4, "failed": 0},
+    "identity_qa": {
+      "exact": {"passed": 71, "total": 71},
+      "severe_typo": {"passed": 64, "total": 64},
+      "realistic_typo": {"passed": 284, "total": 284},
+      "median_ms": 190.85,
+      "p95_ms": 249.49,
+      "max_ms": 314.42
+    },
+    "rendered_candidate": {"passed": 39, "failed": 0, "browser": "Edge 155.0.4283.62"},
+    "accessibility": {"views": 4, "violations": 0, "errors": 0, "manual_review_items": 1},
+    "production_source_service": {"passed": false, "status": 502}
   },
   "archive": {
+    "generated_at": "2026-10-18T22:45:37.762952Z",
     "seasons": 5,
-    "event_listings": 1182,
-    "event_payloads": 1486,
-    "roster_appearances": 44847,
-    "indexed_names": 13337,
-    "source_profile_ids": 16162,
-    "ingestion_errors": 0
+    "indexed_events": 1183,
+    "roster_appearances": 44895,
+    "indexed_names": 13338,
+    "source_scoped_profiles": 16165,
+    "history_files": 13,
+    "offline_index_shards": 26,
+    "browser_search_shards": 53,
+    "ingestion_errors": 0,
+    "collector_heartbeat_verified": true,
+    "maintenance_failed_jobs": 0
   },
   "backup_restore": {
-    "verified": true,
-    "restored_files": 12789,
-    "integrity_mismatches": 0,
-    "normalized_invalid": 0,
+    "release": {
+      "verified": true,
+      "restored_files": 1964,
+      "restored_bytes": 108119106,
+      "integrity_mismatches": 0,
+      "invalid_files": 0,
+      "git_fsck_passed": true,
+      "regression_passed": 39
+    },
+    "collector": {
+      "verified": true,
+      "restored_files": 11717,
+      "restored_bytes": 1864186726,
+      "integrity_mismatches": 0,
+      "invalid_files": 0
+    },
     "cloud_sync_verified": false
   },
   "automation": {
-    "collector_last_result": 0,
-    "publisher_scheduled": true,
-    "health_monitor_checks": "7/7",
+    "arthur_automation_last_result": 0,
+    "release_backup_last_result": 0,
+    "collector_backup_last_result": 0,
+    "publisher_last_result": 1,
+    "health_monitor_last_result": 1,
+    "interactive_sign_in_required": true,
     "external_alert_delivery": false
   },
   "verdict": {
-    "production_deployed": true,
     "known_p0": 0,
-    "known_p1_software_defects": 0,
+    "known_p1": 2,
+    "p1_items": [
+      "Reviewed candidate is not deployed because Vercel team authorization is unavailable",
+      "Production source application service returns 502 and falls back to visitor-side upstream requests"
+    ],
+    "public_launch_ready": false,
     "national_advertising_ready": false,
     "status": "BLOCKED"
   }
