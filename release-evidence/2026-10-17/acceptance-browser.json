@@ -1,0 +1,290 @@
+{
+  "url": "https://curler-tracker.vercel.app",
+  "browser": "155.0.4283.62",
+  "device": "Edge desktop with viewport emulation; not physical Safari",
+  "timestamp": "2026-10-17T21:53:13.613637+00:00",
+  "checks": [
+    {
+      "name": "first_visit_archive",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.039960+00:00",
+      "detail": null
+    },
+    {
+      "name": "homepage_brand",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.050424+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_exact_width_320",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.067314+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_no_overflow_320",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.070045+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_exact_width_390",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.133237+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_no_overflow_390",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.135071+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_exact_width_1365",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.202184+00:00",
+      "detail": null
+    },
+    {
+      "name": "viewport_no_overflow_1365",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.204465+00:00",
+      "detail": null
+    },
+    {
+      "name": "season_switch_current",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.332111+00:00",
+      "detail": null
+    },
+    {
+      "name": "season_switch_history",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.339678+00:00",
+      "detail": null
+    },
+    {
+      "name": "source_links_safe",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.342645+00:00",
+      "detail": null
+    },
+    {
+      "name": "privacy_link",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.347896+00:00",
+      "detail": null
+    },
+    {
+      "name": "Farrol Asham_progress_under_500ms",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:35.353447+00:00",
+      "detail": 6
+    },
+    {
+      "name": "Farrol Asham_sourced_result",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:58.516955+00:00",
+      "detail": {
+        "name": "Farrol Asham",
+        "records": 2,
+        "source": null,
+        "sourceId": null,
+        "status": "Partial historical records: 2 cited curling references for Farrol Asham. Live sources are incomplete; retrying in 30 minutes.",
+        "view": "documented-history"
+      }
+    },
+    {
+      "name": "Farrol_exact_published_name",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:58.516998+00:00",
+      "detail": null
+    },
+    {
+      "name": "Farrol_two_document_sources",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:58.521062+00:00",
+      "detail": null
+    },
+    {
+      "name": "Jody Sutherland_progress_under_500ms",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:52:58.585260+00:00",
+      "detail": 11
+    },
+    {
+      "name": "Jody Sutherland_sourced_result",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:00.606770+00:00",
+      "detail": {
+        "name": "Jody Sutherland",
+        "records": 0,
+        "source": "ab",
+        "sourceId": 29219,
+        "status": "No current event found for Jody Sutherland. Showing a recent completed competition found in the checked sources.",
+        "view": "recent-event"
+      }
+    },
+    {
+      "name": "Adam_Flatt_ambiguous_profile_picker",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:00.617225+00:00",
+      "detail": null
+    },
+    {
+      "name": "Adam Flatt_progress_under_500ms",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:00.628804+00:00",
+      "detail": 22
+    },
+    {
+      "name": "Adam Flatt_sourced_result",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.211264+00:00",
+      "detail": {
+        "name": "Adam Flatt",
+        "records": 0,
+        "source": "mb",
+        "sourceId": 162112,
+        "status": "No current event found for Adam Flatt. Showing a recent completed competition found in the checked sources.",
+        "view": "recent-event"
+      }
+    },
+    {
+      "name": "empty_means_sources_checked",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.232235+00:00",
+      "detail": null
+    },
+    {
+      "name": "rate_limit_explicit_incomplete",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.245593+00:00",
+      "detail": null
+    },
+    {
+      "name": "rate_limit_progress_cleared",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.247482+00:00",
+      "detail": null
+    },
+    {
+      "name": "source_outage_explicit_incomplete",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.260518+00:00",
+      "detail": null
+    },
+    {
+      "name": "source_outage_progress_cleared",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.263123+00:00",
+      "detail": null
+    },
+    {
+      "name": "disconnected_explicit_incomplete",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.276230+00:00",
+      "detail": null
+    },
+    {
+      "name": "disconnected_progress_cleared",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.278086+00:00",
+      "detail": null
+    },
+    {
+      "name": "slow_search_announced",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.290096+00:00",
+      "detail": null
+    },
+    {
+      "name": "stale_search_isolation",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.298708+00:00",
+      "detail": null
+    },
+    {
+      "name": "return_to_archive",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.320859+00:00",
+      "detail": null
+    },
+    {
+      "name": "browser_back_restores_curler",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.348872+00:00",
+      "detail": null
+    },
+    {
+      "name": "feedback_dialog",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.374783+00:00",
+      "detail": null
+    },
+    {
+      "name": "feedback_empty_validation",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.384953+00:00",
+      "detail": null
+    },
+    {
+      "name": "reduced_motion",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.392511+00:00",
+      "detail": null
+    },
+    {
+      "name": "privacy_page_readable",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.543108+00:00",
+      "detail": null
+    },
+    {
+      "name": "browser_back_from_privacy",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.575276+00:00",
+      "detail": null
+    },
+    {
+      "name": "offline_application_shell",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:12.811444+00:00",
+      "detail": null
+    },
+    {
+      "name": "network_recovery",
+      "status": "PASS",
+      "timestamp": "2026-10-17T21:53:13.613594+00:00",
+      "detail": null
+    }
+  ],
+  "metrics": [
+    {
+      "name": "first_visit_archive_ms",
+      "value": 4898,
+      "includes_service_worker_settle_ms": 2000
+    },
+    {
+      "name": "Farrol Asham",
+      "progress_ms": 6,
+      "first_useful_result_ms": 1015,
+      "completed_ms": 23169
+    },
+    {
+      "name": "Jody Sutherland",
+      "progress_ms": 11,
+      "first_useful_result_ms": 1021,
+      "completed_ms": 2032
+    },
+    {
+      "name": "Adam Flatt",
+      "progress_ms": 22,
+      "first_useful_result_ms": 528,
+      "completed_ms": 11604
+    }
+  ],
+  "passed": 39,
+  "failed": 0
+}

@@ -11,4 +11,14 @@ $PublishAction = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument ('-
 $PublishTrigger = New-ScheduledTaskTrigger -Daily -At '07:00'
 $PublishSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -WakeToRun -RunOnlyIfNetworkAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1) -MultipleInstances IgnoreNew
 Register-ScheduledTask -TaskName 'CurlerTracker-VerifiedPublisher' -Action $PublishAction -Trigger $PublishTrigger -Settings $PublishSettings -Force | Out-Null
-Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher' | Select-Object TaskName, State
+$Health = Join-Path $PSScriptRoot 'Operations-Health.py'
+if (-not (Test-Path -LiteralPath $Health)) { throw 'Operations health monitor is missing.' }
+$Python = (Get-Command python.exe -ErrorAction Stop).Source
+$HealthAction = New-ScheduledTaskAction -Execute $Python -Argument ('"{0}"' -f $Health)
+$HealthTrigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) `
+    -RepetitionInterval (New-TimeSpan -Minutes 15)
+$HealthSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -WakeToRun `
+    -ExecutionTimeLimit (New-TimeSpan -Minutes 10) -MultipleInstances IgnoreNew
+Register-ScheduledTask -TaskName 'CurlerTracker-OperationsHealth' -Action $HealthAction `
+    -Trigger $HealthTrigger -Settings $HealthSettings -Force | Out-Null
+Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher','CurlerTracker-OperationsHealth' | Select-Object TaskName, State

@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 
 root = Path(__file__).resolve().parents[1]
-out = root / 'release-evidence/2026-10-16'
+out = root / 'release-evidence' / os.environ.get('CT_EVIDENCE_DATE', '2026-10-16')
 out.mkdir(parents=True, exist_ok=True)
 base = os.environ['CT_BASE_URL'].rstrip('/')
 browser_name = os.environ.get('CT_BROWSER', 'edge')

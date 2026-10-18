@@ -1,4 +1,4 @@
-"""Deterministic operational health: success timestamps, not merely live processes."""
+"""Deterministic release health based on durable successful outputs."""
 import argparse
 import datetime as dt
 import json
@@ -32,32 +32,49 @@ def age_hours(stamp, now):
 def assess(root, state_dir, now=None):
     now = now or dt.datetime.now(dt.timezone.utc)
     checks = []
+
     def check(name, ok, detail):
         checks.append({'name': name, 'status': 'PASS' if ok else 'FAIL', 'detail': detail})
-    runtime = read_json(root / 'data/global/collector-runtime.json')
-    check('collector_heartbeat', age_hours(runtime.get('heartbeat_at'), now) < 0.1,
-          {'last_heartbeat': runtime.get('heartbeat_at'), 'phase': runtime.get('phase')})
-    state = read_json(root / 'data/global/maintenance-state.json')
-    budgets = {'canada_current_season': 12, 'offline_curler_index': 12,
-               'world_results': 12, 'coverage_update': 12, 'history_refresh': 192,
-               'home_summary': 192, 'country_registry': 48, 'world_site_inventory': 96}
-    for name, hours in budgets.items():
-        entry = state.get('tasks', {}).get(name, {})
-        success = entry.get('last_success_at')
-        check('collection_' + name,
-              age_hours(success, now) <= hours and entry.get('state') not in ('failed', 'timeout'),
-              {'last_success': success, 'state': entry.get('state'), 'maximum_age_hours': hours,
-               'error': entry.get('error')})
+
+    artifacts = (
+        ('history_archive', root / 'data/history-manifest.json', 192),
+        ('name_index', root / 'data/curler-name-catalog.json', 30),
+        ('home_summary', root / 'data/home-summary.json', 192),
+    )
+    for name, path, maximum_age in artifacts:
+        payload = read_json(path)
+        generated = payload.get('generated_at')
+        check(name + '_freshness', age_hours(generated, now) <= maximum_age,
+              {'path': str(path), 'generated_at': generated,
+               'maximum_age_hours': maximum_age})
+
+    manifest = read_json(root / 'data/history-manifest.json')
+    error_count = len(manifest.get('errors', [])) if isinstance(manifest.get('errors'), list) else -1
+    appearance_count = sum(item.get('appearances', 0) for item in manifest.get('files', [])
+                           if isinstance(item, dict))
+    check('archive_validation', error_count == 0 and appearance_count > 0,
+          {'errors': error_count, 'appearances': appearance_count,
+           'source_files': len(manifest.get('files', []))})
+
+    catalog = read_json(root / 'data/curler-name-catalog.json')
+    check('name_index_validation', isinstance(catalog.get('name_count'), int)
+          and catalog.get('name_count', 0) > 0,
+          {'name_count': catalog.get('name_count')})
+
     backup = read_json(state_dir / 'backup-state.json')
     check('backup_local_freshness', age_hours(backup.get('copied_at'), now) <= 30
-          and isinstance(backup.get('robocopy_exit'), int) and backup['robocopy_exit'] < 8,
+          and isinstance(backup.get('robocopy_exit'), int) and backup['robocopy_exit'] < 8
+          and backup.get('bundle_bytes', 0) > 0,
           {'last_copy': backup.get('copied_at'), 'copy_exit': backup.get('robocopy_exit'),
+           'bundle_bytes': backup.get('bundle_bytes'),
            'cloud_sync_verified': backup.get('cloud_upload_verified', False)})
     free = shutil.disk_usage(root).free
-    check('disk_space', free >= 10 * 1024**3, {'free_bytes': free, 'minimum_bytes': 10 * 1024**3})
-    return {'schema_version': 1, 'checked_at': now.isoformat(), 'checks': checks,
+    check('disk_space', free >= 10 * 1024**3,
+          {'free_bytes': free, 'minimum_bytes': 10 * 1024**3})
+    return {'schema_version': 2, 'checked_at': now.isoformat(), 'checks': checks,
             'healthy': all(c['status'] == 'PASS' for c in checks),
-            'note': 'No emails sent. A fresh heartbeat cannot override stale collection results.'}
+            'note': ('Local health evidence only. Task Scheduler records a non-zero result on failure; '
+                     'external alert delivery is not configured.')}
 
 
 if __name__ == '__main__':

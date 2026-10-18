@@ -11,7 +11,7 @@ from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
 root = Path(__file__).resolve().parents[1]
-out = root / 'release-evidence' / '2026-10-16'
+out = root / 'release-evidence' / os.environ.get('CT_EVIDENCE_DATE', '2026-10-16')
 out.mkdir(parents=True, exist_ok=True)
 base = os.environ.get('CT_BASE_URL', 'http://127.0.0.1:8780').rstrip('/')
 axe = Path(os.environ.get('CT_AXE_PATH', r'C:\Temp\curler-a11y-20261016\node_modules\axe-core\axe.min.js')).read_text(encoding='utf-8')

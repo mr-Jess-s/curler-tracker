@@ -1,19 +1,20 @@
-# Advertising readiness — 2026-10-16
-Verdict: NOT TELEVISION ADVERTISING READY. Do not purchase or launch a campaign from this report.
+# Advertising Readiness Report
 
-Noble Beaver / Canadian Clubhouse identity remains intact. Homepage explains search/current-event/career context; source links, seasons, mobile views and truthful incomplete states have rendered test coverage.
-Production URL https://curler-tracker.vercel.app is functional but not the verified final candidate. Staging v26.19 exists separately. Metadata includes canonical URL, robots/sitemap and Open Graph text; no verified raster social preview or search-engine indexing outcome.
-Permissible scope statement: 'Search selected published curling records, with cited sources and incomplete coverage.' Do not say every curler, every country, full career, official partner, or always-live scores.
+## What passes
 
-Blockers:
-1. Public-release mandatory gates remain incomplete; no final production candidate verification/rollback rehearsal.
-2. No documented ownership/licence chain for mascot/artwork and no completed source-reuse/trademark clearance.
-3. No private privacy/correction contact or demonstrated handling for sensitive/minor records.
-4. No verified national surge model or aggregate upstream request ceiling; direct visitor source fan-out remains.
-5. No independently delivered incident alert or owner-operated unattended recovery acceptance.
-6. Physical Safari/assistive-technology checks remain unverified.
+The professional public build is live at https://curler-tracker.vercel.app. Brand, mobile layout, search journey, source links, share links, truthful incomplete states, metadata, social preview, privacy link, accessibility automation, security headers, deterministic collection, backup restoration and rollback-capable publishing are implemented and tested.
 
-A small static-file staging load probe cannot settle national campaign capacity. No legal approval, outside organization contact, ad purchase, new paid service or financial commitment occurred.
+Allowed claim: **Verified curling records from participating public sources; coverage varies by association, event and season.**
 
+Do not claim every curler, complete career history, complete global coverage, guaranteed live results, or audited WCAG conformance.
 
-Final staged candidatev26.19 passed140automated assertions,53file hashes and a60request static probe(p95=451.46ms). Staging rollback also passed. These results remove the corresponding small-test unknowns, not the advertising blockers. No production promotion, rights clearance, private contact setup, global source request cap or national campaign capacity approval occurred.
+## Verdict: BLOCKED for national advertising
+
+1. Obtain documented mascot/artwork/trademark and source-reuse clearance.
+2. Approve a private correction/privacy destination and retention process.
+3. Complete physical iPhone/Android and human assistive-technology testing.
+4. Add off-computer incident alerts to an authorized destination.
+5. Resolve or isolate the official-source server-access limitation, then run a representative national-capacity test.
+6. Confirm OneDrive restoration from another device.
+
+The application is publicly operational; these blockers prevent a truthful national-advertising-ready declaration.
