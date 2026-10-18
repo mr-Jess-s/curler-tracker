@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const historyDir = path.join(root, 'data', 'history');
+const historyManifest = JSON.parse(fs.readFileSync(path.join(root, 'data', 'history-manifest.json'), 'utf8'));
 const seasons = new Map();
 const careers = new Map();
 
@@ -64,7 +65,7 @@ for (const row of candidates) {
 
 const output = {
   schema_version: 1,
-  generated_at: new Date().toISOString(),
+  generated_at: historyManifest.generated_at,
   source_provider: 'Curling I/O',
   coverage_note: `Published roster appearances across ${seasonRows.length} indexed seasons. Coverage varies by association and event; missing history remains unknown.`,
   default_season: seasonRows.reduce((best, row) => row.appearances > best.appearances ? row : best, seasonRows[0])?.season || '',

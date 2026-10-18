@@ -1,4 +1,20 @@
 {
+  "rewrites": [
+    {"source": "/source/ab/:path*", "destination": "https://api.curling.io/en/clubs/ab/:path*"},
+    {"source": "/source/canada/:path*", "destination": "https://api.curling.io/en/clubs/canada/:path*"},
+    {"source": "/source/bc/:path*", "destination": "https://api.curling.io/en/clubs/bc/:path*"},
+    {"source": "/source/mb/:path*", "destination": "https://api.curling.io/en/clubs/mb/:path*"},
+    {"source": "/source/nb/:path*", "destination": "https://api.curling.io/en/clubs/nb/:path*"},
+    {"source": "/source/nl/:path*", "destination": "https://api.curling.io/en/clubs/nl/:path*"},
+    {"source": "/source/ns/:path*", "destination": "https://api.curling.io/en/clubs/ns/:path*"},
+    {"source": "/source/nt/:path*", "destination": "https://api.curling.io/en/clubs/nt/:path*"},
+    {"source": "/source/nu/:path*", "destination": "https://api.curling.io/en/clubs/nu/:path*"},
+    {"source": "/source/on/:path*", "destination": "https://api.curling.io/en/clubs/on/:path*"},
+    {"source": "/source/pe/:path*", "destination": "https://api.curling.io/en/clubs/pe/:path*"},
+    {"source": "/source/qc/:path*", "destination": "https://api.curling.io/en/clubs/qc/:path*"},
+    {"source": "/source/sk/:path*", "destination": "https://api.curling.io/en/clubs/sk/:path*"},
+    {"source": "/source/yt/:path*", "destination": "https://api.curling.io/en/clubs/yt/:path*"}
+  ],
   "headers": [
     {"source": "/(.*)", "headers": [
       {"key": "X-Content-Type-Options", "value": "nosniff"},
@@ -8,7 +24,7 @@
       {"key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.curling.io; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"}
     ]},
     {"source": "/data/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"}]},
-    {"source": "/data/curler-name-catalog.json", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"}]},
+    {"source": "/data/name-catalog/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"}]},
     {"source": "/sw.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}
   ]
 }

@@ -42,12 +42,12 @@ try {
     $changes = @(& git status --porcelain --untracked-files=no)
     foreach ($change in $changes) {
       $path = $change.Substring(3).Replace('\', '/')
-      if ($path -notmatch '^data/(history/|history-manifest\.json$|offline-curler-index/|curler-name-catalog\.json$|home-summary\.json$)') {
+      if ($path -notmatch '^data/(history/|history-manifest\.json$|offline-curler-index/|name-catalog/|curler-name-catalog\.json$|home-summary\.json$)') {
         throw "Automation found a non-data change and refused to commit it: $path"
       }
     }
     if ($changes.Count -gt 0) {
-      & git add -- data/history data/history-manifest.json data/offline-curler-index data/curler-name-catalog.json data/home-summary.json
+      & git add -- data/history data/history-manifest.json data/offline-curler-index data/name-catalog data/curler-name-catalog.json data/home-summary.json
       if ($LASTEXITCODE -ne 0) { throw 'Could not stage verified archive data.' }
       Run-GitLogged 'verified archive commit' @('commit','-m',("Refresh verified curling archive " + (Get-Date -Format 'yyyy-MM-dd')))
       Run-GitLogged 'verified archive push' @('push','origin','HEAD:release/2026-10-13-readiness')

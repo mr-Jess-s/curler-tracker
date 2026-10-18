@@ -38,7 +38,7 @@ export default async function handler(request, response) {
     let sourceResponse;
     try {
       sourceResponse = await fetch(upstream, {
-        headers: { Accept: 'application/json', 'User-Agent': 'CurlerTracker/26.20 public-cache' },
+        headers: { Accept: 'application/json', 'User-Agent': 'CurlerTracker/26.21 public-cache' },
         signal: controller.signal
       });
     } finally {

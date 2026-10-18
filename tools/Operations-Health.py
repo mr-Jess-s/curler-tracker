@@ -5,7 +5,10 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
+import urllib.error
+import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools' / 'global_coverage'))
@@ -27,6 +30,45 @@ def age_hours(stamp, now):
         return (now - value).total_seconds() / 3600
     except (AttributeError, TypeError, ValueError):
         return float('inf')
+
+
+def scheduled_tasks():
+    if os.name != 'nt':
+        return {}
+    names = [
+        'CurlerTracker-ArthurAutomation',
+        'CurlerTracker-VerifiedPublisher',
+        'CurlerTracker-OperationsHealth',
+        'CurlerTracker-ArchiveBackup',
+    ]
+    script = (
+        "$rows=@();"
+        + "".join(
+            "$i=Get-ScheduledTaskInfo -TaskName '%s' -ErrorAction SilentlyContinue;"
+            "$t=Get-ScheduledTask -TaskName '%s' -ErrorAction SilentlyContinue;"
+            "if($i -and $t){$rows+=[pscustomobject]@{Name='%s';LastTaskResult=$i.LastTaskResult;"
+            "LastRunTime=$i.LastRunTime.ToUniversalTime().ToString('o');"
+            "NextRunTime=$i.NextRunTime.ToUniversalTime().ToString('o');State=[string]$t.State}};"
+            % (name, name, name) for name in names
+        )
+        + "$rows|ConvertTo-Json -Compress"
+    )
+    result = subprocess.run(
+        ['powershell.exe', '-NoLogo', '-NoProfile', '-NonInteractive', '-Command', script],
+        capture_output=True, text=True, timeout=20,
+    )
+    if result.returncode != 0 or not result.stdout.strip():
+        return {}
+    payload = json.loads(result.stdout)
+    if isinstance(payload, dict):
+        payload = [payload]
+    return {row['Name']: row for row in payload}
+
+
+def fetch_json(url):
+    request = urllib.request.Request(url, headers={'Accept': 'application/json', 'User-Agent': 'CurlerTracker-health/1'})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return response.status, dict(response.headers), json.load(response)
 
 
 def assess(root, state_dir, now=None):
@@ -60,14 +102,69 @@ def assess(root, state_dir, now=None):
     check('name_index_validation', isinstance(catalog.get('name_count'), int)
           and catalog.get('name_count', 0) > 0,
           {'name_count': catalog.get('name_count')})
+    shard_paths = sorted((root / 'data/name-catalog').glob('*.json'))
+    valid_shards = 0
+    for shard_path in shard_paths:
+        shard = read_json(shard_path)
+        if shard.get('schema_version') == 1 and isinstance(shard.get('names'), list):
+            valid_shards += 1
+    check('name_shards_validation', len(shard_paths) >= 52 and valid_shards == len(shard_paths),
+          {'shards': len(shard_paths), 'valid_shards': valid_shards})
 
     backup = read_json(state_dir / 'backup-state.json')
+    expected_source = str(root.resolve()).casefold()
+    actual_source = str(backup.get('source') or '').casefold()
     check('backup_local_freshness', age_hours(backup.get('copied_at'), now) <= 30
           and isinstance(backup.get('robocopy_exit'), int) and backup['robocopy_exit'] < 8
-          and backup.get('bundle_bytes', 0) > 0,
+          and backup.get('bundle_bytes', 0) > 0
+          and backup.get('project_files', 0) > 0
+          and actual_source == expected_source
+          and backup.get('tracked_clean') is True,
           {'last_copy': backup.get('copied_at'), 'copy_exit': backup.get('robocopy_exit'),
-           'bundle_bytes': backup.get('bundle_bytes'),
+           'bundle_bytes': backup.get('bundle_bytes'), 'project_files': backup.get('project_files'),
+           'source': backup.get('source'), 'source_commit': backup.get('source_commit'),
+           'tracked_clean': backup.get('tracked_clean'),
            'cloud_sync_verified': backup.get('cloud_upload_verified', False)})
+
+    tasks = scheduled_tasks()
+    for task_name in (
+        'CurlerTracker-ArthurAutomation',
+        'CurlerTracker-VerifiedPublisher',
+        'CurlerTracker-OperationsHealth',
+        'CurlerTracker-ArchiveBackup',
+    ):
+        task = tasks.get(task_name, {})
+        check('scheduled_task_' + task_name.removeprefix('CurlerTracker-').lower(),
+              bool(task) and task.get('LastTaskResult') == 0
+              and task.get('State') in ('Ready', 'Running'),
+              task or {'error': 'task missing or unreadable'})
+
+    production_url = os.environ.get('CT_PRODUCTION_URL', 'https://curler-tracker.vercel.app')
+    published = read_json(state_dir / 'last-published.json')
+    try:
+        release_status, _, release = fetch_json(production_url.rstrip('/') + '/release.json')
+        release_ok = (
+            release_status == 200
+            and bool(published.get('commit'))
+            and release.get('commit') == published.get('commit')
+            and release.get('version') == published.get('version')
+        )
+        check('production_release_identity', release_ok,
+              {'url': production_url, 'live_commit': release.get('commit'),
+               'published_commit': published.get('commit'), 'version': release.get('version')})
+    except Exception as error:
+        check('production_release_identity', False, {'url': production_url, 'error': str(error)})
+    try:
+        status, headers, payload = fetch_json(
+            production_url.rstrip('/') + '/api/curling-io?kind=competitions&subdomain=ab&occurred=0'
+        )
+        cache_control = headers.get('Cache-Control', '') + headers.get('Vercel-CDN-Cache-Control', '')
+        check('production_source_service', status == 200 and isinstance(payload, dict)
+              and 's-maxage=' in cache_control,
+              {'status': status, 'cache_control': cache_control})
+    except Exception as error:
+        check('production_source_service', False, {'error': str(error)})
+
     free = shutil.disk_usage(root).free
     check('disk_space', free >= 10 * 1024**3,
           {'free_bytes': free, 'minimum_bytes': 10 * 1024**3})

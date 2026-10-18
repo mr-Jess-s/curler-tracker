@@ -17,11 +17,11 @@ try {
   }
   if (-not (Test-Path -LiteralPath $Cli)) { throw 'Pinned deployment CLI launcher missing.' }
   $core = @('index.html', 'privacy.html', 'robots.txt', 'sitemap.xml', 'app.js', 'styles.css', 'sw.js', 'manifest.webmanifest', 'package.json', 'vercel.json', 'api\curling-io.js', 'noble-beaver.svg', 'noble-beaver-icon.svg')
-  $data = @('data\home-summary.json', 'data\history-manifest.json', 'data\curler-name-catalog.json', 'data\curler-source-records.json')
+  $data = @('data\home-summary.json', 'data\history-manifest.json', 'data\curler-source-records.json')
   foreach ($path in ($core + $data)) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $path))) { throw "Missing release asset: $path" }
   }
-  foreach ($dir in @('data\history', 'data\offline-curler-index')) {
+  foreach ($dir in @('data\history', 'data\offline-curler-index', 'data\name-catalog')) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $dir))) { throw "Missing release directory: $dir" }
   }
   Push-Location $Root
@@ -42,6 +42,7 @@ try {
   $sources = foreach ($path in ($core + $data)) { Get-Item -LiteralPath (Join-Path $Root $path) }
   $sources += Get-ChildItem (Join-Path $Root 'data\history') -File -Recurse
   $sources += Get-ChildItem (Join-Path $Root 'data\offline-curler-index') -File -Recurse
+  $sources += Get-ChildItem (Join-Path $Root 'data\name-catalog') -File -Recurse
   if (($sources | Measure-Object).Count -lt 20) { throw 'Refusing unexpectedly small release set.' }
   $newest = ($sources | Measure-Object -Property LastWriteTimeUtc -Maximum).Maximum
   if (-not $DryRun -and -not $DeployReviewedNow -and $newest -gt (Get-Date).ToUniversalTime().AddMinutes(-5)) {
@@ -86,7 +87,20 @@ try {
   if (-not $deployment) { throw 'Candidate deployment URL was not found in the deployment log.' }
   $candidateEvidence = Join-Path $Stage 'candidate-verification.json'
   & $Python (Join-Path $PSScriptRoot 'Verify-Deployment.py') $deployment $Stage --out $candidateEvidence
-  if ($LASTEXITCODE -ne 0) { throw 'Candidate deployment bytes did not match the reviewed build; production was not changed.' }
+  if ($LASTEXITCODE -ne 0) { throw 'Candidate deployment bytes or source service did not match the reviewed release; production was not changed.' }
+  $candidateSecurity = Join-Path $Stage 'candidate-security.json'
+  & $Python (Join-Path $PSScriptRoot 'Security-Deployment-QA.py') $deployment $candidateSecurity
+  if ($LASTEXITCODE -ne 0) { throw 'Candidate security checks failed; production was not changed.' }
+  if (-not (Test-Path -LiteralPath 'C:\Temp\ct-selenium')) { throw 'Rendered browser test dependency is missing; production was not changed.' }
+  $env:CT_BASE_URL = $deployment
+  $env:CT_EVIDENCE_DIR = Join-Path $Stage 'browser-uat'
+  try {
+    & $Python (Join-Path $PSScriptRoot 'Acceptance-Browser.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Candidate rendered-browser UAT failed; production was not changed.' }
+  } finally {
+    Remove-Item Env:CT_BASE_URL -ErrorAction SilentlyContinue
+    Remove-Item Env:CT_EVIDENCE_DIR -ErrorAction SilentlyContinue
+  }
   $promoteLog = Join-Path $Stage 'promote-stdout.log'
   $promoteError = Join-Path $Stage 'promote-stderr.log'
   $promote = Start-Process -FilePath $Cli -ArgumentList @('--yes','vercel@63.1.2','promote',$deployment,'--yes','--scope','jess-and-roo') -Wait -PassThru -NoNewWindow -RedirectStandardOutput $promoteLog -RedirectStandardError $promoteError
@@ -97,6 +111,13 @@ try {
     & $Cli --yes vercel@63.1.2 rollback ('https://' + $prior.url) --yes --scope jess-and-roo *>> $logFile
     if ($LASTEXITCODE -ne 0) { throw 'Production verification and automatic rollback both failed; operator action is required.' }
     throw 'Production verification failed; the prior verified deployment was restored.'
+  }
+  $productionSecurity = Join-Path $Stage 'production-security.json'
+  & $Python (Join-Path $PSScriptRoot 'Security-Deployment-QA.py') https://curler-tracker.vercel.app $productionSecurity
+  if ($LASTEXITCODE -ne 0) {
+    & $Cli --yes vercel@63.1.2 rollback ('https://' + $prior.url) --yes --scope jess-and-roo *>> $logFile
+    if ($LASTEXITCODE -ne 0) { throw 'Production security verification and automatic rollback both failed; operator action is required.' }
+    throw 'Production security verification failed; the prior verified deployment was restored.'
   }
   $manifest = Get-Content -LiteralPath (Join-Path $Stage 'release.json') -Raw | ConvertFrom-Json
   [ordered]@{commit=$manifest.commit;version=$manifest.version;deployment=$deployment;prior_deployment=('https://' + $prior.url);published_at=(Get-Date).ToUniversalTime().ToString('o');evidence=$Stage} |

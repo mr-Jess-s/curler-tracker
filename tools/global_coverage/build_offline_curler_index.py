@@ -13,6 +13,7 @@ HISTORY = ROOT / "data" / "history"
 CURRENT = ROOT / "data" / "global" / "canada-current-season.json"
 OUT_DIR = ROOT / "data" / "offline-curler-index"
 CATALOG = ROOT / "data" / "curler-name-catalog.json"
+NAME_CATALOG_DIR = ROOT / "data" / "name-catalog"
 
 
 def read_json(path, default):
@@ -211,7 +212,38 @@ def build():
         temp = CATALOG.with_suffix(".json.tmp")
         temp.write_bytes(encoded_catalog.encode("utf-8"))
         temp.replace(CATALOG)
-    print(f"Offline curler index: {payload['name_count']} names, {payload['identity_count']} source IDs across {payload['shard_count']} shards -> {OUT_DIR}; catalog -> {CATALOG}")
+
+    # Browser search loads only compact first-name or surname shards. The full
+    # catalog remains a deterministic QA artifact but is not needed by visitors.
+    search_shards = {}
+    for row in catalog_names:
+        normalized = row["normalized"]
+        first_key = normalized[0] if normalized and normalized[0].isalnum() else "other"
+        surname = normalized.split(" ")[-1]
+        surname_key = surname[0] if surname and surname[0].isalnum() else "other"
+        search_shards.setdefault(f"first-{first_key}", []).append(row)
+        search_shards.setdefault(f"last-{surname_key}", []).append(row)
+    NAME_CATALOG_DIR.mkdir(parents=True, exist_ok=True)
+    expected_files = set()
+    for key, shard_rows in sorted(search_shards.items()):
+        shard_payload = {
+            "schema_version": 1,
+            "generated_at": source_snapshot_at,
+            "source_provider": "Curling I/O",
+            "name_count": len(shard_rows),
+            "names": shard_rows,
+        }
+        encoded = json.dumps(shard_payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+        path = NAME_CATALOG_DIR / f"{key}.json"
+        expected_files.add(path.name)
+        if not path.exists() or path.read_text(encoding="utf-8") != encoded:
+            temp = path.with_suffix(".json.tmp")
+            temp.write_bytes(encoded.encode("utf-8"))
+            temp.replace(path)
+    for stale in NAME_CATALOG_DIR.glob("*.json"):
+        if stale.name not in expected_files:
+            stale.unlink()
+    print(f"Offline curler index: {payload['name_count']} names, {payload['identity_count']} source IDs across {payload['shard_count']} archive shards and {len(search_shards)} search shards -> {OUT_DIR}")
     return payload
 
 

@@ -234,7 +234,7 @@ await check('Published Farrol spelling resolves exact documentary references wit
 });
 await check('Published documentary-only names pass the local identity preflight',async()=>{
  const a=app();a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
- a.run("state.nameCatalog={schema_version:1,source_provider:'Curling I/O',names:[]};fetchJson=async url=>url.includes('curler-source-records')?citedIndex:state.nameCatalog;globalThis.started='';startTracking=name=>{started=name}");
+ a.run("globalThis.emptyCatalog={schema_version:1,source_provider:'Curling I/O',names:[]};loadNameCatalogShard=async()=>emptyCatalog;fetchJson=async url=>url.includes('curler-source-records')?citedIndex:emptyCatalog;globalThis.started='';startTracking=name=>{started=name}");
  await a.run("resolveAndStart('Farrol Asham','test')");
  assert.equal(a.context.started,'Farrol Asham');
 });
@@ -275,9 +275,20 @@ await check('Blocked proxy falls back to the official browser-readable source',a
  assert.equal(a.context.fetches[1].url,'https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f');
  assert.equal(a.context.fetches[1].cache,'no-store');
 });
+await check('Name-index shards bound browser work and include keyboard-neighbor recovery',async()=>{
+ const a=app();
+ assert.deepEqual([...a.run("nameCatalogCandidateKeys('Olivia Stone')")].sort(),['i','k','l','o','p'].sort());
+ assert.equal(a.run("catalogShardKey('  Émile Example')"),'e');
+ a.context.fetches=[];
+ a.run("fetchJson=async url=>{fetches.push(url);return {schema_version:1,source_provider:'Curling I/O',names:[]}}");
+ await a.run("loadNameCatalogShard('first','o')");
+ await a.run("loadNameCatalogShard('first','o')");
+ assert.equal(a.context.fetches.length,1);
+ assert.match(a.context.fetches[0],/data\/name-catalog\/first-o\.json/);
+});
 await check('Name-index preflight immediately exposes an accessible progress state',async()=>{
  const a=app();
- a.run("loadNameCatalog=()=>new Promise(resolve=>globalThis.finishCatalog=resolve);startTracking=name=>{globalThis.started=name}");
+ a.run("loadNameCatalogShard=()=>new Promise(resolve=>globalThis.finishCatalog=resolve);startTracking=name=>{globalThis.started=name}");
  const pending=a.run("resolveAndStart('Jody Sutherland','uat')");
  assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),false);
  assert.equal(a.elements.get('playerForm').attributes['aria-busy'],'true');

@@ -102,7 +102,7 @@ const state = {
   playerGeneration: 0,
   careerMessage: ''
   ,selectedProfile: null
-  ,nameCatalog: null
+  ,nameCatalogs: new Map()
 };
 
 const memoryCache = new Map();
@@ -302,17 +302,50 @@ function boundedDamerauLevenshtein(a, b, limit = 3) {
   return previous[b.length];
 }
 
-async function loadNameCatalog() {
-  if (state.nameCatalog) return state.nameCatalog;
-  const catalog = await fetchJson(`./data/curler-name-catalog.json?v=${encodeURIComponent(APP_VERSION)}`, {
-    ttlMs: 24 * 60 * 60 * 1000,
-    cacheGroup: 'name-catalog'
-  });
+function catalogShardKey(value) {
+  const first = normalizeName(value).replace(/\s+/g, '').charAt(0);
+  return /^[a-z0-9]$/.test(first) ? first : 'other';
+}
+
+const KEYBOARD_NEIGHBORS = Object.freeze({
+  q: 'wa', w: 'qeas', e: 'wrsd', r: 'etdf', t: 'ryfg', y: 'tugh', u: 'yihj',
+  i: 'uojk', o: 'ipkl', p: 'ol', a: 'qwsz', s: 'awedxz', d: 'serfcx',
+  f: 'drtgvc', g: 'ftyhbv', h: 'gyujnb', j: 'huikmn', k: 'jiolm',
+  l: 'kop', z: 'asx', x: 'zsdc', c: 'xdfv', v: 'cfgb', b: 'vghn',
+  n: 'bhjm', m: 'njk'
+});
+
+function nameCatalogCandidateKeys(input) {
+  const compact = normalizeName(input).replace(/\s+/g, '');
+  const first = catalogShardKey(compact);
+  const keys = new Set([first]);
+  if (compact.length > 1) keys.add(catalogShardKey(compact.slice(1)));
+  for (const neighbor of KEYBOARD_NEIGHBORS[first] || '') keys.add(neighbor);
+  return [...keys];
+}
+
+async function loadNameCatalogShard(kind, key) {
+  const safeKind = kind === 'last' ? 'last' : 'first';
+  const safeKey = /^[a-z0-9]$/.test(key) ? key : 'other';
+  const cacheKey = `${safeKind}-${safeKey}`;
+  if (state.nameCatalogs.has(cacheKey)) return state.nameCatalogs.get(cacheKey);
+  const catalog = await fetchJson(
+    `./data/name-catalog/${cacheKey}.json?v=${encodeURIComponent(APP_VERSION)}`,
+    { ttlMs: 24 * 60 * 60 * 1000, cacheGroup: `name-catalog-${cacheKey}` }
+  );
   if (catalog?.schema_version !== 1 || catalog?.source_provider !== 'Curling I/O' || !Array.isArray(catalog?.names)) {
     throw new Error('Curler name catalog is unavailable or invalid.');
   }
-  state.nameCatalog = catalog;
+  state.nameCatalogs.set(cacheKey, catalog);
   return catalog;
+}
+
+function mergeNameCatalogs(catalogs) {
+  const rows = new Map();
+  for (const catalog of catalogs) {
+    for (const row of catalog?.names || []) rows.set(row.normalized, row);
+  }
+  return { schema_version: 1, source_provider: 'Curling I/O', names: [...rows.values()] };
 }
 
 function findNameChoices(catalog, input) {
@@ -388,9 +421,9 @@ async function resolveAndStart(input, reason = 'manual-start') {
   beginNameCheckProgress(requested);
   setStatus(`Checking the saved name index for ${requested}…`);
   try {
-    const catalog = await loadNameCatalog();
     const surnameSearch = !normalizeName(requested).includes(' ');
     if (surnameSearch) {
+      const catalog = await loadNameCatalogShard('last', catalogShardKey(requested));
       const matches = findSurnameChoices(catalog, requested).map(row => ({
         name: row.name, label: row.name + ' · ' + (row.profiles || []).map(profileLabel).join(' / ')
       }));
@@ -417,8 +450,12 @@ async function resolveAndStart(input, reason = 'manual-start') {
       }
       return;
     }
-    const result = findNameChoices(catalog, requested);
+    const exactCatalog = await loadNameCatalogShard('first', catalogShardKey(requested));
+    let result = findNameChoices(exactCatalog, requested);
     if (!result.exact) {
+      const candidateKeys = nameCatalogCandidateKeys(requested);
+      const catalogs = await Promise.all(candidateKeys.map(key => loadNameCatalogShard('first', key)));
+      result = findNameChoices(mergeNameCatalogs(catalogs), requested);
       const documentary = await fetchJson(`./data/curler-source-records.json?v=${encodeURIComponent(APP_VERSION)}`, {
         ttlMs: 60 * 60 * 1000,
         cacheGroup: 'documented-curler-sources'

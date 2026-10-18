@@ -2,7 +2,7 @@
 import argparse,datetime,hashlib,json,shutil,subprocess,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-FILES=['index.html','app.js','styles.css','sw.js','manifest.webmanifest','package.json','api/curling-io.js','noble-beaver.svg','noble-beaver-icon.svg','privacy.html','robots.txt','sitemap.xml','vercel.json','data/home-summary.json','data/history-manifest.json','data/curler-name-catalog.json','data/curler-source-records.json']
+FILES=['index.html','app.js','styles.css','sw.js','manifest.webmanifest','package.json','api/curling-io.js','noble-beaver.svg','noble-beaver-icon.svg','privacy.html','robots.txt','sitemap.xml','vercel.json','data/home-summary.json','data/history-manifest.json','data/curler-source-records.json']
 
 def build(destination):
     destination=Path(destination).resolve()
@@ -13,7 +13,7 @@ def build(destination):
     dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=ROOT,text=True).strip()
     if dirty: raise ValueError('Commit reviewed changes before building.')
     paths=[ROOT/p for p in FILES]
-    for folder in ['data/history','data/offline-curler-index']:
+    for folder in ['data/history','data/offline-curler-index','data/name-catalog']:
         paths.extend(sorted((ROOT/folder).glob('*.json')))
     manifest={}
     for source in paths:

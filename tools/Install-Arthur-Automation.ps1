@@ -21,4 +21,7 @@ $HealthSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -WakeToRun `
     -ExecutionTimeLimit (New-TimeSpan -Minutes 10) -MultipleInstances IgnoreNew
 Register-ScheduledTask -TaskName 'CurlerTracker-OperationsHealth' -Action $HealthAction `
     -Trigger $HealthTrigger -Settings $HealthSettings -Force | Out-Null
-Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher','CurlerTracker-OperationsHealth' | Select-Object TaskName, State
+$BackupInstaller = Join-Path $PSScriptRoot 'Install-ArchiveBackup.ps1'
+if (-not (Test-Path -LiteralPath $BackupInstaller)) { throw 'Archive backup installer is missing.' }
+& $BackupInstaller
+Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher','CurlerTracker-OperationsHealth','CurlerTracker-ArchiveBackup' | Select-Object TaskName, State

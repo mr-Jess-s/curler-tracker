@@ -1,4 +1,4 @@
-param([string]$Destination = 'C:\Users\mrjes\OneDrive\CurlerTracker-Backup')
+param([string]$Destination = 'C:\Users\mrjes\OneDrive\CurlerTracker-Release-Backup')
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent $PSScriptRoot
 $LogDir = Join-Path $env:LOCALAPPDATA 'CurlerTracker'
@@ -25,12 +25,25 @@ try {
     $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'git bundle verify failed' }
   } finally { Pop-Location }
+  Push-Location $Root
+  try {
+    $sourceCommit = (& git rev-parse HEAD).Trim()
+    $sourceBranch = (& git branch --show-current).Trim()
+    $trackedClean = -not [bool](& git status --porcelain --untracked-files=no)
+  } finally { Pop-Location }
+  $projectFiles = @(Get-ChildItem -LiteralPath $tree -File -Recurse)
   $snapshot = @{
     copied_at = (Get-Date).ToUniversalTime().ToString('o')
     source = $Root
+    source_commit = $sourceCommit
+    source_branch = $sourceBranch
+    tracked_clean = $trackedClean
     destination = $Destination
     robocopy_exit = $copyExit
+    project_files = $projectFiles.Count
+    project_bytes = ($projectFiles | Measure-Object -Property Length -Sum).Sum
     bundle_bytes = (Get-Item $bundle).Length
+    bundle_sha256 = (Get-FileHash -LiteralPath $bundle -Algorithm SHA256).Hash
     cloud_upload_verified = $false
   }
   $snapshot | ConvertTo-Json | Set-Content $StateFile -Encoding UTF8

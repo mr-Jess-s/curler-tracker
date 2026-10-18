@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 BASE=os.environ.get('CT_BASE_URL','http://127.0.0.1:8768').rstrip('/')
-OUT=ROOT/'release-evidence'/os.environ.get('CT_EVIDENCE_DATE','2026-10-16');OUT.mkdir(parents=True,exist_ok=True)
+OUT=Path(os.environ.get('CT_EVIDENCE_DIR', str(ROOT/'release-evidence'/os.environ.get('CT_EVIDENCE_DATE','2026-10-16'))));OUT.mkdir(parents=True,exist_ok=True)
 opts=Options();opts.add_argument('--headless=new');opts.add_argument('--window-size=390,844');opts.binary_location=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 d=webdriver.Edge(options=opts);d.set_script_timeout(120)
 checks=[];metrics=[]
