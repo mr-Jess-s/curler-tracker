@@ -27,8 +27,7 @@ def verify(base,build):
         try: payload=json.loads(error.read().decode('utf-8'))
         except Exception: payload={}
         cache_control=error.headers.get('cache-control','')
-        controlled=error.code in (502,503,504) and isinstance(payload,dict) and bool(payload.get('error'))
-        service_check={'path':'api/curling-io','mode':'controlled-source-unavailable','pass':controlled,'status':error.code,'cache_control':cache_control,'error':payload.get('error')}
+        service_check={'path':'api/curling-io','mode':'source-service-unavailable','pass':False,'status':error.code,'cache_control':cache_control,'error':payload.get('error')}
     except Exception as error:
         service_check={'path':'api/curling-io','pass':False,'error':str(error)}
     result={'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':base,'commit':manifest['commit'],'version':manifest['version'],'manifest_matches':remote==manifest,'checks':results,'service_check':service_check,'passed':all(r['pass'] for r in results) and service_check['pass'] and remote==manifest}

@@ -24,4 +24,4 @@ Register-ScheduledTask -TaskName 'CurlerTracker-OperationsHealth' -Action $Healt
 $BackupInstaller = Join-Path $PSScriptRoot 'Install-ArchiveBackup.ps1'
 if (-not (Test-Path -LiteralPath $BackupInstaller)) { throw 'Archive backup installer is missing.' }
 & $BackupInstaller
-Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher','CurlerTracker-OperationsHealth','CurlerTracker-ArchiveBackup' | Select-Object TaskName, State
+Get-ScheduledTask -TaskName 'CurlerTracker-ArthurAutomation','CurlerTracker-VerifiedPublisher','CurlerTracker-OperationsHealth','CurlerTracker-ArchiveBackup','CurlerTracker-CollectorBackup' | Select-Object TaskName, State

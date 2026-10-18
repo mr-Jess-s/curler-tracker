@@ -40,6 +40,7 @@ def scheduled_tasks():
         'CurlerTracker-VerifiedPublisher',
         'CurlerTracker-OperationsHealth',
         'CurlerTracker-ArchiveBackup',
+        'CurlerTracker-CollectorBackup',
     ]
     script = (
         "$rows=@();"
@@ -126,12 +127,43 @@ def assess(root, state_dir, now=None):
            'tracked_clean': backup.get('tracked_clean'),
            'cloud_sync_verified': backup.get('cloud_upload_verified', False)})
 
+    collector_backup = read_json(state_dir / 'collector-backup-state.json')
+    collector_archives = collector_backup.get('archives', [])
+    check('collector_backup_local_freshness',
+          age_hours(collector_backup.get('copied_at'), now) <= 30
+          and len(collector_archives) == 2
+          and all(row.get('robocopy_exit', 8) < 8 and row.get('files', 0) > 0
+                  for row in collector_archives),
+          {'last_copy': collector_backup.get('copied_at'),
+           'source': collector_backup.get('source'),
+           'archives': collector_archives,
+           'cloud_sync_verified': collector_backup.get('cloud_upload_verified', False)})
+
+    collector_root = Path(os.environ.get('CT_COLLECTOR_ROOT', r'C:\Jess\curler-tracker'))
+    collector_runtime = read_json(collector_root / 'data/global/collector-runtime.json')
+    maintenance = read_json(collector_root / 'data/global/maintenance-state.json')
+    task_rows = maintenance.get('tasks', {})
+    collector_ok = (
+        age_hours(collector_runtime.get('heartbeat_at'), now) <= 1
+        and age_hours(maintenance.get('updated_at'), now) <= 8
+        and bool(task_rows)
+        and all(row.get('consecutive_failures', 0) == 0 for row in task_rows.values())
+    )
+    check('collector_runtime', collector_ok,
+          {'root': str(collector_root), 'phase': collector_runtime.get('phase'),
+           'heartbeat_at': collector_runtime.get('heartbeat_at'),
+           'maintenance_updated_at': maintenance.get('updated_at'),
+           'tasks': len(task_rows),
+           'failed_tasks': [name for name, row in task_rows.items()
+                            if row.get('consecutive_failures', 0) != 0]})
+
     tasks = scheduled_tasks()
     for task_name in (
         'CurlerTracker-ArthurAutomation',
         'CurlerTracker-VerifiedPublisher',
         'CurlerTracker-OperationsHealth',
         'CurlerTracker-ArchiveBackup',
+        'CurlerTracker-CollectorBackup',
     ):
         task = tasks.get(task_name, {})
         check('scheduled_task_' + task_name.removeprefix('CurlerTracker-').lower(),
