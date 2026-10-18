@@ -27,8 +27,8 @@ try {
   } finally { Pop-Location }
   Push-Location $Root
   try {
-    $sourceCommit = ([string](& git rev-parse HEAD)).Trim()
-    $sourceBranch = ([string](& git branch --show-current)).Trim()
+    $sourceCommit = ((& git rev-parse HEAD) | Out-String).Trim()
+    $sourceBranch = ((& git branch --show-current) | Out-String).Trim()
     $trackedClean = -not [bool](& git status --porcelain --untracked-files=no)
   } finally { Pop-Location }
   $projectFiles = @(Get-ChildItem -LiteralPath $tree -File -Recurse)
