@@ -37,6 +37,7 @@
     },
     "rendered_candidate": {"passed": 39, "failed": 0, "browser": "Edge 155.0.4283.62"},
     "accessibility": {"views": 4, "violations": 0, "errors": 0, "manual_review_items": 1},
+    "production_security": {"passed": 14, "failed": 0},
     "production_source_service": {"passed": false, "status": 502}
   },
   "archive": {
@@ -56,8 +57,8 @@
   "backup_restore": {
     "release": {
       "verified": true,
-      "restored_files": 1964,
-      "restored_bytes": 108119106,
+      "restored_files": 1971,
+      "restored_bytes": 108371183,
       "integrity_mismatches": 0,
       "invalid_files": 0,
       "git_fsck_passed": true,

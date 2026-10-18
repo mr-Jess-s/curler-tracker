@@ -11,10 +11,10 @@ Both tasks were invoked through Task Scheduler and returned result 0.
 
 Release restore test:
 
-- 1,964 files and 108,119,106 bytes restored to an isolated temporary directory.
-- 1,486 raw files and 256 normalized JSON files validated.
+- 1,971 files and 108,371,183 bytes restored to an isolated temporary directory.
+- 1,487 raw files and 256 normalized JSON files validated.
 - 0 mismatches and 0 invalid files.
-- Git clone, full fsck, checkout of `916643c4f45e2f7ee893aceb5b2c394702cacb4f`, and 39 regression checks passed.
+- Git clone, full fsck, checkout of `c613faed817668288854b9375ad976521cda91c1`, and 39 regression checks passed.
 
 Collector restore test:
 

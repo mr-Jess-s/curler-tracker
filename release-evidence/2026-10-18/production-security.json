@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-10-18T22:52:12.498379+00:00",
+  "url": "https://curler-tracker.vercel.app",
+  "checks": [
+    {
+      "name": "https_transport",
+      "status": "PASS",
+      "detail": "https://curler-tracker.vercel.app/"
+    },
+    {
+      "name": "x-content-type-options",
+      "status": "PASS",
+      "detail": "nosniff"
+    },
+    {
+      "name": "x-frame-options",
+      "status": "PASS",
+      "detail": "DENY"
+    },
+    {
+      "name": "referrer-policy",
+      "status": "PASS",
+      "detail": "no-referrer"
+    },
+    {
+      "name": "restrictive_csp",
+      "status": "PASS",
+      "detail": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.curling.io; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+    },
+    {
+      "name": "permissions_policy",
+      "status": "PASS",
+      "detail": "camera=(), microphone=(), geolocation=()"
+    },
+    {
+      "name": "not_public_/.git/config",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "not_public_/.env",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "not_public_/tools/Backup-CurlerTracker.ps1",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "not_public_/data/raw/",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "not_public_/data/global/maintenance-state.json",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "not_public_/vercel.json",
+      "status": "PASS",
+      "detail": 404
+    },
+    {
+      "name": "service_worker_no_cache",
+      "status": "PASS",
+      "detail": "no-cache"
+    },
+    {
+      "name": "data_browser_cache",
+      "status": "PASS",
+      "detail": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"
+    }
+  ],
+  "passed": 14,
+  "failed": 0,
+  "limitation": "These checks do not establish absence of all exposed secrets or complete account permissions/legal compliance."
+}
