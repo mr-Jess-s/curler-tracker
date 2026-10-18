@@ -33,6 +33,10 @@ const resolve = (catalog, query) => {
 };
 
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data', 'curler-name-catalog.json'), 'utf8'));
+const surnameRows = vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Sutherland')", Object.assign(context, {qaCatalog: catalog}));
+assert.ok(surnameRows.length > 1, 'Surname search must offer multiple names rather than selecting one');
+assert.ok(surnameRows.every(row => row.normalized.split(' ').at(-1) === 'sutherland'), 'Surname matches must use the final name token');
+assert.equal(vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Asham')", context).length, 0, 'No Asham Curling I/O index entries should be invented');
 const selected = JSON.parse(fs.readFileSync(path.join(root, 'release-evidence', '2026-10-16', 'field-audit', 'selected-curlers.json'), 'utf8')).sample;
 const severe = JSON.parse(fs.readFileSync(path.join(root, 'release-evidence', '2026-10-16', 'typo-audit', 'query-manifest.json'), 'utf8')).queries;
 

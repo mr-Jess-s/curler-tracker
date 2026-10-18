@@ -70,7 +70,9 @@ try {
     Set-Content -LiteralPath (Join-Path $linkDir 'project.json') -Encoding ASCII
   $logFile = Join-Path $LogDir 'latest-publisher-deployment.log'
   $priorFile = Join-Path $Stage 'prior-production.json'
+  $ErrorActionPreference = 'Continue'
   & $Cli --yes vercel@63.1.2 inspect https://curler-tracker.vercel.app --json --scope jess-and-roo 1> $priorFile 2>> $logFile
+  $ErrorActionPreference = 'Stop'
   if ($LASTEXITCODE -ne 0) { throw 'Could not identify the current production deployment; refusing publication without rollback target.' }
   $prior = Get-Content -LiteralPath $priorFile -Raw | ConvertFrom-Json
   if (-not $prior.url -or $prior.readyState -ne 'READY') { throw 'Current production deployment is not a verified rollback target.' }

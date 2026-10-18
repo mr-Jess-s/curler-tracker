@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.20';
+const APP_VERSION = 'v26.21';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -332,6 +332,13 @@ function findNameChoices(catalog, input) {
   return { exact: null, suggestions: suggestions.slice(0, 5).map(item => item.row) };
 }
 
+function findSurnameChoices(catalog, input) {
+  const surname = normalizeName(input);
+  if (!surname || surname.includes(' ')) return [];
+  return catalog.names.filter(row => row.normalized.split(' ').at(-1) === surname)
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 function clearIdentityChoices() {
   if (!els.identityChoices) return;
   els.identityChoices.innerHTML = '';
@@ -382,6 +389,34 @@ async function resolveAndStart(input, reason = 'manual-start') {
   setStatus(`Checking the saved name index for ${requested}…`);
   try {
     const catalog = await loadNameCatalog();
+    const surnameSearch = !normalizeName(requested).includes(' ');
+    if (surnameSearch) {
+      const matches = findSurnameChoices(catalog, requested).map(row => ({
+        name: row.name, label: row.name + ' · ' + (row.profiles || []).map(profileLabel).join(' / ')
+      }));
+      const documentary = await fetchJson(`./data/curler-source-records.json?v=${encodeURIComponent(APP_VERSION)}`, {
+        ttlMs: 60 * 60 * 1000, cacheGroup: 'documented-curler-sources'
+      });
+      for (const entry of Object.values(documentary?.names || {})) {
+        if (entry?.unverified_search_variant || !entry?.records?.length) continue;
+        if (normalizeName(entry.name).split(' ').at(-1) !== normalizeName(requested)) continue;
+        if (!matches.some(match => normalizeName(match.name) === normalizeName(entry.name))) {
+          matches.push({ name: entry.name, label: entry.name + ' · separate sourced historical records' });
+        }
+      }
+      matches.sort((a, b) => a.name.localeCompare(b.name));
+      endSearchProgress();
+      if (matches.length) {
+        const visible = matches.slice(0, 30);
+        renderIdentityChoices(`Choose a curler named ${requested} (${matches.length} matching names):`,
+          visible, choice => resolveAndStart(choice.name, 'confirmed-surname'));
+        setStatus(`${matches.length} published surname matches. Choose a person; separate profiles remain distinct.${matches.length > visible.length ? ' Showing the first 30.' : ''}`);
+      } else {
+        setStatus(`No published surname entries for ${requested} were found in the indexed sources. Other curling records may exist.`);
+        renderIdentityChoices('No indexed surname matches. Try a full name or another spelling.', [], () => {});
+      }
+      return;
+    }
     const result = findNameChoices(catalog, requested);
     if (!result.exact) {
       const documentary = await fetchJson(`./data/curler-source-records.json?v=${encodeURIComponent(APP_VERSION)}`, {
