@@ -166,10 +166,14 @@ def assess(root, state_dir, now=None):
         'CurlerTracker-CollectorBackup',
     ):
         task = tasks.get(task_name, {})
+        if task_name == 'CurlerTracker-OperationsHealth':
+            task_ok = (bool(task) and task.get('State') in ('Ready', 'Running')
+                       and age_hours(task.get('LastRunTime'), now) <= 1)
+        else:
+            task_ok = (bool(task) and task.get('LastTaskResult') == 0
+                       and task.get('State') in ('Ready', 'Running'))
         check('scheduled_task_' + task_name.removeprefix('CurlerTracker-').lower(),
-              bool(task) and task.get('LastTaskResult') == 0
-              and task.get('State') in ('Ready', 'Running'),
-              task or {'error': 'task missing or unreadable'})
+              task_ok, task or {'error': 'task missing or unreadable'})
 
     production_url = os.environ.get('CT_PRODUCTION_URL', 'https://curler-tracker.vercel.app')
     published = read_json(state_dir / 'last-published.json')
