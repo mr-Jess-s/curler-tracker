@@ -85,7 +85,8 @@ await check('Restricted browser storage does not prevent boot',async()=>{
 });
 await check('Stale saved player is not rendered for a different shared link',async()=>{
  const a=app();a.run("window.location.search='?player=Second';loadSnapshot=()=>({playerName:'First',careerHistory:[{title:'Wrong'}]});startTracking=()=>{};bootFromSavedState()");
- assert.equal(a.run('state.snapshot'),null);
+ assert.equal(a.run('state.snapshot.playerName'),'Second');
+ assert.equal(a.run('(state.snapshot.careerHistory || []).length'),0);
 });
 
 
@@ -290,6 +291,7 @@ await check('Name-index preflight immediately exposes an accessible progress sta
  const a=app();
  a.run("loadNameCatalogShard=()=>new Promise(resolve=>globalThis.finishCatalog=resolve);startTracking=name=>{globalThis.started=name}");
  const pending=a.run("resolveAndStart('Jody Sutherland','uat')");
+ assert.equal(a.run('state.snapshot.playerName'),'Jody Sutherland');
  assert.equal(a.elements.get('searchProgress').classList.contains('hidden'),false);
  assert.equal(a.elements.get('playerForm').attributes['aria-busy'],'true');
  assert.match(a.elements.get('searchProgressTitle').textContent,/published name index/i);

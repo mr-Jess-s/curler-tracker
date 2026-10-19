@@ -418,6 +418,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
   if (!requested) return;
   clearIdentityChoices();
   state.selectedProfile = null;
+  render(computeIdleSnapshot(requested, { phase: 'name-check' }, APP.errorRetryMs));
   beginNameCheckProgress(requested);
   setStatus(`Checking the saved name index for ${requested}…`);
   try {

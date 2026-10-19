@@ -44,12 +44,13 @@ try:
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
         wait("!document.getElementById('searchProgress').classList.contains('hidden') && document.getElementById('playerForm').getAttribute('aria-busy')==='true'",3)
         progress=round((time.perf_counter()-start)*1000);check(name+'_progress_under_500ms',progress<500,progress)
+        check(name+'_stale_result_cleared',js('return state.snapshot?.playerName==='+json.dumps(name)),js("return {name:state.snapshot?.playerName,view:state.snapshot?.view}"))
         try:
-            wait("['archived-team','documented-history','recent-event','live','upcoming','idle-event'].includes(state.snapshot?.view)",90)
+            wait("state.snapshot?.playerName==="+json.dumps(name)+" && ['archived-team','documented-history','recent-event','live','upcoming','idle-event'].includes(state.snapshot?.view)",90)
             useful=round((time.perf_counter()-start)*1000)
             wait('!state.isRunning',100)
             result=js("return {name:state.snapshot?.playerName,view:state.snapshot?.view,status:document.querySelector('#statusLine').textContent,records:state.snapshot?.careerHistory?.length||0,source:state.snapshot?.sourceSubdomain,sourceId:state.snapshot?.sourceCurlerId}")
-            check(name+'_sourced_result',result['view'] not in ['error','idle'],result)
+            check(name+'_sourced_result',result['name']==name and result['view'] not in ['error','idle'],result)
             metrics.append({'name':name,'progress_ms':progress,'first_useful_result_ms':useful,'completed_ms':round((time.perf_counter()-start)*1000)})
             if name=='Farrol Asham':
                 check('Farrol_exact_published_name',result['name']=='Farrol Asham' and result['view']=='documented-history')
