@@ -695,17 +695,6 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
       cache: firstPartyCacheable ? 'default' : 'no-store',
       signal: controller.signal
     });
-    if (!res.ok && [404, 502, 503, 504].includes(res.status) && url.startsWith('/api/curling-io')) {
-      const directUrl = directCurlingIoUrl(url);
-      if (directUrl) {
-        responseUrl = directUrl;
-        res = await fetch(directUrl, {
-          headers: { Accept: 'application/json' },
-          cache: 'no-store',
-          signal: controller.signal
-        });
-      }
-    }
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${responseUrl}`);
     const payload = await res.json();
     if (ttlMs) writeTimedCache(cacheGroup, url, payload);
@@ -719,25 +708,6 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
     window.clearTimeout(timeoutId);
     externalRequests.delete(controller);
   }
-}
-
-function directCurlingIoUrl(proxyUrl) {
-  const parsed = new URL(proxyUrl, window.location.href);
-  if (parsed.pathname !== '/api/curling-io') return '';
-  const kind = parsed.searchParams.get('kind');
-  const subdomain = String(parsed.searchParams.get('subdomain') || '').toLowerCase();
-  if (!APP.clubSubdomains.includes(subdomain)) return '';
-  if (kind === 'competitions') {
-    const occurred = parsed.searchParams.get('occurred');
-    if (!/^-?\d$/.test(occurred || '') || Number(occurred) < -8 || Number(occurred) > 1) return '';
-    return `https://api.curling.io/en/clubs/${subdomain}/competitions?occurred=${occurred}&registrations=f`;
-  }
-  if (kind === 'event') {
-    const id = parsed.searchParams.get('id');
-    if (!/^\d{1,12}$/.test(id || '')) return '';
-    return `https://api.curling.io/en/clubs/${subdomain}/events/${id}`;
-  }
-  return '';
 }
 
 async function mapWithConcurrency(items, limit, worker, deadlineAt = Infinity) {
