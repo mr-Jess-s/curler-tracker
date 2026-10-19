@@ -35,6 +35,7 @@ try {
     }
     if (-not $SkipHistory) { Run-Step 'five-season-history' { python tools\Build-History-Index.py --max-workers 2 } }
     Run-Step 'offline-name-index' { python tools\global_coverage\build_offline_curler_index.py }
+    Run-Step 'verified-source-cache' { python tools\Build-Source-Cache.py --collector-root 'C:\Jess\curler-tracker' }
     Run-Step 'homepage-summary' { node tools\Build-Home-Summary.mjs }
     Run-Step 'release-regression' { node tools\Release-Regression.mjs }
     Run-Step 'cached-service-qa' { node tools\Cached-Service-QA.mjs }
@@ -42,12 +43,12 @@ try {
     $changes = @(& git status --porcelain --untracked-files=no)
     foreach ($change in $changes) {
       $path = $change.Substring(3).Replace('\', '/')
-      if ($path -notmatch '^data/(history/|history-manifest\.json$|offline-curler-index/|name-catalog/|curler-name-catalog\.json$|home-summary\.json$)') {
+      if ($path -notmatch '^data/(history/|history-manifest\.json$|offline-curler-index/|name-catalog/|source-cache/|curler-name-catalog\.json$|home-summary\.json$)') {
         throw "Automation found a non-data change and refused to commit it: $path"
       }
     }
     if ($changes.Count -gt 0) {
-      & git add -- data/history data/history-manifest.json data/offline-curler-index data/name-catalog data/curler-name-catalog.json data/home-summary.json
+      & git add -- data/history data/history-manifest.json data/offline-curler-index data/name-catalog data/source-cache data/curler-name-catalog.json data/home-summary.json
       if ($LASTEXITCODE -ne 0) { throw 'Could not stage verified archive data.' }
       Run-GitLogged 'verified archive commit' @('commit','-m',("Refresh verified curling archive " + (Get-Date -Format 'yyyy-MM-dd')))
       Run-GitLogged 'verified archive push' @('push','origin','HEAD:release/2026-10-13-readiness')

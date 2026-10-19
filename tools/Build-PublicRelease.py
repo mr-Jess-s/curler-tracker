@@ -13,8 +13,8 @@ def build(destination):
     dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=ROOT,text=True).strip()
     if dirty: raise ValueError('Commit reviewed changes before building.')
     paths=[ROOT/p for p in FILES]
-    for folder in ['data/history','data/offline-curler-index','data/name-catalog']:
-        paths.extend(sorted((ROOT/folder).glob('*.json')))
+    for folder in ['data/history','data/offline-curler-index','data/name-catalog','data/source-cache']:
+        paths.extend(sorted((ROOT/folder).rglob('*.json')))
     manifest={}
     for source in paths:
         relative=source.relative_to(ROOT).as_posix(); body=source.read_bytes()

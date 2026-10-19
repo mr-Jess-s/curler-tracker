@@ -82,6 +82,7 @@ def assess(root, state_dir, now=None):
     artifacts = (
         ('history_archive', root / 'data/history-manifest.json', 192),
         ('name_index', root / 'data/curler-name-catalog.json', 30),
+        ('source_cache', root / 'data/source-cache/manifest.json', 30),
         ('home_summary', root / 'data/home-summary.json', 192),
     )
     for name, path, maximum_age in artifacts:
@@ -111,6 +112,16 @@ def assess(root, state_dir, now=None):
             valid_shards += 1
     check('name_shards_validation', len(shard_paths) >= 52 and valid_shards == len(shard_paths),
           {'shards': len(shard_paths), 'valid_shards': valid_shards})
+
+    source_cache = read_json(root / 'data/source-cache/manifest.json')
+    source_list_count = source_cache.get('competition_lists', 0)
+    source_event_count = source_cache.get('event_records', 0)
+    source_referenced = source_cache.get('referenced_events', 0)
+    source_cached = source_cache.get('referenced_events_cached', 0)
+    check('source_cache_validation', source_list_count >= 28 and source_event_count >= 100
+          and source_referenced > 0 and source_cached > 0,
+          {'competition_lists': source_list_count, 'event_records': source_event_count,
+           'referenced_events': source_referenced, 'referenced_events_cached': source_cached})
 
     backup = read_json(state_dir / 'backup-state.json')
     expected_source = str(root.resolve()).casefold()

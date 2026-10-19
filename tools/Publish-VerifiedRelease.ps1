@@ -21,7 +21,7 @@ try {
   foreach ($path in ($core + $data)) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $path))) { throw "Missing release asset: $path" }
   }
-  foreach ($dir in @('data\history', 'data\offline-curler-index', 'data\name-catalog')) {
+  foreach ($dir in @('data\history', 'data\offline-curler-index', 'data\name-catalog', 'data\source-cache')) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $dir))) { throw "Missing release directory: $dir" }
   }
   Push-Location $Root
@@ -43,6 +43,7 @@ try {
   $sources += Get-ChildItem (Join-Path $Root 'data\history') -File -Recurse
   $sources += Get-ChildItem (Join-Path $Root 'data\offline-curler-index') -File -Recurse
   $sources += Get-ChildItem (Join-Path $Root 'data\name-catalog') -File -Recurse
+  $sources += Get-ChildItem (Join-Path $Root 'data\source-cache') -File -Recurse
   if (($sources | Measure-Object).Count -lt 20) { throw 'Refusing unexpectedly small release set.' }
   $newest = ($sources | Measure-Object -Property LastWriteTimeUtc -Maximum).Maximum
   if (-not $DryRun -and -not $DeployReviewedNow -and $newest -gt (Get-Date).ToUniversalTime().AddMinutes(-5)) {

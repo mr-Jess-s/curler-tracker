@@ -11,22 +11,25 @@ function response() {
   };
 }
 
-let fetched = '';
-globalThis.fetch = async url => {
-  fetched = String(url);
-  return { ok: true, status: 200, async text() { return '{"items":[],"seasons":[]}'; } };
+let fetched = false;
+globalThis.fetch = async () => {
+  fetched = true;
+  throw new Error('The public request path must not contact the upstream source.');
 };
+
 let res = response();
 await handler({ method: 'GET', query: { kind: 'competitions', subdomain: 'ab', occurred: '0' } }, res);
-assert.equal(res.statusCode, 200);
-assert.equal(fetched, 'https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f');
-assert.match(res.headers['vercel-cdn-cache-control'], /s-maxage=300/);
+assert.equal(res.statusCode, 307);
+assert.equal(res.headers.location, '/data/source-cache/ab/competitions-0.json');
+assert.match(res.headers['cache-control'], /s-maxage=300/);
+assert.equal(res.headers['x-curler-tracker-source'], 'verified-archive-cache');
+assert.equal(fetched, false);
 
 res = response();
 await handler({ method: 'GET', query: { kind: 'event', subdomain: 'mb', id: '26408' } }, res);
-assert.equal(res.statusCode, 200);
-assert.equal(fetched, 'https://api.curling.io/en/clubs/mb/events/26408');
-assert.match(res.headers['vercel-cdn-cache-control'], /s-maxage=60/);
+assert.equal(res.statusCode, 307);
+assert.equal(res.headers.location, '/data/source-cache/mb/events/26408.json');
+assert.equal(fetched, false);
 
 res = response();
 await handler({ method: 'GET', query: { kind: 'event', subdomain: 'evil.example', id: '1' } }, res);

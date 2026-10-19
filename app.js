@@ -694,7 +694,7 @@ async function fetchJson(url, { ttlMs = 0, cacheGroup = 'json' } = {}) {
       cache: firstPartyCacheable ? 'default' : 'no-store',
       signal: controller.signal
     });
-    if (!res.ok && [502, 503, 504].includes(res.status) && url.startsWith('/api/curling-io')) {
+    if (!res.ok && [404, 502, 503, 504].includes(res.status) && url.startsWith('/api/curling-io')) {
       const directUrl = directCurlingIoUrl(url);
       if (directUrl) {
         responseUrl = directUrl;
