@@ -1,3 +1,11 @@
+# Current reconciliation
+
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
+
+Arthur local app: `CurlerTracker-ArthurApp` starts at owner sign-in and serves the last successful published build on 127.0.0.1:8766. Reinstall using `tools\Install-ArthurApp.ps1`. It has three restart attempts; sign-in and power remain required. Source scripts are included in the release backup. Production and local source service are archive-backed; healthy does not mean complete/live source coverage. Budget remains zero; do not contact people without permission.
+
+---
+
 # Operations Runbook
 
 Arthur owns routine operation; no LLM is required.

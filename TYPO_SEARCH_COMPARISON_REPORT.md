@@ -1,3 +1,11 @@
+# Current reconciliation
+
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
+
+The table below is the historical October 16 baseline, not today's result. Current algorithm evidence: exact 71/71, severe typo 64/64, realistic typo 284/284. This verifies candidate resolution, not arbitrary real-world identity. Full evidence: release-evidence/2026-10-21/name-resolution.json.
+
+---
+
 # Typo search comparison
 
 Reported 2026-10-16T16:35:11.827807+00:00. Fixed sample: 71 people; 64 queries changed.

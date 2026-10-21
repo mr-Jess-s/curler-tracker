@@ -1,23 +1,9 @@
-# Production Release Report
+# Production release report
 
-Evidence date: 2026-10-18 UTC
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
 
-- Public URL: https://curler-tracker.vercel.app
-- Current public release: v26.21, commit `ffa60f3880c0dcdbd2049a78cccf4f03ffbe4a6f`
-- Existing UAT URL: https://curler-tracker-uat-20261017.vercel.app
-- Existing UAT release: v26.20, commit `76f25188a31be5b9b49dbd9f1a26f8838cfbea24`
-- Reviewed release-candidate branch: `release/2026-10-13-readiness`
-- Reviewed candidate code/data commit: `3a551ed502ded7adf669bb77ea7f7a5d4fe0190d`
-- Intended release: v26.21
+Public production is v26.21 at `9a0b093d0bbc154aafe45795d1b7cc2c8943f6df`: https://curler-tracker.vercel.app . Arthur serves the same last successfully published build at http://127.0.0.1:8766/ . The former authorization and HTTP 502 blockers are resolved; the source service now serves cached archive responses.
 
-The candidate implements sharded typo-tolerant identity lookup, network-first data updates, deterministic archive summaries, separate identity/profile choices, five-season history, strict result states, two independent backup streams, collector monitoring, and staged release gates. Local rendered UAT passed 39/39; regression passed 39/39; cache QA passed 4/4; identity QA passed 71/71 exact, 64/64 severe typo, and 284/284 realistic typo cases. Automated accessibility testing reported zero violations in four rendered views.
+Verified today: 42 rendered-browser checks, 14 security checks, 19 operational checks, and 400 public asset hashes. Both isolated backup restores pass. The newer daily archive commit is distinct from the deployed commit and remains eligible for the scheduled publisher's gates.
 
-Arthur completed an unattended collection/test/commit/push/backup cycle with Task Scheduler result 0. The archive now contains 44,895 sourced appearances, 13,338 indexed names and 16,165 source-scoped profiles.
-
-## Release verdict
-
-**BLOCKED — not public-launch ready and not advertising ready.**
-
-The reviewed candidate could not be staged or promoted because both Arthur's Vercel CLI and the connected Vercel integration return HTTP 403 for the `jess-and-roo` scope. The current production source proxy returns HTTP 502, so the browser uses a bounded direct-source fallback. Production therefore does not yet contain all reviewed fixes and cannot safely absorb national traffic without multiplying upstream requests.
-
-Exact next action: restore Vercel authorization for the `jess-and-roo` team, run `tools\Publish-VerifiedRelease.ps1 -DeployReviewedNow`, and allow its byte, source-service, security, rendered-browser, promotion, production-verification and rollback gates to complete.
+Software delivery is deployed and verified. Full product acceptance still requires physical-device testing under PRODUCT_ACCEPTANCE.md. This is not a claim of complete historical coverage or national advertising readiness. No spending or human contact was authorized or performed.

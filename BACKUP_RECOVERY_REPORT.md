@@ -1,25 +1,11 @@
-# Backup and Recovery Report
+# Backup and recovery report
 
-Evidence date: 2026-10-18 UTC.
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
 
-Arthur now runs two isolated, non-overlapping OneDrive backup tasks:
+Two separate backup streams protect the release worktree/Git bundle and private collector archive. Both were restored to isolated temporary directories today.
 
-- `CurlerTracker-ArchiveBackup` at 02:30 backs up the clean release worktree to `CurlerTracker-Release-Backup` and creates/verifies a complete Git bundle.
-- `CurlerTracker-CollectorBackup` at 03:00 backs up private `data\raw` and `data\global` to `CurlerTracker-Archive-Backup`.
+- Release: 2270 files, 109580790 bytes; zero mismatches/invalid files; Git clone, fsck, exact commit checkout and 39 regressions passed.
+- Collector: 12119 files; zero mismatches/invalid files. See the detailed JSON for byte counts and source paths.
+- Fresh backup task results were successful.
 
-Both tasks were invoked through Task Scheduler and returned result 0.
-
-Release restore test:
-
-- 1,971 files and 108,371,183 bytes restored to an isolated temporary directory.
-- 1,487 raw files and 256 normalized JSON files validated.
-- 0 mismatches and 0 invalid files.
-- Git clone, full fsck, checkout of `c613faed817668288854b9375ad976521cda91c1`, and 39 regression checks passed.
-
-Collector restore test:
-
-- 11,717 files and 1,864,186,726 bytes restored.
-- 11,555 raw files and 162 normalized JSON files validated.
-- 0 mismatches and 0 invalid files.
-
-Cloud synchronization and restoration on another owner device are **not verified**. Local OneDrive paths and a sync client are not proof of remote completion.
+Evidence: `release-evidence/2026-10-21/release-restore.json` and `collector-restore.json`. These verify local recovery. OneDrive cloud delivery and recovery on another device remain unverified; they are not inferred from a local folder.

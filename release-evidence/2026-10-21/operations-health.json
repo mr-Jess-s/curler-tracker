@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "checked_at": "2026-10-21T09:12:29.624960+00:00",
+  "checks": [
+    {
+      "name": "history_archive_freshness",
+      "status": "PASS",
+      "detail": {
+        "path": "C:\\Jess\\curler-tracker-release-steps1-10\\data\\history-manifest.json",
+        "generated_at": "2026-10-21T06:00:36.187964+00:00",
+        "maximum_age_hours": 192
+      }
+    },
+    {
+      "name": "name_index_freshness",
+      "status": "PASS",
+      "detail": {
+        "path": "C:\\Jess\\curler-tracker-release-steps1-10\\data\\curler-name-catalog.json",
+        "generated_at": "2026-10-21T06:00:36.187964+00:00",
+        "maximum_age_hours": 30
+      }
+    },
+    {
+      "name": "source_cache_freshness",
+      "status": "PASS",
+      "detail": {
+        "path": "C:\\Jess\\curler-tracker-release-steps1-10\\data\\source-cache\\manifest.json",
+        "generated_at": "2026-10-21T03:40:46.544818+00:00",
+        "maximum_age_hours": 30
+      }
+    },
+    {
+      "name": "home_summary_freshness",
+      "status": "PASS",
+      "detail": {
+        "path": "C:\\Jess\\curler-tracker-release-steps1-10\\data\\home-summary.json",
+        "generated_at": "2026-10-21T06:00:36.187964+00:00",
+        "maximum_age_hours": 192
+      }
+    },
+    {
+      "name": "archive_validation",
+      "status": "PASS",
+      "detail": {
+        "errors": 0,
+        "appearances": 44895,
+        "source_files": 13
+      }
+    },
+    {
+      "name": "name_index_validation",
+      "status": "PASS",
+      "detail": {
+        "name_count": 13338
+      }
+    },
+    {
+      "name": "name_shards_validation",
+      "status": "PASS",
+      "detail": {
+        "shards": 53,
+        "valid_shards": 53
+      }
+    },
+    {
+      "name": "source_cache_validation",
+      "status": "PASS",
+      "detail": {
+        "competition_lists": 28,
+        "event_records": 265,
+        "referenced_events": 465,
+        "referenced_events_cached": 61
+      }
+    },
+    {
+      "name": "backup_local_freshness",
+      "status": "PASS",
+      "detail": {
+        "last_copy": "2026-10-21T07:30:04.1544546Z",
+        "copy_exit": 0,
+        "bundle_bytes": 15368881,
+        "project_files": 2269,
+        "source": "C:\\Jess\\curler-tracker-release-steps1-10",
+        "source_commit": "f6c72abcc5e9705128711556354eb2c08fc788b1",
+        "tracked_clean": true,
+        "cloud_sync_verified": false
+      }
+    },
+    {
+      "name": "collector_backup_local_freshness",
+      "status": "PASS",
+      "detail": {
+        "last_copy": "2026-10-21T08:00:07.4481171Z",
+        "source": "C:\\Jess\\curler-tracker",
+        "archives": [
+          {
+            "path": "data\\global",
+            "robocopy_exit": 1,
+            "files": 162,
+            "bytes": 15173816
+          },
+          {
+            "path": "data\\raw",
+            "robocopy_exit": 1,
+            "files": 11957,
+            "bytes": 1864574740
+          }
+        ],
+        "cloud_sync_verified": false
+      }
+    },
+    {
+      "name": "collector_runtime",
+      "status": "PASS",
+      "detail": {
+        "root": "C:\\Jess\\curler-tracker",
+        "phase": "idle",
+        "heartbeat_at": "2026-10-21T09:11:34.1837589Z",
+        "maintenance_updated_at": "2026-10-21T03:40:50.066896+00:00",
+        "tasks": 11,
+        "failed_tasks": []
+      }
+    },
+    {
+      "name": "scheduled_task_arthurautomation",
+      "status": "PASS",
+      "detail": {
+        "Name": "CurlerTracker-ArthurAutomation",
+        "LastTaskResult": 0,
+        "LastRunTime": "2026-10-21T06:00:01.0000000Z",
+        "NextRunTime": "2026-10-22T06:00:00.0000000Z",
+        "State": "Ready"
+      }
+    },
+    {
+      "name": "scheduled_task_verifiedpublisher",
+      "status": "PASS",
+      "detail": {
+        "Name": "CurlerTracker-VerifiedPublisher",
+        "LastTaskResult": 0,
+        "LastRunTime": "2026-10-20T12:00:01.0000000Z",
+        "NextRunTime": "2026-10-21T12:00:00.0000000Z",
+        "State": "Ready"
+      }
+    },
+    {
+      "name": "scheduled_task_operationshealth",
+      "status": "PASS",
+      "detail": {
+        "Name": "CurlerTracker-OperationsHealth",
+        "LastTaskResult": 0,
+        "LastRunTime": "2026-10-21T09:11:53.0000000Z",
+        "NextRunTime": "2026-10-21T09:26:29.0000000Z",
+        "State": "Ready"
+      }
+    },
+    {
+      "name": "scheduled_task_archivebackup",
+      "status": "PASS",
+      "detail": {
+        "Name": "CurlerTracker-ArchiveBackup",
+        "LastTaskResult": 0,
+        "LastRunTime": "2026-10-21T07:30:01.0000000Z",
+        "NextRunTime": "2026-10-22T07:30:00.0000000Z",
+        "State": "Ready"
+      }
+    },
+    {
+      "name": "scheduled_task_collectorbackup",
+      "status": "PASS",
+      "detail": {
+        "Name": "CurlerTracker-CollectorBackup",
+        "LastTaskResult": 0,
+        "LastRunTime": "2026-10-21T08:00:01.0000000Z",
+        "NextRunTime": "2026-10-22T08:00:00.0000000Z",
+        "State": "Ready"
+      }
+    },
+    {
+      "name": "production_release_identity",
+      "status": "PASS",
+      "detail": {
+        "url": "https://curler-tracker.vercel.app",
+        "live_commit": "9a0b093d0bbc154aafe45795d1b7cc2c8943f6df",
+        "published_commit": "9a0b093d0bbc154aafe45795d1b7cc2c8943f6df",
+        "version": "v26.21"
+      }
+    },
+    {
+      "name": "production_source_service",
+      "status": "PASS",
+      "detail": {
+        "status": 200,
+        "cache_control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600"
+      }
+    },
+    {
+      "name": "disk_space",
+      "status": "PASS",
+      "detail": {
+        "free_bytes": 616625655808,
+        "minimum_bytes": 10737418240
+      }
+    }
+  ],
+  "healthy": true,
+  "note": "Local health evidence only. Task Scheduler records a non-zero result on failure; external alert delivery is not configured."
+}

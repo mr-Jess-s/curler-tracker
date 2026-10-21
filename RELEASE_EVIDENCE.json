@@ -1,96 +1,81 @@
 {
-  "schema_version": 3,
-  "recorded_at": "2026-10-18T22:50:00Z",
+  "schema_version": 4,
+  "recorded_at": "2026-10-21T09:13:53.750522+00:00",
   "production": {
     "url": "https://curler-tracker.vercel.app",
-    "version": "v26.21",
-    "git_commit": "ffa60f3880c0dcdbd2049a78cccf4f03ffbe4a6f",
-    "source_service_status": 502,
-    "verified_candidate_deployed": false
+    "live_commit": "9a0b093d0bbc154aafe45795d1b7cc2c8943f6df",
+    "published_commit": "9a0b093d0bbc154aafe45795d1b7cc2c8943f6df",
+    "version": "v26.21"
   },
-  "staging": {
-    "url": "https://curler-tracker-uat-20261017.vercel.app",
-    "version": "v26.20",
-    "git_commit": "76f25188a31be5b9b49dbd9f1a26f8838cfbea24",
-    "matches_candidate": false
+  "source_service": {
+    "status": 200,
+    "cache_control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600"
   },
-  "candidate": {
-    "version": "v26.21",
-    "branch": "release/2026-10-13-readiness",
-    "code_data_commit": "3a551ed502ded7adf669bb77ea7f7a5d4fe0190d",
-    "public_files": 109,
-    "deployment_attempt": "BLOCKED",
-    "deployment_error": "Vercel HTTP 403: not authorized for jess-and-roo scope"
+  "operations": {
+    "passed": 19,
+    "failed": 0,
+    "evidence": "release-evidence/2026-10-21/operations-health.json"
   },
-  "tests": {
-    "local_candidate_assertions_passed": 501,
-    "local_candidate_assertions_failed": 0,
-    "release_regression": {"passed": 39, "failed": 0},
-    "cache_qa": {"passed": 4, "failed": 0},
-    "identity_qa": {
-      "exact": {"passed": 71, "total": 71},
-      "severe_typo": {"passed": 64, "total": 64},
-      "realistic_typo": {"passed": 284, "total": 284},
-      "median_ms": 190.85,
-      "p95_ms": 249.49,
-      "max_ms": 314.42
-    },
-    "rendered_candidate": {"passed": 39, "failed": 0, "browser": "Edge 155.0.4283.62"},
-    "accessibility": {"views": 4, "violations": 0, "errors": 0, "manual_review_items": 1},
-    "production_security": {"passed": 14, "failed": 0},
-    "production_source_service": {"passed": false, "status": 502}
+  "browser": {
+    "passed": 42,
+    "failed": 0
   },
-  "archive": {
-    "generated_at": "2026-10-18T22:45:37.762952Z",
-    "seasons": 5,
-    "indexed_events": 1183,
-    "roster_appearances": 44895,
-    "indexed_names": 13338,
-    "source_scoped_profiles": 16165,
-    "history_files": 13,
-    "offline_index_shards": 26,
-    "browser_search_shards": 53,
-    "ingestion_errors": 0,
-    "collector_heartbeat_verified": true,
-    "maintenance_failed_jobs": 0
+  "security": {
+    "passed": 14,
+    "failed": 0
+  },
+  "production_byte_verification": {
+    "passed": true,
+    "assets": 400
   },
   "backup_restore": {
     "release": {
-      "verified": true,
-      "restored_files": 1971,
-      "restored_bytes": 108371183,
-      "integrity_mismatches": 0,
-      "invalid_files": 0,
-      "git_fsck_passed": true,
-      "regression_passed": 39
+      "started_at": "2026-10-21T09:07:45.024215+00:00",
+      "finished_at": "2026-10-21T09:08:30.401824+00:00",
+      "restore_directory": "C:\\Users\\mrjes\\AppData\\Local\\Temp\\CurlerTracker-full-restore-korzh1v5",
+      "files_restored": 2270,
+      "bytes_restored": 109580790,
+      "raw_files_restored": 1488,
+      "raw_bytes_restored": 40620046,
+      "normalized_json_validated": 550,
+      "mismatches": [],
+      "invalid_files": [],
+      "git_clone_exit": 0,
+      "git_fsck_exit": 0,
+      "restored_regression_exit": 0,
+      "restored_regression_log": "PASS Homepage has visible branding and a useful historical default\nPASS Indexed history keeps identity, source link and retrieval provenance\nPASS Wrong association index rejected; official fallback used\nPASS Failed history requests are not reported as an empty successful search\nPASS Lineup row IDs cannot establish curler identity\nPASS Delayed history cannot overwrite another curler\nPASS Failed history retains existing records and visible retry message\nPASS Empty history message survives final render\nPASS Delayed player discovery cannot relabel one athlete as another\nPASS Restricted browser storage does not prevent boot\nPASS Stale saved player is not rendered for a different shared link\nPASS Published name changes stay linked only through the same scoped source ID\nPASS Conflicting roster entries are retained and visibly qualified\nPASS Missing scores stay unknown rather than zero\nPASS Offline JSON requests never receive cached HTML\nPASS Offline navigation can use the cached application shell\nPASS Failed responses cannot poison the app cache\nPASS Incomplete current-source search produces an explicit issue state\nPASS Incomplete recent search cannot be reported as no history\nPASS Refresh errors never become unsupported career records\nPASS Offline lookup returns a dated, explicitly archived team record\nPASS Ambiguous offline identities are not silently merged\nPASS Failed live search can fall back to an archived team record\nPASS No archived player match explains that club league rosters may be absent\nPASS Search shows a prominent progress state and finishes with a distinct error\nPASS Switching people starts a fresh search without stale progress overwrites\nPASS Source discovery stops scheduling new requests after its deadline\nPASS Independent first-party documents supply evidence without inventing a live team\nPASS Source outage uses documentary history instead of unsupported no-record error\nPASS Published Farrol spelling resolves exact documentary references without identity merging\nPASS Published documentary-only names pass the local identity preflight\nPASS Unsafe imported source links cannot execute JavaScript\nPASS Partial names and ambiguous same-name teams never select an identity\nPASS Unverified spelling variants cannot receive another published name\u00e2\u20ac\u2122s documentary records\nPASS Missing release data cannot silently load unreviewed data from another branch\nPASS First-party source proxy requests remain CDN-cacheable\nPASS Missing cached source degrades without visitor-side upstream traffic\nPASS Name-index shards bound browser work and include keyboard-neighbor recovery\nPASS Name-index preflight immediately exposes an accessible progress state\n39 release regression checks passed.\n",
+      "cloud_sync_verified": false,
+      "passed": true,
+      "requested_release_ref": "f6c72abcc5e9705128711556354eb2c08fc788b1",
+      "restored_commit": "f6c72abcc5e9705128711556354eb2c08fc788b1",
+      "release_checkout_exit": 0
     },
     "collector": {
-      "verified": true,
-      "restored_files": 11717,
-      "restored_bytes": 1864186726,
-      "integrity_mismatches": 0,
-      "invalid_files": 0
-    },
-    "cloud_sync_verified": false
+      "started_at": "2026-10-21T09:08:30.526774+00:00",
+      "finished_at": "2026-10-21T09:12:08.506059+00:00",
+      "restore_directory": "C:\\Users\\mrjes\\AppData\\Local\\Temp\\CurlerTracker-archive-restore-dc1lkc8k",
+      "files_restored": 12119,
+      "bytes_restored": 1879748556,
+      "raw_files_restored": 11957,
+      "normalized_json_validated": 162,
+      "mismatches": [],
+      "invalid_files": [],
+      "cloud_sync_verified": false,
+      "passed": true
+    }
   },
-  "automation": {
-    "arthur_automation_last_result": 0,
-    "release_backup_last_result": 0,
-    "collector_backup_last_result": 0,
-    "publisher_last_result": 1,
-    "health_monitor_last_result": 1,
-    "interactive_sign_in_required": true,
-    "external_alert_delivery": false
+  "local_app": {
+    "url": "http://127.0.0.1:8766/",
+    "startup_task": "CurlerTracker-ArthurApp",
+    "windows_sign_in_required": true
   },
   "verdict": {
-    "known_p0": 0,
-    "known_p1": 2,
-    "p1_items": [
-      "Reviewed candidate is not deployed because Vercel team authorization is unavailable",
-      "Production source application service returns 502 and falls back to visitor-side upstream requests"
-    ],
-    "public_launch_ready": false,
+    "software_delivery": "DEPLOYED_AND_VERIFIED",
+    "full_product_acceptance": "PENDING_PHYSICAL_DEVICE_UAT",
     "national_advertising_ready": false,
-    "status": "BLOCKED"
+    "ongoing": "Archive enrichment and source coverage",
+    "cloud_sync_verified": false,
+    "external_alert_delivery": false,
+    "budget": 0
   }
 }

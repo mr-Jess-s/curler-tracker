@@ -1,16 +1,7 @@
-# Archive Coverage Report
+# Archive coverage report
 
-Generated archive timestamp: 2026-10-18T22:45:37.762952Z.
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
 
-- Five indexed seasons: 2022/23 through 2026/27.
-- 1,183 indexed events in the public season summary.
-- 44,895 sourced roster appearances.
-- 13,338 indexed names.
-- 16,165 source-scoped profiles.
-- 13 association history files, 26 offline index shards and 53 browser search shards.
-- 0 ingestion errors in the public manifest.
-- Global collector: 80 registered member associations; results job 87/87 complete.
-- Canadian current-season collector: 14/14 association sources refreshed; 138 events at its last recorded cycle.
-- Collector heartbeat was current and all recorded maintenance jobs had zero consecutive failures.
+Today's validated archive contains 44895 sourced appearances in 13 association history files, 13338 names, and 53 valid browser search shards. Archive validation reports zero errors. Source cache contains 28 competition lists and 265 event records; only 61 of 465 referenced events are cached.
 
-Coverage comes from public source material and varies by association, season, event and digitization. Empty source responses remain qualified; they are never converted into a claim that no records exist. Conflicting identities are kept separate unless source-scoped evidence supports a link. This is an expanding verified archive, not every curler or a complete career history.
+The deterministic collector has a fresh heartbeat and no failed recorded maintenance jobs. Idle time is not advancing acquisition. Raw snapshots, manifests and provenance remain private and are backed up independently. Coverage expands through scheduled bounded jobs and does not imply every source is available or cleared for unrestricted reuse.

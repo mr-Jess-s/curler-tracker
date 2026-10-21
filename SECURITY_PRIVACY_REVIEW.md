@@ -1,11 +1,7 @@
-# Security and Privacy Review
+# Security and privacy review
 
-Evidence date: 2026-10-18 UTC.
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
 
-The current public deployment previously passed 14/14 transport, header, service-worker and private-path checks. The reviewed candidate keeps restrictive CSP, frame denial, MIME-sniffing prevention, no-referrer and permissions policies; public-build allowlisting excludes raw archives, tools, repository metadata and credentials. No secret was found in the public release set. Imported links are restricted to safe HTTPS source URLs, requests are allowlisted and time-bounded, and uncertain identities are not silently merged.
+Live production passes 14 transport, header, cache and private-path checks. CSP restricts connections to the site's origin. Raw data, repository metadata, operational tools and deployment configuration are not publicly served. Arthur's local app binds only to loopback and serves the published asset allowlist.
 
-The deployment verifier was corrected: a controlled 502/503/504 from the source service now fails release acceptance. The publisher now requires exact byte matching, source-service health, security checks and rendered browser UAT before promotion, with automatic rollback after a failed production verification.
-
-Privacy handling remains minimal: public competition records and local browser preferences only. The privacy page explains variable coverage and correction needs. A private correction destination, retention/deletion rules, identity-dispute workflow, and owner-approved handling procedure remain BLOCKED. Sensitive corrections must not be sent through a public channel.
-
-Vercel account authorization could not be reviewed or changed because the integration returns 403. This report is not legal advice, a penetration test, or rights clearance.
+These are bounded technical checks, not a penetration test or legal/rights clearance. Existing privacy and contribution rules remain applicable. Private correction intake, retention and disputes require an owner-approved handling process. No human contact or spending is authorized by these tests. Account write permissions are not inferred from successful HTTP requests.

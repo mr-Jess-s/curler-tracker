@@ -1,22 +1,9 @@
-# Advertising Readiness Report
+# Advertising readiness report
 
-## What is ready
+Evidence reconciled 2026-10-21T09:13:53.750522+00:00. Current machine-readable status: `RELEASE_EVIDENCE.json`.
 
-The public site has a clear brand and visitor journey, mobile layouts, search progress, explicit result states, source links, share links, five-season navigation, privacy disclosures, safe metadata, deterministic collection, tested recovery and a fail-closed release pipeline. The reviewed candidate resolves exact-name, typo, ambiguity, stale-cache, monitoring and backup defects locally.
+Production is deployed and its cached-source endpoint is healthy. Those former blockers are closed.
 
-Allowed claim: **Verified curling records from participating public sources; coverage varies by association, event and season.**
+National advertising is not approved or funded. The authorized budget remains zero. Before an advertising launch, obtain physical-device and assistive-technology acceptance, appropriate rights evidence, an approved private correction/retention process, capacity evidence appropriate to the campaign, remote recovery verification and an authorized incident destination. No people may be contacted without explicit permission.
 
-Do not claim every curler, complete career history, complete global coverage, guaranteed live results, audited accessibility conformance, or national-traffic capacity.
-
-## Verdict: BLOCKED for professional national advertising
-
-1. Restore Vercel authorization and deploy/verify the reviewed candidate.
-2. Make the production source service return cacheable 200 responses; do not rely on per-visitor direct fallback under surge.
-3. Run the exact candidate through controlled staging load tests.
-4. Approve a private correction/privacy destination and retention process.
-5. Complete physical iPhone/Android and human assistive-technology testing.
-6. Document mascot/artwork/trademark and source-reuse clearance.
-7. Configure off-computer incident alerts to an authorized destination.
-8. Confirm OneDrive restoration from another device.
-
-The current site remains publicly accessible, but it is not responsible to launch national advertising while these material blockers remain.
+Supported description: Verified curling records from participating public sources; coverage varies by association, event and season. Do not claim every curler, complete careers, guaranteed live results or audited accessibility conformance.

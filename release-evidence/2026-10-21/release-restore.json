@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-21T09:07:45.024215+00:00",
+  "finished_at": "2026-10-21T09:08:30.401824+00:00",
+  "restore_directory": "C:\\Users\\mrjes\\AppData\\Local\\Temp\\CurlerTracker-full-restore-korzh1v5",
+  "files_restored": 2270,
+  "bytes_restored": 109580790,
+  "raw_files_restored": 1488,
+  "raw_bytes_restored": 40620046,
+  "normalized_json_validated": 550,
+  "mismatches": [],
+  "invalid_files": [],
+  "git_clone_exit": 0,
+  "git_fsck_exit": 0,
+  "restored_regression_exit": 0,
+  "restored_regression_log": "PASS Homepage has visible branding and a useful historical default\nPASS Indexed history keeps identity, source link and retrieval provenance\nPASS Wrong association index rejected; official fallback used\nPASS Failed history requests are not reported as an empty successful search\nPASS Lineup row IDs cannot establish curler identity\nPASS Delayed history cannot overwrite another curler\nPASS Failed history retains existing records and visible retry message\nPASS Empty history message survives final render\nPASS Delayed player discovery cannot relabel one athlete as another\nPASS Restricted browser storage does not prevent boot\nPASS Stale saved player is not rendered for a different shared link\nPASS Published name changes stay linked only through the same scoped source ID\nPASS Conflicting roster entries are retained and visibly qualified\nPASS Missing scores stay unknown rather than zero\nPASS Offline JSON requests never receive cached HTML\nPASS Offline navigation can use the cached application shell\nPASS Failed responses cannot poison the app cache\nPASS Incomplete current-source search produces an explicit issue state\nPASS Incomplete recent search cannot be reported as no history\nPASS Refresh errors never become unsupported career records\nPASS Offline lookup returns a dated, explicitly archived team record\nPASS Ambiguous offline identities are not silently merged\nPASS Failed live search can fall back to an archived team record\nPASS No archived player match explains that club league rosters may be absent\nPASS Search shows a prominent progress state and finishes with a distinct error\nPASS Switching people starts a fresh search without stale progress overwrites\nPASS Source discovery stops scheduling new requests after its deadline\nPASS Independent first-party documents supply evidence without inventing a live team\nPASS Source outage uses documentary history instead of unsupported no-record error\nPASS Published Farrol spelling resolves exact documentary references without identity merging\nPASS Published documentary-only names pass the local identity preflight\nPASS Unsafe imported source links cannot execute JavaScript\nPASS Partial names and ambiguous same-name teams never select an identity\nPASS Unverified spelling variants cannot receive another published name\u00e2\u20ac\u2122s documentary records\nPASS Missing release data cannot silently load unreviewed data from another branch\nPASS First-party source proxy requests remain CDN-cacheable\nPASS Missing cached source degrades without visitor-side upstream traffic\nPASS Name-index shards bound browser work and include keyboard-neighbor recovery\nPASS Name-index preflight immediately exposes an accessible progress state\n39 release regression checks passed.\n",
+  "cloud_sync_verified": false,
+  "passed": true,
+  "requested_release_ref": "f6c72abcc5e9705128711556354eb2c08fc788b1",
+  "restored_commit": "f6c72abcc5e9705128711556354eb2c08fc788b1",
+  "release_checkout_exit": 0
+}

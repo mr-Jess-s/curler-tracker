@@ -1,0 +1,96 @@
+{
+  "schema_version": 3,
+  "recorded_at": "2026-10-18T22:50:00Z",
+  "production": {
+    "url": "https://curler-tracker.vercel.app",
+    "version": "v26.21",
+    "git_commit": "ffa60f3880c0dcdbd2049a78cccf4f03ffbe4a6f",
+    "source_service_status": 502,
+    "verified_candidate_deployed": false
+  },
+  "staging": {
+    "url": "https://curler-tracker-uat-20261017.vercel.app",
+    "version": "v26.20",
+    "git_commit": "76f25188a31be5b9b49dbd9f1a26f8838cfbea24",
+    "matches_candidate": false
+  },
+  "candidate": {
+    "version": "v26.21",
+    "branch": "release/2026-10-13-readiness",
+    "code_data_commit": "3a551ed502ded7adf669bb77ea7f7a5d4fe0190d",
+    "public_files": 109,
+    "deployment_attempt": "BLOCKED",
+    "deployment_error": "Vercel HTTP 403: not authorized for jess-and-roo scope"
+  },
+  "tests": {
+    "local_candidate_assertions_passed": 501,
+    "local_candidate_assertions_failed": 0,
+    "release_regression": {"passed": 39, "failed": 0},
+    "cache_qa": {"passed": 4, "failed": 0},
+    "identity_qa": {
+      "exact": {"passed": 71, "total": 71},
+      "severe_typo": {"passed": 64, "total": 64},
+      "realistic_typo": {"passed": 284, "total": 284},
+      "median_ms": 190.85,
+      "p95_ms": 249.49,
+      "max_ms": 314.42
+    },
+    "rendered_candidate": {"passed": 39, "failed": 0, "browser": "Edge 155.0.4283.62"},
+    "accessibility": {"views": 4, "violations": 0, "errors": 0, "manual_review_items": 1},
+    "production_security": {"passed": 14, "failed": 0},
+    "production_source_service": {"passed": false, "status": 502}
+  },
+  "archive": {
+    "generated_at": "2026-10-18T22:45:37.762952Z",
+    "seasons": 5,
+    "indexed_events": 1183,
+    "roster_appearances": 44895,
+    "indexed_names": 13338,
+    "source_scoped_profiles": 16165,
+    "history_files": 13,
+    "offline_index_shards": 26,
+    "browser_search_shards": 53,
+    "ingestion_errors": 0,
+    "collector_heartbeat_verified": true,
+    "maintenance_failed_jobs": 0
+  },
+  "backup_restore": {
+    "release": {
+      "verified": true,
+      "restored_files": 1971,
+      "restored_bytes": 108371183,
+      "integrity_mismatches": 0,
+      "invalid_files": 0,
+      "git_fsck_passed": true,
+      "regression_passed": 39
+    },
+    "collector": {
+      "verified": true,
+      "restored_files": 11717,
+      "restored_bytes": 1864186726,
+      "integrity_mismatches": 0,
+      "invalid_files": 0
+    },
+    "cloud_sync_verified": false
+  },
+  "automation": {
+    "arthur_automation_last_result": 0,
+    "release_backup_last_result": 0,
+    "collector_backup_last_result": 0,
+    "publisher_last_result": 1,
+    "health_monitor_last_result": 1,
+    "interactive_sign_in_required": true,
+    "external_alert_delivery": false
+  },
+  "verdict": {
+    "known_p0": 0,
+    "known_p1": 2,
+    "p1_items": [
+      "Reviewed candidate is not deployed because Vercel team authorization is unavailable",
+      "Production source application service returns 502 and falls back to visitor-side upstream requests"
+    ],
+    "public_launch_ready": false,
+    "national_advertising_ready": false,
+    "status": "BLOCKED"
+  }
+}
