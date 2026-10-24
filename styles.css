@@ -362,16 +362,19 @@ h1 {
 .active-end-label { display: inline-block; margin-left: 7px; padding: 2px 6px; border-radius: 999px; background: #d9f0e2; color: var(--green); font-size: .62rem; font-weight: 750; letter-spacing: .04em; vertical-align: middle; }
 .end-score-cell.has-hammer::after { display: inline-block; width: 12px; height: 5px; margin-left: 7px; border-radius: 2px; background: #b65a48; content: ""; }
 .career-card { margin-top: 14px; padding-bottom: 2px; }
-.career-path { display: grid; gap: 8px; padding: 12px 20px 18px; }
+.career-path { position: relative; display: grid; gap: 8px; padding: 12px 20px 18px; }
+.career-path:not(.empty)::before { position: absolute; top: 22px; bottom: 28px; left: 18px; width: 2px; background: var(--line); content: ""; }
 .career-path.empty { color: var(--muted); }
 .career-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 4px 20px 6px; }
 .career-actions #careerLoadBtn { flex: 0 0 auto; white-space: nowrap; }
 .career-actions #careerStatus { flex: 1 1 160px; }
 .career-actions .hint { margin: 0; }
-.career-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
+.career-item { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-left: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
+.career-item::before { position: absolute; top: 17px; left: -19px; width: 10px; height: 10px; border: 2px solid var(--blue-dark); border-radius: 50%; background: #fff; content: ""; }
 .career-item strong, .career-item span { display: block; }
 .career-item strong { color: var(--ink); line-height: 1.35; }
 .career-item span { margin-top: 4px; color: var(--muted); font-size: .9rem; line-height: 1.4; }
+.career-item time { display: block; margin-bottom: 4px; color: var(--blue-dark); font-size: .78rem; font-weight: 700; }
 .career-item small { flex: 0 0 auto; color: var(--blue-dark); text-align: right; }
 .career-source { color: var(--blue-dark); font-size: .82rem; text-align: right; }
 
@@ -430,6 +433,7 @@ h1 {
   .section-head { padding-left: 16px; padding-right: 16px; }
   .ends-list, .schedule-list { padding-left: 16px; padding-right: 16px; }
   .career-path { padding-left: 16px; padding-right: 16px; }
+  .career-path:not(.empty)::before { left: 14px; }
   .career-actions { padding-left: 16px; padding-right: 16px; }
 }
 @media (max-width: 420px) {

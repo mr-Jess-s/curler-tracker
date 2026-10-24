@@ -202,6 +202,12 @@ await check('Career records display without source brands, association labels or
  const html=a.elements.get('careerPath').innerHTML;
  assert.match(html,/Canadian Championship/);assert.match(html,/Team: Example/);
  assert.doesNotMatch(html,/<a\b|href=|Curling I\/O|canada\.curling\.io/);
+ a.run("renderCareerPath({playerName:'Brad Gushue',careerHistory:[{title:'2017 Brier',detail:'Team: Team Gushue · Playing role: fourth · Tournament result: unavailable in this record',startsOn:'2017-03-04'}]})");
+ assert.match(a.elements.get('careerPath').innerHTML,/2017-03-04/);
+ assert.match(a.elements.get('careerPath').innerHTML,/Tournament result: unavailable in this record/);
+ assert.equal(a.run("formatCareerTimelineDate('Mar 02, 2017').machine"),'2017-03-02');
+ assert.equal(a.run("formatCareerTimelineDate('Mar 02, 2017',2017,'Mar 12, 2017').machine"),'2017-03-02');
+ assert.match(a.run("formatCareerTimelineDate('Mar 02, 2017',2017,'Mar 12, 2017').label"),/2017/);
 });
 await check('Current team roster is listed and multiple teams can be saved and removed',async()=>{
  const a=app();
@@ -370,10 +376,51 @@ await check('World Curling history resolves exact names to a stable source ID an
  const result=await a.run("findWorldCurlingSnapshot('Torger Nergård',{phase:'test'},5000)");
  assert.equal(result.view,'world-archive');assert.equal(result.worldPersonId,'486');assert.equal(result.diagnostics.worldArchiveCoverageComplete,false);
  assert.equal(result.careerHistory.length,2);assert.match(result.careerHistory[0].detail,/Games: 428/);
- assert.equal(result.careerHistory[1].detail,'');
+ assert.match(result.careerHistory[1].detail,/International championship appearance/);
  assert.equal(result.careerHistory[1].sourceUrl,'https://results.worldcurling.org/Championship/Details/702');
  assert.equal(result.careerHistory[1].source,'');
  assert.doesNotMatch(a.elements.get('headlineBlock').innerHTML,/World Curling ID|World Curling Results/i);
+});
+await check('Career timeline combines Canadian and international records in chronological order',async()=>{
+ const a=app();
+ a.context.worldIndex={schema_version:1,source_provider:'World Curling',generated_at:'2026-10-24T00:00:00Z',coverage:{history_complete:false},people:{'2659':{
+  world_person_id:'2659',published_names:[{name:'Brad Gushue'}],record_summaries:{IndividualGames:[{metrics:{Appearances:'13',Games:'143',Wins:'111',Losses:'32',Golds:'6',Silvers:'4',Bronzes:'1'}}]},
+  championships:[{championship_id:'580',championship_type:'World Curling Championships',source_label:'2017-1'},{championship_id:'702',championship_type:'Olympic Games',source_label:'2022-3'},{championship_id:'709',championship_type:'World Curling Championships',source_label:'2022-2'}]
+ }}};
+ a.context.documentedIndex={schema_version:1,generated_at:'2026-10-24T00:00:00Z',names:{'brad gushue':{name:'Brad Gushue',records:[{title:'2017 Tim Hortons Brier',detail:'Curling Canada confirms the Brier championship and World berth.',source:'Curling Canada',source_url:'https://www.curling.ca/blog/2017/03/13/newfoundlandlabrador-wins-tim-hortons-brier/',kind:'organizer_event_report',event_date:'',source_subdomain:'canada',source_curler_id:'1628',event_id:'2254',team_id:'67123',result:'Brier champions',advancement:'Qualified to represent Canada at the 2017 Ford World Men\'s Curling Championship'}]}}};
+ a.context.historyFixtures={canada:{schema_version:1,source_provider:'Curling I/O',source_subdomain:'canada',generated_at:'2026-10-24T00:00:00Z',curler_appearances:{'1628':[
+  {event_id:'100',team_id:'20',event_name:'2022 Canadian Brier',team_name:'Team Gushue',starts_on:'2022-03-04'},
+  {event_id:'2254',team_id:'67123',event_name:'2017 Tim Hortons Brier',team_name:'Newfoundland & Labrador (Gushue)',starts_on:'2017-03-04'}
+ ]}},nl:{schema_version:1,source_provider:'Curling I/O',source_subdomain:'nl',generated_at:'2026-10-24T00:00:00Z',curler_appearances:{'1628':[]}}};
+ a.run("fetchJson=async url=>url.includes('world-curler-index')?worldIndex:url.includes('curler-source-records')?documentedIndex:(url.includes('/canada.')||url.includes('/canada.json'))?historyFixtures.canada:historyFixtures.nl");
+ const result=await a.run("discoverCareerHistory({playerName:'Brad Gushue',sourceCurlerId:1628,sourceSubdomain:'canada',sourceSubdomains:['canada','nl']})");
+ assert.equal(result.length,5);
+ assert.deepEqual(Array.from(result,r=>r.timelineYear||Number(r.startsOn.slice(0,4))),[2017,2017,2022,2022,2022]);
+ assert.equal(result[0].title,'2017 Tim Hortons Brier');
+ assert.equal(result[1].title,'2017 World Curling Championships');
+ assert.equal(result[0].resultSummary,'Brier champions');
+ assert.match(result[0].advancement,/Qualified to represent Canada at the 2017 Ford World Men/);
+ assert.equal(result[0].resultEvidence,'https://www.curling.ca/blog/2017/03/13/newfoundlandlabrador-wins-tim-hortons-brier/');
+ a.context.timeline=result;
+ a.run("renderCareerPath({playerName:'Brad Gushue',careerHistory:timeline})");
+ assert.match(a.elements.get('careerPath').innerHTML,/2017-03-04/);
+ assert.match(a.elements.get('careerPath').innerHTML,/Tournament result: Brier champions/);
+ assert.match(a.elements.get('careerPath').innerHTML,/Qualified to represent Canada at the 2017 Ford World Men/);
+ assert.doesNotMatch(a.elements.get('careerPath').innerHTML,/Curling Canada|curling\.ca|<a\b|href=/);
+ a.context.unrelatedBrier=[{title:'2017 Tim Hortons Brier',detail:'Tournament result: unavailable in this record',sourceCurlerId:'999',sourceSubdomain:'canada',eventId:'2254',teamId:'67123'}];
+ const unrelated=await a.run("applyDocumentedCareerResults(unrelatedBrier,'Brad Gushue')");
+ assert.equal(unrelated[0].resultSummary,undefined);
+ assert(result.some(row=>row.title==='2022 Olympic Games'));
+ assert(result.some(row=>row.title==='2017 World Curling Championships'));
+ assert.match(result.careerSummary,/143 games; 111 wins, 32 losses/);
+ assert.doesNotMatch(result.careerSummary,/Curling I\/O|World Curling Results/);
+});
+await check('Cross-source identity ambiguity is not silently joined in the career timeline',async()=>{
+ const a=app();a.context.worldIndex={schema_version:1,source_provider:'World Curling',generated_at:'2026-10-24T00:00:00Z',coverage:{history_complete:false},people:{
+  '1':{world_person_id:'1',published_names:[{name:'Alex Smith'}],championships:[{championship_id:'10',championship_type:'Worlds',source_label:'2020-1'}]},
+  '2':{world_person_id:'2',published_names:[{name:'Alex Smith'}],championships:[{championship_id:'11',championship_type:'Worlds',source_label:'2021-1'}]}
+ }};a.run('fetchJson=async()=>worldIndex');
+ assert.equal(await a.run("findWorldCurlingHistory('Alex Smith')"),null);
 });
 await check('Missing release data cannot silently load unreviewed data from another branch',async()=>{
  const a=app();a.context.fetches=[];

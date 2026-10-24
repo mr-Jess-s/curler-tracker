@@ -48,6 +48,23 @@ class BuildWorldCurlerIndexTests(unittest.TestCase):
         self.assertEqual(row["championships"][2]["championship_type"], "Worlds")
         self.assertEqual(row["championships"][0]["source_label"], "2022-6")
 
+    def test_parse_championship_details_adds_dated_individual_finish(self):
+        page = """
+        <h2>Historical Results &amp; Statistics</h2>
+        <h2>Ford World Men's Curling Championship 2017</h2>
+        <p>4/1/2017 - 4/9/2017</p>
+        <table><thead><tr><th>Position</th><th>Record</th><th></th><th>Association</th></tr></thead>
+        <tbody><tr><td>1</td><td>13 - 0</td><td><img src='/flag.png'></td><td>
+        <a href='/Association/Details/7'>Canada</a> <a href='/Person/Details/2659'>Brad Gushue</a></td></tr></tbody></table>
+        """
+        result = builder.parse_championship_page(page, "580")
+        self.assertEqual(result["title"], "Ford World Men's Curling Championship 2017")
+        self.assertEqual(result["starts_on"], "2017-04-01")
+        self.assertEqual(result["ends_on"], "2017-04-09")
+        self.assertEqual(result["participants"]["2659"], {
+            "position": "1", "record": "13 - 0", "association_id": "7", "team": "Canada"
+        })
+
     def test_build_preserves_old_people_and_labels_coverage_incomplete(self):
         association_pages = self.raw / "10"
         association_pages.mkdir()

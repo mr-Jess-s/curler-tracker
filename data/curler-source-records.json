@@ -1,8 +1,27 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T22:15:43Z",
+  "generated_at": "2026-10-24T22:05:00Z",
   "source_policy": "Only first-party curling clubs and competition organizers. Every document references its own source. These are evidence-based references, not Curling I/O roster identities or current team confirmations.",
   "names": {
+    "brad gushue": {
+      "name": "Brad Gushue",
+      "records": [
+        {
+          "title": "2017 Tim Hortons Brier",
+          "detail": "Curling Canada reports that Team Newfoundland and Labrador won the 2017 Tim Hortons Brier and earned a place in the 2017 Ford World Men's Curling Championship.",
+          "source": "Curling Canada (official event report)",
+          "source_url": "https://www.curling.ca/blog/2017/03/13/newfoundlandlabrador-wins-tim-hortons-brier/",
+          "kind": "organizer_event_report",
+          "event_date": "",
+          "source_subdomain": "canada",
+          "source_curler_id": "1628",
+          "event_id": "2254",
+          "team_id": "67123",
+          "result": "Brier champions",
+          "advancement": "Qualified to represent Canada at the 2017 Ford World Men's Curling Championship"
+        }
+      ]
+    },
     "ferrol asham": {
       "name": "Ferrol Asham",
       "unverified_search_variant": true,

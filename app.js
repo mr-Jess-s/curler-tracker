@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.25';
+const APP_VERSION = 'v26.26';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -274,9 +274,11 @@ function compactSnapshotForStorage(snapshot) {
     progressSignature: snapshot.progressSignature || '',
     sourceCurlerId: snapshot.sourceCurlerId || null,
     sourceSubdomain: snapshot.sourceSubdomain || '',
+    sourceSubdomains: Array.isArray(snapshot.sourceSubdomains) ? snapshot.sourceSubdomains.slice(0, 14) : [],
     teamId: snapshot.teamId || null,
     teamMembers: cleanTeamMembers(snapshot.teamMembers),
-    careerHistory: Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory.slice(0, 20) : [],
+    careerHistory: Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory.slice(0, 200) : [],
+    careerSummary: snapshot.careerSummary || '',
     scheduleRows: compactScheduleRows,
     ends: compactEnds
   };
@@ -1433,12 +1435,10 @@ function renderCareerPath(snapshot) {
     return;
   }
 
-  const items = [];
   const history = Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory : state.careerHistory;
+  const items = mergeCareerHistory(history);
 
-  if (history.length) {
-    for (const item of history) items.push(item);
-  } else if (snapshot.eventName && !['error', 'idle'].includes(snapshot.view)) {
+  if (!items.length && snapshot.eventName && !['error', 'idle'].includes(snapshot.view)) {
     items.push({
       title: snapshot.eventName,
       detail: snapshot.teamName ? `Team: ${snapshot.teamName}` : 'Team not established',
@@ -1448,15 +1448,73 @@ function renderCareerPath(snapshot) {
 
   els.careerPath.className = items.length ? 'career-path' : 'career-path empty';
   els.careerPath.innerHTML = items.length
-    ? items.map(item => `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div></article>`).join('')
+    ? items.map(item => {
+      const date = formatCareerTimelineDate(item.startsOn, item.timelineYear, item.endsOn);
+      const detail = item.resultSummary
+        ? item.detail.replace('Tournament result: unavailable in this record', `Tournament result: ${item.resultSummary}${item.advancement ? ` · ${item.advancement}` : ''}`)
+        : item.detail;
+      return `<article class="career-item"><div>${date ? `<time datetime="${escapeHtml(date.machine)}">${escapeHtml(date.label)}</time>` : ''}<strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(detail)}</span></div></article>`;
+    }).join('')
     : '<p>No career records loaded yet. Missing history is not treated as no history.</p>';
 
   const canLoad = !!snapshot.sourceCurlerId && !!snapshot.sourceSubdomain;
   els.careerLoadBtn?.classList.toggle('hidden', !canLoad);
   if (els.careerStatus && !state.careerLoading) {
-    const historyLabel = `${history.length} recorded appearance${history.length === 1 ? '' : 's'} available. Historical coverage is incomplete.`;
-    els.careerStatus.textContent = state.careerMessage || (history.length ? historyLabel : '');
+    const historyLabel = `${items.length} recorded appearance${items.length === 1 ? '' : 's'} available. Historical coverage is incomplete.`;
+    els.careerStatus.textContent = [state.careerMessage || snapshot.careerSummary, history.length ? historyLabel : ''].filter(Boolean).join(' ');
   }
+}
+
+function mergeCareerHistory(...groups) {
+  const unique = new Map();
+  for (const item of groups.flat().filter(Boolean)) {
+    const scope = String(item.sourceUrl || '').match(/^https:\/\/([^/]+)/i)?.[1] || '';
+    const key = item.worldChampionshipId
+      ? `world:${item.worldChampionshipId}`
+      : item.eventId && scope
+        ? `${scope}:${item.eventId}:${item.teamId || ''}:${normalizeName(item.detail)}`
+        : `${normalizeName(item.title)}:${item.startsOn || item.timelineYear || ''}`;
+    if (!unique.has(key)) unique.set(key, item);
+  }
+  const yearOf = item => Number(item.timelineYear) || Number(String(item.startsOn || '').match(/^(\d{4})/)?.[1]) || 0;
+  return [...unique.values()].sort((a, b) => {
+    const yearDiff = yearOf(a) - yearOf(b);
+    if (yearDiff) return yearDiff;
+    const aDate = parseEventDateToMs(a.startsOn);
+    const bDate = parseEventDateToMs(b.startsOn);
+    if (aDate && bDate) return aDate - bDate;
+    if (aDate) return -1;
+    if (bDate) return 1;
+    return String(a.title || '').localeCompare(String(b.title || ''));
+  });
+}
+
+function formatCareerTimelineDate(startsOn, timelineYear, endsOn) {
+  const parseDate = value => {
+    const raw = String(value || '').trim();
+    const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    const named = raw.match(/^([A-Za-z]{3,})\s+(\d{1,2}),?\s+(\d{4})$/);
+    if (iso) return new Date(Date.UTC(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3])));
+    if (named) {
+      const month = new Date(`${named[1].slice(0, 3)} 1, 2000 UTC`).getUTCMonth();
+      if (!Number.isNaN(month)) return new Date(Date.UTC(Number(named[3]), month, Number(named[2])));
+    }
+    const milliseconds = parseEventDateToMs(raw);
+    return milliseconds ? new Date(milliseconds) : null;
+  };
+  const date = parseDate(startsOn);
+  const endDate = parseDate(endsOn);
+  if (date && !Number.isNaN(date.getTime())) {
+    const formatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeZone: 'UTC' });
+    return {
+      machine: date.toISOString().slice(0, 10),
+      label: endDate && !Number.isNaN(endDate.getTime())
+        ? (typeof formatter.formatRange === 'function' ? formatter.formatRange(date, endDate) : `${formatter.format(date)} – ${formatter.format(endDate)}`)
+        : formatter.format(date)
+    };
+  }
+  const year = Number(timelineYear) || Number(String(startsOn || '').match(/^(\d{4})/)?.[1]);
+  return year ? { machine: String(year), label: `${year} · Date unavailable` } : null;
 }
 
 async function discoverCareerHistory(snapshot) {
@@ -1465,6 +1523,7 @@ async function discoverCareerHistory(snapshot) {
   if (!curlerId || !subdomain) return [];
 
   const sourceSubdomains = [...new Set((snapshot.sourceSubdomains || [subdomain]).filter(Boolean))];
+  let localHistory = [];
   if (sourceSubdomains.length > 1) {
     const histories = await Promise.all(sourceSubdomains.map(async source => {
       const index = await fetchJson(`./data/history/${encodeURIComponent(source)}.json?v=${encodeURIComponent(APP_VERSION)}`, {
@@ -1481,24 +1540,24 @@ async function discoverCareerHistory(snapshot) {
       return indexed.map(row => {
         const details = [];
         if (row.team_name) details.push(`Team: ${row.team_name}`);
-        if (row.position) details.push(`Position: ${row.position}`);
+        if (row.position) details.push(`Playing role: ${row.position}`);
         if (row.season) details.push(row.season);
         if (row.published_name) details.push('Published as: ' + row.published_name);
+        details.push('Tournament result: unavailable in this record');
         return {
           title: row.event_name || 'Recorded event',
           detail: details.join(' · ') || 'Published appearance',
           source: '',
           sourceUrl: `https://${source}.curling.io/en/events/${row.event_id}`,
-          startsOn: row.starts_on || '', eventId: row.event_id,
-          publishedName: row.published_name || '', retrievedAt: index.generated_at
+          startsOn: row.starts_on || '', endsOn: row.ends_on || '', eventId: row.event_id, teamId: row.team_id,
+          publishedName: row.published_name || '', retrievedAt: index.generated_at,
+          sourceCurlerId: String(curlerId), sourceSubdomain: source,
+          recordKind: 'domestic-appearance'
         };
       });
     }));
-    return histories.flat()
-      .sort((a, b) => (parseEventDateToMs(b.startsOn) || 0) - (parseEventDateToMs(a.startsOn) || 0) || Number(b.eventId || 0) - Number(a.eventId || 0));
-  }
-
-  try {
+    localHistory = histories.flat();
+  } else try {
     const localIndex = await fetchJson(`./data/history/${encodeURIComponent(subdomain)}.json?v=${encodeURIComponent(APP_VERSION)}`, {
       ttlMs: 60 * 60 * 1000,
       cacheGroup: 'career-index'
@@ -1512,13 +1571,14 @@ async function discoverCareerHistory(snapshot) {
       throw new Error('History index rows are invalid');
     }
     if (indexed.length) {
-      return indexed
+      localHistory = indexed
         .map(row => {
           const details = [];
           if (row.team_name) details.push(`Team: ${row.team_name}`);
-          if (row.position) details.push(`Position: ${row.position}`);
+          if (row.position) details.push(`Playing role: ${row.position}`);
           if (row.season) details.push(row.season);
           if (row.published_name) details.push('Published as: ' + row.published_name);
+          details.push('Tournament result: unavailable in this record');
           if (indexed.filter(other => other.event_id === row.event_id && other.team_id === row.team_id).length > 1) {
             details.push('Multiple source roster entries for this event/team; check official record');
           }
@@ -1528,16 +1588,21 @@ async function discoverCareerHistory(snapshot) {
             source: '',
             sourceUrl: row.event_id ? `https://${subdomain}.curling.io/en/events/${row.event_id}` : '',
             startsOn: row.starts_on || '',
+            endsOn: row.ends_on || '',
             eventId: row.event_id,
+            teamId: row.team_id,
             publishedName: row.published_name || '',
-            retrievedAt: localIndex.generated_at
+            retrievedAt: localIndex.generated_at,
+            sourceCurlerId: String(curlerId), sourceSubdomain: subdomain,
+            recordKind: 'domestic-appearance'
           };
         })
         .sort((a, b) => (parseEventDateToMs(b.startsOn) || 0) - (parseEventDateToMs(a.startsOn) || 0) || Number(b.eventId || 0) - Number(a.eventId || 0))
-        .slice(0, 20);
+        .slice(0, 200);
     }
   } catch {}
 
+  if (!localHistory.length && sourceSubdomains.length === 1) {
   const observations = [];
   const seen = new Set();
   let failedRequests = 0;
@@ -1573,8 +1638,9 @@ async function discoverCareerHistory(snapshot) {
 
           const details = [];
           if (team.name) details.push(`Team: ${team.name}`);
-          if (curler.position) details.push(`Position: ${curler.position}`);
+          if (curler.position) details.push(`Playing role: ${curler.position}`);
           if (seasonLabel) details.push(seasonLabel);
+          details.push('Tournament result: unavailable in this record');
           if (matchingCurlers.length > 1) details.push('Multiple source roster entries for this event/team; check official record');
 
           observations.push({
@@ -1583,9 +1649,13 @@ async function discoverCareerHistory(snapshot) {
             source: '',
             sourceUrl: event.id ? `https://${subdomain}.curling.io/en/events/${event.id}` : '',
             startsOn: event.starts_on || '',
+            endsOn: event.ends_on || '',
             eventId: event.id,
+            teamId: team.id,
             publishedName: curler.name || '',
-            retrievedAt: new Date().toISOString()
+            retrievedAt: new Date().toISOString(),
+            sourceCurlerId: String(curlerId), sourceSubdomain: subdomain,
+            recordKind: 'domestic-appearance'
           });
         }
       } catch { failedRequests++; }
@@ -1599,7 +1669,17 @@ async function discoverCareerHistory(snapshot) {
     return bMs - aMs || Number(b.eventId || 0) - Number(a.eventId || 0);
   });
 
-  return observations.slice(0, 20);
+  localHistory = observations.slice(0, 200);
+  }
+
+  let world = null;
+  let summary = '';
+  localHistory = await applyDocumentedCareerResults(localHistory, snapshot.playerName);
+  try { world = await findWorldCurlingHistory(snapshot.playerName); }
+  catch { summary = 'International history could not be checked in this search.'; }
+  const history = mergeCareerHistory(localHistory, world?.records || []);
+  history.careerSummary = world?.summary || summary;
+  return history;
 }
 
 function updateBadge(view) {
@@ -1728,17 +1808,22 @@ function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, de
   const records = (identity?.records || []).filter(row => row.team_name && row.event_name);
   const careerHistory = records.map(row => {
     const details = [`Team: ${row.team_name}`];
-    if (row.position) details.push(row.position);
+    if (row.position) details.push(`Playing role: ${row.position}`);
     if (row.season) details.push(row.season);
-    details.push(`Snapshot: ${formatSnapshotDate(row.retrieved_at)}`);
+    details.push('Tournament result: unavailable in this record');
     return {
       title: row.event_name,
       detail: details.join(' · '),
       source: '',
       sourceUrl: row.source_url,
       startsOn: row.starts_on || '',
+      endsOn: row.ends_on || '',
       eventId: row.event_id || '',
-      retrievedAt: row.retrieved_at || ''
+      teamId: row.team_id || '',
+      retrievedAt: row.retrieved_at || '',
+      sourceCurlerId: String(identity?.source_curler_id || ''),
+      sourceSubdomain: row.source_subdomain || identity?.source_subdomain || '',
+      recordKind: 'domestic-appearance'
     };
   });
   return {
@@ -1805,7 +1890,21 @@ async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs, selecte
   const identity = { ...identities[0], source_subdomains: [...new Set(identities.map(row => row.source_subdomain))], records };
   const record = records[0];
   if (!record) diagnostics.offlineLookup = 'no-team-record';
-  return record ? buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) : null;
+  if (!record) return null;
+  const snapshot = buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs);
+  try {
+    snapshot.careerHistory = await applyDocumentedCareerResults(snapshot.careerHistory, playerName);
+    const world = await findWorldCurlingHistory(playerName);
+    if (world) {
+      snapshot.careerHistory = mergeCareerHistory(snapshot.careerHistory, world.records);
+      snapshot.careerSummary = world.summary;
+      diagnostics.worldCareerRecordCount = world.records.length;
+    }
+  } catch (error) {
+    diagnostics.worldCareerHistoryError = error.message;
+    snapshot.careerSummary = 'International history could not be checked in this search.';
+  }
+  return snapshot;
 }
 
 async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
@@ -1829,7 +1928,13 @@ async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
     detail: row.detail,
     source: row.source,
     sourceUrl: row.source_url,
-    startsOn: row.event_date || ''
+    startsOn: row.event_date || '',
+    sourceSubdomain: row.source_subdomain || '',
+    sourceCurlerId: String(row.source_curler_id || ''),
+    eventId: String(row.event_id || ''),
+    teamId: String(row.team_id || ''),
+    resultSummary: row.result || '',
+    advancement: row.advancement || ''
   }));
   diagnostics.documentarySourceCount = careerHistory.length;
   return {
@@ -1848,6 +1953,83 @@ async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
     lastUpdatedLabel: `Indexed ${formatSnapshotDate(archive.generated_at)}`,
     diagnostics
   };
+}
+
+async function applyDocumentedCareerResults(history, playerName) {
+  try {
+    const documented = await findDocumentedCurlingSnapshot(playerName, {}, 0);
+    if (!documented?.careerHistory?.length) return history;
+    for (const result of documented.careerHistory) {
+      if (!result.resultSummary && !result.advancement) continue;
+      const matches = history.filter(item => String(item.sourceCurlerId || '') === String(result.sourceCurlerId || '') &&
+        item.sourceSubdomain === result.sourceSubdomain && String(item.eventId || '') === String(result.eventId || '') &&
+        String(item.teamId || '') === String(result.teamId || '') && normalizeName(item.title) === normalizeName(result.title));
+      if (matches.length !== 1) continue;
+      matches[0].resultSummary = result.resultSummary;
+      matches[0].advancement = result.advancement;
+      matches[0].resultEvidence = result.sourceUrl;
+    }
+  } catch {}
+  return history;
+}
+
+async function findWorldCurlingHistory(playerName) {
+  const archive = await fetchJson(`./data/world-curler-index.json?v=${encodeURIComponent(APP_VERSION)}`, {
+    ttlMs: 12 * 60 * 60 * 1000,
+    cacheGroup: 'world-curling-history'
+  });
+  if (archive?.schema_version !== 1 || archive?.source_provider !== 'World Curling' ||
+      !archive.people || typeof archive.people !== 'object' || !archive.coverage) {
+    throw new Error('World Curling history index is unavailable or invalid.');
+  }
+  const wanted = normalizeName(playerName);
+  const matches = Object.values(archive.people).filter(person =>
+    (person.published_names || []).some(entry => normalizeName(entry.name) === wanted)
+  );
+  if (matches.length !== 1) return null;
+
+  const person = matches[0];
+  const seen = new Set();
+  const records = (person.championships || []).flatMap(fact => {
+    const id = String(fact.championship_id || '');
+    if (!id || seen.has(id)) return [];
+    seen.add(id);
+    const year = Number(String(fact.source_label || '').match(/^(\d{4})/)?.[1]) || null;
+    const type = String(fact.championship_type || 'International championship').trim();
+    const finish = String(fact.individual_result?.position || '').trim();
+    const numericFinish = /^\d+$/.test(finish) ? Number(finish) : 0;
+    const finishLabel = numericFinish
+      ? `${numericFinish}${numericFinish % 100 >= 11 && numericFinish % 100 <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[numericFinish % 10] || 'th')} place`
+      : '';
+    const result = [];
+    if (finishLabel) result.push(`Finish: ${finishLabel}`);
+    if (fact.individual_result?.record) result.push(`Team record: ${String(fact.individual_result.record).replace(/\s*-\s*/, '–')}`);
+    return [{
+      title: String(fact.event_title || `${year ? `${year} ` : ''}${type}`),
+      detail: [`International championship appearance${year ? ` · ${year}` : ''}`, ...result].join(' · '),
+      source: '',
+      sourceUrl: '',
+      worldChampionshipId: id,
+      timelineYear: year,
+      startsOn: fact.starts_on || '',
+      endsOn: fact.ends_on || '',
+      recordKind: 'international-appearance'
+    }];
+  });
+  const gameSummary = (person.record_summaries?.IndividualGames || [])
+    .map(row => row?.metrics || {})
+    .find(metrics => metrics.Games || metrics.Appearances);
+  const summaryParts = [];
+  if (gameSummary?.Appearances) summaryParts.push(`${gameSummary.Appearances} international championship appearances`);
+  if (gameSummary?.Games) summaryParts.push(`${gameSummary.Games} games`);
+  if (gameSummary?.Wins || gameSummary?.Losses) summaryParts.push(`${gameSummary.Wins || 0} wins, ${gameSummary.Losses || 0} losses`);
+  const medals = ['Golds', 'Silvers', 'Bronzes'].filter(key => gameSummary?.[key])
+    .map(key => `${gameSummary[key]} ${key.slice(0, -1).toLowerCase()}`);
+  if (medals.length) summaryParts.push(medals.join(', '));
+  const summary = summaryParts.length
+    ? `International record: ${summaryParts.join('; ')}. The historical index is incomplete.`
+    : '';
+  return { records, summary, worldPersonId: person.world_person_id };
 }
 
 async function findWorldCurlingSnapshot(playerName, diagnostics, delayMs) {
@@ -1890,11 +2072,20 @@ async function findWorldCurlingSnapshot(playerName, diagnostics, delayMs) {
   }
 
   for (const fact of person.championships || []) {
+    const year = Number(String(fact.source_label || '').match(/^(\d{4})/)?.[1]) || null;
+    const position = String(fact.individual_result?.position || '').trim();
+    const numericPosition = /^\d+$/.test(position) ? Number(position) : 0;
+    const finish = numericPosition
+      ? `${numericPosition}${numericPosition % 100 >= 11 && numericPosition % 100 <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[numericPosition % 10] || 'th')} place`
+      : '';
+    const details = ['International championship appearance', year ? String(year) : '', finish ? `Finish: ${finish}` : '',
+      fact.individual_result?.record ? `Team record: ${String(fact.individual_result.record).replace(/\s*-\s*/, '–')}` : ''].filter(Boolean);
     careerHistory.push({
-      title: fact.championship_type || 'International championship appearance',
-      detail: '',
+      title: fact.event_title || `${year ? `${year} ` : ''}${fact.championship_type || 'International championship appearance'}`,
+      detail: details.join(' · '),
       source: '',
-      sourceUrl: fact.source_url || fact.source_page || person.person_url
+      sourceUrl: fact.source_url || fact.source_page || person.person_url,
+      startsOn: fact.starts_on || ''
     });
   }
 
@@ -2357,6 +2548,11 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     (a, b) => (a.epochMs ?? Number.MAX_SAFE_INTEGER) - (b.epochMs ?? Number.MAX_SAFE_INTEGER)
   );
 
+  const priorSnapshot = state.snapshot;
+  const priorScopes = priorSnapshot?.sourceSubdomains || [priorSnapshot?.sourceSubdomain].filter(Boolean);
+  const sameCurler = String(priorSnapshot?.sourceCurlerId || '') === String(match.curler?.curler_id ?? '');
+  const preserveCareer = sameCurler && priorScopes.includes(candidate.subdomain);
+
   return {
     playerName,
     displayPlayer: match.curler.name,
@@ -2389,8 +2585,9 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     progressSignature: active ? getProgressSignature(active) : '',
     sourceCurlerId: match.curler?.curler_id ?? null,
     sourceSubdomain: candidate.subdomain || diagnostics?.sourceSubdomain || '',
-    careerHistory: state.snapshot?.sourceCurlerId === match.curler?.curler_id &&
-      state.snapshot?.sourceSubdomain === candidate.subdomain ? state.careerHistory : []
+    sourceSubdomains: preserveCareer ? priorScopes : (state.selectedProfile?.source_subdomains || [candidate.subdomain].filter(Boolean)),
+    careerHistory: preserveCareer ? (priorSnapshot.careerHistory || state.careerHistory) : [],
+    careerSummary: preserveCareer ? (priorSnapshot.careerSummary || '') : ''
   };
 }
 
@@ -2839,8 +3036,8 @@ els.careerLoadBtn?.addEventListener('click', async () => {
     const history = await discoverCareerHistory(requested);
     if (!stillCurrent()) return;
     state.careerHistory = history;
-    state.careerMessage = history.length ? '' : 'No additional records found in the recent seasons checked. History may be incomplete.';
-    state.snapshot = { ...state.snapshot, careerHistory: history };
+    state.careerMessage = history.length ? '' : 'No additional records found in the checked collections. History may be incomplete.';
+    state.snapshot = { ...state.snapshot, careerHistory: history, careerSummary: history.careerSummary || '' };
     saveSnapshot(state.snapshot);
   } catch (error) {
     if (stillCurrent()) state.careerMessage = 'History could not be fully checked. Please retry. Previously loaded records are retained.';

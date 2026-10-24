@@ -68,7 +68,7 @@ class ContinuousWorldResultsTests(unittest.TestCase):
              patch.object(crawler, "complete", return_value=True), \
              patch.object(crawler, "fetch_targets", return_value=refreshed), \
              patch.object(crawler, "write_status", side_effect=lambda value: writes.append(dict(value))):
-            crawler.main()
+            crawler.main([])
 
         self.assertEqual(writes[-1]["state"], "partial")
         self.assertEqual(writes[-1]["association_checked"], 1)
@@ -90,7 +90,7 @@ class ContinuousWorldResultsTests(unittest.TestCase):
              patch.object(crawler, "complete", return_value=True), \
              patch.object(crawler, "fetch_targets", return_value=refreshed), \
              patch.object(crawler, "write_status", side_effect=lambda value: writes.append(dict(value))):
-            crawler.main()
+            crawler.main([])
 
         self.assertEqual(writes[-1]["state"], "complete")
         self.assertEqual(writes[-1]["association_checked"], 1)
@@ -101,7 +101,7 @@ class ContinuousWorldResultsTests(unittest.TestCase):
         with patch.object(crawler.d, "fetch_bytes", side_effect=RuntimeError("source unavailable")), \
              patch.object(crawler, "write_status", side_effect=lambda value: writes.append(dict(value))):
             with self.assertRaisesRegex(RuntimeError, "source unavailable"):
-                crawler.main()
+                crawler.main([])
 
         self.assertEqual(writes[0]["state"], "starting")
         self.assertEqual(writes[-1]["state"], "failed")

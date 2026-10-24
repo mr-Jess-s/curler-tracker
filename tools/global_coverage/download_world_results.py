@@ -6,6 +6,7 @@ import gzip
 import hashlib
 import html
 import json
+import os
 import re
 import time
 import urllib.request
@@ -13,9 +14,10 @@ from pathlib import Path
 from urllib.parse import urljoin
 from acquisition_support import fetch_snapshot
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data" / "global"
-RAW = ROOT / "data" / "raw" / "worldcurling-results"
+ROOT = Path(os.environ.get("CURLER_TRACKER_ROOT", Path(__file__).resolve().parents[2])).resolve()
+ARCHIVE_ROOT = Path(os.environ.get("CURLER_TRACKER_ARCHIVE_ROOT", ROOT)).resolve()
+DATA = ARCHIVE_ROOT / "data" / "global"
+RAW = ARCHIVE_ROOT / "data" / "raw" / "worldcurling-results"
 BASE = "https://results.worldcurling.org"
 UA = "CurlerTrackerCoverage/1.0 (+https://github.com/mr-Jess-s/curler-tracker)"
 
@@ -31,7 +33,7 @@ RECORD_PATHS = [
 def fetch_bytes(url):
     record, body = fetch_snapshot(url, "worldcurling-results", "worldcurling-results", timeout=35)
     if body is None:
-        with gzip.open(ROOT / record["raw_path"], "rb") as handle:
+        with gzip.open(ARCHIVE_ROOT / record["raw_path"], "rb") as handle:
             body = handle.read()
     headers = Message()
     headers["Content-Type"] = record.get("content_type", "application/octet-stream")
@@ -83,7 +85,7 @@ def download(url, path, delay):
         "bytes": len(body),
         "sha256": hashlib.sha256(body).hexdigest(),
         "retrieved_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-        "path": str(path.relative_to(ROOT)),
+        "path": str(path.relative_to(ARCHIVE_ROOT)),
     }
     if delay:
         time.sleep(delay)
@@ -121,7 +123,7 @@ def main():
             "bytes": len(body),
             "sha256": hashlib.sha256(body).hexdigest(),
             "retrieved_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-            "path": str(index_path.relative_to(ROOT)),
+            "path": str(index_path.relative_to(ARCHIVE_ROOT)),
         }
     )
     save_gzip(index_path, body)

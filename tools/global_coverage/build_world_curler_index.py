@@ -18,6 +18,8 @@ RAW = ARCHIVE_ROOT / "data" / "raw" / "worldcurling-results" / "association"
 DOWNLOAD_MANIFEST = ARCHIVE_DATA / "world-results-download-manifest.json"
 SNAPSHOT_MANIFEST = ARCHIVE_DATA / "acquisition-manifests" / "worldcurling-results.json"
 OUTPUT = ROOT / "data" / "world-curler-index.json"
+CHAMPIONSHIP_RAW = ARCHIVE_DATA.parent / "raw" / "worldcurling-results" / "championship"
+CHAMPIONSHIP_DOWNLOAD_MANIFEST = ARCHIVE_DATA / "world-championship-details-manifest.json"
 BASE = "https://results.worldcurling.org"
 RECORD_TYPES = [
     "Appearances", "IndividualChampionships", "IndividualFinals",
@@ -103,6 +105,73 @@ def parse_record_page(page, association, record_type, source_url, snapshot):
             "source_retrieved_at": snapshot.get("retrieved_at") or snapshot.get("not_modified_at") or "",
         })
     return rows
+
+
+def parse_championship_page(page, championship_id):
+    """Extract the dated finish and team record for athletes on an official event page."""
+    headings = [clean(value) for value in re.findall(r"<h[1-3]\b[^>]*>(.*?)</h[1-3]>", page, re.I | re.S)]
+    title = next((value for value in headings if re.search(r"\b(?:19|20)\d{2}\b", value)), headings[0] if headings else "")
+    dates = re.search(r"(\d{1,2}/\d{1,2}/\d{4})\s*-\s*(\d{1,2}/\d{1,2}/\d{4})", page)
+    starts_on = ends_on = ""
+    if dates:
+        try:
+            starts_on = dt.datetime.strptime(dates.group(1), "%m/%d/%Y").date().isoformat()
+            ends_on = dt.datetime.strptime(dates.group(2), "%m/%d/%Y").date().isoformat()
+        except ValueError:
+            pass
+
+    participants = {}
+    for table in re.findall(r"<table\b[^>]*>(.*?)</table>", page, re.I | re.S):
+        headers = table_headers(table)
+        position_index = next((i for i, value in enumerate(headers) if value.casefold() == "position"), None)
+        record_index = next((i for i, value in enumerate(headers) if value.casefold() == "record"), None)
+        if position_index is None and record_index is None:
+            continue
+        body = re.search(r"<tbody\b[^>]*>(.*?)</tbody>", table, re.I | re.S)
+        if not body:
+            continue
+        for row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", body.group(1), re.I | re.S):
+            cells = re.findall(r"<td\b[^>]*>(.*?)</td>", row, re.I | re.S)
+            person_ids = [match.group(1) for match in re.finditer(r"href=['\"]/?Person/Details/(\d+)['\"]", row, re.I)]
+            if not cells or not person_ids:
+                continue
+            position = clean(cells[position_index]) if position_index is not None and position_index < len(cells) else ""
+            record = clean(cells[record_index]) if record_index is not None and record_index < len(cells) else ""
+            association_ids = [match.group(1) for match in re.finditer(r"href=['\"]/?Association/Details/(\d+)['\"]", row, re.I)]
+            association_names = [clean(match.group(1)) for match in re.finditer(
+                r"<a\b[^>]*href=['\"]/?Association/Details/\d+['\"][^>]*>(.*?)</a>", row, re.I | re.S)]
+            result = {"position": position, "record": record,
+                      "association_id": association_ids[0] if association_ids else "",
+                      "team": association_names[0] if association_names else ""}
+            for person_id in person_ids:
+                participants[person_id] = result
+    return {"championship_id": str(championship_id), "title": title,
+            "starts_on": starts_on, "ends_on": ends_on, "participants": participants}
+
+
+def load_championship_details():
+    details = {}
+    manifest = {}
+    if CHAMPIONSHIP_DOWNLOAD_MANIFEST.exists():
+        try:
+            manifest = json.loads(CHAMPIONSHIP_DOWNLOAD_MANIFEST.read_text(encoding="utf-8-sig"))
+        except (OSError, json.JSONDecodeError):
+            manifest = {}
+    pages = manifest.get("pages") or {}
+    for path in CHAMPIONSHIP_RAW.glob("*.html.gz"):
+        championship_id = path.name.removesuffix(".html.gz")
+        try:
+            with gzip.open(path, "rb") as handle:
+                page = handle.read().decode("utf-8", errors="replace")
+            parsed = parse_championship_page(page, championship_id)
+            if not parsed["participants"]:
+                continue
+            parsed["retrieved_at"] = (pages.get(championship_id) or {}).get("retrieved_at", "")
+            parsed["sha256"] = (pages.get(championship_id) or {}).get("sha256", "")
+            details[championship_id] = parsed
+        except (OSError, EOFError):
+            continue
+    return details
 
 
 def load_snapshot_metadata():
@@ -237,11 +306,34 @@ def build_index():
                        for row in current["championships"]}
         for fact in old.get("championships") or []:
             key = (fact.get("championship_id"), fact.get("championship_type"), fact.get("source_label"), fact.get("association_id"))
-            if key not in known_facts:
+            existing = next((row for row in current["championships"]
+                             if (row.get("championship_id"), row.get("championship_type"), row.get("source_label"), row.get("association_id")) == key), None)
+            if existing:
+                for field in ("event_title", "starts_on", "ends_on", "individual_result", "details_retrieved_at", "details_sha256"):
+                    if not existing.get(field) and fact.get(field):
+                        existing[field] = fact[field]
+            else:
                 current["championships"].append(fact)
                 known_facts.add(key)
 
+    championship_details = load_championship_details()
+    enriched_facts = 0
     for person in people.values():
+        for fact in person["championships"]:
+            detail = championship_details.get(str(fact.get("championship_id", "")))
+            if not detail:
+                continue
+            if detail.get("title"):
+                fact["event_title"] = detail["title"]
+            for field in ("starts_on", "ends_on"):
+                if detail.get(field):
+                    fact[field] = detail[field]
+            result = detail.get("participants", {}).get(str(person.get("world_person_id", "")))
+            if result:
+                fact["individual_result"] = result
+                fact["details_retrieved_at"] = detail.get("retrieved_at", "")
+                fact["details_sha256"] = detail.get("sha256", "")
+                enriched_facts += 1
         person["published_names"].sort(key=lambda row: (row.get("name", "").casefold(), row.get("association_id", "")))
         person["associations"].sort(key=str.casefold)
         person["flag_codes"].sort()
@@ -261,11 +353,13 @@ def build_index():
             "people_indexed": len(people),
             "source_rows_parsed": parsed_rows,
             "championship_facts_indexed": event_facts,
+            "championship_detail_pages_parsed": len(championship_details),
+            "championship_facts_with_individual_results": enriched_facts,
             "retained_previous_people": retained_people,
             "history_complete": False,
             "limitations": [
                 "World Curling documents known missing historical results and lineups and says recovery is ongoing.",
-                "This index contains championship appearance summaries from the saved association pages, not every game or complete playing statistics.",
+                "Individual finishes and event dates are included where saved championship detail pages support them; this is not a complete game-by-game record.",
             ],
         },
         "people": people,
