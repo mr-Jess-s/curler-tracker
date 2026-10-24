@@ -39,9 +39,9 @@ try:
     for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
         if name=='Adam Flatt':
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
-            wait("document.querySelectorAll('#identityChoices .identity-choice').length>=2",5)
-            check('Adam_Flatt_ambiguous_profile_picker',len(d.find_elements(By.CSS_SELECTOR,'#identityChoices .identity-choice'))>=2)
-            js("document.querySelector('#identityChoices .identity-choice').click()")
+            wait("state.playerName==='Adam Flatt' && state.selectedProfile?.source_curler_id==='162112'",5)
+            grouped=js("return {scopes:state.selectedProfile?.source_subdomains||[],choices:document.querySelectorAll('#identityChoices .identity-choice').length}")
+            check('Adam_Flatt_same_identity_profiles_grouped',set(grouped['scopes'])=={'mb','canada'} and grouped['choices']==0,grouped)
             start=time.perf_counter()
         else:
             start=time.perf_counter()
