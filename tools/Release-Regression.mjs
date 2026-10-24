@@ -38,6 +38,10 @@ await check('Homepage has visible branding and a useful historical default', asy
  assert.match(html,/role="search"/); assert.match(html,/aria-labelledby="feedback-title"/);
  const css=fs.readFileSync(path.join(root,"styles.css"),"utf8"); assert.match(css,/:focus-visible/); assert.match(css,/prefers-reduced-motion/);
  assert.equal(summary.default_season,'2025 / 2026');
+ assert.match(summary.coverage_note,/13 published Curling I\/O roster indexes across 5 seasons/);
+ assert.match(summary.coverage_note,/International championship results are not indexed/);
+ assert.match(summary.coverage_note,/not a national club count/);
+ assert.match(summary.coverage_note,/Missing history remains unknown/);
  assert(summary.seasons.some(row=>row.season==='2024 / 2025'&&row.events>100));
  assert(summary.featured_curlers.length>=6);
 });
@@ -232,6 +236,12 @@ await check('Published Farrol spelling resolves exact documentary references wit
  const r=await a.run("findDocumentedCurlingSnapshot('Farrol Asham',{},30000)");
  assert.equal(r.displayPlayer,'Farrol Asham');assert.equal(r.view,'documented-history');assert.equal(r.careerHistory.length,2);
  assert.equal(r.sourceCurlerId,undefined);assert.equal(r.teamName,'');
+});
+await check('Distant lookalike is not suggested for an unverified spelling',async()=>{
+ const a=app();
+ a.context.qaCatalog=JSON.parse(fs.readFileSync(path.join(root,'data/name-catalog/first-g.json'),'utf8'));
+ const choices=await a.run("findNameChoices(globalThis.qaCatalog,'Ferrol Asham')");
+ assert(!choices.suggestions.some(row=>row.name==='Gerry Adam'));
 });
 await check('Published documentary-only names pass the local identity preflight',async()=>{
  const a=app();a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));

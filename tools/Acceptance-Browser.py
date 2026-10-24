@@ -32,6 +32,9 @@ try:
     check('season_switch_history',len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
     check('source_links_safe',js("return [...document.querySelectorAll('.event-link')].every(a=>a.href.startsWith('https://')&&a.rel.includes('noopener'))"))
     check('privacy_link',len(d.find_elements(By.CSS_SELECTOR,'a[href="./privacy.html"]'))==1)
+    js("resolveAndStart('Ferrol Asham','uat-unverified')");wait('!state.isRunning',90)
+    spelling=js("return {name:state.snapshot?.playerName,sourceId:state.snapshot?.sourceCurlerId,suggestions:[...document.querySelectorAll('#identityChoices .identity-choice')].map(node=>node.textContent)}")
+    check('unverified_spelling_not_merged_or_misdirected',spelling['name']=='Ferrol Asham' and spelling['sourceId'] is None and not spelling['suggestions'])
     # Real sources, with bounded waits; each result remains source-qualified.
     for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
         start=time.perf_counter()

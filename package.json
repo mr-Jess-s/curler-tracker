@@ -1,6 +1,6 @@
 {
   "name": "curler-tracker",
-  "version": "26.20.0",
+  "version": "26.22.0",
   "private": true,
   "type": "module",
   "engines": { "node": "24.x" },

@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const historyDir = path.join(root, 'data', 'history');
 const historyManifest = JSON.parse(fs.readFileSync(path.join(root, 'data', 'history-manifest.json'), 'utf8'));
+const canadaInventory = JSON.parse(fs.readFileSync(path.join(root, 'data/global/canada-site-inventory-summary.json'), 'utf8'));
+const worldInventory = JSON.parse(fs.readFileSync(path.join(root, 'data/global/world-site-inventory-summary.json'), 'utf8'));
+const clubDirectories = ['ab', 'yt'].map(code => JSON.parse(fs.readFileSync(path.join(root, `data/global/canada-clubs/${code}.json`), 'utf8')));
 const seasons = new Map();
 const careers = new Map();
 
@@ -63,11 +66,20 @@ for (const row of candidates) {
   if (featured.length === 8) break;
 }
 
+const date = value => value ? value.slice(0, 10) : 'date unavailable';
+const coverageNote = [
+  `Searchable results: ${historyManifest.files.length} published Curling I/O roster indexes across ${seasonRows.length} seasons.`,
+  `Canadian association site survey (${date(canadaInventory.generated_at)}): ${canadaInventory.inventoried}/${canadaInventory.association_count} inventoried, ${canadaInventory.blocked} blocked, ${canadaInventory.site_not_listed} not listed.`,
+  `Two public club directories were parsed (${date(clubDirectories[0].generated_at)}): Alberta ${clubDirectories[0].club_count}, Yukon ${clubDirectories[1].club_count}; this is not a national club count.`,
+  `World Curling member-site survey (${date(worldInventory.generated_at)}): ${worldInventory.inventoried}/${worldInventory.member_count} inventoried, ${worldInventory.blocked} blocked, ${worldInventory.failed} failed, ${worldInventory.site_not_listed} not listed. International championship results are not indexed.`,
+  'Source inventories are not competition-result coverage. Missing history remains unknown.'
+].join(' ');
+
 const output = {
   schema_version: 1,
   generated_at: historyManifest.generated_at,
   source_provider: 'Curling I/O',
-  coverage_note: `Published roster appearances across ${seasonRows.length} indexed seasons. Coverage varies by association and event; missing history remains unknown.`,
+  coverage_note: coverageNote,
   default_season: seasonRows.reduce((best, row) => row.appearances > best.appearances ? row : best, seasonRows[0])?.season || '',
   seasons: seasonRows,
   featured_curlers: featured

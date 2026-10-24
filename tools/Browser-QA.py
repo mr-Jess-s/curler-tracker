@@ -1,4 +1,4 @@
-import sys,time,json,os
+import sys,time,json,os,re
 from pathlib import Path
 sys.path.insert(0,os.environ.get('CT_SELENIUM_PATH',r'C:\Temp\ct-selenium'))
 from selenium import webdriver
@@ -8,7 +8,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 ROOT=Path(__file__).resolve().parents[1]
 BASE_URL=os.environ.get('CT_BASE_URL','http://127.0.0.1:8766').rstrip('/')
-OUT=ROOT/'qa'/'v26.16-20261013'
+APP_VERSION=re.search(r"const APP_VERSION = '([^']+)'",(ROOT/'app.js').read_text(encoding='utf-8')).group(1)
+APP_CACHE_VERSION=APP_VERSION.replace('.','-')
+OUT=ROOT/'qa'/f'{APP_VERSION}-{time.strftime("%Y%m%d")}'
 OUT.mkdir(parents=True,exist_ok=True)
 opts=Options()
 opts.add_argument('--headless=new')
@@ -53,7 +55,7 @@ try:
  check(driver.find_element(By.ID,'archiveHome').is_displayed(),'Archive can be restored in one tap')
  driver.get(BASE_URL+'/?player=Sophie%20Abbs')
  WebDriverWait(driver,90).until(lambda d:d.execute_script("return typeof state!=='undefined'&&!state.isRunning&&!!state.snapshot?.sourceCurlerId"))
- check(driver.find_element(By.ID,'trackedPlayer').text=='Sophie Abbs','Live-source player lookup')
+ check(driver.find_element(By.ID,'trackedPlayer').text=='Sophie Abbs','Source-backed player lookup')
  check(driver.execute_script("return state.snapshot.sourceCurlerId")==49287,'Stable source identity')
  click_in_view(driver.find_element(By.ID,'careerLoadBtn'))
  WebDriverWait(driver,30).until(lambda d:d.execute_script('return !state.careerLoading'))
@@ -75,7 +77,7 @@ try:
  driver.find_element(By.ID,'feedbackSource').send_keys('https://ab.curling.io/en/events/24023')
  driver.execute_script("document.getElementById('feedbackType').value='identity-or-name-update';document.getElementById('feedbackRelationship').value='self'")
  packet=driver.execute_script('return buildFeedbackPacket()')
- check(packet['app_version']=='v26.16' and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
+ check(packet['app_version']==APP_VERSION and packet['supporting_source'].endswith('/24023'),'Feedback version and evidence retained')
  check(packet['submitter_relationship']=='self','Declared contributor relationship retained')
  click_in_view(driver.find_element(By.ID,'feedbackCloseBtn'))
  check(driver.find_element(By.ID,'feedbackDialog').get_attribute('open') is None,'Feedback dialog closes')
@@ -95,19 +97,20 @@ try:
  click_in_view(driver.find_element(By.ID,'careerLoadBtn'))
  WebDriverWait(driver,10).until(lambda d:not d.execute_script('return state.careerLoading'))
  driver.refresh()
- WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.16'"))
- check(driver.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION==='v26.16'"),'Updated release survives reload')
+ WebDriverWait(driver,30).until(lambda d:d.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION===arguments[0]", APP_VERSION))
+ check(driver.execute_script("return typeof APP_VERSION!=='undefined'&&APP_VERSION===arguments[0]", APP_VERSION),'Updated release survives reload')
  driver.get(BASE_URL+'/?player=Ferrol%20Asham')
  WebDriverWait(driver,90).until(lambda d:d.execute_script("return typeof state!=='undefined'&&!state.isRunning&&!!state.snapshot"))
  check('Team not established' not in driver.find_element(By.ID,'careerPath').text,'Source outage or no current roster never appears as a fake career record')
+ check('Gerry Adam' not in driver.find_element(By.ID,'identityChoices').text,'Unverified spelling does not suggest an unrelated curler')
  driver.execute_async_script("const done=arguments[0];navigator.serviceWorker.ready.then(async()=>done(await caches.keys())).catch(()=>done([]))")
- check('curler-tracker-v26-16' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
+ check(f'curler-tracker-{APP_CACHE_VERSION}' in driver.execute_async_script('const done=arguments[0];caches.keys().then(done)'),'Current service-worker cache installed')
  # Verified first-party archive references must survive a failed Curling I/O lookup.
- driver.execute_script("window.qaSourceDiscovery=discoverPlayerEvents;discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'QA source unavailable'}],timedOut:false});startTracking('Ferrol Asham','qa-evidence-fallback')")
+ driver.execute_script("window.qaSourceDiscovery=discoverPlayerEvents;discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'QA source unavailable'}],timedOut:false});startTracking('Farrol Asham','qa-evidence-fallback')")
  WebDriverWait(driver,15).until(lambda d:d.execute_script("return !state.isRunning && state.snapshot?.view==='documented-history'"))
  check(driver.find_element(By.ID,'liveBadge').text=='Sources','First-party historical references are not shown as a live team')
  check('Dauphin Clinic Pharmacy Cash Spiel' in driver.find_element(By.ID,'careerPath').text,'Curler lookup exposes the cited 2009 tournament record')
- check('source spells the name Farrol Asham' in driver.find_element(By.ID,'careerPath').text,'Name correction is transparent against source spelling')
+ check('Farrol Asham' in driver.find_element(By.ID,'careerPath').text,'Historical records retain the published name spelling')
  check('Fort Rouge Curling Club' in driver.find_element(By.ID,'careerPath').text,'Curler lookup exposes the cited club role separately')
  check(len(driver.find_elements(By.CSS_SELECTOR,'#careerPath a.career-source'))==2,'Both documentary facts link directly to their published sources')
  driver.execute_script("discoverPlayerEvents=qaSourceDiscovery")

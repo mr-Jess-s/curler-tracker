@@ -33,6 +33,8 @@ const resolve = (catalog, query) => {
 };
 
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data', 'curler-name-catalog.json'), 'utf8'));
+const unsafeNearMatch = resolve(catalog, 'Ferrol Asham');
+assert.ok(!unsafeNearMatch.suggestions.some(row => row.name === 'Gerry Adam'), 'A distant unrelated curler must not be suggested for an unverified spelling');
 const surnameRows = vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Sutherland')", Object.assign(context, {qaCatalog: catalog}));
 assert.ok(surnameRows.length > 1, 'Surname search must offer multiple names rather than selecting one');
 assert.ok(surnameRows.every(row => row.normalized.split(' ').at(-1) === 'sutherland'), 'Surname matches must use the final name token');

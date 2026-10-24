@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.21';
+const APP_VERSION = 'v26.22';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -352,10 +352,10 @@ function findNameChoices(catalog, input) {
   const query = normalizeName(input);
   const exact = catalog.names.find(row => row.normalized === query);
   if (exact) return { exact, suggestions: [] };
-  // A broad candidate window is safe because suggestions are never selected
-  // automatically. This also recovers repeated keyboard substitutions while
-  // preserving an explicit user confirmation boundary.
-  const limit = Math.min(6, Math.max(2, Math.ceil(query.length * 0.4)));
+  // Keep typo suggestions close enough to avoid steering a query toward an
+  // unrelated curler. Suggestions still require a user choice; they never
+  // establish identity by themselves.
+  const limit = Math.min(4, Math.max(1, Math.ceil(query.length * 0.25)));
   const suggestions = [];
   for (const row of catalog.names) {
     const distance = boundedDamerauLevenshtein(query, row.normalized, limit);
