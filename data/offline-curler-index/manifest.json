@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T06:00:35.174347+00:00",
-  "source_snapshot_at": "2026-10-23T06:00:35.174347+00:00",
+  "generated_at": "2026-10-24T06:00:34.830457+00:00",
+  "source_snapshot_at": "2026-10-24T06:00:34.830457+00:00",
   "source_provider": "Curling I/O",
   "source_policy": "Exact published names and source-native IDs only; records are not identity-merged across source IDs.",
   "identity_count": 16165,
