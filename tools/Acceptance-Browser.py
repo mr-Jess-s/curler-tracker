@@ -16,6 +16,11 @@ def check(name,condition,detail=None):
     row={'name':name,'status':'PASS' if condition else 'FAIL','timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'detail':detail};checks.append(row);print(json.dumps(row),flush=True)
 def wait(js,seconds=25):return WebDriverWait(d,seconds).until(lambda _:d.execute_script('return '+js))
 def js(code):return d.execute_script(code)
+def click_control(element_id):
+    # CDP mobile emulation can report page-space coordinates for Selenium's
+    # pointer click. Dispatch the native DOM click after scrolling the control
+    # into view so the acceptance check exercises its real event handler.
+    js("const e=document.getElementById("+json.dumps(element_id)+");e.scrollIntoView({block:'center'});e.click()")
 try:
     started=time.perf_counter();d.get(BASE+'/');wait("document.querySelectorAll('.curler-chip').length>=6")
     # Allow the first service-worker activation reload to settle before timing interactions.
@@ -35,15 +40,15 @@ try:
     js("document.getElementById('trackerResults').classList.remove('hidden');localStorage.removeItem(APP.localKeys.teams);state.followedTeams=[];renderTeamWatchlist();state.snapshot={playerName:'QA Curler One',view:'upcoming',teamName:'Team One',teamId:7001,sourceSubdomain:'canada',eventName:'QA Event',teamMembers:[{curlerId:'1',name:'QA Curler One',position:'skip'},{curlerId:'2',name:'QA Teammate One',position:'third'}]};renderCurrentTeam(state.snapshot)")
     check('current_team_members_visible','QA Curler One' in d.find_element(By.ID,'currentTeamMembers').text and 'QA Teammate One' in d.find_element(By.ID,'currentTeamMembers').text)
     check('team_roster_mobile_no_overflow',js('return document.documentElement.scrollWidth<=innerWidth'))
-    d.find_element(By.ID,'addCurrentTeamBtn').click()
+    click_control('addCurrentTeamBtn')
     check('add_team_to_watchlist',len(d.find_elements(By.CSS_SELECTOR,'.team-watch-card'))==1 and 'Team One' in d.find_element(By.ID,'teamWatchlist').text)
     js("state.snapshot={playerName:'QA Curler Two',view:'upcoming',teamName:'Team Two',teamId:7002,sourceSubdomain:'canada',eventName:'QA Event',teamMembers:[{curlerId:'3',name:'QA Curler Two',position:'skip'},{curlerId:'4',name:'QA Teammate Two',position:'third'}]};renderCurrentTeam(state.snapshot)")
-    d.find_element(By.ID,'addCurrentTeamBtn').click()
+    click_control('addCurrentTeamBtn')
     check('multiple_teams_saved',len(d.find_elements(By.CSS_SELECTOR,'.team-watch-card'))==2 and 'QA Teammate Two' in d.find_element(By.ID,'teamWatchlist').text)
     check('team_watchlist_persisted_locally',js("return JSON.parse(localStorage.getItem(APP.localKeys.teams)).teams.length===2"))
-    d.find_elements(By.CSS_SELECTOR,'.team-remove-btn')[0].click()
+    js("document.querySelector('.team-remove-btn').click()")
     check('remove_team_from_watchlist',len(d.find_elements(By.CSS_SELECTOR,'.team-watch-card'))==1)
-    d.find_elements(By.CSS_SELECTOR,'.team-remove-btn')[0].click()
+    js("document.querySelector('.team-remove-btn').click()")
     check('watchlist_hides_when_empty',d.find_element(By.ID,'teamWatchlist').get_attribute('class').find('hidden')>=0)
     js("resolveAndStart('Ferrol Asham','uat-unverified')");wait('!state.isRunning',90)
     spelling=js("return {name:state.snapshot?.playerName,sourceId:state.snapshot?.sourceCurlerId,suggestions:[...document.querySelectorAll('#identityChoices .identity-choice')].map(node=>node.textContent)}")
