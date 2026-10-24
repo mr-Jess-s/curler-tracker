@@ -30,12 +30,12 @@ try:
     d.find_element(By.ID,'currentSeasonBtn').click();check('season_switch_current',d.find_element(By.ID,'seasonSelect').get_attribute('value')=='2026 / 2027')
     js("document.querySelector('#seasonSelect').value='2025 / 2026';document.querySelector('#seasonSelect').dispatchEvent(new Event('change'))")
     check('season_switch_history',len(d.find_elements(By.CSS_SELECTOR,'.event-link'))>=8)
-    check('source_links_safe',js("return [...document.querySelectorAll('.event-link')].every(a=>a.href.startsWith('https://')&&a.rel.includes('noopener'))"))
+    check('event_facts_have_no_source_or_association_links',js("return [...document.querySelectorAll('.event-link')].every(a=>a.tagName==='ARTICLE'&&!a.querySelector('a[href]')) && ![...document.querySelectorAll('.event-link')].some(a=>a.textContent.includes('curling.io'))"))
     check('privacy_link',len(d.find_elements(By.CSS_SELECTOR,'a[href="./privacy.html"]'))==1)
     js("resolveAndStart('Ferrol Asham','uat-unverified')");wait('!state.isRunning',90)
     spelling=js("return {name:state.snapshot?.playerName,sourceId:state.snapshot?.sourceCurlerId,suggestions:[...document.querySelectorAll('#identityChoices .identity-choice')].map(node=>node.textContent)}")
     check('unverified_spelling_not_merged_or_misdirected',spelling['name']=='Ferrol Asham' and spelling['sourceId'] is None and not spelling['suggestions'])
-    # Real sources, with bounded waits; each result remains source-qualified.
+    # Consolidated records, with bounded waits; verification metadata stays internal.
     for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
         if name=='Adam Flatt':
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
@@ -64,7 +64,7 @@ try:
     # Save implementations before isolated failure/slow/race scenarios.
     js("window.uatOriginal={discovery:discoverPlayerEvents,recent:discoverMostRecentCompletedEvent,offline:findOfflineTeamSnapshot,docs:findDocumentedCurlingSnapshot};findOfflineTeamSnapshot=async()=>null;findDocumentedCurlingSnapshot=async()=>null;discoverMostRecentCompletedEvent=async()=>({candidates:[],checked:[],timedOut:false});discoverPlayerEvents=async()=>({candidates:[],checked:[],timedOut:false})")
     js("startTracking('Unverified UAT Name','uat-empty')");wait('!state.isRunning')
-    check('empty_means_sources_checked', 'sources checked' in d.find_element(By.ID,'statusLine').text.lower())
+    check('empty_means_collections_checked', 'collections checked' in d.find_element(By.ID,'statusLine').text.lower())
     for label,message in [('rate_limit','HTTP 429'),('source_outage','HTTP 503'),('disconnected','Failed to fetch')]:
         js('discoverPlayerEvents=async()=>{throw new Error('+json.dumps(message)+')};startTracking('+json.dumps('UAT '+label)+',"uat-failure")');wait('!state.isRunning')
         check(label+'_explicit_incomplete',js("return state.snapshot.view==='error' && document.querySelector('#statusLine').textContent.includes('Search incomplete')"))

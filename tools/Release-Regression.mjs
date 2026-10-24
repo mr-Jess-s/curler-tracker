@@ -48,6 +48,13 @@ await check('Homepage has visible branding and a useful historical default', asy
  assert(summary.seasons.some(row=>row.season==='2024 / 2025'&&row.events>100));
  assert(summary.featured_curlers.length>=6);
 });
+await check('Season archive facts show without association labels or outbound source links',async()=>{
+ const a=app();
+ a.run(`renderArchiveSeason({seasons:[{season:'2025 / 2026',events:1,curlers:1,appearances:4,recent_events:[{name:'Open Championship',association:'Canada',starts_on:'2025-03-01',source_url:'https://example.invalid/event'}]}]},'2025 / 2026')`);
+ const html=a.elements.get('recentEvents').innerHTML;
+ assert.match(html,/Open Championship/);assert.match(html,/2025-03-01/);
+ assert.doesNotMatch(html,/<a\b|href=|Canada|example\.invalid/);
+});
 await check('Indexed history keeps identity, source link and retrieval provenance', async()=>{
  const a=app(); a.context.index=JSON.parse(fs.readFileSync(path.join(root,'data/history/ab.json')));
  a.run("fetchJson=async()=>index");
@@ -79,7 +86,7 @@ await check('Failed history retains existing records and visible retry message',
 });
 await check('Empty history message survives final render',async()=>{
  const a=app();a.run("state.snapshot={playerName:'First',sourceCurlerId:1,sourceSubdomain:'ab'};discoverCareerHistory=async()=>[]");
- await a.elements.get('careerLoadBtn').handlers.click();assert.match(a.elements.get('careerStatus').textContent,/No additional sourced records/);
+ await a.elements.get('careerLoadBtn').handlers.click();assert.match(a.elements.get('careerStatus').textContent,/No additional records/);
 });
 await check('Delayed player discovery cannot relabel one athlete as another',async()=>{
  const a=app();a.run("state.playerName='First';discoverPlayerEvents=()=>new Promise(resolve=>globalThis.finish=resolve);");
@@ -169,6 +176,7 @@ await check('Mike McEwen source profiles with the same published ID consolidate 
  ])`);
  assert.equal(profiles.length,1);assert.equal(profiles[0].source_curler_id,'1935');
  assert.deepEqual(Array.from(profiles[0].source_subdomains),['canada','on','mb']);
+ assert.doesNotMatch(a.run('profileLabel(globalThis.qaProfile = consolidateSourceProfiles([{source_subdomain:\'canada\',source_curler_id:\'1935\',team_name:\'Saskatchewan\',season:\'2025 / 2026\'},{source_subdomain:\'on\',source_curler_id:\'1935\'}])[0])'),/canada|ontario|\bon\b/i);
  const separate=a.run(`consolidateSourceProfiles([
   {source_subdomain:'ab',source_curler_id:'1'},
   {source_subdomain:'mb',source_curler_id:'2'}
@@ -187,6 +195,13 @@ await check('Exact Mike McEwen preflight starts one consolidated identity choice
  assert.equal(a.context.started,'Mike McEwen');assert.equal(a.run('state.selectedProfile.source_curler_id'),'1935');
  assert.deepEqual(Array.from(a.run('state.selectedProfile.source_subdomains')),['canada','on','mb']);
  assert.equal(a.elements.get('identityChoices').classList.contains('hidden'),true);
+});
+await check('Career records display without source brands, association labels or outbound links',async()=>{
+ const a=app();
+ a.run("state.careerHistory=[{title:'Canadian Championship',detail:'Team: Example · 2025 / 2026',source:'Curling I/O · canada',sourceUrl:'https://canada.curling.io/en/events/1'}];renderCareerPath({playerName:'Example Curler',careerHistory:state.careerHistory,view:'archived-team',sourceCurlerId:1935,sourceSubdomain:'canada'})");
+ const html=a.elements.get('careerPath').innerHTML;
+ assert.match(html,/Canadian Championship/);assert.match(html,/Team: Example/);
+ assert.doesNotMatch(html,/<a\b|href=|Curling I\/O|canada\.curling\.io/);
 });
 await check('Offline Mike McEwen fallback aggregates all retained source-linked tournaments',async()=>{
  const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'mike mcewen':[
@@ -280,10 +295,11 @@ await check('Source outage uses documentary history instead of unsupported no-re
  a.run("state.playerName='Farrol Asham';discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async()=>null;fetchJson=async()=>citedIndex");
  await a.run("runTracker({reason:'test'})");
  assert.equal(a.run('state.snapshot.view'),'documented-history');
- assert.match(a.elements.get('statusLine').textContent,/cited curling references/);
+ assert.match(a.elements.get('statusLine').textContent,/historical records/);
  assert.doesNotMatch(a.elements.get('headlineBlock').innerHTML,/live game|last recorded team/i);
  assert.match(a.elements.get('careerPath').innerHTML,/Manitoba Curling Tour/);
  assert.match(a.elements.get('careerPath').innerHTML,/Farrol Asham/i);
+ assert.doesNotMatch(a.elements.get('careerPath').innerHTML,/<a\b|href=|mancurltour\.ca|curlfortrouge\.ca/);
 });
 await check('Published Farrol spelling resolves exact documentary references without identity merging',async()=>{
  const a=app(); a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
@@ -325,8 +341,10 @@ await check('World Curling history resolves exact names to a stable source ID an
  const result=await a.run("findWorldCurlingSnapshot('Torger Nergård',{phase:'test'},5000)");
  assert.equal(result.view,'world-archive');assert.equal(result.worldPersonId,'486');assert.equal(result.diagnostics.worldArchiveCoverageComplete,false);
  assert.equal(result.careerHistory.length,2);assert.match(result.careerHistory[0].detail,/Games: 428/);
- assert.equal(result.careerHistory[1].detail,'Source listing: 2022-6 · Norway');
+ assert.equal(result.careerHistory[1].detail,'');
  assert.equal(result.careerHistory[1].sourceUrl,'https://results.worldcurling.org/Championship/Details/702');
+ assert.equal(result.careerHistory[1].source,'');
+ assert.doesNotMatch(a.elements.get('headlineBlock').innerHTML,/World Curling ID|World Curling Results/i);
 });
 await check('Missing release data cannot silently load unreviewed data from another branch',async()=>{
  const a=app();a.context.fetches=[];

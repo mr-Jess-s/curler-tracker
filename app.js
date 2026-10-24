@@ -120,8 +120,8 @@ function renderArchiveSeason(summary, seasonName) {
   els.coverageCurlers.textContent = formatNumber(season.curlers);
   els.coverageAppearances.textContent = formatNumber(season.appearances);
   els.recentEvents.innerHTML = (season.recent_events || []).map(event =>
-    `<a class="event-link" href="${escapeHtml(safeSourceUrl(event.source_url))}" target="_blank" rel="noopener noreferrer"><strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(event.association)} · ${escapeHtml(event.starts_on || 'Date not listed')}</span></a>`
-  ).join('') || '<p class="hint">No published events are indexed for this season.</p>';
+    `<article class="event-link"><strong>${escapeHtml(event.name)}</strong><span>${escapeHtml(event.starts_on || 'Date not listed')}</span></article>`
+  ).join('') || '<p class="hint">No events are indexed for this season.</p>';
 }
 
 async function loadArchiveHome() {
@@ -135,9 +135,9 @@ async function loadArchiveHome() {
     els.seasonSelect.innerHTML = summary.seasons.map(row => `<option value="${escapeHtml(row.season)}">${escapeHtml(row.season)}${row.season === summary.default_season ? ' · last full season' : ''}</option>`).join('');
     if (summary.default_season) els.seasonSelect.value = summary.default_season;
     els.featuredCurlers.innerHTML = (summary.featured_curlers || []).map(curler =>
-      `<button class="curler-chip" type="button" data-curler="${escapeHtml(curler.name)}">${escapeHtml(curler.name)} <small>${escapeHtml(curler.association)}</small></button>`
+      `<button class="curler-chip" type="button" data-curler="${escapeHtml(curler.name)}">${escapeHtml(curler.name)}</button>`
     ).join('');
-    els.coverageNote.textContent = `${summary.coverage_note} Last rebuilt ${new Date(summary.generated_at).toLocaleDateString('en-CA')}.`;
+    els.coverageNote.textContent = `${summary.seasons.length} seasons of curling records. Canadian and international coverage is still growing; missing history stays unknown. Last rebuilt ${new Date(summary.generated_at).toLocaleDateString('en-CA')}.`;
     renderArchiveSeason(summary, els.seasonSelect.value);
     els.seasonSelect.addEventListener('change', () => renderArchiveSeason(summary, els.seasonSelect.value));
     const currentSeason = summary.seasons.find(row => row.season !== summary.default_season && row.events > 0);
@@ -412,8 +412,7 @@ function beginNameCheckProgress(name) {
 }
 
 function profileLabel(profile) {
-  const sources = (profile.source_subdomains || [profile.source_subdomain]).filter(Boolean).map(source => source.toUpperCase());
-  return `${sources.join(' / ')}${profile.team_name ? ` · ${profile.team_name}` : ''}${profile.season ? ` · ${profile.season}` : ''}`;
+  return `${profile.team_name || 'Recorded team'}${profile.season ? ` · ${profile.season}` : ''}`;
 }
 
 function renderIdentityChoices(title, rows, onChoose) {
@@ -456,7 +455,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
         if (entry?.unverified_search_variant || !entry?.records?.length) continue;
         if (normalizeName(entry.name).split(' ').at(-1) !== normalizeName(requested)) continue;
         if (!matches.some(match => normalizeName(match.name) === normalizeName(entry.name))) {
-          matches.push({ name: entry.name, label: entry.name + ' · separate sourced historical records' });
+          matches.push({ name: entry.name, label: entry.name + ' · separate historical records' });
         }
       }
       matches.sort((a, b) => a.name.localeCompare(b.name));
@@ -506,7 +505,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
     const profiles = consolidateSourceProfiles(result.exact.profiles || []);
     if (profiles.length > 1) {
       endSearchProgress();
-      renderIdentityChoices(`Choose the source profile for ${result.exact.name}:`, profiles.map(profile => ({
+      renderIdentityChoices(`Choose the matching team and season for ${result.exact.name}:`, profiles.map(profile => ({
         label: profileLabel(profile),
         name: result.exact.name,
         profile
@@ -515,7 +514,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
         clearIdentityChoices();
         startTracking(choice.name, 'confirmed-profile');
       });
-      setStatus(`${profiles.length} distinct published identities use this name. Choose one; matching source IDs are grouped and records retain their source links.`);
+      setStatus(`${profiles.length} distinct identities use this name. Matching identifiers are grouped across record collections.`);
       return;
     }
     state.selectedProfile = profiles[0] || null;
@@ -1227,23 +1226,23 @@ function renderHeadline(snapshot) {
   }
 
   if (snapshot.view === 'documented-history') {
-    els.headlineBlock.innerHTML = '<div><div class="headline-main">Documented curling history</div><div class="headline-sub">First-party event or club references found. A current competition team has not been confirmed.</div></div>';
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">Documented curling history</div><div class="headline-sub">Event and club history is available. A current competition team has not been confirmed.</div></div>';
     return;
   }
 
   if (snapshot.view === 'world-archive') {
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">World Curling championship history</div><div class="headline-sub">World Curling ID ${escapeHtml(snapshot.worldPersonId || '')}. Historical archive has known gaps; no current game is confirmed.</div></div>`;
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">International championship history</div><div class="headline-sub">Historical coverage has known gaps; no current game is confirmed.</div></div>';
     return;
   }
 
   if (snapshot.view === 'archived-team') {
     const season = snapshot.archiveSeason ? ` · ${escapeHtml(snapshot.archiveSeason)}` : '';
-    els.headlineBlock.innerHTML = `<div><div class="headline-main">Last recorded team: ${escapeHtml(snapshot.teamName || 'Unknown')}</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Archived Curling I/O appearance')}${season}</div></div>`;
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">Last recorded team: ${escapeHtml(snapshot.teamName || 'Unknown')}</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Archived appearance')}${season}</div></div>`;
     return;
   }
 
   if (snapshot.view === 'idle' && snapshot.diagnostics?.phase !== 'searching') {
-    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No verified records found in the sources checked. Try the full published name. This does not mean the person has no curling history.</div></div>';
+    els.headlineBlock.innerHTML = '<div><div class="headline-main">No current team record yet</div><div class="headline-sub">No matching records found in the collections checked. Try the full published name. This does not mean the person has no curling history.</div></div>';
     return;
   }
 
@@ -1307,7 +1306,7 @@ function renderCareerPath(snapshot) {
   if (!els.careerPath) return;
   if (!snapshot?.playerName) {
     els.careerPath.className = 'career-path empty';
-    els.careerPath.innerHTML = '<p>Track a curler to begin building their sourced career record.</p>';
+    els.careerPath.innerHTML = '<p>Track a curler to begin building their career record.</p>';
     els.careerLoadBtn?.classList.add('hidden');
     if (els.careerStatus) els.careerStatus.textContent = '';
     return;
@@ -1322,26 +1321,19 @@ function renderCareerPath(snapshot) {
     items.push({
       title: snapshot.eventName,
       detail: snapshot.teamName ? `Team: ${snapshot.teamName}` : 'Team not established',
-      source: 'Curling I/O event record'
+      source: ''
     });
   }
 
   els.careerPath.className = items.length ? 'career-path' : 'career-path empty';
   els.careerPath.innerHTML = items.length
-    ? items.map(item => {
-        const source = safeSourceUrl(item.sourceUrl)
-          ? `<a class="career-source" href="${escapeHtml(safeSourceUrl(item.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.source || 'Official source')}</a>`
-          : `<small>${escapeHtml(item.source || '')}</small>`;
-        return `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div>${source}</article>`;
-      }).join('')
-    : '<p>No sourced career records loaded yet. Missing history is not treated as no history.</p>';
+    ? items.map(item => `<article class="career-item"><div><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.detail)}</span></div></article>`).join('')
+    : '<p>No career records loaded yet. Missing history is not treated as no history.</p>';
 
   const canLoad = !!snapshot.sourceCurlerId && !!snapshot.sourceSubdomain;
   els.careerLoadBtn?.classList.toggle('hidden', !canLoad);
   if (els.careerStatus && !state.careerLoading) {
-    const historyLabel = snapshot.view === 'archived-team'
-      ? `${history.length} sourced appearances loaded from saved association records. Historical coverage is incomplete.`
-      : `${history.length} sourced record${history.length === 1 ? '' : 's'} loaded from recent ${snapshot.sourceSubdomain || 'source'} records. History is incomplete.`;
+    const historyLabel = `${history.length} recorded appearance${history.length === 1 ? '' : 's'} available. Historical coverage is incomplete.`;
     els.careerStatus.textContent = state.careerMessage || (history.length ? historyLabel : '');
   }
 }
@@ -1374,7 +1366,7 @@ async function discoverCareerHistory(snapshot) {
         return {
           title: row.event_name || 'Recorded event',
           detail: details.join(' · ') || 'Published appearance',
-          source: `Curling I/O · ${source}`,
+          source: '',
           sourceUrl: `https://${source}.curling.io/en/events/${row.event_id}`,
           startsOn: row.starts_on || '', eventId: row.event_id,
           publishedName: row.published_name || '', retrievedAt: index.generated_at
@@ -1412,7 +1404,7 @@ async function discoverCareerHistory(snapshot) {
           return {
             title: row.event_name || 'Recorded event',
             detail: details.join(' · ') || 'Published appearance',
-            source: `Curling I/O · ${subdomain}`,
+            source: '',
             sourceUrl: row.event_id ? `https://${subdomain}.curling.io/en/events/${row.event_id}` : '',
             startsOn: row.starts_on || '',
             eventId: row.event_id,
@@ -1467,7 +1459,7 @@ async function discoverCareerHistory(snapshot) {
           observations.push({
             title: event.name || item.name || 'Recorded event',
             detail: details.join(' · ') || 'Published appearance',
-            source: `Curling I/O · ${subdomain}`,
+            source: '',
             sourceUrl: event.id ? `https://${subdomain}.curling.io/en/events/${event.id}` : '',
             startsOn: event.starts_on || '',
             eventId: event.id,
@@ -1619,7 +1611,7 @@ function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, de
     return {
       title: row.event_name,
       detail: details.join(' · '),
-      source: `Curling I/O · ${row.source_subdomain}`,
+      source: '',
       sourceUrl: row.source_url,
       startsOn: row.starts_on || '',
       eventId: row.event_id || '',
@@ -1724,7 +1716,7 @@ async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
     ends: [],
     scheduleRows: [],
     careerHistory,
-    timelineHint: 'Historical source records are available below. No live result, current team or score is confirmed.',
+    timelineHint: 'Historical records are available below. No live result, current team or score is confirmed.',
     scheduleHint: 'No current competition was verified in this search. Documentary club roles are not game appearances.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedAt: archive.generated_at,
@@ -1764,22 +1756,19 @@ async function findWorldCurlingSnapshot(playerName, diagnostics, delayMs) {
     const values = Object.entries(summary.metrics || {}).filter(([, value]) => value !== '');
     if (!values.length) continue;
     careerHistory.push({
-      title: 'World Curling recorded totals',
+      title: 'International recorded totals',
       detail: values.map(([label, value]) => `${label}: ${value}`).join(' · '),
-      source: 'World Curling Results database',
+      source: '',
       sourceUrl: person.person_url
     });
     break;
   }
 
   for (const fact of person.championships || []) {
-    const association = (fact.association_names || []).join(', ');
-    const details = [`Source listing: ${fact.source_label || 'label unavailable'}`];
-    if (association) details.push(association);
     careerHistory.push({
       title: fact.championship_type || 'International championship appearance',
-      detail: details.join(' · '),
-      source: 'World Curling Results database',
+      detail: '',
+      source: '',
       sourceUrl: fact.source_url || fact.source_page || person.person_url
     });
   }
@@ -1793,16 +1782,16 @@ async function findWorldCurlingSnapshot(playerName, diagnostics, delayMs) {
     displayPlayer: displayName,
     worldPersonId: person.world_person_id,
     view: 'world-archive',
-    eventName: 'World Curling championship history',
+    eventName: 'International championship history',
     teamName: '',
     ends: [],
     scheduleRows: [],
     careerHistory,
-    timelineHint: 'These are source-linked championship appearances recorded under this World Curling person ID. The archive has documented historical gaps.',
+    timelineHint: 'These are recorded championship appearances. Historical coverage has known gaps.',
     scheduleHint: 'No current competition team or live game is confirmed by this historical record.',
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedAt: archive.generated_at,
-    lastUpdatedLabel: `World Curling index ${formatSnapshotDate(archive.generated_at)}`,
+    lastUpdatedLabel: `History index ${formatSnapshotDate(archive.generated_at)}`,
     diagnostics
   };
 }
@@ -1948,7 +1937,7 @@ async function discoverPlayerEvents(playerName) {
 
   const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
     const listUrl = competitionsUrl(subdomain, delta);
-    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking Curling I/O · ${subdomain.toUpperCase()} · ${delta === 0 ? 'current season' : `${Math.abs(delta)} season(s) back`}…`);
+    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking current season${delta ? ` and ${Math.abs(delta)} recent season(s)` : ''}…`);
     try {
       const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
       const items = rankCompetitionItems(payload.items || []);
@@ -2054,7 +2043,7 @@ async function discoverMostRecentCompletedEvent(playerName) {
 
   const listResults = await mapWithConcurrency(listJobs, APP.maxParallelSubdomains, async ({ subdomain, delta }) => {
     const listUrl = competitionsUrl(subdomain, delta);
-    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking Curling I/O · ${subdomain.toUpperCase()} · ${delta === 0 ? 'current season' : `${Math.abs(delta)} season(s) back`}…`);
+    if (normalizeName(state.playerName) === playerNorm) updateSearchProgress(`Checking current season${delta ? ` and ${Math.abs(delta)} recent season(s)` : ''}…`);
     try {
       const payload = await fetchJson(listUrl, { ttlMs: APP.listCacheMs, cacheGroup: 'list' });
       const rankedItems = rankCompetitionItems(payload.items || []).sort((a, b) => {
@@ -2322,7 +2311,7 @@ async function runTracker({ reason }) {
     if (!preview) return;
     render(preview);
     if (els.liveBadge) els.liveBadge.textContent = 'Searching';
-    setStatus('Partial historical records shown below. Search still running: checking current Curling I/O competitions.');
+    setStatus('Partial historical records shown below. Search is still checking current competitions.');
   }).catch(() => {});
 
   try {
@@ -2358,8 +2347,8 @@ async function runTracker({ reason }) {
         if (historical) {
           render(historical);
           setStatus(worldArchive
-            ? `Found ${worldArchive.careerHistory.length} World Curling history records for ${state.playerName}. The archive is incomplete; current search will retry in 30 minutes.`
-            : `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. Current competition search timed out; retrying in 30 minutes.`);
+            ? `Found ${worldArchive.careerHistory.length} international history records for ${state.playerName}. Historical coverage is incomplete; current search will retry in 30 minutes.`
+            : `Found ${documentary.careerHistory.length} historical curling records for ${state.playerName}. Current competition search timed out; retrying in 30 minutes.`);
         } else {
           render(computeErrorSnapshot(state.playerName, diagnostics, APP.errorRetryMs, 'The search took too long. Try Refresh now.'));
           setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
@@ -2413,10 +2402,10 @@ async function runTracker({ reason }) {
           if (generation !== state.playerGeneration) return;
           render(documentary || worldArchive || computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
           setStatus(documentary
-            ? `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. No current game confirmed in the checked sources.`
+            ? `Found ${documentary.careerHistory.length} historical curling records for ${state.playerName}. No current game confirmed in the checked collections.`
             : worldArchive
-            ? `Found ${worldArchive.careerHistory.length} World Curling history records for ${state.playerName}. The archive is incomplete; no current game was confirmed.`
-            : `No verified records found for ${state.playerName} in the sources checked. Coverage is incomplete; missing history remains unknown.`);
+            ? `Found ${worldArchive.careerHistory.length} international history records for ${state.playerName}. Historical coverage is incomplete; no current game was confirmed.`
+            : `No matching records found for ${state.playerName} in the collections checked. Coverage is incomplete; missing history remains unknown.`);
           scheduleNextRun(APP.idleScanMs);
         }
       }
@@ -2520,9 +2509,9 @@ async function runTracker({ reason }) {
     if (fallback) {
       render(fallback);
       setStatus(fallback.view === 'documented-history'
-        ? `Partial historical records: ${fallback.careerHistory.length} cited curling references for ${state.playerName}. Live sources are incomplete; retrying in 30 minutes.`
+        ? `Partial historical records: ${fallback.careerHistory.length} records for ${state.playerName}. Live updates are incomplete; retrying in 30 minutes.`
         : fallback.view === 'world-archive'
-        ? `Live sources are unavailable. Showing ${fallback.careerHistory.length} World Curling history records for ${state.playerName}; the archive is incomplete.`
+        ? `Live updates are unavailable. Showing ${fallback.careerHistory.length} international history records for ${state.playerName}; historical coverage is incomplete.`
         : `Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
       scheduleNextRun(APP.errorRetryMs);
       return;
@@ -2708,12 +2697,12 @@ els.careerLoadBtn?.addEventListener('click', async () => {
   state.careerLoading = true;
   state.careerMessage = '';
   els.careerLoadBtn.disabled = true;
-  if (els.careerStatus) els.careerStatus.textContent = 'Loading sourced recent history...';
+  if (els.careerStatus) els.careerStatus.textContent = 'Loading recent history...';
   try {
     const history = await discoverCareerHistory(requested);
     if (!stillCurrent()) return;
     state.careerHistory = history;
-    state.careerMessage = history.length ? '' : 'No additional sourced records found in the recent seasons checked. History may be incomplete.';
+    state.careerMessage = history.length ? '' : 'No additional records found in the recent seasons checked. History may be incomplete.';
     state.snapshot = { ...state.snapshot, careerHistory: history };
     saveSnapshot(state.snapshot);
   } catch (error) {
@@ -2757,7 +2746,7 @@ els.homeBtn?.addEventListener('click', () => {
   els.trackerResults?.classList.add('hidden');
   els.archiveHome?.classList.remove('hidden');
   els.homeBtn.classList.add('hidden');
-  setStatus('Search across published Curling I/O roster records.');
+  setStatus('Search the unified curling record index and current competitions.');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -2771,7 +2760,7 @@ els.shareBtn.addEventListener('click', async () => {
   }
   const shareData = {
     title: player ? `${player} · Curler Tracker` : 'Curler Tracker',
-    text: player ? `Follow ${player} on Curler Tracker.` : 'Follow curlers through live events and sourced history.',
+    text: player ? `Follow ${player} on Curler Tracker.` : 'Follow curlers through live events and career history.',
     url: url.toString()
   };
 
