@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.26';
+const APP_VERSION = 'v26.27';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -1476,7 +1476,7 @@ function mergeCareerHistory(...groups) {
         : `${normalizeName(item.title)}:${item.startsOn || item.timelineYear || ''}`;
     if (!unique.has(key)) unique.set(key, item);
   }
-  const yearOf = item => Number(item.timelineYear) || Number(String(item.startsOn || '').match(/^(\d{4})/)?.[1]) || 0;
+  const yearOf = item => Number(item.timelineYear) || Number(String(item.startsOn || '').match(/\b(19|20)\d{2}\b/)?.[0]) || 0;
   return [...unique.values()].sort((a, b) => {
     const yearDiff = yearOf(a) - yearOf(b);
     if (yearDiff) return yearDiff;
@@ -1517,7 +1517,7 @@ function formatCareerTimelineDate(startsOn, timelineYear, endsOn) {
   return year ? { machine: String(year), label: `${year} · Date unavailable` } : null;
 }
 
-async function discoverCareerHistory(snapshot) {
+async function discoverCareerHistory(snapshot, allowLiveFallback = true) {
   const curlerId = snapshot?.sourceCurlerId;
   const subdomain = snapshot?.sourceSubdomain;
   if (!curlerId || !subdomain) return [];
@@ -1602,7 +1602,7 @@ async function discoverCareerHistory(snapshot) {
     }
   } catch {}
 
-  if (!localHistory.length && sourceSubdomains.length === 1) {
+  if (!localHistory.length && sourceSubdomains.length === 1 && allowLiveFallback) {
   const observations = [];
   const seen = new Set();
   let failedRequests = 0;
@@ -1893,16 +1893,29 @@ async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs, selecte
   if (!record) return null;
   const snapshot = buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs);
   try {
-    snapshot.careerHistory = await applyDocumentedCareerResults(snapshot.careerHistory, playerName);
-    const world = await findWorldCurlingHistory(playerName);
-    if (world) {
-      snapshot.careerHistory = mergeCareerHistory(snapshot.careerHistory, world.records);
-      snapshot.careerSummary = world.summary;
-      diagnostics.worldCareerRecordCount = world.records.length;
-    }
+    const history = await discoverCareerHistory({
+      playerName,
+      sourceCurlerId: identity.source_curler_id,
+      sourceSubdomain: identity.source_subdomain,
+      sourceSubdomains: identity.source_subdomains
+    }, false);
+    if (history.length) snapshot.careerHistory = history;
+    snapshot.careerSummary = history.careerSummary || '';
+    diagnostics.archivedCareerRecordCount = history.length;
+    diagnostics.worldCareerRecordCount = history.filter(row => row.recordKind === 'international-appearance').length;
   } catch (error) {
-    diagnostics.worldCareerHistoryError = error.message;
-    snapshot.careerSummary = 'International history could not be checked in this search.';
+    diagnostics.archivedCareerHistoryError = error.message;
+    try {
+      const world = await findWorldCurlingHistory(playerName);
+      if (world) {
+        snapshot.careerHistory = mergeCareerHistory(snapshot.careerHistory, world.records);
+        snapshot.careerSummary = world.summary;
+        diagnostics.worldCareerRecordCount = world.records.length;
+      }
+    } catch (worldError) {
+      diagnostics.worldCareerHistoryError = worldError.message;
+      snapshot.careerSummary = 'International history could not be checked in this search.';
+    }
   }
   return snapshot;
 }
@@ -2019,10 +2032,17 @@ async function findWorldCurlingHistory(playerName) {
   const gameSummary = (person.record_summaries?.IndividualGames || [])
     .map(row => row?.metrics || {})
     .find(metrics => metrics.Games || metrics.Appearances);
+  const winSummary = (person.record_summaries?.IndividualWins || [])
+    .map(row => row?.metrics || {})
+    .find(metrics => metrics.Wins || metrics.Losses);
   const summaryParts = [];
   if (gameSummary?.Appearances) summaryParts.push(`${gameSummary.Appearances} international championship appearances`);
   if (gameSummary?.Games) summaryParts.push(`${gameSummary.Games} games`);
-  if (gameSummary?.Wins || gameSummary?.Losses) summaryParts.push(`${gameSummary.Wins || 0} wins, ${gameSummary.Losses || 0} losses`);
+  const wins = gameSummary?.Wins || winSummary?.Wins;
+  const losses = gameSummary?.Losses || winSummary?.Losses;
+  if (wins && losses) summaryParts.push(`${wins} wins, ${losses} losses`);
+  else if (wins) summaryParts.push(`${wins} wins`);
+  else if (losses) summaryParts.push(`${losses} losses`);
   const medals = ['Golds', 'Silvers', 'Bronzes'].filter(key => gameSummary?.[key])
     .map(key => `${gameSummary[key]} ${key.slice(0, -1).toLowerCase()}`);
   if (medals.length) summaryParts.push(medals.join(', '));
