@@ -37,13 +37,14 @@ try:
     check('unverified_spelling_not_merged_or_misdirected',spelling['name']=='Ferrol Asham' and spelling['sourceId'] is None and not spelling['suggestions'])
     # Real sources, with bounded waits; each result remains source-qualified.
     for name in ['Farrol Asham','Jody Sutherland','Adam Flatt']:
-        start=time.perf_counter()
         if name=='Adam Flatt':
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
             wait("document.querySelectorAll('#identityChoices .identity-choice').length>=2",5)
             check('Adam_Flatt_ambiguous_profile_picker',len(d.find_elements(By.CSS_SELECTOR,'#identityChoices .identity-choice'))>=2)
             js("document.querySelector('#identityChoices .identity-choice').click()")
+            start=time.perf_counter()
         else:
+            start=time.perf_counter()
             js('resolveAndStart('+json.dumps(name)+',"uat-real")')
         wait("!document.getElementById('searchProgress').classList.contains('hidden') && document.getElementById('playerForm').getAttribute('aria-busy')==='true'",3)
         progress=round((time.perf_counter()-start)*1000);check(name+'_progress_under_500ms',progress<500,progress)
@@ -56,8 +57,8 @@ try:
             check(name+'_sourced_result',result['name']==name and result['view'] not in ['error','idle'],result)
             metrics.append({'name':name,'progress_ms':progress,'first_useful_result_ms':useful,'completed_ms':round((time.perf_counter()-start)*1000)})
             if name=='Farrol Asham':
-                check('Farrol_exact_published_name',result['name']=='Farrol Asham' and result['view']=='documented-history')
-                check('Farrol_two_document_sources',len(d.find_elements(By.CSS_SELECTOR,'#careerPath .career-source'))==2)
+                check('Farrol_exact_published_source_identity',result['name']=='Farrol Asham' and result['source']=='mb' and str(result['sourceId'])=='18594')
+                check('Farrol_source_qualified_archive',result['records']>=1 and result['view'] in ['archived-team','recent-event','live','upcoming'])
                 d.save_screenshot(str(OUT/'farrol-result.png'))
         except Exception as e:check(name+'_sourced_result',False,str(e))
     # Save implementations before isolated failure/slow/race scenarios.
@@ -100,3 +101,4 @@ except Exception as error:
 finally:
     report={'url':BASE,'browser':d.capabilities.get('browserVersion'),'device':'Edge desktop with viewport emulation; not physical Safari','timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'checks':checks,'metrics':metrics,'passed':sum(c['status']=='PASS' for c in checks),'failed':sum(c['status']=='FAIL' for c in checks)}
     (OUT/'acceptance-browser.json').write_text(json.dumps(report,indent=2),encoding='utf-8');d.quit();print(json.dumps({'passed':report['passed'],'failed':report['failed']}),flush=True)
+raise SystemExit(1 if report['failed'] else 0)

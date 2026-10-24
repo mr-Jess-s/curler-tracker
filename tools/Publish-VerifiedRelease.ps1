@@ -98,6 +98,10 @@ try {
   try {
     & $Python (Join-Path $PSScriptRoot 'Acceptance-Browser.py')
     if ($LASTEXITCODE -ne 0) { throw 'Candidate rendered-browser UAT failed; production was not changed.' }
+    $browserReportPath = Join-Path $env:CT_EVIDENCE_DIR 'acceptance-browser.json'
+    if (-not (Test-Path -LiteralPath $browserReportPath)) { throw 'Candidate rendered-browser UAT produced no acceptance report; production was not changed.' }
+    $browserReport = Get-Content -LiteralPath $browserReportPath -Raw | ConvertFrom-Json
+    if ($browserReport.failed -ne 0 -or $browserReport.passed -lt 40) { throw 'Candidate rendered-browser UAT contains failed or incomplete checks; production was not changed.' }
   } finally {
     Remove-Item Env:CT_BASE_URL -ErrorAction SilentlyContinue
     Remove-Item Env:CT_EVIDENCE_DIR -ErrorAction SilentlyContinue
