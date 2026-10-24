@@ -102,6 +102,16 @@ await check('Published name changes stay linked only through the same scoped sou
  const rows=await a.run("discoverCareerHistory({sourceCurlerId:7,sourceSubdomain:'ab'})");
  assert.equal(rows.length,2);assert.deepEqual(Array.from(rows,r=>r.publishedName).sort(),['Current Name','Former Name']);
 });
+await check('Consolidated identity history retains each association source link',async()=>{
+ const a=app();
+ a.run(`fetchJson=async url=>{
+  const sub=url.includes('canada.json')?'canada':url.includes('on.json')?'on':'mb';
+  return {schema_version:1,source_provider:'Curling I/O',source_subdomain:sub,generated_at:new Date().toISOString(),curler_appearances:{1935:[{event_id:sub==='canada'?1:sub==='on'?2:3,team_id:1,event_name:sub+' event',team_name:sub,starts_on:'2025-01-01'}]}};
+ }`);
+ const rows=await a.run("discoverCareerHistory({sourceCurlerId:1935,sourceSubdomain:'canada',sourceSubdomains:['canada','on','mb']})");
+ assert.equal(rows.length,3);assert.deepEqual(Array.from(rows,r=>r.sourceUrl).sort(),[
+  'https://canada.curling.io/en/events/1','https://mb.curling.io/en/events/3','https://on.curling.io/en/events/2']);
+});
 await check('Conflicting roster entries are retained and visibly qualified',async()=>{
  const a=app();a.run("fetchJson=async()=>({schema_version:1,source_provider:'Curling I/O',source_subdomain:'ab',generated_at:new Date().toISOString(),curler_appearances:{7:[{event_id:1,team_id:2,position:'first'},{event_id:1,team_id:2,position:'second'}]}})");
  const rows=await a.run("discoverCareerHistory({sourceCurlerId:7,sourceSubdomain:'ab'})");
@@ -149,6 +159,48 @@ await check('Ambiguous offline identities are not silently merged',async()=>{
  const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'same name':[{name:'Same Name',source_subdomain:'ab',source_curler_id:'1',records:[]},{name:'Same Name',source_subdomain:'mb',source_curler_id:'2',records:[]}]}};
  a.run('fetchJson=async()=>fixture');a.context.diagnostics={phase:'error'};const snapshot=await a.run("findOfflineTeamSnapshot('Same Name',diagnostics,30000)");
  assert.equal(snapshot,null);assert.equal(a.context.diagnostics.offlineLookup,'ambiguous-source-identities');
+});
+await check('Mike McEwen source profiles with the same published ID consolidate into one person choice',async()=>{
+ const a=app();
+ const profiles=a.run(`consolidateSourceProfiles([
+  {source_subdomain:'canada',source_curler_id:'1935',team_name:'Saskatchewan (McEwen)'},
+  {source_subdomain:'on',source_curler_id:'1935',team_name:'M-Team McEwen'},
+  {source_subdomain:'mb',source_curler_id:'1935',team_name:'Mike McEwen'}
+ ])`);
+ assert.equal(profiles.length,1);assert.equal(profiles[0].source_curler_id,'1935');
+ assert.deepEqual(Array.from(profiles[0].source_subdomains),['canada','on','mb']);
+ const separate=a.run(`consolidateSourceProfiles([
+  {source_subdomain:'ab',source_curler_id:'1'},
+  {source_subdomain:'mb',source_curler_id:'2'}
+ ])`);
+ assert.equal(separate.length,2);
+});
+await check('Exact Mike McEwen preflight starts one consolidated identity choice',async()=>{
+ const a=app();
+ a.context.catalog={schema_version:1,source_provider:'Curling I/O',names:[{normalized:'mike mcewen',name:'Mike McEwen',profiles:[
+  {source_subdomain:'canada',source_curler_id:'1935',team_name:'Saskatchewan (McEwen)'},
+  {source_subdomain:'on',source_curler_id:'1935',team_name:'M-Team McEwen'},
+  {source_subdomain:'mb',source_curler_id:'1935',team_name:'Mike McEwen'}
+ ]}]};
+ a.run("loadNameCatalogShard=async()=>catalog;globalThis.started='';startTracking=name=>{started=name}");
+ await a.run("resolveAndStart('Mike McEwen','test')");
+ assert.equal(a.context.started,'Mike McEwen');assert.equal(a.run('state.selectedProfile.source_curler_id'),'1935');
+ assert.deepEqual(Array.from(a.run('state.selectedProfile.source_subdomains')),['canada','on','mb']);
+ assert.equal(a.elements.get('identityChoices').classList.contains('hidden'),true);
+});
+await check('Offline Mike McEwen fallback aggregates all retained source-linked tournaments',async()=>{
+ const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'mike mcewen':[
+  {name:'Mike McEwen',source_subdomain:'canada',source_curler_id:'1935',records:[{name:'Mike McEwen',team_name:'Saskatchewan',event_name:'Canada Event',event_id:'10',starts_on:'2025-01-01',source_subdomain:'canada',source_url:'https://canada.curling.io/en/events/10'}]},
+  {name:'Mike McEwen',source_subdomain:'on',source_curler_id:'1935',records:[{name:'Mike McEwen',team_name:'Ontario',event_name:'Ontario Event',event_id:'20',starts_on:'2023-01-01',source_subdomain:'on',source_url:'https://on.curling.io/en/events/20'}]},
+  {name:'Mike McEwen',source_subdomain:'mb',source_curler_id:'1935',records:[{name:'Mike McEwen',team_name:'Manitoba',event_name:'Manitoba Event',event_id:'30',starts_on:'2022-01-01',source_subdomain:'mb',source_url:'https://mb.curling.io/en/events/30'}]}
+ ]}};
+ a.run('fetchJson=async()=>fixture');
+ const profile=a.run("consolidateSourceProfiles([{source_subdomain:'canada',source_curler_id:'1935'},{source_subdomain:'on',source_curler_id:'1935'},{source_subdomain:'mb',source_curler_id:'1935'}])[0]");
+ a.context.selectedTestProfile=profile;
+ const aggregated=await a.run("findOfflineTeamSnapshot('Mike McEwen',{phase:'error'},30000,globalThis.selectedTestProfile)");
+ assert.equal(aggregated.sourceCurlerId,1935);assert.equal(aggregated.careerHistory.length,3);
+ assert.deepEqual(Array.from(aggregated.careerHistory,r=>r.sourceUrl).sort(),[
+  'https://canada.curling.io/en/events/10','https://mb.curling.io/en/events/30','https://on.curling.io/en/events/20']);
 });
 await check('Failed live search can fall back to an archived team record',async()=>{
  const a=app();a.run("state.playerName='Sophie Abbs';state.playerGeneration=1;discoverPlayerEvents=async()=>({candidates:[],checked:[{error:'offline'}],timedOut:false});findOfflineTeamSnapshot=async name=>({playerName:name,view:'archived-team',teamName:'Abbs',eventName:'Test Bonspiel',lastUpdatedAt:'2026-09-24T13:13:23.700240+00:00',careerHistory:[],scheduleRows:[],ends:[]})");

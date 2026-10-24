@@ -113,8 +113,8 @@ def build():
                         "sha256": event.get("sha256"),
                     })
 
-    # Keep the latest source observation per source-native athlete ID. The
-    # complete season history remains in its own files; this index is for quick fallback lookup.
+    # Keep recent event records per source-native athlete ID for useful offline
+    # fallback. Full source history remains in the history files.
     identities = {}
     for row in records.values():
         identity = (row["source_subdomain"], row["source_curler_id"]) if row["source_curler_id"] else (
@@ -124,7 +124,7 @@ def build():
     names = {}
     for (subdomain, source_id), rows in identities.items():
         rows.sort(key=lambda row: (date_key(row.get("starts_on")), int(row.get("event_id") or 0)), reverse=True)
-        kept = rows[:1]
+        kept = rows[:20]
         latest = kept[0]
         names.setdefault(latest["normalized_name"], []).append({
             "name": latest["name"],
@@ -151,7 +151,7 @@ def build():
             "schema_version": 1,
             "generated_at": source_snapshot_at,
             "source_provider": "Curling I/O",
-            "source_policy": "Exact published names and source-native IDs only; records are not identity-merged across source IDs.",
+            "source_policy": "Exact published names and source-native IDs only; repeated profiles group only for matching names and IDs, and event links preserve their source association.",
             "name_count": len(shard_map),
             "names": shard_map,
         }
@@ -168,7 +168,7 @@ def build():
         "generated_at": source_snapshot_at,
         "source_snapshot_at": source_snapshot_at,
         "source_provider": "Curling I/O",
-        "source_policy": "Exact published names and source-native IDs only; records are not identity-merged across source IDs.",
+        "source_policy": "Exact published names and source-native IDs only; repeated profiles merge only when the exact name and source-native ID match. Event records retain their source association.",
         "identity_count": len(identities),
         "name_count": len(names),
         "records": sum(len(candidate["records"]) for candidates in names.values() for candidate in candidates),
@@ -203,7 +203,7 @@ def build():
         "schema_version": 1,
         "generated_at": source_snapshot_at,
         "source_provider": "Curling I/O",
-        "source_policy": "Names and profiles preserve source-native identities; suggestions require user confirmation and never merge identities.",
+        "source_policy": "Names and profiles preserve source-native identities; exact-name profiles sharing a source-native ID are grouped, while different IDs remain separate.",
         "name_count": len(catalog_names),
         "names": catalog_names,
     }

@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.23';
+const APP_VERSION = 'v26.24';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -365,6 +365,26 @@ function findNameChoices(catalog, input) {
   return { exact: null, suggestions: suggestions.slice(0, 5).map(item => item.row) };
 }
 
+function consolidateSourceProfiles(profiles) {
+  const grouped = new Map();
+  for (const profile of profiles || []) {
+    const id = String(profile?.source_curler_id || '');
+    const key = id ? `id:${id}` : `source:${profile?.source_subdomain || ''}:${profile?.event_id || ''}`;
+    const existing = grouped.get(key);
+    if (!existing) {
+      grouped.set(key, { ...profile, source_subdomains: [profile.source_subdomain].filter(Boolean) });
+      continue;
+    }
+    if (profile.source_subdomain && !existing.source_subdomains.includes(profile.source_subdomain)) {
+      existing.source_subdomains.push(profile.source_subdomain);
+    }
+  }
+  return [...grouped.values()].map(profile => ({
+    ...profile,
+    source_subdomains: [...new Set(profile.source_subdomains || [profile.source_subdomain])]
+  }));
+}
+
 function findSurnameChoices(catalog, input) {
   const surname = normalizeName(input);
   if (!surname || surname.includes(' ')) return [];
@@ -392,7 +412,8 @@ function beginNameCheckProgress(name) {
 }
 
 function profileLabel(profile) {
-  return `${String(profile.source_subdomain || '').toUpperCase()}${profile.team_name ? ` · ${profile.team_name}` : ''}${profile.season ? ` · ${profile.season}` : ''}`;
+  const sources = (profile.source_subdomains || [profile.source_subdomain]).filter(Boolean).map(source => source.toUpperCase());
+  return `${sources.join(' / ')}${profile.team_name ? ` · ${profile.team_name}` : ''}${profile.season ? ` · ${profile.season}` : ''}`;
 }
 
 function renderIdentityChoices(title, rows, onChoose) {
@@ -482,7 +503,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
       setStatus(`No exact spelling found for ${requested}. Choose a verified published name below.`);
       return;
     }
-    const profiles = result.exact.profiles || [];
+    const profiles = consolidateSourceProfiles(result.exact.profiles || []);
     if (profiles.length > 1) {
       endSearchProgress();
       renderIdentityChoices(`Choose the source profile for ${result.exact.name}:`, profiles.map(profile => ({
@@ -494,7 +515,7 @@ async function resolveAndStart(input, reason = 'manual-start') {
         clearIdentityChoices();
         startTracking(choice.name, 'confirmed-profile');
       });
-      setStatus(`${profiles.length} verified source profiles use this name. Choose one; Curler Tracker will not merge them automatically.`);
+      setStatus(`${profiles.length} distinct published identities use this name. Choose one; matching source IDs are grouped and records retain their source links.`);
       return;
     }
     state.selectedProfile = profiles[0] || null;
@@ -1318,7 +1339,10 @@ function renderCareerPath(snapshot) {
   const canLoad = !!snapshot.sourceCurlerId && !!snapshot.sourceSubdomain;
   els.careerLoadBtn?.classList.toggle('hidden', !canLoad);
   if (els.careerStatus && !state.careerLoading) {
-    els.careerStatus.textContent = state.careerMessage || (history.length ? `${history.length} sourced record${history.length === 1 ? '' : 's'} loaded from recent ${snapshot.sourceSubdomain || 'source'} records. History is incomplete.` : '');
+    const historyLabel = snapshot.view === 'archived-team'
+      ? `${history.length} sourced appearances loaded from saved association records. Historical coverage is incomplete.`
+      : `${history.length} sourced record${history.length === 1 ? '' : 's'} loaded from recent ${snapshot.sourceSubdomain || 'source'} records. History is incomplete.`;
+    els.careerStatus.textContent = state.careerMessage || (history.length ? historyLabel : '');
   }
 }
 
@@ -1326,6 +1350,40 @@ async function discoverCareerHistory(snapshot) {
   const curlerId = snapshot?.sourceCurlerId;
   const subdomain = snapshot?.sourceSubdomain;
   if (!curlerId || !subdomain) return [];
+
+  const sourceSubdomains = [...new Set((snapshot.sourceSubdomains || [subdomain]).filter(Boolean))];
+  if (sourceSubdomains.length > 1) {
+    const histories = await Promise.all(sourceSubdomains.map(async source => {
+      const index = await fetchJson(`./data/history/${encodeURIComponent(source)}.json?v=${encodeURIComponent(APP_VERSION)}`, {
+        ttlMs: 60 * 60 * 1000, cacheGroup: 'career-index'
+      });
+      if (index?.schema_version !== 1 || index?.source_subdomain !== source ||
+          index?.source_provider !== 'Curling I/O' || !Number.isFinite(Date.parse(index?.generated_at))) {
+        throw new Error('History index identity or provenance is invalid');
+      }
+      const indexed = index?.curler_appearances?.[String(curlerId)] || [];
+      if (!Array.isArray(indexed) || indexed.some(row => !row || !row.event_id || !row.team_id)) {
+        throw new Error('History index rows are invalid');
+      }
+      return indexed.map(row => {
+        const details = [];
+        if (row.team_name) details.push(`Team: ${row.team_name}`);
+        if (row.position) details.push(`Position: ${row.position}`);
+        if (row.season) details.push(row.season);
+        if (row.published_name) details.push('Published as: ' + row.published_name);
+        return {
+          title: row.event_name || 'Recorded event',
+          detail: details.join(' · ') || 'Published appearance',
+          source: `Curling I/O · ${source}`,
+          sourceUrl: `https://${source}.curling.io/en/events/${row.event_id}`,
+          startsOn: row.starts_on || '', eventId: row.event_id,
+          publishedName: row.published_name || '', retrievedAt: index.generated_at
+        };
+      });
+    }));
+    return histories.flat()
+      .sort((a, b) => (parseEventDateToMs(b.startsOn) || 0) - (parseEventDateToMs(a.startsOn) || 0) || Number(b.eventId || 0) - Number(a.eventId || 0));
+  }
 
   try {
     const localIndex = await fetchJson(`./data/history/${encodeURIComponent(subdomain)}.json?v=${encodeURIComponent(APP_VERSION)}`, {
@@ -1579,6 +1637,7 @@ function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, de
     archiveSeason: record.season || '',
     sourceCurlerId: Number.isFinite(Number(identity?.source_curler_id)) ? Number(identity.source_curler_id) : null,
     sourceSubdomain: identity?.source_subdomain || record.source_subdomain || '',
+    sourceSubdomains: identity?.source_subdomains || [identity?.source_subdomain || record.source_subdomain || ''],
     ends: [],
     scheduleRows: [],
     careerHistory,
@@ -1606,15 +1665,28 @@ async function findOfflineTeamSnapshot(playerName, diagnostics, delayMs, selecte
     diagnostics.offlineLookup = 'no-exact-match';
     return null;
   }
-  const eligible = selectedProfile
-    ? matches.filter(identity => identity.source_subdomain === selectedProfile.source_subdomain && String(identity.source_curler_id) === String(selectedProfile.source_curler_id))
-    : matches;
-  if (eligible.length !== 1) {
+  const selectedScopes = selectedProfile
+    ? (selectedProfile.source_subdomains || [selectedProfile.source_subdomain]).filter(Boolean)
+    : [];
+  const selectedId = String(selectedProfile?.source_curler_id || '');
+  const grouped = new Map();
+  for (const identity of matches) {
+    const id = String(identity.source_curler_id || '');
+    if (selectedProfile && (id !== selectedId || !selectedScopes.includes(identity.source_subdomain))) continue;
+    const key = id ? `id:${id}` : `source:${identity.source_subdomain}:${identity.name}`;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(identity);
+  }
+  if (grouped.size !== 1) {
     diagnostics.offlineLookup = 'ambiguous-source-identities';
     return null;
   }
-  const identity = eligible[0];
-  const record = (identity.records || []).find(row => row.team_name && row.event_name);
+  const identities = [...grouped.values()][0];
+  const records = identities.flatMap(identity => identity.records || [])
+    .filter(row => row.team_name && row.event_name)
+    .sort((a, b) => (parseEventDateToMs(b.starts_on) || 0) - (parseEventDateToMs(a.starts_on) || 0) || Number(b.event_id || 0) - Number(a.event_id || 0));
+  const identity = { ...identities[0], source_subdomains: [...new Set(identities.map(row => row.source_subdomain))], records };
+  const record = records[0];
   if (!record) diagnostics.offlineLookup = 'no-team-record';
   return record ? buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs) : null;
 }
@@ -1822,7 +1894,7 @@ async function tryFastPathCandidate(playerNorm) {
 
     const match = findMatchingTeam(event, playerNorm);
     if (!match) return null;
-    if (state.selectedProfile && (fastPath.subdomain !== state.selectedProfile.source_subdomain ||
+    if (state.selectedProfile && (!(state.selectedProfile.source_subdomains || [state.selectedProfile.source_subdomain]).includes(fastPath.subdomain) ||
         String(match.curler?.curler_id ?? '') !== String(state.selectedProfile.source_curler_id))) return null;
 
     const selection = selectGamesForEvent(event, match.team);
@@ -1865,7 +1937,9 @@ async function discoverPlayerEvents(playerName) {
   }
 
   const listJobs = [];
-  const sourceSubdomains = state.selectedProfile?.source_subdomain ? [state.selectedProfile.source_subdomain] : APP.clubSubdomains;
+  const sourceSubdomains = state.selectedProfile
+    ? (state.selectedProfile.source_subdomains || [state.selectedProfile.source_subdomain]).filter(Boolean)
+    : APP.clubSubdomains;
   for (const subdomain of sourceSubdomains) {
     for (const delta of APP.lookaheadSeasons) {
       listJobs.push({ subdomain, delta });
@@ -1969,7 +2043,9 @@ async function discoverMostRecentCompletedEvent(playerName) {
   const deadlineAt = Date.now() + APP.recentDiscoveryBudgetMs;
 
   const listJobs = [];
-  const sourceSubdomains = state.selectedProfile?.source_subdomain ? [state.selectedProfile.source_subdomain] : APP.clubSubdomains;
+  const sourceSubdomains = state.selectedProfile
+    ? (state.selectedProfile.source_subdomains || [state.selectedProfile.source_subdomain]).filter(Boolean)
+    : APP.clubSubdomains;
   for (const subdomain of sourceSubdomains) {
     for (const delta of APP.recentLookbackSeasons) {
       listJobs.push({ subdomain, delta });
