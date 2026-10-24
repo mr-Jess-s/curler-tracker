@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const historyDir = path.join(root, 'data', 'history');
 const historyManifest = JSON.parse(fs.readFileSync(path.join(root, 'data', 'history-manifest.json'), 'utf8'));
+const worldCurlerIndex = JSON.parse(fs.readFileSync(path.join(root, 'data', 'world-curler-index.json'), 'utf8'));
 const canadaInventory = JSON.parse(fs.readFileSync(path.join(root, 'data/global/canada-site-inventory-summary.json'), 'utf8'));
 const worldInventory = JSON.parse(fs.readFileSync(path.join(root, 'data/global/world-site-inventory-summary.json'), 'utf8'));
 const clubDirectories = ['ab', 'yt'].map(code => JSON.parse(fs.readFileSync(path.join(root, `data/global/canada-clubs/${code}.json`), 'utf8')));
@@ -71,7 +72,7 @@ const coverageNote = [
   `Searchable results: ${historyManifest.files.length} published Curling I/O roster indexes across ${seasonRows.length} seasons.`,
   `Canadian association site survey (${date(canadaInventory.generated_at)}): ${canadaInventory.inventoried}/${canadaInventory.association_count} inventoried, ${canadaInventory.blocked} blocked, ${canadaInventory.site_not_listed} not listed.`,
   `Two public club directories were parsed (${date(clubDirectories[0].generated_at)}): Alberta ${clubDirectories[0].club_count}, Yukon ${clubDirectories[1].club_count}; this is not a national club count.`,
-  `World Curling member-site survey (${date(worldInventory.generated_at)}): ${worldInventory.inventoried}/${worldInventory.member_count} inventoried, ${worldInventory.blocked} blocked, ${worldInventory.failed} failed, ${worldInventory.site_not_listed} not listed. International championship results are not indexed.`,
+  `World Curling member-site survey (${date(worldInventory.generated_at)}): ${worldInventory.inventoried}/${worldInventory.member_count} inventoried, ${worldInventory.blocked} blocked, ${worldInventory.failed} failed, ${worldInventory.site_not_listed} not listed. Its Results database index includes ${worldCurlerIndex.coverage.people_indexed} people and ${worldCurlerIndex.coverage.championship_facts_indexed} source-linked championship facts from ${worldCurlerIndex.coverage.pages_parsed}/${worldCurlerIndex.coverage.pages_expected} saved pages; World Curling documents historical gaps, so this is incomplete.`,
   'Source inventories are not competition-result coverage. Missing history remains unknown.'
 ].join(' ');
 

@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.22';
+const APP_VERSION = 'v26.23';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -1210,6 +1210,11 @@ function renderHeadline(snapshot) {
     return;
   }
 
+  if (snapshot.view === 'world-archive') {
+    els.headlineBlock.innerHTML = `<div><div class="headline-main">World Curling championship history</div><div class="headline-sub">World Curling ID ${escapeHtml(snapshot.worldPersonId || '')}. Historical archive has known gaps; no current game is confirmed.</div></div>`;
+    return;
+  }
+
   if (snapshot.view === 'archived-team') {
     const season = snapshot.archiveSeason ? ` · ${escapeHtml(snapshot.archiveSeason)}` : '';
     els.headlineBlock.innerHTML = `<div><div class="headline-main">Last recorded team: ${escapeHtml(snapshot.teamName || 'Unknown')}</div><div class="headline-sub">${escapeHtml(snapshot.eventName || 'Archived Curling I/O appearance')}${season}</div></div>`;
@@ -1443,6 +1448,9 @@ function updateBadge(view) {
   } else if (view === 'documented-history') {
     els.liveBadge.classList.add('muted');
     els.liveBadge.textContent = 'Sources';
+  } else if (view === 'world-archive') {
+    els.liveBadge.classList.add('muted');
+    els.liveBadge.textContent = 'World archive';
   } else if (view === 'archived-team') {
     els.liveBadge.classList.add('muted');
     els.liveBadge.textContent = 'Archive';
@@ -1649,6 +1657,80 @@ async function findDocumentedCurlingSnapshot(playerName, diagnostics, delayMs) {
     nextCheckAt: Date.now() + delayMs,
     lastUpdatedAt: archive.generated_at,
     lastUpdatedLabel: `Indexed ${formatSnapshotDate(archive.generated_at)}`,
+    diagnostics
+  };
+}
+
+async function findWorldCurlingSnapshot(playerName, diagnostics, delayMs) {
+  const archive = await fetchJson(`./data/world-curler-index.json?v=${encodeURIComponent(APP_VERSION)}`, {
+    ttlMs: 12 * 60 * 60 * 1000,
+    cacheGroup: 'world-curling-history'
+  });
+  if (archive?.schema_version !== 1 || archive?.source_provider !== 'World Curling' ||
+      !archive.people || typeof archive.people !== 'object' || !archive.coverage) {
+    throw new Error('World Curling history index is unavailable or invalid.');
+  }
+  const wanted = normalizeName(playerName);
+  const matches = Object.values(archive.people).flatMap(person => {
+    const exact = (person.published_names || []).filter(entry => normalizeName(entry.name) === wanted);
+    return exact.length ? [{ person, exact }] : [];
+  });
+  if (!matches.length) {
+    diagnostics.worldArchive = 'no-exact-match';
+    return null;
+  }
+  if (matches.length !== 1) {
+    diagnostics.worldArchive = 'ambiguous-world-person-ids';
+    return null;
+  }
+
+  const { person, exact } = matches[0];
+  const displayName = exact[0].name;
+  const careerHistory = [];
+  const gameSummaries = person.record_summaries?.IndividualGames || [];
+  for (const summary of gameSummaries) {
+    const values = Object.entries(summary.metrics || {}).filter(([, value]) => value !== '');
+    if (!values.length) continue;
+    careerHistory.push({
+      title: 'World Curling recorded totals',
+      detail: values.map(([label, value]) => `${label}: ${value}`).join(' · '),
+      source: 'World Curling Results database',
+      sourceUrl: person.person_url
+    });
+    break;
+  }
+
+  for (const fact of person.championships || []) {
+    const association = (fact.association_names || []).join(', ');
+    const details = [`Source listing: ${fact.source_label || 'label unavailable'}`];
+    if (association) details.push(association);
+    careerHistory.push({
+      title: fact.championship_type || 'International championship appearance',
+      detail: details.join(' · '),
+      source: 'World Curling Results database',
+      sourceUrl: fact.source_url || fact.source_page || person.person_url
+    });
+  }
+
+  diagnostics.worldArchive = 'exact-world-person-id';
+  diagnostics.worldPersonId = person.world_person_id;
+  diagnostics.worldChampionshipFacts = (person.championships || []).length;
+  diagnostics.worldArchiveCoverageComplete = archive.coverage.history_complete === true;
+  return {
+    playerName,
+    displayPlayer: displayName,
+    worldPersonId: person.world_person_id,
+    view: 'world-archive',
+    eventName: 'World Curling championship history',
+    teamName: '',
+    ends: [],
+    scheduleRows: [],
+    careerHistory,
+    timelineHint: 'These are source-linked championship appearances recorded under this World Curling person ID. The archive has documented historical gaps.',
+    scheduleHint: 'No current competition team or live game is confirmed by this historical record.',
+    nextCheckAt: Date.now() + delayMs,
+    lastUpdatedAt: archive.generated_at,
+    lastUpdatedLabel: `World Curling index ${formatSnapshotDate(archive.generated_at)}`,
     diagnostics
   };
 }
@@ -2190,10 +2272,18 @@ async function runTracker({ reason }) {
         let documentary = null;
         try { documentary = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
         catch (err) { diagnostics.documentaryError = err.message; }
+        let worldArchive = null;
+        if (!documentary) {
+          try { worldArchive = await findWorldCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
+          catch (err) { diagnostics.worldArchiveError = err.message; }
+        }
         if (generation !== state.playerGeneration) return;
-        if (documentary) {
-          render(documentary);
-          setStatus(`Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. Current competition search timed out; retrying in 30 minutes.`);
+        const historical = documentary || worldArchive;
+        if (historical) {
+          render(historical);
+          setStatus(worldArchive
+            ? `Found ${worldArchive.careerHistory.length} World Curling history records for ${state.playerName}. The archive is incomplete; current search will retry in 30 minutes.`
+            : `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. Current competition search timed out; retrying in 30 minutes.`);
         } else {
           render(computeErrorSnapshot(state.playerName, diagnostics, APP.errorRetryMs, 'The search took too long. Try Refresh now.'));
           setStatus(`Search took too long for ${state.playerName}. You can try Refresh now.`);
@@ -2239,10 +2329,17 @@ async function runTracker({ reason }) {
           let documentary = null;
           try { documentary = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.idleScanMs); }
           catch (err) { diagnostics.documentaryError = err.message; }
+          let worldArchive = null;
+          if (!documentary) {
+            try { worldArchive = await findWorldCurlingSnapshot(requestedPlayer, diagnostics, APP.idleScanMs); }
+            catch (err) { diagnostics.worldArchiveError = err.message; }
+          }
           if (generation !== state.playerGeneration) return;
-          render(documentary || computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
+          render(documentary || worldArchive || computeIdleSnapshot(state.playerName, diagnostics, APP.idleScanMs));
           setStatus(documentary
             ? `Found ${documentary.careerHistory.length} cited curling references for ${state.playerName}. No current game confirmed in the checked sources.`
+            : worldArchive
+            ? `Found ${worldArchive.careerHistory.length} World Curling history records for ${state.playerName}. The archive is incomplete; no current game was confirmed.`
             : `No verified records found for ${state.playerName} in the sources checked. Coverage is incomplete; missing history remains unknown.`);
           scheduleNextRun(APP.idleScanMs);
         }
@@ -2338,12 +2435,18 @@ async function runTracker({ reason }) {
       try { fallback = await findDocumentedCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
       catch (err) { diagnostics.documentaryError = err.message; }
     }
+    if (!fallback) {
+      try { fallback = await findWorldCurlingSnapshot(requestedPlayer, diagnostics, APP.errorRetryMs); }
+      catch (err) { diagnostics.worldArchiveError = err.message; }
+    }
     if (generation !== state.playerGeneration) return;
 
     if (fallback) {
       render(fallback);
       setStatus(fallback.view === 'documented-history'
         ? `Partial historical records: ${fallback.careerHistory.length} cited curling references for ${state.playerName}. Live sources are incomplete; retrying in 30 minutes.`
+        : fallback.view === 'world-archive'
+        ? `Live sources are unavailable. Showing ${fallback.careerHistory.length} World Curling history records for ${state.playerName}; the archive is incomplete.`
         : `Live refresh failed. Showing the last archived team record from ${formatSnapshotDate(fallback.lastUpdatedAt)}.`);
       scheduleNextRun(APP.errorRetryMs);
       return;

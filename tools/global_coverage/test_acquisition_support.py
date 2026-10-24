@@ -119,6 +119,28 @@ class AcquisitionTests(unittest.TestCase):
         with self.assertRaisesRegex(archive.SourceBlocked, "terms prohibit"):
             archive.fetch_snapshot(self.base + "/page", "terms-blocked", "test-bucket")
 
+    def test_parent_domain_policy_blocks_registered_subdomains(self):
+        archive.POLICY_PATH.parent.mkdir(parents=True, exist_ok=True)
+        archive.POLICY_PATH.write_text(
+            '{"default_collection":"public_only","hosts":{"curling.io":{"collection":"blocked","reason":"prior written permission required"}}}',
+            encoding="utf-8",
+        )
+        with self.assertRaisesRegex(archive.SourceBlocked, "prior written permission"):
+            archive.fetch_snapshot(
+                "https://api.curling.io/en/clubs/ab/competitions",
+                "curling-io-blocked",
+                "test-bucket",
+            )
+
+    def test_explicit_subdomain_policy_can_override_parent_rule(self):
+        archive.POLICY_PATH.parent.mkdir(parents=True, exist_ok=True)
+        archive.POLICY_PATH.write_text(
+            '{"default_collection":"public_only","hosts":{"curling.io":{"collection":"blocked","reason":"permission required"},"api.curling.io":{"collection":"public_only","terms_status":"written permission confirmed"}}}',
+            encoding="utf-8",
+        )
+        result = archive.source_policy("api.curling.io")
+        self.assertEqual(result["terms_status"], "written permission confirmed")
+
     def test_unavailable_robots_rules_fail_closed(self):
         Handler.robots = "503"
         with patch.object(archive.time, "sleep", return_value=None):

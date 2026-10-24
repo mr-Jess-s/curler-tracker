@@ -1,169 +1,169 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T06:00:34.830457+00:00",
-  "source_snapshot_at": "2026-10-24T06:00:34.830457+00:00",
+  "generated_at": "2026-10-24T18:53:36.835827+00:00",
+  "source_snapshot_at": "2026-10-24T18:53:36.835827+00:00",
   "source_provider": "Curling I/O",
   "source_policy": "Exact published names and source-native IDs only; records are not identity-merged across source IDs.",
-  "identity_count": 16165,
-  "name_count": 13338,
-  "records": 16165,
+  "identity_count": 25734,
+  "name_count": 20086,
+  "records": 25734,
   "shard_count": 26,
   "shards": [
     {
       "key": "a",
       "file": "a.json",
-      "name_count": 970,
-      "bytes": 668980
+      "name_count": 1457,
+      "bytes": 1038342
     },
     {
       "key": "b",
       "file": "b.json",
-      "name_count": 845,
-      "bytes": 560037
+      "name_count": 1302,
+      "bytes": 912569
     },
     {
       "key": "c",
       "file": "c.json",
-      "name_count": 1086,
-      "bytes": 747845
+      "name_count": 1610,
+      "bytes": 1163277
     },
     {
       "key": "d",
       "file": "d.json",
-      "name_count": 982,
-      "bytes": 646518
+      "name_count": 1560,
+      "bytes": 1070179
     },
     {
       "key": "e",
       "file": "e.json",
-      "name_count": 496,
-      "bytes": 358339
+      "name_count": 750,
+      "bytes": 549983
     },
     {
       "key": "f",
       "file": "f.json",
-      "name_count": 126,
-      "bytes": 77971
+      "name_count": 188,
+      "bytes": 127373
     },
     {
       "key": "g",
       "file": "g.json",
-      "name_count": 504,
-      "bytes": 334034
+      "name_count": 763,
+      "bytes": 532098
     },
     {
       "key": "h",
       "file": "h.json",
-      "name_count": 271,
-      "bytes": 187099
+      "name_count": 404,
+      "bytes": 285483
     },
     {
       "key": "i",
       "file": "i.json",
-      "name_count": 133,
-      "bytes": 86649
+      "name_count": 184,
+      "bytes": 134616
     },
     {
       "key": "j",
       "file": "j.json",
-      "name_count": 1431,
-      "bytes": 990341
+      "name_count": 2130,
+      "bytes": 1558109
     },
     {
       "key": "k",
       "file": "k.json",
-      "name_count": 904,
-      "bytes": 631162
+      "name_count": 1355,
+      "bytes": 1001439
     },
     {
       "key": "l",
       "file": "l.json",
-      "name_count": 742,
-      "bytes": 493199
+      "name_count": 1108,
+      "bytes": 774185
     },
     {
       "key": "m",
       "file": "m.json",
-      "name_count": 1197,
-      "bytes": 839853
+      "name_count": 1815,
+      "bytes": 1337084
     },
     {
       "key": "n",
       "file": "n.json",
-      "name_count": 350,
-      "bytes": 250633
+      "name_count": 531,
+      "bytes": 392419
     },
     {
       "key": "o",
       "file": "o.json",
-      "name_count": 99,
-      "bytes": 72856
+      "name_count": 152,
+      "bytes": 109639
     },
     {
       "key": "p",
       "file": "p.json",
-      "name_count": 380,
-      "bytes": 260631
+      "name_count": 561,
+      "bytes": 411178
     },
     {
       "key": "q",
       "file": "q.json",
-      "name_count": 18,
-      "bytes": 12055
+      "name_count": 22,
+      "bytes": 14769
     },
     {
       "key": "r",
       "file": "r.json",
-      "name_count": 796,
-      "bytes": 538488
+      "name_count": 1221,
+      "bytes": 864957
     },
     {
       "key": "s",
       "file": "s.json",
-      "name_count": 1047,
-      "bytes": 753772
+      "name_count": 1505,
+      "bytes": 1141621
     },
     {
       "key": "t",
       "file": "t.json",
-      "name_count": 586,
-      "bytes": 401447
+      "name_count": 894,
+      "bytes": 640192
     },
     {
       "key": "u",
       "file": "u.json",
-      "name_count": 2,
-      "bytes": 1388
+      "name_count": 4,
+      "bytes": 3073
     },
     {
       "key": "v",
       "file": "v.json",
-      "name_count": 106,
-      "bytes": 73961
+      "name_count": 153,
+      "bytes": 110695
     },
     {
       "key": "w",
       "file": "w.json",
-      "name_count": 180,
-      "bytes": 121613
+      "name_count": 286,
+      "bytes": 198808
     },
     {
       "key": "x",
       "file": "x.json",
-      "name_count": 10,
-      "bytes": 7436
+      "name_count": 12,
+      "bytes": 9095
     },
     {
       "key": "y",
       "file": "y.json",
-      "name_count": 25,
-      "bytes": 15629
+      "name_count": 37,
+      "bytes": 23409
     },
     {
       "key": "z",
       "file": "z.json",
-      "name_count": 52,
-      "bytes": 41507
+      "name_count": 82,
+      "bytes": 62103
     }
   ]
 }

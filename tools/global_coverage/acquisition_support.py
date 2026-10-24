@@ -4,6 +4,7 @@ import datetime as dt
 import gzip
 import hashlib
 import json
+import os
 import time
 import threading
 import urllib.error
@@ -13,7 +14,7 @@ import urllib.robotparser
 from pathlib import Path
 from atomic_state import atomic_json
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(os.environ.get("CURLER_TRACKER_ARCHIVE_ROOT", Path(__file__).resolve().parents[2]))
 DATA = ROOT / "data" / "global"
 MANIFESTS = DATA / "acquisition-manifests"
 POLICY_PATH = DATA / "source-policy.json"
@@ -40,7 +41,14 @@ def source_policy(host):
     if not POLICY_PATH.exists():
         return {"collection": "public_only", "terms_status": "unreviewed"}
     policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
-    row = policy.get("hosts", {}).get(host.lower(), {})
+    normalized_host = (host or "").lower().rstrip(".")
+    host_rows = policy.get("hosts", {})
+    row = host_rows.get(normalized_host)
+    if row is None:
+        labels = normalized_host.split(".")
+        row = next((host_rows[".".join(labels[index:])]
+                    for index in range(1, len(labels) - 1)
+                    if ".".join(labels[index:]) in host_rows), {})
     if row.get("collection") == "blocked":
         raise SourceBlocked(row.get("reason") or f"Collection blocked by source policy for {host}")
     return {

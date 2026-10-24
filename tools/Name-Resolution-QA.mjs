@@ -38,7 +38,12 @@ assert.ok(!unsafeNearMatch.suggestions.some(row => row.name === 'Gerry Adam'), '
 const surnameRows = vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Sutherland')", Object.assign(context, {qaCatalog: catalog}));
 assert.ok(surnameRows.length > 1, 'Surname search must offer multiple names rather than selecting one');
 assert.ok(surnameRows.every(row => row.normalized.split(' ').at(-1) === 'sutherland'), 'Surname matches must use the final name token');
-assert.equal(vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Asham')", context).length, 0, 'No Asham Curling I/O index entries should be invented');
+const ashamRows = vm.runInContext("findSurnameChoices(globalThis.qaCatalog, 'Asham')", context);
+assert.equal(ashamRows.length, 1, 'Only the exactly published and sourced Asham identity should be indexed');
+assert.equal(ashamRows[0].name, 'Farrol Asham');
+assert.ok(ashamRows[0].profiles.some(profile => profile.source_subdomain === 'mb' &&
+  String(profile.source_curler_id) === '18594' && String(profile.event_id) === '2991' && profile.season === '2017 / 2018'),
+  'Farrol Asham must remain linked to the source-native Manitoba identity and event');
 const selected = JSON.parse(fs.readFileSync(path.join(root, 'release-evidence', '2026-10-16', 'field-audit', 'selected-curlers.json'), 'utf8')).sample;
 const severe = JSON.parse(fs.readFileSync(path.join(root, 'release-evidence', '2026-10-16', 'typo-audit', 'query-manifest.json'), 'utf8')).queries;
 

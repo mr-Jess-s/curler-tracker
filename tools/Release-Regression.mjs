@@ -32,14 +32,17 @@ async function check(name, fn){await fn();console.log('PASS '+name);count++;}
 await check('Homepage has visible branding and a useful historical default', async()=>{
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  const summary=JSON.parse(fs.readFileSync(path.join(root,'data/home-summary.json'),'utf8'));
+ const historyManifest=JSON.parse(fs.readFileSync(path.join(root,'data/history-manifest.json'),'utf8'));
+ const worldIndex=JSON.parse(fs.readFileSync(path.join(root,'data/world-curler-index.json'),'utf8'));
  assert.match(html,/noble-beaver(?:-icon)?\.svg/); assert.match(html,/Explore recent seasons/);
  assert.match(html,/href="#main-content"/); assert.match(html,/id="main-content" tabindex="-1"/);
  assert.match(html,/id="currentSeasonBtn"/); assert(summary.seasons.some(row=>row.season==='2026 / 2027'&&row.events>0));
  assert.match(html,/role="search"/); assert.match(html,/aria-labelledby="feedback-title"/);
  const css=fs.readFileSync(path.join(root,"styles.css"),"utf8"); assert.match(css,/:focus-visible/); assert.match(css,/prefers-reduced-motion/);
  assert.equal(summary.default_season,'2025 / 2026');
- assert.match(summary.coverage_note,/13 published Curling I\/O roster indexes across 5 seasons/);
- assert.match(summary.coverage_note,/International championship results are not indexed/);
+ assert.match(summary.coverage_note,new RegExp(`${historyManifest.files.length} published Curling I/O roster indexes across ${summary.seasons.length} seasons`));
+ assert.match(summary.coverage_note,new RegExp(`Results database index includes ${worldIndex.coverage.people_indexed} people`));
+ assert.match(summary.coverage_note,/World Curling documents historical gaps/);
  assert.match(summary.coverage_note,/not a national club count/);
  assert.match(summary.coverage_note,/Missing history remains unknown/);
  assert(summary.seasons.some(row=>row.season==='2024 / 2025'&&row.events>100));
@@ -263,6 +266,15 @@ await check('Unverified spelling variants cannot receive another published name�
  const a=app();a.context.citedIndex=JSON.parse(fs.readFileSync(path.join(root,'data/curler-source-records.json'),'utf8'));
  a.run("fetchJson=async()=>citedIndex");
  assert.equal(await a.run("findDocumentedCurlingSnapshot('Ferrol Asham',{},30000)"),null);
+});
+await check('World Curling history resolves exact names to a stable source ID and source-linked facts',async()=>{
+ const a=app();a.context.worldIndex={schema_version:1,source_provider:'World Curling',generated_at:'2026-10-24T00:00:00Z',coverage:{history_complete:false},people:{'486':{world_person_id:'486',person_url:'https://results.worldcurling.org/Person/Details/486',published_names:[{name:'Torger Nergård'}],associations:['Norway'],record_summaries:{IndividualGames:[{metrics:{Games:'428',Golds:'6'}}]},championships:[{championship_id:'702',championship_type:'Olympic Games',source_label:'2022-6',association_id:'10',association_names:['Norway'],source_url:'https://results.worldcurling.org/Championship/Details/702'}]}}};
+ a.run('fetchJson=async()=>worldIndex');
+ const result=await a.run("findWorldCurlingSnapshot('Torger Nergård',{phase:'test'},5000)");
+ assert.equal(result.view,'world-archive');assert.equal(result.worldPersonId,'486');assert.equal(result.diagnostics.worldArchiveCoverageComplete,false);
+ assert.equal(result.careerHistory.length,2);assert.match(result.careerHistory[0].detail,/Games: 428/);
+ assert.equal(result.careerHistory[1].detail,'Source listing: 2022-6 · Norway');
+ assert.equal(result.careerHistory[1].sourceUrl,'https://results.worldcurling.org/Championship/Details/702');
 });
 await check('Missing release data cannot silently load unreviewed data from another branch',async()=>{
  const a=app();a.context.fetches=[];

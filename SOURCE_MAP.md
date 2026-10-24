@@ -1,6 +1,6 @@
 # Curler Tracker source map
 
-Updated: 2026-09-23
+Updated: 2026-10-24
 
 ## Source priority
 1. Official competition operator / governing body / association / club.
@@ -11,10 +11,12 @@ No source is allowed to silently override another source. Conflicts are stored a
 
 ## World Curling Results Database
 Authority: World Curling official historical results and statistics service.
-Coverage stated by source: international championships organized since 1924.
+Coverage stated by source: the database aims to provide results and statistics for international championships organized since 1924.
 Useful fields: person identity within World Curling, championship appearances, team/position, association, ranking/finish, game scores, games played, wins/losses, medals.
-Limits stated by source: not complete playing statistics; detailed shot-level/statistical coverage is not complete.
+Limits stated by source: not complete playing statistics; detailed shot-level/statistical coverage is not complete. World Curling says historical results and lineups have known gaps and that recovery is ongoing. Its history page specifically identifies the 1989 World Curling Challenge as missing.
 Role: primary international career-history backbone.
+Completeness rule: this archive is a source backbone, not evidence that every championship, team lineup, player, score, or game has been recovered. Coverage counts must be reported from fetched and verified records, with missing years/events and source outages shown separately.
+Implementation: saved association pages are normalized into `data/world-curler-index.json` using World Curling person IDs. The player search requires an exact normalized published name and a unique World Curling ID; it keeps source labels and links. Cross-source identity merges are not inferred.
 
 ## Curling Canada Event Archives
 Authority: Curling Canada.
@@ -35,9 +37,9 @@ Role: historical corroboration and structured extraction candidate.
 
 ## Curling I/O
 Authority varies by competition/club using the platform.
-Current app already consumes its public competition/event endpoints.
-Role: strong source for current and recent Canadian club/provincial event structures, rosters, draws and scores where published.
-Historical work: enumerate supported seasons rather than only current-season discovery.
+The published [Terms of Use](https://curling.io/terms) prohibit automated crawling, extraction, caching and republication without prior written permission, and restrict using System data to build a competing database or finder.
+Status (2026-10-24): the project owner confirmed existing written permission for Curler Tracker's automated collection, expansion, retention, and republication. The source policy records the confirmation; the permission document is retained outside the repository.
+Historical role: current and recent Canadian club/provincial event structures, rosters, draws and scores where published. The collector will enumerate seasons exposed by each association and report that source's available range; this does not establish complete Canadian curling history.
 
 ## Provincial/territorial associations and clubs
 Role: required for the path below national championships, especially qualification chains and early career history.

@@ -1,7 +1,10 @@
-import json,urllib.request,collections
+import json,sys,urllib.request,collections
 from pathlib import Path
 from datetime import datetime,timezone
+from urllib.parse import urlsplit
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tools'/'global_coverage'))
+from acquisition_support import USER_AGENT,robots_allowed,source_policy,wait_for_robots_rate
 manifest=json.loads((ROOT/'data/history-manifest.json').read_text())
 assert not manifest['errors']
 total=0;samples=[]
@@ -22,7 +25,11 @@ for f in manifest['files']:
   assert row['source_url']==f"https://api.curling.io/en/clubs/{f['subdomain']}/events/{row['event_id']}"
  total+=len(rows)
  cid=sample_key[0]; row=grouped[sample_key][0]
- with urllib.request.urlopen(urllib.request.Request(row['source_url'],headers={'Accept':'application/json','User-Agent':'CurlerTracker/26.4 source-validation'}),timeout=25) as response: event=json.load(response)
+ source_url=row['source_url']
+ source_policy(urlsplit(source_url).hostname or '')
+ robots_allowed(source_url)
+ wait_for_robots_rate(source_url)
+ with urllib.request.urlopen(urllib.request.Request(source_url,headers={'Accept':'application/json','User-Agent':USER_AGENT}),timeout=25) as response: event=json.load(response)
  team=next(t for t in event['teams'] if t['id']==row['team_id'])
  people=[c for c in team['lineup'] if str(c.get('curler_id'))==cid]
  person=people[0]

@@ -17,7 +17,7 @@ try {
   }
   if (-not (Test-Path -LiteralPath $Cli)) { throw 'Pinned deployment CLI launcher missing.' }
   $core = @('index.html', 'privacy.html', 'robots.txt', 'sitemap.xml', 'app.js', 'styles.css', 'sw.js', 'manifest.webmanifest', 'package.json', 'vercel.json', 'api\curling-io.js', 'noble-beaver.svg', 'noble-beaver-icon.svg')
-  $data = @('data\home-summary.json', 'data\history-manifest.json', 'data\curler-source-records.json')
+  $data = @('data\home-summary.json', 'data\history-manifest.json', 'data\curler-source-records.json', 'data\world-curler-index.json')
   foreach ($path in ($core + $data)) {
     if (-not (Test-Path -LiteralPath (Join-Path $Root $path))) { throw "Missing release asset: $path" }
   }

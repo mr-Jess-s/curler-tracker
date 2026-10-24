@@ -7,20 +7,22 @@ import sys
 import time
 from pathlib import Path
 from atomic_state import atomic_json
+from acquisition_support import SourceBlocked, source_policy
 
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS = ROOT / "tools" / "global_coverage"
 STATE = ROOT / "data" / "global" / "maintenance-state.json"
 
 TASKS = [
-    {"name":"canada_current_season","cmd":[sys.executable,str(TOOLS/"archive_canada_current_season.py"),"--max-sources","14","--max-events-per-source","10","--delay","0.5"],"hours":6,"timeout":2400},
-    {"name":"history_refresh","cmd":[sys.executable,str(ROOT/"tools"/"Build-History-Index.py")],"hours":168,"timeout":3600},
+    {"name":"canada_current_season","source_host":"api.curling.io","cmd":[sys.executable,str(TOOLS/"archive_canada_current_season.py"),"--max-sources","14","--max-events-per-source","10","--delay","0.5"],"hours":6,"timeout":2400},
+    {"name":"history_refresh","source_host":"api.curling.io","cmd":[sys.executable,str(ROOT/"tools"/"Build-History-Index.py")],"hours":168,"timeout":3600},
     {"name":"home_summary","cmd":["node",str(ROOT/"tools"/"Build-Home-Summary.mjs")],"hours":168,"timeout":300},
     {"name":"offline_curler_index","cmd":[sys.executable,str(TOOLS/"build_offline_curler_index.py")],"hours":6,"timeout":300},
     {"name":"canada_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_canada_sites.py"),"--max-pages","120","--delay","0.10","--workers","3"],"hours":24,"timeout":2400},
     {"name":"canada_alberta_clubs","cmd":[sys.executable,str(TOOLS/"extract_canada_alberta_clubs.py")],"hours":168,"timeout":2400},
     {"name":"canada_yukon_clubs","cmd":[sys.executable,str(TOOLS/"extract_canada_yukon_clubs.py")],"hours":168,"timeout":900},
     {"name":"world_results","cmd":[sys.executable,str(TOOLS/"continuous_world_results.py")],"hours":6,"timeout":1800},
+    {"name":"world_results_index","cmd":[sys.executable,str(TOOLS/"build_world_curler_index.py")],"hours":6,"timeout":600},
     {"name":"coverage_update","cmd":[sys.executable,str(TOOLS/"update_coverage_registry.py")],"hours":6,"timeout":300},
     {"name":"country_registry","cmd":[sys.executable,str(TOOLS/"build_country_registry.py")],"hours":24,"timeout":300},
     {"name":"world_site_inventory","cmd":[sys.executable,str(TOOLS/"inventory_world_sites.py"),"--max-pages","20","--delay","0.10","--workers","4"],"hours":72,"timeout":1800},
@@ -62,6 +64,20 @@ def due(entry, hours):
 
 def run_task(task, state, dry_run=False):
     entry = state["tasks"].setdefault(task["name"], {})
+    if task.get("source_host"):
+        try:
+            source_policy(task["source_host"])
+        except SourceBlocked as exc:
+            if dry_run:
+                print(f"BLOCKED {task['name']}: {exc}")
+                return "blocked_by_source_policy"
+            entry["state"] = "blocked_by_source_policy"
+            entry["error"] = str(exc)
+            entry["blocked_at"] = now().isoformat()
+            entry.pop("next_retry_at", None)
+            save_state(state)
+            print(f"BLOCKED {task['name']}: {exc}")
+            return "blocked_by_source_policy"
     if not due(entry, task["hours"]):
         return "not_due"
     if dry_run:

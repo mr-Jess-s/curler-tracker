@@ -1,37 +1,45 @@
 # Curler Tracker operations on Arthur
 
 Public production: https://curler-tracker.vercel.app
-Current verified production identity is recorded in `RELEASE_EVIDENCE.json`.
 
-## Worktrees and ownership
+Canonical working tree: C:\Jess\curler-tracker
+Private archive: C:\Jess\curler-tracker\data\raw (never deploy or commit raw snapshots)
+Normalized public website data: data/history, data/offline-curler-index, data/home-summary.json, data/history-manifest.json
 
-- Release automation: `C:\Jess\curler-tracker-release-steps1-10`.
-- Collector/archive: `C:\Jess\curler-tracker`.
-- Raw and global acquisition data remain private and are never included in the public build.
-- The release worktree may be detached intentionally; `Run-Arthur-Automation.ps1` fast-forwards it only to `origin/release/2026-10-13-readiness`.
+## Independent operation without an LLM
 
-## Scheduled operation without an LLM
+- The existing collector supervisor starts with Windows sign-in and runs bounded Python maintenance jobs on Arthur. The project owner confirmed written permission for Curler I/O collection, expansion, retention, and republication on 2026-10-24; the source policy records this confirmation. Follow any limits in the underlying permission.
+- Canadian history refresh enumerates every season shown by each configured Curling I/O association, preserves old observations, and reports its source range as incomplete where the source cannot prove all-time coverage. World Curling result pages are refreshed with robots and conditional-request checks, then normalized into a source-linked person index for exact-name search.
+- Collector source health and acquisition status are on disk at data/global/maintenance-state.json and data/global/collector-runtime.json.
+- The release publisher stages ONLY the seven web entry files plus normalized public history/lookup data, validates JSON, runs JavaScript syntax checks and 24 regression tests, hashes staged files, deploys to Vercel, checks the staged URL, promotes and checks the public URL.
+- If the staged content is unchanged, the publisher exits without redeploying.
+- The daily Arthur automation unions the shared normalized Canadian and World Curling indexes into the release checkout and runs regression checks. The verified publisher stages only the reviewed public index and site assets. Backups and health monitoring remain scheduled.
+- It does not ask an LLM for routine ingest or release work and does not publish raw downloaded HTML, scans, or source credentials.
 
-- 01:00: `CurlerTracker-ArthurAutomation` refreshes five-season history, builds deterministic indexes and name shards, runs regression/cache/name QA, commits only allowlisted public data, pushes, and backs up.
-- 02:30: `CurlerTracker-ArchiveBackup` backs up the clean release tree and verified Git bundle.
-- 03:00: `CurlerTracker-CollectorBackup` backs up private raw/global collector data separately.
-- 07:00: `CurlerTracker-VerifiedPublisher` builds an allowlisted release, deploys a non-aliased production candidate, verifies exact bytes, security and rendered UAT, then promotes. A failed candidate cannot replace production.
-- Every 15 minutes: `CurlerTracker-OperationsHealth` checks data freshness, collector heartbeat, both backups, scheduled-task results, disk, production identity and source-service health.
-- The collector supervisor starts once from the Windows Startup folder and writes its heartbeat to `data\global\collector-runtime.json`.
+Manual health report:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\CurlerTracker-Health.ps1
 
-All scheduled tasks require Arthur to be powered on and the owner signed into Windows. Overlap is refused and execution time is bounded.
+Manual verified publication:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-SafeProduction.ps1 -Publish
 
-## Operator commands
+Manual publisher dry run (validates without deploying):
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-SafeProduction.ps1
 
-~~~powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Run-Arthur-Automation.ps1
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-VerifiedRelease.ps1 -DryRun
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Publish-VerifiedRelease.ps1 -DeployReviewedNow
-python tools\Operations-Health.py
+Install or repair publisher schedule:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Install-PublisherSchedule.ps1
+
+Publisher logs/state: %LOCALAPPDATA%\CurlerTracker\publisher.log and last-published.json.
+
+IMPORTANT: Curling I/O current-season registry can legitimately have zero entries for the specifically enumerated result-filtered association endpoints even when curling is happening elsewhere. An HTTP-200 with empty items is not evidence that no curling events exist. The live app uses source-specific lookups and separately qualified fallback data. Do not claim country or archive completeness based on empty lists.
+
+Publishing is not a substitute for expanding adapters. New source families require explicit deterministic parsers and evidence-based validation. Arthur must be on and signed into Windows for the collector and scheduled publisher to run. Curling I/O history indexing must enumerate every season advertised by each association and retain source provenance; do not describe its bounded digital archive as all-time complete.
+
+## Portable backup for personal devices
+
+Arthur also copies the complete working project including the raw archive into the user's OneDrive sync folder at C:\Users\mrjes\OneDrive\CurlerTracker-Backup\project. Git history is preserved separately as the verified curler-tracker-repository.bundle, which can be cloned with git clone <bundle-file> <folder>.
+The incremental backup runs daily at 02:30 when Arthur is signed in. It never deletes prior OneDrive files. OneDrive transfer to Microsoft's cloud and arrival on other devices depend on OneDrive synchronization and storage quota; the script records local copy success only, not cloud upload completion.
+Manual backup:
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Backup-CurlerTracker.ps1
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Backup-CurlerArchive.ps1
-~~~
-
-Logs and state are in `%LOCALAPPDATA%\CurlerTracker`. Confirm `LastTaskResult = 0` with `Get-ScheduledTaskInfo`. The Vercel CLI/account must be authorized for the `jess-and-roo` scope; an authorization failure is a hard stop, not a reason to bypass the staged-release gate.
-
-OneDrive local copies do not prove cloud upload or restoration on another device. Local health evidence does not provide off-computer alert delivery.
+Reinstall backup schedule:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\Install-ArchiveBackup.ps1
+Health: %LOCALAPPDATA%\CurlerTracker\backup-state.json and backup.log.

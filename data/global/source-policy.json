@@ -7,5 +7,15 @@
     "access": "Do not use authentication, evade rate limits, bypass access controls, or collect private data.",
     "retention": "Keep raw snapshots content-addressed with hashes and retrieval provenance. Do not replace an earlier snapshot when content changes."
   },
-  "hosts": {}
+  "hosts": {
+    "curling.io": {
+      "collection": "public_only",
+      "terms_status": "written_permission_confirmed_by_project_owner",
+      "terms_url": "https://curling.io/terms",
+      "reviewed_at": "2026-10-24",
+      "permission_scope": "The project owner confirmed existing written permission for Curler Tracker's automated collection, continued expansion, retention, and republication.",
+      "permission_evidence": "Owner confirmation recorded 2026-10-24; the permission document is retained outside this repository.",
+      "reason": "Automated collection and republication are authorized by written permission confirmed by the project owner. Respect any limits in that permission."
+    }
+  }
 }
