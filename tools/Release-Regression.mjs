@@ -203,6 +203,35 @@ await check('Career records display without source brands, association labels or
  assert.match(html,/Canadian Championship/);assert.match(html,/Team: Example/);
  assert.doesNotMatch(html,/<a\b|href=|Curling I\/O|canada\.curling\.io/);
 });
+await check('Current team roster is listed and multiple teams can be saved and removed',async()=>{
+ const a=app();
+ a.run(`globalThis.teamOne={playerName:'Kerri Einarson',view:'upcoming',teamName:'Team Einarson',teamId:71,sourceSubdomain:'canada',eventName:'Championship',teamMembers:[
+  {curler_id:11,name:'Kerri Einarson',position:'skip'},
+  {curler_id:12,name:'Val Sweeting',position:'third'},
+  {curler_id:13,name:'Shannon Birchard',position:'second'},
+  {curler_id:14,name:'Gina Aitken',position:'lead'}
+  ]};state.snapshot=teamOne;renderCurrentTeam(teamOne);`);
+ assert.equal(a.elements.get('currentTeamCard').classList.contains('hidden'),false);
+ assert.equal(a.elements.get('currentTeamTitle').textContent,'Current team');
+ assert.match(a.elements.get('currentTeamMembers').innerHTML,/Kerri Einarson/);
+ assert.match(a.elements.get('currentTeamMembers').innerHTML,/Val Sweeting/);
+ assert.equal(a.run('addCurrentTeamToWatchlist()'),true);
+ a.run(`globalThis.teamTwo={...teamOne,teamName:'Team Jones',teamId:72,playerName:'Rachel Homan',teamMembers:[{curler_id:21,name:'Rachel Homan',position:'skip'},{curler_id:22,name:'Tracy Fleury',position:'third'}]};state.snapshot=teamTwo;renderCurrentTeam(teamTwo);addCurrentTeamToWatchlist()`);
+ assert.equal(a.run('state.followedTeams.length'),2);
+ assert.match(a.elements.get('teamWatchlistItems').innerHTML,/Team Einarson/);
+ assert.match(a.elements.get('teamWatchlistItems').innerHTML,/Team Jones/);
+ assert.match(a.elements.get('teamWatchlistItems').innerHTML,/Tracy Fleury/);
+ a.run("removeTeamFromWatchlist('canada:71')");assert.equal(a.run('state.followedTeams.length'),1);
+ assert.doesNotMatch(a.elements.get('teamWatchlistItems').innerHTML,/Team Einarson/);
+});
+await check('Archived team records do not claim a current lineup that is missing',async()=>{
+ const a=app();
+ a.run("renderCurrentTeam({view:'archived-team',teamName:'Team Example',teamId:9,sourceSubdomain:'ab',teamMembers:[]})");
+ assert.equal(a.elements.get('currentTeamTitle').textContent,'Last recorded team');
+ assert.match(a.elements.get('currentTeamMembers').innerHTML,/does not include a team lineup/);
+ assert.match(a.elements.get('currentTeamStatus').textContent,/does not confirm a current team/);
+ assert.equal(a.elements.get('addCurrentTeamBtn').classList.contains('hidden'),true);
+});
 await check('Offline Mike McEwen fallback aggregates all retained source-linked tournaments',async()=>{
  const a=app();a.context.fixture={schema_version:1,source_provider:'Curling I/O',names:{'mike mcewen':[
   {name:'Mike McEwen',source_subdomain:'canada',source_curler_id:'1935',records:[{name:'Mike McEwen',team_name:'Saskatchewan',event_name:'Canada Event',event_id:'10',starts_on:'2025-01-01',source_subdomain:'canada',source_url:'https://canada.curling.io/en/events/10'}]},

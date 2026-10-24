@@ -300,6 +300,23 @@ h1 {
 .tracker-results { display: grid; gap: 14px; }
 .tracker-results.hidden { display: none; }
 .tracker-results .hero, .tracker-results .career-card { margin: 0; }
+.team-watchlist { margin: 14px 0; }
+.team-watchlist-items { display: grid; gap: 10px; padding: 12px 20px 18px; }
+.team-watch-card { min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.team-watch-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.team-watch-head h3 { margin: 0; color: var(--ink); font-size: 1rem; }
+.team-snapshot-label { display: block; margin-bottom: 4px; color: var(--subtle); font-size: .68rem; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+.team-watch-head .hint { margin: 5px 0 0; }
+.team-remove-btn { min-height: 38px; padding: 7px 11px; }
+.team-roster-card { margin: 0; }
+.team-roster-heading { align-items: center; padding-bottom: 10px; }
+.team-roster-name { margin: 6px 0 0; color: var(--ink); font-size: 1.05rem; font-weight: 750; }
+.team-roster-heading .hint { margin: 5px 0 0; }
+.team-member-list { display: grid; gap: 0; margin: 0; padding: 0 20px 16px; list-style: none; }
+.team-member-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 11px; border-bottom: 1px solid #e8edf2; color: var(--ink); }
+.team-member-list li:last-child { border-bottom: 0; }
+.team-member-list small { color: var(--muted); text-transform: capitalize; }
+.team-member-list .team-members-empty { color: var(--muted); }
 .hero { padding: 22px 24px; }
 .hero-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .tracked-player { margin-top: 2px; color: var(--ink); font-size: 1.4rem; font-weight: 760; letter-spacing: -.02em; }

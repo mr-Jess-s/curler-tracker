@@ -1,4 +1,4 @@
-const APP_VERSION = 'v26.24';
+const APP_VERSION = 'v26.25';
 const externalRequests = new Set();
 const APP = {
   clubSubdomains: ['ab','canada','bc','mb','nb','nl','ns','nt','nu','on','pe','qc','sk','yt'],
@@ -28,6 +28,7 @@ const APP = {
   localKeys: {
     player: 'curler-tracker-player-v263',
     snapshot: 'curler-tracker-snapshot-v2618',
+    teams: 'curler-tracker-team-watchlist-v1',
     cachePrefix: 'curler-tracker-cache-v263:',
     discoveryPrefix: 'curler-tracker-discovery-v263:'
   }
@@ -82,7 +83,15 @@ const els = {
   recentEvents: document.getElementById('recentEvents'),
   featuredCurlers: document.getElementById('featuredCurlers'),
   coverageNote: document.getElementById('coverageNote'),
-  trackerResults: document.getElementById('trackerResults')
+  trackerResults: document.getElementById('trackerResults'),
+  currentTeamCard: document.getElementById('currentTeamCard'),
+  currentTeamTitle: document.getElementById('currentTeamTitle'),
+  currentTeamName: document.getElementById('currentTeamName'),
+  currentTeamStatus: document.getElementById('currentTeamStatus'),
+  currentTeamMembers: document.getElementById('currentTeamMembers'),
+  addCurrentTeamBtn: document.getElementById('addCurrentTeamBtn'),
+  teamWatchlist: document.getElementById('teamWatchlist'),
+  teamWatchlistItems: document.getElementById('teamWatchlistItems')
 };
 
 const state = {
@@ -103,6 +112,7 @@ const state = {
   careerMessage: ''
   ,selectedProfile: null
   ,nameCatalogs: new Map()
+  ,followedTeams: []
 };
 
 const memoryCache = new Map();
@@ -264,6 +274,8 @@ function compactSnapshotForStorage(snapshot) {
     progressSignature: snapshot.progressSignature || '',
     sourceCurlerId: snapshot.sourceCurlerId || null,
     sourceSubdomain: snapshot.sourceSubdomain || '',
+    teamId: snapshot.teamId || null,
+    teamMembers: cleanTeamMembers(snapshot.teamMembers),
     careerHistory: Array.isArray(snapshot.careerHistory) ? snapshot.careerHistory.slice(0, 20) : [],
     scheduleRows: compactScheduleRows,
     ends: compactEnds
@@ -639,6 +651,115 @@ function loadSnapshot() {
   } catch {
     return null;
   }
+}
+
+function cleanTeamMembers(rows) {
+  const seen = new Set();
+  const members = [];
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const name = String(row?.name || '').trim();
+    const position = String(row?.position || row?.role || '').trim();
+    if (!name) continue;
+    const id = String(row?.curler_id ?? row?.curlerId ?? '');
+    const key = id ? `id:${id}` : `name:${normalizeName(name)}:${normalizeName(position)}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    members.push({ curlerId: id || '', name, position });
+  }
+  return members;
+}
+
+function loadTeamWatchlist() {
+  try {
+    const payload = JSON.parse(localStorage.getItem(APP.localKeys.teams) || '{}');
+    if (payload?.schema_version !== 1 || !Array.isArray(payload.teams)) return [];
+    return payload.teams.filter(team => team && team.team_key && team.team_name && Array.isArray(team.members))
+      .slice(-30).map(team => ({
+        team_key: String(team.team_key),
+        team_name: String(team.team_name),
+        player_name: String(team.player_name || ''),
+        event_name: String(team.event_name || ''),
+        saved_at: String(team.saved_at || ''),
+        members: cleanTeamMembers(team.members)
+      }));
+  } catch {
+    return [];
+  }
+}
+
+function renderTeamWatchlist() {
+  if (!els.teamWatchlist || !els.teamWatchlistItems) return;
+  els.teamWatchlist.classList.toggle('hidden', !state.followedTeams.length);
+  els.teamWatchlistItems.innerHTML = state.followedTeams.map(team => {
+    const members = team.members.length
+      ? `<ul class="team-member-list">${team.members.map(member => `<li><span>${escapeHtml(member.name)}</span>${member.position ? `<small>${escapeHtml(member.position)}</small>` : ''}</li>`).join('')}</ul>`
+      : '<p class="hint">No lineup was included in the saved record.</p>';
+    const details = [team.player_name ? `Added from ${team.player_name}` : '', team.saved_at ? `Saved ${formatSnapshotDate(team.saved_at)}` : '']
+      .filter(Boolean).map(escapeHtml).join(' · ');
+    return `<article class="team-watch-card"><div class="team-watch-head"><div><small class="team-snapshot-label">Saved roster</small><h3>${escapeHtml(team.team_name)}</h3><p class="hint">${details}</p></div><button class="ghost team-remove-btn" type="button" data-remove-team="${escapeHtml(team.team_key)}" aria-label="Remove ${escapeHtml(team.team_name)} from my teams">Remove</button></div>${members}</article>`;
+  }).join('');
+}
+
+function renderCurrentTeam(snapshot) {
+  const teamName = String(snapshot?.teamName || '').trim();
+  els.currentTeamCard?.classList.toggle('hidden', !teamName);
+  if (!teamName) return;
+  const isCurrent = ['live', 'upcoming', 'idle-event'].includes(snapshot?.view);
+  if (els.currentTeamTitle) els.currentTeamTitle.textContent = isCurrent ? 'Current team' : 'Last recorded team';
+  if (els.currentTeamName) els.currentTeamName.textContent = teamName;
+  const members = cleanTeamMembers(snapshot?.teamMembers);
+  if (els.currentTeamMembers) {
+    els.currentTeamMembers.innerHTML = members.length
+      ? members.map(member => `<li><span>${escapeHtml(member.name)}</span>${member.position ? `<small>${escapeHtml(member.position)}</small>` : ''}</li>`).join('')
+      : '<li class="team-members-empty">The saved record does not include a team lineup.</li>';
+  }
+  if (els.currentTeamStatus) {
+    els.currentTeamStatus.textContent = !isCurrent
+      ? 'This roster belongs to a recorded competition; it does not confirm a current team.'
+      : `${members.length} listed team member${members.length === 1 ? '' : 's'} from the current competition record.`;
+  }
+  if (els.addCurrentTeamBtn) {
+    const canAdd = !!snapshot?.teamId && !!snapshot?.sourceSubdomain && members.length > 0;
+    els.addCurrentTeamBtn.classList.toggle('hidden', !canAdd);
+    const key = canAdd ? `${snapshot.sourceSubdomain}:${snapshot.teamId}` : '';
+    els.addCurrentTeamBtn.textContent = state.followedTeams.some(team => team.team_key === key) ? 'Update saved team' : 'Add team';
+  }
+}
+
+function addCurrentTeamToWatchlist() {
+  const snapshot = state.snapshot;
+  const members = cleanTeamMembers(snapshot?.teamMembers);
+  if (!snapshot?.teamName || !snapshot?.teamId || !snapshot?.sourceSubdomain || !members.length) return false;
+  const team = {
+    team_key: `${snapshot.sourceSubdomain}:${snapshot.teamId}`,
+    team_name: snapshot.teamName,
+    player_name: snapshot.playerName || '',
+    event_name: snapshot.eventName || '',
+    saved_at: new Date().toISOString(),
+    members
+  };
+  const next = [...state.followedTeams.filter(row => row.team_key !== team.team_key), team].slice(-30);
+  try {
+    localStorage.setItem(APP.localKeys.teams, JSON.stringify({ schema_version: 1, teams: next }));
+  } catch {
+    setStatus('This browser could not save the team list. Free up local storage and try again.');
+    return false;
+  }
+  state.followedTeams = next;
+  renderTeamWatchlist();
+  renderCurrentTeam(snapshot);
+  setStatus(`${team.team_name} is in your team list.`);
+  return true;
+}
+
+function removeTeamFromWatchlist(teamKey) {
+  const next = state.followedTeams.filter(team => team.team_key !== teamKey);
+  try { localStorage.setItem(APP.localKeys.teams, JSON.stringify({ schema_version: 1, teams: next })); }
+  catch { setStatus('This browser could not update the team list. Free up local storage and try again.'); return false; }
+  state.followedTeams = next;
+  renderTeamWatchlist();
+  renderCurrentTeam(state.snapshot);
+  return true;
 }
 
 function parsePlayerFromUrl() {
@@ -1534,6 +1655,8 @@ function render(snapshot) {
   els.scheduleHint.textContent = snapshot?.scheduleHint || 'No event loaded.';
   renderEnds(snapshot?.teamName || 'Team', snapshot?.opponentName || 'Opponent', snapshot?.ends || []);
   renderSchedule(snapshot?.scheduleRows || [], snapshot?.activeGameId, snapshot?.nextGameId);
+  renderCurrentTeam(snapshot);
+  renderTeamWatchlist();
   renderCareerPath(snapshot);
   setDiagnostics(snapshot?.diagnostics || { appVersion: APP_VERSION, phase: 'idle' });
 }
@@ -1626,6 +1749,8 @@ function buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, de
     teamName: record.team_name,
     opponentName: '',
     eventId: record.event_id || null,
+    teamId: record.team_id || null,
+    teamMembers: [],
     archiveSeason: record.season || '',
     sourceCurlerId: Number.isFinite(Number(identity?.source_curler_id)) ? Number(identity.source_curler_id) : null,
     sourceSubdomain: identity?.source_subdomain || record.source_subdomain || '',
@@ -1802,6 +1927,7 @@ function findSavedTeamSnapshot(playerName, previous, diagnostics, delayMs) {
   const record = {
     name: previous.displayPlayer || previous.playerName,
     team_name: previous.teamName,
+    team_id: previous.teamId || '',
     event_name: previous.eventName || 'Previously checked competition',
     event_id: previous.eventId || '',
     starts_on: '',
@@ -1818,6 +1944,7 @@ function findSavedTeamSnapshot(playerName, previous, diagnostics, delayMs) {
     records: [record]
   };
   const snapshot = buildArchivedTeamSnapshot(playerName, record, identity, diagnostics, delayMs);
+  snapshot.teamMembers = cleanTeamMembers(previous.teamMembers);
   if (Array.isArray(previous.careerHistory) && previous.careerHistory.length) snapshot.careerHistory = previous.careerHistory;
   snapshot.scheduleHint = `Live source could not be checked. Showing the last team record saved on this device from ${formatSnapshotDate(record.retrieved_at)}.`;
   return snapshot;
@@ -2235,6 +2362,8 @@ function buildSnapshotFromCandidate(playerName, candidate, diagnostics) {
     displayPlayer: match.curler.name,
     view,
     teamName: matchedTeam.name,
+    teamId: matchedTeam.id ?? matchedTeam.team_id ?? null,
+    teamMembers: cleanTeamMembers(matchedTeam.lineup),
     opponentName,
     teamScore,
     opponentScore,
@@ -2616,6 +2745,8 @@ function maybeRunOpenScan(trigger) {
 }
 
 function bootFromSavedState() {
+  state.followedTeams = loadTeamWatchlist();
+  renderTeamWatchlist();
   const fromUrl = parsePlayerFromUrl();
   const fromUrlProfile = parseProfileFromUrl();
   let fromStorage = '';
@@ -2685,6 +2816,12 @@ els.feedbackDownloadBtn?.addEventListener('click', () => {
   link.remove();
   URL.revokeObjectURL(url);
   if (els.feedbackStatus) els.feedbackStatus.textContent = 'Feedback JSON downloaded. Nothing was sent automatically.';
+});
+
+els.addCurrentTeamBtn?.addEventListener('click', addCurrentTeamToWatchlist);
+els.teamWatchlistItems?.addEventListener('click', event => {
+  const button = event.target.closest('[data-remove-team]');
+  if (button) removeTeamFromWatchlist(button.dataset.removeTeam || '');
 });
 
 els.careerLoadBtn?.addEventListener('click', async () => {

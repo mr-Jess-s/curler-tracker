@@ -62,6 +62,16 @@
       <p id="statusLine" class="status-line" role="status">Search the unified curling record index and current competitions.</p>
     </section>
 
+    <section id="teamWatchlist" class="card team-watchlist hidden" aria-labelledby="team-watchlist-title">
+      <div class="section-head">
+        <div>
+          <h2 id="team-watchlist-title">Teams in my list</h2>
+          <p class="hint">Add a team from a curler search to keep its roster here.</p>
+        </div>
+      </div>
+      <div id="teamWatchlistItems" class="team-watchlist-items"></div>
+    </section>
+
     <section id="archiveHome" class="archive-home card" aria-labelledby="archive-title">
       <div class="archive-heading">
         <div>
@@ -124,6 +134,18 @@
           <span id="updatedValue" class="meta-value">-</span>
         </div>
       </div>
+    </section>
+
+    <section id="currentTeamCard" class="card team-roster-card hidden" aria-labelledby="currentTeamTitle">
+      <div class="section-head team-roster-heading">
+        <div>
+          <h2 id="currentTeamTitle">Current team</h2>
+          <p id="currentTeamName" class="team-roster-name"></p>
+          <p id="currentTeamStatus" class="hint"></p>
+        </div>
+        <button id="addCurrentTeamBtn" class="ghost" type="button">Add team</button>
+      </div>
+      <ul id="currentTeamMembers" class="team-member-list"></ul>
     </section>
 
     <section class="grid">
