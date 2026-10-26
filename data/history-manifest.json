@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-26T01:21:28.163806+00:00",
+  "generated_at": "2026-10-26T06:00:02.647264+00:00",
   "source_provider": "Curling I/O",
-  "source_policy": "Project owner confirmed written permission for automated collection and republication; no inferred appearances or cross-source identity merges.",
+  "source_policy": "Owner-confirmed written permission; no inferred appearances or cross-source identity merges.",
   "season_lists": [
     {
       "subdomain": "ab",
@@ -1324,30 +1324,27 @@
   },
   "current_source_events": 3771,
   "current_source_appearances": 85737,
-  "retained_previous_observations": 158,
+  "retained_previous_observations": 85894,
   "files": [
     {
       "subdomain": "ab",
       "file": "history/ab.json",
       "appearances": 11866,
       "bytes": 8335623,
-      "current_source_observations": 11848,
-      "retained_previous_observations": 18
+      "retained_previous_observations": 11866
     },
     {
       "subdomain": "canada",
       "file": "history/canada.json",
       "appearances": 11565,
       "bytes": 8033719,
-      "current_source_observations": 11546,
-      "retained_previous_observations": 19
+      "retained_previous_observations": 11565
     },
     {
       "subdomain": "bc",
       "file": "history/bc.json",
       "appearances": 0,
       "bytes": 554,
-      "current_source_observations": 0,
       "retained_previous_observations": 0
     },
     {
@@ -1355,89 +1352,85 @@
       "file": "history/mb.json",
       "appearances": 17651,
       "bytes": 11914928,
-      "current_source_observations": 17611,
-      "retained_previous_observations": 40
+      "retained_previous_observations": 17651
     },
     {
       "subdomain": "nb",
       "file": "history/nb.json",
       "appearances": 2601,
       "bytes": 1737917,
-      "current_source_observations": 2601,
-      "retained_previous_observations": 0
+      "retained_previous_observations": 2601
     },
     {
       "subdomain": "nl",
       "file": "history/nl.json",
       "appearances": 1616,
       "bytes": 1051891,
-      "current_source_observations": 1617,
-      "retained_previous_observations": 0
+      "retained_previous_observations": 1616
     },
     {
       "subdomain": "ns",
       "file": "history/ns.json",
       "appearances": 6847,
       "bytes": 4523056,
-      "current_source_observations": 6830,
-      "retained_previous_observations": 17
+      "retained_previous_observations": 6847
     },
     {
       "subdomain": "nt",
       "file": "history/nt.json",
       "appearances": 261,
       "bytes": 179211,
-      "current_source_observations": 261,
-      "retained_previous_observations": 0
+      "retained_previous_observations": 261
     },
     {
       "subdomain": "nu",
       "file": "history/nu.json",
       "appearances": 22,
       "bytes": 15115,
-      "current_source_observations": 22,
-      "retained_previous_observations": 0
+      "retained_previous_observations": 22
     },
     {
       "subdomain": "on",
       "file": "history/on.json",
       "appearances": 21833,
       "bytes": 14850441,
-      "current_source_observations": 21812,
-      "retained_previous_observations": 21
+      "retained_previous_observations": 21833
     },
     {
       "subdomain": "pe",
       "file": "history/pe.json",
       "appearances": 4748,
       "bytes": 3243500,
-      "current_source_observations": 4732,
-      "retained_previous_observations": 16
+      "retained_previous_observations": 4748
     },
     {
       "subdomain": "qc",
       "file": "history/qc.json",
       "appearances": 5461,
       "bytes": 3637496,
-      "current_source_observations": 5456,
-      "retained_previous_observations": 5
+      "retained_previous_observations": 5461
     },
     {
       "subdomain": "sk",
       "file": "history/sk.json",
       "appearances": 1399,
       "bytes": 935688,
-      "current_source_observations": 1377,
-      "retained_previous_observations": 22
+      "retained_previous_observations": 1399
     },
     {
       "subdomain": "yt",
       "file": "history/yt.json",
       "appearances": 24,
       "bytes": 15970,
-      "current_source_observations": 24,
-      "retained_previous_observations": 0
+      "retained_previous_observations": 24
     }
   ],
-  "errors": []
+  "errors": [],
+  "archive_union": {
+    "mode": "offline_union",
+    "history_complete": false,
+    "source_directories": [
+      "C:\\Jess\\curler-tracker\\data\\history"
+    ]
+  }
 }
