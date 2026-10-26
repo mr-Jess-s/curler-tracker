@@ -1,10 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T18:53:36.835827+00:00",
+  "generated_at": "2026-10-26T01:21:28.163806+00:00",
   "source_provider": "Curling I/O",
   "source_subdomain": "nt",
-  "source_policy": "Facts copied from public Curling I/O event payloads; no inferred appearances or identity merges.",
-  "coverage": {},
+  "source_policy": "Project owner confirmed written permission for automated collection and republication; no inferred appearances or cross-source identity merges.",
+  "coverage": {
+    "available_season_count": 6,
+    "oldest_available_season": "2021 / 2022",
+    "newest_available_season": "2026 / 2027",
+    "advertised_seasons": [
+      "2026 / 2027",
+      "2025 / 2026",
+      "2024 / 2025",
+      "2023 / 2024",
+      "2022 / 2023",
+      "2021 / 2022"
+    ]
+  },
   "curler_appearances": {
     "100270": [
       {
@@ -20,8 +32,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       }
     ],
     "100271": [
@@ -38,8 +50,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "102478": [
@@ -56,8 +68,8 @@
         "coach": "",
         "affiliation": "Hay River. Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "Dave Weaver",
@@ -72,8 +84,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       },
       {
         "published_name": "Dave Weaver",
@@ -88,8 +100,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       }
     ],
     "112047": [
@@ -106,8 +118,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Carys Lyall",
@@ -122,8 +134,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "113405": [
@@ -140,8 +152,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "113682": [
@@ -158,8 +170,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Greg Skauge",
@@ -174,8 +186,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Greg Skauge",
@@ -190,8 +202,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "114023": [
@@ -208,8 +220,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "115645": [
@@ -226,8 +238,8 @@
         "coach": "Tannis Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Mairy Kingmiaqtuq-Devlin",
@@ -242,8 +254,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Mairy Kingmiaqtuq-Devlin",
@@ -258,8 +270,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "116212": [
@@ -276,8 +288,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "116216": [
@@ -294,8 +306,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "116223": [
@@ -312,8 +324,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Avery Blake",
@@ -328,8 +340,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Avery Blake",
@@ -344,8 +356,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       },
       {
         "published_name": "Avery Blake",
@@ -360,8 +372,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "116699": [
@@ -378,8 +390,8 @@
         "coach": "",
         "affiliation": "Hay River. Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       }
     ],
     "118049": [
@@ -396,8 +408,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Eric Preston",
@@ -412,8 +424,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "118836": [
@@ -430,8 +442,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "119559": [
@@ -448,8 +460,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "120161": [
@@ -466,8 +478,8 @@
         "coach": "",
         "affiliation": "Hay River. Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       }
     ],
     "120660": [
@@ -484,8 +496,8 @@
         "coach": "Tamara & Pearl",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Evan Cockney",
@@ -500,8 +512,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "121468": [
@@ -518,8 +530,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Maisie Jeffery",
@@ -534,8 +546,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "1220": [
@@ -552,8 +564,8 @@
         "coach": "",
         "affiliation": "YK curling club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "122200": [
@@ -570,8 +582,8 @@
         "coach": "Amanda Roach",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Bohuslav Kravets",
@@ -586,8 +598,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "122296": [
@@ -604,8 +616,8 @@
         "coach": "",
         "affiliation": "Fort Smith",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       }
     ],
     "1268": [
@@ -622,8 +634,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "13366": [
@@ -640,8 +652,8 @@
         "coach": "",
         "affiliation": "YK curling club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "135259": [
@@ -658,8 +670,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "135428": [
@@ -676,8 +688,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Clark Nendsa",
@@ -692,8 +704,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Clark Nendsa",
@@ -708,8 +720,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       },
       {
         "published_name": "Clark Nendsa",
@@ -724,8 +736,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "135896": [
@@ -742,8 +754,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Bristol Pidborochynski",
@@ -758,8 +770,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "137932": [
@@ -776,8 +788,8 @@
         "coach": "Pearl Gillis",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Teagan Gaskell",
@@ -792,8 +804,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "138296": [
@@ -810,8 +822,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       }
     ],
     "138704": [
@@ -828,8 +840,8 @@
         "coach": "Tyler Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       }
     ],
     "140645": [
@@ -846,8 +858,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Mya Paul",
@@ -862,8 +874,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "140646": [
@@ -880,8 +892,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "140727": [
@@ -898,8 +910,8 @@
         "coach": "Ashley Rowe",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Maren Webb",
@@ -914,8 +926,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "140830": [
@@ -932,8 +944,8 @@
         "coach": "Tannis Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Emelia Maring",
@@ -948,8 +960,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Emelia Maring",
@@ -964,8 +976,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "140900": [
@@ -982,8 +994,8 @@
         "coach": "Amanda Roach",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Mallory King",
@@ -998,8 +1010,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "141792": [
@@ -1016,8 +1028,8 @@
         "coach": "Amanda Roach",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "142279": [
@@ -1034,8 +1046,8 @@
         "coach": "Brooke & Jasper",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "142461": [
@@ -1052,8 +1064,8 @@
         "coach": "Pearl Gillis",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Mackenzie Hicks",
@@ -1068,8 +1080,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "143359": [
@@ -1086,8 +1098,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "143963": [
@@ -1104,8 +1116,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "145820": [
@@ -1122,8 +1134,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "GEOFFREY FURNISS",
@@ -1138,8 +1150,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       }
     ],
     "146989": [
@@ -1156,8 +1168,8 @@
         "coach": "Brooke & Jasper",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Parker Connell",
@@ -1172,8 +1184,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "147410": [
@@ -1190,8 +1202,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "147512": [
@@ -1208,8 +1220,8 @@
         "coach": "Ashley Rowe",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "149128": [
@@ -1226,8 +1238,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "149262": [
@@ -1244,8 +1256,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       },
       {
         "published_name": "Dale Elderkin",
@@ -1260,8 +1272,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       }
     ],
     "149396": [
@@ -1278,8 +1290,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       },
       {
         "published_name": "Tamara Bain",
@@ -1294,8 +1306,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20978",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b1dd5040ffa22141bd69e159a407ad8a9b348d0ef207914909a8d2e9fa45fd41",
+        "source_retrieved_at": "2026-10-26T01:09:49.627293+00:00"
       },
       {
         "published_name": "Tamara Bain",
@@ -1310,8 +1322,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "149779": [
@@ -1328,8 +1340,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       },
       {
         "published_name": "Jasper Willkomm",
@@ -1344,8 +1356,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20978",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b1dd5040ffa22141bd69e159a407ad8a9b348d0ef207914909a8d2e9fa45fd41",
+        "source_retrieved_at": "2026-10-26T01:09:49.627293+00:00"
       },
       {
         "published_name": "Jasper Willkomm",
@@ -1360,8 +1372,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "150438": [
@@ -1378,8 +1390,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "152402": [
@@ -1396,8 +1408,8 @@
         "coach": "Mary-Anne Arsenault",
         "affiliation": "CurlingNT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Brooke Smith",
@@ -1412,8 +1424,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       },
       {
         "published_name": "Brooke Smith",
@@ -1428,8 +1440,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "156353": [
@@ -1446,8 +1458,8 @@
         "coach": "Mark Robertson",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Atticus Willkomm",
@@ -1462,8 +1474,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Atticus Willkomm",
@@ -1478,8 +1490,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       },
       {
         "published_name": "Atticus Willkomm",
@@ -1494,8 +1506,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "157350": [
@@ -1512,8 +1524,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "1579": [
@@ -1530,8 +1542,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "164280": [
@@ -1548,8 +1560,8 @@
         "coach": "Atticus Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "164591": [
@@ -1566,8 +1578,8 @@
         "coach": "Brooke Smith",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "164688": [
@@ -1584,8 +1596,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "165271": [
@@ -1602,8 +1614,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "166282": [
@@ -1620,8 +1632,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       }
     ],
     "166948": [
@@ -1638,8 +1650,8 @@
         "coach": "Brooke and Reese",
         "affiliation": "Curling NT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "169812": [
@@ -1656,8 +1668,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "170062": [
@@ -1674,8 +1686,8 @@
         "coach": "",
         "affiliation": "Fort Smith",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       }
     ],
     "170303": [
@@ -1692,8 +1704,8 @@
         "coach": "",
         "affiliation": "Fort Smith",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       }
     ],
     "17854": [
@@ -1710,8 +1722,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "18307": [
@@ -1728,8 +1740,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Halli Delorey",
@@ -1744,8 +1756,8 @@
         "coach": "",
         "affiliation": "NWTCA - HRCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "188349": [
@@ -1762,8 +1774,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20961",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "a521324afa96ad77e2976c2c11e1443854a71ce710fc60243ad0ea45b4ff454b",
+        "source_retrieved_at": "2026-10-26T01:09:51.279887+00:00"
       },
       {
         "published_name": "Sydney Galusha",
@@ -1778,8 +1790,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Sydney Galusha",
@@ -1794,8 +1806,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "1982": [
@@ -1812,8 +1824,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "Ian Moir",
@@ -1828,8 +1840,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       }
     ],
     "2021": [
@@ -1846,8 +1858,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Tom Naugler",
@@ -1862,8 +1874,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       },
       {
         "published_name": "Tom Naugler",
@@ -1878,8 +1890,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Tom Naugler",
@@ -1894,8 +1906,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "20381": [
@@ -1912,8 +1924,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Brad Chorostkowski",
@@ -1928,8 +1940,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "2056": [
@@ -1946,8 +1958,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "23828": [
@@ -1964,8 +1976,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "25663": [
@@ -1982,8 +1994,8 @@
         "coach": "Mary-Anne Arsenault",
         "affiliation": "CurlingNT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       }
     ],
     "28728": [
@@ -2000,8 +2012,8 @@
         "coach": "Mary-Anne Arsenault",
         "affiliation": "CurlingNT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Reese Wainman",
@@ -2016,8 +2028,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       },
       {
         "published_name": "Reese Wainman",
@@ -2032,8 +2044,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20978",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b1dd5040ffa22141bd69e159a407ad8a9b348d0ef207914909a8d2e9fa45fd41",
+        "source_retrieved_at": "2026-10-26T01:09:49.627293+00:00"
       },
       {
         "published_name": "Reese Wainman",
@@ -2048,8 +2060,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       },
       {
         "published_name": "Reese Wainman",
@@ -2064,8 +2076,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "30449": [
@@ -2082,8 +2094,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "Emery Paquin",
@@ -2098,8 +2110,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       }
     ],
     "31118": [
@@ -2116,8 +2128,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Glen Kennedy",
@@ -2132,8 +2144,8 @@
         "coach": "",
         "affiliation": "YK curling club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "32156": [
@@ -2150,8 +2162,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Shadrach McLeod",
@@ -2166,8 +2178,8 @@
         "coach": "",
         "affiliation": "YK curling club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "32744": [
@@ -2184,8 +2196,8 @@
         "coach": "",
         "affiliation": "Hay River. Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "Bruce Dallas Weaver",
@@ -2200,8 +2212,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       },
       {
         "published_name": "Bruce Dallas Weaver",
@@ -2216,8 +2228,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       }
     ],
     "33546": [
@@ -2234,8 +2246,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20969",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "548e640f8d4ab051dc54ff1a837b6d7e2dfe3580c4b0e1ef25763b05f995b19c",
+        "source_retrieved_at": "2026-10-26T01:09:47.210720+00:00"
       }
     ],
     "34809": [
@@ -2252,8 +2264,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20961",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "a521324afa96ad77e2976c2c11e1443854a71ce710fc60243ad0ea45b4ff454b",
+        "source_retrieved_at": "2026-10-26T01:09:51.279887+00:00"
       },
       {
         "published_name": "Ella Skauge",
@@ -2268,8 +2280,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Ella Skauge",
@@ -2284,8 +2296,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "37207": [
@@ -2302,8 +2314,8 @@
         "coach": "Mark Robertson",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Jett Etter",
@@ -2318,8 +2330,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Jett Etter",
@@ -2334,8 +2346,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       },
       {
         "published_name": "Jett Etter",
@@ -2350,8 +2362,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "38412": [
@@ -2368,8 +2380,8 @@
         "coach": "Tyler Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Miguel Castillo-Drescher",
@@ -2384,8 +2396,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "38442": [
@@ -2402,8 +2414,8 @@
         "coach": "Mark Robertson",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Jacob Robertson",
@@ -2418,8 +2430,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "39150": [
@@ -2436,8 +2448,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       }
     ],
     "39389": [
@@ -2454,8 +2466,8 @@
         "coach": "Reese & Atticus",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Eleanor McLeod",
@@ -2470,8 +2482,8 @@
         "coach": "Reese Wainman",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "40224": [
@@ -2488,8 +2500,8 @@
         "coach": "Tannis Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Brylen Larocque",
@@ -2504,8 +2516,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Brylen Larocque",
@@ -2520,8 +2532,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "40237": [
@@ -2538,8 +2550,8 @@
         "coach": "Tamara & Pearl",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Emerson Stefure",
@@ -2554,8 +2566,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "40398": [
@@ -2572,8 +2584,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20961",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "a521324afa96ad77e2976c2c11e1443854a71ce710fc60243ad0ea45b4ff454b",
+        "source_retrieved_at": "2026-10-26T01:09:51.279887+00:00"
       },
       {
         "published_name": "Brooke Smith",
@@ -2588,8 +2600,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       },
       {
         "published_name": "Brooke Smith",
@@ -2604,8 +2616,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20978",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b1dd5040ffa22141bd69e159a407ad8a9b348d0ef207914909a8d2e9fa45fd41",
+        "source_retrieved_at": "2026-10-26T01:09:49.627293+00:00"
       },
       {
         "published_name": "Brooke Smith",
@@ -2620,8 +2632,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "40399": [
@@ -2638,8 +2650,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Hayden Smith",
@@ -2654,8 +2666,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Hayden Smith",
@@ -2670,8 +2682,8 @@
         "coach": "Nick Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "41279": [
@@ -2688,8 +2700,8 @@
         "coach": "Tamara & Pearl",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Tyler JR Bain",
@@ -2704,8 +2716,8 @@
         "coach": "Jasper Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "41280": [
@@ -2722,8 +2734,8 @@
         "coach": "Tyler Bain",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Tanner Bain",
@@ -2738,8 +2750,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       }
     ],
     "41481": [
@@ -2756,8 +2768,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20969",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "548e640f8d4ab051dc54ff1a837b6d7e2dfe3580c4b0e1ef25763b05f995b19c",
+        "source_retrieved_at": "2026-10-26T01:09:47.210720+00:00"
       }
     ],
     "41518": [
@@ -2774,8 +2786,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Betti Delorey",
@@ -2790,8 +2802,8 @@
         "coach": "",
         "affiliation": "NWTCA - HRCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "41560": [
@@ -2808,8 +2820,8 @@
         "coach": "Deb Stanley",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Chaine Delorey",
@@ -2824,8 +2836,8 @@
         "coach": "",
         "affiliation": "Yellowknife/Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "41593": [
@@ -2842,8 +2854,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       }
     ],
     "41607": [
@@ -2860,8 +2872,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "41613": [
@@ -2878,8 +2890,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       },
       {
         "published_name": "Kandis Jameson",
@@ -2894,8 +2906,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20969",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "548e640f8d4ab051dc54ff1a837b6d7e2dfe3580c4b0e1ef25763b05f995b19c",
+        "source_retrieved_at": "2026-10-26T01:09:47.210720+00:00"
       }
     ],
     "42414": [
@@ -2912,8 +2924,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "42424": [
@@ -2930,8 +2942,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Brooke Blake-Lennie",
@@ -2946,8 +2958,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Brooke Blake-Lennie",
@@ -2962,8 +2974,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "42878": [
@@ -2980,8 +2992,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       }
     ],
     "43205": [
@@ -2998,8 +3010,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       },
       {
         "published_name": "Marilyn Taylor",
@@ -3014,8 +3026,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20969",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "548e640f8d4ab051dc54ff1a837b6d7e2dfe3580c4b0e1ef25763b05f995b19c",
+        "source_retrieved_at": "2026-10-26T01:09:47.210720+00:00"
       }
     ],
     "44212": [
@@ -3032,8 +3044,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Norman Bassett",
@@ -3048,8 +3060,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "44758": [
@@ -3066,8 +3078,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "46682": [
@@ -3084,8 +3096,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       }
     ],
     "46947": [
@@ -3102,8 +3114,8 @@
         "coach": "Pearl Gillis",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Sierra Scheiwiller",
@@ -3118,8 +3130,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Sierra Scheiwiller",
@@ -3134,8 +3146,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "46991": [
@@ -3152,8 +3164,8 @@
         "coach": "Reese & Atticus",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "AJ Lalonde",
@@ -3168,8 +3180,8 @@
         "coach": "Reese Wainman",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "56148": [
@@ -3186,8 +3198,8 @@
         "coach": "Deb Stanley",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "56219": [
@@ -3204,8 +3216,8 @@
         "coach": "Deb Stanley",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Kathryn Webb",
@@ -3220,8 +3232,8 @@
         "coach": "",
         "affiliation": "Yellowknife/Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "6364": [
@@ -3238,8 +3250,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       }
     ],
     "65327": [
@@ -3256,8 +3268,8 @@
         "coach": "Brooke Smith",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "65507": [
@@ -3274,8 +3286,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "67249": [
@@ -3292,8 +3304,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "67428": [
@@ -3310,8 +3322,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       }
     ],
     "70545": [
@@ -3328,8 +3340,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25243",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "701f2e214230456381eb301210be4aa01038afab781d10066d8c8991882df9a1",
+        "source_retrieved_at": "2026-10-26T01:09:45.718432+00:00"
       },
       {
         "published_name": "Ed Sattelberger",
@@ -3344,8 +3356,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       }
     ],
     "71591": [
@@ -3362,8 +3374,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20961",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "a521324afa96ad77e2976c2c11e1443854a71ce710fc60243ad0ea45b4ff454b",
+        "source_retrieved_at": "2026-10-26T01:09:51.279887+00:00"
       }
     ],
     "71850": [
@@ -3380,8 +3392,8 @@
         "coach": "",
         "affiliation": "Yellowknife/Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "72372": [
@@ -3398,8 +3410,8 @@
         "coach": "Carina McKay-Saturnino",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "73009": [
@@ -3416,8 +3428,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Roshan Begg",
@@ -3432,8 +3444,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "73076": [
@@ -3450,8 +3462,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Samantha White",
@@ -3466,8 +3478,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Samantha White",
@@ -3482,8 +3494,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       },
       {
         "published_name": "Samantha White",
@@ -3498,8 +3510,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "73620": [
@@ -3516,8 +3528,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Tanya Black",
@@ -3532,8 +3544,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "73622": [
@@ -3550,8 +3562,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Ori Black",
@@ -3566,8 +3578,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "74591": [
@@ -3584,8 +3596,8 @@
         "coach": "Brooke and Reese",
         "affiliation": "Curling NT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "7477": [
@@ -3602,8 +3614,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "D'arcy Delorey",
@@ -3618,8 +3630,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "75517": [
@@ -3636,8 +3648,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20977",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "920a728fab3dad15c93c5da623bda2b75df7a50da825ca9026d0b0ccccd0fff4",
+        "source_retrieved_at": "2026-10-26T01:09:48.217787+00:00"
       },
       {
         "published_name": "Morgan Stabel",
@@ -3652,8 +3664,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20978",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b1dd5040ffa22141bd69e159a407ad8a9b348d0ef207914909a8d2e9fa45fd41",
+        "source_retrieved_at": "2026-10-26T01:09:49.627293+00:00"
       }
     ],
     "76021": [
@@ -3670,8 +3682,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Makayla Cook",
@@ -3686,8 +3698,8 @@
         "coach": "",
         "affiliation": "NWTCA - HRCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "76415": [
@@ -3704,8 +3716,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       }
     ],
     "76991": [
@@ -3722,8 +3734,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20967",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "11671c47179f5039b61498dca8d76ef62a667da0ab16554c00b7f054382562cd",
+        "source_retrieved_at": "2026-10-26T01:09:47.909895+00:00"
       }
     ],
     "78752": [
@@ -3740,8 +3752,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Aaron Bartling",
@@ -3756,8 +3768,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "80111": [
@@ -3774,8 +3786,8 @@
         "coach": "",
         "affiliation": "Hay River",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       },
       {
         "published_name": "Carmella Oscienny",
@@ -3790,8 +3802,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20969",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "548e640f8d4ab051dc54ff1a837b6d7e2dfe3580c4b0e1ef25763b05f995b19c",
+        "source_retrieved_at": "2026-10-26T01:09:47.210720+00:00"
       }
     ],
     "86715": [
@@ -3808,8 +3820,8 @@
         "coach": "Brooke & Jasper",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "8865": [
@@ -3826,8 +3838,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "88873": [
@@ -3844,8 +3856,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Jaxon Melanson",
@@ -3860,8 +3872,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Jaxon Melanson",
@@ -3876,8 +3888,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "9009": [
@@ -3894,8 +3906,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       }
     ],
     "92388": [
@@ -3912,8 +3924,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "92486": [
@@ -3930,8 +3942,8 @@
         "coach": "Ashley Rowe",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Raegan Webb",
@@ -3946,8 +3958,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "92800": [
@@ -3964,8 +3976,8 @@
         "coach": "Mary-Anne Arsenault",
         "affiliation": "CurlingNT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Carina McKay-Saturnino",
@@ -3980,8 +3992,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       },
       {
         "published_name": "Carina McKay-Saturnino",
@@ -3996,8 +4008,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "93097": [
@@ -4014,8 +4026,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Derek Elkin",
@@ -4030,8 +4042,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       }
     ],
     "9337": [
@@ -4048,8 +4060,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25249",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "87487058866dbb6850b83b6c90897e00fb269b43e6bbbc9965ebed3500e1f3b0",
+        "source_retrieved_at": "2026-10-26T01:09:42.180212+00:00"
       }
     ],
     "93589": [
@@ -4066,8 +4078,8 @@
         "coach": "Atticus Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "94573": [
@@ -4084,8 +4096,8 @@
         "coach": "Ashley Rowe",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Carlyn Monkman",
@@ -4100,8 +4112,8 @@
         "coach": "",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "94575": [
@@ -4118,8 +4130,8 @@
         "coach": "Deb Stanley",
         "affiliation": "Hay River Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       }
     ],
     "94851": [
@@ -4136,8 +4148,8 @@
         "coach": "Reese & Atticus",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Kali Wood",
@@ -4152,8 +4164,8 @@
         "coach": "Brooke and Reese",
         "affiliation": "Curling NT",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "94853": [
@@ -4170,8 +4182,8 @@
         "coach": "Atticus Willkomm",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "95191": [
@@ -4188,8 +4200,8 @@
         "coach": "Reese & Atticus",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20975",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "75fcf1276a32b066888b4f98fb5b9368fc47ef0c7cefbf8cc152ccb4f11cd674",
+        "source_retrieved_at": "2026-10-26T01:09:49.283068+00:00"
       },
       {
         "published_name": "Ellyra Lennie",
@@ -4204,8 +4216,8 @@
         "coach": "Reese Wainman",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ],
     "95637": [
@@ -4222,8 +4234,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20974",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "c02210e7082e1aa8957e7102b8299c283aa70b0300c2b6ea79e478b21e4a443e",
+        "source_retrieved_at": "2026-10-26T01:09:48.956994+00:00"
       },
       {
         "published_name": "Tristan Bott",
@@ -4238,8 +4250,8 @@
         "coach": "None",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20976",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4627fd05536a055a4ba123c617104e7fad3cfdc06eb54538f7f3a4f300a72e63",
+        "source_retrieved_at": "2026-10-26T01:09:48.516750+00:00"
       },
       {
         "published_name": "Tristan Bott",
@@ -4254,8 +4266,8 @@
         "coach": "",
         "affiliation": "Yellowknife",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25254",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "1dbb6af87bb32058726c8adf13cdcb64d779ac76dc0bd5376b4688f94f6c9c8b",
+        "source_retrieved_at": "2026-10-26T01:09:41.254267+00:00"
       }
     ],
     "96753": [
@@ -4272,8 +4284,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25248",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "36c2a66eab52fd53a94600c53d80a6a8bafbf0c12e45d1043f64e50106d1346f",
+        "source_retrieved_at": "2026-10-26T01:09:42.504690+00:00"
       },
       {
         "published_name": "Brad Patzer",
@@ -4288,8 +4300,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20970",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "3657270dfaf77460dcce04d2d6b4135d7f3124c2434d744e9e021f3fe1e5f872",
+        "source_retrieved_at": "2026-10-26T01:09:47.547593+00:00"
       },
       {
         "published_name": "Brad Patzer",
@@ -4304,8 +4316,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25246",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b479f94546dfebcb5c8d2b348bc5abb34fb21f0f3ef8255359f34a804f428302",
+        "source_retrieved_at": "2026-10-26T01:09:43.508774+00:00"
       },
       {
         "published_name": "Brad Patzer",
@@ -4320,8 +4332,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "97770": [
@@ -4338,8 +4350,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20960",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ec9207d1dea385274fc40fcee60ffcbc91154fccbfd3b8ac6f0995aaa9221057",
+        "source_retrieved_at": "2026-10-26T01:09:46.405871+00:00"
       }
     ],
     "9825": [
@@ -4356,8 +4368,8 @@
         "coach": "",
         "affiliation": "Inuvik Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25250",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "9ff6e52558bd8c840904153958c90b26eb11d7ce2fec6a25f96b43d034086dcd",
+        "source_retrieved_at": "2026-10-26T01:09:42.868102+00:00"
       }
     ],
     "98279": [
@@ -4374,8 +4386,8 @@
         "coach": "",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20961",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "a521324afa96ad77e2976c2c11e1443854a71ce710fc60243ad0ea45b4ff454b",
+        "source_retrieved_at": "2026-10-26T01:09:51.279887+00:00"
       },
       {
         "published_name": "Brynn Chorostkowski",
@@ -4390,8 +4402,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Club",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Brynn Chorostkowski",
@@ -4406,8 +4418,8 @@
         "coach": "Kerry Galusha",
         "affiliation": "Yellowknife Curling Centre",
         "source_url": "https://api.curling.io/en/clubs/nt/events/26807",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "b92236786732362a18d810ec6f3d00ffad858a1a86ec0216dde25d39d33e8905",
+        "source_retrieved_at": "2026-10-26T01:09:43.815305+00:00"
       }
     ],
     "9863": [
@@ -4424,8 +4436,8 @@
         "coach": "",
         "affiliation": "YKCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20966",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "6cae6d5793b48976591d91594a3d0abeca8b97e102aa44c9da6634e4ea20194f",
+        "source_retrieved_at": "2026-10-26T01:09:49.975726+00:00"
       }
     ],
     "9868": [
@@ -4442,8 +4454,8 @@
         "coach": "",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25244",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "4c6e9bbe75c6decf2064b27f14d393ff10afbe69c89018519af8ec9e99a9adbc",
+        "source_retrieved_at": "2026-10-26T01:09:44.517745+00:00"
       },
       {
         "published_name": "Tyanna Bain",
@@ -4458,8 +4470,8 @@
         "coach": "",
         "affiliation": "NWTCA - HRCC",
         "source_url": "https://api.curling.io/en/clubs/nt/events/20965",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "ef36319b742f63cd70695b1765c63332c0f9b5152a63558f8076279102eab24d",
+        "source_retrieved_at": "2026-10-26T01:09:50.299641+00:00"
       }
     ],
     "99474": [
@@ -4476,8 +4488,8 @@
         "coach": "Brooke Smith",
         "affiliation": "NWTCA",
         "source_url": "https://api.curling.io/en/clubs/nt/events/25253",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "68b6c4b0f995d89a2bcb58df443dc41b438e617d552dc9f3c7d6eb50f8278a74",
+        "source_retrieved_at": "2026-10-26T01:09:41.577625+00:00"
       }
     ]
   }

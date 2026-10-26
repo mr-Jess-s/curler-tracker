@@ -1,10 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T18:53:36.835827+00:00",
+  "generated_at": "2026-10-26T01:21:28.163806+00:00",
   "source_provider": "Curling I/O",
   "source_subdomain": "nu",
-  "source_policy": "Facts copied from public Curling I/O event payloads; no inferred appearances or identity merges.",
-  "coverage": {},
+  "source_policy": "Project owner confirmed written permission for automated collection and republication; no inferred appearances or cross-source identity merges.",
+  "coverage": {
+    "available_season_count": 9,
+    "oldest_available_season": "2018 / 2019",
+    "newest_available_season": "2026 / 2027",
+    "advertised_seasons": [
+      "2026 / 2027",
+      "2025 / 2026",
+      "2024 / 2025",
+      "2023 / 2024",
+      "2022 / 2023",
+      "2021 / 2022",
+      "2020 / 2021",
+      "2019 / 2020",
+      "2018 / 2019"
+    ]
+  },
   "curler_appearances": {
     "112762": [
       {
@@ -20,8 +35,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "117133": [
@@ -38,8 +53,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "180312": [
@@ -56,8 +71,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "18051": [
@@ -74,8 +89,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       },
       {
         "published_name": "Shane Latimer",
@@ -90,8 +105,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "18115": [
@@ -108,8 +123,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       },
       {
         "published_name": "Sheldon Wettig",
@@ -124,8 +139,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "19980": [
@@ -142,8 +157,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "20793": [
@@ -160,8 +175,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "23677": [
@@ -178,8 +193,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "29039": [
@@ -196,8 +211,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       },
       {
         "published_name": "Justin McDonell",
@@ -212,8 +227,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "30372": [
@@ -230,8 +245,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "46274": [
@@ -248,8 +263,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       },
       {
         "published_name": "Christian Smitheram",
@@ -264,8 +279,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "53861": [
@@ -282,8 +297,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "58254": [
@@ -300,8 +315,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ],
     "58422": [
@@ -318,8 +333,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "58439": [
@@ -336,8 +351,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "73880": [
@@ -354,8 +369,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "73925": [
@@ -372,8 +387,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/17909",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "e62fb9eb3e9776032d5ba3730cd5a23435c46af238b671034046e65fcf174826",
+        "source_retrieved_at": "2026-10-26T01:10:08.738801+00:00"
       }
     ],
     "9211": [
@@ -390,8 +405,8 @@
         "coach": "",
         "affiliation": "",
         "source_url": "https://api.curling.io/en/clubs/nu/events/26700",
-        "source_sha256": null,
-        "source_retrieved_at": null
+        "source_sha256": "195ad7fe573e22cde1f7878b0dc27f967518aecc20d70c6a41ab463256d5510c",
+        "source_retrieved_at": "2026-10-26T01:10:07.754450+00:00"
       }
     ]
   }

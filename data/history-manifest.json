@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-24T18:53:36.835827+00:00",
+  "generated_at": "2026-10-26T01:21:28.163806+00:00",
   "source_provider": "Curling I/O",
-  "source_policy": "Owner-confirmed written permission; no inferred appearances or cross-source identity merges.",
+  "source_policy": "Project owner confirmed written permission for automated collection and republication; no inferred appearances or cross-source identity merges.",
   "season_lists": [
     {
       "subdomain": "ab",
@@ -11,7 +11,7 @@
       "items": 1,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=0&registrations=f",
       "source_sha256": "f176cfda251da2b870b3d85d35504d3ded3660a2cf90f21d043b5a6f4f8c21f7",
-      "source_retrieved_at": "2026-10-24T18:07:10.172164+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:50.818718+00:00"
     },
     {
       "subdomain": "ab",
@@ -20,7 +20,7 @@
       "items": 50,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-1&registrations=f",
       "source_sha256": "cd4555634d6950f926d8f1d8337a9acdcfdccee06108835215300ca595546f96",
-      "source_retrieved_at": "2026-10-24T18:07:10.367027+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:51.307220+00:00"
     },
     {
       "subdomain": "ab",
@@ -28,8 +28,8 @@
       "season": "2024 / 2025",
       "items": 43,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-2&registrations=f",
-      "source_sha256": "6e019312f899c3810f2f079bc30cd9c4d4780c7b6a76b8bfe8ad566da1a7945d",
-      "source_retrieved_at": "2026-10-24T18:07:10.529056+00:00"
+      "source_sha256": "5dd4771139aa4f1bc7f4fd98258c3e8bd4547343319922569fcda005608485c7",
+      "source_retrieved_at": "2026-10-26T00:56:51.731633+00:00"
     },
     {
       "subdomain": "ab",
@@ -38,7 +38,7 @@
       "items": 46,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-3&registrations=f",
       "source_sha256": "415507c23f9277b4203c6030ae3a0099b51b62de4ac39d71343185a11ccda618",
-      "source_retrieved_at": "2026-10-24T18:07:10.725012+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:52.167763+00:00"
     },
     {
       "subdomain": "ab",
@@ -46,8 +46,8 @@
       "season": "2022 / 2023",
       "items": 34,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-4&registrations=f",
-      "source_sha256": "dc4a28e6522e61ed3fc21331a5534f5f2dcfc061ee5ec5556973e81d86a488b8",
-      "source_retrieved_at": "2026-10-24T18:07:10.931807+00:00"
+      "source_sha256": "26141793ef9f3e39fe57a6ba3fa6feca047e42f4af1e95a23bc43c623c22ca54",
+      "source_retrieved_at": "2026-10-26T00:56:52.620328+00:00"
     },
     {
       "subdomain": "ab",
@@ -55,8 +55,8 @@
       "season": "2021 / 2022",
       "items": 41,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-5&registrations=f",
-      "source_sha256": "e0d0be5ff4b12866689fe1ce60a252047ecf0bc95dbcb48e9e5823d04e7466c5",
-      "source_retrieved_at": "2026-10-24T18:07:11.106152+00:00"
+      "source_sha256": "dc5b0b1e108829d06a844e6d31303a006170bde6fe2b74217ddb4f5b2121dc6f",
+      "source_retrieved_at": "2026-10-26T00:56:53.036501+00:00"
     },
     {
       "subdomain": "ab",
@@ -65,7 +65,7 @@
       "items": 3,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-6&registrations=f",
       "source_sha256": "758bf8184ea52c52129653edae742694d87a28f91343a7df481c4f447da3b08b",
-      "source_retrieved_at": "2026-10-24T18:07:11.535572+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:53.461484+00:00"
     },
     {
       "subdomain": "ab",
@@ -73,8 +73,8 @@
       "season": "2019 / 2020",
       "items": 51,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-7&registrations=f",
-      "source_sha256": "8b10df193c8cac1ade7feff78a84d3ce8fe3232365e19b9f7b98a7fb2f18de46",
-      "source_retrieved_at": "2026-10-24T18:07:11.977636+00:00"
+      "source_sha256": "f620489adba65e21ccae9c0ab3c2050b9183f82503c424cef531797bf9420d3b",
+      "source_retrieved_at": "2026-10-26T00:56:53.888507+00:00"
     },
     {
       "subdomain": "ab",
@@ -82,8 +82,8 @@
       "season": "2018 / 2019",
       "items": 49,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-8&registrations=f",
-      "source_sha256": "31b6bc07a1ce049da145e6b418e9ca223047e0eeb26f0a74e98ebc51c13cd092",
-      "source_retrieved_at": "2026-10-24T18:07:12.414147+00:00"
+      "source_sha256": "398e88301f52ab798015cbf3e0fe1eca2c16b395176305f4222824284d0756f7",
+      "source_retrieved_at": "2026-10-26T00:56:54.364958+00:00"
     },
     {
       "subdomain": "ab",
@@ -92,7 +92,7 @@
       "items": 7,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-9&registrations=f",
       "source_sha256": "28d32c12aba1dc2c255ab8ccacfcd6f67b6d629af74c9e030529a9fb99f8c867",
-      "source_retrieved_at": "2026-10-24T18:07:12.806706+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:54.784617+00:00"
     },
     {
       "subdomain": "ab",
@@ -101,7 +101,7 @@
       "items": 0,
       "source_url": "https://api.curling.io/en/clubs/ab/competitions?occurred=-10&registrations=f",
       "source_sha256": "bf0f8ebbd4704971fb1cb9a200898c89bd6af2c9e1ea75300d821f5abb7eb79f",
-      "source_retrieved_at": "2026-10-24T18:07:12.995782+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:55.211226+00:00"
     },
     {
       "subdomain": "canada",
@@ -110,7 +110,7 @@
       "items": 3,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=0&registrations=f",
       "source_sha256": "de33b58b4bd9e1e82da50e7a550d641f20bf364006d93169fd717c11d237e4c4",
-      "source_retrieved_at": "2026-10-24T18:07:13.252114+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:55.684743+00:00"
     },
     {
       "subdomain": "canada",
@@ -119,7 +119,7 @@
       "items": 23,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-1&registrations=f",
       "source_sha256": "3a6d7f38f31b3819f8f7dd7aa18122cbfeec9e63d9e3fb8ffcdf90232078a319",
-      "source_retrieved_at": "2026-10-24T18:07:13.513019+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:56.040885+00:00"
     },
     {
       "subdomain": "canada",
@@ -128,7 +128,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-2&registrations=f",
       "source_sha256": "01dc2d2607342cdf28f8502162ea86221a93d412aff58ee64aa5a234d6f63857",
-      "source_retrieved_at": "2026-10-24T18:07:13.927417+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:56.497024+00:00"
     },
     {
       "subdomain": "canada",
@@ -136,8 +136,8 @@
       "season": "2023 / 2024",
       "items": 18,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-3&registrations=f",
-      "source_sha256": "c8a8e6a3acad534db2976e576bc3c20e482a172350080c8840a96d4aafdc909e",
-      "source_retrieved_at": "2026-10-24T18:07:14.354641+00:00"
+      "source_sha256": "8a76093c3d9c7b1fa1adec6b3e28c9c94277769723282539d1dfbdb197534e5d",
+      "source_retrieved_at": "2026-10-26T00:56:56.920810+00:00"
     },
     {
       "subdomain": "canada",
@@ -145,8 +145,8 @@
       "season": "2022 / 2023",
       "items": 27,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-4&registrations=f",
-      "source_sha256": "f3b9608d954f16e17a11ca0b78fe7d3c3035039505ffef498933597d977c84aa",
-      "source_retrieved_at": "2026-10-24T18:07:14.757804+00:00"
+      "source_sha256": "a0084c182123042351ae419fad3bfc4f0ca3b60b82ad84509974eb169105e014",
+      "source_retrieved_at": "2026-10-26T00:56:57.375537+00:00"
     },
     {
       "subdomain": "canada",
@@ -155,7 +155,7 @@
       "items": 25,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-5&registrations=f",
       "source_sha256": "0d06dd596ad84e5749005b9422317149aaf121c0e649d73b61224a1eb3d07069",
-      "source_retrieved_at": "2026-10-24T18:07:15.154387+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:57.780914+00:00"
     },
     {
       "subdomain": "canada",
@@ -164,7 +164,7 @@
       "items": 4,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-6&registrations=f",
       "source_sha256": "a9c1c54996dafcfb558e9ffce2570423d5e0ff6bd42881e2c6bdc10d90965047",
-      "source_retrieved_at": "2026-10-24T18:07:15.546366+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:58.202051+00:00"
     },
     {
       "subdomain": "canada",
@@ -172,8 +172,8 @@
       "season": "2019 / 2020",
       "items": 22,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-7&registrations=f",
-      "source_sha256": "b28b90a265a719f2a41104f10274e4da301300a3849cddccac0b6243072296b2",
-      "source_retrieved_at": "2026-10-24T18:07:15.954081+00:00"
+      "source_sha256": "f9c80cfad03075a11e63c2c43a0cbd90be67221106aaaa9e36f05e6e6c8e1e21",
+      "source_retrieved_at": "2026-10-26T00:56:58.650033+00:00"
     },
     {
       "subdomain": "canada",
@@ -182,7 +182,7 @@
       "items": 22,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-8&registrations=f",
       "source_sha256": "6a78a41efc3bb13bfeb56bb1483be144c095f6046f1ae1ebd214b9c50b867465",
-      "source_retrieved_at": "2026-10-24T18:07:16.381892+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:59.094421+00:00"
     },
     {
       "subdomain": "canada",
@@ -191,7 +191,7 @@
       "items": 30,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-9&registrations=f",
       "source_sha256": "e6e83f0ef892ebe97f65d84ec9a33cb77446b3c29240c331c8b27bb05007df2a",
-      "source_retrieved_at": "2026-10-24T18:07:16.922844+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:59.516355+00:00"
     },
     {
       "subdomain": "canada",
@@ -200,7 +200,7 @@
       "items": 20,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-10&registrations=f",
       "source_sha256": "728ed6956ac45ed4cd523369ed90b1886565d1f1b012da618693bcd741cfa66e",
-      "source_retrieved_at": "2026-10-24T18:07:17.215561+00:00"
+      "source_retrieved_at": "2026-10-26T00:56:59.823602+00:00"
     },
     {
       "subdomain": "canada",
@@ -208,8 +208,8 @@
       "season": "2015 / 2016",
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-11&registrations=f",
-      "source_sha256": "97bf51a4055aec4c8f149b5fdd91394a1ecd7c4a37f3d3b8d8c838cfc64bfd60",
-      "source_retrieved_at": "2026-10-24T18:07:17.625199+00:00"
+      "source_sha256": "2b29f7a4acb2fb309d0a35ccf254418a2f423c1e5f637652cb1b25eda5ff30b0",
+      "source_retrieved_at": "2026-10-26T00:57:00.242294+00:00"
     },
     {
       "subdomain": "canada",
@@ -217,8 +217,8 @@
       "season": "2014 / 2015",
       "items": 24,
       "source_url": "https://api.curling.io/en/clubs/canada/competitions?occurred=-12&registrations=f",
-      "source_sha256": "834e4a7f2bd2c8bd870bbd024396341e52dd4737438d7b5e405f10e7d58fe1d1",
-      "source_retrieved_at": "2026-10-24T18:07:18.033477+00:00"
+      "source_sha256": "5888619d3d559d67eff46e2e244709dc4cd20d930e66d13a41ab2fb3736c4983",
+      "source_retrieved_at": "2026-10-26T00:57:00.650669+00:00"
     },
     {
       "subdomain": "bc",
@@ -227,7 +227,7 @@
       "items": 1,
       "source_url": "https://api.curling.io/en/clubs/bc/competitions?occurred=0&registrations=f",
       "source_sha256": "c8c9bf709677bde9c9cb811808c9bf4b750e4d2aa348b1fd3440cb89aa8c9e1f",
-      "source_retrieved_at": "2026-10-24T18:07:18.412766+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:01.041963+00:00"
     },
     {
       "subdomain": "mb",
@@ -236,7 +236,7 @@
       "items": 0,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=0&registrations=f",
       "source_sha256": "94ae1b416ad5b89d7e85c2a73e5695f144983d553c335f86a8384e9532fbd4df",
-      "source_retrieved_at": "2026-10-24T18:07:18.830129+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:01.431373+00:00"
     },
     {
       "subdomain": "mb",
@@ -245,7 +245,7 @@
       "items": 69,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-1&registrations=f",
       "source_sha256": "d0719004963abf7a9a787cdf7212365e508d4b3cdf20b439423f1ea7c31bc373",
-      "source_retrieved_at": "2026-10-24T18:07:19.247749+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:01.854695+00:00"
     },
     {
       "subdomain": "mb",
@@ -254,7 +254,7 @@
       "items": 62,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-2&registrations=f",
       "source_sha256": "cfe65d2cf8778e3869f0efe369c2c56811c4cebaa2065f10b53e6b24b2509716",
-      "source_retrieved_at": "2026-10-24T18:07:19.652140+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:02.404440+00:00"
     },
     {
       "subdomain": "mb",
@@ -262,8 +262,8 @@
       "season": "2023 / 2024",
       "items": 85,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-3&registrations=f",
-      "source_sha256": "44e2689fd20394efd84984ce3ed676690e199e35e2982f988b7738d5e2175ea8",
-      "source_retrieved_at": "2026-10-24T18:07:20.100532+00:00"
+      "source_sha256": "6d3450d7a96651081990523969aafed37812acf7c589ae372f6400b7a41ade9f",
+      "source_retrieved_at": "2026-10-26T00:57:02.867345+00:00"
     },
     {
       "subdomain": "mb",
@@ -271,8 +271,8 @@
       "season": "2022 / 2023",
       "items": 82,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-4&registrations=f",
-      "source_sha256": "c7dcdfadc40376d04fbc1e1743b0e655309e881dc441841ba089cc406c87dd61",
-      "source_retrieved_at": "2026-10-24T18:07:20.519966+00:00"
+      "source_sha256": "ed966b0f09eeefb5b83ed71bde00c6f0abd2221832827f7bddd96054f0a23c27",
+      "source_retrieved_at": "2026-10-26T00:57:03.317636+00:00"
     },
     {
       "subdomain": "mb",
@@ -280,8 +280,8 @@
       "season": "2021 / 2022",
       "items": 69,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-5&registrations=f",
-      "source_sha256": "80433a987c0d869e28e274daba42246fd24b3ff4a2f8bb2e8b812431f9628f53",
-      "source_retrieved_at": "2026-10-24T18:07:21.017492+00:00"
+      "source_sha256": "03085f0c23271e10be69d97a53eeb1245f585c39e2be72c9bad57c5ca422a0c6",
+      "source_retrieved_at": "2026-10-26T00:57:03.750905+00:00"
     },
     {
       "subdomain": "mb",
@@ -289,8 +289,8 @@
       "season": "2020 / 2021",
       "items": 68,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-6&registrations=f",
-      "source_sha256": "42477f9871dd5b166b21ed3d75a971c6cf1ac24ecb01b5bf6e9bc745c8fea9b5",
-      "source_retrieved_at": "2026-10-24T18:07:21.441076+00:00"
+      "source_sha256": "6e47b576e1761a75bc538886889d53a65366f465bb77ded818ee5d5bc57091d7",
+      "source_retrieved_at": "2026-10-26T00:57:04.207666+00:00"
     },
     {
       "subdomain": "mb",
@@ -298,8 +298,8 @@
       "season": "2019 / 2020",
       "items": 99,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-7&registrations=f",
-      "source_sha256": "d592ae83a16163d8c8336756492a71bb59bb5aab5fbdc4342e2b7b9f4178ca51",
-      "source_retrieved_at": "2026-10-24T18:07:21.862997+00:00"
+      "source_sha256": "9513a29cd493d78b1cebe658c41b452ed6b528218ab5593199d00ba588666e68",
+      "source_retrieved_at": "2026-10-26T00:57:04.668125+00:00"
     },
     {
       "subdomain": "mb",
@@ -307,8 +307,8 @@
       "season": "2018 / 2019",
       "items": 97,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-8&registrations=f",
-      "source_sha256": "46a9e7396bc299629c86c3b9334122d7787facab7f688cd4bbff4bc6faa8af58",
-      "source_retrieved_at": "2026-10-24T18:07:22.175534+00:00"
+      "source_sha256": "ddc6d28140506e325931a7ea84dbc298e6e721971be1ffba9d51256242e95255",
+      "source_retrieved_at": "2026-10-26T00:57:04.969626+00:00"
     },
     {
       "subdomain": "mb",
@@ -316,8 +316,8 @@
       "season": "2017 / 2018",
       "items": 98,
       "source_url": "https://api.curling.io/en/clubs/mb/competitions?occurred=-9&registrations=f",
-      "source_sha256": "84f5c162eab39a20dd979c0408541cd91606f34668f662f2ca3ac269f446899b",
-      "source_retrieved_at": "2026-10-24T18:07:22.600319+00:00"
+      "source_sha256": "01a8c81615fcef8050abeb21681085d2423ba940b5f9c1cb759a9314bc594236",
+      "source_retrieved_at": "2026-10-26T00:57:05.444489+00:00"
     },
     {
       "subdomain": "nb",
@@ -326,7 +326,7 @@
       "items": 3,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=0&registrations=f",
       "source_sha256": "171fc834ab94f933ffb7931543098a4f7957cc3d728a929431e9386be71c03a3",
-      "source_retrieved_at": "2026-10-24T18:07:22.994105+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:05.843424+00:00"
     },
     {
       "subdomain": "nb",
@@ -335,7 +335,7 @@
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-1&registrations=f",
       "source_sha256": "ee375467cfee17725ad44de8688ff8388282165b3917b2a662cf5a788a69d6c0",
-      "source_retrieved_at": "2026-10-24T18:07:23.432576+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:06.274378+00:00"
     },
     {
       "subdomain": "nb",
@@ -344,7 +344,7 @@
       "items": 16,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-2&registrations=f",
       "source_sha256": "f7a77e0f1e17022dae71fdd5265982a906db3c3f35a5fdcc0c903747a1c2efd6",
-      "source_retrieved_at": "2026-10-24T18:07:23.830469+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:06.707773+00:00"
     },
     {
       "subdomain": "nb",
@@ -352,8 +352,8 @@
       "season": "2023 / 2024",
       "items": 15,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-3&registrations=f",
-      "source_sha256": "b2b8579142750cf12e23bf9dfd4f843c6a1e70ed102d33eeab8e21675d43179f",
-      "source_retrieved_at": "2026-10-24T18:07:24.089841+00:00"
+      "source_sha256": "7281ff503875b9e7fae4f7be35eec74f62b5297d162c7b2c4eea9889416dd7a3",
+      "source_retrieved_at": "2026-10-26T00:57:07.065211+00:00"
     },
     {
       "subdomain": "nb",
@@ -362,7 +362,7 @@
       "items": 23,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-4&registrations=f",
       "source_sha256": "d4213ca49c2981343cbd2de1330787762b3efd06ce9156526e54311a32f0777b",
-      "source_retrieved_at": "2026-10-24T18:07:24.492150+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:07.500933+00:00"
     },
     {
       "subdomain": "nb",
@@ -371,7 +371,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-5&registrations=f",
       "source_sha256": "3fa071ff0e5a401c5c737905f98ff10546af825060d63ac24ed0c18b74fb2803",
-      "source_retrieved_at": "2026-10-24T18:07:24.860468+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:07.951481+00:00"
     },
     {
       "subdomain": "nb",
@@ -380,7 +380,7 @@
       "items": 5,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-6&registrations=f",
       "source_sha256": "4954076566faa274a52b670ab464cd7638bc17c12855a73c28e31565f286d822",
-      "source_retrieved_at": "2026-10-24T18:07:25.147927+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:08.282291+00:00"
     },
     {
       "subdomain": "nb",
@@ -389,16 +389,16 @@
       "items": 15,
       "source_url": "https://api.curling.io/en/clubs/nb/competitions?occurred=-7&registrations=f",
       "source_sha256": "c48c226e5e227bbad42a40e715bee47b75afa1492de17f2dc63b82ded25b0691",
-      "source_retrieved_at": "2026-10-24T18:07:25.421921+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:08.570956+00:00"
     },
     {
       "subdomain": "nl",
       "delta": 0,
       "season": "2026 / 2027",
-      "items": 9,
+      "items": 10,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=0&registrations=f",
-      "source_sha256": "91f9e488c2b6f923fbb2c20ade85c0448e844cdb54f4cbdc74b437d07ba0a5fe",
-      "source_retrieved_at": "2026-10-24T18:07:25.795189+00:00"
+      "source_sha256": "b2899c7768a892520064a8faef6f8f0448a9e5efbd0cd60b8029234fd2747fae",
+      "source_retrieved_at": "2026-10-26T00:57:08.976960+00:00"
     },
     {
       "subdomain": "nl",
@@ -407,7 +407,7 @@
       "items": 13,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-1&registrations=f",
       "source_sha256": "9b667340c42d6b4cdf5f85a8d2cd1ab28e5022c3241ca05d5b1a1301951bca83",
-      "source_retrieved_at": "2026-10-24T18:07:26.039005+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:09.274385+00:00"
     },
     {
       "subdomain": "nl",
@@ -416,7 +416,7 @@
       "items": 10,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-2&registrations=f",
       "source_sha256": "f01cdc28a00c86e79e45e0a645973518f5ee5bd5b65f28d963654ff48b58ed31",
-      "source_retrieved_at": "2026-10-24T18:07:26.451019+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:09.810512+00:00"
     },
     {
       "subdomain": "nl",
@@ -425,7 +425,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-3&registrations=f",
       "source_sha256": "64f9f6deda26b4e627594a11c310cd29b5938a15cd4bef737a302ffaf8db808b",
-      "source_retrieved_at": "2026-10-24T18:07:26.848438+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:10.210840+00:00"
     },
     {
       "subdomain": "nl",
@@ -434,7 +434,7 @@
       "items": 16,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-4&registrations=f",
       "source_sha256": "2712d893eab375ca2b1fef0e6fb416f4089152819268235392662125e412b8f0",
-      "source_retrieved_at": "2026-10-24T18:07:27.128359+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:10.503868+00:00"
     },
     {
       "subdomain": "nl",
@@ -443,7 +443,7 @@
       "items": 9,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-5&registrations=f",
       "source_sha256": "8de680a7188edc8d32e57b058e43a9807a5142d2a7ebb955482eea3e2e92477a",
-      "source_retrieved_at": "2026-10-24T18:07:27.581639+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:10.965823+00:00"
     },
     {
       "subdomain": "nl",
@@ -452,7 +452,7 @@
       "items": 2,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-6&registrations=f",
       "source_sha256": "92722f080aa26bc9b5a56459427a842011ae317bde13be81c3032987c2fa4e21",
-      "source_retrieved_at": "2026-10-24T18:07:27.896682+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:11.283316+00:00"
     },
     {
       "subdomain": "nl",
@@ -461,7 +461,7 @@
       "items": 16,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-7&registrations=f",
       "source_sha256": "9a59d1092b6826b495c14a4cd8f0765f8529cd62eba18f396524c04f41471db3",
-      "source_retrieved_at": "2026-10-24T18:07:28.154617+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:11.605133+00:00"
     },
     {
       "subdomain": "nl",
@@ -470,7 +470,7 @@
       "items": 1,
       "source_url": "https://api.curling.io/en/clubs/nl/competitions?occurred=-8&registrations=f",
       "source_sha256": "aa7161d8f336bffe86ab07c6b3fc13db68f69e5574d29dfb4dc03d0ad48ad8ce",
-      "source_retrieved_at": "2026-10-24T18:07:28.401154+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:11.939821+00:00"
     },
     {
       "subdomain": "ns",
@@ -479,7 +479,7 @@
       "items": 0,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=0&registrations=f",
       "source_sha256": "6e063b14c6e17206b1511e368ba5ba3771c45d76b1558eb23bdfde69956e5dc9",
-      "source_retrieved_at": "2026-10-24T18:07:28.803947+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:12.479558+00:00"
     },
     {
       "subdomain": "ns",
@@ -487,8 +487,8 @@
       "season": "2025 / 2026",
       "items": 34,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-1&registrations=f",
-      "source_sha256": "eb44ed14c3eef04caade33b447ca0f2d9d8e01c234c4109603aa8870a84b2979",
-      "source_retrieved_at": "2026-10-24T18:07:29.219379+00:00"
+      "source_sha256": "1b2729b79c801c3d1fa0ea2b166236a29d129b5449a00850ef62bc8dd03b0c54",
+      "source_retrieved_at": "2026-10-26T00:57:13.000347+00:00"
     },
     {
       "subdomain": "ns",
@@ -497,7 +497,7 @@
       "items": 33,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-2&registrations=f",
       "source_sha256": "679dbc3b288f2d56748682c018468e7cface1e39699cb8f4d6b856befdbf9871",
-      "source_retrieved_at": "2026-10-24T18:07:29.650557+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:13.466867+00:00"
     },
     {
       "subdomain": "ns",
@@ -506,7 +506,7 @@
       "items": 33,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-3&registrations=f",
       "source_sha256": "2158e2e4395bc24aa593d87aa3ba0d96b3cafa86d0280036527045a842239f61",
-      "source_retrieved_at": "2026-10-24T18:07:29.976916+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:13.748369+00:00"
     },
     {
       "subdomain": "ns",
@@ -514,8 +514,8 @@
       "season": "2022 / 2023",
       "items": 35,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-4&registrations=f",
-      "source_sha256": "b0abddf5fbf66f46d717d1f9e3ee3ffccd95c617947d2eea6ba115c9c54a1cd5",
-      "source_retrieved_at": "2026-10-24T18:07:30.391474+00:00"
+      "source_sha256": "9eb4f5b27f1901ea64453ad908faa4ec4cda2cab9deacddf2e937321835ff071",
+      "source_retrieved_at": "2026-10-26T00:57:14.212262+00:00"
     },
     {
       "subdomain": "ns",
@@ -523,8 +523,8 @@
       "season": "2021 / 2022",
       "items": 39,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-5&registrations=f",
-      "source_sha256": "5d50f10af393d1496a02386ec53d3c750179a150e32f894d78eaad744813b48a",
-      "source_retrieved_at": "2026-10-24T18:07:30.832770+00:00"
+      "source_sha256": "1893184594cbaafb9fc943f84958743d8ec9376728f34d23331e46e568a013b8",
+      "source_retrieved_at": "2026-10-26T00:57:14.637820+00:00"
     },
     {
       "subdomain": "ns",
@@ -533,7 +533,7 @@
       "items": 3,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-6&registrations=f",
       "source_sha256": "9399538c096141ddeeaa5e61453b7f8cffb5429369366ec4c84bac67fcf590d8",
-      "source_retrieved_at": "2026-10-24T18:07:31.212202+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:15.111016+00:00"
     },
     {
       "subdomain": "ns",
@@ -541,8 +541,8 @@
       "season": "2019 / 2020",
       "items": 38,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-7&registrations=f",
-      "source_sha256": "44554a8876dc18fb73c4ce544fe8104aaefbd9c4658c7d4740010ff7577c1dc7",
-      "source_retrieved_at": "2026-10-24T18:07:31.637714+00:00"
+      "source_sha256": "10175b0615d0b30ec30e605ebc07126a8e052c52e6faaa04082a7d8ede740bef",
+      "source_retrieved_at": "2026-10-26T00:57:15.574699+00:00"
     },
     {
       "subdomain": "ns",
@@ -550,8 +550,8 @@
       "season": "2018 / 2019",
       "items": 36,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-8&registrations=f",
-      "source_sha256": "5d0e28538c4329d908b83cd80d23c49584491a30a9bfcefc61a23ddaba1bd2f2",
-      "source_retrieved_at": "2026-10-24T18:07:32.063545+00:00"
+      "source_sha256": "42e6cabc6087042e86d888215d100d446f2aef0ce6a8608a25d8458d220b681b",
+      "source_retrieved_at": "2026-10-26T00:57:16.004854+00:00"
     },
     {
       "subdomain": "ns",
@@ -559,8 +559,8 @@
       "season": "2017 / 2018",
       "items": 31,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-9&registrations=f",
-      "source_sha256": "1cf523e619444dfd0b8567459199e133715a7d0ed2d261ad935faaf1f79ee944",
-      "source_retrieved_at": "2026-10-24T18:07:32.320500+00:00"
+      "source_sha256": "fe27eb908a9d6e5097a1c5e050336f16608df80dfc0c91e693accdea40151db7",
+      "source_retrieved_at": "2026-10-26T00:57:16.349689+00:00"
     },
     {
       "subdomain": "ns",
@@ -569,7 +569,7 @@
       "items": 28,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-10&registrations=f",
       "source_sha256": "c77847fa43224c723f0d8ed780962f057331a3b433c16ac2c52007b842aee8c1",
-      "source_retrieved_at": "2026-10-24T18:07:32.711408+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:16.752385+00:00"
     },
     {
       "subdomain": "ns",
@@ -578,7 +578,7 @@
       "items": 30,
       "source_url": "https://api.curling.io/en/clubs/ns/competitions?occurred=-11&registrations=f",
       "source_sha256": "6d17ec66b6d5255da6e5c8af2f1787421ea815225992ee7fb715aea248abcd29",
-      "source_retrieved_at": "2026-10-24T18:07:33.096189+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:17.170846+00:00"
     },
     {
       "subdomain": "nt",
@@ -587,7 +587,7 @@
       "items": 5,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=0&registrations=f",
       "source_sha256": "243426ea368a2b77461da33a90a5f6190841d31b8f7cffacdec2deb507590c85",
-      "source_retrieved_at": "2026-10-24T18:07:33.503607+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:17.623277+00:00"
     },
     {
       "subdomain": "nt",
@@ -595,8 +595,8 @@
       "season": "2025 / 2026",
       "items": 19,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-1&registrations=f",
-      "source_sha256": "7b30d52104d7815f7b40699df5085aad6de615e2d10a0a95c4b305594258c8b6",
-      "source_retrieved_at": "2026-10-24T18:07:33.903931+00:00"
+      "source_sha256": "0e4488b6e243e8f3a54fe655d2d2438ac0bb9458922e4ec849dd83bc938eb67b",
+      "source_retrieved_at": "2026-10-26T00:57:18.048206+00:00"
     },
     {
       "subdomain": "nt",
@@ -605,7 +605,7 @@
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-2&registrations=f",
       "source_sha256": "c13e2e4d3d67c873f77b5f1150c6a1bf50a4cde371f984e014e64eeb08f3d556",
-      "source_retrieved_at": "2026-10-24T18:07:34.295034+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:18.507874+00:00"
     },
     {
       "subdomain": "nt",
@@ -613,8 +613,8 @@
       "season": "2023 / 2024",
       "items": 21,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-3&registrations=f",
-      "source_sha256": "f96a434ef468ffcabe5a15b22ac05768c6cd8b1a359a7c43e8fac52ae63b6b5f",
-      "source_retrieved_at": "2026-10-24T18:07:34.669847+00:00"
+      "source_sha256": "6baa344f894afe31a47bebefc714bfc06efe8b8606434f5502c8cfa5e53b223e",
+      "source_retrieved_at": "2026-10-26T00:57:18.912794+00:00"
     },
     {
       "subdomain": "nt",
@@ -622,8 +622,8 @@
       "season": "2022 / 2023",
       "items": 20,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-4&registrations=f",
-      "source_sha256": "6723898f91f7694d8719e7ace7c2206a9237c8e3c085f8b19c49a56549edc6d2",
-      "source_retrieved_at": "2026-10-24T18:07:34.955698+00:00"
+      "source_sha256": "0e485f4a346e9c8c33e29fdde29f825ca5055fa3b3ef5a80b7405e0406cfa769",
+      "source_retrieved_at": "2026-10-26T00:57:19.200695+00:00"
     },
     {
       "subdomain": "nt",
@@ -631,8 +631,8 @@
       "season": "2021 / 2022",
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/nt/competitions?occurred=-5&registrations=f",
-      "source_sha256": "bb0247a5c009aefb630c938c6b2b9b3e2bcf6bfd3f5d9400bb26b3017a399100",
-      "source_retrieved_at": "2026-10-24T18:07:35.299991+00:00"
+      "source_sha256": "cfa74e99c0e3a6396220d7cea3408410ba9f82fa0418a6f73c671f7bd5e8b7d7",
+      "source_retrieved_at": "2026-10-26T00:57:19.483899+00:00"
     },
     {
       "subdomain": "nu",
@@ -641,7 +641,7 @@
       "items": 0,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=0&registrations=f",
       "source_sha256": "05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485",
-      "source_retrieved_at": "2026-10-24T18:07:35.589465+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:19.758804+00:00"
     },
     {
       "subdomain": "nu",
@@ -650,7 +650,7 @@
       "items": 1,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-1&registrations=f",
       "source_sha256": "7186409f96c398edb7a0a336b2ea2c78711527cedc05936f6bd68dcb9de8aeb7",
-      "source_retrieved_at": "2026-10-24T18:07:35.982295+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:20.194640+00:00"
     },
     {
       "subdomain": "nu",
@@ -659,7 +659,7 @@
       "items": 1,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-2&registrations=f",
       "source_sha256": "2fcdaebad95d9337d7cd50f929a10fdab9c394389d33db8f1851a80e3aed18a6",
-      "source_retrieved_at": "2026-10-24T18:07:36.245370+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:20.574617+00:00"
     },
     {
       "subdomain": "nu",
@@ -668,7 +668,7 @@
       "items": 8,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-3&registrations=f",
       "source_sha256": "9c354a99b38f0b23e650d08119416359f95282975ed76c658e24c2cfc6660ade",
-      "source_retrieved_at": "2026-10-24T18:07:36.637762+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:21.041647+00:00"
     },
     {
       "subdomain": "nu",
@@ -677,7 +677,7 @@
       "items": 11,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-4&registrations=f",
       "source_sha256": "f866c3d33fd3102f2a8a49b3cc2ffb86a23564c55d77cb649acec9ab0e11f896",
-      "source_retrieved_at": "2026-10-24T18:07:37.033507+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:21.429544+00:00"
     },
     {
       "subdomain": "nu",
@@ -686,7 +686,7 @@
       "items": 0,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-5&registrations=f",
       "source_sha256": "05eee123b73575bc0e65cb4f04c36b9199cf242e38dbe6dd50078ae638e32485",
-      "source_retrieved_at": "2026-10-24T18:07:37.556798+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:21.830325+00:00"
     },
     {
       "subdomain": "nu",
@@ -695,7 +695,7 @@
       "items": 8,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-6&registrations=f",
       "source_sha256": "9a17d8783463792af975d5de381e23627873865f0c9844ace919f5278265c971",
-      "source_retrieved_at": "2026-10-24T18:07:37.954681+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:22.240774+00:00"
     },
     {
       "subdomain": "nu",
@@ -704,7 +704,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-7&registrations=f",
       "source_sha256": "a6c09286a5c3038d90f47504e69cb220d2e22880f0fbef0b6a235c87d17018e3",
-      "source_retrieved_at": "2026-10-24T18:07:38.222248+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:22.510379+00:00"
     },
     {
       "subdomain": "nu",
@@ -713,7 +713,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/nu/competitions?occurred=-8&registrations=f",
       "source_sha256": "70f7d378cfbcb7a576c4adfad088bc949c0ecf68990245d8c828f9bb87ce69ed",
-      "source_retrieved_at": "2026-10-24T18:07:38.681758+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:22.930956+00:00"
     },
     {
       "subdomain": "on",
@@ -721,8 +721,8 @@
       "season": "2026 / 2027",
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=0&registrations=f",
-      "source_sha256": "afc415733b6570e4ea671651ba8e5b6824413536e1a67c196ca3324f8c6dfe3d",
-      "source_retrieved_at": "2026-10-24T18:07:39.118810+00:00"
+      "source_sha256": "f33ce0c56635d310d244fed0e7400dc771ad6916c053a8a4669e205a2f7a4333",
+      "source_retrieved_at": "2026-10-26T00:57:23.355778+00:00"
     },
     {
       "subdomain": "on",
@@ -730,8 +730,8 @@
       "season": "2025 / 2026",
       "items": 99,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-1&registrations=f",
-      "source_sha256": "03ba89194d8ff33e4a742347be8a21281a5baf1040bcc7f75d06c83c11c796c8",
-      "source_retrieved_at": "2026-10-24T18:07:39.442655+00:00"
+      "source_sha256": "cd3c74bb9375d71cbb6e8d89fa1d1d35532f3d4811f08321a11fd45349856e1b",
+      "source_retrieved_at": "2026-10-26T00:57:23.680563+00:00"
     },
     {
       "subdomain": "on",
@@ -739,8 +739,8 @@
       "season": "2024 / 2025",
       "items": 87,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-2&registrations=f",
-      "source_sha256": "d406e0d2d7693d791edcd34a6e59ef4974cbf51e2663989755a6bdcfd6f85fe3",
-      "source_retrieved_at": "2026-10-24T18:07:39.713996+00:00"
+      "source_sha256": "3408f55b625448edae5c5049e11992ec1bd877e6a562d387addec11f35fa387e",
+      "source_retrieved_at": "2026-10-26T00:57:23.954861+00:00"
     },
     {
       "subdomain": "on",
@@ -748,8 +748,8 @@
       "season": "2023 / 2024",
       "items": 91,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-3&registrations=f",
-      "source_sha256": "f63ce34de4295e139ac609725a2033041bc96700f973955a5e31cec0fa05ef7a",
-      "source_retrieved_at": "2026-10-24T18:07:40.009770+00:00"
+      "source_sha256": "793a979d99377b2fc41a5b74a1b2311d292ea95eef9b96c6eb73631b3af15af3",
+      "source_retrieved_at": "2026-10-26T00:57:24.280440+00:00"
     },
     {
       "subdomain": "on",
@@ -757,8 +757,8 @@
       "season": "2022 / 2023",
       "items": 57,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-4&registrations=f",
-      "source_sha256": "5f7494902cb35338211e097e920c1d559205040ce19a07849e741e3134bce0e8",
-      "source_retrieved_at": "2026-10-24T18:07:40.271511+00:00"
+      "source_sha256": "6a05329184b6925c63ca05e49e87198b6e61d3949d068a22c50bc817c3bebe11",
+      "source_retrieved_at": "2026-10-26T00:57:24.568956+00:00"
     },
     {
       "subdomain": "on",
@@ -766,8 +766,8 @@
       "season": "2021 / 2022",
       "items": 56,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-5&registrations=f",
-      "source_sha256": "68197054dd05173d0e23ca277eb2b039df7e1fec516aa83e26501b430719d6d3",
-      "source_retrieved_at": "2026-10-24T18:07:40.720329+00:00"
+      "source_sha256": "97d62f6fdd9009836463b681ec286ee12b3078b994ccf210fa18c53d898f6614",
+      "source_retrieved_at": "2026-10-26T00:57:24.971049+00:00"
     },
     {
       "subdomain": "on",
@@ -776,7 +776,7 @@
       "items": 8,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-6&registrations=f",
       "source_sha256": "1a86f4bba44fe6655a8e5ac50922c9accab93786483ac30791a07566fd698721",
-      "source_retrieved_at": "2026-10-24T18:07:41.060714+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:25.282339+00:00"
     },
     {
       "subdomain": "on",
@@ -784,8 +784,8 @@
       "season": "2019 / 2020",
       "items": 91,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-7&registrations=f",
-      "source_sha256": "98d3911bf759d807359407624ad9dbb0163e24a29bff2ecf02c45a7792c30b65",
-      "source_retrieved_at": "2026-10-24T18:07:41.344909+00:00"
+      "source_sha256": "cce179e05c4d3c7bbeddbcfd74fafda23cb93fd90eb9dc0028cd3ac78b4b2946",
+      "source_retrieved_at": "2026-10-26T00:57:25.569136+00:00"
     },
     {
       "subdomain": "on",
@@ -793,8 +793,8 @@
       "season": "2018 / 2019",
       "items": 93,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-8&registrations=f",
-      "source_sha256": "27bf12914b02d3abfddadd6c7733513f51f3b6825e5ec632063952e4f57adcd1",
-      "source_retrieved_at": "2026-10-24T18:07:41.649609+00:00"
+      "source_sha256": "625ed2a89ffa296964bf9bb5abe0d92e5f3bb3858f69f646ed7b74cb713d0377",
+      "source_retrieved_at": "2026-10-26T00:57:25.859492+00:00"
     },
     {
       "subdomain": "on",
@@ -802,8 +802,8 @@
       "season": "2017 / 2018",
       "items": 165,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-9&registrations=f",
-      "source_sha256": "fc71da0fa9bdd60661e14cae65ace7b1fed171da748f8a2866f045d981bbd9fe",
-      "source_retrieved_at": "2026-10-24T18:07:42.025376+00:00"
+      "source_sha256": "f6865582e4b48645256953d323301f8954c9e615be7de2147fffd382144fdd8a",
+      "source_retrieved_at": "2026-10-26T00:57:26.178743+00:00"
     },
     {
       "subdomain": "on",
@@ -811,8 +811,8 @@
       "season": "2016 / 2017",
       "items": 149,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-10&registrations=f",
-      "source_sha256": "df14d550c21ad82306533ee4961ec7fa03a0d82b86bbcc621ed3d2acd57e9ab8",
-      "source_retrieved_at": "2026-10-24T18:07:42.323237+00:00"
+      "source_sha256": "7dd16c651f001ca5fb2c766256c1ec86b4cbcb62113c4b12d7cf3890fac11306",
+      "source_retrieved_at": "2026-10-26T00:57:26.566321+00:00"
     },
     {
       "subdomain": "on",
@@ -820,8 +820,8 @@
       "season": "2015 / 2016",
       "items": 227,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-11&registrations=f",
-      "source_sha256": "592f1d7d7fa4ebc0aab0fb323b579ce59f03dc4d491daaad5d5d86e6410e66bd",
-      "source_retrieved_at": "2026-10-24T18:07:42.676111+00:00"
+      "source_sha256": "4806507280e06bd1c7291197e8f8961caaf1341bc91b6cf1400a2f4e8f9e91b2",
+      "source_retrieved_at": "2026-10-26T00:57:26.959837+00:00"
     },
     {
       "subdomain": "on",
@@ -829,8 +829,8 @@
       "season": "2014 / 2015",
       "items": 216,
       "source_url": "https://api.curling.io/en/clubs/on/competitions?occurred=-12&registrations=f",
-      "source_sha256": "7df6a7fe69e30bba1f9412f5846602236b6337ba5e9a5dfd6ac40f894edba156",
-      "source_retrieved_at": "2026-10-24T18:07:43.158742+00:00"
+      "source_sha256": "e77317a9f9dfcb6e24e1bc8da2b4a402167bf5572bb87f407edfb43374dfe105",
+      "source_retrieved_at": "2026-10-26T00:57:27.451604+00:00"
     },
     {
       "subdomain": "pe",
@@ -839,7 +839,7 @@
       "items": 4,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=0&registrations=f",
       "source_sha256": "c5c207a1d2619871768789dccae1eb0f85c129872a19851a1f4cce2d79c91ae7",
-      "source_retrieved_at": "2026-10-24T18:07:43.423860+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:27.712465+00:00"
     },
     {
       "subdomain": "pe",
@@ -848,7 +848,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-1&registrations=f",
       "source_sha256": "f0ea1a829647831a343dbfb36855e312e90eec9aaa5f4e123669f6c1f43a19d5",
-      "source_retrieved_at": "2026-10-24T18:07:43.682119+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:28.006752+00:00"
     },
     {
       "subdomain": "pe",
@@ -857,7 +857,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-2&registrations=f",
       "source_sha256": "5ed42856b02f1147d98588f773bade4adc63f9d4bb2bbfbc73225fe9c8e3cfc8",
-      "source_retrieved_at": "2026-10-24T18:07:44.101193+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:28.467271+00:00"
     },
     {
       "subdomain": "pe",
@@ -866,7 +866,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-3&registrations=f",
       "source_sha256": "4d00b4a50b601add9d7e94bf3a40bb3aa3a2abfee124d61c5cf8910764cd1c65",
-      "source_retrieved_at": "2026-10-24T18:07:44.384527+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:28.749303+00:00"
     },
     {
       "subdomain": "pe",
@@ -875,7 +875,7 @@
       "items": 15,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-4&registrations=f",
       "source_sha256": "7c64e21a44c21d30101f6012f7f7da28e764dcbe194d938d7e99afd71065ccfb",
-      "source_retrieved_at": "2026-10-24T18:07:44.869112+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:29.182610+00:00"
     },
     {
       "subdomain": "pe",
@@ -884,7 +884,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-5&registrations=f",
       "source_sha256": "a064516b098cd53fe959dd0b918f9067e1bf8b3d679174db1dc9639d3ed60c98",
-      "source_retrieved_at": "2026-10-24T18:07:45.121420+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:29.444777+00:00"
     },
     {
       "subdomain": "pe",
@@ -892,8 +892,8 @@
       "season": "2020 / 2021",
       "items": 13,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-6&registrations=f",
-      "source_sha256": "e58b3f2fc240ab66432c5e34ec63f8070e6463608c291b5806526d64411855c7",
-      "source_retrieved_at": "2026-10-24T18:07:45.539588+00:00"
+      "source_sha256": "5f44cae227d24a79951d335d21fc3bdc9ecfff1bddd1ffe4d520136cac7cea96",
+      "source_retrieved_at": "2026-10-26T00:57:29.859680+00:00"
     },
     {
       "subdomain": "pe",
@@ -902,7 +902,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-7&registrations=f",
       "source_sha256": "9a59230ad3174e27d350e56f845a31900e5bc4f75825e14f9ae247123d8e3bc1",
-      "source_retrieved_at": "2026-10-24T18:07:46.196166+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:30.292316+00:00"
     },
     {
       "subdomain": "pe",
@@ -911,7 +911,7 @@
       "items": 16,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-8&registrations=f",
       "source_sha256": "d3642e60103cea08dda0ea68f8e73960cf199b05cbb16a033fc043de8b7d9c75",
-      "source_retrieved_at": "2026-10-24T18:07:46.588236+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:30.853780+00:00"
     },
     {
       "subdomain": "pe",
@@ -920,7 +920,7 @@
       "items": 15,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-9&registrations=f",
       "source_sha256": "f4266cd6c973669e94a4eef7f4c32a89e04457eafa9f447ebd043abed4c8c913",
-      "source_retrieved_at": "2026-10-24T18:07:46.855782+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:31.123145+00:00"
     },
     {
       "subdomain": "pe",
@@ -929,7 +929,7 @@
       "items": 12,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-10&registrations=f",
       "source_sha256": "684b1f185208878279c6c55797eeeb8ffb4e2870b8c572b9ed717bfd3e143053",
-      "source_retrieved_at": "2026-10-24T18:07:47.248530+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:31.552367+00:00"
     },
     {
       "subdomain": "pe",
@@ -938,7 +938,7 @@
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/pe/competitions?occurred=-11&registrations=f",
       "source_sha256": "54d62acd4efc810b0a43c2db60efebe593be1c39210d33fb3bfe0101397c3884",
-      "source_retrieved_at": "2026-10-24T18:07:47.636119+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:31.967893+00:00"
     },
     {
       "subdomain": "qc",
@@ -946,8 +946,8 @@
       "season": "2026 / 2027",
       "items": 10,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=0&registrations=f",
-      "source_sha256": "f2cb980a577bc214080764a1d958e629b559251819d8eaee6dca32928100fa4c",
-      "source_retrieved_at": "2026-10-24T18:07:47.922260+00:00"
+      "source_sha256": "2c92427a0f1bc93ce8d46b5aa776f0ac67a1e9b33e49095a5214bd5ece35156f",
+      "source_retrieved_at": "2026-10-26T00:57:32.234712+00:00"
     },
     {
       "subdomain": "qc",
@@ -955,8 +955,8 @@
       "season": "2025 / 2026",
       "items": 23,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-1&registrations=f",
-      "source_sha256": "e1650841857dc3688d8fe3d8fb8e8f7ec39cf0b721e228c3f83b1ea9a9c63ecb",
-      "source_retrieved_at": "2026-10-24T18:07:48.304722+00:00"
+      "source_sha256": "edd0b178ded9a5897c4690460d340e3935290fc16a2b1434602c1c873cb1c206",
+      "source_retrieved_at": "2026-10-26T00:57:32.662054+00:00"
     },
     {
       "subdomain": "qc",
@@ -965,7 +965,7 @@
       "items": 22,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-2&registrations=f",
       "source_sha256": "2508dda1693cb9f14bdcce082d93b7a43f4a2d3266e2e597f32983665092f134",
-      "source_retrieved_at": "2026-10-24T18:07:48.574390+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:33.087020+00:00"
     },
     {
       "subdomain": "qc",
@@ -973,8 +973,8 @@
       "season": "2023 / 2024",
       "items": 22,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-3&registrations=f",
-      "source_sha256": "533cbdaa770e056ee6610dc5a18af1e0e0125ddc6db8f551e4b74ab47c4a994d",
-      "source_retrieved_at": "2026-10-24T18:07:48.846293+00:00"
+      "source_sha256": "4aa81167df1c301ed57e048a6a78e948784ee3d6c5e1580f81ab07ada43eecb8",
+      "source_retrieved_at": "2026-10-26T00:57:33.382289+00:00"
     },
     {
       "subdomain": "qc",
@@ -983,7 +983,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-4&registrations=f",
       "source_sha256": "166cd7e150498aec0883f9a7e7737a1966bc8b25b65df84e7616ae655cbd38d6",
-      "source_retrieved_at": "2026-10-24T18:07:49.102875+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:33.684453+00:00"
     },
     {
       "subdomain": "qc",
@@ -991,8 +991,8 @@
       "season": "2021 / 2022",
       "items": 19,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-5&registrations=f",
-      "source_sha256": "f47d3dbe1380be045c0bf0380f48cea8f1959e3aba975ac01110e7966fb23366",
-      "source_retrieved_at": "2026-10-24T18:07:49.487422+00:00"
+      "source_sha256": "3d963976b35b777c15e0e11527929d91ae00020082122c261a21f973ec474216",
+      "source_retrieved_at": "2026-10-26T00:57:34.095476+00:00"
     },
     {
       "subdomain": "qc",
@@ -1001,7 +1001,7 @@
       "items": 2,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-6&registrations=f",
       "source_sha256": "0befebf178f465262a793d6530294f7b8b9094cd99a2047b493e94136ace12c8",
-      "source_retrieved_at": "2026-10-24T18:07:49.879259+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:34.467526+00:00"
     },
     {
       "subdomain": "qc",
@@ -1010,7 +1010,7 @@
       "items": 11,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-7&registrations=f",
       "source_sha256": "9f99f0808c395bddd8bc06961bfe2f7b70e497a1d99be3241e05427f2017d145",
-      "source_retrieved_at": "2026-10-24T18:07:50.272562+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:34.768711+00:00"
     },
     {
       "subdomain": "qc",
@@ -1019,7 +1019,7 @@
       "items": 13,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-8&registrations=f",
       "source_sha256": "5e99c6d329e1422901e697862cec2a47dccd1b2aa07418fae9d9e1e1dc7069bb",
-      "source_retrieved_at": "2026-10-24T18:07:50.542780+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:35.046890+00:00"
     },
     {
       "subdomain": "qc",
@@ -1028,7 +1028,7 @@
       "items": 21,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-9&registrations=f",
       "source_sha256": "65e16a4612123222f701a65fd063937debcf7720acd69dd405614e096182393f",
-      "source_retrieved_at": "2026-10-24T18:07:50.966272+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:35.456725+00:00"
     },
     {
       "subdomain": "qc",
@@ -1037,7 +1037,7 @@
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-10&registrations=f",
       "source_sha256": "ffd703dc098324e554b870d6c08c838d6545362132065a2569102d86085fbf1b",
-      "source_retrieved_at": "2026-10-24T18:07:51.368062+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:35.895270+00:00"
     },
     {
       "subdomain": "qc",
@@ -1046,7 +1046,7 @@
       "items": 17,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-11&registrations=f",
       "source_sha256": "cb3405163994458ce2efd4b8649408be73002cf0f318de0eb6db7ce736a7e59c",
-      "source_retrieved_at": "2026-10-24T18:07:51.667366+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:36.256929+00:00"
     },
     {
       "subdomain": "qc",
@@ -1054,8 +1054,8 @@
       "season": "2014 / 2015",
       "items": 18,
       "source_url": "https://api.curling.io/en/clubs/qc/competitions?occurred=-12&registrations=f",
-      "source_sha256": "f242fba593f0f764ed46feea60cd32f2f91181d4c1440e9b476866b13886f6c7",
-      "source_retrieved_at": "2026-10-24T18:07:51.933836+00:00"
+      "source_sha256": "f3556fed0bf8899ea68ad69b11ea7ca1e795bf6957cd8847feabcb7712e3c53d",
+      "source_retrieved_at": "2026-10-26T00:57:36.550310+00:00"
     },
     {
       "subdomain": "sk",
@@ -1064,7 +1064,7 @@
       "items": 8,
       "source_url": "https://api.curling.io/en/clubs/sk/competitions?occurred=0&registrations=f",
       "source_sha256": "1afdd5900a47c918a2144aaca9e4a5a287b8e796e72eee997c766df4dcff37c6",
-      "source_retrieved_at": "2026-10-24T18:07:52.202184+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:36.846704+00:00"
     },
     {
       "subdomain": "sk",
@@ -1072,8 +1072,8 @@
       "season": "2025 / 2026",
       "items": 30,
       "source_url": "https://api.curling.io/en/clubs/sk/competitions?occurred=-1&registrations=f",
-      "source_sha256": "1cb95a56314d68a56265733a0a323acb1601c153c21eb90ac3add1dd2d8c4a03",
-      "source_retrieved_at": "2026-10-24T18:07:52.457431+00:00"
+      "source_sha256": "a6424ab3a12c5fd0e812c1918f5b04bd11d83d4d8749f57e942ebfd2cf86a1e5",
+      "source_retrieved_at": "2026-10-26T00:57:37.118710+00:00"
     },
     {
       "subdomain": "yt",
@@ -1082,7 +1082,7 @@
       "items": 9,
       "source_url": "https://api.curling.io/en/clubs/yt/competitions?occurred=0&registrations=f",
       "source_sha256": "6430c6af785001b0c8ff262dffdbb9cd04e81fe9aec9675835a55a7f514f25a8",
-      "source_retrieved_at": "2026-10-24T18:07:52.859291+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:37.502484+00:00"
     },
     {
       "subdomain": "yt",
@@ -1091,7 +1091,7 @@
       "items": 14,
       "source_url": "https://api.curling.io/en/clubs/yt/competitions?occurred=-1&registrations=f",
       "source_sha256": "77dc5a56f2d5c5a8a819b07dcf1ca7c6b7bf3bfd66584550f6b9ba7bc23e67a4",
-      "source_retrieved_at": "2026-10-24T18:07:53.135752+00:00"
+      "source_retrieved_at": "2026-10-26T00:57:37.779127+00:00"
     }
   ],
   "coverage": {
@@ -1322,115 +1322,122 @@
     "association_season_lists_succeeded": 14,
     "association_total": 14
   },
-  "current_source_events": 3770,
-  "current_source_appearances": 85725,
-  "retained_previous_observations": 85849,
+  "current_source_events": 3771,
+  "current_source_appearances": 85737,
+  "retained_previous_observations": 158,
   "files": [
     {
       "subdomain": "ab",
       "file": "history/ab.json",
       "appearances": 11866,
-      "bytes": 7713859,
-      "retained_previous_observations": 11866
+      "bytes": 8335623,
+      "current_source_observations": 11848,
+      "retained_previous_observations": 18
     },
     {
       "subdomain": "canada",
       "file": "history/canada.json",
-      "appearances": 11562,
-      "bytes": 7525649,
-      "retained_previous_observations": 11562
+      "appearances": 11565,
+      "bytes": 8033719,
+      "current_source_observations": 11546,
+      "retained_previous_observations": 19
     },
     {
       "subdomain": "bc",
       "file": "history/bc.json",
       "appearances": 0,
-      "bytes": 296,
+      "bytes": 554,
+      "current_source_observations": 0,
       "retained_previous_observations": 0
     },
     {
       "subdomain": "mb",
       "file": "history/mb.json",
       "appearances": 17651,
-      "bytes": 11226793,
-      "retained_previous_observations": 17651
+      "bytes": 11914928,
+      "current_source_observations": 17611,
+      "retained_previous_observations": 40
     },
     {
       "subdomain": "nb",
       "file": "history/nb.json",
       "appearances": 2601,
-      "bytes": 1526663,
-      "retained_previous_observations": 2601
+      "bytes": 1737917,
+      "current_source_observations": 2601,
+      "retained_previous_observations": 0
     },
     {
       "subdomain": "nl",
       "file": "history/nl.json",
-      "appearances": 1604,
-      "bytes": 942025,
-      "retained_previous_observations": 1604
+      "appearances": 1616,
+      "bytes": 1051891,
+      "current_source_observations": 1617,
+      "retained_previous_observations": 0
     },
     {
       "subdomain": "ns",
       "file": "history/ns.json",
       "appearances": 6847,
-      "bytes": 4174909,
-      "retained_previous_observations": 6847
+      "bytes": 4523056,
+      "current_source_observations": 6830,
+      "retained_previous_observations": 17
     },
     {
       "subdomain": "nt",
       "file": "history/nt.json",
       "appearances": 261,
-      "bytes": 154853,
-      "retained_previous_observations": 261
+      "bytes": 179211,
+      "current_source_observations": 261,
+      "retained_previous_observations": 0
     },
     {
       "subdomain": "nu",
       "file": "history/nu.json",
       "appearances": 22,
-      "bytes": 12679,
-      "retained_previous_observations": 22
+      "bytes": 15115,
+      "current_source_observations": 22,
+      "retained_previous_observations": 0
     },
     {
       "subdomain": "on",
       "file": "history/on.json",
-      "appearances": 21819,
-      "bytes": 13770373,
-      "retained_previous_observations": 21819
+      "appearances": 21833,
+      "bytes": 14850441,
+      "current_source_observations": 21812,
+      "retained_previous_observations": 21
     },
     {
       "subdomain": "pe",
       "file": "history/pe.json",
-      "appearances": 4732,
-      "bytes": 3065558,
-      "retained_previous_observations": 4732
+      "appearances": 4748,
+      "bytes": 3243500,
+      "current_source_observations": 4732,
+      "retained_previous_observations": 16
     },
     {
       "subdomain": "qc",
       "file": "history/qc.json",
       "appearances": 5461,
-      "bytes": 3373967,
-      "retained_previous_observations": 5461
+      "bytes": 3637496,
+      "current_source_observations": 5456,
+      "retained_previous_observations": 5
     },
     {
       "subdomain": "sk",
       "file": "history/sk.json",
       "appearances": 1399,
-      "bytes": 818406,
-      "retained_previous_observations": 1399
+      "bytes": 935688,
+      "current_source_observations": 1377,
+      "retained_previous_observations": 22
     },
     {
       "subdomain": "yt",
       "file": "history/yt.json",
       "appearances": 24,
-      "bytes": 13504,
-      "retained_previous_observations": 24
+      "bytes": 15970,
+      "current_source_observations": 24,
+      "retained_previous_observations": 0
     }
   ],
-  "errors": [],
-  "archive_union": {
-    "mode": "offline_union",
-    "history_complete": false,
-    "source_directories": [
-      "C:\\Jess\\curler-tracker\\data\\history"
-    ]
-  }
+  "errors": []
 }

@@ -1,9 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T18:53:36.835827+00:00",
+  "generated_at": "2026-10-26T01:21:28.163806+00:00",
   "source_provider": "Curling I/O",
   "source_subdomain": "bc",
-  "source_policy": "Owner-confirmed written permission; source observations retain provenance.",
-  "coverage": {},
+  "source_policy": "Project owner confirmed written permission for automated collection and republication; no inferred appearances or cross-source identity merges.",
+  "coverage": {
+    "available_season_count": 1,
+    "oldest_available_season": "2026 / 2027",
+    "newest_available_season": "2026 / 2027",
+    "advertised_seasons": [
+      "2026 / 2027"
+    ]
+  },
   "curler_appearances": {}
 }
