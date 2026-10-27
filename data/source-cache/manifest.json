@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T05:19:51.451988+00:00",
+  "generated_at": "2026-10-27T00:05:08.372304+00:00",
   "source": "Arthur content-addressed Curling I/O archive",
   "subdomains": [
     "ab",
@@ -19,7 +19,7 @@
     "yt"
   ],
   "competition_lists": 28,
-  "event_records": 269,
+  "event_records": 270,
   "referenced_events": 465,
   "referenced_events_cached": 61,
   "records": {
@@ -40,219 +40,219 @@
     "ab/events/16455.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/16455",
-      "retrieved_at": "2026-10-26T05:16:07.664187+00:00",
-      "sha256": "90dd2ebd6b5b27f9e0fd45fda675fb0817664e13ebe688c986d6aa51bf369c03",
-      "bytes": 4148
+      "retrieved_at": "2026-10-27T00:01:30.055120+00:00",
+      "sha256": "5aec27a1482467731df53d38e4ed96a40687be7ca99884bb764e065851e032cf",
+      "bytes": 3956
     },
     "ab/events/28663.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28663",
-      "retrieved_at": "2026-10-26T05:16:02.216883+00:00",
-      "sha256": "beea1a5a138e6e0eab3c144ff590e273f03a619737ec47156615f7e54e538f9b",
-      "bytes": 4384
+      "retrieved_at": "2026-10-27T00:01:24.802620+00:00",
+      "sha256": "cc8023870f963d5d94bc19eb2f0daeb7801b02660539e69988a91e22aec92e56",
+      "bytes": 4190
     },
     "ab/events/28664.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28664",
-      "retrieved_at": "2026-10-26T05:16:03.115844+00:00",
-      "sha256": "fc94ef58ad2b73f0802c83593958a5ec83162cb38942a580cb677c5ece359d6d",
-      "bytes": 4369
+      "retrieved_at": "2026-10-27T00:01:25.675028+00:00",
+      "sha256": "e962ab25063f90557ac6afd213e9e4ea6f0cfd257b2c69cff728f30f46601eb6",
+      "bytes": 4176
     },
     "ab/events/28667.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28667",
-      "retrieved_at": "2026-10-26T05:16:06.763680+00:00",
-      "sha256": "da11a007f0fa39f177a47c84215fc505d6e5aa1ceda8581ce51e5df0a02b4a54",
-      "bytes": 3266
+      "retrieved_at": "2026-10-27T00:01:29.180723+00:00",
+      "sha256": "c8fa0ee6909e6efa3e9829aeb2242a8048fbdbd51146a9d6963aaa630e78c12a",
+      "bytes": 3073
     },
     "ab/events/28671.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28671",
-      "retrieved_at": "2026-10-26T05:16:04.064610+00:00",
-      "sha256": "971037c3dfe84adc83322976d2018181a68dafa0cc6331276418c896bd5a6822",
-      "bytes": 4373
+      "retrieved_at": "2026-10-27T00:01:26.539321+00:00",
+      "sha256": "fb41e95041d48be043a40ec2af7ab5295bd3e2d9b79f6c145a4da31328bb063e",
+      "bytes": 4180
     },
     "ab/events/28677.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28677",
-      "retrieved_at": "2026-10-26T05:16:05.051042+00:00",
-      "sha256": "f42185c8a20123829576affb2d2459b78d208f1aa9ff1813d47f397c6ebeb507",
-      "bytes": 4350
+      "retrieved_at": "2026-10-27T00:01:27.423606+00:00",
+      "sha256": "1baab15739180739595e23d30cf337cdb3ea7a91099062f6b7d365a16162e54b",
+      "bytes": 4157
     },
     "ab/events/28679.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28679",
-      "retrieved_at": "2026-10-26T05:16:05.839376+00:00",
-      "sha256": "075d0bc3a7419515affd38e0cadf35dc06a00956549a47f4e464e84e8ddae82c",
-      "bytes": 3228
+      "retrieved_at": "2026-10-27T00:01:28.309761+00:00",
+      "sha256": "cee715b837e95d5a09ea04b5bb1e7c3ca089604d20f7c4493f5f0b119d76e2ba",
+      "bytes": 3035
     },
     "ab/events/28700.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28700",
-      "retrieved_at": "2026-10-26T05:16:13.868526+00:00",
-      "sha256": "2be196f8bdc4c2efa3d4bca4117116d095a21d2083ab04b8f344d411343d6a6a",
-      "bytes": 4276
+      "retrieved_at": "2026-10-27T00:01:36.091301+00:00",
+      "sha256": "e6f908ca189058066d78627d60dcc945e771f408a10f1faa92c4838368917375",
+      "bytes": 4084
     },
     "ab/events/28701.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28701",
-      "retrieved_at": "2026-10-26T05:16:14.806596+00:00",
-      "sha256": "78c9bfb8cb7bb502e964583d278a44a5b6a614b26e16f7ea6ec97fee45ba065a",
-      "bytes": 4262
+      "retrieved_at": "2026-10-27T00:01:37.014837+00:00",
+      "sha256": "434fbef861f0a8cd540147e4537c99552755af6c83452a1bdd75d6778c555213",
+      "bytes": 4070
     },
     "ab/events/28702.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28702",
-      "retrieved_at": "2026-10-26T05:16:15.610362+00:00",
-      "sha256": "695da2aa932f4752778ff0a6fa8973e0c75c258380d156f40bfb944be5d366e0",
-      "bytes": 4266
+      "retrieved_at": "2026-10-27T00:01:37.837788+00:00",
+      "sha256": "92d9746b583d6d4b1b3dd00eb6e0bf678fbb43f865568520b807d38f9a7a8e6b",
+      "bytes": 4074
     },
     "ab/events/28706.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28706",
-      "retrieved_at": "2026-10-26T05:16:16.552368+00:00",
-      "sha256": "e411935c3f25210a7a2cb7a92646f3762d8b0538c40607c40e7702140dfe1cf9",
-      "bytes": 3376
+      "retrieved_at": "2026-10-27T00:01:38.753100+00:00",
+      "sha256": "3535bf482695328a734f2b6ec5506cb2c4ca1e74d135c7017eabf50c21a2bae9",
+      "bytes": 3184
     },
     "ab/events/28707.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28707",
-      "retrieved_at": "2026-10-26T05:16:17.462575+00:00",
-      "sha256": "ba5723d9f185d476b1eae48a91d628ffc13eae74e2ab1018f618d37931e90b43",
-      "bytes": 3362
+      "retrieved_at": "2026-10-27T00:01:39.638516+00:00",
+      "sha256": "880dc5a93fa5a0d741a85b7f43f18789ade9eab066da5ce2e465546addd6a32d",
+      "bytes": 3170
     },
     "ab/events/28708.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28708",
-      "retrieved_at": "2026-10-26T05:16:18.405767+00:00",
-      "sha256": "615b89954f189fee027498bbce7ac8d39210db9d15f5e0fcf18609ac45e22956",
-      "bytes": 3374
+      "retrieved_at": "2026-10-27T00:01:40.559802+00:00",
+      "sha256": "bf471e5e037a6e04334f83e4e595cf4b2a9076eb4bb218c857e494b4ac2aeaad",
+      "bytes": 3182
     },
     "ab/events/28709.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28709",
-      "retrieved_at": "2026-10-26T05:16:19.374823+00:00",
-      "sha256": "4b00079b4136696a42a9328f1b17a3fa08163a62813bda00c7ce6d977317b205",
-      "bytes": 4106
+      "retrieved_at": "2026-10-27T00:01:41.444482+00:00",
+      "sha256": "d602a2c391e1c5d372dffbb21cc155abf66bb40e9fb3cb0744ade72b889483f8",
+      "bytes": 3904
     },
     "ab/events/28710.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28710",
-      "retrieved_at": "2026-10-26T05:16:20.303565+00:00",
-      "sha256": "c071a6e1c12781aebd0db739bbe3cb360599cf37d3f46d1471d44eca2bdd9394",
-      "bytes": 4086
+      "retrieved_at": "2026-10-27T00:01:42.388894+00:00",
+      "sha256": "100096e315381832aaa0100863cfdfea6b19e8ab33c07e84f7cefe1bdfc6e929",
+      "bytes": 3884
     },
     "ab/events/28711.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28711",
-      "retrieved_at": "2026-10-26T05:16:23.825714+00:00",
-      "sha256": "49a732ea57d4c981976f4c190b7cd1de44e01133120ffcee81b2263a00df9848",
-      "bytes": 4086
+      "retrieved_at": "2026-10-27T00:01:45.864349+00:00",
+      "sha256": "2354a5dde10d604a94983123ecf454fa7d381e4e25dc461ccab0e19ff5e242df",
+      "bytes": 3884
     },
     "ab/events/28712.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28712",
-      "retrieved_at": "2026-10-26T05:16:21.247378+00:00",
-      "sha256": "4c67b07f672dcbd90c6e53c9f5a35eff15440b25c89149cc8f2e044a20f8e64a",
-      "bytes": 3819
+      "retrieved_at": "2026-10-27T00:01:43.262339+00:00",
+      "sha256": "3a86af32068e896f1cf8f9e9191d7e96742c62666eac360ef0c7ff11662d841d",
+      "bytes": 3627
     },
     "ab/events/28713.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28713",
-      "retrieved_at": "2026-10-26T05:16:24.604169+00:00",
-      "sha256": "fd397e81811978d4b310e6eddc1e5ce3d08a70ed3a9e56b3b5b633b11d374008",
-      "bytes": 3799
+      "retrieved_at": "2026-10-27T00:01:46.646962+00:00",
+      "sha256": "f9a526d3379b08b7e959da281182f20ed92b03d7a2e0c1a6c6361b74218cf3a0",
+      "bytes": 3607
     },
     "ab/events/28714.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28714",
-      "retrieved_at": "2026-10-26T05:16:25.541451+00:00",
-      "sha256": "3b8091d1a912f38b31fb746f4d6aa9119e604a2c7a018b0bc7930659f3a23d85",
-      "bytes": 3807
+      "retrieved_at": "2026-10-27T00:01:47.520093+00:00",
+      "sha256": "738d1c458bee05b27327f2e8b80d8a4513dacfd0bd7bde3ab67296dc02e510f7",
+      "bytes": 3615
     },
     "ab/events/28962.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28962",
-      "retrieved_at": "2026-10-26T05:16:10.204784+00:00",
-      "sha256": "63b79281d8c7969bac099af70d3faa714e57f607c900a6f7288ef607b8049599",
-      "bytes": 4128
+      "retrieved_at": "2026-10-27T00:01:32.503704+00:00",
+      "sha256": "02d61e3c972d59468d96f928d1d2ae10117c79e04a4ef3965be35f31385bbc56",
+      "bytes": 3936
     },
     "ab/events/28963.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28963",
-      "retrieved_at": "2026-10-26T05:16:12.027382+00:00",
-      "sha256": "18aaa1195a520b58d4d15213e6f7e0e4672ccb0de0e5266bfc5ac9fb62d74067",
-      "bytes": 4140
+      "retrieved_at": "2026-10-27T00:01:34.273441+00:00",
+      "sha256": "c783ecb57982c432f704ae01fa5e1b4ad3eeda5147710582e194b1a15bbe5206",
+      "bytes": 3948
     },
     "ab/events/28964.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28964",
-      "retrieved_at": "2026-10-26T05:16:08.452019+00:00",
-      "sha256": "c840f706e60a3f32dc510fe8c12f9b9279c35b259e704ccdd3df33ca18ef6301",
-      "bytes": 4123
+      "retrieved_at": "2026-10-27T00:01:30.819400+00:00",
+      "sha256": "efc09a3906d78d91bc9a181a399002d564bf461716da9b0354fc359cc6900a67",
+      "bytes": 3931
     },
     "ab/events/28965.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28965",
-      "retrieved_at": "2026-10-26T05:16:09.244765+00:00",
-      "sha256": "99a4a8e7bdbed0e7062c7c238d20a20d916539aa107f0a4aa61300005461ba3b",
-      "bytes": 4103
+      "retrieved_at": "2026-10-27T00:01:31.594983+00:00",
+      "sha256": "3bfe98c5a1797a6a914ff37bd011181a937fc7a7c3ff0e65fe1ff6145a1b9d9c",
+      "bytes": 3911
     },
     "ab/events/28966.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28966",
-      "retrieved_at": "2026-10-26T05:16:11.119580+00:00",
-      "sha256": "7a351291656c7811e5ddddbb96d41f6b4ec894419962395237afc28ab6098d9e",
-      "bytes": 4115
+      "retrieved_at": "2026-10-27T00:01:33.400099+00:00",
+      "sha256": "53520366405ef233d02d6896917d93d01a9e7369e59470d927d3acefca42e35e",
+      "bytes": 3923
     },
     "ab/events/28970.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28970",
-      "retrieved_at": "2026-10-26T05:16:22.003876+00:00",
-      "sha256": "96456a16a8b977833ea9c6c8c1408fc62393a1761a7c9ff09d2ca44852b51790",
-      "bytes": 3827
+      "retrieved_at": "2026-10-27T00:01:44.050133+00:00",
+      "sha256": "11740e50cfb0a997034598bb71f443b3a8b626487bf61b97567b45d8bd68d828",
+      "bytes": 3635
     },
     "ab/events/28971.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28971",
-      "retrieved_at": "2026-10-26T05:16:22.899496+00:00",
-      "sha256": "ccf1e7aa3b2275c6f404a808396239b709a46a28a3672d2e0a8d8469577d3e38",
-      "bytes": 3805
+      "retrieved_at": "2026-10-27T00:01:44.961763+00:00",
+      "sha256": "440edd375a018517e41f3042b9a9b1a70a5594a6c6dac592efda8364bb04994d",
+      "bytes": 3613
     },
     "ab/events/28974.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28974",
-      "retrieved_at": "2026-10-26T05:16:26.468684+00:00",
-      "sha256": "17f5921e037fc1f3aa2e80b3535fe71eae6b881a9c38227db7edf627da8ca6dc",
-      "bytes": 3529
+      "retrieved_at": "2026-10-27T00:01:48.427672+00:00",
+      "sha256": "c53f04ba48618549b7647df03b5bec738ee8c4f25d9d28ab25d32736a4fc26fe",
+      "bytes": 3336
     },
     "ab/events/28979.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28979",
-      "retrieved_at": "2026-10-26T05:16:27.369792+00:00",
-      "sha256": "6a9c5a6ed9fc2270cd2003cf1818dc8c24ffe5c812fcba54d95f189139426784",
-      "bytes": 3631
+      "retrieved_at": "2026-10-27T00:01:49.307280+00:00",
+      "sha256": "3b11f8c205260a5008476052219a744bdc28f7724bd5bfb5b3831b91ec761885",
+      "bytes": 3439
     },
     "ab/events/28984.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28984",
-      "retrieved_at": "2026-10-26T05:16:28.287205+00:00",
-      "sha256": "75e05355705de0c8fa1541fe68e33a9437631eb418e93c624a4ec5af1e4864ac",
-      "bytes": 3775
+      "retrieved_at": "2026-10-27T00:01:50.216549+00:00",
+      "sha256": "21638ecb33ca5ab4c68219c3f1faef54402b0ceda8db1d1c5211a9e935759fce",
+      "bytes": 3581
     },
     "ab/events/28985.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/28985",
-      "retrieved_at": "2026-10-26T05:16:29.232743+00:00",
-      "sha256": "270aff175e944c178365b2346bab4a51beba86c212557b5ee6db30a9d1f92fde",
-      "bytes": 3700
+      "retrieved_at": "2026-10-27T00:01:51.169811+00:00",
+      "sha256": "71fdc0f60df61d49f4d360909a54e32b2ee231003e27e22bb0b884ff8846c31f",
+      "bytes": 3509
     },
     "ab/events/30066.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/ab/events/30066",
-      "retrieved_at": "2026-10-26T05:16:12.936693+00:00",
-      "sha256": "39e11fd54c918bcd1666a71452448b91973b4bab85fb4416e23dfa386d65388b",
-      "bytes": 40586
+      "retrieved_at": "2026-10-27T00:01:35.200295+00:00",
+      "sha256": "b1ce9f605cb467bb6a366c72e3fce81419539349e175f630760277310865173c",
+      "bytes": 40620
     },
     "bc/competitions--1.json": {
       "kind": "competitions",
@@ -271,93 +271,93 @@
     "bc/events/28822.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28822",
-      "retrieved_at": "2026-10-26T05:16:31.168281+00:00",
-      "sha256": "9782ac52d3ef4aa3117eb55fc3517de1eaea1075ec5f02aee076641daa036616",
-      "bytes": 4056
+      "retrieved_at": "2026-10-27T00:01:52.988631+00:00",
+      "sha256": "962055f8fa78c0c6b7e4f30d6e5006bbe81240e52008bb5445f59632de312525",
+      "bytes": 3782
     },
     "bc/events/28825.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28825",
-      "retrieved_at": "2026-10-26T05:16:31.997479+00:00",
-      "sha256": "06a0ba292c7fed993142fda72027dd94e318461f6c26ea46b59e6ee14ad4d851",
-      "bytes": 8212
+      "retrieved_at": "2026-10-27T00:01:53.925291+00:00",
+      "sha256": "11a6dfd309a5affceada40ef3ba81fa286d9ee3ff0bc04b1580c1b6328ce7ffa",
+      "bytes": 8086
     },
     "bc/events/28845.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28845",
-      "retrieved_at": "2026-10-26T05:16:32.833012+00:00",
-      "sha256": "5c418914c2f62e031d397019db3bee5c25220842ed26f291491579e53a565334",
-      "bytes": 1976
+      "retrieved_at": "2026-10-27T00:01:54.672766+00:00",
+      "sha256": "12e20fd451618362cb47a17471230517d9af680d88e65289f9f25fd4a8f2f86f",
+      "bytes": 1745
     },
     "bc/events/28846.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28846",
-      "retrieved_at": "2026-10-26T05:16:33.820645+00:00",
-      "sha256": "7a0b4a3ce176ad0442affb33a99c298dc35e52d80ee4bef5a969935dbf359c37",
-      "bytes": 1030
+      "retrieved_at": "2026-10-27T00:01:55.539157+00:00",
+      "sha256": "a4d8f71eab8f7135e28ae5433ae54dbb9bb96747830dc190c9bda8a5c36c0bfb",
+      "bytes": 772
     },
     "bc/events/28847.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28847",
-      "retrieved_at": "2026-10-26T05:16:34.803026+00:00",
-      "sha256": "473525963019026c086457fe56fbbc933634b00dbb86631914ccc109832b2aac",
-      "bytes": 1865
+      "retrieved_at": "2026-10-27T00:01:56.450929+00:00",
+      "sha256": "566b1db0b8be401aa13b48a2964906d76e24b3458bacbc459d1ac3503b332482",
+      "bytes": 1621
     },
     "bc/events/28848.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28848",
-      "retrieved_at": "2026-10-26T05:16:38.478549+00:00",
-      "sha256": "5a735c47b0f2c09c90f26633110688b03417f3a0dbcfe3512167a0e2563a11e2",
-      "bytes": 2878
+      "retrieved_at": "2026-10-27T00:01:59.902041+00:00",
+      "sha256": "e81a3be5429b5c452bcaad192902393ad4b72f8eda4252624eb7d1c3a2fcd0af",
+      "bytes": 2610
     },
     "bc/events/28874.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28874",
-      "retrieved_at": "2026-10-26T05:16:37.664300+00:00",
-      "sha256": "540580b2b1cb48e18d37cbf6c142851d0b024ae4015d89de7f96308288ddb762",
-      "bytes": 1573
+      "retrieved_at": "2026-10-27T00:01:59.135587+00:00",
+      "sha256": "c631ccb728e13480789a5864807051f9a5b3555cfc0914672006819f244dc377",
+      "bytes": 1323
     },
     "bc/events/28875.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28875",
-      "retrieved_at": "2026-10-26T05:16:36.694014+00:00",
-      "sha256": "5e0ad0529774949c50935a1685c8a39a9e1dff9653dbd17ad1536b52a3962b91",
-      "bytes": 885
+      "retrieved_at": "2026-10-27T00:01:58.235420+00:00",
+      "sha256": "40644d1076d057c0883e68a67c1fd2e5908cb6322dcecc14051d1e0f99039a78",
+      "bytes": 622
     },
     "bc/events/28876.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28876",
-      "retrieved_at": "2026-10-26T05:16:35.759421+00:00",
-      "sha256": "165df045b1839f6c163bdf0c8dbb85ac8a5a246c187b21ecb0f3bc62b73aee10",
-      "bytes": 878
+      "retrieved_at": "2026-10-27T00:01:57.365359+00:00",
+      "sha256": "135c3dc24ee102c7b5bcd4c695272e8314d3aa2653dc5342c22f0aff4eaf544e",
+      "bytes": 615
     },
     "bc/events/28877.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28877",
-      "retrieved_at": "2026-10-26T05:16:39.250060+00:00",
-      "sha256": "7b3807fabce527944c8db925c5f7af175f792cf3e311ba3649eedcbaa43da54a",
-      "bytes": 1022
+      "retrieved_at": "2026-10-27T00:02:00.675781+00:00",
+      "sha256": "a12f8eb124cf06c9fd5f27e8dcb4e2f7c91416e0793e457fdb87431573a1c89c",
+      "bytes": 762
     },
     "bc/events/28879.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28879",
-      "retrieved_at": "2026-10-26T05:16:40.015689+00:00",
-      "sha256": "2a0573be04cb69c23cfa761790b8aa79025fc3e89a05b70ba063fa86713f78f6",
-      "bytes": 844
+      "retrieved_at": "2026-10-27T00:02:01.432723+00:00",
+      "sha256": "ce5c3da5cc57e8d276b2c5bc872c2f60de4bb4c52a2cd5109300503e214edd23",
+      "bytes": 585
     },
     "bc/events/28880.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/28880",
-      "retrieved_at": "2026-10-26T05:16:40.778620+00:00",
-      "sha256": "6e7454c8f8421c8733057c218d7d9989e32a8dca28f4c3ea277042ba26f6f595",
-      "bytes": 1010
+      "retrieved_at": "2026-10-27T00:02:02.195112+00:00",
+      "sha256": "03f658297d5b17e4a503ce62c781ea60cae87f64f84976b0e4357e9a32a875d2",
+      "bytes": 752
     },
     "bc/events/29310.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/bc/events/29310",
-      "retrieved_at": "2026-10-26T05:16:41.454249+00:00",
-      "sha256": "386d3c7a449aaa7d2d1403bc6676443ac43680d1723ac215a7dbe2d4e82f5b5d",
-      "bytes": 35959
+      "retrieved_at": "2026-10-27T00:02:02.903240+00:00",
+      "sha256": "14c6fdf1683313843fd6ccd69f6b9836c61219dfe1b1ebb4bfcc6e3d8c99a201",
+      "bytes": 35942
     },
     "canada/competitions--1.json": {
       "kind": "competitions",
@@ -376,72 +376,72 @@
     "canada/events/27270.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/27270",
-      "retrieved_at": "2026-10-26T05:19:41.704840+00:00",
-      "sha256": "5c90f0b6a8a023ddd12648f5039f0428f36bb9a8e8b4f344f16fcea033cd2be3",
-      "bytes": 23357
+      "retrieved_at": "2026-10-27T00:04:58.551033+00:00",
+      "sha256": "3d214d01e440cdd33ce34923f769a948e2d3c384da04baf08e456fb80b4ef7a6",
+      "bytes": 22912
     },
     "canada/events/27271.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/27271",
-      "retrieved_at": "2026-10-26T05:19:42.535400+00:00",
-      "sha256": "880e5deb75a9a29042e79167ed4abdd28140093d2dddbd5b5c00e9d84c7c4d1b",
-      "bytes": 2371
+      "retrieved_at": "2026-10-27T00:04:59.354331+00:00",
+      "sha256": "04cbafd6f17665e1dffc3111c09b492b96f7375e9e7128389b460c9fbd6ddd51",
+      "bytes": 2139
     },
     "canada/events/27272.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/27272",
-      "retrieved_at": "2026-10-26T05:19:43.418537+00:00",
-      "sha256": "41da5f5196b2a9dd610e5857783850c80af15481f3e5a2f3a6f4991809ebf04f",
-      "bytes": 43562
+      "retrieved_at": "2026-10-27T00:05:00.318454+00:00",
+      "sha256": "65c2411b2b2224786c93bd6f5472fca5e55731978ba084b542e496d127d61ea3",
+      "bytes": 25836
     },
     "canada/events/28342.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/28342",
-      "retrieved_at": "2026-10-26T05:19:44.111817+00:00",
-      "sha256": "c39c5c6a26af6ae142368142944751a70b27a1a56c905e2da639445d50263718",
-      "bytes": 28265
+      "retrieved_at": "2026-10-27T00:05:01.047090+00:00",
+      "sha256": "af01584081dc4865e149864b26b5f2de30f5dd17fda2a8baa961a72cdefda053",
+      "bytes": 27548
     },
     "canada/events/28931.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/28931",
-      "retrieved_at": "2026-10-26T05:19:45.012473+00:00",
-      "sha256": "5f31f597f86293d5dce4f8005855d192ff19b0b6f411f5df55f70a61a422d28b",
-      "bytes": 835
+      "retrieved_at": "2026-10-27T00:05:01.982495+00:00",
+      "sha256": "60c8708b8a26b15495749769af13df29231ba7a78d96b31e38297ac2853314b7",
+      "bytes": 603
     },
     "canada/events/28932.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/28932",
-      "retrieved_at": "2026-10-26T05:19:45.946622+00:00",
-      "sha256": "1f2aa3dfae1cc20e908d3095940910bf1bb9afc4a9d37f90a70ae603dc062516",
-      "bytes": 731
+      "retrieved_at": "2026-10-27T00:05:02.905029+00:00",
+      "sha256": "731584a8c4e626614baeca6584ed85425c253526c0291f6c7fc922aca45c3192",
+      "bytes": 564
     },
     "canada/events/29007.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/29007",
-      "retrieved_at": "2026-10-26T05:19:48.318917+00:00",
-      "sha256": "b6ce6eb10cb9347e82f4f383a7c4c40aef3b5cb619e8a73a9a8ef234ca7d358a",
-      "bytes": 1580
+      "retrieved_at": "2026-10-27T00:05:05.253482+00:00",
+      "sha256": "a20e2af4fa9040a732bfe1e675f3909791ffb388e59568467e66c83796bd6b4f",
+      "bytes": 1415
     },
     "canada/events/29008.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/29008",
-      "retrieved_at": "2026-10-26T05:19:46.738435+00:00",
-      "sha256": "b96dfd3b46bce7b7143c2ddc4af76d607ce1d58102890deeeed7e8a6f995655d",
-      "bytes": 1554
+      "retrieved_at": "2026-10-27T00:05:03.688650+00:00",
+      "sha256": "34e781de5706160979349f08c016b4e8b787ed3358c8307817146b422b19e91c",
+      "bytes": 1389
     },
     "canada/events/29441.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/29441",
-      "retrieved_at": "2026-10-26T05:19:47.522317+00:00",
-      "sha256": "4af87a91fbb002bc8113ef8cb21425c9c30dd386fd8f5302477ba1310c2654a9",
-      "bytes": 1517
+      "retrieved_at": "2026-10-27T00:05:04.473291+00:00",
+      "sha256": "408fbee3f380199f219e2d891c878ccfbcd0976f9d75707a87e6d05a8657fb33",
+      "bytes": 1352
     },
     "canada/events/30333.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/30333",
-      "retrieved_at": "2026-10-26T05:19:40.697998+00:00",
-      "sha256": "4c0208b62c4c74fbccde6bf1b2c5bd2135a213029513228a4c75b49454422668",
-      "bytes": 19024
+      "retrieved_at": "2026-10-27T00:04:57.552105+00:00",
+      "sha256": "97657c2c933fa172b7a53719671de3d7df572661a9c9089ba49a03540f205e01",
+      "bytes": 19560
     },
     "canada/events/30704.json": {
       "kind": "event",
@@ -453,30 +453,30 @@
     "canada/events/30749.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/30749",
-      "retrieved_at": "2026-10-26T05:19:49.112718+00:00",
-      "sha256": "4bc88cae22185a2ea0376b0ae1e2ddefde47c676e715c2f5141ec1e432850e1e",
-      "bytes": 488
+      "retrieved_at": "2026-10-27T00:05:06.019396+00:00",
+      "sha256": "6803b3f902d8a01eca4dd21b62fe80351ee8f2b0dd11d0b4bd63ca2c25aef482",
+      "bytes": 333
     },
     "canada/events/30752.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/30752",
-      "retrieved_at": "2026-10-26T05:19:49.878370+00:00",
-      "sha256": "31210d5369f0ce61b2710fef6e07d28d00d9bffce68fc8865f14715ce4fb158b",
-      "bytes": 562
+      "retrieved_at": "2026-10-27T00:05:06.800620+00:00",
+      "sha256": "7564ad3d30a459d45ac2433f00871d068138e88d66a175ca8f4333abcfd85188",
+      "bytes": 406
     },
     "canada/events/30754.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/30754",
-      "retrieved_at": "2026-10-26T05:19:50.692710+00:00",
-      "sha256": "e4ea9576ebe16588db2278f9a1e4b41eb88dcbde393f539a1c099a200a76b80a",
-      "bytes": 617
+      "retrieved_at": "2026-10-27T00:05:07.591489+00:00",
+      "sha256": "e15515bab3dea3fea10a06ff6ac9aca156e7f7beb47bc715d2f69cef58cecd98",
+      "bytes": 392
     },
     "canada/events/30755.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/canada/events/30755",
-      "retrieved_at": "2026-10-26T05:19:51.451988+00:00",
-      "sha256": "9bede59ff32e777afdc55b0df2a71f6c7a5e1cf7044bcae8e5e69c802aadcfb0",
-      "bytes": 561
+      "retrieved_at": "2026-10-27T00:05:08.372304+00:00",
+      "sha256": "8094c3131918d0637de715e83a3054cd8622d0d7c42273a2215786be099e51a6",
+      "bytes": 405
     },
     "mb/competitions--1.json": {
       "kind": "competitions",
@@ -495,282 +495,282 @@
     "mb/events/28127.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28127",
-      "retrieved_at": "2026-10-26T05:16:43.303600+00:00",
-      "sha256": "a95fc2a5c76fa02844f85de74351b064bc47e2ccf6954eff27e66fafc72ab6b4",
-      "bytes": 1044
+      "retrieved_at": "2026-10-27T00:02:04.948436+00:00",
+      "sha256": "62de1edad7eedf55f062bb7482e8de98b22424d87e82074b9d41dc91759c7266",
+      "bytes": 790
     },
     "mb/events/28128.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28128",
-      "retrieved_at": "2026-10-26T05:16:44.260977+00:00",
-      "sha256": "8cce3de052295a8ec79ef2d42c637d34c0f7da56cd9c9f80d5ffbfbe969ea628",
-      "bytes": 967
+      "retrieved_at": "2026-10-27T00:02:05.859985+00:00",
+      "sha256": "744becd4eab53b00dc82c7467265832456f7d989d6e47d11431acb2364b6bd04",
+      "bytes": 739
     },
     "mb/events/28131.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28131",
-      "retrieved_at": "2026-10-26T05:16:45.186501+00:00",
-      "sha256": "2d18ef6903adafd2ae2c86fadc5d10c30d599c7c4bf80249642cb72d7768d7a8",
-      "bytes": 1165
+      "retrieved_at": "2026-10-27T00:02:06.750744+00:00",
+      "sha256": "7b95cb28b1fadb28981993446185923108ab14b8bf2c898f0dd8bf6a25a712e9",
+      "bytes": 1065
     },
     "mb/events/28132.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28132",
-      "retrieved_at": "2026-10-26T05:16:46.115910+00:00",
-      "sha256": "1713f6b94916ef0eaa9984ac4d7fd17f6456e7b6b5901b07143d434a797cbc1b",
-      "bytes": 1154
+      "retrieved_at": "2026-10-27T00:02:07.634773+00:00",
+      "sha256": "a2b6544c537258715c9ebcc2d238501efb2398f92f23302d7c076fef6e9771f5",
+      "bytes": 1054
     },
     "mb/events/28134.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28134",
-      "retrieved_at": "2026-10-26T05:16:47.051876+00:00",
-      "sha256": "2b4aa65a9eb6b69d153f2f0034fe5fab119789edaeb65dfd429b7cedf36b23a7",
-      "bytes": 1142
+      "retrieved_at": "2026-10-27T00:02:08.538156+00:00",
+      "sha256": "5cdceba9785c6f444a9c563824b77202379891f2bc8988d291aea8e34d11fef1",
+      "bytes": 1040
     },
     "mb/events/28135.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28135",
-      "retrieved_at": "2026-10-26T05:16:48.086134+00:00",
-      "sha256": "e08f44419704724b1455cd569d7895a81306df5aeabd311ea94785b0b7381821",
-      "bytes": 1149
+      "retrieved_at": "2026-10-27T00:02:09.454657+00:00",
+      "sha256": "08a88bda71dc614f1f797592b75a586f033a302a70e93591e1ea4dd18842ac9a",
+      "bytes": 1047
     },
     "mb/events/28136.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28136",
-      "retrieved_at": "2026-10-26T05:16:48.850109+00:00",
-      "sha256": "11e443ccb9610a0a9bde1833edac6342e8671f7bcf80c510dedd95dcfec8efe3",
-      "bytes": 1141
+      "retrieved_at": "2026-10-27T00:02:10.265461+00:00",
+      "sha256": "e25227ab9881aca6c49228e35cf899842809d322296717040b8b29418e21aecc",
+      "bytes": 1039
     },
     "mb/events/28138.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28138",
-      "retrieved_at": "2026-10-26T05:16:49.655152+00:00",
-      "sha256": "1fbfb684a18496cc675df068a6eb70a7abf83a360ee262f642824bef6517d4a7",
-      "bytes": 1109
+      "retrieved_at": "2026-10-27T00:02:11.074050+00:00",
+      "sha256": "fd6ac1638fadf47fa5867b4407103f60f6868473d7efbdbd29656e0c62340722",
+      "bytes": 1006
     },
     "mb/events/28139.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28139",
-      "retrieved_at": "2026-10-26T05:16:50.462000+00:00",
-      "sha256": "423c4957c4f8ecc3199fa506ce082320631e797db01558fe2fabbdaa8a660700",
-      "bytes": 1120
+      "retrieved_at": "2026-10-27T00:02:11.974123+00:00",
+      "sha256": "047f87d6aaddb78dac44bbdd89d795d8eb52e62442748a8e876746b4cbfa4ac9",
+      "bytes": 1020
     },
     "mb/events/28140.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28140",
-      "retrieved_at": "2026-10-26T05:16:51.421953+00:00",
-      "sha256": "83a284fdb743fb1705e1548918172d13807a283fcebf346f644a9a084a61109f",
-      "bytes": 1132
+      "retrieved_at": "2026-10-27T00:02:12.912561+00:00",
+      "sha256": "ae5d2809048044474d41471957c9fe9842dd039ba3561f7234d0beb4fe36cba1",
+      "bytes": 1032
     },
     "mb/events/28141.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28141",
-      "retrieved_at": "2026-10-26T05:16:52.356054+00:00",
-      "sha256": "b370a36c7a9dce3e9b1444ac2372ed5d020757615c519c03eb5a08a6775b00c8",
-      "bytes": 1144
+      "retrieved_at": "2026-10-27T00:02:13.823303+00:00",
+      "sha256": "7f077a8c376311fd2e9ba5399b367999c668e32160389a7922add791a7ad3cda",
+      "bytes": 1042
     },
     "mb/events/28142.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28142",
-      "retrieved_at": "2026-10-26T05:16:53.258610+00:00",
-      "sha256": "818878187ff4f5df6071251fd114adcf669a0d88c987abe9c119cd9f09884952",
-      "bytes": 1136
+      "retrieved_at": "2026-10-27T00:02:14.726658+00:00",
+      "sha256": "539bc41c2f9c5067e9a38933cc6f54d0f08fee856539392dcae06b0cf40c9985",
+      "bytes": 1034
     },
     "mb/events/28143.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28143",
-      "retrieved_at": "2026-10-26T05:16:54.241839+00:00",
-      "sha256": "6f7f799e7ec036f0b2bfe512116c33d34c1dddbec6b79abb724120543bb7a38f",
-      "bytes": 1138
+      "retrieved_at": "2026-10-27T00:02:15.662126+00:00",
+      "sha256": "ad1b5a47dac2c4b51f8a3850972c3d4b4b0b8fb0c1a3c7c27e99e44356e22e0e",
+      "bytes": 1038
     },
     "mb/events/28144.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28144",
-      "retrieved_at": "2026-10-26T05:16:55.188119+00:00",
-      "sha256": "0b4766df60d5b3db7fa3e01723e156a3a641a4d27e34e0d1739ecd3aed2fcdb3",
-      "bytes": 1136
+      "retrieved_at": "2026-10-27T00:02:16.573566+00:00",
+      "sha256": "1176beb04c667cb42642a3943d099a5c669827f090064fa696b52ea42d1576fd",
+      "bytes": 1036
     },
     "mb/events/28145.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28145",
-      "retrieved_at": "2026-10-26T05:16:56.148253+00:00",
-      "sha256": "2037e0c02e3149b89f1b85b38d80024255f7c5161417f2e634fd2cce0b060549",
-      "bytes": 1160
+      "retrieved_at": "2026-10-27T00:02:17.483169+00:00",
+      "sha256": "5d787a5d92110dc14729edc198d8c466028312f3f61b76223843d5d8f5341c60",
+      "bytes": 921
     },
     "mb/events/28146.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28146",
-      "retrieved_at": "2026-10-26T05:16:57.102776+00:00",
-      "sha256": "fde76ac259a75821b247f6386068086b6e641334433c8b8738c7bbefba76f2fc",
-      "bytes": 1132
+      "retrieved_at": "2026-10-27T00:02:18.360955+00:00",
+      "sha256": "beaf5ef0c439de90d36c9fb97013dbff5ad19f48ed840e6cb5e8ec553e0ba533",
+      "bytes": 894
     },
     "mb/events/28147.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28147",
-      "retrieved_at": "2026-10-26T05:16:58.035224+00:00",
-      "sha256": "857b22171307437243230846a529d7a319190a45d0d67ea6a9c24d77ecf6d9b6",
-      "bytes": 1151
+      "retrieved_at": "2026-10-27T00:02:19.232662+00:00",
+      "sha256": "d9cf34c58bf384bd568d128bc28b8fda8746cade8a20e664d82426982a700a49",
+      "bytes": 912
     },
     "mb/events/28149.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28149",
-      "retrieved_at": "2026-10-26T05:16:59.025908+00:00",
-      "sha256": "2a8ee60d7cb045eda8bc769265740455491fb981d2edffbf26785fad8dc4f16e",
-      "bytes": 1134
+      "retrieved_at": "2026-10-27T00:02:20.126703+00:00",
+      "sha256": "a2f6d42ed2d02b2dd1a972d0bf1b532ef5846cba6de8a9d7af03cb910daa932e",
+      "bytes": 896
     },
     "mb/events/28150.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28150",
-      "retrieved_at": "2026-10-26T05:16:59.927233+00:00",
-      "sha256": "323ac684dfec8e944da3dba3afbb4ed11618408ff60938630db88191f3fe8d43",
-      "bytes": 1132
+      "retrieved_at": "2026-10-27T00:02:21.008626+00:00",
+      "sha256": "ce7b33a260fb5a71d3a7ba302e6811510788a9c131ddc67b46703bf0d82981dd",
+      "bytes": 894
     },
     "mb/events/28151.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28151",
-      "retrieved_at": "2026-10-26T05:17:00.901757+00:00",
-      "sha256": "0984ea16a4211692a1b4da0983cc548620baaf31b8bd18262279e74bccbbaa12",
-      "bytes": 1134
+      "retrieved_at": "2026-10-27T00:02:21.921256+00:00",
+      "sha256": "0e7835f18852171fbb81650fe15df2ca95e47747dee28e7c93ec090c697c4284",
+      "bytes": 898
     },
     "mb/events/28152.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28152",
-      "retrieved_at": "2026-10-26T05:17:01.720261+00:00",
-      "sha256": "f2bf332379eabdf0dcbd889d0c0bca254865e15c3d37809fe046d40b2dabe196",
-      "bytes": 1196
+      "retrieved_at": "2026-10-27T00:02:22.685389+00:00",
+      "sha256": "55e4f337f5b0b4c8f1121489d32603af60b012b645269bbae86b8b9a1f973f2c",
+      "bytes": 942
     },
     "mb/events/28153.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28153",
-      "retrieved_at": "2026-10-26T05:17:02.651859+00:00",
-      "sha256": "514a56ce3339485d44755456a5853ab78cb904adf52b8c3bc67de8fae9688885",
-      "bytes": 1167
+      "retrieved_at": "2026-10-27T00:02:23.579999+00:00",
+      "sha256": "10b654948668cd44a87d7dc30418eecadb1f2e5049747083be4041096a27f6d7",
+      "bytes": 910
     },
     "mb/events/28156.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28156",
-      "retrieved_at": "2026-10-26T05:17:03.574182+00:00",
-      "sha256": "b04220b24a0326b8f8552259169c4d132260ad9fcf25c1366c862a8374943032",
-      "bytes": 1044
+      "retrieved_at": "2026-10-27T00:02:24.528971+00:00",
+      "sha256": "4fc133db268146deae55ac4bcf2cecfb898a6a8ba52b28c94821a95430b2cf7f",
+      "bytes": 816
     },
     "mb/events/28157.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28157",
-      "retrieved_at": "2026-10-26T05:17:04.361711+00:00",
-      "sha256": "9bb5a28d3bd355a7c7eb9aa30e0c26ef09530afd669aaa61f2cc92ac8203af61",
-      "bytes": 1026
+      "retrieved_at": "2026-10-27T00:02:25.299592+00:00",
+      "sha256": "fa0cf03ec87b11bb8fb65bce83930f7f95bc470b8703e87184477de8504c920f",
+      "bytes": 796
     },
     "mb/events/28158.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28158",
-      "retrieved_at": "2026-10-26T05:17:05.114195+00:00",
-      "sha256": "8ed3e659c2ee7373a96f85747796568db467164adb4ec54d7d97ea56910e8535",
-      "bytes": 1031
+      "retrieved_at": "2026-10-27T00:02:26.062812+00:00",
+      "sha256": "930ab2eac8324e0f77d14657e836c7c981476c73e9cacee3cc3da560fa2bf39f",
+      "bytes": 800
     },
     "mb/events/28159.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28159",
-      "retrieved_at": "2026-10-26T05:17:05.900904+00:00",
-      "sha256": "176f18b3bffb3beca5148e97ada59a527c32522c5e8dc096a3b664b0dac8e80a",
-      "bytes": 1028
+      "retrieved_at": "2026-10-27T00:02:26.843794+00:00",
+      "sha256": "bba6bca635021aefa456c97f7cedcdc40738cb29ff6cdef59bbbda6d26b0e5ce",
+      "bytes": 798
     },
     "mb/events/28160.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28160",
-      "retrieved_at": "2026-10-26T05:17:06.807998+00:00",
-      "sha256": "43f8091fbfc5d876e682adcf77eb64c0473bfb000e0084f117161f7c01d5528f",
-      "bytes": 1028
+      "retrieved_at": "2026-10-27T00:02:27.795426+00:00",
+      "sha256": "8bc75b494f2f8f645f58bebd4acf9c95cdf2b0b3ccc22cb043385cd4a2a5f865",
+      "bytes": 797
     },
     "mb/events/28161.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28161",
-      "retrieved_at": "2026-10-26T05:17:07.568467+00:00",
-      "sha256": "5ed534dd7206484ef80a474e94909043c99ad8eebf56d4a9ade0c19d05da9f5b",
-      "bytes": 1023
+      "retrieved_at": "2026-10-27T00:02:28.585052+00:00",
+      "sha256": "4fa38ce2a8b1e0a7891786756835a33aaf8ba8efd9c22060576f90a4c3977268",
+      "bytes": 795
     },
     "mb/events/28162.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28162",
-      "retrieved_at": "2026-10-26T05:17:08.371066+00:00",
-      "sha256": "d79be0347cea9a9a418fe56912e0b74b7290cdeb464e5b66ecbef1e126f98409",
-      "bytes": 1031
+      "retrieved_at": "2026-10-27T00:02:29.365287+00:00",
+      "sha256": "f77767f6ffca0afe10811177d643e55d0a205154f0b7a8384af916ebf4ea65df",
+      "bytes": 803
     },
     "mb/events/28163.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28163",
-      "retrieved_at": "2026-10-26T05:17:09.267245+00:00",
-      "sha256": "36121a3ba9dede1bc2952f47afa02f9f977a1aca0ab5a3135f16150a6d56e494",
-      "bytes": 1044
+      "retrieved_at": "2026-10-27T00:02:30.320701+00:00",
+      "sha256": "3a5bea09950dd478cab577273babafb4891447a88cce571066b5355b7f12cdd9",
+      "bytes": 820
     },
     "mb/events/28164.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28164",
-      "retrieved_at": "2026-10-26T05:17:10.231224+00:00",
-      "sha256": "3222f0f6de53025056d5783f09b7d1e6f44ef772df5dd5cfbd9ff519cb8013e3",
-      "bytes": 1047
+      "retrieved_at": "2026-10-27T00:02:31.217835+00:00",
+      "sha256": "8b64a5df31fd1b61f81c4c79cb96fa86e85ec53158afd70288224c5c11e92430",
+      "bytes": 824
     },
     "mb/events/28165.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28165",
-      "retrieved_at": "2026-10-26T05:17:11.226055+00:00",
-      "sha256": "3c5150bb64ab72d7abb6f8937d9041231aeb4fea90fc3defa94a00e507cfff4f",
-      "bytes": 1046
+      "retrieved_at": "2026-10-27T00:02:32.088265+00:00",
+      "sha256": "6e814d3b2a246a02a15f657d9d915509bc84cb287391c6fd3f14d1f3c76a5d00",
+      "bytes": 825
     },
     "mb/events/28166.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28166",
-      "retrieved_at": "2026-10-26T05:17:12.030553+00:00",
-      "sha256": "138a8eb8a71e8cb86583c7d0b1692991d502454d1c048e62dabe4e369b6940a8",
-      "bytes": 1049
+      "retrieved_at": "2026-10-27T00:02:32.871690+00:00",
+      "sha256": "c03ec8dc976193738e6a29c26ea830e83204fb4892bac1d82d63663a10574f15",
+      "bytes": 826
     },
     "mb/events/28167.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28167",
-      "retrieved_at": "2026-10-26T05:17:12.853134+00:00",
-      "sha256": "593ca8ca8b83a3020e4e93f31473c8f36787b7b51e8fe6a7637d9b3cc14bc376",
-      "bytes": 1049
+      "retrieved_at": "2026-10-27T00:02:33.748815+00:00",
+      "sha256": "a171bec6383fe49e0ed7a1f9eea57ac91f24a33ce9489ff654e5c1d391c7bc2a",
+      "bytes": 828
     },
     "mb/events/28168.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28168",
-      "retrieved_at": "2026-10-26T05:17:13.706448+00:00",
-      "sha256": "318933ffc3c40bdd0116029d620614914e235fd3c9fb07c5ecf48d0747b43cab",
-      "bytes": 1052
+      "retrieved_at": "2026-10-27T00:02:34.529840+00:00",
+      "sha256": "2d0ce34b1fb86b41c90fbb51a60b71b7b3c21e6c801362081bd87b187a53ebf3",
+      "bytes": 829
     },
     "mb/events/28169.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28169",
-      "retrieved_at": "2026-10-26T05:17:14.677509+00:00",
-      "sha256": "eb81b4aaac44592afbf7de295a617e3a91cec8ca8668ec9eab9d139cf32b6cf1",
-      "bytes": 1043
+      "retrieved_at": "2026-10-27T00:02:35.392335+00:00",
+      "sha256": "8822f7cf7507d4c3e576220619d8fac63b7453611afb5c280ba06a4703f82818",
+      "bytes": 822
     },
     "mb/events/28201.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28201",
-      "retrieved_at": "2026-10-26T05:17:15.472276+00:00",
-      "sha256": "e3d56cd5d37547699719cb548e0771b61acd8dfeb9c4a10f8e6642372b8df80c",
-      "bytes": 1394
+      "retrieved_at": "2026-10-27T00:02:36.178818+00:00",
+      "sha256": "45e2884b17bc46fcba6fcf6cc374d16db8dfa30512dcd94a36ca6ee4ed98286e",
+      "bytes": 1145
     },
     "mb/events/28202.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28202",
-      "retrieved_at": "2026-10-26T05:17:16.257972+00:00",
-      "sha256": "a4bd159b0062568f092ca927fb07b2097f8cdbc6e7a71735e5b8ab1767326b69",
-      "bytes": 1384
+      "retrieved_at": "2026-10-27T00:02:36.973366+00:00",
+      "sha256": "b2a167b3d7755caa90775be8a3e72badbcfb3f33b60ae9c1cc4a5033d3bd9893",
+      "bytes": 1137
     },
     "mb/events/28208.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28208",
-      "retrieved_at": "2026-10-26T05:17:17.050235+00:00",
-      "sha256": "d912b51fa4634594c9b395433503058e8361a2b6f651d3d0b2ddfd4d4acda836",
-      "bytes": 1134
+      "retrieved_at": "2026-10-27T00:02:37.730056+00:00",
+      "sha256": "fc4757d5f40467cc3b2d42f5c66a22caa4303b6328f42b8b962ac1d7b0cf6d61",
+      "bytes": 878
     },
     "mb/events/28209.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/mb/events/28209",
-      "retrieved_at": "2026-10-26T05:17:18.000212+00:00",
-      "sha256": "8fbc83a704766f7c5f4884e5207416347307246265f973a8f6c3a3b65080b7e6",
-      "bytes": 1055
+      "retrieved_at": "2026-10-27T00:02:38.590510+00:00",
+      "sha256": "b42cc8399c3c53004e4d1bf920db64571eaf7dd29295215501765bd4a6d7d45e",
+      "bytes": 825
     },
     "nb/competitions--1.json": {
       "kind": "competitions",
@@ -789,23 +789,23 @@
     "nb/events/29801.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nb/events/29801",
-      "retrieved_at": "2026-10-26T05:17:19.958557+00:00",
-      "sha256": "b5f02a8b3bda59260a35b9562412b70868fdda6e0c2f514baf8c71a718a7eb7e",
-      "bytes": 28119
+      "retrieved_at": "2026-10-27T00:02:40.493929+00:00",
+      "sha256": "5e6d8499798901f2d6826549fa6b178ee06905b8d3b66a220d881cc2f3e3ed3a",
+      "bytes": 29076
     },
     "nb/events/29812.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nb/events/29812",
-      "retrieved_at": "2026-10-26T05:17:20.774276+00:00",
-      "sha256": "f076b2ba408d08f2b0c05d142aab2bcb5f27467395b74e512e725e884a4349d7",
+      "retrieved_at": "2026-10-27T00:02:41.257162+00:00",
+      "sha256": "e1ca7df1090696b1a5b1f6b3bc793957aa1b6a2f0f28090bf0a04d7917c120e7",
       "bytes": 487
     },
     "nb/events/29813.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nb/events/29813",
-      "retrieved_at": "2026-10-26T05:17:21.696274+00:00",
-      "sha256": "22bb17d6c0cf74fac42104f6d86a16cc053a1d2bcbfbf5446c46a35337c94a94",
-      "bytes": 707
+      "retrieved_at": "2026-10-27T00:02:42.161931+00:00",
+      "sha256": "2cadea5491db42021459c247b779076fea0369fb16fc94a260e25de33f0fc29f",
+      "bytes": 698
     },
     "nl/competitions--1.json": {
       "kind": "competitions",
@@ -824,72 +824,72 @@
     "nl/events/28385.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/28385",
-      "retrieved_at": "2026-10-26T05:17:23.750014+00:00",
-      "sha256": "c2420ccc6df661d9ea10b7292993d86f6086b7d9be4bf90fe9e15864ddd4ca4f",
-      "bytes": 8889
+      "retrieved_at": "2026-10-27T00:02:43.986090+00:00",
+      "sha256": "21486b17ca79047fe534fc68e3817badfd78889a0bc5d86a3a949e1810a13bf2",
+      "bytes": 9190
     },
     "nl/events/29611.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/29611",
-      "retrieved_at": "2026-10-26T05:17:24.662294+00:00",
-      "sha256": "26a2425d87c7b4f86df1ea08386befa3bd50a47ef267fd7abdc09fe01f03a525",
-      "bytes": 780
+      "retrieved_at": "2026-10-27T00:02:44.884992+00:00",
+      "sha256": "1e591e518edf93b8ae41952acdb5d8b8d578c15867d35bbac6d8378fa05f7185",
+      "bytes": 771
     },
     "nl/events/29612.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/29612",
-      "retrieved_at": "2026-10-26T05:17:25.601038+00:00",
-      "sha256": "8a7a62d447b78784f2651ca88ced9354b9874b99c4e126a572306764a18176e7",
-      "bytes": 802
+      "retrieved_at": "2026-10-27T00:02:45.790273+00:00",
+      "sha256": "ee1a4c04fa6fd999367271fafd5681703cec40278d24a0e9ede30c0629bfa47e",
+      "bytes": 793
     },
     "nl/events/29614.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/29614",
-      "retrieved_at": "2026-10-26T05:17:26.372370+00:00",
-      "sha256": "f6533a9b83947afede9d18b6b598016303be2d8a104c0cf82246140142e4a38c",
-      "bytes": 777
+      "retrieved_at": "2026-10-27T00:02:46.534688+00:00",
+      "sha256": "82b213e0dbe4b892e6865779ae54270306327f1429629ca0ce930779844fa3d5",
+      "bytes": 768
     },
     "nl/events/29615.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/29615",
-      "retrieved_at": "2026-10-26T05:17:27.188415+00:00",
-      "sha256": "8396184ab29aad9869222ec7948ecab3404ac18126acacaa6b9484a3ad568e68",
+      "retrieved_at": "2026-10-27T00:02:47.340543+00:00",
+      "sha256": "e7bed4718d9e202855debd085ca21f91b411eacfd71217bb37da7233415138fa",
       "bytes": 700
     },
     "nl/events/30493.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/30493",
-      "retrieved_at": "2026-10-26T05:17:28.113404+00:00",
-      "sha256": "b08921fce14d29b8db12fee592ba8a773f634e1ae575fec47ff19686e4c8b9c0",
-      "bytes": 772
+      "retrieved_at": "2026-10-27T00:02:48.224102+00:00",
+      "sha256": "0023bc85da5cd22c437ef07336a15c95a2875dda210db2a80ad150ea51fb2eb7",
+      "bytes": 763
     },
     "nl/events/30495.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/30495",
-      "retrieved_at": "2026-10-26T05:17:28.993518+00:00",
-      "sha256": "9659fc986d6ad7a8ce78c14c1d90a6a5c6cfbf457f5efd823f2d0c56f8056064",
-      "bytes": 799
+      "retrieved_at": "2026-10-27T00:02:49.010961+00:00",
+      "sha256": "6d6c2a26a5e07a0e206a650fe695ee2f5ee4e9d22347f324c3cf788749198c86",
+      "bytes": 790
     },
     "nl/events/30496.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/30496",
-      "retrieved_at": "2026-10-26T05:17:29.778303+00:00",
-      "sha256": "5a6de500a04413da9cdc8a715c677c5832cead9600124a9f105d55137d41cfe6",
-      "bytes": 696
+      "retrieved_at": "2026-10-27T00:02:49.790325+00:00",
+      "sha256": "561cc9ea39ea6fcb0121dae6a894511888c99b81f102161ecd63737ca8a93776",
+      "bytes": 687
     },
     "nl/events/30497.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/30497",
-      "retrieved_at": "2026-10-26T05:17:30.590033+00:00",
-      "sha256": "115e7a4cf1219eb11e9005a30cb0ace706e0061e137e9dafa6e3387b2a161a61",
-      "bytes": 809
+      "retrieved_at": "2026-10-27T00:02:50.583887+00:00",
+      "sha256": "da55e7520866fb0ac6dfc424088ffd84c57216042df2e6e651e05abdc2b9a2de",
+      "bytes": 800
     },
     "nl/events/30498.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nl/events/30498",
-      "retrieved_at": "2026-10-26T05:17:31.417195+00:00",
-      "sha256": "d69ae64ce51381b7459c3b60e96b1681cc646b88a91a11b36e28a7aae4562d91",
-      "bytes": 900
+      "retrieved_at": "2026-10-27T00:02:51.333120+00:00",
+      "sha256": "6926b4c1aa93a8556074fa124f0f2b693b22a31abb084365fe3df076a2156934",
+      "bytes": 891
     },
     "ns/competitions--1.json": {
       "kind": "competitions",
@@ -922,114 +922,114 @@
     "nt/events/29711.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29711",
-      "retrieved_at": "2026-10-26T05:17:33.150319+00:00",
-      "sha256": "4722b4b7399fabedbb17d2cc4fee3d81529f8f246199277a7e85ca4b8ba67078",
-      "bytes": 2161
+      "retrieved_at": "2026-10-27T00:02:52.955586+00:00",
+      "sha256": "4d2aa4dafa94b3f04faed06e8bec97081fc98452bdd2f27b81fbcbfe3e6314f7",
+      "bytes": 1944
     },
     "nt/events/29712.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29712",
-      "retrieved_at": "2026-10-26T05:17:33.950903+00:00",
-      "sha256": "8abaf28f166d38ae0bd4484cf6cb20b58be71f3f38c1a582d1b537bbf39af1f3",
-      "bytes": 2157
+      "retrieved_at": "2026-10-27T00:02:53.775935+00:00",
+      "sha256": "605342f7c87ccc4b6af69eba30d4a6562cdcc3fc1c15f4a47c16d56bdb69cabc",
+      "bytes": 1938
     },
     "nt/events/29713.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29713",
-      "retrieved_at": "2026-10-26T05:17:34.877175+00:00",
-      "sha256": "64786829480c73818d8f07885a8e50073881c1bc31552bd6861fecc880c75725",
-      "bytes": 1831
+      "retrieved_at": "2026-10-27T00:02:54.667014+00:00",
+      "sha256": "3cfbb108cbeb1792c4f1b49e8d40b0b406737f94b328cf8daf225784160cbf14",
+      "bytes": 1613
     },
     "nt/events/29714.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29714",
-      "retrieved_at": "2026-10-26T05:17:35.677027+00:00",
-      "sha256": "6a7a1aaa05564b2fcf94909cf957d041f3f5cd75fc2eeaa0de710222d2c65f69",
-      "bytes": 1638
+      "retrieved_at": "2026-10-27T00:02:55.415476+00:00",
+      "sha256": "5c2b82d6b05e7c61e73b5b1967ce18be3e1e65d2a531daa38967de2c26bad2bf",
+      "bytes": 1421
     },
     "nt/events/29715.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29715",
-      "retrieved_at": "2026-10-26T05:17:36.450321+00:00",
-      "sha256": "0344d8bd17b49ab1cb3897ad95c9fa9442ca2d678f7fdb0b01d56c3602f564d6",
-      "bytes": 1647
+      "retrieved_at": "2026-10-27T00:02:56.236026+00:00",
+      "sha256": "cdecbd1a41e54c828f986a91fb672920d3a1f8bd3013c0e61a80f0c0814ca33b",
+      "bytes": 1428
     },
     "nt/events/29716.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29716",
-      "retrieved_at": "2026-10-26T05:17:37.378951+00:00",
-      "sha256": "2db7be69ba0f898860edfafecf8fe4cf0a367603075203323add13d46b6686f1",
-      "bytes": 1801
+      "retrieved_at": "2026-10-27T00:02:57.154038+00:00",
+      "sha256": "977324e032865546ab07784c94bac9411905ee7266fa8b7259c8a8d68109710d",
+      "bytes": 1583
     },
     "nt/events/29717.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29717",
-      "retrieved_at": "2026-10-26T05:17:41.613945+00:00",
-      "sha256": "fba805aad55cf117e9155539f831dcf9f063ade9192234767943b0fddb14e601",
-      "bytes": 1653
+      "retrieved_at": "2026-10-27T00:03:01.245415+00:00",
+      "sha256": "cf2b9ee9677e6f16974495c165aa0d9bbee6d1d42b6387a29cd9a174b3da6dc3",
+      "bytes": 1644
     },
     "nt/events/29718.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29718",
-      "retrieved_at": "2026-10-26T05:17:42.537135+00:00",
-      "sha256": "fd1cc319e3032921acb79c5ece892456559c1bb4cf0af5975ea132e269a57fb2",
-      "bytes": 1655
+      "retrieved_at": "2026-10-27T00:03:02.003857+00:00",
+      "sha256": "2c8f7a94f0845539b9d5556ce985547871fcb69aa6d5f3d2c840c282629811e9",
+      "bytes": 1646
     },
     "nt/events/29731.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29731",
-      "retrieved_at": "2026-10-26T05:17:43.301864+00:00",
-      "sha256": "66a380f191f468e062f4afa6b7eb27b54a904ec5302080b6dba7bb06a9ad3141",
-      "bytes": 1817
+      "retrieved_at": "2026-10-27T00:03:02.803556+00:00",
+      "sha256": "7a20e6bea560d1e90dd7185ae1a5ae9a1efc16be57c9cc1c9f4674a603d44988",
+      "bytes": 1598
     },
     "nt/events/29732.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29732",
-      "retrieved_at": "2026-10-26T05:17:44.119361+00:00",
-      "sha256": "9b9ca00e050ef15388ccc5855e19ecd3904144a874e034baba7e344104cf65fd",
-      "bytes": 1821
+      "retrieved_at": "2026-10-27T00:03:03.639301+00:00",
+      "sha256": "6fe4c7bf4e6b1ba9cbd7ebd60aff5af58d9038a48ed727063ae9471e616bdf93",
+      "bytes": 1812
     },
     "nt/events/29733.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29733",
-      "retrieved_at": "2026-10-26T05:17:44.907998+00:00",
-      "sha256": "3ea4fa0dd7e3093ad4b430ac2fff75b65847da0a393ed6202756ccbc822efd10",
-      "bytes": 1659
+      "retrieved_at": "2026-10-27T00:03:04.409065+00:00",
+      "sha256": "50091cf93b19cf82fe91988474ba463085ce08cbc0585bdf637c5921916de3ee",
+      "bytes": 1650
     },
     "nt/events/29734.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29734",
-      "retrieved_at": "2026-10-26T05:17:45.670630+00:00",
-      "sha256": "dfaebf44b9cc3304753e04d8d5bfa8b8c3d84dca25cf608f05829c8fd512591b",
-      "bytes": 1778
+      "retrieved_at": "2026-10-27T00:03:05.176308+00:00",
+      "sha256": "d5a377c7ca7c69ac7cd524b9effec629dff3eee0718421c106ca98cd0f70ec0c",
+      "bytes": 1769
     },
     "nt/events/29735.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29735",
-      "retrieved_at": "2026-10-26T05:17:38.162152+00:00",
-      "sha256": "b36a99dc22aacbd9a82c8eeea016b3202a505e611d2d1667d5191e4fdff949d7",
-      "bytes": 1262
+      "retrieved_at": "2026-10-27T00:02:57.912838+00:00",
+      "sha256": "7a7271f7a3cda0238753487f460820a4c5d48a63da710b3e373e638f9ebdd78c",
+      "bytes": 1043
     },
     "nt/events/29736.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29736",
-      "retrieved_at": "2026-10-26T05:17:38.948055+00:00",
-      "sha256": "078af2c248f98e5162ad2126816cd1c6f0c2525dba6998fa011bc287b02b2db0",
-      "bytes": 1326
+      "retrieved_at": "2026-10-27T00:02:58.720243+00:00",
+      "sha256": "00bebf68b47b1e64314e79b0588c2290a7a48acd8d2beab3436ddd17b1965b91",
+      "bytes": 1107
     },
     "nt/events/29737.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29737",
-      "retrieved_at": "2026-10-26T05:17:39.890895+00:00",
-      "sha256": "f9bdcca21d1afcd466475083567e9322387a1170551370bb5462a39de540a23d",
-      "bytes": 1285
+      "retrieved_at": "2026-10-27T00:02:59.635758+00:00",
+      "sha256": "a7fabce449e2527f7780eae2570b50820a0a88bc7cc80f5f58b4b95f9e239f87",
+      "bytes": 1066
     },
     "nt/events/29738.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/nt/events/29738",
-      "retrieved_at": "2026-10-26T05:17:40.714872+00:00",
-      "sha256": "a2cb478e122059cdcce978e95e4c607a24b9241a2cfe04d4d17db2ac98c5f97b",
-      "bytes": 1349
+      "retrieved_at": "2026-10-27T00:03:00.439432+00:00",
+      "sha256": "7774c8db7bc1a872b0f1d23d0dd737a6ee04fead8e9a48cb1c9a54058a827989",
+      "bytes": 1130
     },
     "nu/competitions--1.json": {
       "kind": "competitions",
@@ -1062,9 +1062,9 @@
     "on/events/28035.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28035",
-      "retrieved_at": "2026-10-26T05:17:49.107627+00:00",
-      "sha256": "6cfa448d7dd1acd4dd4993114e116101c82bcb19685ff1fcdecacb5a2248af2a",
-      "bytes": 2498
+      "retrieved_at": "2026-10-26T11:31:56.452346+00:00",
+      "sha256": "60a3ae21f0062ea6de4eff9889bc0bd462370d5cd6681d6a115bd320af43d0cc",
+      "bytes": 2237
     },
     "on/events/28637.json": {
       "kind": "event",
@@ -1153,275 +1153,282 @@
     "on/events/28650.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28650",
-      "retrieved_at": "2026-10-26T05:17:49.901842+00:00",
-      "sha256": "ae76c196f687192a46b7685a28041935abca07ecdba35f141f76935bba1e3c1c",
-      "bytes": 3176
+      "retrieved_at": "2026-10-27T00:03:09.018252+00:00",
+      "sha256": "979fc3c5bb74d0d48b3f8e0c5b74dc13a2187de9fa4dd05fc5690e35c25dd8b6",
+      "bytes": 2634
     },
     "on/events/28651.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28651",
-      "retrieved_at": "2026-10-26T05:17:50.818110+00:00",
-      "sha256": "6ed35f077aa7c52d12611b9c8d805e70c7968425edb59ab451f900e8ac316bfd",
-      "bytes": 3146
+      "retrieved_at": "2026-10-27T00:03:09.930363+00:00",
+      "sha256": "ab2edbb2cf1d1842a7d3fc2475b2998552429bf780a118b6c80fc90362de5998",
+      "bytes": 2620
     },
     "on/events/28652.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28652",
-      "retrieved_at": "2026-10-26T05:17:51.607191+00:00",
-      "sha256": "d99f080eec125c5f886c9c687ef9141b8cc86cfc0f18023676507a624a3d5485",
-      "bytes": 3155
+      "retrieved_at": "2026-10-27T00:03:10.751672+00:00",
+      "sha256": "dd4fbed99f0c3307b5c616a59af33fd25efbe2467c51a9fd5806af8c4a762753",
+      "bytes": 2623
     },
     "on/events/28653.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28653",
-      "retrieved_at": "2026-10-26T05:17:52.540850+00:00",
-      "sha256": "0430703aef9d2cdb8bca557ce60141a661865d5a645c8046fa5a74885bf8a0e7",
-      "bytes": 3170
+      "retrieved_at": "2026-10-27T00:03:11.669508+00:00",
+      "sha256": "b3d3e6c6971755c1d9e3aefff2682a2a23c31cddb75e3d49e77784b51cf49c3e",
+      "bytes": 2630
     },
     "on/events/28654.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28654",
-      "retrieved_at": "2026-10-26T05:17:53.342997+00:00",
-      "sha256": "9e705326196098614a029fdbc075d61b5dbe18a74c6d95bc6e23708ed033e2a1",
-      "bytes": 3140
+      "retrieved_at": "2026-10-27T00:03:12.456790+00:00",
+      "sha256": "8d4130c2eed1baf465546cd085d5c59c4b5ae37dfd37ea5ad7c29dce881c326a",
+      "bytes": 2616
     },
     "on/events/28655.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28655",
-      "retrieved_at": "2026-10-26T05:17:55.134824+00:00",
-      "sha256": "488ee93a4ac3d6a40a933a778157919ba99776e6e7bafaeb3312da463946e418",
-      "bytes": 3149
+      "retrieved_at": "2026-10-27T00:03:14.108180+00:00",
+      "sha256": "cbd8de072973a2c1ace138fb9f87cdf89195743291199ba7c6926239a7959487",
+      "bytes": 2619
     },
     "on/events/28656.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28656",
-      "retrieved_at": "2026-10-26T05:17:54.291419+00:00",
-      "sha256": "62091c413820e190ca61b240058e8f2bd64a2c0cd5f4b9e8711ad7fe537d864a",
-      "bytes": 3140
+      "retrieved_at": "2026-10-27T00:03:13.334838+00:00",
+      "sha256": "bacbf1e212813298a4da6be565018de65414649d5ca0c2d2648ff40982e069fb",
+      "bytes": 2603
     },
     "on/events/28657.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28657",
-      "retrieved_at": "2026-10-26T05:17:55.920888+00:00",
-      "sha256": "bee56a7f2c87e32eaea35222a9be5188e7179a2191322c5ed574ad159e1f9d62",
-      "bytes": 2779
+      "retrieved_at": "2026-10-27T00:03:14.877983+00:00",
+      "sha256": "7cc34c89e927e15ec40c063f1fa2b6551d1e6a1260f745e353b090960624fd87",
+      "bytes": 2519
     },
     "on/events/28658.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28658",
-      "retrieved_at": "2026-10-26T05:17:56.850741+00:00",
-      "sha256": "a9519d4b97104c66a501df2ac325eff7c72b5eea2591648c7e2983d1bc70fdb5",
-      "bytes": 2767
+      "retrieved_at": "2026-10-27T00:03:15.771895+00:00",
+      "sha256": "39f8b9d3a400022835766f2c47709c5966320d0b68ff250d57d15fe0e26b3756",
+      "bytes": 2507
     },
     "on/events/28659.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28659",
-      "retrieved_at": "2026-10-26T05:17:57.756543+00:00",
-      "sha256": "177ca14294591ba0ab863aa28accf96d0e67ad0b06bbb4b63e95179d0d171e8f",
-      "bytes": 3106
+      "retrieved_at": "2026-10-27T00:03:16.706370+00:00",
+      "sha256": "20659e668fb42642d92913e70d00d3e8d8c26910d4e84ade438458450c02b13c",
+      "bytes": 2846
     },
     "on/events/28660.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28660",
-      "retrieved_at": "2026-10-26T05:17:58.557789+00:00",
-      "sha256": "2b3c5aa4329c4f14e80289e21bf99072acb72e538a4249bd2ccf740b65359391",
-      "bytes": 3070
+      "retrieved_at": "2026-10-27T00:03:17.494612+00:00",
+      "sha256": "bfd6be9d985247467241b6701ba812cd9c2dcc6cc0948589bf1e48b15d9a75b3",
+      "bytes": 2810
     },
     "on/events/28661.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28661",
-      "retrieved_at": "2026-10-26T05:17:59.508646+00:00",
-      "sha256": "e84722fc68b3d781bf68dc016bcefb5ed84f4d4451ca37cde7e9f0ec9e448719",
-      "bytes": 3100
+      "retrieved_at": "2026-10-27T00:03:18.394971+00:00",
+      "sha256": "9262024333857854503152b533aab495bfa5284f98fa2f88c8d98f8260f16acd",
+      "bytes": 2840
     },
     "on/events/28662.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28662",
-      "retrieved_at": "2026-10-26T05:18:00.463481+00:00",
-      "sha256": "8ef3ed1ece16a1d86f6bdb44c4cffeb868bd7d8137019074ef382788b43829b5",
-      "bytes": 3098
+      "retrieved_at": "2026-10-27T00:03:19.361289+00:00",
+      "sha256": "867f020d3ac17299c36b2b69a44fd3f50cd57f6621e04017d06d52360a37402a",
+      "bytes": 2838
     },
     "on/events/28665.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28665",
-      "retrieved_at": "2026-10-26T05:18:01.491273+00:00",
-      "sha256": "83a078ca835ff4e96c92d32c5255b8aa3341296a80bca460f95ca95251cffccd",
-      "bytes": 2829
+      "retrieved_at": "2026-10-27T00:03:20.361372+00:00",
+      "sha256": "f15157546fcd3f093ec80f4e350c529954067dbbbfecf46bfcf83b3b31d9efc0",
+      "bytes": 2569
     },
     "on/events/28666.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28666",
-      "retrieved_at": "2026-10-26T05:18:02.286391+00:00",
-      "sha256": "ffbd89f552ce3d6ec596d150133cb0bba85394d809653db8056b666ea3c245b7",
-      "bytes": 2875
+      "retrieved_at": "2026-10-27T00:03:21.128982+00:00",
+      "sha256": "432d79ae9540782b3916cecd5a7456112676b1da3a0cdf154548faaf11c7e1e2",
+      "bytes": 2605
     },
     "on/events/28668.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28668",
-      "retrieved_at": "2026-10-26T05:18:04.934858+00:00",
-      "sha256": "3943949f69e529609e5237e655d453d53d38ef760bb0e973dbf58b94d8fc139e",
-      "bytes": 2841
+      "retrieved_at": "2026-10-27T00:03:23.673849+00:00",
+      "sha256": "b3b195166a23249a465cc610a72aa0144cf9527d620c300f3950a149c037a236",
+      "bytes": 2581
     },
     "on/events/28669.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28669",
-      "retrieved_at": "2026-10-26T05:18:04.142674+00:00",
-      "sha256": "145624079ff5106f0a50074c4469c0b6683ce342f86ac981633255ec665ca8a8",
-      "bytes": 2869
+      "retrieved_at": "2026-10-27T00:03:22.918356+00:00",
+      "sha256": "a2c09ff05fed4862111a7098f339b29e295295ec4b94c6325f9bb452aaf88da5",
+      "bytes": 2599
     },
     "on/events/28670.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28670",
-      "retrieved_at": "2026-10-26T05:18:03.191598+00:00",
-      "sha256": "3187e3c6cc1a2804c18e3de66e999565c18bee6e26a8477222b162ad7bb2af2a",
-      "bytes": 2823
+      "retrieved_at": "2026-10-27T00:03:22.029073+00:00",
+      "sha256": "d7e2a22a1e8e0eecca8ecd9897da4c926b9ea0513a37092725a93da705f12b87",
+      "bytes": 2563
     },
     "on/events/28672.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28672",
-      "retrieved_at": "2026-10-26T05:18:05.726321+00:00",
-      "sha256": "4f67b53abf9d6646f95c64ad744eeed03b74c63b5f51a6e5e4c0e173aba8fe35",
-      "bytes": 3152
+      "retrieved_at": "2026-10-27T00:03:24.435351+00:00",
+      "sha256": "1e28c74281ffdea98b96c591a71a4c54161021ab1ac1b198c569715f1f1c021f",
+      "bytes": 2892
     },
     "on/events/28673.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28673",
-      "retrieved_at": "2026-10-26T05:18:06.712495+00:00",
-      "sha256": "be07a283a9dccdaa61cb9286619420a81cdea22dccb2759e3e607c88f0099159",
-      "bytes": 3130
+      "retrieved_at": "2026-10-27T00:03:25.337525+00:00",
+      "sha256": "00611bdcde26441a2cf5166a4eb715664577218a4c48cfcb9a868dafe5728db1",
+      "bytes": 2870
     },
     "on/events/28674.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28674",
-      "retrieved_at": "2026-10-26T05:18:07.716944+00:00",
-      "sha256": "0593446e5efea22ac78dec89a3e9e1d5e2e13f1826e3612b03e591b588a8f46c",
-      "bytes": 3146
+      "retrieved_at": "2026-10-27T00:03:26.214493+00:00",
+      "sha256": "d5681145cdbfe496b5983b153b8ed3a569a5b866113f1305138a81ac4f3e4acf",
+      "bytes": 2886
     },
     "on/events/28675.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28675",
-      "retrieved_at": "2026-10-26T05:18:08.507868+00:00",
-      "sha256": "1e5d763d94a49405e0dbd58bae87506b096b50281da4b78fb82930bd86001af6",
-      "bytes": 3130
+      "retrieved_at": "2026-10-27T00:03:26.970818+00:00",
+      "sha256": "a9559cc294c73133aedb13c8735c37f3f383c91e61cd84a928f0f3248ac6a350",
+      "bytes": 2860
     },
     "on/events/28680.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28680",
-      "retrieved_at": "2026-10-26T05:18:10.399277+00:00",
-      "sha256": "15a2d0494c32b0202100e0767fe1a0955470baa57c4825d35d9bd416004cd7b5",
-      "bytes": 2666
+      "retrieved_at": "2026-10-27T00:03:28.771529+00:00",
+      "sha256": "5b484a93bb36b8d951dddc233bb94a3f659e39f150d38e48be443122b759e6cd",
+      "bytes": 2396
     },
     "on/events/28681.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28681",
-      "retrieved_at": "2026-10-26T05:18:11.164015+00:00",
-      "sha256": "eca331c09fcc5810c36ba4bda8df51aa938226d7f24c7594db45c03722d58cc8",
-      "bytes": 4120
+      "retrieved_at": "2026-10-27T00:03:29.577520+00:00",
+      "sha256": "da0277dd85a76ec4b730c8fb0ae23be7a80b2489cb6fbbfebab062a60b8c21e1",
+      "bytes": 3863
     },
     "on/events/28682.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28682",
-      "retrieved_at": "2026-10-26T05:18:12.003259+00:00",
-      "sha256": "1f8761181efdc586693ee73d2467d5483191f17192d8971a5a9ad2e5d6a50e05",
-      "bytes": 4120
+      "retrieved_at": "2026-10-27T00:03:30.448130+00:00",
+      "sha256": "320e96e001d00fd0de736a615ce1b7811df44253f272db6fb1a6efd3101b7263",
+      "bytes": 3863
     },
     "on/events/28683.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28683",
-      "retrieved_at": "2026-10-26T05:18:12.962793+00:00",
-      "sha256": "deca8ea76c8214ae68bc99e137564fd9aa7bf3c449b807371ded2a5e9f8e979c",
-      "bytes": 4120
+      "retrieved_at": "2026-10-27T00:03:31.372692+00:00",
+      "sha256": "623de27772387df86b2070cf40f385de173e81bbe0c1d4cb208b968694418818",
+      "bytes": 3863
     },
     "on/events/28684.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28684",
-      "retrieved_at": "2026-10-26T05:18:13.951166+00:00",
-      "sha256": "09afb428b508c9d01b9822c66aacbe4b94cae6ceea4b779447d786282b222253",
-      "bytes": 4120
+      "retrieved_at": "2026-10-27T00:03:32.309781+00:00",
+      "sha256": "e32e6aa27cad36bf43e8a060afa9738c81b969210f43ede1490ba8040c978238",
+      "bytes": 3863
     },
     "on/events/28685.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28685",
-      "retrieved_at": "2026-10-26T05:18:14.885169+00:00",
-      "sha256": "926a573609f2ec4a984751f32d056c143067a14c0ffde7b309032f6d8259dfe5",
-      "bytes": 4114
+      "retrieved_at": "2026-10-27T00:03:33.178114+00:00",
+      "sha256": "4f5a1cc0b0082d220337bc08768cf2a9acb2a25125ece8243035fe14c3b6b25b",
+      "bytes": 3857
     },
     "on/events/28686.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28686",
-      "retrieved_at": "2026-10-26T05:18:15.809275+00:00",
-      "sha256": "7e3e314ecd26942a81749e9c8c1091710137381824047ee4b5c5958421835d03",
-      "bytes": 4114
+      "retrieved_at": "2026-10-27T00:03:34.082803+00:00",
+      "sha256": "d588ced04d47fc328b31cdb516b988109ac3e09aaf2b445ec5188d3713eb9f7e",
+      "bytes": 3857
     },
     "on/events/28687.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28687",
-      "retrieved_at": "2026-10-26T05:18:16.603043+00:00",
-      "sha256": "3c45145ba8ca995f9cb93ccff5d5280212fc98985a8266a1e4b5b183e827fcf3",
-      "bytes": 4114
+      "retrieved_at": "2026-10-27T00:03:34.879670+00:00",
+      "sha256": "43cf6b214c96fba56af1fea072537fa978614a2ff6f4b877ad1a5f57b1577e92",
+      "bytes": 3857
     },
     "on/events/28688.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28688",
-      "retrieved_at": "2026-10-26T05:18:17.369196+00:00",
-      "sha256": "a12bb10ffbee0253ab7770b298259e0f36aff5de73fac6c1e51771902ca11510",
-      "bytes": 4114
+      "retrieved_at": "2026-10-27T00:03:35.669806+00:00",
+      "sha256": "e68a2fd0196c6492084c83c9299a8cdccbbcfbf9f89ddaf8bf09d3846df05057",
+      "bytes": 3857
     },
     "on/events/28690.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28690",
-      "retrieved_at": "2026-10-26T05:18:18.282576+00:00",
-      "sha256": "58672555bcf62095cf69e3731095173da60be9c755991f97532a1415aec736bb",
-      "bytes": 4106
+      "retrieved_at": "2026-10-27T00:03:36.565681+00:00",
+      "sha256": "7caf5efd00c32c0c4bf7a225cc538ae3f575591ac47afe901921dbfcd2d04415",
+      "bytes": 3849
     },
     "on/events/28691.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28691",
-      "retrieved_at": "2026-10-26T05:18:19.108955+00:00",
-      "sha256": "7d4bae2f29b6cfdc03d96e43f723c46f2456515207fcd52a204825fe05eed03c",
-      "bytes": 4106
+      "retrieved_at": "2026-10-27T00:03:37.363033+00:00",
+      "sha256": "f7ece85b33bf03b59dad877a38ac11ad0a91d7598aa9cd2d828e3b2685934f56",
+      "bytes": 3849
     },
     "on/events/28692.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28692",
-      "retrieved_at": "2026-10-26T05:18:19.950577+00:00",
-      "sha256": "7e86930d8ec99900bca152f2314a51187e05e9c21deb798758bfd5254e48adf8",
-      "bytes": 4106
+      "retrieved_at": "2026-10-27T00:03:38.172730+00:00",
+      "sha256": "f5d20c9223c0616e7be0f744f9260aa8ef7d07e1cf4531aa8d1ee21b7d1ddbd4",
+      "bytes": 3849
     },
     "on/events/28693.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28693",
-      "retrieved_at": "2026-10-26T05:18:20.781799+00:00",
-      "sha256": "d659f468c9fa848bbf982fed88cf610ad7d1eeae47ab01eb38e969858d262bac",
-      "bytes": 4106
+      "retrieved_at": "2026-10-27T00:03:38.976014+00:00",
+      "sha256": "6301993016845ee212501c926257063b313711c664e8b7e26ffad905d0dddd0c",
+      "bytes": 3849
     },
     "on/events/28694.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28694",
-      "retrieved_at": "2026-10-26T05:18:21.622955+00:00",
-      "sha256": "3dce523ee5260d82d711f7be18a5370cc3f5754738dac16526cdc3c0e634ab05",
-      "bytes": 4100
+      "retrieved_at": "2026-10-27T00:03:39.731376+00:00",
+      "sha256": "f57c6378e56f1e181842ba9b9854092bfb465250d68d33967612406483fdd5f4",
+      "bytes": 3843
     },
     "on/events/28695.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28695",
-      "retrieved_at": "2026-10-26T05:18:22.445295+00:00",
-      "sha256": "4b2fe4d15155add8d769692fa371c21fdb00fa30bd00fff87a9b815f635300ae",
-      "bytes": 4100
+      "retrieved_at": "2026-10-27T00:03:40.536026+00:00",
+      "sha256": "81b256dc867ce4d480e1448236bd36d19fe9703e53bef25871f1bbe1b21f4d6a",
+      "bytes": 3843
     },
     "on/events/28696.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28696",
-      "retrieved_at": "2026-10-26T05:18:23.237904+00:00",
-      "sha256": "e034e0f43f4c27ceee63ed5b92434bf739d1465a0aaa226dfcccc454850e52bd",
-      "bytes": 4100
+      "retrieved_at": "2026-10-27T00:03:41.298192+00:00",
+      "sha256": "53d24fd0d64d486ad9466d1b9c5cf8ee6fdf5043e2db519dd8c12134ea4d40a8",
+      "bytes": 3843
+    },
+    "on/events/28697.json": {
+      "kind": "event",
+      "source_url": "https://api.curling.io/en/clubs/on/events/28697",
+      "retrieved_at": "2026-10-27T00:03:42.121122+00:00",
+      "sha256": "d8f7372ad8e14f3127ed5f75698b02993a485a57f5e33de7e062eb386916382a",
+      "bytes": 3843
     },
     "on/events/28794.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/on/events/28794",
-      "retrieved_at": "2026-10-26T05:18:09.476462+00:00",
-      "sha256": "512f93b89b7ed89886275f29dbe63c6714deeb4c1f34de4aa7aefa03f16f5d81",
-      "bytes": 3022
+      "retrieved_at": "2026-10-27T00:03:27.859840+00:00",
+      "sha256": "f07eb9cefb0d307d30ce05e4b9ddb507e100289dd2aea398c57f11c2209eaa7e",
+      "bytes": 2761
     },
     "on/events/30499.json": {
       "kind": "event",
@@ -1454,93 +1461,93 @@
     "pe/events/30337.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30337",
-      "retrieved_at": "2026-10-26T05:18:24.807031+00:00",
-      "sha256": "4fb569852c85c8a93c0e40af9b802818fe3f1a38b3c3fb8c868f6c67d7fc4cd2",
+      "retrieved_at": "2026-10-27T00:03:43.664105+00:00",
+      "sha256": "fa98253e4b48c38e408daed172edeff08d8255f485407dc1fca14ff7a73478fc",
       "bytes": 2376
     },
     "pe/events/30339.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30339",
-      "retrieved_at": "2026-10-26T05:18:25.742463+00:00",
-      "sha256": "fc8fe171f167379f4c216304998664c78bdf5092296f9412eaf1b0005dae54cf",
-      "bytes": 1702
+      "retrieved_at": "2026-10-27T00:03:44.535525+00:00",
+      "sha256": "284ad2eea85c112683c300868894d61cbad2e8071601ceaadcf66bac58ee5dac",
+      "bytes": 1500
     },
     "pe/events/30340.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30340",
-      "retrieved_at": "2026-10-26T05:18:26.512484+00:00",
-      "sha256": "1369a56093a7ce96dca04c119383bc7680cd6098c3cc6e95a1bf48487af1ee94",
-      "bytes": 1852
+      "retrieved_at": "2026-10-27T00:03:45.321522+00:00",
+      "sha256": "873fc2b51a75bb2298706d35c9c4c501349eca6692bd01ac1c69cb9f1a65eaaf",
+      "bytes": 1641
     },
     "pe/events/30341.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30341",
-      "retrieved_at": "2026-10-26T05:18:27.295396+00:00",
-      "sha256": "197501dad6e444e417ec5ee6ca9bb226504e8e9fef1c59192480485ce6646ebe",
-      "bytes": 2054
+      "retrieved_at": "2026-10-27T00:03:46.107674+00:00",
+      "sha256": "3720a7cf08a24d9654bb4a393233ccca03a3ca2555d06646aff828c0eac88aa8",
+      "bytes": 2040
     },
     "pe/events/30342.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30342",
-      "retrieved_at": "2026-10-26T05:18:28.098935+00:00",
-      "sha256": "f5cb3af16001fd4983f295e22aa1f51c45b80a75295ea19e5da6350d9765de67",
-      "bytes": 2018
+      "retrieved_at": "2026-10-27T00:03:46.865156+00:00",
+      "sha256": "2c4a6b4c46a176f89d8a753fa4f8370ac6d67b0152df3c9223fceeadba244df0",
+      "bytes": 1796
     },
     "pe/events/30343.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30343",
-      "retrieved_at": "2026-10-26T05:18:28.996678+00:00",
-      "sha256": "4d98f798c59e9ab3cf405fdde48035a4a34ac770ed87a0f4076404f35f80ffc9",
-      "bytes": 1896
+      "retrieved_at": "2026-10-27T00:03:47.603689+00:00",
+      "sha256": "46ac87aa0821d8525e30c9b3d831527a39986446ece0273efcc7917a72a794fa",
+      "bytes": 1685
     },
     "pe/events/30344.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30344",
-      "retrieved_at": "2026-10-26T05:18:29.782475+00:00",
-      "sha256": "c5f46af58545d1a6ddcc894b9e56dac5f4d3c2c908e6fc30eac97085d28ae3b1",
-      "bytes": 2009
+      "retrieved_at": "2026-10-27T00:03:48.348783+00:00",
+      "sha256": "f9f512220224bcf70c52dc8d4ec17fe793000d611dda00dfbff5d113e03d1949",
+      "bytes": 1793
     },
     "pe/events/30345.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30345",
-      "retrieved_at": "2026-10-26T05:18:30.606979+00:00",
-      "sha256": "6f8d09c7129dbfd7fb95441cf390307c720423e8cb83cc7e9812bc697d130e3e",
-      "bytes": 2157
+      "retrieved_at": "2026-10-27T00:03:49.093186+00:00",
+      "sha256": "22edd459ded4a6d0c97bdabe6b192e69ef67026ab1ff7aafc8691960a0e5e97c",
+      "bytes": 2143
     },
     "pe/events/30346.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30346",
-      "retrieved_at": "2026-10-26T05:18:32.587913+00:00",
-      "sha256": "1b67d50bcd9c76e50cb33f9012ada5cc25f32bc0c30d496366a6e679909c9030",
-      "bytes": 1993
+      "retrieved_at": "2026-10-27T00:03:50.842219+00:00",
+      "sha256": "14693ea6bda8251fde309fa2396fd60caa4ece43fbd18176ebaf59d74f04e273",
+      "bytes": 1777
     },
     "pe/events/30352.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30352",
-      "retrieved_at": "2026-10-26T05:18:33.376017+00:00",
-      "sha256": "f1e7392fea6363afdd686d82c2cd5be15016959796f260f15657607c596f18bd",
-      "bytes": 2098
+      "retrieved_at": "2026-10-27T00:03:51.591608+00:00",
+      "sha256": "a129ae39a76391819ced004078dd24bba876daa5f85b3a694c0fc9f22fd537b5",
+      "bytes": 1877
     },
     "pe/events/30353.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30353",
-      "retrieved_at": "2026-10-26T05:18:34.300092+00:00",
-      "sha256": "467e4620e10a303f26cf5d97ad1adf68d2aa9f6d34d12a763de1b1a909a088d6",
-      "bytes": 1402
+      "retrieved_at": "2026-10-27T00:03:52.518961+00:00",
+      "sha256": "a6f82c19aa900ab74e34d62b69a1df06b0a2288233c0b9546739686268e1606c",
+      "bytes": 1190
     },
     "pe/events/30354.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30354",
-      "retrieved_at": "2026-10-26T05:18:35.207649+00:00",
-      "sha256": "e8acf5753c4872b94fef234c003afba81958616b69b5e2652d0e86867a2a49e0",
-      "bytes": 2259
+      "retrieved_at": "2026-10-27T00:03:53.389283+00:00",
+      "sha256": "be339653480993accf8458ff033b45b184fd2a7a8b56f1e4130e7996de406788",
+      "bytes": 2042
     },
     "pe/events/30357.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/pe/events/30357",
-      "retrieved_at": "2026-10-26T05:18:31.556517+00:00",
-      "sha256": "deb2362e92d5bc3dc5a0e7f8125c22fbf5899ad55ffd07fef88f6c71764225ef",
-      "bytes": 1397
+      "retrieved_at": "2026-10-27T00:03:49.967849+00:00",
+      "sha256": "0dfaa9bb24fdddbda5366c198395a8b8cf1f85eec4b3542371b0ca4f73274605",
+      "bytes": 1388
     },
     "qc/competitions--1.json": {
       "kind": "competitions",
@@ -1559,163 +1566,163 @@
     "qc/events/27060.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/27060",
-      "retrieved_at": "2026-10-26T05:18:40.511283+00:00",
-      "sha256": "fb29120ef84347dac4151468887e18eeefd699b4b244e7817ad98f4f261159be",
-      "bytes": 849
+      "retrieved_at": "2026-10-27T00:03:58.503170+00:00",
+      "sha256": "fae6ae4ebbebf3389fda2282e593ce7589bfbc2970be95e09879b06c40f7612a",
+      "bytes": 609
     },
     "qc/events/28057.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28057",
-      "retrieved_at": "2026-10-26T05:18:46.303263+00:00",
-      "sha256": "faf2bbb57702b12148ea5f09bfe4457d392f6b535884d68497a96da7752d9462",
-      "bytes": 1820
+      "retrieved_at": "2026-10-27T00:04:04.097303+00:00",
+      "sha256": "c49ae02f2030f84d8a1a5d4058ac53cd8b0e8ef8b981243e8f632344f502579d",
+      "bytes": 1523
     },
     "qc/events/28058.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28058",
-      "retrieved_at": "2026-10-26T05:18:42.271917+00:00",
-      "sha256": "20ca5207437bc844e16ff67de9e4df7d1a6bb98b9cdb6982d9c0a9114ddc5f65",
-      "bytes": 1041
+      "retrieved_at": "2026-10-27T00:04:00.170039+00:00",
+      "sha256": "c9976cb2e8fa648aac944b99cacf61fe4a0eed9ef12b95d81daedd6c9e2ab015",
+      "bytes": 821
     },
     "qc/events/28059.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28059",
-      "retrieved_at": "2026-10-26T05:18:52.935738+00:00",
-      "sha256": "8dc40cec697a106097754d287b99662aed6cd02a8e4c2f17a431e04ae3e91606",
-      "bytes": 762
+      "retrieved_at": "2026-10-27T00:04:10.563178+00:00",
+      "sha256": "9f1e7d7cb6783c35047bbb059a076c02af42a14cfdcf390f21e53a7a117f4472",
+      "bytes": 542
     },
     "qc/events/28361.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28361",
-      "retrieved_at": "2026-10-26T05:18:36.786502+00:00",
-      "sha256": "d1a9be36abd8e3562ad817bbf5936d4b215e8999aeb25f95cc5833f9dc90ad32",
-      "bytes": 889
+      "retrieved_at": "2026-10-27T00:03:54.981248+00:00",
+      "sha256": "6bd48b4d098e431c99f611885c3b0393b94f30f37833a178094a545acf1f881e",
+      "bytes": 860
     },
     "qc/events/28362.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28362",
-      "retrieved_at": "2026-10-26T05:18:37.826932+00:00",
-      "sha256": "9fb411e6d8ce1a419f58ce5c7cab3d85f8ce06b852a953e9370c5fc2e8fe94ea",
-      "bytes": 924
+      "retrieved_at": "2026-10-27T00:03:55.897778+00:00",
+      "sha256": "d19fc662e0272ec07b39b39b365e954647b558edd830c1b94b1f65d00f2d530b",
+      "bytes": 895
     },
     "qc/events/28363.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28363",
-      "retrieved_at": "2026-10-26T05:18:38.781559+00:00",
-      "sha256": "6617d1293ac3f1aa7e678f0c553b6d41e1fe3f9e910e364b759276f709b5a5df",
-      "bytes": 893
+      "retrieved_at": "2026-10-27T00:03:56.785282+00:00",
+      "sha256": "eff54e344abec37f1e711c68d80b7b105cb8e67b786ce30d8511f466e3c59501",
+      "bytes": 654
     },
     "qc/events/28380.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28380",
-      "retrieved_at": "2026-10-26T05:18:39.717890+00:00",
-      "sha256": "b96742b31690a13facd271ce218f800e1726caa85e4ca740b42c2eceb74cf91d",
-      "bytes": 681
+      "retrieved_at": "2026-10-27T00:03:57.674410+00:00",
+      "sha256": "a4fd6ef5b1d2f608d4e5c810aa8316234557218b230686d49b948be775fc8176",
+      "bytes": 661
     },
     "qc/events/28382.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28382",
-      "retrieved_at": "2026-10-26T05:18:41.479242+00:00",
-      "sha256": "1c9dad543858c3978dd7d24f3aa9c9d06ff9649baec279396eda5c57b4306fd9",
-      "bytes": 899
+      "retrieved_at": "2026-10-27T00:03:59.390755+00:00",
+      "sha256": "e88f2ae2b272d65274b8dda5d334095ecd189bd26309cb08bde8364882fcb321",
+      "bytes": 659
     },
     "qc/events/28383.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28383",
-      "retrieved_at": "2026-10-26T05:18:43.086751+00:00",
-      "sha256": "6875dbd1cf7b077c39c55ea8e6ca2fc11def3d0b7c44e9950c63ab83769f5349",
-      "bytes": 484
+      "retrieved_at": "2026-10-27T00:04:00.972879+00:00",
+      "sha256": "5fb7a73de6e08a718c4d80695e3f603f603d73df78fe983a7155798550da8a3f",
+      "bytes": 267
     },
     "qc/events/28388.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28388",
-      "retrieved_at": "2026-10-26T05:18:45.472503+00:00",
-      "sha256": "2a8db76a131665b1cc0174a55fdad77fcb299bb37be9e9ab076a3e6ab3274908",
-      "bytes": 738
+      "retrieved_at": "2026-10-27T00:04:03.326183+00:00",
+      "sha256": "5353e63c88cab6ab2cd6414d04100764303c7b2c0ed0d265daac7e4812ea1101",
+      "bytes": 729
     },
     "qc/events/28389.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28389",
-      "retrieved_at": "2026-10-26T05:18:43.866784+00:00",
-      "sha256": "5438e7907fcfa7d26104ccbed2844b9e593e913197d63793ec6b1070876285d4",
-      "bytes": 742
+      "retrieved_at": "2026-10-27T00:04:01.732309+00:00",
+      "sha256": "e3ff55331494b2e3c2664f171eadf74b02d45831285b1f3a7925b38d652bb830",
+      "bytes": 733
     },
     "qc/events/28391.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28391",
-      "retrieved_at": "2026-10-26T05:18:48.100935+00:00",
-      "sha256": "38f92b2b83c157cc571003b246511c26b3acdfd5480527d77786fef3b2a03e2f",
-      "bytes": 939
+      "retrieved_at": "2026-10-27T00:04:05.725982+00:00",
+      "sha256": "c719a1395ac308cbc97107c9c3a79b0a1e4017b9b0d16ffc89ff0fcb3567137a",
+      "bytes": 910
     },
     "qc/events/28392.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28392",
-      "retrieved_at": "2026-10-26T05:18:47.280912+00:00",
-      "sha256": "0885d9cb4a879a746c6910300ea800264afad283c5de19793586069e70b73fe2",
-      "bytes": 943
+      "retrieved_at": "2026-10-27T00:04:04.979081+00:00",
+      "sha256": "fc2268d40cbde6be477c612cae5c83ac866521eb8ae7c6a7650add209d0ab839",
+      "bytes": 914
     },
     "qc/events/28393.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28393",
-      "retrieved_at": "2026-10-26T05:18:48.868207+00:00",
-      "sha256": "6635afd8299e682ca79b2c50d675f2e9645bf276d0ea46838f62ba84f8fc399b",
-      "bytes": 738
+      "retrieved_at": "2026-10-27T00:04:06.474848+00:00",
+      "sha256": "891e65b7d001d7bfd5e10de32700100faeade4b3c7744eaf1a539675201a596b",
+      "bytes": 729
     },
     "qc/events/28394.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28394",
-      "retrieved_at": "2026-10-26T05:18:50.539388+00:00",
-      "sha256": "f561eeb7a413700c000a18e8315ec7c0ab6aa6f20046c10164d4699766c5386f",
-      "bytes": 932
+      "retrieved_at": "2026-10-27T00:04:08.124293+00:00",
+      "sha256": "be89f6cfe9fd0aaebac0a18c836132c96679349f863f0e34f2fe95f473c7de9e",
+      "bytes": 695
     },
     "qc/events/28395.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28395",
-      "retrieved_at": "2026-10-26T05:18:51.355967+00:00",
-      "sha256": "baf2785187070ddb3999ac89069d21075887037ee4fd06397871bcd4ff471a14",
-      "bytes": 932
+      "retrieved_at": "2026-10-27T00:04:08.995087+00:00",
+      "sha256": "37ca6a8d6b217da3efb9f2cd9cb3a49024e2a79e6ffb57d2f4fdeb52177766df",
+      "bytes": 695
     },
     "qc/events/28396.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28396",
-      "retrieved_at": "2026-10-26T05:18:49.648447+00:00",
-      "sha256": "4af7837d0a4dfc502c3006c247dbfdb045e040ed99e3bce163e2fc5df5b8c993",
-      "bytes": 924
+      "retrieved_at": "2026-10-27T00:04:07.262056+00:00",
+      "sha256": "c7a8820ff986a88ed962598d34944c003cc854ffdb522b4dbaaf12dbcd5583c0",
+      "bytes": 895
     },
     "qc/events/28397.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28397",
-      "retrieved_at": "2026-10-26T05:18:52.159656+00:00",
-      "sha256": "28a8bb67dac97791f4bd2e663ea0a5c46067d1562b2099676a2c9e342949170d",
-      "bytes": 962
+      "retrieved_at": "2026-10-27T00:04:09.751684+00:00",
+      "sha256": "0decfe5f090255fa527f0ec482156aad1b0061c4413549a8965954ba49a13512",
+      "bytes": 723
     },
     "qc/events/28400.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28400",
-      "retrieved_at": "2026-10-26T05:18:53.723886+00:00",
-      "sha256": "ae4b4ff5ef46caa0c0980e670813267339c2ebcdb6287f27d8397831f3e0526c",
-      "bytes": 992
+      "retrieved_at": "2026-10-27T00:04:11.348467+00:00",
+      "sha256": "b804b1e647a05c24c6929b22947c491fa66b1e927428c85214e90e5f5e8e24a0",
+      "bytes": 753
     },
     "qc/events/28401.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28401",
-      "retrieved_at": "2026-10-26T05:18:54.531428+00:00",
-      "sha256": "3aba06d7a1e8f11354a2b70a3676e6c7762bb65b582e550b3cc0748736c18d8e",
-      "bytes": 903
+      "retrieved_at": "2026-10-27T00:04:12.110897+00:00",
+      "sha256": "941580d0c9868d08aa59cccbd52ce0d5cd2c9245d73288b9a3ae364deeaf036a",
+      "bytes": 663
     },
     "qc/events/28402.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/28402",
-      "retrieved_at": "2026-10-26T05:18:55.310167+00:00",
-      "sha256": "887e5c09cae72909635d4e9785ee7f748679c1cdddc24033c7102eeea2ac5157",
-      "bytes": 780
+      "retrieved_at": "2026-10-27T00:04:12.864594+00:00",
+      "sha256": "9f00b17f9f48c5b743ec06a5f8f64f4c6bad3244cada93311b9deea5796ca6f1",
+      "bytes": 554
     },
     "qc/events/30500.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/qc/events/30500",
-      "retrieved_at": "2026-10-26T05:18:44.691843+00:00",
-      "sha256": "bbff493c86cd759a81c436341487d93822cbfa60cf6ae41bd9520bc6dcf31a65",
-      "bytes": 738
+      "retrieved_at": "2026-10-27T00:04:02.545010+00:00",
+      "sha256": "b2557e7551a5f0c989ae23c7140793698082f2286ed37140896cafedfd7361e0",
+      "bytes": 729
     },
     "sk/competitions--1.json": {
       "kind": "competitions",
@@ -1734,226 +1741,226 @@
     "sk/events/29024.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29024",
-      "retrieved_at": "2026-10-26T05:19:03.784580+00:00",
-      "sha256": "d43f396bbbeba1743d10f2a6c936e670fa4419b608154a1d10bf6b8d3141eb97",
-      "bytes": 1621
+      "retrieved_at": "2026-10-27T00:04:21.137307+00:00",
+      "sha256": "9d9ae85c491d3d865f5d7b16035ed466d5014963a1fe805a92be55e480c73806",
+      "bytes": 1341
     },
     "sk/events/29025.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29025",
-      "retrieved_at": "2026-10-26T05:19:04.669362+00:00",
-      "sha256": "0ef57901bcb66f9ea96a3a3051a3186bc13a0848c8b55d2ac5d6f2cac0389351",
-      "bytes": 1617
+      "retrieved_at": "2026-10-27T00:04:21.904110+00:00",
+      "sha256": "5b0f47f2fb17acad26ce3f3269f9b1c699b21a4b6dc680aa91094a0da4fa80af",
+      "bytes": 1337
     },
     "sk/events/29028.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29028",
-      "retrieved_at": "2026-10-26T05:18:57.984367+00:00",
-      "sha256": "450731e2a8dd21356f7aaf9891f80a24ff8d8cd62cf8d94796d72b2f6867d22b",
-      "bytes": 2149
+      "retrieved_at": "2026-10-27T00:04:15.455593+00:00",
+      "sha256": "723a4bd0a0fe8355e310bf50808a9dcaf92547d19ef088f131bb846ea475a32a",
+      "bytes": 1850
     },
     "sk/events/29029.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29029",
-      "retrieved_at": "2026-10-26T05:18:58.935793+00:00",
-      "sha256": "8460095b09aae3f45f20348658e8703e82628b99cbed08f2e1dac4b8a2dfa70a",
-      "bytes": 2135
+      "retrieved_at": "2026-10-27T00:04:16.313664+00:00",
+      "sha256": "9b7a0f2d15113b8f36c976596eb69f7ca4cce921e64c2c993c68cb35ddbe33d3",
+      "bytes": 1841
     },
     "sk/events/29045.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29045",
-      "retrieved_at": "2026-10-26T05:19:10.533538+00:00",
-      "sha256": "404aed07ccf22c81bb9feb9b59a52ed967200cc2489a84ea7ae83924311de940",
-      "bytes": 777
+      "retrieved_at": "2026-10-27T00:04:27.662178+00:00",
+      "sha256": "f8194ceea3d7abd60de82364ec5fc61ad9b74a8cbe43e1b98ea38da5aeb8b8c4",
+      "bytes": 493
     },
     "sk/events/29046.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29046",
-      "retrieved_at": "2026-10-26T05:18:57.194896+00:00",
-      "sha256": "18fcaf0bffbaa722db13091afc73400b15dba796f2d57ae0d016dbec94f557c6",
-      "bytes": 1657
+      "retrieved_at": "2026-10-27T00:04:14.672730+00:00",
+      "sha256": "30d4207ebe09253ff782ec0e4b834ffdd67948f619c012406961f4d399d9b413",
+      "bytes": 1141
     },
     "sk/events/29051.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29051",
-      "retrieved_at": "2026-10-26T05:19:09.720476+00:00",
-      "sha256": "51fe4f6cd3709c51b9ca2607db949c0fe6fd6a74e51036a1ffdaf1fcaf5e941f",
-      "bytes": 764
+      "retrieved_at": "2026-10-27T00:04:26.888297+00:00",
+      "sha256": "edf315c51f0411deae8899336abf3c579bfdccee0950ad2ad1945a58e9667849",
+      "bytes": 485
     },
     "sk/events/29053.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29053",
-      "retrieved_at": "2026-10-26T05:18:59.755647+00:00",
-      "sha256": "187532406d0b6c08b0d8e0845e4fa1dd1cffb9398abb53f90d452b792c9bdb93",
-      "bytes": 1967
+      "retrieved_at": "2026-10-27T00:04:17.076876+00:00",
+      "sha256": "fd623afcfcb86f6a3263924f24d434625ebbea6b066a9ac2c5685294a9b4cc45",
+      "bytes": 1687
     },
     "sk/events/29054.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29054",
-      "retrieved_at": "2026-10-26T05:19:00.679190+00:00",
-      "sha256": "ac57727c00bd3209719d09076320e920fb5a2f5a9d8aaa73c98a36e2b4ea2c19",
-      "bytes": 1975
+      "retrieved_at": "2026-10-27T00:04:18.035576+00:00",
+      "sha256": "d889c95db07b5d7a5652a854689659bbe269316c273e791513509e4891bdede2",
+      "bytes": 1695
     },
     "sk/events/29055.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29055",
-      "retrieved_at": "2026-10-26T05:19:01.455516+00:00",
-      "sha256": "24f755b11dc478cd184c1a1bdd5c55bf31e91904211345daffc8f0d483d14a6d",
-      "bytes": 1967
+      "retrieved_at": "2026-10-27T00:04:18.797390+00:00",
+      "sha256": "e1ff26b397931e68b3751664a9f9e3293943d5fce4dec46b1195d726cc8354bd",
+      "bytes": 1687
     },
     "sk/events/29056.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29056",
-      "retrieved_at": "2026-10-26T05:19:02.217734+00:00",
-      "sha256": "e208ff7839752d61b85335ea1f2ab87265e3c8fcec3f569ee79659ed9b0fb0c3",
-      "bytes": 2058
+      "retrieved_at": "2026-10-27T00:04:19.609013+00:00",
+      "sha256": "0e95d7de03fd863a284044383e8cf80eeff9374f9cf1a23b00d441b8235562a7",
+      "bytes": 2012
     },
     "sk/events/29057.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29057",
-      "retrieved_at": "2026-10-26T05:19:02.976964+00:00",
-      "sha256": "fd06ab879016405045d828e3982f6a20d8ca605b72b43adf5504192303303510",
-      "bytes": 2058
+      "retrieved_at": "2026-10-27T00:04:20.371762+00:00",
+      "sha256": "b02dfcb66c884e6d09299777895e497a73daf2d637c4d5b374a3d94c81c3d43c",
+      "bytes": 2012
     },
     "sk/events/29064.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29064",
-      "retrieved_at": "2026-10-26T05:19:05.487950+00:00",
-      "sha256": "ce16d8d3d428f9a6d8124ca1d51d8de2012296be9f5461a084204e64c7c52a0e",
-      "bytes": 1631
+      "retrieved_at": "2026-10-27T00:04:22.680628+00:00",
+      "sha256": "f8060cb1a2e5e9cd033467e923eb86328cb58e3ea8d38f9b376d593dd748463e",
+      "bytes": 1351
     },
     "sk/events/29065.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29065",
-      "retrieved_at": "2026-10-26T05:19:06.293559+00:00",
-      "sha256": "33af8ab1f23ad4920f8fd5740a1bff8a176a140aea2e439476748e1842eaad40",
-      "bytes": 1625
+      "retrieved_at": "2026-10-27T00:04:23.447400+00:00",
+      "sha256": "03febcb1e99e34d611d2a3005bed7e04d76cbbc6007d6b5b5ac73083807b8fe5",
+      "bytes": 1345
     },
     "sk/events/29066.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29066",
-      "retrieved_at": "2026-10-26T05:19:07.210162+00:00",
-      "sha256": "423e28190fcc4781db937084e47a3f7dd711a4b67865271ab607f4e8feb47cb0",
-      "bytes": 1616
+      "retrieved_at": "2026-10-27T00:04:24.383779+00:00",
+      "sha256": "6794406cf2f2c8edfdee124ba60db76f59a3f84a7bb3dc1c0c60d8b21444681a",
+      "bytes": 1336
     },
     "sk/events/29067.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29067",
-      "retrieved_at": "2026-10-26T05:19:08.149801+00:00",
-      "sha256": "5f55f2dab4cddd45ed819103c68fbcc65b3b7bb89be3c4fccda6814a290bb54d",
-      "bytes": 1610
+      "retrieved_at": "2026-10-27T00:04:25.305857+00:00",
+      "sha256": "028b643c0eb18ddfa7cf9785ac45698821b174bd746a5db66aadd71af3951524",
+      "bytes": 1330
     },
     "sk/events/29068.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29068",
-      "retrieved_at": "2026-10-26T05:19:08.953301+00:00",
-      "sha256": "8ad0352ed118953d77b25c0cb9643c80e6b293f0563e3a2f25ab2f0e2080b26b",
-      "bytes": 2153
+      "retrieved_at": "2026-10-27T00:04:26.069949+00:00",
+      "sha256": "353b35988c197db02c914f722777d88c065c3d12fe07a17042fdf8de3768c286",
+      "bytes": 1873
     },
     "sk/events/29069.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29069",
-      "retrieved_at": "2026-10-26T05:19:11.347367+00:00",
-      "sha256": "08af1689dcc6b40da3f79636f8a582470a50d7234c349b51b031b85fcf522cf3",
-      "bytes": 1624
+      "retrieved_at": "2026-10-27T00:04:28.475029+00:00",
+      "sha256": "ea67a316dca7907da7467f4628721cdb3e1ef36f7cbb48fd36c89b3a828bc97d",
+      "bytes": 1344
     },
     "sk/events/29070.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29070",
-      "retrieved_at": "2026-10-26T05:19:12.124998+00:00",
-      "sha256": "91495e3911140f534d29152103a9541e0db2df5110b284c941f4c75d5f294491",
-      "bytes": 1618
+      "retrieved_at": "2026-10-27T00:04:29.248085+00:00",
+      "sha256": "e0b6ad908b3cd0dc460982d28f92535cf6b65df06e85120a8e5fa346abf7fc38",
+      "bytes": 1338
     },
     "sk/events/29071.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29071",
-      "retrieved_at": "2026-10-26T05:19:16.069160+00:00",
-      "sha256": "0b9759499d637c079f9315c2852d627e89997cbc8f1e7707c126514eb95b6e26",
-      "bytes": 568
+      "retrieved_at": "2026-10-27T00:04:33.258164+00:00",
+      "sha256": "0823781024b8f9a96f4e44447d379bffce26fcde75a6671cfe42d709485ca1fb",
+      "bytes": 293
     },
     "sk/events/29072.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29072",
-      "retrieved_at": "2026-10-26T05:19:12.926449+00:00",
-      "sha256": "109ac0d5f3d482196fb8bfb11b1a8694ae71e2c38b2791fe42f12541f35d8a59",
-      "bytes": 1810
+      "retrieved_at": "2026-10-27T00:04:30.051778+00:00",
+      "sha256": "ded33575c2a2aeef6c5e5fe277448e17ae651e1c8fde11b9298ad17e877adeca",
+      "bytes": 1833
     },
     "sk/events/29073.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29073",
-      "retrieved_at": "2026-10-26T05:19:13.703855+00:00",
-      "sha256": "ad25a2feecd444d8a5110c8d13502b37dc22ca2ca58bbcd895e44423caa9f5fe",
-      "bytes": 1804
+      "retrieved_at": "2026-10-27T00:04:30.823678+00:00",
+      "sha256": "a3b691ba8082f9a13a7febb293ee8ab23800d07527abe9898cd6ce5b0a8dbc0c",
+      "bytes": 1827
     },
     "sk/events/29074.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29074",
-      "retrieved_at": "2026-10-26T05:19:14.484521+00:00",
-      "sha256": "d4f03176c0cc40f09035470941f663e9af61d547ba9e0b84adb2288fd7777178",
-      "bytes": 755
+      "retrieved_at": "2026-10-27T00:04:31.619576+00:00",
+      "sha256": "f953d978e661509e92661eb3d81a806810e9e5089807c20687535fc4219049cd",
+      "bytes": 477
     },
     "sk/events/29075.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29075",
-      "retrieved_at": "2026-10-26T05:19:15.279863+00:00",
-      "sha256": "d5f22d8b487e97b787c3008e364c906d1101033dd7f001376ed8fb6928c84607",
-      "bytes": 1657
+      "retrieved_at": "2026-10-27T00:04:32.400968+00:00",
+      "sha256": "600d48827275f4b8b667835e7ee5eb1e9e328e2e87acf5bf1617e64d26c60896",
+      "bytes": 1377
     },
     "sk/events/29294.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29294",
-      "retrieved_at": "2026-10-26T05:19:16.925962+00:00",
-      "sha256": "71fb66b8c82384564e0adc5193b45d8c8960150afe4c6c474a038d3cd3eba1dc",
-      "bytes": 10116
+      "retrieved_at": "2026-10-27T00:04:34.058611+00:00",
+      "sha256": "2ccf4af7093ab66951d57de06c2a070bef7a318d69bb692f1d82bfcce8809f24",
+      "bytes": 10124
     },
     "sk/events/29295.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29295",
-      "retrieved_at": "2026-10-26T05:19:17.793366+00:00",
-      "sha256": "5a221e0f9a987cd48703812f1304b9328c5c87975342e45c04ba0ead9b709d01",
-      "bytes": 26230
+      "retrieved_at": "2026-10-27T00:04:34.914062+00:00",
+      "sha256": "79c14bc19107defcdb331453c221f2a3876293081cebf7dea60d9ac8058ad2d8",
+      "bytes": 26600
     },
     "sk/events/29296.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29296",
-      "retrieved_at": "2026-10-26T05:19:18.613862+00:00",
-      "sha256": "b87059d3b1a40b19f78e71db850fcd846378b9a104339b809c26eab31a66ff99",
-      "bytes": 13747
+      "retrieved_at": "2026-10-27T00:04:35.684773+00:00",
+      "sha256": "e9d99be2006a6b8c2d290a6262973dfca2affa2b30ce17c8afaa0dcdecce29df",
+      "bytes": 14180
     },
     "sk/events/29297.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29297",
-      "retrieved_at": "2026-10-26T05:19:19.465762+00:00",
-      "sha256": "daeb82db263fbb5e8ee6a0ff07491af88b10d59474dc7eb5a0c0f878b0b3ea51",
-      "bytes": 32909
+      "retrieved_at": "2026-10-27T00:04:36.606927+00:00",
+      "sha256": "34f38b78b31112c9bf6cef134bf5f9e1dd04db9e776475ff6d036284ae2c665c",
+      "bytes": 33146
     },
     "sk/events/29298.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29298",
-      "retrieved_at": "2026-10-26T05:19:20.234246+00:00",
-      "sha256": "02ad4496f80399068e9d3d114139c7020fbe2c5a9833d7c6f9a22772f0c2bd53",
-      "bytes": 1173
+      "retrieved_at": "2026-10-27T00:04:37.397856+00:00",
+      "sha256": "a1b5c2b0dd7a8b1de6194c4ef011b7d8909d3c1a7dc1c23fddfc8fdd711caec5",
+      "bytes": 903
     },
     "sk/events/29299.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29299",
-      "retrieved_at": "2026-10-26T05:19:21.179661+00:00",
-      "sha256": "c62a8432a6f4e81fd486745c56395a8ad4d1054183615ad9d01114d13c446395",
-      "bytes": 1396
+      "retrieved_at": "2026-10-27T00:04:38.332950+00:00",
+      "sha256": "641ebd71a3cecaa6250c100a3289f7b8705b71cd674fe524defa13fef9388664",
+      "bytes": 1386
     },
     "sk/events/29300.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29300",
-      "retrieved_at": "2026-10-26T05:19:21.943352+00:00",
-      "sha256": "4f76e7f42083b661957e859b7b1e466f320f036dd74d39cd5081f2daddebb764",
-      "bytes": 1382
+      "retrieved_at": "2026-10-27T00:04:39.154150+00:00",
+      "sha256": "bf77587b91330ef73de50d44a9006d44ebfac00617e792cc73840e067533b56b",
+      "bytes": 1102
     },
     "sk/events/29301.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/sk/events/29301",
-      "retrieved_at": "2026-10-26T05:19:22.720818+00:00",
-      "sha256": "93feb8a0f5c50b56e9f24520ca09b6b4468d3f2b402e90cc3ffe0457940b1b96",
-      "bytes": 1382
+      "retrieved_at": "2026-10-27T00:04:39.928288+00:00",
+      "sha256": "a102dc95069b6d76eade40ca9dc8502b76fb6241fc4ee91164fc7d952e34ceea",
+      "bytes": 1372
     },
     "yt/competitions--1.json": {
       "kind": "competitions",
@@ -1972,135 +1979,135 @@
     "yt/events/25109.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/25109",
-      "retrieved_at": "2026-10-26T05:19:25.279689+00:00",
-      "sha256": "81f04d044f765824ebbee5b0db70f04916ea879abb2515b3032dfb1b028f3630",
+      "retrieved_at": "2026-10-27T00:04:42.366457+00:00",
+      "sha256": "d11f6d4ddf8e4fa58816d5ca73e3624a775a1d538668dc2bf2cc432ac67b8593",
       "bytes": 501
     },
     "yt/events/25110.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/25110",
-      "retrieved_at": "2026-10-26T05:19:24.501156+00:00",
-      "sha256": "ed0c04e7f750dbc3aea8cb05d1964ab5bfc33e54da7595c7f68c2f2f2105e7bf",
+      "retrieved_at": "2026-10-27T00:04:41.610797+00:00",
+      "sha256": "be43bb0968338d56e7ee0f9a0f96b095b9518782f86f6c6502b60e0300e0ac69",
       "bytes": 617
     },
     "yt/events/29547.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29547",
-      "retrieved_at": "2026-10-26T05:19:28.470722+00:00",
-      "sha256": "2f66e0c65ecbadcd538d2bb1825f212a295290489359bc33e6f888398a2ffdfc",
-      "bytes": 787
+      "retrieved_at": "2026-10-27T00:04:45.478951+00:00",
+      "sha256": "38d93ac1979a9f2f2d97e50e58d1df964d8e793ff92e6ae43f3e44fda84b45cb",
+      "bytes": 710
     },
     "yt/events/29548.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29548",
-      "retrieved_at": "2026-10-26T05:19:29.255296+00:00",
-      "sha256": "17156d67aeca67c4f5d9cacc1d4e6e38dba57cfa523e6228c7229a5cdd5f1bf4",
-      "bytes": 779
+      "retrieved_at": "2026-10-27T00:04:46.253673+00:00",
+      "sha256": "a2038fd1f8e6737346ee6895f40e9a229b653c241e954b85681297ef45bb57a5",
+      "bytes": 702
     },
     "yt/events/29550.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29550",
-      "retrieved_at": "2026-10-26T05:19:30.178251+00:00",
-      "sha256": "bec65c6c5a00ef7ca6c80d6b2ea35d176d5ebfb1473c3a7ca1e6fe97cf733ee2",
-      "bytes": 783
+      "retrieved_at": "2026-10-27T00:04:47.112549+00:00",
+      "sha256": "31538b36c93a91787d3f05257610e0d62ddf222a0190fdb32b201af6fd2a9197",
+      "bytes": 706
     },
     "yt/events/29551.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29551",
-      "retrieved_at": "2026-10-26T05:19:30.991142+00:00",
-      "sha256": "e207b1402c3d795d34ad314a921967badec9804653c709a88a391a325eedfa69",
-      "bytes": 775
+      "retrieved_at": "2026-10-27T00:04:47.869069+00:00",
+      "sha256": "8e8a97f60fdb001306a4e9cc3e3c552a47988404de80434f3b624b8a461d8388",
+      "bytes": 698
     },
     "yt/events/29552.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29552",
-      "retrieved_at": "2026-10-26T05:19:31.795713+00:00",
-      "sha256": "6a0d1fc73caec458f5a8972c17a50e1992c8c228a75b61b36a1a2949d5d867bc",
-      "bytes": 2072
+      "retrieved_at": "2026-10-27T00:04:48.647813+00:00",
+      "sha256": "fd4ebcf3276f445693b5790ca5f253a05a9822a20fbe7f76c0b96bba796a7d1f",
+      "bytes": 1995
     },
     "yt/events/29553.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29553",
-      "retrieved_at": "2026-10-26T05:19:32.557784+00:00",
-      "sha256": "7feb79194cd4c79b6406c953660e2a9ceb50a5c26e9bc99ad45c0a73dbc664fa",
-      "bytes": 2197
+      "retrieved_at": "2026-10-27T00:04:49.455476+00:00",
+      "sha256": "03b5e83893d316504658c0db9673a15abd8bb0b725f4b6e96b67b9ab652d4846",
+      "bytes": 1977
     },
     "yt/events/29554.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29554",
-      "retrieved_at": "2026-10-26T05:19:33.348597+00:00",
-      "sha256": "95ffea89276d7f44a4bcbc8c2bb3a6104fbf951d2501b4db6a0ac283bd4e83f9",
-      "bytes": 852
+      "retrieved_at": "2026-10-27T00:04:50.282767+00:00",
+      "sha256": "da9797c221efbb59888aebb12a15e3c9ff761937a1f1f0354bad6e858926e14c",
+      "bytes": 633
     },
     "yt/events/29555.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29555",
-      "retrieved_at": "2026-10-26T05:19:34.115758+00:00",
-      "sha256": "bf80a2e64df9ac6e4c0a6aafff26ec8cf6653cb9af478e4232db0d0555164238",
-      "bytes": 791
+      "retrieved_at": "2026-10-27T00:04:51.033019+00:00",
+      "sha256": "c5b3ea5eb3bad384ff3112d091c59129be3d7f7a5b34737c201071c8143800a1",
+      "bytes": 782
     },
     "yt/events/29556.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29556",
-      "retrieved_at": "2026-10-26T05:19:34.965190+00:00",
-      "sha256": "ecf1550befa5b40c06191ab85efaa89b845aa299a35508851fd641c4fb2011a5",
-      "bytes": 783
+      "retrieved_at": "2026-10-27T00:04:51.809255+00:00",
+      "sha256": "332cfa23ad867da819eebb15bc6b383352c405a71c8f0748ff12317d84ed77d6",
+      "bytes": 774
     },
     "yt/events/29557.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29557",
-      "retrieved_at": "2026-10-26T05:19:35.757596+00:00",
-      "sha256": "2bad90366c12c37b660461c0a981813c0ea06a8e793feb0f5f35e185ac8bd462",
-      "bytes": 778
+      "retrieved_at": "2026-10-27T00:04:52.584257+00:00",
+      "sha256": "1a6674629ee33831b38fc9bcb08425a46ebb4bc2ba01aa3f1c861c1876ce0847",
+      "bytes": 769
     },
     "yt/events/29558.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29558",
-      "retrieved_at": "2026-10-26T05:19:36.568466+00:00",
-      "sha256": "8401b40f15ab83de797a61bb1b0caf41b71a9e44b815256551486588e731874b",
-      "bytes": 976
+      "retrieved_at": "2026-10-27T00:04:53.347013+00:00",
+      "sha256": "29c03563f6105ebb52dbce9059dcd162b34a45a64989047a7bdf376bc2a013e0",
+      "bytes": 967
     },
     "yt/events/29559.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29559",
-      "retrieved_at": "2026-10-26T05:19:37.479759+00:00",
-      "sha256": "c950174d8171c61194a2fa182ac88134c48ee4d1b3a1af2f6d96d63356e7b93c",
-      "bytes": 849
+      "retrieved_at": "2026-10-27T00:04:54.267538+00:00",
+      "sha256": "cf77962e18ceb92f0b9a46ffc551a62daace5f7941dd36c1a10e3843f4c5503b",
+      "bytes": 840
     },
     "yt/events/29560.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29560",
-      "retrieved_at": "2026-10-26T05:19:38.254264+00:00",
-      "sha256": "e946f1dd727730ca0648efd242c2402dd0bf3d9e2df08bb472beff0602bce834",
-      "bytes": 733
+      "retrieved_at": "2026-10-27T00:04:55.055088+00:00",
+      "sha256": "8751e369f651b205b5167eb88cb3f6b51037180efe380180f1d83ce0ac7952d9",
+      "bytes": 724
     },
     "yt/events/29561.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29561",
-      "retrieved_at": "2026-10-26T05:19:39.093046+00:00",
-      "sha256": "f65f6c31c10037173074b57e9cd660a181deddbf67f4c294ad6548c7c92ff6d8",
-      "bytes": 847
+      "retrieved_at": "2026-10-27T00:04:55.860230+00:00",
+      "sha256": "be7919ef25601e9f22b4a75de680afa971a759b292b0edb18c74e538afde7517",
+      "bytes": 838
     },
     "yt/events/29563.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29563",
-      "retrieved_at": "2026-10-26T05:19:26.088753+00:00",
-      "sha256": "6505e90ef06cc0c583e8aa135801d716a01c13b0c274c19c38bc64a548c6eb2a",
-      "bytes": 640
+      "retrieved_at": "2026-10-27T00:04:43.180878+00:00",
+      "sha256": "536fae9047fa96bd81a93467451d3f97fd0d5fbdf16739186e22ec5a75b6bae2",
+      "bytes": 563
     },
     "yt/events/29564.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29564",
-      "retrieved_at": "2026-10-26T05:19:26.880555+00:00",
-      "sha256": "f798161aeed4a9bf473c0f3d8a1accf0548207e62720c37d6631d67f50aea741",
-      "bytes": 632
+      "retrieved_at": "2026-10-27T00:04:43.954911+00:00",
+      "sha256": "b46ce7ef1427dccd27691f0b94a414304686e041e6c29da04b6d8494005dc678",
+      "bytes": 555
     },
     "yt/events/29565.json": {
       "kind": "event",
       "source_url": "https://api.curling.io/en/clubs/yt/events/29565",
-      "retrieved_at": "2026-10-26T05:19:27.671715+00:00",
-      "sha256": "a861434e62e270a86710b4597553ce1f5b1e996595aff23da20f6d8d784b5b54",
-      "bytes": 824
+      "retrieved_at": "2026-10-27T00:04:44.700663+00:00",
+      "sha256": "82cbd02f09d3dc7145fddeba3bc3b7642e3db91df010d7a6b7a569569c32b798",
+      "bytes": 605
     }
   }
 }
